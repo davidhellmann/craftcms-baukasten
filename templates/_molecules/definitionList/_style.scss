@@ -1,0 +1,66 @@
+/*
+ |--------------------------------------------------------------------------
+ |
+ | Description of what this file is for
+ |
+ | @package Baukasten
+ | @author David Hellmann [david@hellmann.io]
+ | .m-definitionList
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.m-definitionList {
+  $root: &;
+
+  &--cb {
+    @include vr();
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include media('>=m') {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+
+  &__term {
+    @include vr(1/2);
+    @include spaceY(padding-bottom);
+    border-bottom: 1px dotted c('black', '25');
+    font-weight: 700;
+  }
+
+  &__description {
+    @include vr(1/2);
+    @include spaceY(padding-bottom, 0.5);
+    @include spaceY(margin-bottom, 1);
+
+    p {
+      max-width: 80ch;
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @include media('>=m') {
+      border-bottom: 1px dotted c('black', '25');
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Modul Modifiers Example
+.m-definitionList--modifier {
+  .m-definitionList__block {
+    // Styles here
+  }
+
+  @at-root {
+    // Use this for nesting with root selector
+  }
+}

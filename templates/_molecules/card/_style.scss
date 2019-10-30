@@ -1,0 +1,53 @@
+/*
+ |--------------------------------------------------------------------------
+ |
+ | Description of what this file is for
+ |
+ | @package Baukasten
+ | @author David Hellmann [david@hellmann.io]
+ | .m-card
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.m-card {
+  $root: &;
+  @include vr();
+
+  .a-headline {
+    @include vr(1);
+  }
+
+  &__link {
+    color: inherit;
+  }
+
+  &__link:hover {
+    color: inherit;
+
+    .m-card__readmore {
+      color: darken(c('red'), 10%);
+    }
+  }
+
+  &__readmore {
+    margin-top: s(1);
+    display: inline-block;
+    color: c('blue');
+    text-decoration: none;
+    transition: all 0.25s ease('out-cubic');
+
+    @include wf('bold');
+  }
+}
+
+// Modul Modifiers Example
+.m-card--modifier {
+  .m-card__block {
+    // Styles here
+  }
+
+  @at-root {
+    // Use this for nesting with root selector
+  }
+}

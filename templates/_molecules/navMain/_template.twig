@@ -1,0 +1,86 @@
+{#
+  Description of what this file is for
+
+  @package Baukasten
+  @author David Hellmann [david@hellmann.io]
+
+  m-navMain
+  ------------------------------------------------------------
+#}
+
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'm-navMain',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  js: null,
+  vSpace: null,
+  items: null
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# -- Macros -- #}
+{% import '_partials/macros/_macro-settings.twig' as module %}
+{% import '_partials/macros/_macro-isActive.twig' as macroIsActive %}
+
+{# -- Modul -- #}
+{% if opt.items %}
+  <div {{ module.settings(opt) }}>
+    <div class="{{ opt.cn ~ '__wrapper' }}">
+      <div class="{{ opt.cn ~ '__inner' }}">
+        <ul class="{{ opt.cn ~ '__list' }}  {{ opt.cn ~ '__list--level-1' }}">
+          {% nav item in opt.items %}
+            {% set level = item.level %}
+            {% set level = level + 0 %}
+
+            <li class="{{ opt.cn ~ '__listItem' }}  {{ opt.cn ~ '__listItem--level-' ~ level }}">
+              {# -- Get Position -- #}
+              {% set segmentPosition = item.level %}
+
+              {% if item.navigationSegmentPosition %}
+                {% set segmentPosition = item.navigationSegmentPosition + 0 %}
+              {% endif %}
+
+              {# -- Get Position -- #}
+              {% set segments = 'notSet' %}
+
+              {% if item.navigationLink.element %}
+                {% set segments = item.navigationLink.element.slug %}
+              {% endif %}
+
+              {% if item.navigationHighlightTriggers %}
+                {% set segments = item.navigationHighlightTriggers %}
+              {% endif %}
+
+              {% set segments = segments | replace({'home': ''}) | trim  | split(',') %}
+
+              {# -- Set Text -- #}
+              {% set text = item.navigationLink.text ?
+                item.navigationLink.text :
+                item.title %}
+
+              <a href="{{ item.navigationLink.url }}"
+                 class="{{ opt.cn ~ '__listItemLink' }}  {{ opt.cn ~ '__listItemLink--level-' ~ level }}  {{ macroIsActive.isActive(segments, segmentPosition) }}" {{ item.navigationLink.target ? 'target=blank' : '' }}>
+                {{ text | raw }}
+              </a>
+
+              {% ifchildren %}
+                {% set level = item.level %}
+                {% set level = level + 1 %}
+
+                <ul class="{{ opt.cn ~ '__list' }}  {{ opt.cn ~ '__list--level-' ~ level }}">
+                  {% children %}
+                </ul>
+
+              {% endifchildren %}
+            </li>
+          {% endnav %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endif %}
+

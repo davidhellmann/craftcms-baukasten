@@ -1,0 +1,27 @@
+/*
+ |--------------------------------------------------------------------------
+ |
+ | Description of what this file is for
+ |
+ | @package Baukasten
+ | @author David Hellmann [david@hellmann.io]
+ | .m-navMain
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.m-navMain {
+  $root: &;
+  @include vr();
+}
+
+// Modul Modifiers Example
+.m-navMain--modifier {
+  .m-navMain__block {
+    // Styles here
+  }
+
+  @at-root {
+    // Use this for nesting with root selector
+  }
+}

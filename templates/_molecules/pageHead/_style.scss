@@ -1,0 +1,31 @@
+/*
+ |--------------------------------------------------------------------------
+ |
+ | Description of what this file is for
+ |
+ | @package Baukasten
+ | @author David Hellmann [davidhellmann.com@gmail.com]
+ | .m-pageHead
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.m-pageHead {
+  $root: &;
+  @include vr();
+
+  &__inner {
+    max-width: 28ch;
+  }
+}
+
+// Modul Modifiers Example
+.m-pageHead--modifier {
+  .m-pageHead__block {
+    // Styles here
+  }
+
+  @at-root {
+    // Use this for nesting with root selector
+  }
+}

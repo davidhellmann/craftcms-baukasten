@@ -1,0 +1,43 @@
+{#
+  Description of what this file is for
+
+  @package Baukasten
+  @author David Hellmann [david@hellmann.io]
+
+  m-gridOverlay
+  ------------------------------------------------------------
+#}
+
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'm-gridOverlay',
+  modifiers: [],
+  customClasses: ['o-section'],
+  data: {},
+  vSpace: null,
+  cols: null | default(24)
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# -- Macros -- #}
+{% import '_partials/macros/_macro-settings.twig' as module %}
+
+
+{# -- Modul -- #}
+{% if opt.cols %}
+  <div class="js-toggleGrid">G</div>
+  <div {{ module.settings(opt) }}>
+    <div class="{{ opt.cn ~ '__wrapper' }}">
+      <div class="{{ opt.cn ~ '__inner' }}">
+        <div class="o-row">
+          {% for i in 1..opt.cols %}
+            <div class="o-col"></div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+

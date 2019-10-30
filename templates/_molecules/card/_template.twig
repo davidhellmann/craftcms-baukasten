@@ -1,0 +1,75 @@
+{#
+  Description of what this file is for
+
+  @package Baukasten
+  @author David Hellmann [david@hellmann.io]
+
+  m-card
+  ------------------------------------------------------------
+#}
+
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'm-card',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  vSpace: null,
+  item: null,
+  image: null,
+  content: null,
+  link: null
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# -- Macros -- #}
+{% import '_partials/macros/_macro-settings.twig' as module %}
+
+{# -- Modul -- #}
+{% if opt.item %}
+  <article {{ module.settings(opt) }}>
+    <div class="{{ opt.cn ~ '__wrapper' }}">
+      <div class="{{ opt.cn ~ '__inner' }}">
+        <a class="{{ opt.cn ~ '__link' }}" href="{{ opt.item.url }}">
+          {% if opt.image %}
+            {% include '_atoms/image/_template.twig' with {
+              opt: {
+                image: opt.item.entryImage ?? null,
+                ratio: 'landscape'
+              }
+            } only %}
+          {% endif %}
+
+          {% if opt.content %}
+            {% include '_atoms/headline/_template.twig' with {
+              opt: {
+                modifiers: [
+                  'h6'
+                ],
+                text: opt.item.title,
+                size: 'h2'
+              }
+            } only %}
+
+            {# -- Entry Intro -- #}
+            {% if opt.item.entrySummary ?? null %}
+
+              {% include '_atoms/richText/_template.twig' with {
+                opt: {
+                  text: '<p>' ~ opt.item.entrySummary | striptags | truncateOnWord(140) ~ '</p>'
+                }
+              } only %}
+
+            {% endif %}
+          {% endif %}
+
+          {% if opt.link %}
+            <span class="{{ opt.cn ~ '__readmore' }}">Read more</span>
+          {% endif %}
+        </a>
+      </div>
+    </div>
+  </article>
+{% endif %}

@@ -1,0 +1,39 @@
+{#
+  o-appFooter
+  ------------------------------------------------------------
+#}
+
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'o-appFooter',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  vSpace: null
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# -- Macros -- #}
+{% import '_partials/macros/_macro-settings.twig' as module %}
+
+{# -- Modul -- #}
+<footer {{ module.settings(opt) }}>
+  {% cache %}
+    {% block appFooter %}
+      <div class="{{ opt.cn ~ '__wrapper' }}">
+        <div class="{{ opt.cn ~ '__inner' }}">
+          Baukasten &copy;2014 &mdash; {{ "now"|date("Y") }}
+
+          {# -- Pagination Simple -- #}
+          {% import '_partials/macros/_macro-socialNetworks.twig' as macroSocialNetworks %}
+          {{ macroSocialNetworks.socialNetworks({
+            networks: 'all',
+            label: true,
+          }) }}
+        </div>
+      </div>
+    {% endblock %}
+  {% endcache %}
+</footer>

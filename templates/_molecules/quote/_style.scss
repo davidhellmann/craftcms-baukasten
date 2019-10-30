@@ -1,0 +1,48 @@
+/*
+ |--------------------------------------------------------------------------
+ |
+ | Description of what this file is for
+ |
+ | @package Baukasten
+ | @author David Hellmann [david@hellmann.io]
+ | .m-quote
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.m-quote {
+  $root: &;
+
+  &__cb {
+    @include vr();
+  }
+
+  &__inner {
+    @include row();
+  }
+
+  &__blockquote {
+    @include col-padding();
+
+    @include media('>=m') {
+      @include col-offset(4, 24);
+    }
+
+    p {
+      max-width: 40ch;
+      font-weight: 700;
+      font-style: normal;
+    }
+  }
+}
+
+// Modul Modifiers Example
+.m-quote--modifier {
+  .m-quote__block {
+    // Styles here
+  }
+
+  @at-root {
+    // Use this for nesting with root selector
+  }
+}

@@ -1,0 +1,59 @@
+{#
+  m-figure
+  ------------------------------------------------------------
+#}
+
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'm-figure',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  js: null,
+  vSpace: null,
+  image: null,
+  ratio: null,
+  dominantColor: true,
+  caption: null,
+  captionHeadline: null,
+  captionText: null,
+  captionSource: null,
+  captionSourceUrl: null,
+  objectFit: null
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# -- Macros -- #}
+{% import '_partials/macros/_macro-settings.twig' as module %}
+
+{# -- Modul -- #}
+{% if opt.image %}
+  <figure {{ module.settings(opt) }} itemprop=" associatedMedia"
+                                     itemscope itemtype="http://schema.org/ImageObject">
+    {# -- image -- #}
+    {% include '_atoms/image/_template.twig' with {
+      opt: {
+        image: opt.image,
+        ratio: opt.ratio,
+        dominantColor: opt.dominantColor,
+        objectFit: opt.objectFit
+      }
+    } only %}
+
+    {% if opt.caption %}
+      <figcaption class="{{- opt.cn ~ '__caption' -}}">
+        {# -- caption -- #}
+        {% include '_molecules/caption/_template.twig' with {
+          opt: {
+            headline: opt.captionHeadline ?? null,
+            text: opt.captionText ?? null,
+            source: opt.captionSource ?? null,
+            sourceUrl: opt.captionSourceUrl ?? null
+          }
+        } only %}
+      </figcaption>
+    {% endif %}
+  </figure>
+{% endif %}

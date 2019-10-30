@@ -1,0 +1,25 @@
+/*
+ |--------------------------------------------------------------------------
+ |  m-caption
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.m-caption {
+  $root: &;
+  display: block;
+  @include vr(1/2);
+
+  &__inner {
+    @include ms-respond(font-size, -1);
+    @include wf('sans-serif');
+    color: c('black', '70');
+  }
+}
+
+// Modul Modifiers Example
+.m-caption--modifier {
+  .m-caption__block {
+    // Styles here
+  }
+}
