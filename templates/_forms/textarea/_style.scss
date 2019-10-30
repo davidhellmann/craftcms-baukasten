@@ -1,0 +1,145 @@
+/*
+ |--------------------------------------------------------------------------
+ |  a-textarea
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.a-textarea {
+  $root: &;
+
+  &__inner {
+    width: 100%;
+    display: block;
+    position: relative;
+    margin-top: s(4);
+  }
+
+  ::placeholder {
+    color: c('black', '45');
+  }
+
+  &__textarea {
+    @include vr(0.5);
+    display: block;
+    width: 100%;
+    line-height: 1.5;
+    padding: s(1) s(5) s(1) s(2);
+    @include ms-respond(font-size, -1);
+    @include wf('base');
+    font-weight: 400;
+    resize: vertical;
+    border: 1px solid c('black');
+    border-radius: 3px;
+    -moz-appearance: none; // stylelint-disable-line
+    position: relative;
+    transition: all 0.25s ease-out;
+
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 0 3px rgba(c('blue'), 0.5), 0 0 0 1.5px rgba(c('blue'), 0.5);
+    }
+
+    &:focus,
+    &.has-content,
+    &[type='date'],
+    &[type='datetime-local'],
+    &[type='month'] {
+      ~ label {
+        transform: translateY(-20px);
+        color: c('white');
+        background-color: c('black');
+        @include ms-respond(font-size, -1);
+        opacity: 1;
+        border-radius: 0;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+      }
+    }
+
+    &:required {
+      ~ label {
+        &::after {
+          content: ' *';
+        }
+      }
+    }
+
+    #{$root}.is-invalid & {
+      border: 1px solid c('red');
+    }
+
+    &.has-focused:required:invalid {
+      border: 1px solid c('red');
+    }
+
+    &.has-focused:focus:invalid,
+    &.has-content:focus:invalid {
+      border: 1px solid c('red');
+    }
+
+    &:required:valid {
+      border: 1px solid c('green');
+    }
+
+    &.has-content:focus:valid {
+      border: 1px solid c('green');
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 10px;
+    padding: 3px 6px;
+    top: 0;
+    background-color: transparent;
+    transition: all 0.25s ease-out;
+    backface-visibility: hidden;
+    pointer-events: none;
+    color: c('black', '40');
+    @include ms-respond(font-size, -1);
+    @include wf('base');
+    border-radius: 3px;
+    font-weight: 400;
+    line-height: 1;
+    opacity: 1;
+    transform: translateY(14px);
+
+    #{$root}.is-valid & {
+      color: c('white');
+      background-color: c('green');
+    }
+
+    #{$root}.is-invalid & {
+      color: c('white');
+      background-color: c('red');
+    }
+  }
+
+
+  &__info {
+    pointer-events: none;
+    width: 100%;
+    font-size: 10px;
+    color: c('black', '60');
+    padding: 5px 16px;
+    display: none;
+
+    #{$root}--showInfo & {
+      display: block;
+    }
+
+    #{$root}.is-invalid & {
+      display: block;
+      color: c('red');
+    }
+  }
+}
+
+// Modul Modifiers Example
+.a-textarea--styleDisabled {
+  .a-textarea__textarea {
+    cursor: not-allowed;
+    border: 1px solid c('black', '30');
+  }
+}

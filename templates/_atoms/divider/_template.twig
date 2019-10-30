@@ -1,0 +1,24 @@
+{#
+  a-divider
+  ------------------------------------------------------------
+#}
+
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'a-divider',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  vSpace: null
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# -- Macros -- #}
+{% import '_partials/macros/_macro-settings.twig' as module %}
+
+{# -- Modul -- #}
+<div {{ module.settings(opt) }}>
+  <hr class="{{ opt.cn ~ '__hr' }}" role="separator">
+</div>

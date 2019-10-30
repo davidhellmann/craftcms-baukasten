@@ -1,0 +1,94 @@
+/*
+ |--------------------------------------------------------------------------
+ |  a-embed
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.a-embed {
+  $root: &;
+
+  &--cb {
+    @include vr();
+  }
+
+  &__wrapper {
+    @include row();
+  }
+
+  &__inner {
+    @include col(6, 6);
+    @include col-padding();
+
+    @include media('>=s') {
+      @include col(24, 24);
+    }
+  }
+
+  .has-background {
+    background-color: c('black', '5');
+  }
+}
+
+// Modul Modifiers Example
+.a-embed--w-full {
+  .a-embed__inner {
+    @include col(6, 6);
+
+    @include media('>=s') {
+      @include col(24, 24);
+    }
+  }
+}
+
+.a-embed--w-threeQuarter {
+  .a-embed__inner {
+    @include col(6, 6);
+
+    @include media('>=s') {
+      @include col(16, 24);
+    }
+  }
+
+  &.a-embed--a-center {
+    .a-embed__inner {
+      @include media('>=s') {
+        @include col-offset(4, 24);
+      }
+    }
+  }
+
+  &.a-embed--a-right {
+    .a-embed__inner {
+      @include media('>=s') {
+        @include col-offset(7, 24);
+      }
+    }
+  }
+}
+
+.a-embed--w-half {
+  .a-embed__inner {
+    @include col(6, 6);
+
+    @include media('>=s') {
+      @include col(12, 24);
+    }
+  }
+
+  &.a-embed--a-center {
+    .a-embed__inner {
+      @include media('>=s') {
+        @include col-offset(6, 24);
+      }
+    }
+  }
+
+  &.a-embed--a-right {
+    .a-embed__inner {
+      @include media('>=s') {
+        @include col-offset(12, 24);
+      }
+    }
+  }
+}

@@ -1,0 +1,163 @@
+/*
+ |--------------------------------------------------------------------------
+ |
+ | Description of what this file is for
+ |
+ | @package Baukasten
+ | @author David Hellmann [david@hellmann.io]
+ | Link: https://fvsch.com/styling-buttons/
+ | .a-button
+ |--------------------------------------------------------------------------
+ */
+
+@mixin button-reset() {
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+// Modul
+.a-button {
+  $root: &;
+  @include button-reset();
+  margin-right: s(2);
+  font-weight: 700;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  padding: s(1) s(2);
+  border-radius: 3px;
+  border: 1px solid c('black', '20');
+  background-color: c('black', '05');
+  color: c('black', '80');
+  transition: all 0.25s ease('out-cubic');
+
+  /* Firefox: removes the inner border shown on focus */
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:hover,
+  &:focus {
+    border-color: c('black', '90');
+    background-color: c('white');
+    color: c('black', '90');
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(c('blue'), 0.5), 0 0 0 1.5px rgba(c('blue'), 0.5);
+  }
+
+  &__text {
+    display: inline-block;
+    line-height: 1;
+    order: 1;
+  }
+
+  .a-svgIcon {
+    margin-top: 0;
+    display: inline-block;
+    line-height: 1;
+    width: 16px;
+    height: 16px;
+    margin-left: s(1);
+    order: 2;
+  }
+
+  svg {
+    fill: c('black', '90');
+    stroke: c('black', '90');
+  }
+}
+
+// Modul Modifiers Example
+.a-button--styleDisabled {
+  border: 1px solid c('black', '15');
+  background-color: c('black', '05');
+  color: c('black', '30');
+  cursor: not-allowed;
+
+  &:hover,
+  &:focus {
+    border-color: c('black', '30');
+    background-color: c('black', '05');
+    color: c('black', '40');
+
+    svg {
+      fill: c('green');
+      stroke: c('green');
+    }
+  }
+
+  svg {
+    fill: c('white');
+    stroke: c('white');
+  }
+}
+
+.a-button--stylePrimary {
+  color: c('white');
+  border: 1px solid c('green');
+  background-color: c('green');
+
+  &:hover,
+  &:focus {
+    border-color: c('green');
+    background-color: c('white');
+    color: c('green');
+
+    svg {
+      fill: c('green');
+      stroke: c('green');
+    }
+  }
+
+  svg {
+    fill: c('white');
+    stroke: c('white');
+  }
+}
+
+
+.a-button--styleSecondary {
+  color: c('white');
+  border: 1px solid c('red');
+  background-color: c('red');
+
+  &:hover,
+  &:focus {
+    border-color: c('red');
+    background-color: c('white');
+    color: c('red');
+
+    svg {
+      fill: c('red');
+      stroke: c('red');
+    }
+  }
+
+  svg {
+    fill: c('white');
+    stroke: c('white');
+  }
+}
+
+.a-button--styleInline {
+  margin: 0;
+  padding: 4px 8px;
+  display: inline;
+}

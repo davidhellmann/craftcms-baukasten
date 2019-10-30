@@ -1,0 +1,36 @@
+/*
+ |--------------------------------------------------------------------------
+ |  a-divider
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.a-divider {
+  $root: &;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  &--cb {
+    @include vr();
+  }
+
+  &__hr {
+    border: 0;
+    width: 100px;
+    height: 2px;
+    background-color: c('black', '10');
+  }
+}
+
+.a-divider--mv-medium {
+  @include section-padding(2);
+}
+
+.a-divider--mv-large {
+  @include section-padding(3);
+}
+
+.a-divider--mv-none {
+  @include f(s(0), s(0), padding-top padding-bottom);
+}

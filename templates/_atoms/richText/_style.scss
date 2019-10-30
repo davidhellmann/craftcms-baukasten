@@ -1,0 +1,16 @@
+/*
+ |--------------------------------------------------------------------------
+ |  a-richText
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.a-richText {
+  $root: &;
+  max-width: 80ch;
+}
+
+// Modul Modifiers Example
+.a-richText--intro {
+  @include ms-respond(font-size, 1);
+}

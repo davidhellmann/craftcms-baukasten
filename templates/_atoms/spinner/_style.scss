@@ -1,0 +1,72 @@
+/*
+ |--------------------------------------------------------------------------
+ |
+ | Description of what this file is for
+ |
+ | @package Baukasten
+ | @author David Hellmann [david@hellmann.io]
+ | .a-spinner
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.a-spinner {
+  $root: &;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  opacity: 1;
+
+  &--cb {
+    @include vr();
+  }
+
+  &__inner {
+    width: 60px;
+    height: 60px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: c('red');
+      animation: spin 1.6s linear infinite;
+    }
+
+    &::after {
+      animation-delay: 0.8s;
+    }
+  }
+
+
+  @keyframes spin {
+    from {
+      transform: scale(0);
+      opacity: 1;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+}
+
+// Modul Modifiers Example
+.a-spinner--modifier {
+  .a-spinner__block {
+    // Styles here
+  }
+
+  @at-root {
+    // Use this for nesting with root selector
+  }
+}

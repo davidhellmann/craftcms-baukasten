@@ -1,0 +1,18 @@
+/*
+ |--------------------------------------------------------------------------
+ |  a-label
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.a-label {
+  $root: &;
+  font-size: ms(-1);
+  display: inline-block;
+  text-transform: uppercase;
+  @include wf('sans-serif');
+
+  &--cb {
+    @include vr();
+  }
+}

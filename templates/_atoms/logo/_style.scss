@@ -1,0 +1,29 @@
+/*
+ |--------------------------------------------------------------------------
+ |
+ | Description of what this file is for
+ |
+ | @package Baukasten
+ | @author David Hellmann [david@hellmann.io]
+ | .a-logo
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.a-logo {
+  $root: &;
+  background-color: c('white');
+
+  &--cb {
+    @include vr();
+  }
+
+  &__link {
+    display: inline-block;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}

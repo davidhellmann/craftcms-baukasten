@@ -1,0 +1,81 @@
+{#
+  a-input
+  Codepen: https://codepen.io/davidhellmann/pen/OOLmYq
+  ------------------------------------------------------------
+#}
+
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'a-input',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  vSpace: null,
+  type: 'text',
+  name: null,
+  value: null,
+  min: null,
+  max: null,
+  minlength: null,
+  maxlength: null,
+  readonly: null,
+  pattern: null,
+  required: null,
+  disabled: null,
+  step: null,
+  info: null,
+  label: null,
+  id: null,
+  placeholder: null
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# -- Macros -- #}
+{% import '_partials/macros/_macro-settings.twig' as module %}
+
+{% set pattern = opt.pattern %}
+{% if opt.type == 'email' %}
+  {% set pattern = opt.pattern ?? "^[a-zA-Z0-9!#$%&'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" %}
+{% endif %}
+
+{# -- Modul -- #}
+{% if opt.type and opt.name and opt.label %}
+  <div {{ module.settings(opt) }}>
+    <input class="{{ opt.cn ~ '__input' }}"
+           {% if opt.id %}id="{{ opt.id }}"{% endif %}
+      {% if opt.type %}type="{{ opt.type }}"{% endif %}
+      {% if opt.name %}name="{{ opt.name }}"{% endif %}
+      {% if opt.value %}value="{{ opt.value }}"{% endif %}
+      {% if opt.min %}min="{{ opt.min }}"{% endif %}
+      {% if opt.max %}max="{{ opt.max }}"{% endif %}
+      {% if opt.minlength %}minlength="{{ opt.minlength }}"{% endif %}
+      {% if opt.maxlength %}maxlength="{{ opt.maxlength }}"{% endif %}
+      {% if opt.step %}step="{{ opt.step }}"{% endif %}
+      {% if opt.pattern %}pattern="{{ opt.pattern }}"{% endif %}
+      {% for key, value in opt.data %}
+        data-{{ key }}="{{ value }}"
+      {% endfor %}
+      {% if opt.required %} required data-required="true"{% endif %}
+      {{ opt.readonly ? ' readonly' }}
+      {{ opt.disabled ? ' disabled' }} placeholder="{{ opt.placeholder }}">
+
+    {# -- label -- #}
+    {% include '_atoms/label/_template.twig' with {
+      opt: {
+        customClasses: [opt.cn ~ '__label'],
+        for: opt.id,
+        text: opt.label
+      }
+    } only %}
+
+    {# -- infoText -- #}
+    {% include '_atoms/infoText/_template.twig' with {
+      opt: {
+        customClasses: [opt.cn ~ '__info'],
+        text: opt.info
+      }
+    } only %}
+  </div>
+{% endif %}

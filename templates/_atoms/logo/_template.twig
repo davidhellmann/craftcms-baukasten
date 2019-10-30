@@ -1,0 +1,42 @@
+{#
+  Description of what this file is for
+
+  @package Baukasten
+  @author David Hellmann [david@hellmann.io]
+
+  a-logo
+  ------------------------------------------------------------
+#}
+
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'a-logo',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  js: null,
+  vSpace: null,
+  url: null,
+  name: null,
+  maxWidth: '200px'
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# -- Macros -- #}
+{% import '_partials/macros/_macro-settings.twig' as module %}
+
+{# -- Modul -- #}
+{% if opt.name %}
+  <div {{ module.settings(opt) }} style="max-width: {{ opt.maxWidth }}">
+    {% if opt.url %}
+      <a class="{{ opt.cn ~ '__link' }}" href="{{ opt.url }}">
+    {% endif %}
+    {% include '_partials/svg/' ~ opt.name ~ '.svg.twig' %}
+    {% if opt.url %}
+      </a>
+    {% endif %}
+  </div>
+{% endif %}
+

@@ -47,7 +47,51 @@ module.exports = {
         {
             from: './src/js/workbox-catch-handler.js',
             to: 'js/[name].[ext]'
-        }
+        },
+        // copy fontfaceobsever from node modules
+        {
+            from: './node_modules/fontfaceobserver/fontfaceobserver.js',
+            to: 'js/[name].[ext]',
+            transform(content) {
+                return content;
+            },
+        },
+        // copy and minify inlineJs
+        {
+            from: './src/inlineJs/load-fonts.js',
+            to: 'js/[name].[ext]',
+            transform(content) {
+                return Terser.minify(content.toString()).code;
+            },
+        },
+        // copy and minify inlineJs
+        {
+            from: './src/inlineJs/tab-handler.js',
+            to: 'js/[name].[ext]',
+            transform(content) {
+                return Terser.minify(content.toString()).code;
+            },
+        },
+        // copy and minify inlineJs
+        {
+            from: './src/inlineJs/service-worker.js',
+            to: 'js/[name].[ext]',
+            transform(content) {
+                return Terser.minify(content.toString()).code;
+            },
+        },
+        // copy and minify webfonts css
+        {
+            from: './src/css/components/webfonts.pcss',
+            to: 'css/[name].css',
+            transform(content) {
+                return Postcss([Cssnano])
+                    .process(content.toString())
+                    .then(result => {
+                        return result.css;
+                    });
+            },
+        },
     ],
     criticalCssConfig: {
         base: './web/dist/criticalcss/',
@@ -57,6 +101,7 @@ module.exports = {
         ampPrefix: 'amp_',
         ampCriticalHeight: 19200,
         ampCriticalWidth: 600,
+        criticalIgnore: ['@font-face'],
         pages: [
             {
                 url: '',
@@ -85,7 +130,7 @@ module.exports = {
             './src/js/**/*.{js}',
         ],
         whitelist: [
-            './src/css/components/*.scss'
+            './src/css/components/**/*.{css,scss}'
         ],
         whitelistPatterns: [],
         extensions: [

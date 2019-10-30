@@ -1,0 +1,101 @@
+/*
+ |--------------------------------------------------------------------------
+ |  a-code
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.a-code {
+  $root: &;
+
+  &--cb {
+    @include vr();
+  }
+
+  &__wrapper {
+    width: 100%;
+    height: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &[data-status='closed'] {
+    height: 92px !important;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+
+    * {
+      color: c('black', '80') !important;
+    }
+  }
+
+  &__codeWrapper {
+    width: 100%;
+    background-color: c('black', '05');
+    border-radius: 5px;
+    font-size: ms(-2);
+    line-height: 1.8;
+  }
+
+  &__code {
+    width: 100%;
+    color: c('black', '90');
+
+    #{$root}[data-status='closed'] & {
+      color: c('black', '25');
+    }
+  }
+
+  &__toggle {
+    @include vr(1/2);
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    font-size: ms(-2);
+
+    &:hover {
+      span {
+        border: 1px solid c('black', '50');
+      }
+    }
+
+    &[data-status='closed'] {
+      span {
+        &::before {
+          transform: translate(0, -50%) rotate(-90deg);
+        }
+      }
+    }
+
+    @include wf('base');
+
+    span {
+      display: inline-block;
+      position: relative;
+      padding: s(1) s(2);
+      padding-right: 36px;
+      border: 1px solid c('black', '15');
+      border-radius: 100px;
+      transition: all 0.25s ease('out-cubic');
+
+      &::before,
+      &::after {
+        content: '';
+        transform-origin: center center;
+        width: 10px;
+        height: 2px;
+        position: absolute;
+        right: s(2);
+        top: 50%;
+        transform: translate(0, -50%);
+        background-color: c('black', '25');
+        transition: all 0.25s ease('out-cubic');
+      }
+
+      &::after {
+        transform: translate(0, -50%) rotate(0);
+      }
+    }
+  }
+}
