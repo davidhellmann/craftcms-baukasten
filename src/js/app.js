@@ -44,7 +44,7 @@ const main = async () => {
 
     // load slider async
     if (document.getElementsByClassName('js-slider').length) {
-        await import(/* webpackChunkName: "glide" */ './modules/flickity.js')
+        await import(/* webpackChunkName: "flickity" */ './modules/flickity.js')
             .then(flickiy => flickiy.carousel.init())
             .catch(e => console.error(`${e.name} : ${e.message}`));
     }
