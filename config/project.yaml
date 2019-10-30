@@ -1,16 +1,41 @@
-dateModified: 1572394240
+dateModified: 1572472946
 email:
   fromEmail: david@hellmann.io
   fromName: $SITE_NAME
   transportType: craft\mail\transportadapters\Sendmail
 fieldGroups:
   620c6d25-40c2-46af-915c-d700f182745d:
-    name: Common
+    name: Default
+fields:
+  3dc41ab0-2a40-40b1-a265-106c542fe89b:
+    name: 'Rich Text'
+    handle: richText
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\redactor\Field
+    settings:
+      redactorConfig: Baukasten.json
+      purifierConfig: ''
+      cleanupHtml: true
+      removeInlineStyles: '1'
+      removeEmptyTags: '1'
+      removeNbsp: '1'
+      purifyHtml: '1'
+      columnType: text
+      availableVolumes: '*'
+      availableTransforms: '*'
+    contentColumnType: text
+    fieldGroup: 620c6d25-40c2-46af-915c-d700f182745d
 plugins:
   cp-css:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
+    settings:
+      cssFile: ''
+      additionalCss: "/* Redactor Styles */\n.redactor-dropdown-format .redactor-dropdown-item-smaller-text span,\n.redactor-styles .ut-smaller-text {\n    font-size: 13px;\n    color: #333;\n}\n\n.redactor-dropdown-format .redactor-dropdown-item-normal-text span,\n.redactor-styles .ut-normal-text {\n    font-size: 16px;\n}\n\n.redactor-dropdown-format .redactor-dropdown-item-bigger-text span,\n.redactor-styles .ut-bigger-text {\n    font-size: 20px;\n}\n\n.redactor-dropdown-format .redactor-dropdown-item-note span,\n.redactor-styles .ut-note {\n    font-size: 13px;\n    color: #999;\n}\n\n.redactor-styles > * {\n    line-height: 1.5;\n}\n\n/* Matrix Section */\n.blocks .matrixblock {\n    width: calc(94% - 28px);\n    margin-left: 6%;\n}\n\n\n.blocks .matrixblock[data-type=\"bkSection\"] {\n    width: calc(100% - 28px);\n    margin-left: 0%;\n    margin-top: 40px;\n}\n\n\n.blocks .mc-solid-contentSection {\n    width: calc(100% - 28px);\n    margin-top: 40px;\n    margin-left: 0;\n}\n\n.blocks .mc-solid-accordionLabel {\n    width: calc(97% - 28px);\n    margin-top: 20px;\n    margin-left: 3%;\n}\n\n.blocks .matrixblock:first-child {\n    margin-top: 10px;\n}\n\n.ni_blocks .ni_block:first-child {\n    margin-top: 10px;\n}\n\n\n.ni_blocks .ni_block {\n    width: 95%;\n    margin-left: 5%;\n}\n\n.ni_blocks .ni_block--bkSection,\n.ni_block_children .ni_block {\n    width: 100%;\n    margin-left: 0%;\n}\n\n.ni_blocks .ni_block--bkSection {\n    border-bottom: 2px solid #da5a47;\n}\n\n.ni_block--bkSection .ni_block_topbar {\n    height: 40px;\n    line-height: 40px;\n}\n\n.ni_block--bkSection .ni_block_topbar_item.tabs .tab {\n    height: 40px;\n}\n"
   field-manager:
     edition: standard
     enabled: true
@@ -40,10 +65,6 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   twigpack:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  typogrify:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
@@ -87,31 +108,58 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
-  redactor-custom-styles:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  redactor-tweaks:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   async-queue:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  typogrify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+sections:
+  2bb2c616-10f1-4d48-96ad-a33312d55c5c:
+    name: Demopage
+    handle: demopage
+    type: single
+    enableVersioning: false
+    propagationMethod: all
+    siteSettings:
+      04677986-61a7-4935-a707-cae0601cc8d5:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: demopage
+        template: _entry
+    entryTypes:
+      ad14a121-ce45-433b-9c77-79260f0543b0:
+        name: Demopage
+        handle: demopage
+        hasTitleField: false
+        titleLabel: ''
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          64b63849-8292-493e-8f6b-0baf76887a87:
+            tabs:
+              -
+                name: Default
+                sortOrder: 1
+                fields:
+                  3dc41ab0-2a40-40b1-a265-106c542fe89b:
+                    required: false
+                    sortOrder: 1
 siteGroups:
   4b746bfb-9ec7-48d7-9841-1b642cffa702:
-    name: $SITE_NAME
+    name: Default
 sites:
   04677986-61a7-4935-a707-cae0601cc8d5:
-    baseUrl: $SITE_URL
-    handle: default
-    hasUrls: true
-    language: en
-    name: $SITE_NAME
-    primary: true
     siteGroup: 4b746bfb-9ec7-48d7-9841-1b642cffa702
+    name: 'Craft Baukasten Sample'
+    handle: default
+    language: en
+    hasUrls: true
+    baseUrl: $SITE_URL
     sortOrder: 1
+    primary: true
 system:
   edition: solo
   name: $SITE_NAME

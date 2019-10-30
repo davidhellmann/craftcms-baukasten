@@ -2,37 +2,41 @@
 
 // node modules
 require('dotenv').config();
+const Terser = require('terser');
+const Postcss = require('postcss');
+const Cssnano = require('cssnano');
 
 // Webpack settings exports
 // noinspection WebpackConfigHighlighting
 module.exports = {
-    name: "Example Project",
-    copyright: "Example Company, Inc.",
+    name: 'Craft Baukasten Sample',
+    copyright: 'David Hellmann',
     paths: {
         src: {
-            base: "./src/",
-            css: "./src/css/",
-            js: "./src/js/"
+            base: './src/',
+            css: './src/css/',
+            js: './src/js/'
         },
         dist: {
-            base: "./web/dist/",
+            base: './web/dist/',
             clean: [
                 '**/*',
             ]
         },
-        templates: "./templates/"
+        templates: './templates/'
     },
     urls: {
-        live: "https://example.com/",
-        local: "http://craft-baukasten-sample.test/",
-        critical: "http://craft-baukasten-sample.test/",
-        publicPath: () => process.env.PUBLIC_PATH || "/dist/",
+        live: 'https://craft-baukasten.baukasten.io/',
+        staging: 'https://craft-baukasten.baukasten.io/',
+        local: 'http://craft-baukasten-sample.test/',
+        critical: 'https://craft-baukasten.baukasten.io/',
+        publicPath: () => process.env.PUBLIC_PATH || '/dist/',
     },
     vars: {
-        cssName: "styles"
+        cssName: 'styles'
     },
     entries: {
-        "app": "app.js"
+        'app': 'app.js'
     },
     babelLoaderConfig: {
         exclude: [
@@ -41,103 +45,103 @@ module.exports = {
     },
     copyWebpackConfig: [
         {
-            from: "./src/js/workbox-catch-handler.js",
-            to: "js/[name].[ext]"
+            from: './src/js/workbox-catch-handler.js',
+            to: 'js/[name].[ext]'
         }
     ],
     criticalCssConfig: {
-        base: "./web/dist/criticalcss/",
-        suffix: "_critical.min.css",
+        base: './web/dist/criticalcss/',
+        suffix: '_critical.min.css',
         criticalHeight: 1200,
         criticalWidth: 1200,
-        ampPrefix: "amp_",
+        ampPrefix: 'amp_',
         ampCriticalHeight: 19200,
         ampCriticalWidth: 600,
         pages: [
             {
-                url: "",
-                template: "index"
+                url: '',
+                template: 'index'
             },
             {
-                url: "",
-                template: "amp_index"
+                url: '',
+                template: 'amp_index'
             },
         ]
     },
     devServerConfig: {
-        public: () => process.env.DEVSERVER_PUBLIC || "http://localhost:1",
-        host: () => process.env.DEVSERVER_HOST || "localhost",
+        public: () => process.env.DEVSERVER_PUBLIC || 'http://localhost:8080',
+        host: () => process.env.DEVSERVER_HOST || 'localhost',
         poll: () => process.env.DEVSERVER_POLL || false,
         port: () => process.env.DEVSERVER_PORT || 8080,
         https: () => process.env.DEVSERVER_HTTPS || false,
     },
     manifestConfig: {
-        basePath: ""
+        basePath: ''
     },
     purgeCssConfig: {
         paths: [
-            "./templates/**/*.{twig,html}",
-            "./src/vue/**/*.{vue,html}",
-            "./src/js/**/*.{js}",
+            './templates/**/*.{twig,html}',
+            './src/vue/**/*.{vue,html}',
+            './src/js/**/*.{js}',
         ],
         whitelist: [
-            "./src/css/components/*.scss"
+            './src/css/components/*.scss'
         ],
         whitelistPatterns: [],
         extensions: [
-            "html",
-            "js",
-            "twig",
-            "vue"
+            'html',
+            'js',
+            'twig',
+            'vue'
         ]
     },
     saveRemoteFileConfig: [
         {
-            url: "https://www.google-analytics.com/analytics.js",
-            filepath: "js/analytics.js"
+            url: 'https://www.google-analytics.com/analytics.js',
+            filepath: 'js/analytics.js'
         }
     ],
     createSymlinkConfig: [
         {
-            origin: "img/favicons/favicon.ico",
-            symlink: "../favicon.ico"
+            origin: 'img/favicons/favicon.ico',
+            symlink: '../favicon.ico'
         }
     ],
     webappConfig: {
-        logo: "./src/img/favicon-src.png",
-        prefix: "img/favicons/"
+        logo: './src/img/favicon-src.png',
+        prefix: 'img/favicons/'
     },
     workboxConfig: {
-        swDest: "../sw.js",
-        precacheManifestFilename: "js/precache-manifest.[manifestHash].js",
+        swDest: '../sw.js',
+        precacheManifestFilename: 'js/precache-manifest.[manifestHash].js',
         importScripts: [
-            "/dist/workbox-catch-handler.js"
+            '/dist/workbox-catch-handler.js'
         ],
         exclude: [
             /\.(png|jpe?g|gif|svg|webp)$/i,
             /\.map$/,
             /^manifest.*\\.js(?:on)?$/,
         ],
-        globDirectory: "./web/",
+        globDirectory: './web/',
         globPatterns: [
-            "offline.html",
-            "offline.svg"
+            'offline.html',
+            'offline.svg'
         ],
         offlineGoogleAnalytics: true,
         runtimeCaching: [
             {
                 urlPattern: /\/admin.*$/,
-                handler: "networkOnly"
+                handler: 'networkOnly'
             },
             {
                 urlPattern: /\.php$/,
-                handler: "networkOnly"
+                handler: 'networkOnly'
             },
             {
                 urlPattern: /\.(?:png|jpg|jpeg|svg|webp)$/,
-                handler: "cacheFirst",
+                handler: 'cacheFirst',
                 options: {
-                    cacheName: "images",
+                    cacheName: 'images',
                     expiration: {
                         maxEntries: 20
                     }

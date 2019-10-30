@@ -1,0 +1,67 @@
+{
+  "buttons": [
+    "format",
+    "bold",
+    "italic",
+    "deleted",
+    "lists",
+    "link",
+    "line",
+    "file"
+  ],
+  "plugins": [
+    "inlinestyle"
+  ],
+  "formatting": [
+    "p",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "pre",
+    "blockquote"
+  ],
+  "formattingAdd": {
+    "smaller-text": {
+      "title": "Smaller Text",
+      "api": "module.block.format",
+      "args": {
+        "tag": "p",
+        "class": "ut-smaller-text",
+        "type": "toggle"
+      }
+    },
+    "normal-text": {
+      "title": "Normal Text",
+      "api": "module.block.format",
+      "args": {
+        "tag": "p",
+        "class": "ut-normal-text",
+        "type": "toggle"
+      }
+    },
+    "bigger-text": {
+      "title": "Bigger Text",
+      "api": "module.block.format",
+      "args": {
+        "tag": "p",
+        "class": "ut-bigger-text",
+        "type": "toggle"
+      }
+    },
+    "note": {
+      "title": "Note",
+      "api": "module.block.format",
+      "args": {
+        "tag": "p",
+        "class": "ut-note",
+        "type": "toggle"
+      }
+    }
+  },
+  "pasteImages": false,
+  "linkNewTab": true,
+  "toolbar": true,
+  "toolbarFixed": true
+}
