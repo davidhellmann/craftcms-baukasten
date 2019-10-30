@@ -1,0 +1,126 @@
+dateModified: 1572394240
+email:
+  fromEmail: david@hellmann.io
+  fromName: $SITE_NAME
+  transportType: craft\mail\transportadapters\Sendmail
+fieldGroups:
+  620c6d25-40c2-46af-915c-d700f182745d:
+    name: Common
+plugins:
+  cp-css:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  field-manager:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  nocache:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  empty-coalesce:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  minify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  retour:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.7
+  twig-profiler:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  twigpack:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  typogrify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  webperf:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+  seomatic:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.8
+  templatecomments:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  cp-clearcache:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  feed-me:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.1.2
+  imager:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  image-resizer:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  linkit:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.8
+  mailgun:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  redactor-custom-styles:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor-tweaks:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  async-queue:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+siteGroups:
+  4b746bfb-9ec7-48d7-9841-1b642cffa702:
+    name: $SITE_NAME
+sites:
+  04677986-61a7-4935-a707-cae0601cc8d5:
+    baseUrl: $SITE_URL
+    handle: default
+    hasUrls: true
+    language: en
+    name: $SITE_NAME
+    primary: true
+    siteGroup: 4b746bfb-9ec7-48d7-9841-1b642cffa702
+    sortOrder: 1
+system:
+  edition: solo
+  name: $SITE_NAME
+  live: true
+  schemaVersion: 3.3.3
+  timeZone: Europe/Berlin
+users:
+  requireEmailVerification: true
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoVolumeUid: null
+  photoSubpath: ''

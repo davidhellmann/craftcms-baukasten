@@ -1,0 +1,57 @@
+{
+  "require": {
+    "aelvan/imager": "v2.3.0",
+    "carlcs/craft-redactorcustomstyles": "3.0.2",
+    "craftcms/cms": "^3.2.0",
+    "craftcms/feed-me": "4.1.2",
+    "craftcms/mailgun": "1.4.2",
+    "craftcms/redactor": "2.4.0",
+    "doublesecretagency/craft-cpcss": "2.2.0",
+    "fruitstudios/linkit": "1.1.11",
+    "mmikkel/cp-clearcache": "1.0.5",
+    "mmikkel/cp-field-inspect": "1.0.7",
+    "nystudio107/craft-emptycoalesce": "^1.0.6",
+    "nystudio107/craft-minify": "^1.2.5",
+    "nystudio107/craft-retour": "^3.0.0",
+    "nystudio107/craft-scripts": "^1.2.4",
+    "nystudio107/craft-seomatic": "^3.2.0",
+    "nystudio107/craft-templatecomments": "^1.1.2",
+    "nystudio107/craft-twigpack": "^1.1.0",
+    "nystudio107/craft-twigprofiler": "^1.0.0",
+    "nystudio107/craft-typogrify": "^1.1.4",
+    "nystudio107/craft-webperf": "^1.0.0",
+    "nystudio107/dotenvy": "^1.1.0",
+    "ostark/craft-async-queue": "2.0.0",
+    "ttempleton/craft-nocache": "2.0.5",
+    "verbb/field-manager": "2.1.0",
+    "verbb/image-resizer": "2.0.6",
+    "verbb/redactor-tweaks": "2.0.2",
+    "vlucas/phpdotenv": "^3.4.0",
+    "yiisoft/yii2-redis": "^2.0.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\sitemodule\\": "modules/sitemodule/src/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.2"
+    }
+  },
+  "scripts": {
+    "craft-update": [
+      "@php nys-setup update",
+      "@php craft migrate/all",
+      "@php craft project-config/sync",
+      "@php craft clear-caches/all"
+    ],
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-update-cmd": "@craft-update",
+    "post-install-cmd": "@craft-update"
+  }
+}
