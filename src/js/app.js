@@ -1,6 +1,8 @@
 // Import our CSS
 import styles from '../css/app.scss';
 
+// CSS Vars Ponyfill:
+// Docs: https://jhildenbiddle.github.io/css-vars-ponyfill
 import cssVars from 'css-vars-ponyfill';
 cssVars({
     onlyLegacy: true,
