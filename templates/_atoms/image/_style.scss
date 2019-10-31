@@ -9,10 +9,6 @@
   $root: &;
   display: inline-block;
 
-  &--cb {
-    @include vr();
-  }
-
   &__image {
     display: block;
     width: 100%;
@@ -21,12 +17,5 @@
 
   &__picture {
     transition: all 0.875s 0.875s ease('out-cubic');
-  }
-}
-
-// Modul Modifiers Example
-.a-image--modifier {
-  .a-image__block {
-    // Styles here
   }
 }

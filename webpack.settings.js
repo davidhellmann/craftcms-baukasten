@@ -82,7 +82,7 @@ module.exports = {
         },
         // copy and minify webfonts css
         {
-            from: './src/css/components/webfonts.pcss',
+            from: './src/css/components/webfonts.scss',
             to: 'css/[name].css',
             transform(content) {
                 return Postcss([Cssnano])
