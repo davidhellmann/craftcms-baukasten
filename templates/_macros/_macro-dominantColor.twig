@@ -1,0 +1,23 @@
+{% macro dominantColor(image) %}
+  {% set defaults = {
+    ratio: 1/1,
+    position: '50% 50%',
+  } %}
+
+  {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+  {% if image.settingsDominantColorOverwrite ?? null %}
+    {% set dominantColor = image.settingsDominantColorOverwrite %}
+  {% elseif image.pluginPreparseDominantColor ?? null %}
+    {% set dominantColor = image.pluginPreparseDominantColor %}
+  {% else %}
+    {% set dominantImages = craft.imager.transformImage(image, [{ width: 100 }], {
+      ratio: opt.ratio,
+      position: opt.position,
+      jpegQuality: 50
+    }) %}
+    {% set dominantColor = craft.imager.getDominantColor(dominantImages | last, 10) %}
+  {% endif %}
+
+  {{- ' background-color: ' ~ dominantColor ~ ';' -}}
+{% endmacro %}

@@ -3,7 +3,7 @@
   ------------------------------------------------------------
 #}
 
-{# -- Set Defaults -- #}
+{#  Set Defaults #}
 {% set defaults = {
   cn: 'o-imageGrid',
   modifiers: [],
@@ -15,13 +15,13 @@
   ratio: null
 } %}
 
-{# -- Merge Default with Options -- #}
+{#  Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{# -- Macros -- #}
+{#  Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{# -- Modul -- #}
+{#  Modul #}
 {% if opt.images %}
   <div {{ module.settings(opt) }}  waypointTrigger>
     <div class="{{ opt.cn ~ '__inner' }}">

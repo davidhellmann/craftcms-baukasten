@@ -1,0 +1,85 @@
+{#
+  Pagination
+  ==========
+  Powered by Kittn Generator: http://kittn.de/
+  Generate navigation buttons for paginations
+  It use the Pagination Module, include before the Loop `{% paginate entries as pageInfo, pageEntries %}`
+
+  @param {object}  pages                 - Pagination Object
+  @param {object}  craft                 - Craft Request Object
+  @param {object}  options               - Array of options
+  @param {string}  opt.cn     - Classname (default: 'o-pagination')
+  @param {string}  opt.searchquery   - To pass search words from Searchfields (default: false)
+  @param {number}  opt.pagenuber     - How many Pagebuttons are to be displayed. At 0, the display of the page buttons is omitted
+  @param {string}  opt.firstPageSign - HTML Sign for FirstPage
+  @param {string}  opt.lastPageSign  - HTML Sign for LastPage
+  @param {string}  opt.prevSign      - HTML Sign for Prev
+  @param {string}  opt.nextSign      - HTML Sign for Next
+  @param {string}  opt.firstPageText - Titletext for Firstpage
+  @param {string}  opt.lastPageText  - Titletext for Lastpage
+  @param {string}  opt.prevText      - Titletext for Prev
+  @param {string}  opt.nextText      - Titletext for Next
+  @param {string}  opt.jumpText      - Titletext for Jump
+#}
+{% macro pagination(pages,craft,opt) %}
+  {% set defaults = {
+    cn: 'm-pagination',
+    searchquery: false,
+    pagenumber: 5,
+    fistPageSign: '&laquo;',
+    lastPageSign: '&raquo;',
+    prevSign: '&lsaquo;',
+    nextSign: '&rsaquo;',
+    firstPageText: 'First Page',
+    lastPageText: 'Last Page',
+    prevText: 'Prev Page',
+    nextText: 'Next Page',
+    jumpText: 'Jump to Page:'
+  } %}
+
+  {#  Merge Default with Options #}
+  {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+  {# Add Pagination only if the Page Number is higher than 1#}
+  {% if pages.totalPages > 1 %}
+    <nav class="{{ opt.cn }}" role="navigation">
+      <div class="{{ opt.cn ~ '__inner' }}">
+        {# Dont display last page when on the first Page #}
+        {% if pages.currentPage > 2 and pages.prevUrl %}
+          <a class="{{ opt.cn ~ '__link' }}  {{ opt.cn ~ '__link--first' }}" href="{{ pages.firstUrl }}{{ opt.searchquery ? '?q='~opt.searchquery }}" title="{{ opt.firstPageText }}">{{ opt.fistPageSign|raw }}</a>
+        {% endif %}
+
+        {# Display the Previous Link if available #}
+        {% if pages.prevUrl %}
+          <a class="{{ opt.cn ~ '__link' }}  {{ opt.cn ~ '__link--prev' }}" href="{{ pages.prevUrl }}{{ opt.searchquery ? '?q='~opt.searchquery }}" title="{{ opt.prevText }}">{{ opt.prevSign|raw }}</a>
+        {% endif %}
+
+        {# With Pagenumber higher than zero the pagination will display pages #}
+        {% if opt.pagenumber > 0 %}
+          {# Display prev 5 Page Links#}
+          {% for page, url in pages.getPrevUrls(opt.pagenumber) %}
+            <a class="{{ opt.cn ~ '__link' }}  {{ opt.cn ~ '__link--number' }}" href="{{ url }}{{ opt.searchquery ? '?q='~opt.searchquery }}" title="{{ opt.jumpText }} {{ page }}">{{ page }}</a>
+          {% endfor %}
+
+          {# Diplay Current Page#}
+          <span class="{{ opt.cn ~ '__link' }}  {{ opt.cn ~ '__link--current' }}">{{ pages.currentPage }}</span>
+
+          {# Display next 5 Page Links #}
+          {% for page, url in pages.getNextUrls(opt.pagenumber) %}
+            <a class="{{ opt.cn ~ '__link' }}  {{ opt.cn ~ '__link--number' }}" href="{{ url }}{{ opt.searchquery ? '?q='~opt.searchquery }}" title="{{ opt.jumpText }} {{ page }}">{{ page }}</a>
+          {% endfor %}
+        {% endif %}
+
+        {# Display next Page Link if available#}
+        {% if pages.nextUrl %}
+          <a class="{{ opt.cn ~ '__link' }}  {{ opt.cn ~ '__link--next' }}" href="{{ pages.nextUrl }}{{ opt.searchquery ? '?q='~opt.searchquery }}" title="{{ opt.nextText }}">{{ opt.nextSign|raw }}</a>
+        {% endif %}
+
+        {# Dont display when on the last page #}
+        {% if (pages.totalPages - 1) > pages.currentPage and pages.totalPages > 2 %}
+          <a class="{{ opt.cn ~ '__link' }}  {{ opt.cn ~ '__link--last' }}" href="{{ pages.lastUrl }}{{ opt.searchquery ? '?q='~opt.searchquery }}" title="{{ opt.lastPageText }}">{{ opt.lastPageSign|raw }}</a>
+        {% endif %}
+      </div>
+    </nav>
+  {% endif %}
+{% endmacro %}

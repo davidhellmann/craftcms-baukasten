@@ -1,5 +1,5 @@
-{# -- Root global variables that all templates inherit from -- #}
-{# -- This allows for defining site-wide Twig variables as needed -- #}
+{#  Root global variables that all templates inherit from #}
+{#  This allows for defining site-wide Twig variables as needed #}
 {#
  ┌─────────────────────────────────────────────────────────────────────────────┐
  │                                                                             │
@@ -10,15 +10,15 @@
 #}
 {% spaceless %}
 
-{# -- Prefetch & preconnect headers and links -- #}
+{#  Prefetch & preconnect headers and links #}
 {% set prefetchUrls = [
     alias("@assetsUrl"),
 ] %}
-{# -- General global variables -- #}
+{#  General global variables #}
 {% set baseUrl = alias('@assetsUrl') ~ '/' %}
 {% set gaTrackingId = getenv('GA_TRACKING_ID') %}
 
-{# -- Twig output from the render; this must be in a block -- #}
+{#  Twig output from the render; this must be in a block #}
 {% block htmlPage %}
 {% endblock %}
 

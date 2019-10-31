@@ -1,0 +1,42 @@
+{#
+  Social Networks
+  ------------------------------------------------------------
+
+  {{ macroSocialNetworks.socialNetworks({
+    networks: ['facebook', 'instagram', 'spotify', 'twitter'],
+    label: null
+  }) }}
+#}
+
+{% macro socialNetworks(opt) %}
+  {% set defaults = {
+    cn: 'm-socialNetworks',
+    networks: [],
+    label: null
+  } %}
+
+  {#  Merge Default with Options #}
+  {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+  {% if opt.networks %}
+    <div class="{{ opt.cn }}">
+      {% set socialNetworks = socialNetworks.globalSocialNetworks %}
+      {% set networks = opt.networks %}
+
+      {% for socialNetwork in socialNetworks %}
+        {% if socialNetwork.network|lower in networks or opt.networks == 'all' %}
+          <a class="{{ opt.cn ~ '__link' }}"
+             href="{{ socialNetwork.profilUrl }}" target="_blank">
+              <span class="{{ opt.cn ~ '__icon' }}  {{ opt.cn ~ '__icon--next' }}">
+                {% include '_globals/_partials/svg/social/' ~ socialNetwork.network|lower ~ '.svg.twig' %}
+              </span>
+
+            {% if opt.label %}
+              <div class="{{ opt.cn ~ '__label' }}">{{ socialNetwork.network|lower }}</div>
+            {% endif %}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endmacro %}

@@ -1,0 +1,16 @@
+{% macro truncate(text, limit, append) %}
+{# settings #}
+{% set suffix = append|default('...') %}
+{% set punctuation = ['.',',','-',':',';'] %}
+{# logic #}
+{% set array = text|split(' ') %}
+{% set arrayTruncated = array|slice(0, limit) %}
+{% set string = arrayTruncated|join(' ') %}
+{% if limit and array|length > limit %}
+    {% for mark in punctuation %}
+    {% set string = string|trim(mark) %}
+    {% endfor %}
+    {% set string = string ~ suffix %}
+{% endif %}
+{{ string }}
+{% endmacro %}

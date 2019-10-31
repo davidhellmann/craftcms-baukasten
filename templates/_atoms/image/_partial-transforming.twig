@@ -1,0 +1,18 @@
+<img class="{{ opt.cn ~ '__image' }}  {{ opt.lazy ? 'lazyload' : '' }}"
+{% if opt.objectFit %}
+  style="object-fit: {{ opt.objectFit }};
+    object-position: {{ focalpoint }};
+    font-size: 'object-fit: {{ opt.objectFit }};';"
+{% endif %}
+    src="{{ placeholderImage }}"
+{% if opt.lazy %}
+  data-srcset="{{ craft.imager.srcset(transformedImages) }}"
+  data-sizes="auto"
+{% else %}
+  srcset="{{ craft.imager.srcset(transformedImages) }}"
+  data-sizes="100vw"
+{% endif %}
+    width="{{ opt.image.width }}"
+    height="auto"
+    alt="{{ opt.image.title }}"
+    data-rootimage="{{ transformedImages|first.url }}"/>

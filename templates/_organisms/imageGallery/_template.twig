@@ -8,7 +8,7 @@
   ------------------------------------------------------------
 #}
 
-{# -- Set Defaults -- #}
+{#  Set Defaults #}
 {% set defaults = {
   cn: 'o-imageGallery',
   modifiers: [],
@@ -20,14 +20,14 @@
   ratio: null,
 } %}
 
-{# -- Merge Default with Options -- #}
+{#  Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 {% set opt = opt | merge({  customClasses: opt.customClasses | merge(['js-imageGallery'])}) %}
 
-{# -- Macros -- #}
+{#  Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{# -- Modul -- #}
+{#  Modul #}
 {% if opt.images %}
   <div {{ module.settings(opt) }} itemscope itemtype="http://schema.org/ImageGallery" waypointTrigger>
     <div class="{{ opt.cn ~ '__inner' }}">

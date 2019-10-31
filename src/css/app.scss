@@ -4,16 +4,19 @@
  * The entry point for the css.
  *
  */
+
 /**
  * This injects Tailwind's base styles, which is a combination of
  * Normalize.css and some additional base styles.
  */
 @import "~tailwindcss/base";
+
 /**
  * This injects any component classes registered by plugins.
  *
  */
 @import '~tailwindcss/components';
+
 /**
  * Here we add custom component classes; stuff we want loaded
  * *before* the utilities so that the utilities can still
@@ -23,17 +26,27 @@
 @import 'components/global';
 @import 'components/typography';
 @import 'components/webfonts';
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
  *
  */
 @import '~tailwindcss/utilities';
+
 /**
  * Include styles for individual pages
  *
  */
 @import 'pages/homepage';
+
+/**
+ * Include styles for Atoms
+ *
+ */
+@import '../templates/_atoms/image/style';
+
+
 /**
  * Include vendor css.
  *

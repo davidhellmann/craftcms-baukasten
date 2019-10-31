@@ -1,0 +1,9 @@
+<img class="{{ opt.cn ~ '__image' }}  {{ opt.lazy ? 'lazyload' : '' }}"
+{% if opt.objectFit %}
+  style="object-fit: {{ opt.objectFit }};
+    object-position: {{ focalpoint }};
+    font-size: 'object-fit: {{ opt.objectFit }};';"
+{% endif %}
+    src="{{ opt.image.getUrl() }}"
+    height="auto"
+    alt="{{ opt.image.title }}"/>

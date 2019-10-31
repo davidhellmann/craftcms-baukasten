@@ -3,7 +3,7 @@
   ------------------------------------------------------------
 #}
 
-{# -- Set Defaults -- #}
+{#  Set Defaults #}
 {% set defaults = {
   cn: 'o-appFooter',
   modifiers: [],
@@ -12,13 +12,13 @@
   vSpace: null
 } %}
 
-{# -- Merge Default with Options -- #}
+{#  Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{# -- Macros -- #}
+{#  Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{# -- Modul -- #}
+{#  Modul #}
 <footer {{ module.settings(opt) }}>
   {% cache %}
     {% block appFooter %}
@@ -26,7 +26,7 @@
         <div class="{{ opt.cn ~ '__inner' }}">
           Baukasten &copy;2014 &mdash; {{ "now"|date("Y") }}
 
-          {# -- Pagination Simple -- #}
+          {#  Pagination Simple #}
           {% import '_partials/macros/_macro-socialNetworks.twig' as macroSocialNetworks %}
           {{ macroSocialNetworks.socialNetworks({
             networks: 'all',
