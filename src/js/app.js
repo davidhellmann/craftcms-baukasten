@@ -1,6 +1,11 @@
 // Import our CSS
 import styles from '../css/app.scss';
 
+import cssVars from 'css-vars-ponyfill';
+cssVars({
+    onlyLegacy: false,
+});
+
 // because webpack generated code does not go through babel
 import 'core-js/modules/es.promise';
 import 'core-js/modules/es.array.iterator';
@@ -29,19 +34,6 @@ const main = async () => {
         LazySizes.init();
     });
 
-    // Create our vue instance
-    new Vue({
-        el: "#app",
-        delimiters: ['${', '}'],
-        components: {
-            'confetti': () => import(/* webpackChunkName: "confetti" */ '../vue/Confetti.vue'),
-        },
-        data: {},
-        methods: {},
-        mounted() {
-        },
-    });
-
     // load slider async
     if (document.getElementsByClassName('js-slider').length) {
         await import(/* webpackChunkName: "flickity" */ './modules/flickity.js')
@@ -57,10 +49,29 @@ const main = async () => {
             .then(photoswipe => photoswipe.default.init('.js-gallery'))
             .catch(e => console.error(`${e.name} : ${e.message}`));
     }
+
+    // Create our vue instance
+    const app = new Vue({
+        el: "#app",
+        delimiters: ['${', '}'],
+        components: {
+            'confetti': () =>
+                import(
+                    /* webpackChunkName: "confetti" */
+                    '../vue/Confetti.vue'
+                ),
+        },
+        data: {},
+        methods: {},
+        mounted() {
+        },
+    });
+
+    return app;
 };
 
 // Execute async function
-main().then(() => {
+main().then((app) => {
     console.log('async main executed');
 });
 
