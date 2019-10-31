@@ -3,7 +3,7 @@ import styles from '../css/app.scss';
 
 import cssVars from 'css-vars-ponyfill';
 cssVars({
-    onlyLegacy: false,
+    onlyLegacy: true,
 });
 
 // because webpack generated code does not go through babel
