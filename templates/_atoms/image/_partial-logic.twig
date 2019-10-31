@@ -22,14 +22,12 @@
     {% default %}
       {% set ratio = opt.ratio %}
     {% endswitch %}
-
   {% else %}
     {% set ratio = opt.image.width/opt.image.height %}
   {% endif %}
 
   {#  Define global variables #}
   {% set imageSettings = {
-    jpegQuality: opt.quality,
     mode: opt.mode,
     position: focalpoint,
     ratio: ratio
@@ -40,7 +38,6 @@
 
   {#  Domiant Color (Use lase image from Final images #}
   {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
-
 
   {#  Placeholder #}
   {% set placeholderImage = craft.imager.placeholder({
