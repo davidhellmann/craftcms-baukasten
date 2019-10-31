@@ -1,8 +1,8 @@
-{# -- Basic meta tags -- #}
+{#  Basic meta tags #}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-{# -- Prefetch & preconnect headers and links -- #}
+{#  Prefetch & preconnect headers and links #}
 {% set headerLink = "Link: " %}
 {% for url in prefetchUrls %}
     {% set headerLink = headerLink ~ "<#{url}>; rel=dns-prefetch;," %}
@@ -15,5 +15,5 @@
 {% endfor %}
 {% header headerLink %}
 
-{# -- Favicons, webapp manifests, etc. -- #}
+{#  Favicons, webapp manifests, etc. #}
 {{ craft.twigpack.includeFileFromManifest("webapp.html") }}

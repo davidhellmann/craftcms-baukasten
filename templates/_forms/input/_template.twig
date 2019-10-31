@@ -4,7 +4,7 @@
   ------------------------------------------------------------
 #}
 
-{# -- Set Defaults -- #}
+{#  Set Defaults #}
 {% set defaults = {
   cn: 'a-input',
   modifiers: [],
@@ -29,10 +29,10 @@
   placeholder: null
 } %}
 
-{# -- Merge Default with Options -- #}
+{#  Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{# -- Macros -- #}
+{#  Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
 {% set pattern = opt.pattern %}
@@ -40,7 +40,7 @@
   {% set pattern = opt.pattern ?? "^[a-zA-Z0-9!#$%&'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" %}
 {% endif %}
 
-{# -- Modul -- #}
+{#  Modul #}
 {% if opt.type and opt.name and opt.label %}
   <div {{ module.settings(opt) }}>
     <input class="{{ opt.cn ~ '__input' }}"
@@ -61,7 +61,7 @@
       {{ opt.readonly ? ' readonly' }}
       {{ opt.disabled ? ' disabled' }} placeholder="{{ opt.placeholder }}">
 
-    {# -- label -- #}
+    {#  label #}
     {% include '_atoms/label/_template.twig' with {
       opt: {
         customClasses: [opt.cn ~ '__label'],
@@ -70,7 +70,7 @@
       }
     } only %}
 
-    {# -- infoText -- #}
+    {#  infoText #}
     {% include '_atoms/infoText/_template.twig' with {
       opt: {
         customClasses: [opt.cn ~ '__info'],

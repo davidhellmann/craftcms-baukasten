@@ -8,7 +8,7 @@
   ------------------------------------------------------------
 #}
 
-{# -- Set Defaults -- #}
+{#  Set Defaults #}
 {% set defaults = {
   cn: 'o-contactForm',
   modifiers: [],
@@ -18,13 +18,13 @@
   form: "contactFormEn"
 } %}
 
-{# -- Merge Default with Options -- #}
+{#  Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{# -- Macros -- #}
+{#  Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{# -- Modul -- #}
+{#  Modul #}
 <div {{ module.settings(opt) }}>
   {% set form = craft.freeform.form(opt.form) %}
   <div class="m-freeform">
@@ -61,7 +61,7 @@
               inputAttributes: { "data-required-text": field.required ? "" | t : "(Optional)" | t }
             }) }}
 
-            {# -- Add Select Button -- #}
+            {#  Add Select Button #}
             {% if field.type == "select" %}
               <svg class="c-svgSprite c-svgSprite--icon_arrow_right" viewbox="0 0 100 100">
                 <use xlink:href="/assets/images/svg/sprite/sprite.svg#icon_arrow_right"></use>

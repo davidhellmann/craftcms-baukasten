@@ -1,4 +1,4 @@
-{# -- Base AMP HTML layout template that AMP web requests inherit from -- #}
+{#  Base AMP HTML layout template that AMP web requests inherit from #}
 {#
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
@@ -39,42 +39,42 @@
     <html ⚡ lang="{{ craft.app.language |slice(0,2) }}" class="fonts-loaded">
 {% endblock htmlTag %}
 
-{# -- Page content that should be included in the <head> -- #}
+{#  Page content that should be included in the <head> #}
 {% block headContent %}
-    {# -- Any <meta> tags that should be included in the <head> #}
+    {#  Any <meta> tags that should be included in the <head> #}
     {% block headMeta %}
     {% endblock headMeta %}
 
-    {# -- Any <link> tags that should be included in the <head> #}
+    {#  Any <link> tags that should be included in the <head> #}
     {% block headLinks %}
     {% endblock headLinks %}
 
-    {# -- Google AMP JavaScripts #}
+    {#  Google AMP JavaScripts #}
     {% include "_boilerplate/_partials/amp-head-js.twig" %}
 
-    {# -- Any JavaScript that should be included before </head> -- #}
+    {#  Any JavaScript that should be included before </head> #}
     {% block headJs %}
     {% endblock headJs %}
 
-    {# -- Boilerplate & custom AMP CSS #}
+    {#  Boilerplate & custom AMP CSS #}
     {% include "_boilerplate/_partials/amp-boilerplate-css.twig" %}
     <style amp-custom>
-    {# -- Any CSS that should be included before </head> -- #}
+    {#  Any CSS that should be included before </head> #}
     {% block headCss %}
     {% endblock headCss %}
     </style>
 {% endblock headContent %}
 
-{# -- Page content that should be included in the <body> -- #}
+{#  Page content that should be included in the <body> #}
 {% block bodyContent %}
-    {# -- Page content that should be included in the <body> -- #}
+    {#  Page content that should be included in the <body> #}
     {% block bodyHtml %}
     {% endblock bodyHtml %}
 
-    {# -- AMP Analytics --#}
+    {#  AMP Analytics --#}
     {% include "_boilerplate/_partials/amp-analytics.twig" %}
 
-    {# -- Any JavaScript that should be included before </body> -- #}
+    {#  Any JavaScript that should be included before </body> #}
     {% block bodyJs %}
     {% endblock bodyJs %}
 {% endblock bodyContent %}

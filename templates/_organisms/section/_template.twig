@@ -3,7 +3,7 @@
   ------------------------------------------------------------
 #}
 
-{# -- Set Defaults -- #}
+{#  Set Defaults #}
 {% set defaults = {
   cn: 'o-section',
   modifiers: [],
@@ -11,13 +11,13 @@
   closetags: true
 } %}
 
-{# -- Merge Default with Options -- #}
+{#  Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{# -- Macros -- #}
+{#  Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{# -- Modul -- #}
+{#  Modul #}
 <section {{ module.settings(opt) }}>
   <div class="{{ opt.cn ~ '__inner' }}">
     {% block sectionContent %}{% endblock %}

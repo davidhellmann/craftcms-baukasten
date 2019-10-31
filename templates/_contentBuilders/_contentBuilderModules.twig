@@ -4,7 +4,7 @@
 #}
 
 {% switch data.type %}
-    {# -- Accordion Modul -- #}
+    {#  Accordion Modul #}
     {# TODO: Accordion Simple Headline Text #}
 {% case 'accordion' %}
     {% include '_organisms/accordion/_template.twig' with {
@@ -16,7 +16,7 @@
         }
     } only %}
 
-    {# -- Content Section Modul -- #}
+    {#  Content Section Modul #}
 {% case 'bkSection' %}
     {% include '_organisms/section/_template.twig' with {
         opt: {
@@ -30,7 +30,7 @@
         }
     } only %}
 
-    {# -- Snippet Modul -- #}
+    {#  Snippet Modul #}
 {% case 'code' %}
     {% include '_atoms/code/_template.twig' with {
         opt: {
@@ -42,7 +42,7 @@
         }
     } only %}
 
-    {# -- Definiton List Modul -- #}
+    {#  Definiton List Modul #}
 {% case 'definitionList' %}
     {% include '_molecules/definitionList/_template.twig' with {
         opt: {
@@ -53,7 +53,7 @@
         }
     } only %}
 
-    {# -- Embed Modul -- #}
+    {#  Embed Modul #}
 {% case 'embed' %}
     {% include '_atoms/embed/_template.twig' with {
         opt: {
@@ -66,7 +66,7 @@
         }
     } only %}
 
-    {# -- Headline Modul -- #}
+    {#  Headline Modul #}
 {% case 'headline' %}
     {% include '_atoms/headline/_template.twig' with {
         opt: {
@@ -78,7 +78,7 @@
         }
     } only %}
 
-    {# -- Image Cover Modul -- #}
+    {#  Image Cover Modul #}
 {% case 'imageCover' %}
     {% include '_organisms/imageCover/_template.twig' with {
         opt: {
@@ -94,7 +94,7 @@
         }
     } only %}
 
-    {# -- Image Gallery Modul -- #}
+    {#  Image Gallery Modul #}
 {% case 'imageGallery' %}
     {% include '_organisms/imageGallery/_template.twig' with {
         opt: {
@@ -107,7 +107,7 @@
         }
     } only %}
 
-    {# -- Image Grid Modul -- #}
+    {#  Image Grid Modul #}
 {% case 'imageGrid' %}
     {% include '_organisms/imageGrid/_template.twig' with {
         opt: {
@@ -121,7 +121,7 @@
         }
     } only %}
 
-    {# -- Image Single Modul -- #}
+    {#  Image Single Modul #}
 {% case 'imageSingle' %}
     {% set image = data.image.one() %}
     {% include '_organisms/imageSingle/_template.twig' with {
@@ -141,7 +141,7 @@
         }
     } only %}
 
-    {# -- Image Slider Modul -- #}
+    {#  Image Slider Modul #}
 {% case 'imageSlider' %}
     {% include '_organisms/imageSlider/_template.twig' with {
         opt: {
@@ -153,7 +153,7 @@
         }
     } only %}
 
-    {# -- Quote Modul -- #}
+    {#  Quote Modul #}
 {% case 'quote' %}
     {% include '_molecules/quote/_template.twig' with {
         opt: {
@@ -166,7 +166,7 @@
         }
     } only %}
 
-    {# -- Rich Text Modul -- #}
+    {#  Rich Text Modul #}
 {% case 'richText' %}
     {% include '_atoms/richText/_template.twig' with {
         opt: {
@@ -177,7 +177,7 @@
         }
     } only %}
 
-    {# -- Separator Modul -- #}
+    {#  Separator Modul #}
 {% case 'divider' %}
     {% include '_atoms/divider/_template.twig' with {
         opt: {

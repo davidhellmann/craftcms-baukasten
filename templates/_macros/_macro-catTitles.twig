@@ -1,0 +1,12 @@
+{#
+  Cat Titles
+  ==========
+
+  {{ macroCatTitle.catTitle(categories) }}
+#}
+{% macro catTitle(categories) %}
+  {% for cat in categories %}
+    {{ not loop.first ? ' & ' : '' }}
+    {{ cat.title }}
+  {% endfor %}
+{% endmacro %}

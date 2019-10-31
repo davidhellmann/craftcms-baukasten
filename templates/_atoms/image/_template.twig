@@ -8,7 +8,7 @@
   ------------------------------------------------------------
 #}
 
-{# -- Set Defaults -- #}
+{#  Set Defaults #}
 {% set defaults = {
   cn: 'a-image',
   modifiers: [],
@@ -28,106 +28,24 @@
   objectFit: null,
   quality: 80,
   mode: 'crop',
-  lazy: true
+  lazy: true,
+  variant: 'image'
 } %}
 
-{# -- Merge Default with Options -- #}
+{#  Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{# -- Macros -- #}
-{% import '_partials/macros/_macro-settings.twig' as module %}
+{#  Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
 
-{# -- Modul -- #}
+{#  Modul #}
 {% if opt.image %}
-  {# Skip Transforms for the current filetypes #}
-  {% set skipTransformsForThisExtensions = ['gif', 'GIF', 'tiff', 'TIFF', 'svg', 'SVG'] %}
-  {% set focalpoint = opt.image.getFocalpoint('asCss') %}
+  {# Logic Part #}
+  {% include '_atoms/image/_partial-logic.twig' %}
 
-  {% if opt.image.extension not in skipTransformsForThisExtensions %}
-    {# -- Set correct ratio -- #}
-    {% if opt.ratio %}
-      {% switch opt.ratio %}
-
-      {% case "landscape" %}
-        {% set ratio = 4/3 %}
-
-      {% case "square" %}
-        {% set ratio = 1/1 %}
-
-      {% case "portrait" %}
-        {% set ratio = 3/4 %}
-
-      {% case "auto" %}
-        {% set ratio = opt.image.width/opt.image.height %}
-
-      {% default %}
-        {% set ratio = opt.ratio %}
-      {% endswitch %}
-
-    {% else %}
-      {% set ratio = opt.image.width/opt.image.height %}
-    {% endif %}
-
-    {# -- Define global variables -- #}
-    {% set imageSettings = {
-      jpegQuality: opt.quality,
-      mode: opt.mode,
-      position: focalpoint,
-      ratio: ratio
-    } %}
-
-    {# -- Final Image Set -- #}
-    {% set transformedImages = craft.imager.transformImage(opt.image, opt.sizes, imageSettings) %}
-
-    {# -- Domiant Color (Use lase image from Final images -- #}
-    {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
-
-
-    {# -- Placeholder -- #}
-    {% set placeholderImage = craft.imager.placeholder({
-      type: 'svg',
-      color: dominantColor,
-      width: opt.image.width,
-      height: opt.image.width / ratio
-    }) %}
-  {% endif %}
-
-  {% if opt.dominantColor starts with '#' %}
-    {% set dominantColor = opt.dominantColor %}
-  {% endif %}
-
-  {# -- Image -- #}
-  <picture {{ module.settings(opt) }} {% if opt.dominantColor %}style="{{ 'background-color: ' ~ dominantColor ?? 'transparent' }}"{% endif %}>
-    {% if opt.image.extension not in skipTransformsForThisExtensions %}
-      <img class="{{ opt.cn ~ '__image' }}  {{ opt.lazy ? 'lazyload' : '' }}"
-        {% if opt.objectFit %}
-          style="object-fit: {{ opt.objectFit }};
-            object-position: {{ focalpoint }};
-            font-size: 'object-fit: {{ opt.objectFit }};';"
-        {% endif %}
-           src="{{ placeholderImage }}"
-        {% if opt.lazy %}
-          data-srcset="{{ craft.imager.srcset(transformedImages) }}"
-          data-sizes="auto"
-        {% else %}
-          srcset="{{ craft.imager.srcset(transformedImages) }}"
-          data-sizes="100vw"
-        {% endif %}
-           width="{{ opt.image.width }}"
-           height="auto"
-           alt="{{ opt.image.title }}"
-           data-rootimage="{{ transformedImages|first.url }}"/>
-    {% else %}
-      <img class="{{ opt.cn ~ '__image' }}  {{ opt.lazy ? 'lazyload' : '' }}"
-        {% if opt.objectFit %}
-          style="object-fit: {{ opt.objectFit }};
-            object-position: {{ focalpoint }};
-            font-size: 'object-fit: {{ opt.objectFit }};';"
-        {% endif %}
-           src="{{ opt.image.getUrl() }}"
-           height="auto"
-           alt="{{ opt.image.title }}"/>
-    {% endif %}
-    <noscript><img src="{{ opt.image.getUrl() }}" alt="{{ opt.image.title }}"></noscript>
-  </picture>
+  {# Include Variant #}
+  {% include [
+    '_atoms/image/_variant-' ~ opt.variant ~ '.twig',
+    '_atoms/image/_variant-picture.twig'
+  ] %}
 {% endif %}

@@ -3,7 +3,7 @@
   ------------------------------------------------------------
 #}
 
-{# -- Set Defaults -- #}
+{#  Set Defaults #}
 {% set defaults = {
   cn: 'o-appHeader',
   modifiers: [],
@@ -12,13 +12,13 @@
   vSpace: null
 } %}
 
-{# -- Merge Default with Options -- #}
+{#  Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{# -- Macros -- #}
+{#  Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{# -- Modul -- #}
+{#  Modul #}
 <header {{ module.settings(opt) }}>
   {% cache %}
     {% block appHeader %}

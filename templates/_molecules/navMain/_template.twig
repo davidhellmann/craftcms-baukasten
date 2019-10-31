@@ -8,7 +8,7 @@
   ------------------------------------------------------------
 #}
 
-{# -- Set Defaults -- #}
+{#  Set Defaults #}
 {% set defaults = {
   cn: 'm-navMain',
   modifiers: [],
@@ -19,14 +19,14 @@
   items: null
 } %}
 
-{# -- Merge Default with Options -- #}
+{#  Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{# -- Macros -- #}
+{#  Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 {% import '_partials/macros/_macro-isActive.twig' as macroIsActive %}
 
-{# -- Modul -- #}
+{#  Modul #}
 {% if opt.items %}
   <div {{ module.settings(opt) }}>
     <div class="{{ opt.cn ~ '__wrapper' }}">
@@ -37,14 +37,14 @@
             {% set level = level + 0 %}
 
             <li class="{{ opt.cn ~ '__listItem' }}  {{ opt.cn ~ '__listItem--level-' ~ level }}">
-              {# -- Get Position -- #}
+              {#  Get Position #}
               {% set segmentPosition = item.level %}
 
               {% if item.navigationSegmentPosition %}
                 {% set segmentPosition = item.navigationSegmentPosition + 0 %}
               {% endif %}
 
-              {# -- Get Position -- #}
+              {#  Get Position #}
               {% set segments = 'notSet' %}
 
               {% if item.navigationLink.element %}
@@ -57,7 +57,7 @@
 
               {% set segments = segments | replace({'home': ''}) | trim  | split(',') %}
 
-              {# -- Set Text -- #}
+              {#  Set Text #}
               {% set text = item.navigationLink.text ?
                 item.navigationLink.text :
                 item.title %}

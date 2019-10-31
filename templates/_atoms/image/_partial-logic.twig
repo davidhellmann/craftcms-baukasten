@@ -1,0 +1,56 @@
+{# Skip Transforms for the current filetypes #}
+{% set skipTransformsForThisExtensions = ['gif', 'GIF', 'tiff', 'TIFF', 'svg', 'SVG'] %}
+{% set focalpoint = opt.image.getFocalpoint('asCss') %}
+
+{% if opt.image.extension not in skipTransformsForThisExtensions %}
+  {#  Set correct ratio #}
+  {% if opt.ratio %}
+    {% switch opt.ratio %}
+
+    {% case "landscape" %}
+      {% set ratio = 4/3 %}
+
+    {% case "square" %}
+      {% set ratio = 1/1 %}
+
+    {% case "portrait" %}
+      {% set ratio = 3/4 %}
+
+    {% case "auto" %}
+      {% set ratio = opt.image.width/opt.image.height %}
+
+    {% default %}
+      {% set ratio = opt.ratio %}
+    {% endswitch %}
+
+  {% else %}
+    {% set ratio = opt.image.width/opt.image.height %}
+  {% endif %}
+
+  {#  Define global variables #}
+  {% set imageSettings = {
+    jpegQuality: opt.quality,
+    mode: opt.mode,
+    position: focalpoint,
+    ratio: ratio
+  } %}
+
+  {#  Final Image Set #}
+  {% set transformedImages = craft.imager.transformImage(opt.image, opt.sizes, imageSettings) %}
+
+  {#  Domiant Color (Use lase image from Final images #}
+  {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
+
+
+  {#  Placeholder #}
+  {% set placeholderImage = craft.imager.placeholder({
+    type: 'svg',
+    color: dominantColor,
+    width: opt.image.width,
+    height: opt.image.width / ratio
+  }) %}
+{% endif %}
+
+{% if opt.dominantColor starts with '#' %}
+  {% set dominantColor = opt.dominantColor %}
+{% endif %}

@@ -8,7 +8,7 @@
   ------------------------------------------------------------
 #}
 
-{# -- Set Defaults -- #}
+{#  Set Defaults #}
 {% set defaults = {
   cn: 'm-gridOverlay',
   modifiers: [],
@@ -18,14 +18,14 @@
   cols: null | default(24)
 } %}
 
-{# -- Merge Default with Options -- #}
+{#  Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{# -- Macros -- #}
+{#  Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
 
-{# -- Modul -- #}
+{#  Modul #}
 {% if opt.cols %}
   <div class="js-toggleGrid">G</div>
   <div {{ module.settings(opt) }}>

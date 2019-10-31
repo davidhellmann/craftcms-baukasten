@@ -1,0 +1,11 @@
+{#  Picture #}
+<picture {{ module.settings(opt) }} {% if opt.dominantColor %}style="{{ 'background-color: ' ~ dominantColor ?? 'transparent' }}"{% endif %}>
+  {% if opt.image.extension not in skipTransformsForThisExtensions %}
+    {# Transforming #}
+    {% include '_atoms/image/_partial-transforming.twig' %}
+  {% else %}
+    {# No Transforming #}
+    {% include '_atoms/image/_partial-no-transforming.twig' %}
+  {% endif %}
+  <noscript><img src="{{ opt.image.getUrl() }}" alt="{{ opt.image.title }}"></noscript>
+</picture>
