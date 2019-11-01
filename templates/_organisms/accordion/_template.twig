@@ -3,7 +3,7 @@
   =========
 #}
 
-{#  Set Defaults #}
+{# Set Defaults #}
 {% set defaults = {
   cn: 'o-accordion',
   modifiers: [],
@@ -13,14 +13,19 @@
   items: null
 } %}
 
-{#  Merge Default with Options #}
+{# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{#  Macros #}
+{# Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
 {# Modul #}
 {% if opt.items %}
+  {# Include Variant #}
+  {% include [
+    '_atoms/embed/_variant-' ~ opt.variant ~ '.twig',
+    '_atoms/embed/_variant-basic.twig'
+    ] %}
   <div {{ module.settings(opt) }} role="tablist">
     <div class="{{ opt.cn ~ '__wrapper' }}">
       <div class="{{ opt.cn ~ '__inner' }}">
@@ -33,7 +38,7 @@
             </div>
 
             <div class="{{ opt.cn ~ '__content' }}" role="tabpanel">
-              {#  richText #}
+              {# richText #}
               {% include '_atoms/richText/_template.twig' with {
                 opt: {
                   text: item.accordionContent ?? null

@@ -8,7 +8,7 @@
   ------------------------------------------------------------
 #}
 
-{#  Set Defaults #}
+{# Set Defaults #}
 {% set defaults = {
   cn: 'm-definitionList',
   modifiers: [],
@@ -18,14 +18,19 @@
   items: null
 } %}
 
-{#  Merge Default with Options #}
+{# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{#  Macros #}
+{# Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{#  Modul #}
+{# Modul #}
 {% if opt.items %}
+  {# Include Variant #}
+  {% include [
+    '_atoms/embed/_variant-' ~ opt.variant ~ '.twig',
+    '_atoms/embed/_variant-basic.twig'
+    ] %}
   <dl {{ module.settings(opt) }} waypointTrigger>
     <div class="{{ opt.cn ~ '__inner' }}">
       {% for item in opt.items %}

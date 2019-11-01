@@ -8,7 +8,7 @@
   ------------------------------------------------------------
 #}
 
-{#  Set Defaults #}
+{# Set Defaults #}
 {% set defaults = {
   cn: 'o-imageCover',
   modifiers: [],
@@ -21,14 +21,19 @@
   objectFit: null
 } %}
 
-{#  Merge Default with Options #}
+{# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{#  Macros #}
+{# Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{#  Modul #}
+{# Modul #}
 {% if opt.image %}
+  {# Include Variant #}
+  {% include [
+    '_atoms/embed/_variant-' ~ opt.variant ~ '.twig',
+    '_atoms/embed/_variant-basic.twig'
+    ] %}
   <div {{ module.settings(opt) }} waypointTrigger>
     {% include '_molecules/figure/_template.twig' with {
       opt: {
@@ -42,7 +47,7 @@
       }
     } only %}
 
-    {#  Text #}
+    {# Text #}
     {% if opt.text %}
       <div class="{{ opt.cn ~ '__text' }} is-fadeInUp" waypoint>
         {{ opt.text }}

@@ -5,7 +5,7 @@
   Matrix Content Builder use the Core Matrix Field from Craft CMS
 #}
 
-{#  Set Defaults #}
+{# Set Defaults #}
 {% set defaults = {
   cn: 'o-contentBuilder',
   modifiers: [],
@@ -13,10 +13,10 @@
   object: entry ?? null,
 } %}
 
-{#  Merge Default with Options #}
+{# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{#  Macros #}
+{# Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
 {% if opt.object %}

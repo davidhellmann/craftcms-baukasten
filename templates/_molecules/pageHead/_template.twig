@@ -8,7 +8,7 @@
   ------------------------------------------------------------
 #}
 
-{#  Set Defaults #}
+{# Set Defaults #}
 {% set defaults = {
   cn: 'm-pageHead',
   modifiers: [],
@@ -21,14 +21,19 @@
   link: null
 } %}
 
-{#  Merge Default with Options #}
+{# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{#  Macros #}
+{# Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{#  Modul #}
+{# Modul #}
 {% if opt.object or opt.text %}
+  {# Include Variant #}
+  {% include [
+    '_atoms/embed/_variant-' ~ opt.variant ~ '.twig',
+    '_atoms/embed/_variant-basic.twig'
+    ] %}
   {% if opt.text %}
     {% set headline = opt.text %}
   {% elseif opt.object.entryCustomH1 ?? null and opt.object.entryCustomH1 | length %}

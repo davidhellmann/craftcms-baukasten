@@ -3,7 +3,7 @@
   ------------------------------------------------------------
 #}
 
-{#  Set Defaults #}
+{# Set Defaults #}
 {% set defaults = {
   cn: 'a-code',
   modifiers: [],
@@ -14,30 +14,21 @@
   textShow: 'Expand Code Block',
   textHide: 'Collapse Code Block',
   snippet: null,
-  language: null
+  language: null,
+  variant: 'basic'
 } %}
 
-{#  Merge Default with Options #}
+{# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{#  Macros #}
+{# Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{#  Modul #}
+{# Modul #}
 {% if opt.snippet %}
-  <div {{ module.settings(opt) }} data-status="{{ opt.open ? 'open' : 'closed' }}">
-    <div class="{{ opt.cn ~ '__wrapper' }}">
-      {% spaceless %}
-        <pre class="line-numbers  language-{{ opt.language }}  {{ opt.cn ~ '__codeWrapper' }}">
-          <code class="{{ opt.cn ~ '__code' }}">{{- opt.snippet | e -}}</code>
-        </pre>
-      {% endspaceless %}
-    </div>
-  </div>
-  <span class="{{ opt.cn ~ '__toggle' }}"
-        data-status="{{ opt.open ? 'open' : 'closed' }}"
-        data-show="{{ opt.textShow }}"
-        data-hide="{{ opt.textHide }}">
-    <span class="{{ opt.cn ~ '__toggleTextHolder' }} js-textHolder">{{ opt.open ? opt.textHide : opt.textShow }}</span>
-  </span>
+  {# Include Variant #}
+  {% include [
+    '_atoms/code/_variant-' ~ opt.variant ~ '.twig',
+    '_atoms/code/_variant-basic.twig'
+    ] %}
 {% endif %}

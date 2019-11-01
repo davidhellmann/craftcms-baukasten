@@ -7,7 +7,7 @@
 
 {% macro postNav(entry, opt) %}
 
-  {#  Defaults #}
+  {# Defaults #}
   {% set defaults = {
     cn: 'm-postNav',
     section: null,
@@ -18,7 +18,7 @@
     nextIcon: false
   } %}
 
-  {#  Merge Default with Options #}
+  {# Merge Default with Options #}
   {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
   {% if opt.section %}

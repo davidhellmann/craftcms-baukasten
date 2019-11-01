@@ -8,7 +8,7 @@
   ------------------------------------------------------------
 #}
 
-{#  Set Defaults #}
+{# Set Defaults #}
 {% set defaults = {
   cn: 'm-card',
   modifiers: [],
@@ -21,14 +21,19 @@
   link: null
 } %}
 
-{#  Merge Default with Options #}
+{# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{#  Macros #}
+{# Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{#  Modul #}
+{# Modul #}
 {% if opt.item %}
+  {# Include Variant #}
+  {% include [
+    '_atoms/embed/_variant-' ~ opt.variant ~ '.twig',
+    '_atoms/embed/_variant-basic.twig'
+    ] %}
   <article {{ module.settings(opt) }}>
     <div class="{{ opt.cn ~ '__wrapper' }}">
       <div class="{{ opt.cn ~ '__inner' }}">
@@ -53,7 +58,7 @@
               }
             } only %}
 
-            {#  Entry Intro #}
+            {# Entry Intro #}
             {% if opt.item.entrySummary ?? null %}
 
               {% include '_atoms/richText/_template.twig' with {

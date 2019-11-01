@@ -8,7 +8,7 @@
   ------------------------------------------------------------
 #}
 
-{#  Set Defaults #}
+{# Set Defaults #}
 {% set defaults = {
   cn: 'a-image',
   modifiers: [],
@@ -28,16 +28,16 @@
   objectFit: null,
   mode: 'crop',
   lazy: true,
-  variant: 'picture'
+  variant: 'basic'
 } %}
 
-{#  Merge Default with Options #}
+{# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{#  Macros #}
+{# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{#  Modul #}
+{# Modul #}
 {% if opt.image %}
   {# Logic Part #}
   {% include '_atoms/image/_partial-logic.twig' %}
@@ -45,6 +45,6 @@
   {# Include Variant #}
   {% include [
     '_atoms/image/_variant-' ~ opt.variant ~ '.twig',
-    '_atoms/image/_variant-picture.twig'
+    '_atoms/image/_variant-basic.twig'
   ] %}
 {% endif %}

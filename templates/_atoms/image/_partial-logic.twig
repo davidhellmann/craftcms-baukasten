@@ -3,7 +3,7 @@
 {% set focalpoint = opt.image.getFocalpoint('asCss') %}
 
 {% if opt.image.extension not in skipTransformsForThisExtensions %}
-  {#  Set correct ratio #}
+  {# Set correct ratio #}
   {% if opt.ratio %}
     {% switch opt.ratio %}
 
@@ -26,20 +26,20 @@
     {% set ratio = opt.image.width/opt.image.height %}
   {% endif %}
 
-  {#  Define global variables #}
+  {# Define global variables #}
   {% set imageSettings = {
     mode: opt.mode,
     position: focalpoint,
     ratio: ratio
   } %}
 
-  {#  Final Image Set #}
+  {# Final Image Set #}
   {% set transformedImages = craft.imager.transformImage(opt.image, opt.sizes, imageSettings) %}
 
-  {#  Domiant Color (Use lase image from Final images #}
+  {# Domiant Color (Use lase image from Final images #}
   {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
 
-  {#  Placeholder #}
+  {# Placeholder #}
   {% set placeholderImage = craft.imager.placeholder({
     type: 'svg',
     color: dominantColor,

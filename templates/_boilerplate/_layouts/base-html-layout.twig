@@ -1,4 +1,4 @@
-{#  Base HTML layout template that all HTML requests inherit from #}
+{# Base HTML layout template that all HTML requests inherit from #}
 {#
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ ┌─────────────────────────────────────────────────────────────────────────┐ │
@@ -36,27 +36,27 @@
     <html class="fonts-loaded" lang="{{ craft.app.language |slice(0,2) }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 {% endblock htmlTag %}
 
-{#  Page content that should be included in the <head> #}
+{# Page content that should be included in the <head> #}
 {% block headContent %}
-    {#  Any <meta> tags that should be included in the <head> #}
+    {# Any <meta> tags that should be included in the <head> #}
     {% block headMeta %}
     {% endblock headMeta %}
 
-    {#  Any <link> tags that should be included in the <head> #}
+    {# Any <link> tags that should be included in the <head> #}
     {% block headLinks %}
     {% endblock headLinks %}
 
-    {#  Inline and polyfill JS #}
+    {# Inline and polyfill JS #}
     {% include "_boilerplate/_partials/head-js.twig" %}
 
-    {#  Any JavaScript that should be included before </head> #}
+    {# Any JavaScript that should be included before </head> #}
     {% block headJs %}
     {% endblock headJs %}
 
-    {#  Inline and critical CSS #}
+    {# Inline and critical CSS #}
     <style>
         [v-cloak] {display: none !important;}
-        {#  Any CSS that should be included before </head> #}
+        {# Any CSS that should be included before </head> #}
         {% block headCss %}
         {% endblock headCss %}
     </style>
@@ -64,9 +64,9 @@
 
 {% endblock headContent %}
 
-{#  Page content that should be included in the <body> #}
+{# Page content that should be included in the <body> #}
 {% block bodyContent %}
-    {#  Page content that should be included in the <body> #}
+    {# Page content that should be included in the <body> #}
     {% block bodyHtml %}
     {% endblock bodyHtml %}
 
@@ -75,7 +75,7 @@
     {{ craft.twigpack.includeJsModule("app.js", true) }}
     {{ craft.twigpack.includeJsModule("styles.js", true) }}
 
-    {#  Any JavaScript that should be included before </body> #}
+    {# Any JavaScript that should be included before </body> #}
     {% block bodyJs %}
     {% endblock bodyJs %}
 {% endblock bodyContent %}

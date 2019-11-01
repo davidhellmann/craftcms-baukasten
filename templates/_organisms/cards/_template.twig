@@ -8,7 +8,7 @@
   ------------------------------------------------------------
 #}
 
-{#  Set Defaults #}
+{# Set Defaults #}
 {% set defaults = {
   cn: 'o-cards',
   modifiers: [],
@@ -25,14 +25,19 @@
   paginationSimple: null
 } %}
 
-{#  Merge Default with Options #}
+{# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{#  Macros #}
+{# Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{#  Modul #}
+{# Modul #}
 {% if opt.items %}
+  {# Include Variant #}
+  {% include [
+    '_atoms/embed/_variant-' ~ opt.variant ~ '.twig',
+    '_atoms/embed/_variant-basic.twig'
+    ] %}
   <div {{ module.settings(opt) }}>
     <div class="{{ opt.cn ~ '__wrapper' }}">
       <div class="{{ opt.cn ~ '__inner' }}">
@@ -53,11 +58,11 @@
           {% if opt.pagination and opt.pageInfo.totalPages > 1 %}
             <div class="o-col-12  o-col-s-24  {{ opt.cn ~ '__pagination' }}">
               {% if opt.paginationSimple %}
-                {#  Pagination Simple #}
+                {# Pagination Simple #}
                 {% import '_partials/macros/_macro-paginationSimple.twig' as macroPaginationSimple %}
                 {{ macroPaginationSimple.paginationSimple(opt.pageInfo, craft, {}) }}
               {% else %}
-                {#  Pagination #}
+                {# Pagination #}
                 {% import '_partials/macros/_macro-pagination.twig' as macroPagination %}
                 {{ macroPagination.pagination(opt.pageInfo, craft, {}) }}
               {% endif %}

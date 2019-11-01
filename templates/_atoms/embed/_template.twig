@@ -3,7 +3,7 @@
   ------------------------------------------------------------
 #}
 
-{#  Set Defaults #}
+{# Set Defaults #}
 {% set defaults = {
   cn: 'a-embed',
   modifiers: [],
@@ -13,32 +13,20 @@
   code: null,
 } %}
 
-{#  Merge Default with Options #}
+{# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{#  Macros #}
+{# Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{#  Modul #}
+{# Modul #}
 {% if opt.code %}
-  {% if 'youtube.com' in opt.code or 'youtube-nocookie.com' in opt.code or 'vimeo.com' in opt.code %}
-    {% set video = true %}
-  {% else %}
-    {% set video = false %}
-  {% endif %}
+  {# Logic Part #}
+  {% include '_atoms/embed/_partial-logic.twig' %}
 
-  {% set code = opt.code %}
-  {% if '<iframe' in opt.code and 'src="' in opt.code %}
-    {% set code = code | replace({'src="': 'class="lazyload" data-src="'}) %}
-  {% endif %}
-
-  <div {{ module.settings(opt) }}>
-    <div class="{{ opt.cn ~ '__wrapper' }}">
-      <div class="{{ opt.cn ~ '__inner' }}">
-        <div class="{{ video ? 'o-ratio  o-ratio--16-9  has-background  ' : '' }}">
-          {{ code|raw }}
-        </div>
-      </div>
-    </div>
-  </div>
+  {# Include Variant #}
+  {% include [
+    '_atoms/embed/_variant-' ~ opt.variant ~ '.twig',
+    '_atoms/embed/_variant-basic.twig'
+    ] %}
 {% endif %}

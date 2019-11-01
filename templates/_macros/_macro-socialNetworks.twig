@@ -15,7 +15,7 @@
     label: null
   } %}
 
-  {#  Merge Default with Options #}
+  {# Merge Default with Options #}
   {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
   {% if opt.networks %}

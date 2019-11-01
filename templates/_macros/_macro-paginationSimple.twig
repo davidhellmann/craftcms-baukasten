@@ -23,7 +23,7 @@
     nextIcon: 'icon-arrow-right'
   } %}
 
-  {#  Merge Default with Options #}
+  {# Merge Default with Options #}
   {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
   {# Add Pagination only if the Page Number is higher than 1#}

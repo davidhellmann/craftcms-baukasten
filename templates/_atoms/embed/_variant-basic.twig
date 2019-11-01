@@ -1,0 +1,9 @@
+<div {{ module.settings(opt) }}>
+  <div class="{{ opt.cn ~ '__wrapper' }}">
+    <div class="{{ opt.cn ~ '__inner' }}">
+      <div class="{{ video ? 'o-ratio  o-ratio--16-9  has-background  ' : '' }}">
+        {{ code|raw }}
+      </div>
+    </div>
+  </div>
+</div>

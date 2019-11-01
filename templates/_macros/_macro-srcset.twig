@@ -25,7 +25,7 @@
         {% set ratio = '' %}
     {% endif %}
 
-    {#  Set Position #}
+    {# Set Position #}
     {% if options.position %}
         {% set position = options.position %}
     {% elseif image.settingsFocalPoint is defined %}
@@ -34,14 +34,14 @@
         {% set position = '50% 50%' %}
     {% endif %}
 
-    {#  Define global variables #}
+    {# Define global variables #}
     {% set imageSettings = {
         mode: options.mode,
         position: position,
         ratio: ratio
     } %}
 
-    {#  Image #}
+    {# Image #}
     {% set images = craft.imager.transformImage(image, options.sizes, imageSettings) %}
     {% set srcset = craft.imager.srcset(images) %}
 

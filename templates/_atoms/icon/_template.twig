@@ -3,25 +3,30 @@
   ------------------------------------------------------------
 #}
 
-{#  Set Defaults #}
+{# Set Defaults #}
 {% set defaults = {
-    cn: 'a-icon',
-    modifiers: [],
-    customClasses: [],
-    data: {},
-    vSpace: null,
-    icon: null
+  cn: 'a-icon',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  vSpace: null,
+  icon: null
 } %}
 
-{#  Merge Default with Options #}
+{# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{#  Macros #}
+{# Macros #}
 {% import '_partials/macros/_macro-settings.twig' as module %}
 
-{#  Modul #}
+{# Modul #}
 {% if opt.icon %}
-    <span {{ module.settings(opt) }}>
+  {# Include Variant #}
+  {% include [
+    '_atoms/embed/_variant-' ~ opt.variant ~ '.twig',
+    '_atoms/embed/_variant-basic.twig'
+    ] %}
+  <span {{ module.settings(opt) }}>
       {% include '_partials/svg/' ~ opt.icon ~ '.svg.twig' %}
     </span>
 {% endif %}
