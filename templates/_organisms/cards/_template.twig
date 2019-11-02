@@ -35,9 +35,8 @@
 {% if opt.items %}
   {# Include Variant #}
   {% include [
-    '_atoms/embed/_variant-' ~ opt.variant ~ '.twig',
-    '_atoms/embed/_variant-basic.twig'
-    ] %}
+    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
+  ] %}
   <div {{ module.settings(opt) }}>
     <div class="{{ opt.cn ~ '__wrapper' }}">
       <div class="{{ opt.cn ~ '__inner' }}">

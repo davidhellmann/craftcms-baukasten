@@ -4,18 +4,4 @@
  |--------------------------------------------------------------------------
  */
 
-// Modul
-.a-image {
-  $root: &;
-  display: inline-block;
-
-  &__image {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  &__picture {
-    transition: all 0.875s 0.875s ease('out-cubic');
-  }
-}
+@import "style-variant-basic";

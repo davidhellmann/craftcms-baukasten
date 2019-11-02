@@ -20,9 +20,8 @@
 
 {# Modul #}
 {# Include Variant #}
-{% include [
-  '_atoms/embed/_variant-' ~ opt.variant ~ '.twig',
-  '_atoms/embed/_variant-basic.twig'
+  {% include [
+    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
   ] %}
 <footer {{ module.settings(opt) }}>
   {% cache %}

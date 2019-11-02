@@ -1,0 +1,7 @@
+<div {{ module.settings(opt) }}>
+  <% if (pathOptions.key === 'organisms') { %><div class="{{ opt.cn ~ '__row' }}">
+    <div class="{{ opt.cn ~ '__col' }}">
+      <%= moduleName.replace('-', '_') %>
+    </div>
+  </div><% } else { %><%= moduleName.replace('-', '_') %><% } %>
+</div>

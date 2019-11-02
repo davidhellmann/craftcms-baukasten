@@ -31,9 +31,8 @@
 {% if opt.name %}
   {# Include Variant #}
   {% include [
-    '_atoms/embed/_variant-' ~ opt.variant ~ '.twig',
-    '_atoms/embed/_variant-basic.twig'
-    ] %}
+    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
+  ] %}
   <div {{ module.settings(opt) }} style="max-width: {{ opt.maxWidth }}">
     {% if opt.url %}
       <a class="{{ opt.cn ~ '__link' }}" href="{{ opt.url }}">

@@ -31,9 +31,8 @@
 {% if opt.images %}
   {# Include Variant #}
   {% include [
-    '_atoms/embed/_variant-' ~ opt.variant ~ '.twig',
-    '_atoms/embed/_variant-basic.twig'
-    ] %}
+    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
+  ] %}
   <div {{ module.settings(opt) }} itemscope itemtype="http://schema.org/ImageGallery" waypointTrigger>
     <div class="{{ opt.cn ~ '__inner' }}">
       {% for image in opt.images %}

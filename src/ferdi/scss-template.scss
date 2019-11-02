@@ -1,0 +1,40 @@
+/*
+ |--------------------------------------------------------------------------
+ |
+ | Description of what this file is for
+ |
+ | @package  <%= projectName %>
+<% for (var i=0; i < authors.length; i++) { -%>
+ | @author <%= authors[i].name %> [<%= authors[i].email %>]
+<% } -%>
+ | .<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>
+ |--------------------------------------------------------------------------
+ */
+
+// Modul
+.<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %> {
+  $root: &;
+
+  &--cb {
+    @include vr();
+  }
+
+  &__row {
+    // Fill me
+  }
+
+  &__item {
+    // Fill me
+  }
+}
+
+// Modul Modifiers Example
+.<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>--modifier {
+  .<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>__block {
+    // Styles here
+  }
+
+  @at-root {
+    // Use this for nesting with root selector
+  }
+}

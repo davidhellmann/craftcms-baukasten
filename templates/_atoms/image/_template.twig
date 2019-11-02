@@ -34,9 +34,6 @@
 {# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
-
 {# Modul #}
 {% if opt.image %}
   {# Logic Part #}
@@ -44,7 +41,6 @@
 
   {# Include Variant #}
   {% include [
-    '_atoms/image/_variant-' ~ opt.variant ~ '.twig',
-    '_atoms/image/_variant-basic.twig'
+    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
   ] %}
 {% endif %}
