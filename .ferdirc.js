@@ -2,15 +2,13 @@ const pkg = require('./package');
 
 module.exports = {
   defaults: {
-    twig: true,
-    basicTwig: true,
-    scss: true,
-    basicScss: true,
-    js: false,
-    basicJs: false,
-    vue: false,
-    basicVue: false,
     config: false,
+    scss: true,
+    twig: true,
+    basicJs: true,
+    basicScss: true,
+    basicTwig: true,
+    basicVue: true,
   },
   fileHeader: {
     authors: pkg.authors,
@@ -21,43 +19,36 @@ module.exports = {
       name: '_template',
       postfix: '',
       extension: 'twig',
-      description: 'ferdi should create a Template File',
     },
     basicTwig: {
-      name: 'basic/_template',
+      name: 'variant-basic/_template',
       postfix: '',
       extension: 'twig',
-      description: 'ferdi should create a basic Template File',
     },
     scss: {
       name: '_style',
       postfix: '',
       extension: 'scss',
-      description: 'ferdi should create Stylesheet File',
     },
     basicScss: {
-      name: 'basic/_style',
+      name: 'variant-basic/_style',
       postfix: '',
       extension: 'scss',
-      description: 'ferdi should create basic Stylesheet File',
     },
-    js: {
-      name: '_script',
+    basicJs: {
+      name: 'variant-basic/_script',
       postfix: '',
       extension: 'js',
-      description: 'ferdi should create JavaScript File',
     },
-    vue: {
-      name: '_component',
+    basicVue: {
+      name: 'variant-basic/_component',
       postfix: '',
       extension: 'vue',
-      description: 'ferdi should create Vue File',
     },
     config: {
       name: 'config',
       postfix: '',
       extension: 'php',
-      description: 'ferdi should create Config File',
     },
   },
   paths: {

@@ -1,6 +1,4 @@
 {#
-  Description of what this file is for
-
   @package <%= projectName %>
 <% for (var i=0; i < authors.length; i++) { -%>
   @author <%= authors[i].name %> [<%= authors[i].email %>]
@@ -31,6 +29,6 @@
 {% if opt.foo %}
   {# Include Variant #}
   {% include [
-    '_<%= pathOptions.key %>/<%= moduleName %>/' ~ opt.variant ~ '/_template.twig',
+    '_<%= pathOptions.key %>/<%= moduleName %>/variant-' ~ opt.variant ~ '/_template.twig',
     ] %}
 {% endif %}

@@ -1,21 +1,18 @@
 <!--
- Description of what this file is for
-
- @package  <%= projectName %>
 <% for (var i=0; i < authors.length; i++) { -%>
  @author <%= authors[i].name %> [<%= authors[i].email %>]
 <% } -%>
- <%= moduleName.replace('-', '_') %>
+ <%= moduleName.replace('-', '_') %>Basic
 -->
 <template>
   <div :class="rootClass">
-    <%= moduleName %>
+    <%= moduleName %>Basic
   </div>
 </template>
 
 <script>
 export default {
-    name: '<%= moduleName.replace('-', '_').charAt(0).toUpperCase() %><%= moduleName.replace('-', '_').slice(1) %>',
+    name: '<%= moduleName.replace('-', '_').charAt(0).toUpperCase() %><%= moduleName.replace('-', '_').slice(1) %>Basic',
     components: {},
     props: {
         modifiers: {

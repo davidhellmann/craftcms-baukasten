@@ -22,6 +22,7 @@ $defaultVariant = [
     'js' => null,
     'waypoint' => null,
     'waypointAni' => null,
+    'variant' => 'basic',
     'foo' => null,
 ];
 

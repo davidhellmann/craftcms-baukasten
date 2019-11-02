@@ -1,18 +1,16 @@
 /*
- * Description of what this file is for
- *
  * @package  <%= projectName %>
 <% for (var i=0; i < authors.length; i++) { -%>
  * @author <%= authors[i].name %> [<%= authors[i].email %>]
 <% } -%>
- * <%= moduleName.replace('-', '_') %>
+ * <%= moduleName.replace('-', '_') %>Basic
  */
 
-const <%= moduleName.replace('-', '_') %> = {
+const <%= moduleName.replace('-', '_') %>Basic = {
     cfg:  {
-        name: '<%= moduleName.replace('-', '_') %>',
+        name: '<%= moduleName.replace('-', '_') %>Basic',
         selectors: {
-            <%= moduleName.replace('-', '_') %>: '<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>',
+            <%= moduleName.replace('-', '_') %>: '<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>Basic',
         },
         classes: {
             active: 'is-active',
@@ -38,4 +36,4 @@ const <%= moduleName.replace('-', '_') %> = {
     },
 };
 
-export default <%= moduleName.replace('-', '_') %>;
+export default <%= moduleName.replace('-', '_') %>Basic;

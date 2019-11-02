@@ -4,8 +4,10 @@
 <% for (var i=0; i < authors.length; i++) { -%>
  | @author <%= authors[i].name %> [<%= authors[i].email %>]
 <% } -%>
- | .<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>
+ | .<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>.variant-basic
  |--------------------------------------------------------------------------
  */
 
-@import "variant-basic/style";
+.<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>.variant-basic {
+  // Put your styles here
+}

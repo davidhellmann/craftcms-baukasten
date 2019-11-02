@@ -25,11 +25,6 @@ module.exports = {
     'generator-star-spacing': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
-    'react/forbid-prop-types': 'off',
-    'react/jsx-filename-extension': 'off',
-    'react/no-danger': 'off',
-    'react/no-unused-prop-types': 'off',
-    'react/prefer-stateless-function': 'off',
     'no-console': 'off',
     'linebreak-style': 'off',
     'padded-blocks': 'off',
@@ -42,7 +37,7 @@ module.exports = {
       files: ['*.vue'],
       rules: {
         indent: 'off',
-        'vue/script-indent': ['error', 2, {baseIndent: 0}],
+        'vue/script-indent': ['error', 2, { baseIndent: 0 }],
         'vue/no-use-v-if-with-v-for': [
           'warn',
           {
