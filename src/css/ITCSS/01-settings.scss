@@ -84,46 +84,53 @@
   --bs-layer-4: 0 14px 28px rgba(0, 0, 0, 0.12), 0 10px 10px rgba(0, 0, 0, 0.11);
   --bs-layer-5: 0 19px 38px rgba(0, 0, 0, 0.15), 0 15px 12px rgba(0, 0, 0, 0.11);
 
-  // Breakpoints
-  // Important to include "Include Media" at this point
-  // Cause we set the map our Breakpoints to their map $breakpoints
-  @import '~include-media/dist/include-media';
-
   --bp-min: 320px;
   --bp-s: 600px;
   --bp-m: 800px;
   --bp-l: 1200px;
   --bp-max: 1600px;
-
-  --gutter: 8px;
-  --gutter-x-factor-min: 1;
-  --gutter-x-factor-max: 2;
-  --gutter-y-factor-min: 1;
-  --gutter-y-factor-max: 2;
-
-  // Settings
-  $bk-grid-settings-custom: (
-    testing: false,
-    prefix: 'o-',
-    units: (
-      gutter: var(--gutter),
-      gutter-min-factor: var(--gutter-x-factor-min),
-      gutter-max-factor: var(--gutter-x-factor-max),
-      gutter-min-vertical-factor: var(--gutter-y-factor-min),
-      gutter-max-vertical-factor: var(--gutter-y-factor-max)
-    ),
-    offset-classes: true,
-    push-classes: false,
-    pull-classes: false,
-    disable-padding-horizontal: false,
-    breakpoints: (
-      min: (from: var(--bp-min), cols: 6, create-classes: true),
-      s: (from: var(--bp-s), cols: 12, create-classes: true),
-      m: (from: var(--bp-m), cols: 12, create-classes: true),
-      l: (from: var(--bp-l), cols: 24, create-classes: true),
-      max: (from: var(--bp-max), cols: 24, create-classes: true)
-    )
-  );
-
-  @import '~baukasten-grid/scss/baukasten-grid';
 }
+
+// Breakpoints
+// Important to include "Include Media" at this point
+// Cause we set the map our Breakpoints to their map $breakpoints
+@import '~include-media/dist/include-media';
+
+// Nothing to change here
+$bk-bp-min: 320px;
+$bk-bp-s: 600px;
+$bk-bp-m: 800px;
+$bk-bp-l: 1200px;
+$bk-bp-max: 1600px;
+
+$bk-gutter: 8px;
+$bk-gutter-min-factor: 1;
+$bk-gutter-max-factor: 2;
+$bk-gutter-min-vertical-factor: 1;
+$bk-gutter-max-vertical-factor: 2;
+
+// Settings
+$bk-grid-settings-custom: (
+  testing: false,
+  prefix: 'o-',
+  units: (
+    gutter: $bk-gutter,
+    gutter-min-factor: $bk-gutter-min-factor,
+    gutter-max-factor: $bk-gutter-max-factor,
+    gutter-min-vertical-factor: $bk-gutter-min-vertical-factor,
+    gutter-max-vertical-factor: $bk-gutter-max-vertical-factor
+  ),
+  offset-classes: true,
+  push-classes: false,
+  pull-classes: false,
+  disable-padding-horizontal: false,
+  breakpoints: (
+    min: (from: $bk-bp-min, cols: 6, create-classes: true),
+    s: (from: $bk-bp-s, cols: 12, create-classes: true),
+    m: (from: $bk-bp-m, cols: 12, create-classes: true),
+    l: (from: $bk-bp-l, cols: 24, create-classes: true),
+    max: (from: $bk-bp-max, cols: 24, create-classes: true)
+  )
+);
+
+@import '~baukasten-grid/scss/baukasten-grid';
