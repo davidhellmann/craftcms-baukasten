@@ -3,10 +3,10 @@ import styles from '../css/app.scss';
 
 // CSS Vars Ponyfill:
 // Docs: https://jhildenbiddle.github.io/css-vars-ponyfill
-import cssVars from 'css-vars-ponyfill';
-cssVars({
-    onlyLegacy: true,
-});
+// import cssVars from 'css-vars-ponyfill';
+// cssVars({
+//     onlyLegacy: true,
+// });
 
 // because webpack generated code does not go through babel
 import 'core-js/modules/es.promise';

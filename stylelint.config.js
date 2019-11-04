@@ -8,7 +8,6 @@ module.exports = {
           'screen',
           'extends',
           'responsive',
-          'tailwind',
           'apply',
         ],
       },
