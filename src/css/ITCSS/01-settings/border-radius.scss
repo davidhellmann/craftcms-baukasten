@@ -1,10 +1,16 @@
 // Border Radius
+@import '../02-tools/mixin.create-css-vars';
+
+$border-radius: (
+  '0': '0',
+  '3': '3px',
+  '5': '5px',
+  '10': '10px',
+  '25': '25px',
+  '50': '50px',
+);
 
 :root {
-  --br-0: 0px;
-  --br-3: 3px;
-  --br-5: 5px;
-  --br-10: 10px;
-  --br-25: 25px;
-  --br-50: 50px;
+  // Create Colors
+  @include createCSSVars($border-radius, 'br');
 }

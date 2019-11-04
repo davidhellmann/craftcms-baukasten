@@ -6,7 +6,9 @@
      Cookie.set("critical-css", '1', { expires: "7D", secure: true });
 </script>
 
-{{ craft.twigpack.includeCriticalCssTags() }}
+{% if not craft.app.config.general.devMode %}
+  {{ craft.twigpack.includeCriticalCssTags() }}
+{% endif %}
 
 {{ craft.twigpack.includeCssModule("styles.css", true) }}
 {{ craft.twigpack.includeCssRelPreloadPolyfill() }}

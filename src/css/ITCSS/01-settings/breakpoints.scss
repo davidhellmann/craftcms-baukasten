@@ -1,11 +1,17 @@
 // Breakpoints
+@import '../02-tools/mixin.create-css-vars';
+
+$breakpoints: (
+  'min': 320px,
+  's': 600px,
+  'm': 800px,
+  'l': 1200px,
+  'max': 1600px
+);
 
 :root {
-  --bp-min: 320px;
-  --bp-s: 600px;
-  --bp-m: 800px;
-  --bp-l: 1200px;
-  --bp-max: 1600px;
+  // Create Colors
+  @include createCSSVars($breakpoints, 'bp');
 }
 
 // Breakpoints
@@ -14,12 +20,6 @@
 @import '~include-media/dist/include-media';
 
 // Nothing to change here
-$bk-bp-min: 320px;
-$bk-bp-s: 600px;
-$bk-bp-m: 800px;
-$bk-bp-l: 1200px;
-$bk-bp-max: 1600px;
-
 $bk-gutter: 8px;
 $bk-gutter-min-factor: 1;
 $bk-gutter-max-factor: 2;
@@ -42,11 +42,11 @@ $bk-grid-settings-custom: (
   pull-classes: false,
   disable-padding-horizontal: false,
   breakpoints: (
-    min: (from: $bk-bp-min, cols: 6, create-classes: true),
-    s: (from: $bk-bp-s, cols: 12, create-classes: true),
-    m: (from: $bk-bp-m, cols: 12, create-classes: true),
-    l: (from: $bk-bp-l, cols: 24, create-classes: true),
-    max: (from: $bk-bp-max, cols: 24, create-classes: true)
+    min: (from: map_get($breakpoints, min), cols: 6, create-classes: true),
+    s: (from: map_get($breakpoints, s), cols: 12, create-classes: true),
+    m: (from: map_get($breakpoints, m), cols: 12, create-classes: true),
+    l: (from: map_get($breakpoints, l), cols: 24, create-classes: true),
+    max: (from: map_get($breakpoints, max), cols: 24, create-classes: true)
   )
 );
 
