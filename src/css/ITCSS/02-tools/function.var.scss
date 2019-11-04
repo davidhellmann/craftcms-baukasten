@@ -1,8 +1,3 @@
-@function var($var) {
+@function v($var) {
   @return var(--#{$var});
-}
-
-// Shorthand Version
-@function v($args) {
-  @return var($args);
 }

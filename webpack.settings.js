@@ -106,11 +106,7 @@ module.exports = {
             {
                 url: '',
                 template: 'index'
-            },
-            {
-                url: '',
-                template: 'amp_index'
-            },
+            }
         ]
     },
     devServerConfig: {
