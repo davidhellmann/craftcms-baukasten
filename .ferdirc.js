@@ -11,7 +11,7 @@ module.exports = {
     basicVue: true,
   },
   fileHeader: {
-    authors: pkg.authors,
+    author: pkg.author,
     projectName: pkg.name,
   },
   files: {

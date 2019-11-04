@@ -1,8 +1,6 @@
 {#
   @package <%= projectName %>
-<% for (var i=0; i < authors.length; i++) { -%>
-  @author <%= authors[i].name %> [<%= authors[i].email %>]
-<% } -%>
+  @author <%= author.name %> [<%= author.email %>]
 
   <%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>
   ------------------------------------------------------------
@@ -32,3 +30,4 @@
     '_<%= pathOptions.key %>/<%= moduleName %>/variant-' ~ opt.variant ~ '/_template.twig',
     ] %}
 {% endif %}
+

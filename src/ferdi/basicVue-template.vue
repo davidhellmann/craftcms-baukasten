@@ -1,7 +1,6 @@
 <!--
-<% for (var i=0; i < authors.length; i++) { -%>
- @author <%= authors[i].name %> [<%= authors[i].email %>]
-<% } -%>
+ @author <%= author.name %> [<%= author.email %>]
+
  <%= moduleName.replace('-', '_') %>Basic
 -->
 <template>
