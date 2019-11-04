@@ -126,7 +126,7 @@ module.exports = {
             './src/js/**/*.{js}',
         ],
         whitelist: [
-            './src/css/components/**/*.{css,scss}'
+            './src/css/ITCSS/03-generic/modern-css-reset.scss'
         ],
         whitelistPatterns: [],
         extensions: [
