@@ -211,7 +211,7 @@ const configureOptimization = (buildType) => {
                     common: false,
                     styles: {
                         name: settings.vars.cssName,
-                        test: /\.(pcss|css|vue)$/,
+                        test: /\.(pcss|scss|css|vue)$/,
                         chunks: 'all',
                         enforce: true
                     }
