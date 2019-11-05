@@ -7,7 +7,7 @@
 {% macro settings(opt) %}
   {# Set module class #}
   {% if opt.cn %}
-    class="{{ opt.cn }}{# Set modfier classes #}{% if opt.modifiers ?? null %}{% for modifier in opt.modifiers %}{{ modifier | length ? '  ' ~ opt.cn ~ '--' ~ modifier }}{% endfor %}{% endif %}{# Set variant #}{% if opt.variant ?? null %}{{ '  ' ~ 'variant-' ~ opt.variant }}{% endif %}{# Set vSpace classes #}{% if opt.vSpace ?? null %}{{ '  ' ~ 'o-vSpace--' ~ opt.vSpace }}{% endif %}{# Set custom classes #}{% if opt.customClasses ?? null %}{% for customClass in opt.customClasses %}{{ customClass | length ? '  ' ~ customClass }}{% endfor %}{% endif %}{% if opt.js ?? null %} {{ opt.cn|replace({ 'o-' : 'js-' }) }}{% endif %}"
+    class="{{ opt.cn }}{# Set modfier classes #}{% if opt.modifiers ?? null %}{% for modifier in opt.modifiers %}{{ modifier | length ? '  ' ~ opt.cn ~ '--' ~ modifier }}{% endfor %}{% endif %}{# Set variant #}{% if opt.variant ?? null %}{{ '  ' ~ 'variant-' ~ opt.variant }}{% endif %}{# Set custom classes #}{% if opt.customClasses ?? null %}{% for customClass in opt.customClasses %}{{ customClass | length ? '  ' ~ customClass }}{% endfor %}{% endif %}{% if opt.js ?? null %} {{ opt.cn|replace({ 'o-' : 'js-' }) }}{% endif %}"
   {% endif %}
 
   {# Set data attributes #}
