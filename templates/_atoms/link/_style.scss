@@ -8,7 +8,7 @@
 .a-link {
   $root: &;
   margin-right: s(2);
-  color: c('red');
+  color: var(--c-red);
   text-decoration: none;
   font-weight: 700;
   display: inline-flex;
@@ -26,17 +26,17 @@
     right: 0;
     bottom: 0;
     height: 2px;
-    background-color: c('red');
+    background-color: var(--c-red);
     transform: translateY(0);
     transition: all 0.25s ease('out-cubic');
   }
 
   &:hover {
-    color: darken(c('red'), 10%);
+    color: darken(var(--c-red), 10%);
 
     &::before {
       transform: translateY(-2px);
-      background-color: darken(c('red'), 10%);
+      background-color: darken(var(--c-red), 10%);
     }
   }
 
@@ -54,7 +54,7 @@
     order: 2;
 
     svg {
-      fill: c('red');
+      fill: var(--c-red);
     }
   }
 
@@ -65,7 +65,7 @@
 
 // Modul Modifiers Example
 .a-link--stylePrimary {
-  color: c('red');
+  color: var(--c-red);
   padding-bottom: 4px;
 
   &::before {
@@ -75,23 +75,23 @@
     right: 0;
     bottom: 0;
     height: 2px;
-    background-color: c('red');
+    background-color: var(--c-red);
     transform: translateY(0);
     transition: all 0.25s ease('out-cubic');
   }
 
   &:hover {
-    color: darken(c('red'), 10%);
+    color: darken(var(--c-red), 10%);
 
     &::before {
       transform: translateY(-2px);
-      background-color: darken(c('red'), 10%);
+      background-color: darken(var(--c-red), 10%);
     }
   }
 }
 
 .a-link--styleSecondary {
-  color: c('blue');
+  color: var(--c-blue);
   padding-bottom: 4px;
 
   &::before {
@@ -101,17 +101,17 @@
     right: 0;
     bottom: 0;
     height: 2px;
-    background-color: c('blue');
+    background-color: var(--c-blue);
     transform: translateY(0);
     transition: all 0.25s ease('out-cubic');
   }
 
   &:hover {
-    color: darken(c('blue'), 10%);
+    color: darken(var(--c-blue), 10%);
 
     &::before {
       transform: translateY(-2px);
-      background-color: darken(c('blue'), 10%);
+      background-color: darken(var(--c-blue), 10%);
     }
   }
 }

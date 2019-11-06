@@ -29,7 +29,7 @@
   &__term {
     @include vr(1/2);
     @include spaceY(padding-bottom);
-    border-bottom: 1px dotted c('black', '25');
+    border-bottom: 1px dotted var(--c-gray-300);
     font-weight: 700;
   }
 
@@ -48,7 +48,7 @@
     }
 
     @include media('>=m') {
-      border-bottom: 1px dotted c('black', '25');
+      border-bottom: 1px dotted var(--c-gray-300);
       margin-bottom: 0;
     }
   }

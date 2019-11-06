@@ -1,0 +1,52 @@
+/*
+ |--------------------------------------------------------------------------
+ |  [data-waypoint]
+ |--------------------------------------------------------------------------
+ */
+
+[waypoint],
+[waypointTrigger] {
+  .fadeInUp {
+    opacity: 0;
+    transform: translate3d(0, 50px, 0);
+
+    .animated {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition: transform 500ms var(--ease-out-cubic), opacity 500ms var(--ease-out-cubic);
+    }
+  }
+
+  .fadeInDown {
+    opacity: 0;
+    transform: translate3d(0, -50px, 0);
+
+    .animated {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition: transform 500ms var(--ease-out-cubic), opacity 500ms var(--ease-out-cubic);
+    }
+  }
+
+  .fadeInLeft {
+    opacity: 0;
+    transform: translate3d(50px, 0, 0);
+
+    .animated {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition: transform 500ms var(--ease-out-cubic), opacity 500ms var(--ease-out-cubic);
+    }
+  }
+
+  .fadeInRight {
+    opacity: 0;
+    transform: translate3d(-50px, 0, 0);
+
+    .animated {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition: transform 500ms var(--ease-out-cubic), opacity 500ms var(--ease-out-cubic);
+    }
+  }
+}

@@ -26,13 +26,13 @@
     user-select: none;
 
     * {
-      color: c('black', '80') !important;
+      color: var(--c-gray-800) !important;
     }
   }
 
   &__codeWrapper {
     width: 100%;
-    background-color: c('black', '05');
+    background-color: var(--c-gray-100);
     border-radius: 5px;
     font-size: ms(-2);
     line-height: 1.8;
@@ -40,10 +40,10 @@
 
   &__code {
     width: 100%;
-    color: c('black', '90');
+    color: var(--c-gray-900);
 
     #{$root}[data-status='closed'] & {
-      color: c('black', '25');
+      color: var(--c-gray-300);
     }
   }
 
@@ -56,7 +56,7 @@
 
     &:hover {
       span {
-        border: 1px solid c('black', '50');
+        border: 1px solid var(--c-gray-500);
       }
     }
 
@@ -68,14 +68,12 @@
       }
     }
 
-    @include wf('base');
-
     span {
       display: inline-block;
       position: relative;
       padding: s(1) s(2);
       padding-right: 36px;
-      border: 1px solid c('black', '15');
+      border: 1px solid var(--c-gray-200);
       border-radius: 100px;
       transition: all 0.25s ease('out-cubic');
 
@@ -89,7 +87,7 @@
         right: s(2);
         top: 50%;
         transform: translate(0, -50%);
-        background-color: c('black', '25');
+        background-color: var(--c-gray-300);
         transition: all 0.25s ease('out-cubic');
       }
 

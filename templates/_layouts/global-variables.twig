@@ -9,17 +9,19 @@
  └─────────────────────────────────────────────────────────────────────────────┘
 #}
 {% spaceless %}
+  {# Asset Hash for Cookies #}
+  {% set assetHash = craft.twigpack.getModuleHash("styles.css", "legacy") %}
 
-{# Prefetch & preconnect headers and links #}
-{% set prefetchUrls = [
+  {# Prefetch & preconnect headers and links #}
+  {% set prefetchUrls = [
     alias("@assetsUrl"),
-] %}
-{# General global variables #}
-{% set baseUrl = alias('@assetsUrl') ~ '/' %}
-{% set gaTrackingId = getenv('GA_TRACKING_ID') %}
+  ] %}
+  {# General global variables #}
+  {% set baseUrl = alias('@assetsUrl') ~ '/' %}
+  {% set gaTrackingId = getenv('GA_TRACKING_ID') %}
 
-{# Twig output from the render; this must be in a block #}
-{% block htmlPage %}
-{% endblock %}
+  {# Twig output from the render; this must be in a block #}
+  {% block htmlPage %}
+  {% endblock %}
 
 {% endspaceless %}

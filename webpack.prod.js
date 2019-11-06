@@ -293,9 +293,7 @@ const configurePurgeCss = () => {
     paths: glob.sync(paths),
     whitelist: WhitelisterPlugin(settings.purgeCssConfig.whitelist),
     whitelistPatterns: settings.purgeCssConfig.whitelistPatterns,
-    extractors: [
-      {}
-    ]
+    extractors: []
   };
 };
 

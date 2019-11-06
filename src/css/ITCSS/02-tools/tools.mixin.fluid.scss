@@ -1,0 +1,47 @@
+/*
+ |--------------------------------------------------------------------------
+ |  Fluid Type
+ |--------------------------------------------------------------------------
+ */
+/**
+    More Infos: http://madebymike.com.au/writing/fluid-type-calc-examples/
+
+    Single property
+    html {
+      @include fluid(14px, 18px, font-size);
+    }
+
+    Multiple properties with same values
+    h1 {
+      @include fluid(20px, 100px, padding-bottom padding-top);
+    }
+ */
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid($min-value, $max-value, $properties: null, $min-vw: $bk-minWidth, $max-vw: $bk-maxWidth) {
+  @if ($properties != null) {
+    @each $property in $properties {
+      #{$property}: $min-value;
+    }
+
+    @media screen and (min-width: $min-vw) {
+      @each $property in $properties {
+        #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / (#{strip-unit($max-vw - $min-vw)}));
+      }
+    }
+
+    @media screen and (min-width: $max-vw) {
+      @each $property in $properties {
+        #{$property}: $max-value;
+      }
+    }
+  }
+}
+
+// Shorthand Version
+@mixin f($args...) {
+  @include fluid($args...);
+}

@@ -9,9 +9,16 @@ module.exports = {
           'extends',
           'responsive',
           'apply',
+          'include',
+          'error',
+          'for',
+          'each',
+          'if',
+          'warn',
         ],
       },
     ],
     'block-no-empty': null,
   },
 };
+

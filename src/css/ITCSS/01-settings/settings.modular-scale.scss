@@ -1,0 +1,28 @@
+/*
+ |--------------------------------------------------------------------------
+ |  Font Sizes
+ |--------------------------------------------------------------------------
+ */
+// Dependencies
+@import '~modularscale-sass/stylesheets/modularscale';
+@import '~baukasten-grid/scss/baukasten-grid';
+
+// Settings
+$bk-baseFontSizePx: 16px;
+$bk-baseFontSizeMaxPx: 19px;
+$bk-baseLineHeight: 1.5;
+
+// Modular Scale Settings
+$modularscale: (
+        base: $bk-baseFontSizePx,
+        ratio: $major-second,
+        $bk-minWidth: (
+                base: $bk-baseFontSizePx,
+                ratio: $major-second,
+        ),
+        $bk-maxWidth:  (
+                base: $bk-baseFontSizeMaxPx,
+                ratio: $fourth,
+        )
+);
+

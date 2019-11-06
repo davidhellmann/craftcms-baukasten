@@ -1,0 +1,112 @@
+/**
+ *
+ * Project-wide styles
+ *
+ */
+
+html {
+  height: 100%;
+  font-size: 100%;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-overflow-scrolling: touch;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.user-is-tabbing {
+  *:focus {
+    outline: 2px solid var(--c-gray-500) !important;
+    outline: 5px auto -webkit-focus-ring-color !important;
+  }
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--c-white);
+  color: var(--c-gray-900);
+  @include ms-respond(font-size, 0);
+  line-height: $bk-baseLineHeight;
+  @include wf('body');
+  font-weight: 300;
+
+  .js &.no-hover > * {
+    pointer-events: none;
+  }
+
+  .js &.body-blocked {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  font-style: italic;
+  vertical-align: middle;
+  outline: none;
+  width: 100%;
+}
+
+img[data-sizes='auto'] {
+  display: block;
+}
+
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 750ms 125ms var(--ease-out-cubic);
+}
+
+.lazypreload {
+  opacity: 1;
+}
+
+[v-cloak] > * { display:none!important; }
+[v-cloak]::before { content: "loading…" }
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+code,
+kbd,
+pre,
+samp {
+  @include wf('mono');
+}
+
+::selection {
+  background-color: var(--c-gray-900);
+  color: var(--c-gray);
+}
+
+/* -- No outline for non-keyboard-inputs elements */
+button:focus,
+select:focus,
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+table {
+  width: 100%;
+}
+

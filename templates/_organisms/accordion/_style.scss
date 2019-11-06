@@ -14,11 +14,11 @@
   &__item {
     position: relative;
     overflow: hidden;
-    border-top: 1px solid c('black', '15');
+    border-top: 1px solid var(--c-gray-200);
     border-bottom: 0;
 
     &:last-child {
-      border-bottom: 1px solid c('black', '15');
+      border-bottom: 1px solid var(--c-gray-200);
     }
   }
 
@@ -29,11 +29,9 @@
   &__headline {
     @include f(s(2), s(4), padding-top padding-bottom);
     @include f(s(6), s(12), padding-right);
-    @include ms-respond('font-size', 1);
+    @include ms-respond(font-size, 1);
     position: relative;
-    transition: all 0.25s ease('out-cubic');
-
-    @include wf('bold');
+    transition: all 0.25s var(--ease-out-cubic);
 
     &::before,
     &::after {
@@ -42,7 +40,7 @@
       height: 2px;
       position: absolute;
       top: calc(50%);
-      background-color: c('red');
+      background-color: var(--c-red);
       transition: all 0.25s ease('out-cubic');
     }
 

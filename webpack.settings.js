@@ -82,7 +82,7 @@ module.exports = {
         },
         // copy and minify webfonts css
         {
-            from: './src/css/components/webfonts.scss',
+            from: './src/css/ITCSS/03-generic/generic.webfonts.scss',
             to: 'css/[name].css',
             transform(content) {
                 return Postcss([Cssnano])
@@ -126,7 +126,8 @@ module.exports = {
             './src/js/**/*.{js}',
         ],
         whitelist: [
-            './src/css/ITCSS/03-generic/modern-css-reset.scss'
+            './src/css/ITCSS/03-generic/**/*.{scss,css}',
+            './src/css/ITCSS/04-elements/**/*.{scss,css}',
         ],
         whitelistPatterns: [],
         extensions: [

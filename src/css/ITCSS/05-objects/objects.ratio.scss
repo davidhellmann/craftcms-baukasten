@@ -1,0 +1,65 @@
+/*
+ |--------------------------------------------------------------------------
+ |  Ratio
+ |--------------------------------------------------------------------------
+ */
+
+$bk-ratios: (
+  (2:1),
+  (3:1),
+  (3:2),
+  (4:3),
+  (16:9),
+  (16:10),
+  (1:1),
+  (1:2),
+  (1:3),
+  (2:3),
+  (3:4),
+  (9:16),
+  (10:16)
+) !default;
+
+.o-ratio {
+  position: relative;
+  display: block;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-bottom: 100%;
+  }
+}
+
+
+.o-ratio__content,
+.o-ratio > iframe,
+.o-ratio > embed,
+.o-ratio > object {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+// Ratio variants
+@each $ratio in $bk-ratios {
+  @each $antecedent, $consequent in $ratio {
+    @if (type-of($antecedent) != number) {
+      @error '`#{$antecedent}` needs to be a number.';
+    }
+
+    @if (type-of($consequent) != number) {
+      @error '`#{$consequent}` needs to be a number.';
+    }
+
+    .o-ratio--#{$antecedent}-#{$consequent}::before {
+      padding-bottom: ($consequent/$antecedent) * 100%;
+    }
+  }
+}

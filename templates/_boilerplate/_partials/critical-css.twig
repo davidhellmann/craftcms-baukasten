@@ -1,15 +1,17 @@
 {# Critical CSS #}
-<!--# if expr="$HTTP_COOKIE=/critical\-css\=1/" -->
-{{ craft.twigpack.includeCssModule("styles.css", false) }}
-<!--# else -->
-<script>
-     Cookie.set("critical-css", '1', { expires: "7D", secure: true });
-</script>
-
 {% if not craft.app.config.general.devMode %}
-  {{ craft.twigpack.includeCriticalCssTags() }}
-{% endif %}
+  {% set criticalCss = getCookie('critical-css') %}
+  {% if criticalCss == 'loaded' %}
 
-{{ craft.twigpack.includeCssModule("styles.css", true) }}
-{{ craft.twigpack.includeCssRelPreloadPolyfill() }}
-<!--# endif -->
+    {{ craft.twigpack.includeCssModule("styles.css", false) }}
+  {% else %}
+    {% do setCookie('critical-css', 'loaded', now | date_modify("+7 days").timestamp ) %}
+
+    {% if not craft.app.config.general.devMode %}
+      {{ craft.twigpack.includeCriticalCssTags() }}
+    {% endif %}
+
+    {{ craft.twigpack.includeCssModule("styles.css", true) }}
+    {{ craft.twigpack.includeCssRelPreloadPolyfill() }}
+  {% endif %}
+{% endif %}

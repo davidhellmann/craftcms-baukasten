@@ -1,22 +1,4 @@
 {# Layout template for HTML pages #}
-{#
- ┌─────────────────────────────────────────────────────────────────────────────┐
- │ ┌─────────────────────────────────────────────────────────────────────────┐ │
- │ │                                                                                │ │
- │ │                                                                                │ │
- │ │                                                                                │ │
- │ │                                 content                                        │ │
- │ └─────────────────────────────────────────────────────────────────────────┘ │
- │ ┌─────────────────────────────────────────────────────────────────────────┐ │
- │ │                                                                                │ │
- │ │                                                                                │ │
- │ │                                                                                │ │
- │ │                               subContent                                       │ │
- │ └─────────────────────────────────────────────────────────────────────────┘ │
- │                                                                                     │
- │                                  bodyHtml                                           │
- └─────────────────────────────────────────────────────────────────────────────┘
-#}
 {% extends "_boilerplate/_layouts/base-html-layout.twig" %}
 
 {# Any <meta> tags that should be included in the <head> #}
@@ -29,35 +11,28 @@
 
 {# Any CSS that should be included before </head> #}
 {% block headCss %}
-    {% include "_inline-css/site-fonts.css" %}
 {% endblock headCss %}
 
 {# Page body #}
 {% block bodyHtml %}
-    <div id="app" class="overflow-hidden leading-tight">
-        <confetti></confetti>
-        <div id="content-container" class="bg-repeat header-background">
+  <div id="app">
+    <confetti></confetti>
 
-            {# Info header, including _navbar.twig #}
-            {% include "_partials/info-header.twig" %}
+    {# Info header, including _navbar.twig #}
+    {% include "_partials/info-header.twig" %}
 
-            <main>
-                <div class="container mx-auto pb-8">
-                    {# Primary content block #}
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            </main>
-        </div>
+    {# Primary content block #}
+    {% block content %}
+    {% endblock %}
 
-        {# Content that appears below the primary content block #}
-        {% block subcontent %}
-        {% endblock %}
+    {# Content that appears below the primary content block #}
+    {% block subcontent %}
+    {% endblock %}
 
-        {# Info footer #}
-        {% include "_partials/info-footer.twig" %}
+    {# Info footer #}
+    {% include "_partials/info-footer.twig" %}
 
-        {# HTML Footer #}
-        {% include "_partials/global-footer.twig" %}
-    </div>
+    {# HTML Footer #}
+    {% include "_partials/global-footer.twig" %}
+  </div>
 {% endblock bodyHtml %}

@@ -1,0 +1,20 @@
+// Font Families
+@import '../02-tools/tools.mixin.create-css-vars';
+@import '~typeface-merriweather';
+@import '~typeface-lato';
+@import '~typeface-roboto-mono';
+
+$font-family-headline: 'Merriweather', Georgia "Times New Roman", Times, serif;
+$font-family-body: 'Lato', Helvetica, Arial, sans-serif;
+$font-family-mono: "Roboto Mono", "Courier New", Courier, monospace;
+
+$fontfamilies: (
+  'headline': $font-family-headline,
+  'body': $font-family-body,
+  'mono': $font-family-mono,
+);
+
+:root {
+  // Create Font Families
+  @include createCSSVars($fontfamilies, 'ff');
+}

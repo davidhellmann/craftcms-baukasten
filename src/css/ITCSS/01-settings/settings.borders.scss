@@ -1,0 +1,13 @@
+// Borders
+@import '../02-tools/tools.mixin.create-css-vars';
+
+$borders: (
+  'thin': 1px solid var(--c-gray-200),
+  'bold': 5px solid var(--c-gray-900),
+  'dotted': 1px dotted var(--c-gray-500),
+);
+
+:root {
+  // Create Colors
+  @include createCSSVars($borders, 'b');
+}

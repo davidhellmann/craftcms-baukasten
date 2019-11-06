@@ -1,0 +1,165 @@
+/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+json+markdown+php+php-extras+scss+twig&plugins=line-numbers+normalize-whitespace */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f8f8f2;
+  font-weight: 700;
+  background: none;
+  font-family: Menlo, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  border-radius: 5px;
+  tab-size: 4;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: s(4) 0;
+  overflow: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  border-radius: 5px;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: c('black','90');
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: 5px;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  font-weight: 400;
+  font-style: italic;
+  color: slategray;
+  color: var(--c-gray-700);
+}
+
+.token.punctuation {
+  font-weight: 400;
+  color: #f8f8f2;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  font-weight: 400;
+  color: #FF369E;
+}
+
+.token.boolean,
+.token.number {
+  font-weight: 400;
+  color: #D74FFF;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  font-weight: 400;
+  color: #77FF50;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  font-weight: 400;
+  color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+  font-weight: 400;
+  color: #FFE600;
+}
+
+.token.keyword {
+  font-weight: 400;
+  color: #00EAFF;
+  font-style: normal;
+}
+
+.token.regex,
+.token.important {
+  font-weight: 400;
+  color: #FF9D00;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+pre.line-numbers {
+  position: relative;
+  padding-left: 120px;
+  counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+  // position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  bottom: 0;
+  font-size: 100%;
+  left: 0;
+  padding: s(4) 20px;
+  width: 96px;
+  background: var(--c-gray-900);
+  user-select: none;
+}
+
+.line-numbers-rows > span {
+  pointer-events: none;
+  display: block;
+  counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: var(--c-gray-800);
+  display: block;
+  text-align: right;
+}
