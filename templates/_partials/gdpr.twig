@@ -1,0 +1,83 @@
+{#{% if not craft.app.config.general.devMode %}#}
+<script>
+    var klaroConfig = {
+        cookieExpiresAfterDays: 365,
+        lang: 'en',
+        noNotice: true,
+        privacyPolicy: '/#privacy',
+        poweredBy: '',
+
+        // Defines the default state for applications (true=enabled by default).
+        default: true,
+        mustConsent: true,
+
+        translations: {
+            // these values will overwrite the defaults. For a full list, have a look
+            // at the `translations.yml` file in the `src` directory of this repo:
+            // https://github.com/DPKit/klaro/blob/master/src/translations.yml
+            en: {
+                consentModal: {
+                    title: 'Dies ist der Titel des Zustimmungs-Dialogs',
+                    description: 'Dies ist die Beschreibung des Zustimmungs-Dialogs.',
+                },
+                privacyPolicy: {
+                    text: 'Dies ist der Text mit einem Link zu Ihrer {privacyPolicy}.',
+                    name: 'Datenschutzerklärung (Name)',
+                },
+                poweredBy: '',
+                save: "Los geht's!",
+                purposes: {
+                    statistics: 'Statistiken',
+                    security: 'Sicherheit',
+                    media: 'Media',
+                    livechat: 'Live-Chat',
+                    ads: 'Werbung',
+                },
+                googleAnalytics: {
+                    description: 'Sammeln von Besucherstatistiken',
+                },
+                youtube: {
+                    description: 'Einbettung von Videos',
+                },
+            },
+        },
+
+        apps: [
+            {
+                name: 'googleAnalytics',
+                default: true,
+                title: 'Google Analytics',
+                purposes: ['statistics'],
+                cookies: [/^ga/i],
+                callback: function (consent, app) {
+                },
+            },
+            {
+                name: 'youtube',
+                default: true,
+                title: 'Youtube',
+                purposes: ['media'],
+                callback: function (consent, app) {},
+            },
+        ],
+
+    };
+    {{ craft.twigpack.includeFile("@webroot/dist/js/klaro.js") }}
+</script>
+
+
+<!-- Google Analytics -->
+<script>
+    window.ga = window.ga || function () {
+        (ga.q = ga.q || []).push(arguments)
+    };
+    ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('send', 'pageview');
+</script>
+<script type="opt-in"
+        data-type="text/javascript"
+        data-name="googleAnalytics"
+        data-src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+{#{% endif %}#}

@@ -56,6 +56,14 @@ module.exports = {
                 return content;
             },
         },
+        // copy klaro cookie consent from node modules
+        {
+            from: './node_modules/klaro/dist/klaro.js',
+            to: 'js/[name].[ext]',
+            transform(content) {
+                return content;
+            },
+        },
         // copy and minify inlineJs
         {
             from: './src/inlineJs/load-fonts.js',

@@ -1,15 +1,11 @@
-{% if not craft.app.config.general.devMode %}
-  <style>
-    {{ craft.twigpack.includeFile("@webroot/dist/css/generic.webfonts.css") }}
-  </style>
-  {% set fontsLoaded = getCookie('fonts-loaded') %}
-  {% if not fontsLoaded and fontsLoaded != assetHash %}
-    <script>
-      {{ craft.twigpack.includeFile("@webroot/dist/js/fontfaceobserver.js") }}
-      {{ craft.twigpack.includeFile("@webroot/dist/js/load-fonts.js") }}
-    </script>
-    {% do setCookie('fonts-loaded', assetHash, now | date_modify("+7 days").timestamp ) %}
-  {% endif %}
+<style>
+  {{ craft.twigpack.includeFile("@webroot/dist/css/generic.webfonts.css") }}
+</style>
+{% set fontsLoaded = getCookie('fonts-loaded') %}
+{% if not fontsLoaded and fontsLoaded != assetHash %}
+  <script>
+    {{ craft.twigpack.includeFile("@webroot/dist/js/fontfaceobserver.js") }}
+    {{ craft.twigpack.includeFile("@webroot/dist/js/load-fonts.js") }}
+  </script>
+  {% do setCookie('fonts-loaded', assetHash, now | date_modify("+7 days").timestamp ) %}
 {% endif %}
-
-

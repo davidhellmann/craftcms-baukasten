@@ -1,17 +1,15 @@
 {# Critical CSS #}
-{% if not craft.app.config.general.devMode %}
-  {% set criticalCss = getCookie('critical-css') %}
-  {% if criticalCss == 'loaded' %}
+{% set criticalCss = getCookie('critical-css') %}
+{% if criticalCss == 'loaded' %}
 
-    {{ craft.twigpack.includeCssModule("styles.css", false) }}
-  {% else %}
-    {% do setCookie('critical-css', 'loaded', now | date_modify("+7 days").timestamp ) %}
+  {{ craft.twigpack.includeCssModule("styles.css", false) }}
+{% else %}
+  {% do setCookie('critical-css', 'loaded', now | date_modify("+7 days").timestamp ) %}
 
-    {% if not craft.app.config.general.devMode %}
-      {{ craft.twigpack.includeCriticalCssTags() }}
-    {% endif %}
-
-    {{ craft.twigpack.includeCssModule("styles.css", true) }}
-    {{ craft.twigpack.includeCssRelPreloadPolyfill() }}
+  {% if not craft.app.config.general.devMode %}
+    {{ craft.twigpack.includeCriticalCssTags() }}
   {% endif %}
+
+  {{ craft.twigpack.includeCssModule("styles.css", true) }}
+  {{ craft.twigpack.includeCssRelPreloadPolyfill() }}
 {% endif %}
