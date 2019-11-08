@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1824156e4653a24f793cb65b77ef7d2",
+    "content-hash": "cdd620dcf29d792cba11474793eb15c8",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -2620,6 +2620,53 @@
                 "image"
             ],
             "time": "2017-02-03T11:58:58+00:00"
+        },
+        {
+            "name": "luwes/craft3-codemirror",
+            "version": "1.0.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/luwes/craft3-codemirror/zipball/09abfb4f741b6a091032db8a43793d373b677fbf",
+                "reference": "09abfb4f741b6a091032db8a43793d373b677fbf",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-beta.20"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "CodeMirror",
+                "handle": "code-mirror",
+                "changelogUrl": "https://raw.githubusercontent.com/luwes/craft3-codemirror/master/CHANGELOG.md",
+                "class": "luwes\\codemirror\\CodeMirror"
+            },
+            "autoload": {
+                "psr-4": {
+                    "luwes\\codemirror\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wesley Luyten",
+                    "homepage": "https://wesleyluyten.com"
+                }
+            ],
+            "description": "Add the awesome in-browser code editor CodeMirror as a field type.",
+            "keywords": [
+                "cms",
+                "codemirror",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/luwes/craft3-codemirror/blob/master/README.md",
+                "issues": "https://github.com/luwes/craft3-codemirror/issues"
+            },
+            "time": "2018-12-23T22:48:50+00:00"
         },
         {
             "name": "mailgun/mailgun-php",

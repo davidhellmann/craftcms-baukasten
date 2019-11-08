@@ -10,7 +10,7 @@
 
         // Defines the default state for applications (true=enabled by default).
         default: true,
-        mustConsent: true,
+        mustConsent: false,
 
         translations: {
             // these values will overwrite the defaults. For a full list, have a look
@@ -73,7 +73,7 @@
             },
         ],
 
-    };=
+    };
     {{ craft.twigpack.includeFile("@webroot/dist/js/klaro.js") }}
 </script>
 

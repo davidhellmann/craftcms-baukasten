@@ -1,4 +1,4 @@
-dateModified: 1573215916
+dateModified: 1573216638
 email:
   fromEmail: david@hellmann.io
   fromName: $SITE_NAME
@@ -35,18 +35,192 @@ fields:
     handle: cookieConsent
     instructions: ''
     searchable: true
-    translationMethod: none
+    translationMethod: site
     translationKeyFormat: null
-    type: craft\fields\PlainText
+    type: craft\fields\Matrix
     settings:
-      placeholder: ''
-      code: ''
-      multiline: ''
-      initialRows: '4'
-      charLimit: ''
-      columnType: text
-    contentColumnType: text
+      minBlocks: ''
+      maxBlocks: ''
+      contentTable: '{{%matrixcontent_cookieconsent}}'
+      propagationMethod: all
+    contentColumnType: string
     fieldGroup: 8a51cd55-1898-4755-b1ea-9d4bbc87d521
+globalSets:
+  ef418c49-b6f5-4130-a824-19a299c64fda:
+    name: 'Cookie Consent'
+    handle: cookieConsent
+    fieldLayouts:
+      3da9685d-8dbf-48ce-95ab-6081a48668c0:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              8ea6300e-c7ee-4655-8226-8ad9f0725531:
+                required: false
+                sortOrder: 1
+matrixBlockTypes:
+  c329f6d6-6ce9-4580-bb3c-ee191d344252:
+    field: 8ea6300e-c7ee-4655-8226-8ad9f0725531
+    name: Snippet
+    handle: snippet
+    sortOrder: 1
+    fields:
+      0f0626a3-600a-4d4c-992f-78e6f254f240:
+        name: 'Snippet Cookies'
+        handle: snippetCookies
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Table
+        settings:
+          addRowLabel: 'Add a row'
+          maxRows: ''
+          minRows: ''
+          columns:
+            col1:
+              heading: 'Cookies to delete'
+              handle: cookiesToDelete
+              width: ''
+              type: singleline
+          defaults:
+            -
+              col1: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      23db484d-0a47-41ce-b7f2-5011966c10f8:
+        name: 'Snippet State'
+        handle: snippetState
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Lightswitch
+        settings:
+          default: '1'
+        contentColumnType: boolean
+        fieldGroup: null
+      33f318a2-52b4-444f-8e60-6b503ae78d61:
+        name: 'Is Active'
+        handle: isActive
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Lightswitch
+        settings:
+          default: ''
+        contentColumnType: boolean
+        fieldGroup: null
+      3e777533-2154-477b-8503-378b99e9f317:
+        name: 'Snippet Description'
+        handle: snippetDescription
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      43fe1a37-497c-4cde-b26d-a26a388cbf21:
+        name: 'Snippet Purpose'
+        handle: snippetPurpose
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          optgroups: true
+          options:
+            -
+              label: statistics
+              value: statistics
+              default: ''
+            -
+              label: security
+              value: security
+              default: ''
+            -
+              label: richContent
+              value: richcontent
+              default: ''
+            -
+              label: livechat
+              value: livechat
+              default: ''
+            -
+              label: advertising
+              value: advertising
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
+      4594ea1a-c7db-4124-b517-235e69fbb221:
+        name: 'Snippet Name'
+        handle: snippetName
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      97baf93d-a4ad-43a8-b6f1-969db71997b3:
+        name: 'Snippet Code'
+        handle: snippetCode
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: luwes\codemirror\fields\CodeMirrorField
+        settings:
+          mode: javascript
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      a9bacecd-8da7-4e4a-9b59-c617e85e19d2:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              0f0626a3-600a-4d4c-992f-78e6f254f240:
+                required: false
+                sortOrder: 7
+              23db484d-0a47-41ce-b7f2-5011966c10f8:
+                required: false
+                sortOrder: 5
+              33f318a2-52b4-444f-8e60-6b503ae78d61:
+                required: false
+                sortOrder: 1
+              3e777533-2154-477b-8503-378b99e9f317:
+                required: false
+                sortOrder: 3
+              43fe1a37-497c-4cde-b26d-a26a388cbf21:
+                required: false
+                sortOrder: 6
+              4594ea1a-c7db-4124-b517-235e69fbb221:
+                required: false
+                sortOrder: 2
+              97baf93d-a4ad-43a8-b6f1-969db71997b3:
+                required: false
+                sortOrder: 4
 plugins:
   cp-css:
     edition: standard
@@ -144,6 +318,10 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   dumper:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  code-mirror:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
