@@ -1,12 +1,12 @@
 {#{% if not craft.app.config.general.devMode %}#}
 <script>
+    var cookieDomain = '{{ craft.app.request.serverName }}';
     var klaroConfig = {
         cookieExpiresAfterDays: 365,
         lang: 'en',
         noNotice: true,
         privacyPolicy: '/#privacy',
         poweredBy: '',
-        declineAll: true,
 
         // Defines the default state for applications (true=enabled by default).
         default: true,
@@ -53,10 +53,13 @@
                 title: 'Google Analytics',
                 purposes: ['statistics'],
                 cookies: [
-
+                    ['_ga', '/', cookieDomain],
+                    ['_gat', '/', cookieDomain],
+                    ['_gid', '/', cookieDomain],
                 ],
                 callback: function (consent, app) {
-                    console.log("User consent for app "+app.name+": consent="+consent)
+                    console.log("User consent for app " + app.name + ": consent=" + consent);
+                    // location.reload();
                 },
             },
             {
@@ -65,12 +68,12 @@
                 title: 'Youtube',
                 purposes: ['media'],
                 callback: function (consent, app) {
-                    console.log("User consent for app "+app.name+": consent="+consent)
+                    console.log("User consent for app " + app.name + ": consent=" + consent)
                 },
             },
         ],
 
-    };
+    };=
     {{ craft.twigpack.includeFile("@webroot/dist/js/klaro.js") }}
 </script>
 
