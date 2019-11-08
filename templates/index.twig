@@ -9,7 +9,7 @@
     <h1>content</h1>
 
     {% set klaro = getCookie('klaro') | json_decode %}
-    {{ d(klaro.youtube) }}
+{#    {{ d(klaro.youtube) }}#}
 
     <a onClick="klaro.show();return false;">manage your consents</a>
 
@@ -60,6 +60,7 @@
         }
       </code>
     </pre>
+
     <div class="lazyload">
       {#{% if klaro.youtube %}#}
         <iframe width="560"

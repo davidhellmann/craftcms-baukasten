@@ -6,6 +6,7 @@
         noNotice: true,
         privacyPolicy: '/#privacy',
         poweredBy: '',
+        declineAll: true,
 
         // Defines the default state for applications (true=enabled by default).
         default: true,
@@ -25,7 +26,10 @@
                     name: 'Datenschutzerklärung (Name)',
                 },
                 poweredBy: '',
-                save: "Los geht's!",
+                ok: 'OK',
+                save: 'Save',
+                decline: 'Decline',
+                close: 'Close',
                 purposes: {
                     statistics: 'Statistiken',
                     security: 'Sicherheit',
@@ -48,8 +52,11 @@
                 default: true,
                 title: 'Google Analytics',
                 purposes: ['statistics'],
-                cookies: [/^ga/i],
+                cookies: [
+
+                ],
                 callback: function (consent, app) {
+                    console.log("User consent for app "+app.name+": consent="+consent)
                 },
             },
             {
@@ -57,7 +64,9 @@
                 default: true,
                 title: 'Youtube',
                 purposes: ['media'],
-                callback: function (consent, app) {},
+                callback: function (consent, app) {
+                    console.log("User consent for app "+app.name+": consent="+consent)
+                },
             },
         ],
 
