@@ -51,3 +51,7 @@
 {% if opt.dominantColor starts with '#' %}
   {% set dominantColor = opt.dominantColor %}
 {% endif %}
+
+{% if opt.image.extension == 'png' or opt.image.extension == 'gif' or opt.image.extension == 'svg' %}
+  {% set dominantColor = false %}
+{% endif %}
