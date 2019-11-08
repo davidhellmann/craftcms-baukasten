@@ -1,4 +1,4 @@
-dateModified: 1573082266
+dateModified: 1573215916
 email:
   fromEmail: david@hellmann.io
   fromName: $SITE_NAME
@@ -6,6 +6,8 @@ email:
 fieldGroups:
   620c6d25-40c2-46af-915c-d700f182745d:
     name: Default
+  8a51cd55-1898-4755-b1ea-9d4bbc87d521:
+    name: Globals
 fields:
   3dc41ab0-2a40-40b1-a265-106c542fe89b:
     name: 'Rich Text'
@@ -28,6 +30,23 @@ fields:
       availableTransforms: '*'
     contentColumnType: text
     fieldGroup: 620c6d25-40c2-46af-915c-d700f182745d
+  8ea6300e-c7ee-4655-8226-8ad9f0725531:
+    name: 'Cookie Consent'
+    handle: cookieConsent
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 8a51cd55-1898-4755-b1ea-9d4bbc87d521
 plugins:
   cp-css:
     edition: standard
