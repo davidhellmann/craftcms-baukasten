@@ -51,8 +51,8 @@ const main = async () => {
   }
 
   // Create our vue instance
-  const app = new Vue({
-    el: '#app',
+  new Vue({
+    el: '#confetti',
     delimiters: ['${', '}'],
     components: {
       confetti: () =>
@@ -65,12 +65,10 @@ const main = async () => {
     methods: {},
     mounted() {},
   });
-
-  return app;
 };
 
 // Execute async function
-main().then(app => {
+main().then(() => {
   console.log('async main executed');
 });
 

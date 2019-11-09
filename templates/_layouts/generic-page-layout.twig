@@ -16,7 +16,10 @@
 {# Page body #}
 {% block bodyHtml %}
   <div id="app">
-    <confetti></confetti>
+    {# Vue Confetti Instance #}
+    <div id="confetti">
+      <confetti></confetti>
+    </div>
 
     {# Info header, including _navbar.twig #}
     {% include "_partials/info-header.twig" %}

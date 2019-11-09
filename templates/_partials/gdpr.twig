@@ -1,80 +1,145 @@
-{#{% if not craft.app.config.general.devMode %}#}
 <script>
-    var cookieDomain = '{{ craft.app.request.serverName }}';
-    var klaroConfig = {
-        cookieExpiresAfterDays: 365,
-        lang: 'en',
-        noNotice: true,
-        privacyPolicy: '/#privacy',
-        poweredBy: '',
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
 
-        // Defines the default state for applications (true=enabled by default).
+    // Get klaro cookie
+    var klaroCurrent;
+    var klaroCookie;
+    var klaroCallback = function (consent, app) {
+        console.log("User consent for app " + app.name + ": consent=" + consent);
+        cookieChanged()
+    };
+
+    var getKlaroCookie = function () {
+        klaroCookie = getCookie('klaro');
+    }
+
+    var setCurrentCookie = function () {
+        klaroCurrent = JSON.parse(klaroCookie);
+    }
+
+    getKlaroCookie()
+    if (klaroCookie) {
+        setCurrentCookie()
+    }
+
+    var klaroConfig = {
+        elementID: 'klaro',
+        cookieName: 'klaro',
+        cookieExpiresAfterDays: 365,
+        privacyPolicy: '/#privacy',
+        lang: 'en',
         default: true,
         mustConsent: false,
-
         translations: {
-            // these values will overwrite the defaults. For a full list, have a look
-            // at the `translations.yml` file in the `src` directory of this repo:
-            // https://github.com/DPKit/klaro/blob/master/src/translations.yml
             en: {
                 consentModal: {
-                    title: 'Dies ist der Titel des Zustimmungs-Dialogs',
-                    description: 'Dies ist die Beschreibung des Zustimmungs-Dialogs.',
+                    title: '{{ 'translate.klaro.consentModal.title' | t }}',
+                    description: '{{ 'translate.klaro.consentModal.description' | t }}',
+                    privacyPolicy: {
+                        name: '{{ 'translate.klaro.privacyPolicy.name' | t }}',
+                        text: '{{ 'translate.klaro.privacyPolicy.text' | t }}'
+                    }
+                },
+                consentNotice: {
+                    changeDescription: '{{ 'translate.klaro.consentNotice.changeDescription' | t }}',
+                    description: '{{ 'translate.klaro.consentNotice.description' | t }}',
+                    learnMore: '{{ 'translate.klaro.consentNotice.learnMore' | t }}'
                 },
                 privacyPolicy: {
-                    text: 'Dies ist der Text mit einem Link zu Ihrer {privacyPolicy}.',
-                    name: 'Datenschutzerklärung (Name)',
+                    text: '{{ 'translate.klaro.privacyPolicy.text' | t }}',
+                    name: '{{ 'translate.klaro.privacyPolicy.name' | t }}',
                 },
-                poweredBy: '',
-                ok: 'OK',
-                save: 'Save',
-                decline: 'Decline',
-                close: 'Close',
+                ok: '{{ 'translate.klaro.ok' | t }}',
+                save: '{{ 'translate.klaro.save' | t }}',
+                decline: '{{ 'translate.klaro.decline' | t }}',
+                close: '{{ 'translate.klaro.close' | t }}',
+                app: {
+                    disableAll: {
+                        title: '{{ 'translate.klaro.app.disableAll.title' | t }}',
+                        description: '{{ 'translate.klaro.app.disableAll.description' | t }}'
+                    },
+                    optOut: {
+                        title: '{{ 'translate.klaro.app.optOut.title' | t }}',
+                        description: '{{ 'translate.klaro.app.optOut.description' | t }}'
+                    },
+                    required: {
+                        title: '{{ 'translate.klaro.app.required.title' | t }}',
+                        description: '{{ 'translate.klaro.app.required.description' | t }}'
+                    },
+                    purposes: '{{ 'translate.klaro.app.purposes' | t }}',
+                    purpose: '{{ 'translate.klaro.app.purpose' | t }}'
+                },
+                poweredBy: '{{ 'translate.klaro.poweredBy' | t }}',
                 purposes: {
-                    statistics: 'Statistiken',
-                    security: 'Sicherheit',
-                    media: 'Media',
-                    livechat: 'Live-Chat',
-                    ads: 'Werbung',
+                    necessary: '{{ 'translate.klaro.purposes.necessary' | t }}',
+                    statistics: '{{ 'translate.klaro.purposes.statistics' | t }}',
+                    externalmedia: '{{ 'translate.klaro.purposes.externalmedia' | t }}',
+                },
+                cms: {
+                    description: '{{ 'translate.klaro.apps.cms.description' | t }}',
                 },
                 googleAnalytics: {
-                    description: 'Sammeln von Besucherstatistiken',
+                    description: '{{ 'translate.klaro.apps.googleAnalytics.description' | t }}',
                 },
                 youtube: {
-                    description: 'Einbettung von Videos',
+                    description: '{{ 'translate.klaro.apps.youtube.description' | t }}',
                 },
             },
         },
 
         apps: [
             {
-                name: 'googleAnalytics',
+                name: 'cms',
+                title: 'CMS',
+                purposes: ['necessary'],
                 default: true,
+                required: true,
+                callback: klaroCallback,
+            },
+            {
+                name: 'googleAnalytics',
                 title: 'Google Analytics',
                 purposes: ['statistics'],
-                cookies: [
-                    ['_ga', '/', cookieDomain],
-                    ['_gat', '/', cookieDomain],
-                    ['_gid', '/', cookieDomain],
-                ],
-                callback: function (consent, app) {
-                    console.log("User consent for app " + app.name + ": consent=" + consent);
-                    // location.reload();
-                },
+                default: true,
+                callback: klaroCallback,
             },
             {
                 name: 'youtube',
-                default: true,
                 title: 'Youtube',
-                purposes: ['media'],
-                callback: function (consent, app) {
-                    console.log("User consent for app " + app.name + ": consent=" + consent)
-                },
+                default: false,
+                purposes: ['externalmedia'],
+                callback: klaroCallback,
             },
         ],
-
     };
+
+    // Check if cookie settings changed
+    // Reload page if changed
+    function cookieChanged() {
+        if (klaroCurrent) {
+            var klaroNew = JSON.parse(getCookie('klaro'));
+            if (JSON.stringify(klaroCurrent) !== JSON.stringify(klaroNew)) {
+                location.reload();
+            }
+        }
+    }
     {{ craft.twigpack.includeFile("@webroot/dist/js/klaro.js") }}
+
+
+    window.addEventListener('load', function () {
+        var buttons = document.querySelectorAll('.cn-ok .cm-btn-sm');
+        if (buttons) {
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    location.reload();
+                })
+            })
+        }
+    })
 </script>
 
 
@@ -92,4 +157,3 @@
         data-name="googleAnalytics"
         data-src='https://www.google-analytics.com/analytics.js'></script>
 <!-- End Google Analytics -->
-{#{% endif %}#}

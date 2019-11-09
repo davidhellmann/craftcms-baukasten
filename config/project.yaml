@@ -1,4 +1,4 @@
-dateModified: 1573216638
+dateModified: 1573309989
 email:
   fromEmail: david@hellmann.io
   fromName: $SITE_NAME
@@ -31,8 +31,8 @@ fields:
     contentColumnType: text
     fieldGroup: 620c6d25-40c2-46af-915c-d700f182745d
   8ea6300e-c7ee-4655-8226-8ad9f0725531:
-    name: 'Cookie Consent'
-    handle: cookieConsent
+    name: 'Klaro Snippets'
+    handle: klaroSnippets
     instructions: ''
     searchable: true
     translationMethod: site
@@ -41,14 +41,14 @@ fields:
     settings:
       minBlocks: ''
       maxBlocks: ''
-      contentTable: '{{%matrixcontent_cookieconsent}}'
+      contentTable: '{{%matrixcontent_klarosnippets}}'
       propagationMethod: all
     contentColumnType: string
     fieldGroup: 8a51cd55-1898-4755-b1ea-9d4bbc87d521
 globalSets:
   ef418c49-b6f5-4130-a824-19a299c64fda:
-    name: 'Cookie Consent'
-    handle: cookieConsent
+    name: 'Klaro Snippets'
+    handle: klaroSnippets
     fieldLayouts:
       3da9685d-8dbf-48ce-95ab-6081a48668c0:
         tabs:
@@ -356,6 +356,29 @@ sections:
                   3dc41ab0-2a40-40b1-a265-106c542fe89b:
                     required: false
                     sortOrder: 1
+  66b60a7f-6d8d-4931-af03-e6878a97d4fe:
+    name: Challange
+    handle: challange
+    type: structure
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      04677986-61a7-4935-a707-cae0601cc8d5:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'section/{slug}'
+        template: ''
+    structure:
+      uid: 755bdacc-e4ff-4ce3-9ce9-8dcfc719ccc7
+      maxLevels: null
+    entryTypes:
+      9587bfe1-7b5c-43d7-9d1d-5851f8a9992f:
+        name: Challange
+        handle: challange
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: null
+        sortOrder: 1
 siteGroups:
   4b746bfb-9ec7-48d7-9841-1b642cffa702:
     name: Default
