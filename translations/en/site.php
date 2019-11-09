@@ -4,7 +4,7 @@ return [
     'translate.klaro.manage-cookies' => 'Settings',
 
     'translate.klaro.consentModal.title' =>
-        'Informationen die wir sammeln',
+        'Cookie Einstellungen',
 
     'translate.klaro.consentModal.description' =>
         'Hier können Sie einsehen und anpassen, welche Information wir über Sie sammeln.',
@@ -25,10 +25,10 @@ return [
         'Mehr erfahren',
 
     'translate.klaro.privacyPolicy.text' =>
-        'Dies ist der Text mit einem Link zu Ihrer {privacyPolicy}.',
+        'Hier finden sie unsere {privacyPolicy}.',
 
     'translate.klaro.privacyPolicy.name' =>
-        'Datenschutzerklärung (Name)',
+        'Datenschutzerklärung',
 
     'translate.klaro.ok' =>
         'Einverstanden',
@@ -78,7 +78,7 @@ return [
     'translate.klaro.purposes.externalmedia' =>
         'Externe Medien',
 
-    'translate.klaro.apps.cms.description' =>
+    'translate.klaro.apps.craftCMS.description' =>
         'Notwendige Cookies die gebraucht werden um die Website zu benutzen.',
 
     'translate.klaro.apps.googleAnalytics.description' =>

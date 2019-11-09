@@ -135,6 +135,11 @@
   background-color: var(--c-green);
 }
 
+.klaro .cookie-modal .cm-app-input:disabled + .cm-app-label .slider:before,
+.klaro .cookie-modal .cm-app-input:disabled + .cm-app-label .slider:before {
+  background-color: var(--c-gray-400);
+}
+
 .klaro .cookie-modal .slider,
 .klaro .cookie-notice .slider {
   box-shadow: none;
@@ -256,9 +261,11 @@
   z-index: 1001;
   box-shadow: none;
   width: 100%;
-  max-height: 98%;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  max-height: calc(100% - 32px);
+  max-width: calc(100% - 32px);
+  transform: translate(-50%, -50%);
   position: fixed;
   overflow: auto;
   background: var(--c-white);
@@ -269,7 +276,7 @@
 @media (min-width: 1024px) {
   .klaro .cookie-modal .cm-modal {
     border-radius: 0;
-    position: relative;
+    position: fixed;
     margin: 0 auto;
     max-width: 640px;
     height: auto;
@@ -315,8 +322,13 @@
   display: block;
 }
 
+.klaro .cookie-modal .cm-modal .cm-header p {
+  @include ms-respond(font-size, 0);
+}
+
 .klaro .cookie-modal .cm-modal .cm-header h1.title {
   padding-right: 0;
+  @include ms-respond(font-size, 2);
   @include space(padding-left padding-right, 1);
 }
 
@@ -368,9 +380,9 @@
 }
 
 .klaro .cookie-modal .cm-modal .cm-body ul.cm-apps li.cm-app p.purposes {
-  font-size: inherit;
-  margin-top: s(1);
-  color: var(--c-gray-500);
+  @include ms-respond(font-size, -2);
+  margin-top: s(1/2);
+  color: var(--c-gray-900);
 }
 
 .klaro .cookie-modal .cm-modal .cm-body ul.cm-apps li.cm-app.cm-toggle-all {
@@ -384,9 +396,9 @@
 
 .klaro .cookie-modal .cm-modal .cm-body ul.cm-apps li.cm-app span.cm-opt-out,
 .klaro .cookie-modal .cm-modal .cm-body ul.cm-apps li.cm-app span.cm-required {
-  padding-left: 0.2em;
-  font-size: 0.8em;
-  color: var(--c-gray-500);
+  padding-left: s(1/2);
+  @include ms-respond(font-size, -2);
+  color: var(--c-red);
 }
 
 .klaro .cookie-notice {
