@@ -34,11 +34,18 @@ body {
   @include wf('body');
   font-weight: 300;
 
-  .js &.no-hover > * {
+  &.no-hover > * {
     pointer-events: none;
   }
 
-  .js &.body-blocked {
+  &.is-resizing * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  &.body-blocked {
     height: 100vh;
     overflow: hidden;
   }
@@ -72,8 +79,12 @@ img[data-sizes='auto'] {
   opacity: 1;
 }
 
-[v-cloak] > * { display:none!important; }
-[v-cloak]::before { content: "loading…" }
+[v-cloak] > * {
+  display: none !important;
+}
+[v-cloak]::before {
+  content: 'loading…';
+}
 
 .sr-only {
   border: 0 !important;
@@ -109,4 +120,3 @@ input:focus {
 table {
   width: 100%;
 }
-

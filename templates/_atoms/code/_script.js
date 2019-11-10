@@ -20,25 +20,18 @@ const code = {
           status = 'closed';
           textHolder.innerHTML = showText;
           toggle.setAttribute('data-status', 'closed');
-          toggle.previousElementSibling.setAttribute(
-            'data-status',
-            'closed'
-          );
+          toggle.previousElementSibling.setAttribute('data-status', 'closed');
         } else {
           status = 'open';
           textHolder.innerHTML = hideText;
           toggle.setAttribute('data-status', 'open');
-          toggle.previousElementSibling.setAttribute(
-            'data-status',
-            'open'
-          );
+          toggle.previousElementSibling.setAttribute('data-status', 'open');
         }
       });
     });
   },
 
   init() {
-    console.log('Code Snippet'); // eslint-disable-line
     if (this.cfg.codeBlocks) {
       this.toggleCodeBlock(this.cfg.codeBlocks);
     }

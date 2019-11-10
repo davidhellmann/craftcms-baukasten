@@ -75,15 +75,6 @@ return [
     'translate.klaro.purposes.statistics' =>
         'Statistiken',
 
-    'translate.klaro.purposes.externalmedia' =>
+    'translate.klaro.purposes.externalMedia' =>
         'Externe Medien',
-
-    'translate.klaro.apps.craftCMS.description' =>
-        'Notwendige Cookies die gebraucht werden um die Website zu benutzen.',
-
-    'translate.klaro.apps.googleAnalytics.description' =>
-        'Cookie von Google für Website-Analysen. Erzeugt statistische Daten darüber, wie der Besucher die Website nutzt.',
-
-    'translate.klaro.apps.youtube.description' =>
-        'Einbettung von Videos'
 ];

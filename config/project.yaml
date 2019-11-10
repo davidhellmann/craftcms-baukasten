@@ -1,4 +1,4 @@
-dateModified: 1573309989
+dateModified: 1573338147
 email:
   fromEmail: david@hellmann.io
   fromName: $SITE_NAME
@@ -66,33 +66,9 @@ matrixBlockTypes:
     handle: snippet
     sortOrder: 1
     fields:
-      0f0626a3-600a-4d4c-992f-78e6f254f240:
-        name: 'Snippet Cookies'
-        handle: snippetCookies
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\Table
-        settings:
-          addRowLabel: 'Add a row'
-          maxRows: ''
-          minRows: ''
-          columns:
-            col1:
-              heading: 'Cookies to delete'
-              handle: cookiesToDelete
-              width: ''
-              type: singleline
-          defaults:
-            -
-              col1: ''
-          columnType: text
-        contentColumnType: text
-        fieldGroup: null
       23db484d-0a47-41ce-b7f2-5011966c10f8:
-        name: 'Snippet State'
-        handle: snippetState
+        name: 'Snippet Default State'
+        handle: snippetDefaultState
         instructions: ''
         searchable: true
         translationMethod: none
@@ -138,29 +114,29 @@ matrixBlockTypes:
         searchable: true
         translationMethod: none
         translationKeyFormat: null
-        type: craft\fields\Dropdown
+        type: craft\fields\Checkboxes
         settings:
-          optgroups: true
+          multi: true
           options:
             -
-              label: statistics
+              label: Necessary
+              value: necessary
+              default: ''
+            -
+              label: Statistics
               value: statistics
               default: ''
             -
-              label: security
-              value: security
+              label: 'External Media'
+              value: externalMedia
               default: ''
             -
-              label: richContent
-              value: richcontent
+              label: 'Live Chat'
+              value: liveChat
               default: ''
             -
-              label: livechat
-              value: livechat
-              default: ''
-            -
-              label: advertising
-              value: advertising
+              label: Advertisement
+              value: advertisement
               default: ''
         contentColumnType: string
         fieldGroup: null
@@ -193,6 +169,18 @@ matrixBlockTypes:
           mode: javascript
         contentColumnType: text
         fieldGroup: null
+      c08dacfe-dd95-4b81-ae41-700318af6bd4:
+        name: 'Snippet Required'
+        handle: snippetRequired
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Lightswitch
+        settings:
+          default: ''
+        contentColumnType: boolean
+        fieldGroup: null
     fieldLayouts:
       a9bacecd-8da7-4e4a-9b59-c617e85e19d2:
         tabs:
@@ -200,9 +188,6 @@ matrixBlockTypes:
             name: Content
             sortOrder: 1
             fields:
-              0f0626a3-600a-4d4c-992f-78e6f254f240:
-                required: false
-                sortOrder: 7
               23db484d-0a47-41ce-b7f2-5011966c10f8:
                 required: false
                 sortOrder: 5
@@ -214,13 +199,16 @@ matrixBlockTypes:
                 sortOrder: 3
               43fe1a37-497c-4cde-b26d-a26a388cbf21:
                 required: false
-                sortOrder: 6
+                sortOrder: 7
               4594ea1a-c7db-4124-b517-235e69fbb221:
                 required: false
                 sortOrder: 2
               97baf93d-a4ad-43a8-b6f1-969db71997b3:
                 required: false
                 sortOrder: 4
+              c08dacfe-dd95-4b81-ae41-700318af6bd4:
+                required: false
+                sortOrder: 6
 plugins:
   cp-css:
     edition: standard

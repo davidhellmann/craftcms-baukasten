@@ -1,16 +1,10 @@
 // Import our CSS
 import styles from '../css/app.scss';
 
-// CSS Vars Ponyfill:
-// Docs: https://jhildenbiddle.github.io/css-vars-ponyfill
-// import cssVars from 'css-vars-ponyfill';
-// cssVars({
-//     onlyLegacy: true,
-// });
-
 // because webpack generated code does not go through babel
 import 'core-js/modules/es.promise';
 import 'core-js/modules/es.array.iterator';
+import objectFitImages from 'object-fit-images';
 
 // App main
 const main = async () => {
@@ -25,16 +19,48 @@ const main = async () => {
     /* webpackChunkName: "LazySizes" */ 'lazysizes/plugins/respimg/ls.respimg.js'
   );
   await import(
-    /* webpackChunkName: "LazySizes" */ 'lazysizes/plugins/parent-fit/ls.parent-fit.min.js'
-  );
-  await import(
     /* webpackChunkName: "LazySizes" */ 'lazysizes/plugins/object-fit/ls.object-fit.js'
+  );
+
+  const browserDetect = await import(
+    /* webpackChunkName: "browserDetect" */ './scripts/bowser.js'
   );
 
   // fix issue when image is already in viewport and content is not loaded yet
   document.addEventListener('DOMContentLoaded', function() {
     LazySizes.init();
   });
+
+  document.addEventListener('lazyloaded', e => {
+    const target = e.target.parentNode;
+    if (target) {
+      setTimeout(() => {
+        target.style.backgroundColor = 'transparent';
+      }, 250);
+    }
+  });
+
+  // Bowser
+  await import(/* webpackChunkName: "browserDetect" */ './scripts/bowser.js')
+    .then(browserDetect => browserDetect.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
+
+  // disableHover
+  await import(
+    /* webpackChunkName: "disableHover" */ './scripts/disableHover.js'
+  )
+    .then(disableHover => disableHover.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
+
+  // resizeClass
+  await import(/* webpackChunkName: "resizeClass" */ './scripts/resizeClass.js')
+    .then(resizeClass => resizeClass.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
+
+  // example
+  await import(/* webpackChunkName: "example" */ './scripts/example.js')
+    .then(example => example.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
 
   // load slider async
   if (document.getElementsByClassName('js-slider').length) {

@@ -7,7 +7,7 @@
  */
 
 const navMain = {
-  cfg:  {
+  cfg: {
     name: 'navMain',
     selectors: {
       navMain: 'm-navMain',
@@ -24,10 +24,6 @@ const navMain = {
     els: {
       $navMain: undefined,
     },
-  },
-
-  log(msg) {
-    console.log(msg); // eslint-disable-line
   },
 
   setElements() {

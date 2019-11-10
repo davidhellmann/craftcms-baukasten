@@ -11,13 +11,17 @@
   left: 16px;
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--c-white);
   border-radius: 200px;
   padding: 8px 12px;
   box-shadow: 0 2px 10px rgba(#212121, 0.1);
   border: 1px solid rgba(#212121, 0.1);
-  cursor: pointer;
   @include ms-respond(font-size, -1);
+
+  @include media('>=m') {
+    bottom: 100px;
+    left: 100px;
+  }
 
   &:hover svg {
     transform: scale(1.2) rotate(15deg);
@@ -205,6 +209,7 @@
   @include space(padding-top padding-bottom, 0.25);
   margin-right: s(1);
   border: 0;
+  transition: background-color 250ms var(--ease-out-cubic);
 }
 
 .klaro .cookie-modal .cm-btn.cm-btn-sm,
@@ -216,26 +221,42 @@
 
 .klaro .cookie-modal .cm-btn.cm-btn-close,
 .klaro .cookie-notice .cm-btn.cm-btn-close {
-  background: var(--c-gray-800);
+  background-color: var(--c-gray-900);
   color: var(--c-gray-50);
+
+  &:hover {
+    background: var(--c-gray-700);
+  }
 }
 
 .klaro .cookie-modal .cm-btn.cm-btn-success,
 .klaro .cookie-notice .cm-btn.cm-btn-success {
-  background: var(--c-gray-800);
+  background-color: var(--c-gray-900);
   color: var(--c-gray-50);
+
+  &:hover {
+    background: var(--c-gray-700);
+  }
 }
 
 .klaro .cookie-modal .cm-btn.cm-btn-danger,
 .klaro .cookie-notice .cm-btn.cm-btn-danger {
-  background: var(--c-gray-800);
+  background-color: var(--c-gray-900);
   color: var(--c-gray-50);
+
+  &:hover {
+    background: var(--c-gray-700);
+  }
 }
 
 .klaro .cookie-modal .cm-btn.cm-btn-info,
 .klaro .cookie-notice .cm-btn.cm-btn-info {
-  background: var(--c-gray-800);
+  background-color: var(--c-gray-900);
   color: var(--c-gray-50);
+
+  &:hover {
+    background: var(--c-gray-700);
+  }
 }
 
 .klaro .cookie-modal {

@@ -1,3 +1,8 @@
+{% cache globally using key 'klaro' %}
+  {% set klaroSnippets = klaroSnippets.klaroSnippets.all() ?? null %}
+  {% set purposes = klaroSnippets[0].snippetPurpose.options ?? null %}
+{% endcache %}
+
 <script>
     function getCookie(name) {
         var value = "; " + document.cookie;
@@ -75,45 +80,37 @@
                 },
                 poweredBy: '{{ 'translate.klaro.poweredBy' | t }}',
                 purposes: {
-                    necessary: '{{ 'translate.klaro.purposes.necessary' | t }}',
-                    statistics: '{{ 'translate.klaro.purposes.statistics' | t }}',
-                    externalmedia: '{{ 'translate.klaro.purposes.externalmedia' | t }}',
+                    {% for purpose in purposes %}
+                      {{ purpose.value ~ ': '}}{{ "'" | raw }}{{ purpose.label }}{{ "'," | raw }}
+                    {% endfor %}
                 },
-                craftCMS: {
-                    description: '{{ 'translate.klaro.apps.craftCMS.description' | t }}',
-                },
-                googleAnalytics: {
-                    description: '{{ 'translate.klaro.apps.googleAnalytics.description' | t }}',
-                },
-                youtube: {
-                    description: '{{ 'translate.klaro.apps.youtube.description' | t }}',
-                },
+
+                // Loop App Descriptions here from Backend
+              {% for item in klaroSnippets if item.isActive %}
+                {% set name = item.snippetName | camel %}
+                {% set desc = item.snippetDescription %}
+                {{ name ~ ": { description: " }}{{ "'" | raw }}{{ desc }}{{ "' }," | raw }}
+              {% endfor %}
             },
         },
 
         apps: [
-            {
-                name: 'craftCMS',
-                title: 'Craft CMS',
-                purposes: ['necessary'],
-                default: true,
-                required: true,
-                callback: klaroCallback,
-            },
-            {
-                name: 'googleAnalytics',
-                title: 'Google Analytics',
-                purposes: ['statistics'],
-                default: true,
-                callback: klaroCallback,
-            },
-            {
-                name: 'youtube',
-                title: 'Youtube',
-                default: false,
-                purposes: ['externalmedia'],
-                callback: klaroCallback,
-            },
+            {% for item in klaroSnippets if item.isActive %}
+              {% set name = item.snippetName | camel %}
+              {% set required = item.snippetRequired %}
+              {% set snippetPurposes = [] %}
+              {% for purpose in item.snippetPurpose %}
+                {% set snippetPurposes = snippetPurposes | merge([purpose.value]) %}
+              {% endfor %}
+              {
+                name: '{{ name }}',
+                  title: '{{ item.snippetName }}',
+                  default: {{ item.snippetDefaultState ? 1 : 0 }},
+                  required: {{ item.snippetRequired ? 1 : 0 }},
+                  purposes: [ '{{ snippetPurposes | join("','") | raw }}' ],
+                  callback: klaroCallback,
+              },
+            {% endfor %}
         ],
     };
 

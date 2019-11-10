@@ -14,17 +14,11 @@ const cards = {
     name: 'cards',
   },
 
-  log(msg) {
-        console.log(msg); // eslint-disable-line
-  },
-
   init() {
     new Vue({
       name: 'CardsRoot',
-      components: {Cards},
+      components: { Cards },
     }).$mount('[data-component="cards"]');
-
-    this.log(`Init: ${this.cfg.name}`);
   },
 };
 

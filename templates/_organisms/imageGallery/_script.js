@@ -13,7 +13,6 @@ const imageGallery = {
     // (children of gallerySelector)
     const parseThumbnailElements = function(el) {
       const thumbElements = el.childNodes;
-      console.log(thumbElements);
       const numNodes = thumbElements.length;
       let items = [];
       let figureEl;
@@ -22,7 +21,6 @@ const imageGallery = {
       let item;
 
       for (var i = 0; i < numNodes; i++) {
-
         figureEl = thumbElements[i]; // <figure> element
 
         // include only element nodes
@@ -32,8 +30,7 @@ const imageGallery = {
 
         linkEl = figureEl.getElementsByTagName('a')[0]; // <a> element
 
-        size = linkEl.getAttribute('data-size')
-          .split('x');
+        size = linkEl.getAttribute('data-size').split('x');
 
         // create slide object
         item = {
@@ -42,13 +39,10 @@ const imageGallery = {
           h: parseInt(size[1], 10),
         };
 
-
         if (figureEl.children.length > 1) {
           // <figcaption> content
           item.title = figureEl.children[1].innerHTML;
         }
-
-        console.log(figureEl.children.length);  // eslint-disable-line
 
         if (linkEl.children.length > 0) {
           // <img> thumbnail element, retrieving thumbnail url
@@ -69,15 +63,14 @@ const imageGallery = {
 
     // triggers when user clicks on thumbnail
     var onThumbnailsClick = function(e) {
-
       e = e || window.event;
-      e.preventDefault ? e.preventDefault() : e.returnValue = false;
+      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
       var eTarget = e.target || e.srcElement;
 
       // find root element of slide
       var clickedListItem = closest(eTarget, function(el) {
-        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+        return el.tagName && el.tagName.toUpperCase() === 'FIGURE';
       });
 
       if (!clickedListItem) {
@@ -103,8 +96,6 @@ const imageGallery = {
         }
         nodeIndex++;
       }
-
-
 
       if (index >= 0) {
         // open PhotoSwipe if valid index found
@@ -141,7 +132,12 @@ const imageGallery = {
       return params;
     };
 
-    var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+    var openPhotoSwipe = function(
+      index,
+      galleryElement,
+      disableAnimation,
+      fromURL,
+    ) {
       var pswpElement = document.querySelectorAll('.pswp')[0],
         gallery,
         options,
@@ -151,7 +147,6 @@ const imageGallery = {
 
       // define options (if needed)
       options = {
-
         closeEl: true,
         captionEl: true,
         fullscreenEl: true,
@@ -169,7 +164,8 @@ const imageGallery = {
         getThumbBoundsFn: function(index) {
           // See Options -> getThumbBoundsFn section of documentation for more info
           var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
-            pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+            pageYScroll =
+              window.pageYOffset || document.documentElement.scrollTop,
             rect = thumbnail.getBoundingClientRect();
 
           return {
@@ -178,7 +174,6 @@ const imageGallery = {
             w: rect.width,
           };
         },
-
       };
 
       // PhotoSwipe opened from URL
@@ -210,7 +205,12 @@ const imageGallery = {
       }
 
       // Pass data to PhotoSwipe and initialize it
-      gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+      gallery = new PhotoSwipe(
+        pswpElement,
+        PhotoSwipeUI_Default,
+        items,
+        options,
+      );
       gallery.init();
     };
 
@@ -225,7 +225,12 @@ const imageGallery = {
     // Parse URL and open gallery if it contains #&pid=3&gid=1
     var hashData = photoswipeParseHash();
     if (hashData.pid && hashData.gid) {
-      openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+      openPhotoSwipe(
+        hashData.pid,
+        galleryElements[hashData.gid - 1],
+        true,
+        true,
+      );
     }
   },
 
