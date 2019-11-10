@@ -3,6 +3,14 @@
   {% set purposes = klaroSnippets[0].snippetPurpose.options ?? null %}
 {% endcache %}
 
+{% for item in klaroSnippets if item.isActive %}
+  {% set snippet = item.snippetCode %}
+  {% set name = item.snippetName | camel %}
+  {% set type = item.snippetRequired ? '' : 'opt-in' %}
+  {{ snippet |replace({'src=': 'data-name="' ~ name ~ '" type="' ~ type ~ '" data-type="text/javascript" data-src='}) | raw }}
+{% endfor %}
+
+
 <script>
     function getCookie(name) {
         var value = "; " + document.cookie;
@@ -80,37 +88,37 @@
                 },
                 poweredBy: '{{ 'translate.klaro.poweredBy' | t }}',
                 purposes: {
-                    {% for purpose in purposes %}
-                      {{ purpose.value ~ ': '}}{{ "'" | raw }}{{ purpose.label }}{{ "'," | raw }}
-                    {% endfor %}
+                  {% for purpose in purposes %}
+                  {{ purpose.value ~ ': '}}{{ "'" | raw }}{{ purpose.label }}{{ "'," | raw }}
+                  {% endfor %}
                 },
 
                 // Loop App Descriptions here from Backend
               {% for item in klaroSnippets if item.isActive %}
-                {% set name = item.snippetName | camel %}
-                {% set desc = item.snippetDescription %}
-                {{ name ~ ": { description: " }}{{ "'" | raw }}{{ desc }}{{ "' }," | raw }}
+              {% set name = item.snippetName | camel %}
+              {% set desc = item.snippetDescription %}
+              {{ name ~ ": { description: " }}{{ "'" | raw }}{{ desc }}{{ "' }," | raw }}
               {% endfor %}
             },
         },
 
         apps: [
-            {% for item in klaroSnippets if item.isActive %}
-              {% set name = item.snippetName | camel %}
-              {% set required = item.snippetRequired %}
-              {% set snippetPurposes = [] %}
-              {% for purpose in item.snippetPurpose %}
-                {% set snippetPurposes = snippetPurposes | merge([purpose.value]) %}
-              {% endfor %}
-              {
+          {% for item in klaroSnippets if item.isActive %}
+          {% set name = item.snippetName | camel %}
+          {% set required = item.snippetRequired %}
+          {% set snippetPurposes = [] %}
+          {% for purpose in item.snippetPurpose %}
+          {% set snippetPurposes = snippetPurposes | merge([purpose.value]) %}
+          {% endfor %}
+            {
                 name: '{{ name }}',
-                  title: '{{ item.snippetName }}',
-                  default: {{ item.snippetDefaultState ? 1 : 0 }},
-                  required: {{ item.snippetRequired ? 1 : 0 }},
-                  purposes: [ '{{ snippetPurposes | join("','") | raw }}' ],
-                  callback: klaroCallback,
-              },
-            {% endfor %}
+                title: '{{ item.snippetName }}',
+                default: {{ item.snippetDefaultState ? 1 : 0 }},
+                required: {{ item.snippetRequired ? 1 : 0 }},
+                purposes: [ '{{ snippetPurposes | join("','") | raw }}' ],
+                callback: klaroCallback,
+            },
+          {% endfor %}
         ],
     };
 
@@ -138,19 +146,3 @@
         }
     })
 </script>
-
-
-<!-- Google Analytics -->
-<script>
-    window.ga = window.ga || function () {
-        (ga.q = ga.q || []).push(arguments)
-    };
-    ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto');
-    ga('send', 'pageview');
-</script>
-<script type="opt-in"
-        data-type="text/javascript"
-        data-name="googleAnalytics"
-        data-src='https://www.google-analytics.com/analytics.js'></script>
-<!-- End Google Analytics -->

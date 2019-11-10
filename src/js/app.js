@@ -22,10 +22,6 @@ const main = async () => {
     /* webpackChunkName: "LazySizes" */ 'lazysizes/plugins/object-fit/ls.object-fit.js'
   );
 
-  const browserDetect = await import(
-    /* webpackChunkName: "browserDetect" */ './scripts/bowser.js'
-  );
-
   // fix issue when image is already in viewport and content is not loaded yet
   document.addEventListener('DOMContentLoaded', function() {
     LazySizes.init();
@@ -41,9 +37,9 @@ const main = async () => {
   });
 
   // Bowser
-  await import(/* webpackChunkName: "browserDetect" */ './scripts/bowser.js')
-    .then(browserDetect => browserDetect.default.init())
-    .catch(e => console.error(`${e.name} : ${e.message}`));
+  // await import(/* webpackChunkName: "browserDetect" */ './scripts/bowser.js')
+  //   .then(browserDetect => browserDetect.default.init())
+  //   .catch(e => console.error(`${e.name} : ${e.message}`));
 
   // disableHover
   await import(
@@ -52,25 +48,29 @@ const main = async () => {
     .then(disableHover => disableHover.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 
+  // Code Snippets
+  if (document.querySelectorAll('.a-code').length) {
+    await import(
+      /* webpackChunkName: "code" */ '../templates/_atoms/code/_script.js'
+    )
+      .then(code => code.carousel.init())
+      .catch(e => console.error(`${e.name} : ${e.message}`));
+  }
+
   // resizeClass
   await import(/* webpackChunkName: "resizeClass" */ './scripts/resizeClass.js')
     .then(resizeClass => resizeClass.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 
-  // example
-  await import(/* webpackChunkName: "example" */ './scripts/example.js')
-    .then(example => example.default.init())
-    .catch(e => console.error(`${e.name} : ${e.message}`));
-
   // load slider async
-  if (document.getElementsByClassName('js-slider').length) {
+  if (document.querySelectorAll('.js-slider').length) {
     await import(/* webpackChunkName: "flickity" */ './modules/flickity.js')
       .then(flickiy => flickiy.carousel.init())
       .catch(e => console.error(`${e.name} : ${e.message}`));
   }
 
   // load gallery async
-  if (document.getElementsByClassName('js-gallery').length) {
+  if (document.querySelectorAll('.js-gallery').length) {
     await import(/* webpackChunkName: "photoswipe" */ './modules/photoswipe.js')
       .then(photoswipe => photoswipe.default.init('.js-gallery'))
       .catch(e => console.error(`${e.name} : ${e.message}`));
