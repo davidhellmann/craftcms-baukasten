@@ -36,7 +36,7 @@ const main = async () => {
     }
   });
 
-  // Bowser
+  // Adds Browser Classes to the document
   // await import(/* webpackChunkName: "browserDetect" */ './scripts/bowser.js')
   //   .then(browserDetect => browserDetect.default.init())
   //   .catch(e => console.error(`${e.name} : ${e.message}`));
@@ -79,7 +79,6 @@ const main = async () => {
   // Create our vue instance
   new Vue({
     el: '#confetti',
-    delimiters: ['${', '}'],
     components: {
       confetti: () =>
         import(

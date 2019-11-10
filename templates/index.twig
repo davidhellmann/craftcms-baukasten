@@ -13,7 +13,6 @@
 {% block subcontent %}
   <section>
     <h2>subcontent</h2>
-
     {% set klaro = getCookie('klaro') | json_decode %}
     {% if klaro.youtube ?? null %}
       <iframe width="560"
