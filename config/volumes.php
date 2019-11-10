@@ -4,8 +4,8 @@ return [
     // All environments
     '*' => [
         'images' => [
-            'path' => '@assetsUrl/images/',
-            'url' => '@webroot/assets/images/',
+            'url' => '@assetsUrl/images/',
+            'path' => '@webroot/assets/images/',
         ],
         'files' => [
             'path' => '@assetsUrl/files/',
