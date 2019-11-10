@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>{{ seomatic.meta.seoTitle }}</title>
+    <link>{{ siteUrl }}</link>
+    <atom:link href="{{ craft.app.request.absoluteUrl }}" rel="self" type="application/rss+xml"/>
+    <description>{{ seomatic.meta.seoDescription }}</description>
+    <language>{{ craft.app.language |slice(0,2) }}</language>
+    <pubDate>{{ now | rss }}</pubDate>
+    <lastBuildDate>{{ now | rss }}</lastBuildDate>
+
+    {% set rss = craft.entries({ section: 'articles', limit: 24 }).all() %}
+    {% for entry in rss %}
+    <item>
+      <title>{{ entry.title }}</title>
+      <link>{{ entry.url }}</link>
+      <pubDate>{{ entry.postDate.rss }}</pubDate>
+      <author>{{ entry.author }}</author>
+      <guid>{{ entry.url }}</guid>
+      <description>
+        <![CDATA[
+          {% set thumb = {
+            mode: 'crop',
+            width: 1280,
+            height: 800,
+            quality: 100,
+            position: 'center-center'
+          } %}
+
+          {% set entryImage = entry.entryImage.one() %}
+          {% if entryImage ?? null %}
+            <a href="{{ entry.url }}">
+              <img src="{{ entryImage.getUrl(thumb) }}"
+                   width="{{ entryImage.getWidth(thumb) }}"
+                   height="{{ entryImage.getHeight(thumb) }}"
+                   alt="{{ entry.title }}">
+            </a>
+          {% endif %}
+
+          {% if entry.entrySummary ?? null %}
+            <div>
+              {{ entry.entrySummary | raw }}
+            </div>
+          {% endif %}
+          <p>
+            Full Article: <a href="entry.url">{{ entry.title }}</a>
+          <p>
+        ]]>
+      </description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
+
+
+

@@ -29,27 +29,33 @@
 {% extends "_layouts/global-variables.twig" %}
 
 {%- block htmlPage -%}
-    {% minify %}
-    <!DOCTYPE html>
-        {% block htmlTag %}
-            <html lang="{{ craft.app.language |slice(0,2) }}">
-        {% endblock htmlTag %}
-        {% block headTag %}
-            <head>
-        {% endblock headTag %}
-            {% include "_boilerplate/_partials/head-meta.twig" %}
-            {# Page content that should be included in the <head> #}
-            {% block headContent %}
-            {% endblock headContent %}
-            </head>
+  {% minify %}
+  <!DOCTYPE html>
+    {% block htmlTag %}
+      <html lang="{{ craft.app.language | slice(0,2) }}">
+    {% endblock htmlTag %}
+    <head>
+      {% include "_boilerplate/_partials/head-meta.twig" %}
+      {% include "_boilerplate/_partials/rss-feeds.twig" %}
+      {# Page content that should be included in the <head> #}
+      {% block headContent %}
+      {% endblock headContent %}
+    </head>
 
-            {% block bodyTag %}
-            <body>
-            {% endblock bodyTag %}
-                {# Page content that should be included in the <body> #}
-                {% block bodyContent %}
-                {% endblock bodyContent %}
-            </body>
-        </html>
-    {% endminify %}
+    {# Add some body classes #}
+    {% set sectionHandle = entry.section.handle ??? null %}
+    {% set pageClassSection = sectionHandle ? 'p-' ~ sectionHandle : '' %}
+    {% set pageClassEntryType = sectionHandle ? 'p-' ~ sectionHandle ??? null ~ '--' ~ entry.type.handle : '' %}
+    <body class="{{ pageClassSection }} {{ pageClassEntryType }} {{ bodyClass ??? null }} {{ craft.app.config.general.devMode ? 't-devMode' : '' }}">
+    {# Page content that should be included in the <body> #}
+    {% block bodyContent %}
+    {% endblock bodyContent %}
+
+    {% if craft.app.config.general.devMode %}
+      {# -- gridOverlay -- #}
+      {% include '_molecules/gridOverlay/_template.twig' only %}
+    {% endif %}
+    </body>
+    </html>
+  {% endminify %}
 {%- endblock htmlPage -%}

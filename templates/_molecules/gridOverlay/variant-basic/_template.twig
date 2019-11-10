@@ -1,0 +1,13 @@
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+<div class="js-toggleGrid">G</div>
+<div {{ module.settings(opt) }}>
+  <div class="container">
+    <div class="row">
+      {% for i in 1..opt.cols %}
+        <div class="col"></div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

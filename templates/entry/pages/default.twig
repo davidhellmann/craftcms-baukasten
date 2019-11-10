@@ -1,0 +1,84 @@
+{# -- Pages Default -- #}
+{# ---------------------------------------------------------------------- #}
+
+{% extends "_layouts/_master.twig" %}
+{% set bodyClass = "p-pageDefault" %}
+
+{# -- CRITICAL CSS -- #}
+{% block appInlineCSS %}
+  <style>
+    {{ source (_self ~ '_critical.min.css', ignore_missing = true) }}
+  </style>
+{% endblock %}
+
+{# -- App Content -- #}
+{% block appContent %}
+  {# -- Cache -- #}
+  {% cache using key _self ~ "-page-" ~ craft.app.request.pathInfo %}
+    {# If you have a Template with Pagination use this: #}
+    {# {% cache using key _self ~ '-archive-' ~ craft.app.request.pathInfo ~ (craft.app.request.pageNum ? '/p' ~ craft.app.request.pageNum : '') %} #}
+
+
+
+    <div class="o-section">
+      <div class="o-row">
+        <div class="o-col-6  o-col-s-24">
+          {# -- Include Page Title -- #}
+          {% include '_molecules/pageTitle/_template.twig' with {
+            opt: {
+              object: entry,
+              size: 'h1'
+            }
+          } only %}
+        </div>
+      </div>
+    </div>
+
+    <div class="o-section">
+      <div class="o-row">
+        <div class="o-col-6  o-col-s-24">
+          {# -- Entry Intro -- #}
+          {% if entry.entrySummary ?? null %}
+            {% include '_atoms/richText/_template.twig' with {
+              opt: {
+                text: entry.entrySummary
+              }
+            } only %}
+          {% endif %}
+
+          {# -- Image Entry -- #}
+          {% if entry.entryImage.one() ?? null %}
+            {% include '_atoms/headline/_template.twig' with {
+              opt: {
+                text: 'Image Entry',
+                size: 'h3'
+              }
+            } only %}
+
+            {% include '_organisms/imageSingle/_template.twig' with {
+              opt: {
+                image: entry.entryImage.one() ?? null,
+                ratio: 'landscape'
+              }
+            } only %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="o-section">
+      <div class="o-row">
+        <div class="o-col-6  o-col-s-24">
+          {# -- Content Builder -- #}
+          {% include '_contentBuilders/_contentBuilder.twig' with {
+            opt: {
+              object: entry
+            }
+          } only %}
+        </div>
+      </div>
+    </div>
+    {# -- Cache End -- #}
+  {% endcache %}
+{% endblock %}
+

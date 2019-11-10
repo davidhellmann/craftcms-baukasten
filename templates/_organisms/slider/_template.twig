@@ -1,0 +1,54 @@
+{#
+  o-slider
+  ------------------------------------------------------------
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'o-slider',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  images: null,
+  caption: null,
+  ratio: null,
+} %}
+
+{# Merge Default with Options #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# Merge JS Class #}
+{% set opt = opt | merge({  customClasses: opt.customClasses | merge(['js-slider'])}) %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{# Modul #}
+{% if opt.images %}
+  {# Include Variant #}
+  {% include [
+    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
+  ] %}
+  <div {{ module.settings(opt) }} itemscope itemtype="http://schema.org/ImageGallery" role="presentation" waypointTrigger>
+    <!-- Slides -->
+    {% for image in opt.images %}
+      <div class="{{ opt.cn ~ '__slide' }}" itemscope itemtype="http://schema.org/ImageObject">
+        {% include '_molecules/figure/_template.twig' with {
+          opt: {
+            customClasses: ['is-fadeInUp'],
+            data: {
+              'waypoint': ''
+            },
+            image: image ?? null,
+            ratio: opt.ratio ?? null,
+            caption: opt.caption ?? null,
+            captionHeadline: image.imageTitle ?? null,
+            captionText: image.imageCaption ?? null,
+            captionSource: image.imageSource ?? null,
+            captionSourceUrl: image.imageSourceUrl ?? null
+          }
+        } only %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

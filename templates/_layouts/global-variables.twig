@@ -20,8 +20,18 @@
   {% set baseUrl = alias('@assetsUrl') ~ '/' %}
   {% set gaTrackingId = getenv('GA_TRACKING_ID') %}
 
+  {# Typogrify Settings #}
+  {% set phpTypographySettings = getPhpTypographySettings() %}
+  {% do phpTypographySettings.set_hyphenation_language(craft.app.language | slice(0,2)) %}
+  {% do phpTypographySettings.set_diacritic_language(craft.app.language | slice(0,2)) %}
+
   {# Twig output from the render; this must be in a block #}
   {% block htmlPage %}
   {% endblock %}
+
+  {# Make stuff global available #}
+  <script>
+      window.siteUrl = '{{ siteUrl }}'
+  </script>
 
 {% endspaceless %}

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% if templateOptions is defined %}
+      [{{ templateOptions.status }}]
+      {{ templateOptions.title }}
+      &mdash;
+    {% endif %}{{ siteName }}
+  </title>
+
+  {# -- CRITICAL CSS -- #}
+  {% set cacheVal = getCookie('critical-css') %}
+  {% if not cacheVal or craft.app.config.general.devMode %}
+    {{ setCookie('critical-css', now | date_modify("+7 days").timestamp ) }}
+    {% block appInlineCSS %}
+    {% endblock %}
+  {% endif %}
+
+  {% include '_partials/webpack/webpack-header.twig' %}
+</head>
+<body>
+<div class="o-appWrapper">
+
+  {# -- pageTitle -- #}
+  {% include '_molecules/pageTitle/_template.twig' with {
+    opt: {
+      text: 'Typography' | t,
+      size: 'h1',
+    }
+  } only %}
+
+
+  <div class="typo-section">
+    <div class="typo-label">Headings</div>
+    {# -- headline -- #}
+    {% include '_atoms/headline/_template.twig' with {
+      opt: {
+        text: 'H1: ' ~ headline,
+        size: 'h1'
+      }
+    } only %}
+
+    {# -- headline -- #}
+    {% include '_atoms/headline/_template.twig' with {
+      opt: {
+        text: 'H2: ' ~ headline,
+        size: 'h2'
+      }
+    } only %}
+
+    {# -- headline -- #}
+    {% include '_atoms/headline/_template.twig' with {
+      opt: {
+        text: 'H3: ' ~ headline,
+        size: 'h3'
+      }
+    } only %}
+
+    {# -- headline -- #}
+    {% include '_atoms/headline/_template.twig' with {
+      opt: {
+        text: 'H4: ' ~ headline,
+        size: 'h4'
+      }
+    } only %}
+
+    {# -- headline -- #}
+    {% include '_atoms/headline/_template.twig' with {
+      opt: {
+        text: 'H5: ' ~ headline,
+        size: 'h5'
+      }
+    } only %}
+
+    {# -- headline -- #}
+    {% include '_atoms/headline/_template.twig' with {
+      opt: {
+        text: 'H6: ' ~ headline,
+        size: 'h6'
+      }
+    } only %}
+  </div>
+
+  {# -- headline -- #}
+  {% include '_atoms/headline/_template.twig' with {
+    opt: {
+      text: 'Full Text Example',
+      size: 'h2'
+    }
+  } only %}
+
+
+  <div class="typo-section">
+    <div class="typo-label">Mixed Text</div>
+    <div class="typo-paragraphs">
+      {# -- richText -- #}
+      {% include '_atoms/richText/_template.twig' with {
+        opt: {
+          text: textFull
+        }
+      } only %}
+    </div>
+  </div>
+
+
+
+  {# -- headline -- #}
+  {% include '_atoms/headline/_template.twig' with {
+    opt: {
+      text: 'Font Size Examples',
+      size: 'h2'
+    }
+  } only %}
+
+  {# -- BLOCK -- #}
+  <div class="typo-section">
+    <div class="typo-label">Paragraphs MS Respond 2</div>
+    <div class="typo-paragraphs ms-res-2">
+      {# -- richText -- #}
+      {% include '_atoms/richText/_template.twig' with {
+        opt: {
+          text: textSimple
+        }
+      } only %}
+    </div>
+  </div>
+  {# -- BLOCK END -- #}
+
+  {# -- BLOCK -- #}
+  <div class="typo-section">
+    <div class="typo-label">Paragraphs MS Respond 1</div>
+    <div class="typo-paragraphs ms-res-1">
+      {# -- richText -- #}
+      {% include '_atoms/richText/_template.twig' with {
+        opt: {
+          text: textSimple
+        }
+      } only %}
+    </div>
+  </div>
+  {# -- BLOCK END -- #}
+
+
+  {# -- BLOCK -- #}
+  <div class="typo-section">
+    <div class="typo-label">Paragraphs MS Respond 0</div>
+    <div class="typo-paragraphs ms-res-0">
+      {# -- richText -- #}
+      {% include '_atoms/richText/_template.twig' with {
+        opt: {
+          text: textSimple
+        }
+      } only %}
+    </div>
+  </div>
+  {# -- BLOCK END -- #}
+
+
+  {# -- BLOCK -- #}
+  <div class="typo-section">
+    <div class="typo-label">Paragraphs MS Respond -1</div>
+    <div class="typo-paragraphs ms-res--1">
+      {# -- richText -- #}
+      {% include '_atoms/richText/_template.twig' with {
+        opt: {
+          text: textSimple
+        }
+      } only %}
+    </div>
+  </div>
+  {# -- BLOCK END -- #}
+
+
+  {# -- BLOCK -- #}
+  <div class="typo-section">
+    <div class="typo-label">Paragraphs MS Respond -2</div>
+    <div class="typo-paragraphs ms-res--2">
+      {# -- richText -- #}
+      {% include '_atoms/richText/_template.twig' with {
+        opt: {
+          text: textSimple
+        }
+      } only %}
+    </div>
+  </div>
+  {# -- BLOCK END -- #}
+
+
+  {# Lowercase Glyphs #}
+  <div class="typo-section">
+    <div class="typo-label">Glyphs Latin Lowercase</div>
+    <div class="typo-glyphs">
+      {% for glyph in glyphsLower %}
+        <div class="typo-glyph">{{ glyph }}</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {# Uppercase Glyphs #}
+  <div class="typo-section">
+    <div class="typo-label">Glyphs Latin Uppercase</div>
+    <div class="typo-glyphs">
+      {% for glyph in glyphsUpper %}
+        <div class="typo-glyph">{{ glyph }}</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {# Ligatures Glyphs #}
+  <div class="typo-section">
+    <div class="typo-label">Glyphs Latin Ligatures</div>
+    <div class="typo-glyphs">
+      {% for glyph in glyphsLigatures %}
+        <div class="typo-glyph">{{ glyph }}</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {# Puntuation Glyphs #}
+  <div class="typo-section">
+    <div class="typo-label">Glyphs Latin Punctuation</div>
+    <div class="typo-glyphs">
+      {% for glyph in glyphsPunctuation %}
+        <div class="typo-glyph">{{ glyph }}</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {# Currency Glyphs #}
+  <div class="typo-section">
+    <div class="typo-label">Glyphs Latin Currency</div>
+    <div class="typo-glyphs">
+      {% for glyph in glyphsCurrency %}
+        <div class="typo-glyph">{{ glyph }}</div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  <style>
+    .typo-section {
+      width: 100%;
+      max-width: none;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid #eee;
+      background-color: #f8f8f8;
+      margin-top: 64px;
+      margin-bottom: 64px;
+      position: relative;
+      padding: 16px;
+      border-radius: 3px;
+      padding-bottom: 64px;
+    }
+
+    .typo-label {
+      position: absolute;
+      left: 32px;
+      top: 0;
+      line-height: 1;
+      font-weight: 700;
+      color: #333;
+      font-size: 10px;
+      padding: 6px 10px;
+      border: 1px solid #eee;
+      font-family: sans-serif;
+      text-transform: uppercase;
+      background-color: white;
+      border-radius: 3px;
+      transform: translateY(-50%);
+    }
+
+    .typo-glyphs {
+      width: 100%;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 16px;
+    }
+
+    .typo-glyph {
+      width: 64px;
+      height: 64px;
+      line-height: 64px;
+      text-align: center;
+      flex: 0 0 64px;
+      box-shadow: 0 1px 0 #eee, 0 2px 0 #ddd, 0 5px 10px #eee;
+      margin: 5px;
+      background-color: #fff;
+      transition-duration: 0.125s;
+      cursor: text;
+      border-radius: 3px;
+      position: relative;
+      transform: translateY(0);
+      transition-timing-function: ease-in-out;
+      transition-property: background-color, box-shadow, transform;
+    }
+
+    .typo-glyph:hover {
+      background-color: #fff;
+      transform: translateY(2px);
+      box-shadow: 0 1px 2px #eee;
+      z-index: 1111111;
+    }
+
+
+    .typo-paragraphs {
+      width: 100%;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 32px;
+      padding: 16px;
+    }
+  </style>
+
+
+  {% include '_partials/webpack/webpack-scripts.twig' %}
+</div>
+</body>
+</html>

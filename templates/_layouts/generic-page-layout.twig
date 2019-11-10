@@ -15,27 +15,25 @@
 
 {# Page body #}
 {% block bodyHtml %}
-  <div id="app">
-    {# Vue Confetti Instance #}
-    <div id="confetti">
-      <confetti></confetti>
-    </div>
-
-    {# Info header, including _navbar.twig #}
-    {% include "_partials/info-header.twig" %}
-
-    {# Primary content block #}
-    {% block content %}
-    {% endblock %}
-
-    {# Content that appears below the primary content block #}
-    {% block subcontent %}
-    {% endblock %}
-
-    {# Info footer #}
-    {% include "_partials/info-footer.twig" %}
-
-    {# HTML Footer #}
-    {% include "_partials/global-footer.twig" %}
+  {# Vue Confetti Instance #}
+  <div id="confetti">
+    <confetti></confetti>
   </div>
+
+  {# Info header, including _navbar.twig #}
+  {% include "_partials/info-header.twig" %}
+
+  {# Primary content block #}
+  {% block content %}
+  {% endblock %}
+
+  {# Content that appears below the primary content block #}
+  {% block subcontent %}
+  {% endblock %}
+
+  {# Info footer #}
+  {% include "_partials/info-footer.twig" %}
+
+  {# HTML Footer #}
+  {% include "_partials/global-footer.twig" %}
 {% endblock bodyHtml %}
