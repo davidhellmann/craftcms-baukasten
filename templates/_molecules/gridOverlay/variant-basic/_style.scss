@@ -22,7 +22,7 @@
     height: 20px;
     border-radius: 100%;
     cursor: pointer;
-    color: c('white');
+    color: var(--c-gray-200);
     font-family: sans-serif;
     font-size: 10px;
     text-align: center;
@@ -31,40 +31,81 @@
     box-shadow: 0 2px 10px rgba(var(--c-black), 0.5);
   }
 
-
   .m-gridOverlay {
-    position: fixed !important;
-    left: 50%;
-    top: 0;
+    position: fixed;
     z-index: 1111111;
-    transform: translateX(-50%);
+    top: 0;
+    width: 100vw;
     height: 100vh;
-    border-left: 1px dotted rgba(red, 0.2);
-    border-right: 1px dotted rgba(red, 0.2);
     pointer-events: none;
     display: none;
 
+    /* purgecss start ignore */
     &.is-visible {
       display: block;
     }
+    /* purgecss end ignore */
 
-    .o-row {
+    .container {
+      position: relative;
+      height: 100vh;
+      outline: 1px solid rgba(#D81B60, 0.25);
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        height: 100vh;
+        @include spaceX(width, 1);
+      }
+
+      &::before {
+        left: 0;
+        top: 0;
+        border-right: 1px dotted rgba(#D81B60, 0.25);
+      }
+
+      &::after {
+        right: 0;
+        top: 0;
+        border-left: 1px dotted rgba(#D81B60, 0.25);
+      }
+    }
+
+    .row {
       height: 100vh;
     }
 
-    .o-col {
-      box-shadow: 1px 0 0 rgba(red, 0.3);
+    .col {
+      position: relative;
       height: 100vh;
-      margin: 0;
+      box-shadow: 1px 0px 0px 0px rgba(#4FC3F7, 0.25);
+      width: calc(1 / 6 * 100%);
 
       &:first-child {
-        box-shadow: 1px 0 0 rgba(red, 0.3), -1px 0 0 rgba(red, 0.3),;
+        box-shadow: -1px 0px 0px 0px rgba(#4FC3F7, 0.25), 1px 0px 0px 0px rgba(#4FC3F7, 0.25);
       }
 
-      &:nth-child(6n) ~ .o-col {
+      &:nth-child(n+7) {
         display: none;
+      }
 
-        @include media('>=s') {
+      @include media('>=s') {
+        width: calc(1 / 12 * 100%);
+
+        &:nth-child(n+7) {
+          display: block;
+        }
+
+        &:nth-child(n+13) {
+          display: none;
+        }
+      }
+
+      @include media('>=m') {
+        width: calc(1 / 24 * 100%);
+
+        &:nth-child(n+13) {
           display: block;
         }
       }
@@ -73,18 +114,20 @@
       &::after {
         content: '';
         position: absolute;
-        @include f(s(1), s(2), width);
         height: 100vh;
+        @include spaceX(width, 0.5);
       }
 
       &::before {
         left: 0;
-        border-right: 1px dotted rgba(red, 0.2);
+        top: 0;
+        border-right: 1px dotted rgba(#4FC3F7, 0.25);
       }
 
       &::after {
         right: 0;
-        border-left: 1px dotted rgba(red, 0.2);
+        top: 0;
+        border-left: 1px dotted rgba(#4FC3F7, 0.25);
       }
     }
   }
