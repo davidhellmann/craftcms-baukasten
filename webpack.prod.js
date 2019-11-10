@@ -11,8 +11,9 @@ const path = require('path');
 const webpack = require('webpack');
 
 // webpack plugins
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CreateSymlinkPlugin = require('create-symlink-webpack-plugin');
 const CriticalCssPlugin = require('critical-css-webpack-plugin');
@@ -51,17 +52,20 @@ const configureBanner = () => {
       ' * @author         ' + pkg.author.name,
       ' * @build          ' + moment().format('llll') + ' ET',
       ' * @release        ' + commitHash + ' [' + branch + ']',
-      ' * @copyright      Copyright (c) ' + moment().format('YYYY') + ' ' + settings.copyright,
+      ' * @copyright      Copyright (c) ' +
+        moment().format('YYYY') +
+        ' ' +
+        settings.copyright,
       ' *',
       ' */',
-      ''
+      '',
     ].join('\n'),
-    raw: true
+    raw: true,
   };
 };
 
 // Configure Bundle Analyzer
-const configureBundleAnalyzer = (buildType) => {
+const configureBundleAnalyzer = buildType => {
   if (buildType === LEGACY_CONFIG) {
     return {
       analyzerMode: 'static',
@@ -86,39 +90,41 @@ const configureCompression = () => {
     deleteOriginalAssets: false,
     compressionOptions: {
       numiterations: 15,
-      level: 9
+      level: 9,
     },
     algorithm(input, compressionOptions, callback) {
       return zopfli.gzip(input, compressionOptions, callback);
-    }
+    },
   };
 };
 
 // Configure Critical CSS
 const configureCriticalCss = () => {
-  return (settings.criticalCssConfig.pages.map((row) => {
-      const criticalSrc = settings.urls.critical + row.url;
-      const criticalDest = settings.criticalCssConfig.base + row.template + settings.criticalCssConfig.suffix;
-      let criticalWidth = settings.criticalCssConfig.criticalWidth;
-      let criticalHeight = settings.criticalCssConfig.criticalHeight;
-      // Handle Google AMP templates
-      if (row.template.indexOf(settings.criticalCssConfig.ampPrefix) !== -1) {
-        criticalWidth = settings.criticalCssConfig.ampCriticalWidth;
-        criticalHeight = settings.criticalCssConfig.ampCriticalHeight;
-      }
-      console.log("source: " + criticalSrc + " dest: " + criticalDest);
-      return new CriticalCssPlugin({
-        base: './',
-        src: criticalSrc,
-        dest: criticalDest,
-        extract: false,
-        inline: false,
-        minify: true,
-        width: criticalWidth,
-        height: criticalHeight,
-      })
-    })
-  );
+  return settings.criticalCssConfig.pages.map(row => {
+    const criticalSrc = settings.urls.critical + row.url;
+    const criticalDest =
+      settings.criticalCssConfig.base +
+      row.template +
+      settings.criticalCssConfig.suffix;
+    let criticalWidth = settings.criticalCssConfig.criticalWidth;
+    let criticalHeight = settings.criticalCssConfig.criticalHeight;
+    // Handle Google AMP templates
+    if (row.template.indexOf(settings.criticalCssConfig.ampPrefix) !== -1) {
+      criticalWidth = settings.criticalCssConfig.ampCriticalWidth;
+      criticalHeight = settings.criticalCssConfig.ampCriticalHeight;
+    }
+    console.log('source: ' + criticalSrc + ' dest: ' + criticalDest);
+    return new CriticalCssPlugin({
+      base: './',
+      src: criticalSrc,
+      dest: criticalDest,
+      extract: false,
+      inline: false,
+      minify: true,
+      width: criticalWidth,
+      height: criticalHeight,
+    });
+  });
 };
 
 // Configure Clean webpack
@@ -126,7 +132,7 @@ const configureCleanWebpack = () => {
   return {
     cleanOnceBeforeBuildPatterns: settings.paths.dist.clean,
     verbose: true,
-    dry: false
+    dry: false,
   };
 };
 
@@ -140,7 +146,7 @@ const configureHtml = () => {
 };
 
 // Configure Image loader
-const configureImageLoader = (buildType) => {
+const configureImageLoader = buildType => {
   if (buildType === LEGACY_CONFIG) {
     return {
       test: /\.(png|jpe?g|gif|svg|webp)$/i,
@@ -148,10 +154,10 @@ const configureImageLoader = (buildType) => {
         {
           loader: 'file-loader',
           options: {
-            name: 'img/[name].[hash].[ext]'
-          }
-        }
-      ]
+            name: 'img/[name].[hash].[ext]',
+          },
+        },
+      ],
     };
   }
   if (buildType === MODERN_CONFIG) {
@@ -161,8 +167,8 @@ const configureImageLoader = (buildType) => {
         {
           loader: 'file-loader',
           options: {
-            name: 'img/[name].[hash].[ext]'
-          }
+            name: 'img/[name].[hash].[ext]',
+          },
         },
         {
           loader: 'img-loader',
@@ -179,20 +185,18 @@ const configureImageLoader = (buildType) => {
                 optimizationLevel: 5,
               }),
               require('imagemin-svgo')({
-                plugins: [
-                  {convertPathData: false},
-                ]
+                plugins: [{ convertPathData: false }],
               }),
-            ]
-          }
-        }
-      ]
+            ],
+          },
+        },
+      ],
     };
   }
 };
 
 // Configure optimization
-const configureOptimization = (buildType) => {
+const configureOptimization = buildType => {
   if (buildType === LEGACY_CONFIG) {
     return {
       splitChunks: {
@@ -203,14 +207,12 @@ const configureOptimization = (buildType) => {
             name: settings.vars.cssName,
             test: /\.(pcss|scss|css|vue)$/,
             chunks: 'all',
-            enforce: true
-          }
-        }
+            enforce: true,
+          },
+        },
       },
       minimizer: [
-        new TerserPlugin(
-          configureTerser()
-        ),
+        new TerserPlugin(configureTerser()),
         new OptimizeCSSAssetsPlugin({
           cssProcessorOptions: {
             map: {
@@ -218,25 +220,21 @@ const configureOptimization = (buildType) => {
               annotation: true,
             },
             safe: true,
-            discardComments: true
+            discardComments: true,
           },
-        })
-      ]
+        }),
+      ],
     };
   }
   if (buildType === MODERN_CONFIG) {
     return {
-      minimizer: [
-        new TerserPlugin(
-          configureTerser()
-        ),
-      ]
+      minimizer: [new TerserPlugin(configureTerser())],
     };
   }
 };
 
 // Configure Postcss loader
-const configurePostcssLoader = (buildType) => {
+const configurePostcssLoader = buildType => {
   if (buildType === LEGACY_CONFIG) {
     return {
       test: /\.(pcss|css|scss)$/,
@@ -246,17 +244,17 @@ const configurePostcssLoader = (buildType) => {
           loader: 'css-loader',
           options: {
             importLoaders: 3,
-            sourceMap: true
-          }
+            sourceMap: true,
+          },
         },
         {
-          loader: 'resolve-url-loader'
+          loader: 'resolve-url-loader',
         },
         {
           loader: 'postcss-loader',
           options: {
-            sourceMap: true
-          }
+            sourceMap: true,
+          },
         },
         {
           loader: 'sass-loader',
@@ -269,14 +267,14 @@ const configurePostcssLoader = (buildType) => {
             sourceMap: true,
           },
         },
-      ]
+      ],
     };
   }
   // Don't generate CSS for the modern config in production
   if (buildType === MODERN_CONFIG) {
     return {
       test: /\.(pcss|css|scss)$/,
-      loader: 'ignore-loader'
+      loader: 'ignore-loader',
     };
   }
 };
@@ -293,7 +291,7 @@ const configurePurgeCss = () => {
     paths: glob.sync(paths),
     whitelist: WhitelisterPlugin(settings.purgeCssConfig.whitelist),
     whitelistPatterns: settings.purgeCssConfig.whitelistPatterns,
-    extractors: []
+    extractors: [],
   };
 };
 
@@ -302,7 +300,7 @@ const configureTerser = () => {
   return {
     cache: true,
     parallel: true,
-    sourceMap: true
+    sourceMap: true,
   };
 };
 
@@ -319,7 +317,7 @@ const configureWebapp = () => {
       developerName: pkg.author.name,
       developerURL: pkg.author.url,
       path: settings.paths.dist.base,
-    }
+    },
   };
 };
 
@@ -332,89 +330,58 @@ const configureWorkbox = () => {
 
 // Production module exports
 module.exports = [
-  merge(
-    common.legacyConfig,
-    {
-      output: {
-        filename: path.join('./js', '[name]-legacy.[chunkhash].js'),
-      },
-      mode: 'production',
-      devtool: 'source-map',
-      optimization: configureOptimization(LEGACY_CONFIG),
-      module: {
-        rules: [
-          configurePostcssLoader(LEGACY_CONFIG),
-          configureImageLoader(LEGACY_CONFIG),
-        ],
-      },
-      plugins: [
-        new MiniCssExtractPlugin({
-          path: path.resolve(__dirname, settings.paths.dist.base),
-          filename: path.join('./css', '[name].[chunkhash].css'),
-        }),
-        new PurgecssPlugin(
-          configurePurgeCss()
-        ),
-        new webpack.BannerPlugin(
-          configureBanner()
-        ),
-        new HtmlWebpackPlugin(
-          configureHtml()
-        ),
-        new WebappWebpackPlugin(
-          configureWebapp()
-        ),
-        new CreateSymlinkPlugin(
-          settings.createSymlinkConfig,
-          true
-        ),
-        new SaveRemoteFilePlugin(
-          settings.saveRemoteFileConfig
-        ),
-        new CompressionPlugin(
-          configureCompression()
-        ),
-        new BundleAnalyzerPlugin(
-          configureBundleAnalyzer(LEGACY_CONFIG),
-        ),
-      ].concat(
-        configureCriticalCss()
-      )
-    }
-  ),
-  merge(
-    common.modernConfig,
-    {
-      output: {
-        filename: path.join('./js', '[name].[chunkhash].js'),
-      },
-      mode: 'production',
-      devtool: 'source-map',
-      optimization: configureOptimization(MODERN_CONFIG),
-      module: {
-        rules: [
-          configurePostcssLoader(MODERN_CONFIG),
-          configureImageLoader(MODERN_CONFIG),
-        ],
-      },
-      plugins: [
-        new CleanWebpackPlugin(
-          configureCleanWebpack()
-        ),
-        new webpack.BannerPlugin(
-          configureBanner()
-        ),
-        new ImageminWebpWebpackPlugin(),
-        new WorkboxPlugin.GenerateSW(
-          configureWorkbox()
-        ),
-        new CompressionPlugin(
-          configureCompression()
-        ),
-        new BundleAnalyzerPlugin(
-          configureBundleAnalyzer(MODERN_CONFIG),
-        ),
-      ]
-    }
-  ),
+  merge(common.legacyConfig, {
+    output: {
+      filename: path.join('./js', '[name]-legacy.[chunkhash].js'),
+    },
+    mode: 'production',
+    devtool: 'source-map',
+    optimization: configureOptimization(LEGACY_CONFIG),
+    module: {
+      rules: [
+        configurePostcssLoader(LEGACY_CONFIG),
+        configureImageLoader(LEGACY_CONFIG),
+      ],
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        path: path.resolve(__dirname, settings.paths.dist.base),
+        filename: path.join('./css', '[name].[chunkhash].css'),
+      }),
+      new PurgecssPlugin(configurePurgeCss()),
+      new webpack.BannerPlugin(configureBanner()),
+      new HtmlWebpackPlugin(configureHtml()),
+      new WebappWebpackPlugin(configureWebapp()),
+      new CreateSymlinkPlugin(settings.createSymlinkConfig, true),
+      new SaveRemoteFilePlugin(settings.saveRemoteFileConfig),
+      new CompressionPlugin(configureCompression()),
+      // new BundleAnalyzerPlugin(
+      //   configureBundleAnalyzer(LEGACY_CONFIG),
+      // ),
+    ].concat(configureCriticalCss()),
+  }),
+  merge(common.modernConfig, {
+    output: {
+      filename: path.join('./js', '[name].[chunkhash].js'),
+    },
+    mode: 'production',
+    devtool: 'source-map',
+    optimization: configureOptimization(MODERN_CONFIG),
+    module: {
+      rules: [
+        configurePostcssLoader(MODERN_CONFIG),
+        configureImageLoader(MODERN_CONFIG),
+      ],
+    },
+    plugins: [
+      new CleanWebpackPlugin(configureCleanWebpack()),
+      new webpack.BannerPlugin(configureBanner()),
+      new ImageminWebpWebpackPlugin(),
+      new WorkboxPlugin.GenerateSW(configureWorkbox()),
+      new CompressionPlugin(configureCompression()),
+      // new BundleAnalyzerPlugin(
+      //   configureBundleAnalyzer(MODERN_CONFIG),
+      // ),
+    ],
+  }),
 ];

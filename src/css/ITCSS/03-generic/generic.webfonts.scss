@@ -10,11 +10,12 @@
   font-style: normal;
   font-display: swap;
   font-weight: 900;
-  src:
-    local('Merriweather Black '),
-    local('Merriweather-Black'),
-    url('/dist/fonts/merriweather-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
-    url('/dist/fonts/merriweather-latin-900.woff') format('woff'); /* Modern Browsers */
+  src: local('Merriweather Black '), local('Merriweather-Black'),
+    url('~typeface-merriweather/files/merriweather-latin-900.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('~typeface-merriweather/files/merriweather-latin-900.woff')
+      format('woff'); /* Modern Browsers */
 }
 
 /* merriweather-900italic - latin */
@@ -23,11 +24,12 @@
   font-style: italic;
   font-display: swap;
   font-weight: 900;
-  src:
-    local('Merriweather Black italic'),
-    local('Merriweather-Blackitalic'),
-    url('/dist/fonts/merriweather-latin-900italic.woff2') format('woff2'), /* Super Modern Browsers */
-    url('/dist/fonts/merriweather-latin-900italic.woff') format('woff'); /* Modern Browsers */
+  src: local('Merriweather Black italic'), local('Merriweather-Blackitalic'),
+    url('~typeface-merriweather/files/merriweather-latin-900italic.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('~typeface-merriweather/files/merriweather-latin-900italic.woff')
+      format('woff'); /* Modern Browsers */
 }
 
 @font-face {
@@ -35,24 +37,19 @@
   font-style: normal;
   font-display: swap;
   font-weight: 300;
-  src:
-    local('Lato Regular '),
-    local('Lato-Regular'),
-    url('/dist/fonts/lato-latin-300.woff2') format('woff2'),
-    url('/dist/fonts/lato-latin-300.woff') format('woff');
+  src: local('Lato Regular '), local('Lato-Regular'),
+    url('~typeface-lato/files/lato-latin-300.woff2') format('woff2'),
+    url('~typeface-lato/files/lato-latin-300.woff') format('woff');
 }
-
 
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-display: swap;
   font-weight: 700;
-  src:
-    local('Lato Bold '),
-    local('Lato-Bold'),
-    url('/dist/fonts/lato-latin-700.woff2') format('woff2'),
-    url('/dist/fonts/lato-latin-700.woff') format('woff');
+  src: local('Lato Bold '), local('Lato-Bold'),
+    url('~typeface-lato/files/lato-latin-700.woff2') format('woff2'),
+    url('~typeface-lato/files/lato-latin-700.woff') format('woff');
 }
 
 @font-face {
@@ -60,9 +57,10 @@
   font-style: normal;
   font-display: swap;
   font-weight: 300;
-  src:
-    local('Roboto Mono Regular '),
-    local('Roboto Mono-Regular'),
-    url('/dist/fonts/roboto-mono-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
-    url('/dist/fonts/roboto-mono-latin-300.woff') format('woff'); /* Modern Browsers */
+  src: local('Roboto Mono Regular '), local('Roboto Mono-Regular'),
+    url('~typeface-roboto-mono/files/roboto-mono-latin-300.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('~typeface-roboto-mono/files/roboto-mono-latin-300.woff')
+      format('woff'); /* Modern Browsers */
 }
