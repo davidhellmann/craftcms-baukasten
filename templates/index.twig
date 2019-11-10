@@ -15,7 +15,7 @@
     <h2>subcontent</h2>
     <p>The quick brown fox jumps over the lazy dogs</p>
     {% set klaro = getCookie('klaro') | json_decode %}
-    {% if klaro.youtube ?? null %}
+    {% if klaro.youtube ?? craft.app.config.general.devMode ?? null %}
       <iframe width="560"
               height="315"
               class="lazyload"
