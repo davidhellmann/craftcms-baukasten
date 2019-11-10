@@ -35,7 +35,8 @@ return [
         'appHeader--variantName' => array_merge($defaultVariant, [
             'title' => 'appHeader Intro',
             'description' => 'appHeader Description goes here…',
-            'modifiers' => ['variant'],
+            'modifiers' => [],
+'variant' => 'basic',
         ]),
         */
     ]

@@ -1,6 +1,22 @@
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: '<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  variant: 'basic',
+  foo: null
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-<div {{ module.settings(opt) }}>
-  __BASIC_VARIANT_TEMPLATE__
-</div>
+{% if opt.foo %}
+  <div {{ module.settings(opt) }}>
+    __BASIC_VARIANT_TEMPLATE__
+  </div>
+{% endif %}
+

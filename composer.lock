@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cdd620dcf29d792cba11474793eb15c8",
+    "content-hash": "bbfaed21dcf8d1118e7d62a0ee1c1e00",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -585,11 +585,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.3.14",
+            "version": "3.3.15",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/42829299dd7eb126bb433bb1018d50309de45cab",
-                "reference": "42829299dd7eb126bb433bb1018d50309de45cab",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/7a294dd6fd6054b5278a940d7a6e4fcd9c1a2550",
+                "reference": "7a294dd6fd6054b5278a940d7a6e4fcd9c1a2550",
                 "shasum": ""
             },
             "require": {
@@ -666,7 +666,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2019-10-30T19:07:57+00:00"
+            "time": "2019-11-05T19:51:36+00:00"
         },
         {
             "name": "craftcms/feed-me",
@@ -3683,11 +3683,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.2.30",
+            "version": "3.2.32",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/5ab2026472512ff00bf20157c308360309939465",
-                "reference": "5ab2026472512ff00bf20157c308360309939465",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/326f69e3e757bfd1ae3215cc63cac0091a6532a1",
+                "reference": "326f69e3e757bfd1ae3215cc63cac0091a6532a1",
                 "shasum": ""
             },
             "require": {
@@ -3751,7 +3751,7 @@
                 "docs": "https://nystudio107.com/plugins/seomatic/documentation",
                 "issues": "https://nystudio107.com/plugins/seomatic/support"
             },
-            "time": "2019-10-31T19:25:18+00:00"
+            "time": "2019-11-05T18:24:37+00:00"
         },
         {
             "name": "nystudio107/craft-templatecomments",
@@ -6732,11 +6732,11 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v1.1.7",
+            "version": "v1.1.8",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/ffcde9615dc5bb4825b9f6aed07716f1f57faae0",
-                "reference": "ffcde9615dc5bb4825b9f6aed07716f1f57faae0",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/ffc7f5692092df31515df2a5ecf3b7302b3ddacf",
+                "reference": "ffc7f5692092df31515df2a5ecf3b7302b3ddacf",
                 "shasum": ""
             },
             "require": {
@@ -6757,7 +6757,6 @@
                     "Symfony\\Contracts\\Service\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6781,7 +6780,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-09-17T11:12:18+00:00"
+            "time": "2019-10-14T12:27:06+00:00"
         },
         {
             "name": "symfony/translation",
@@ -7357,6 +7356,58 @@
             "time": "2019-09-18T12:16:43+00:00"
         },
         {
+            "name": "verbb/super-table",
+            "version": "2.3.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/243a7c67a3e49156352f5d132e1a0183f3edcf39",
+                "reference": "243a7c67a3e49156352f5d132e1a0183f3edcf39",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.3.1.1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Super Table",
+                "handle": "super-table",
+                "description": "Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.",
+                "documentationUrl": "https://github.com/verbb/super-table",
+                "changelogUrl": "https://raw.githubusercontent.com/verbb/super-table/craft-3/CHANGELOG.md",
+                "class": "verbb\\supertable\\SuperTable"
+            },
+            "autoload": {
+                "psr-4": {
+                    "verbb\\supertable\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Verbb",
+                    "homepage": "https://verbb.io"
+                }
+            ],
+            "description": "Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "super table"
+            ],
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/super-table/issues?state=open",
+                "source": "https://github.com/verbb/super-table",
+                "docs": "https://github.com/verbb/super-table",
+                "rss": "https://github.com/verbb/super-table/commits/v2.atom"
+            },
+            "time": "2019-09-11T10:36:16+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v3.6.0",
             "dist": {
@@ -7410,19 +7461,16 @@
         },
         {
             "name": "voku/anti-xss",
-            "version": "4.1.15",
+            "version": "4.1.17",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/anti-xss/zipball/14ff3982d58af104f5f38a438d99b9600705151e",
-                "reference": "14ff3982d58af104f5f38a438d99b9600705151e",
+                "url": "https://api.github.com/repos/voku/anti-xss/zipball/9887e239ad0a024fd8279ebd63a696e546a07cd5",
+                "reference": "9887e239ad0a024fd8279ebd63a696e546a07cd5",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.0.0",
-                "voku/portable-utf8": "~5.4.21"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~6.0 || ~7.0"
+                "voku/portable-utf8": "~5.4.25"
             },
             "type": "library",
             "extra": {
@@ -7435,7 +7483,6 @@
                     "voku\\helper\\": "src/voku/helper/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -7458,7 +7505,7 @@
                 "security",
                 "xss"
             ],
-            "time": "2019-09-25T22:40:48+00:00"
+            "time": "2019-11-08T22:15:26+00:00"
         },
         {
             "name": "voku/arrayy",
@@ -7606,11 +7653,11 @@
         },
         {
             "name": "voku/portable-utf8",
-            "version": "5.4.25",
+            "version": "5.4.26",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-utf8/zipball/aed1b955d5d43e4104d72dce4158db5de3cecce6",
-                "reference": "aed1b955d5d43e4104d72dce4158db5de3cecce6",
+                "url": "https://api.github.com/repos/voku/portable-utf8/zipball/708c25fd7e460260cf111f034deed117f1ef5173",
+                "reference": "708c25fd7e460260cf111f034deed117f1ef5173",
                 "shasum": ""
             },
             "require": {
@@ -7621,9 +7668,6 @@
                 "symfony/polyfill-mbstring": "~1.0",
                 "symfony/polyfill-php72": "~1.0",
                 "voku/portable-ascii": "~1.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~6.0 || ~7.0"
             },
             "suggest": {
                 "ext-ctype": "Use Ctype for e.g. hexadecimal digit detection",
@@ -7643,7 +7687,6 @@
                     "bootstrap.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "(Apache-2.0 or GPL-2.0)"
             ],
@@ -7671,7 +7714,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2019-10-14T06:46:29+00:00"
+            "time": "2019-11-05T02:39:01+00:00"
         },
         {
             "name": "voku/stop-words",
@@ -8162,11 +8205,11 @@
         },
         {
             "name": "yiisoft/yii2-debug",
-            "version": "2.1.10",
+            "version": "2.1.11",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/4f1a9f0fe8c565203b9243613b0a81a46dde27e7",
-                "reference": "4f1a9f0fe8c565203b9243613b0a81a46dde27e7",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/72e7c6c454028366f14ccef5a93d6c18fc9dcd63",
+                "reference": "72e7c6c454028366f14ccef5a93d6c18fc9dcd63",
                 "shasum": ""
             },
             "require": {
@@ -8174,11 +8217,6 @@
                 "opis/closure": "^3.3",
                 "php": ">=5.4",
                 "yiisoft/yii2": "~2.0.13"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "<7",
-                "yiisoft/yii2-coding-standards": "~2.0",
-                "yiisoft/yii2-swiftmailer": "*"
             },
             "type": "yii2-extension",
             "extra": {
@@ -8191,7 +8229,6 @@
                     "yii\\debug\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -8211,7 +8248,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2019-10-22T10:36:02+00:00"
+            "time": "2019-11-05T13:56:49+00:00"
         },
         {
             "name": "yiisoft/yii2-queue",

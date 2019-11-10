@@ -4,27 +4,4 @@
  |--------------------------------------------------------------------------
  */
 
-// Modul
-.o-appHeader {
-  $root: &;
-
-  &__inner {
-    width: 100%;
-    height: 80px;
-    padding-left: s(2);
-    padding-right: s(2);
-    background-color: var(--c-gray-100);
-    display: grid;
-  }
-
-  .a-logo {
-    margin-top: s(2);
-  }
-}
-
-// Modul Modifiers Example
-.o-appHeader--modifier {
-  .o-appHeader__block {
-    // Styles here
-  }
-}
+@import 'variant-basic/style';

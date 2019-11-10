@@ -33,7 +33,8 @@ return [
         'vueComp--variantName' => array_merge($defaultVariant, [
             'title' => 'vueComp Intro',
             'description' => 'vueComp Description goes here…',
-            'modifiers' => ['variant'],
+            'modifiers' => [],
+'variant' => 'basic',
         ]),
         */
     ]

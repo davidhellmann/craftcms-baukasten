@@ -1,3 +1,8 @@
-<div {{ module.settings(opt) }}>
-  __BASIC_VARIANT_TEMPLATE__
-</div>
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{% if opt.foo %}
+  <div {{ module.settings(opt) }}>
+    __BASIC_VARIANT_TEMPLATE__
+  </div>
+{% endif %}

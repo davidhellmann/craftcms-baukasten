@@ -36,7 +36,8 @@ return [
         'logo--variantName' => array_merge($defaultVariant, [
             'title' => 'logo Intro',
             'description' => 'logo Description goes here…',
-            'modifiers' => ['variant'],
+            'modifiers' => [],
+'variant' => 'basic',
         ]),
         */
     ]

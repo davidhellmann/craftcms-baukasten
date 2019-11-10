@@ -9,7 +9,8 @@
   modifiers: [],
   customClasses: [],
   data: {},
-  text: null
+  text: null,
+  variant: 'basic'
 } %}
 
 {# Merge Default with Options #}
@@ -21,9 +22,9 @@
 {# Modul #}
 {% if opt.text %}
   {# Include Variant #}
-  {% include [
-    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
-  ] %}
+{% include '_atoms/logo/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+  opt: opt ??? null
+} only %}
   <p {{ module.settings(opt) }}>
     {{ opt.text | nl2br | raw }}
   </p>

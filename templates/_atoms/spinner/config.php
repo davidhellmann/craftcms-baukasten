@@ -32,7 +32,8 @@ return [
         'spinner--variantName' => array_merge($defaultVariant, [
             'title' => 'spinner Intro',
             'description' => 'spinner Description goes here…',
-            'modifiers' => ['variant'],
+            'modifiers' => [],
+'variant' => 'basic',
         ]),
         */
     ]

@@ -1,26 +1,7 @@
 /*
  |--------------------------------------------------------------------------
- |  o-appFooter
+ |  o-appFooeter
  |--------------------------------------------------------------------------
  */
 
-// Modul
-.o-appFooter {
-  $root: &;
-  @include vr();
-
-  &__inner {
-    background-color: var(--c-gray-100);
-    padding: s(2);
-    font-size: ms(-2);
-    text-transform: uppercase;
-    text-align: center;
-  }
-}
-
-// Modul Modifiers Example
-.o-appFooter--modifier {
-  .o-appFooter__block {
-    // Styles here
-  }
-}
+@import 'variant-basic/style';

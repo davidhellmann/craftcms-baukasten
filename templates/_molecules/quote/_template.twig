@@ -16,7 +16,8 @@
   data: {},
   quote: null,
   source: null,
-  sourceUrl: null
+  sourceUrl: null,
+  variant: 'basic'
 } %}
 
 {# Merge Default with Options #}
@@ -28,9 +29,9 @@
 {# Modul #}
 {% if opt.quote %}
   {# Include Variant #}
-  {% include [
-    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
-  ] %}
+{% include '_atoms/logo/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+  opt: opt ??? null
+} only %}
   <div {{ module.settings(opt) }}>
     <div class="{{ opt.cn ~ '__inner' }}">
       <blockquote class="{{ opt.cn ~ '__blockquote' }}">

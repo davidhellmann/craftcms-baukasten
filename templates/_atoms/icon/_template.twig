@@ -9,7 +9,8 @@
   modifiers: [],
   customClasses: [],
   data: {},
-  icon: null
+  icon: null,
+  variant: 'basic'
 } %}
 
 {# Merge Default with Options #}
@@ -22,9 +23,9 @@
 {% if opt.icon %}
   {# Include Variant #}
   {% include [
-    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
+    '_atoms/icon/variant-' ~ opt.variant ~ '/_template.twig',
   ] %}
   <span {{ module.settings(opt) }}>
-      {% include '_partials/svg/' ~ opt.icon ~ '.svg.twig' %}
-    </span>
+    {{ svg('@webroot/dist/img/svg/' ~ opt.icon~ '.svg') }}
+  </span>
 {% endif %}

@@ -27,8 +27,6 @@
     }
   } only %}
 
-
-
   {# Primary content block #}
   {% block content %}
   {% endblock %}
@@ -37,8 +35,12 @@
   {% block subcontent %}
   {% endblock %}
 
-  {# Info footer #}
-  {% include "_partials/info-footer.twig" %}
+  {# -- appFooter -- #}
+  {% include '_organisms/appFooter/_template.twig' with {
+    opt: {
+      variant: 'basic'
+    }
+  } only %}
 
   {# HTML Footer #}
   {% include "_partials/global-footer.twig" %}

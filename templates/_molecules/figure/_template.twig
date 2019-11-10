@@ -18,7 +18,8 @@
   captionText: null,
   captionSource: null,
   captionSourceUrl: null,
-  objectFit: null
+  objectFit: null,
+  variant: 'basic'
 } %}
 
 {# Merge Default with Options #}
@@ -30,13 +31,13 @@
 {# Modul #}
 {% if opt.image %}
   {# Include Variant #}
-  {% include [
-    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
-  ] %}
+{% include '_atoms/logo/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+  opt: opt ??? null
+} only %}
   <figure {{ module.settings(opt) }} itemprop=" associatedMedia"
                                      itemscope itemtype="http://schema.org/ImageObject">
     {# image #}
-    {% include '_atoms/image/_template.twig' with {
+    {% include '_atoms/image/variant-_template.twig' with {
       opt: {
         image: opt.image,
         ratio: opt.ratio,

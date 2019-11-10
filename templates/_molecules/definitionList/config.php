@@ -44,7 +44,8 @@ return [
         'definitionList--variantName' => array_merge($defaultVariant, [
             'title' => 'definitionList Intro',
             'description' => 'definitionList Description goes here…',
-            'modifiers' => ['variant'],
+            'modifiers' => [],
+'variant' => 'basic',
         ]),
         */
     ]

@@ -12,6 +12,7 @@
   images: null,
   caption: null,
   ratio: null,
+  variant: 'basic'
 } %}
 
 {# Merge Default with Options #}
@@ -26,9 +27,9 @@
 {# Modul #}
 {% if opt.images %}
   {# Include Variant #}
-  {% include [
-    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
-  ] %}
+{% include '_atoms/logo/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+  opt: opt ??? null
+} only %}
   <div {{ module.settings(opt) }} itemscope itemtype="http://schema.org/ImageGallery" role="presentation" waypointTrigger>
     <!-- Slides -->
     {% for image in opt.images %}

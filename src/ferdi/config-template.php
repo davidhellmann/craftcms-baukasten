@@ -34,7 +34,8 @@ return [
         '<%= moduleName.replace('-', '_') %>--variantName' => array_merge($defaultVariant, [
             'title' => '<%= moduleName.replace('-', '_') %> Intro',
             'description' => '<%= moduleName.replace('-', '_') %> Description goes here…',
-            'modifiers' => ['variant'],
+            'modifiers' => [],
+'variant' => 'basic',
         ]),
         */
     ]

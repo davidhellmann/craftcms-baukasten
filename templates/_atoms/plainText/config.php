@@ -37,7 +37,8 @@ return [
         'plainText--variantName' => array_merge($defaultVariant, [
             'title' => 'plainText Intro',
             'description' => 'plainText Description goes here…',
-            'modifiers' => ['variant'],
+            'modifiers' => [],
+'variant' => 'basic',
         ]),
         */
     ]

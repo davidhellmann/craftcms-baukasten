@@ -13,7 +13,8 @@
   url: null,
   targetBlank: null,
   text: null,
-  icon: null,
+  icon: null,,
+  variant: 'basic'
 } %}
 
 {# Merge Default with Options #}
@@ -25,9 +26,9 @@
 {# Modul #}
 {% if opt.text and opt.url %}
   {# Include Variant #}
-  {% include [
-    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
-  ] %}
+{% include '_atoms/logo/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+  opt: opt ??? null
+} only %}
   <a href="{{ opt.url }}" {{ opt.url starts with '#' ? 'data-scroll' : '' }}  {{ module.settings(opt) }}
      itemprop="url"
      role="button"

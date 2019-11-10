@@ -13,7 +13,8 @@
   cn: 'a-spinner',
   modifiers: [],
   customClasses: [],
-  data: {},
+  data: {},,
+  variant: 'basic'
 } %}
 
 {# Merge Default with Options #}
@@ -24,9 +25,10 @@
 
 {# Modul #}
 {# Include Variant #}
-  {% include [
-    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
-  ] %}
+  {# Include Variant #}
+{% include '_atoms/logo/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+  opt: opt ??? null
+} only %}
 <div {{ module.settings(opt) }}>
   <div class="{{ opt.cn ~ '__inner' }}"></div>
 </div>

@@ -3,40 +3,8 @@
   ------------------------------------------------------------
 #}
 
-{# Set Defaults #}
-{% set defaults = {
-  cn: 'o-appFooter',
-  modifiers: [],
-  customClasses: [],
-  data: {}
-} %}
-
-{# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
-
-{# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
-
-{# Modul #}
 {# Include Variant #}
-  {% include [
-    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
-  ] %}
-<footer {{ module.settings(opt) }}>
-  {% cache %}
-    {% block appFooter %}
-      <div class="{{ opt.cn ~ '__wrapper' }}">
-        <div class="{{ opt.cn ~ '__inner' }}">
-          Baukasten &copy;2014 &mdash; {{ "now"|date("Y") }}
+{% include '_organisms/appFooter/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+  opt: opt ??? null
+} only %}
 
-          {# Pagination Simple #}
-          {% import '_partials/macros/_macro-socialNetworks.twig' as macroSocialNetworks %}
-          {{ macroSocialNetworks.socialNetworks({
-            networks: 'all',
-            label: true,
-          }) }}
-        </div>
-      </div>
-    {% endblock %}
-  {% endcache %}
-</footer>

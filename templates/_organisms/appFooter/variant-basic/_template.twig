@@ -1,3 +1,29 @@
-<div {{ module.settings(opt) }}>
-  __BASIC_VARIANT_TEMPLATE__
-</div>
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'o-appHeader',
+  modifiers: [],
+  customClasses: ['section'],
+  data: {},
+  variant: 'basic'
+} %}
+
+{# Merge Default with Options #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+<footer {{ module.settings(opt) }}>
+  <div class="container py-2--fluid">
+    <div class="row items-center">
+      Baukasten &copy;2014 &mdash; {{ "now"|date("Y") }}
+
+      {# Pagination Simple #}
+      {#{% import '_macros/_macro-socialNetworks.twig' as macroSocialNetworks %}
+      {{ macroSocialNetworks.socialNetworks({
+        networks: 'all',
+        label: true,
+      }) }}#}
+    </div>
+  </div>
+</footer>

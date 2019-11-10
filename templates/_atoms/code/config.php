@@ -39,7 +39,8 @@ return [
         'code--variantName' => array_merge($defaultVariant, [
             'title' => 'code Intro',
             'description' => 'code Description goes here…',
-            'modifiers' => ['variant'],
+            'modifiers' => [],
+'variant' => 'basic',
         ]),
         */
     ]

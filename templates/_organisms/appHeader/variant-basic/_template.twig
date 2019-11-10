@@ -1,25 +1,30 @@
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'o-appHeader',
+  modifiers: [],
+  customClasses: ['section'],
+  data: {},
+  variant: 'basic'
+} %}
+
+{# Merge Default with Options #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-
 <header {{ module.settings(opt) }}>
-  <div class="container">
-    <h2 class="ms-3 my-2--fluid">Craft 3 Baukasten Sample</h2>
-
-    {% include '_svg/logo.svg' with {
-      data : {
-        svg: {
-          class: 'w-8',
+  <div class="container py-2--fluid">
+    <div class="row items-center">
+      {# -- logo -- #}
+      {% include '_atoms/logo/_template.twig' with {
+        opt: {
+          customClasses: ['mr-2'],
+          variant: 'basic',
+          name: 'logo'
         }
-      }
-    } only %}
+      } only %}
+      <h2 class="ms-3">Craft 3 Baukasten Sample</h2>
+    </div>
   </div>
-
-  {#{% include '_atoms/logo/_template.twig' with {
-    opt: {
-      name: 'logo',
-      maxWidth: '48px',
-      url: siteUrl
-    }
-  } %}#}
 </header>

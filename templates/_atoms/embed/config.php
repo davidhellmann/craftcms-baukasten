@@ -35,7 +35,8 @@ return [
         'embed--variantName' => array_merge($defaultVariant, [
             'title' => 'embed Intro',
             'description' => 'embed Description goes here…',
-            'modifiers' => ['variant'],
+            'modifiers' => [],
+'variant' => 'basic',
         ]),
         */
     ]

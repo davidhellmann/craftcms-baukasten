@@ -47,7 +47,8 @@ return [
         'accordion--variantName' => array_merge($defaultVariant, [
             'title' => 'accordion Intro',
             'description' => 'accordion Description goes here…',
-            'modifiers' => ['variant'],
+            'modifiers' => [],
+'variant' => 'basic',
         ]),
         */
     ]

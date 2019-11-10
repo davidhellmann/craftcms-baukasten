@@ -10,6 +10,7 @@
   customClasses: [],
   data: {},
   code: null,
+  variant: 'basic'
 } %}
 
 {# Merge Default with Options #}
@@ -24,7 +25,7 @@
   {% include '_atoms/embed/_partial-logic.twig' %}
 
   {# Include Variant #}
-  {% include [
-    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
-  ] %}
+{% include '_atoms/logo/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+  opt: opt ??? null
+} only %}
 {% endif %}

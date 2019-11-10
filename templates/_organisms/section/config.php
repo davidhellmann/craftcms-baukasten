@@ -35,7 +35,8 @@ return [
         'section--variantName' => array_merge($defaultVariant, [
             'title' => 'section Intro',
             'description' => 'section Description goes here…',
-            'modifiers' => ['variant'],
+            'modifiers' => [],
+'variant' => 'basic',
         ]),
         */
     ]

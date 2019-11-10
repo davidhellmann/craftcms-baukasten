@@ -33,7 +33,8 @@ return [
         'gridOverlay--variantName' => array_merge($defaultVariant, [
             'title' => 'gridOverlay Intro',
             'description' => 'gridOverlay Description goes here…',
-            'modifiers' => ['variant'],
+            'modifiers' => [],
+'variant' => 'basic',
         ]),
         */
     ]

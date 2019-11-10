@@ -10,20 +10,4 @@
  */
 
 // Modul
-.a-logo {
-  $root: &;
-  background-color: c('white');
-
-  &--cb {
-    @include vr();
-  }
-
-  &__link {
-    display: inline-block;
-  }
-
-  svg {
-    width: 100%;
-    height: auto;
-  }
-}
+@import 'variant-basic/style';
