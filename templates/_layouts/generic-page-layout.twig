@@ -20,8 +20,14 @@
     <confetti></confetti>
   </div>
 
-  {# Info header, including _navbar.twig #}
-  {% include "_partials/info-header.twig" %}
+  {# -- appheader -- #}
+  {% include '_organisms/appheader/_template.twig' with {
+    opt: {
+      variant: 'basic'
+    }
+  } only %}
+
+
 
   {# Primary content block #}
   {% block content %}

@@ -1,0 +1,25 @@
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+
+<header {{ module.settings(opt) }}>
+  <div class="container">
+    <h2 class="ms-3 my-2--fluid">Craft 3 Baukasten Sample</h2>
+
+    {% include '_svg/logo.svg' with {
+      data : {
+        svg: {
+          class: 'w-8',
+        }
+      }
+    } only %}
+  </div>
+
+  {#{% include '_atoms/logo/_template.twig' with {
+    opt: {
+      name: 'logo',
+      maxWidth: '48px',
+      url: siteUrl
+    }
+  } %}#}
+</header>

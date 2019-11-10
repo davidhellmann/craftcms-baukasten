@@ -1,7 +1,6 @@
 {% extends "_layouts/generic-page-layout.twig" %}
 {% set bodyClass = 'p-home' %}
 
-
 {% block headLinks %}
   {{ parent() }}
 {% endblock headLinks %}
@@ -9,12 +8,6 @@
 {% block content %}
   <section class="a-image w-screen min:w-1/6  max:w-1/3  c-black bg-black c-white">
     <h1>content</h1>
-  </section>
-{% endblock %}
-
-{% block subcontent %}
-  <section>
-    <h2>subcontent</h2>
     <p>The quick brown fox jumps over the lazy dogs</p>
     {% set klaro = getCookie('klaro') | json_decode %}
     {% if klaro.youtube ?? craft.app.config.general.devMode ?? null %}
@@ -29,7 +22,16 @@
   </section>
 {% endblock %}
 
+{% block subcontent %}
+  <section>
+    <h2>subcontent</h2>
+    <p>
+      End of Page Content
+    </p>
+  </section>
+{% endblock %}
+
 {# Any JavaScript that should be included before </body> #}
-  {% block bodyJs %}
-    {{ parent() }}
-  {% endblock bodyJs %}
+{% block bodyJs %}
+  {{ parent() }}
+{% endblock bodyJs %}

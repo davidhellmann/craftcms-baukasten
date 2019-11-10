@@ -31,6 +31,7 @@
     box-shadow: 0 2px 10px rgba(var(--c-black), 0.5);
   }
 
+
   .m-gridOverlay {
     position: fixed;
     z-index: 1111111;
@@ -38,13 +39,13 @@
     width: 100vw;
     height: 100vh;
     pointer-events: none;
+    /* stylelint-disable */
     display: none;
+    /* stylelint-enable */
 
-    /* purgecss start ignore */
     &.is-visible {
       display: block;
     }
-    /* purgecss end ignore */
 
     .container {
       position: relative;

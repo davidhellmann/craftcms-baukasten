@@ -15,7 +15,7 @@ if (document.querySelectorAll('.lazyload').length) {
 
   document.addEventListener('lazyloaded', e => {
     const target = e.target.parentNode;
-    if (target) {
+    if (target && target.style.backgroundColor) {
       setTimeout(() => {
         target.style.backgroundColor = 'transparent';
       }, 250);

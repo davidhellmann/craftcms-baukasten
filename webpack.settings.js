@@ -41,6 +41,21 @@ module.exports = {
   },
   copyWebpackConfig: [
     {
+      context: './src/img/svg/',
+      from: '**/*',
+      to: '../../templates/_svg',
+    },
+    {
+      context: './src/img/svg/',
+      from: '**/*',
+      to: 'img/svg',
+    },
+    {
+      context: './src/img/bitmap/',
+      from: '**/*',
+      to: 'img/bitmap',
+    },
+    {
       from: './src/js/workbox-catch-handler.js',
       to: 'js/[name].[ext]',
     },
@@ -132,7 +147,8 @@ module.exports = {
     whitelist: [
       './src/css/ITCSS/03-generic/**/*.{scss,css}',
       './src/css/ITCSS/04-elements/**/*.{scss,css}',
-      './src/css/ITCSS/06-components/components.klaro.scss',
+      './src/css/ITCSS/06-components/**/*.{scss,css}',
+      './src/templates/**/*.{scss,css}',
     ],
     whitelistPatterns: [],
     extensions: ['html', 'js', 'twig', 'vue'],

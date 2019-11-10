@@ -7,36 +7,17 @@
 {% set defaults = {
   cn: 'o-appHeader',
   modifiers: [],
-  customClasses: [],
-  data: {}
+  customClasses: ['section'],
+  data: {},
+  variant: 'basic'
 } %}
 
 {# Merge Default with Options #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
-
 {# Modul #}
 {# Include Variant #}
-  {% include [
-    '_atoms/image/' ~ opt.variant ~ '/_template.twig',
-  ] %}
-<header {{ module.settings(opt) }}>
-  {% cache %}
-    {% block appHeader %}
-      <div class="{{ opt.cn ~ '__wrapper' }}">
-        <div class="{{ opt.cn ~ '__inner' }}">
-          {% include '_atoms/logo/_template.twig' with {
-            opt: {
-              name: 'logo',
-              maxWidth: '48px',
-              url: siteUrl
-            }
-          } %}
-        </div>
-      </div>
-    {% endblock %}
-  {% endcache %}
-</header>
+{% include [
+  '_organisms/appHeader/variant-' ~ opt.variant ~ '/_template.twig',
+] %}
 
