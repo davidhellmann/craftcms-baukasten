@@ -1,38 +1,41 @@
-/*
- * @package  craft-baukasten
- * @author David Hellmann [david@hellmann.io]
- *
- * sampleBasic
+/**
+ * code
  */
 
-const sampleBasic = {
+const code = {
   cfg: {
-    name: 'sampleBasic',
-    selectors: {
-      sample: 'a-sampleBasic',
-    },
-    classes: {
-      active: 'is-active',
-      inActive: 'is-inActive',
-      hidden: 'is-hidden',
-      visible: 'is-visible',
-    },
-    el: {
-      $sample: undefined,
-    },
-    els: {
-      $sample: undefined,
-    },
+    codeBlocks: [...document.querySelectorAll('.js-code.variant-basic')],
   },
 
-  setElements() {
-    this.cfg.el.$sample = document.querySelector(this.cfg.selectors.sample);
+  toggleCodeBlock(els) {
+    els.forEach(el => {
+      const toggle = el.nextElementSibling;
+      let status = el.getAttribute('data-status');
+      const textHolder = toggle.querySelector('.js-textHolder');
+      const showText = toggle.getAttribute('data-show');
+      const hideText = toggle.getAttribute('data-hide');
+
+      toggle.addEventListener('click', () => {
+        if (status === 'open') {
+          status = 'closed';
+          textHolder.innerHTML = showText;
+          toggle.setAttribute('data-status', 'closed');
+          toggle.previousElementSibling.setAttribute('data-status', 'closed');
+        } else {
+          status = 'open';
+          textHolder.innerHTML = hideText;
+          toggle.setAttribute('data-status', 'open');
+          toggle.previousElementSibling.setAttribute('data-status', 'open');
+        }
+      });
+    });
   },
 
   init() {
-    console.debug(`Init: ${this.cfg.name}`);
-    this.setElements();
+    if (this.cfg.codeBlocks) {
+      this.toggleCodeBlock(this.cfg.codeBlocks);
+    }
   },
 };
 
-export default sampleBasic;
+export default code;

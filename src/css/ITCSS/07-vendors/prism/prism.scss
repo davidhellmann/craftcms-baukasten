@@ -5,11 +5,11 @@
  * @author ocodia
  */
 
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*='language-'],
+pre[class*='language-'] {
   color: #f8f8f2;
-  font-weight: 700;
-  background: none;
+  background: #272822;
+  font-weight: normal;
   font-family: Menlo, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   text-align: left;
   white-space: pre;
@@ -22,22 +22,22 @@ pre[class*="language-"] {
 }
 
 /* Code blocks */
-pre[class*="language-"] {
-  padding: s(4) 0;
+pre[class*='language-'] {
+  padding: 32px 0;
   overflow: auto;
   overflow-x: scroll;
   overflow-y: hidden;
   border-radius: 5px;
 }
 
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-  background: c('black','90');
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background: #272822;
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
-  padding: .1em;
+:not(pre) > code[class*='language-'] {
+  padding: 0.1em;
   border-radius: 5px;
   white-space: normal;
 }
@@ -48,8 +48,7 @@ pre[class*="language-"] {
 .token.cdata {
   font-weight: 400;
   font-style: italic;
-  color: slategray;
-  color: var(--c-gray-700);
+  color: #75715e;
 }
 
 .token.punctuation {
@@ -58,7 +57,7 @@ pre[class*="language-"] {
 }
 
 .namespace {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .token.property,
@@ -67,13 +66,13 @@ pre[class*="language-"] {
 .token.symbol,
 .token.deleted {
   font-weight: 400;
-  color: #FF369E;
+  color: #f92672;
 }
 
 .token.boolean,
 .token.number {
   font-weight: 400;
-  color: #D74FFF;
+  color: #ae81ff;
 }
 
 .token.selector,
@@ -83,7 +82,7 @@ pre[class*="language-"] {
 .token.builtin,
 .token.inserted {
   font-weight: 400;
-  color: #77FF50;
+  color: #a6e22e;
 }
 
 .token.operator,
@@ -100,19 +99,19 @@ pre[class*="language-"] {
 .token.attr-value,
 .token.function {
   font-weight: 400;
-  color: #FFE600;
+  color: #e6db74;
 }
 
 .token.keyword {
   font-weight: 400;
-  color: #00EAFF;
+  color: #66d9ef;
   font-style: normal;
 }
 
 .token.regex,
 .token.important {
   font-weight: 400;
-  color: #FF9D00;
+  color: #fd971f;
 }
 
 .token.important,
@@ -145,9 +144,9 @@ pre.line-numbers > code {
   bottom: 0;
   font-size: 100%;
   left: 0;
-  padding: s(4) 20px;
+  padding: 32px 20px;
   width: 96px;
-  background: var(--c-gray-900);
+  background: #111;
   user-select: none;
 }
 
@@ -159,7 +158,7 @@ pre.line-numbers > code {
 
 .line-numbers-rows > span:before {
   content: counter(linenumber);
-  color: var(--c-gray-800);
+  color: #75715e;
   display: block;
   text-align: right;
 }

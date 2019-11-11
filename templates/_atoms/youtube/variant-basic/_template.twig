@@ -17,12 +17,15 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{% if opt.foo %}
-  <div {{ module.settings(opt) }}>
-    <iframe class="lazyload"
-            data-src="https://youtube-nocookie.com/embed/{{ opt.videoId }}?rel=0&loop={{ opt.loop }}&showinfo={{ opt.showinfo }}&autoplay={{ opt.autoplay }}"
-            frameborder="0">
-    </iframe>
-  </div>
+{# GDPR Ready Youtube Embeds#}
+{% set klaro = getCookie('klaro') | json_decode %}
+{% if klaro.youtube or craft.app.config.general.devMode ??? null %}
+  {% if opt.videoId %}
+    <div {{ module.settings(opt) }}>
+      <iframe class="lazyload"
+              data-src="https://youtube-nocookie.com/embed/{{ opt.videoId }}?rel=0&loop={{ opt.loop }}&showinfo={{ opt.showinfo }}&autoplay={{ opt.autoplay }}"
+              frameborder="0">
+      </iframe>
+    </div>
+  {% endif %}
 {% endif %}
-

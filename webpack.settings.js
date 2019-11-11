@@ -148,9 +148,15 @@ module.exports = {
       './src/css/ITCSS/03-generic/**/*.{scss,css}',
       './src/css/ITCSS/04-elements/**/*.{scss,css}',
       './src/css/ITCSS/06-components/**/*.{scss,css}',
-      './src/templates/**/*.{scss,css}',
+      // './src/templates/**/*.{scss,css}',
     ],
-    whitelistPatterns: [],
+    whitelistPatterns: [
+      /flickity-.*/,
+      /lazyload.*/,
+      /lazyloaded.*/,
+      /is-.*/,
+      /has-.*/,
+    ],
     extensions: ['html', 'js', 'twig', 'vue'],
   },
   saveRemoteFileConfig: [

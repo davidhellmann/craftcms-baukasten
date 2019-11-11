@@ -1,12 +1,92 @@
 /*
  |--------------------------------------------------------------------------
- | @package  craft-baukasten
- | @author David Hellmann [david@hellmann.io]
- |
- | .a-sample.variant-basic
+ |  a-code.variant-basic
  |--------------------------------------------------------------------------
  */
 
-.a-sample.variant-basic {
-  // Put your styles here
+// Modul
+.a-code.variant-basic {
+  $root: &;
+
+  .a-code__wrapper {
+    width: 100%;
+    margin: 0;
+    height: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &[data-status='closed'] {
+    height: 92px !important;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+
+    * {
+      color: var(--c-gray-800) !important;
+    }
+  }
+
+  .a-code__codeWrapper {
+    width: 100%;
+    border-radius: 5px;
+    font-size: ms(-2);
+    line-height: 1.8;
+  }
+
+  .a-code__code {
+    width: 100%;
+  }
+
+}
+
+
+.a-code__toggle.variant-basic {
+  @include vr(1/2);
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  font-size: ms(-2);
+
+  span {
+    display: inline-block;
+    position: relative;
+    padding: s(1) s(2);
+    padding-right: 36px;
+    border: 1px solid var(--c-gray-200);
+    border-radius: 100px;
+    transition: all 0.25s ease('out-cubic');
+
+    &::before,
+    &::after {
+      content: '';
+      transform-origin: center center;
+      width: 10px;
+      height: 2px;
+      position: absolute;
+      right: s(2);
+      top: 50%;
+      transform: translate(0, -50%);
+      background-color: var(--c-gray-300);
+      transition: all 0.25s ease('out-cubic');
+    }
+
+    &::after {
+      transform: translate(0, -50%) rotate(0);
+    }
+  }
+
+  &:hover {
+    span {
+      border: 1px solid var(--c-gray-500);
+    }
+  }
+
+  &[data-status='closed'] {
+    span {
+      &::before {
+        transform: translate(0, -50%) rotate(-90deg);
+      }
+    }
+  }
 }

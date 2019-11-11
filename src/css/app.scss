@@ -13,28 +13,3 @@
 @import 'ITCSS/06-components';
 @import 'ITCSS/07-vendors';
 @import 'ITCSS/08-utilities';
-
-/**
- * Here we add custom component classes; stuff we want loaded
- * *before* the utilities so that the utilities can still
- * override them.
- *
- */
-
-/**
- * Include styles for individual pages
- *
- */
-@import 'pages/homepage';
-
-/**
- * Include styles for Atoms
- *
- */
-@import '../templates/_atoms/image/style';
-
-/**
- * Include vendor css.
- *
- */
-@import 'vendor';
