@@ -1,12 +1,43 @@
 /*
  |--------------------------------------------------------------------------
- | @package  craft-baukasten
- | @author David Hellmann [david@hellmann.io]
- |
- | .variant-basic.a-sample
+ |  .variant-basic.a-icon
  |--------------------------------------------------------------------------
  */
 
-.variant-basic.a-sample {
-  // Put your styles here
+// Modul
+.variant-basic.a-icon {
+  > svg {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+  }
+
+  &--32 {
+    > svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &--48 {
+    > svg {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &--64 {
+    > svg {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  &--96 {
+    > svg {
+      width: 96px;
+      height: 96px;
+    }
+  }
 }
+

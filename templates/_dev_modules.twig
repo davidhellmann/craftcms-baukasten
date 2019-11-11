@@ -3,9 +3,7 @@
 {#      SEPERATOR                                                 #}
 {#                                                                #}
 {# ============================================================== #}
-<h4>
-  <pre>_atoms/code</pre>
-</h4>
+<pre class="mt-4 mb-2">_atoms/code</pre>
 {# -- code -- #}
 {% include '_atoms/code/_template.twig' with {
   opt: {
@@ -26,9 +24,7 @@ pre[class*='language-'] {
 {#      SEPERATOR                                                 #}
 {#                                                                #}
 {# ============================================================== #}
-<h4>
-  <pre>_atoms/divider</pre>
-</h4>
+<pre class="mt-4 mb-2">_atoms/divider</pre>
 {# -- divider -- #}
 {% include '_atoms/divider/_template.twig' with {
   opt: {
@@ -56,9 +52,7 @@ pre[class*='language-'] {
 {#      SEPERATOR                                                 #}
 {#                                                                #}
 {# ============================================================== #}
-<h4>
-  <pre>_atoms/headline</pre>
-</h4>
+<pre class="mt-4 mb-2">_atoms/headline</pre>
 {# -- headline -- #}
 <div class="stack-0.5" waypointTrigger>
   {% for i in 1..6 %}
@@ -72,6 +66,27 @@ pre[class*='language-'] {
   {% endfor %}
 </div>
 
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2">_atoms/icon</pre>
+{% set sizes = ['24', '32', '48', '64', '96'] %}
+
+<div class="flex items-center flex-direction-row">
+  {% for i in sizes %}
+    {# -- icon -- #}
+    {% include '_atoms/icon/_template.twig' with {
+      opt: {
+        modifiers: [i],
+        variant: 'basic',
+        icon: 'social/twitter'
+      }
+    } only %}
+  {% endfor %}
+</div>
 
 
 

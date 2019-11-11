@@ -3,29 +3,4 @@
   ------------------------------------------------------------
 #}
 
-{# Set Defaults #}
-{% set defaults = {
-  cn: 'a-icon',
-  modifiers: [],
-  customClasses: [],
-  data: {},
-  icon: null,
-  variant: 'basic'
-} %}
-
-{# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
-
-{# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
-
-{# Modul #}
-{% if opt.icon %}
-  {# Include Variant #}
-  {% include [
-    '_atoms/icon/variant-' ~ opt.variant ~ '/_template.twig',
-  ] %}
-  <span {{ module.settings(opt) }}>
-    {{ svg('@webroot/dist/img/svg/' ~ opt.icon~ '.svg') }}
-  </span>
-{% endif %}
+{% include '_atoms/icon/variant-' ~ opt.variant ~ '/_template.twig' %}
