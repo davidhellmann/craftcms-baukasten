@@ -1,4 +1,4 @@
-dateModified: 1573433709
+dateModified: 1573434166
 email:
   fromEmail: david@hellmann.io
   fromName: $SITE_NAME
@@ -1433,6 +1433,17 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.2.0
+  environment-label:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      showLabel: true
+      labelColor: '#111'
+      textColor: '#eee'
+      prefixText: null
+      labelText: LOCAL
+      suffixText: null
 sections:
   2bb2c616-10f1-4d48-96ad-a33312d55c5c:
     name: Home
@@ -1481,11 +1492,11 @@ sections:
       maxLevels: null
     entryTypes:
       9587bfe1-7b5c-43d7-9d1d-5851f8a9992f:
-        name: Challange
-        handle: challange
+        name: Default
+        handle: default
         hasTitleField: true
         titleLabel: Title
-        titleFormat: null
+        titleFormat: ''
         sortOrder: 1
   6d7978f4-a806-4644-942f-ee03828ff3b9:
     name: Errors
@@ -1501,6 +1512,26 @@ sections:
         template: _error
     entryTypes:
       6413c545-e8d6-4f2c-aa78-148b3c3bf3ac:
+        name: Default
+        handle: default
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+  77aac30e-d20c-4034-ae0e-8833d1ca136c:
+    name: Articles
+    handle: articles
+    type: channel
+    enableVersioning: false
+    propagationMethod: all
+    siteSettings:
+      04677986-61a7-4935-a707-cae0601cc8d5:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'article/{slug}'
+        template: _entry
+    entryTypes:
+      a6ba67d3-89fe-4da0-a2e5-a6dde1139a98:
         name: Default
         handle: default
         hasTitleField: true
@@ -1524,11 +1555,11 @@ sections:
       maxLevels: 2
     entryTypes:
       fa670b93-6cac-4b55-926f-484b341a036c:
-        name: 'Navigation Main'
-        handle: navigationMain
+        name: Default
+        handle: default
         hasTitleField: true
         titleLabel: Title
-        titleFormat: null
+        titleFormat: ''
         sortOrder: 1
 siteGroups:
   4b746bfb-9ec7-48d7-9841-1b642cffa702:
