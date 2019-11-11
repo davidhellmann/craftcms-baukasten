@@ -1,0 +1,28 @@
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'a-youtube',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  variant: 'basic',
+  videoId: null,
+  autoplay: 0,
+  loop: 0,
+  showinfo: 0,
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{% if opt.foo %}
+  <div {{ module.settings(opt) }}>
+    <iframe class="lazyload"
+            data-src="https://youtube-nocookie.com/embed/{{ opt.videoId }}?rel=0&loop={{ opt.loop }}&showinfo={{ opt.showinfo }}&autoplay={{ opt.autoplay }}"
+            frameborder="0">
+    </iframe>
+  </div>
+{% endif %}
+

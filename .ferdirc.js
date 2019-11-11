@@ -2,13 +2,13 @@ const pkg = require('./package');
 
 module.exports = {
   defaults: {
-    config: false,
+    config: true,
     scss: true,
     twig: true,
-    basicJs: true,
+    basicJs: false,
     basicScss: true,
     basicTwig: true,
-    basicVue: true,
+    basicVue: false,
   },
   fileHeader: {
     author: pkg.author,

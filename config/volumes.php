@@ -8,8 +8,12 @@ return [
             'path' => '@webroot/assets/images/',
         ],
         'files' => [
-            'path' => '@assetsUrl/files/',
-            'url' => '@webroot/assets/files/',
+            'url' => '@assetsUrl/files/',
+            'path' => '@webroot/assets/files/',
+        ],
+        'templateImages' => [
+            'url' => '@assetsUrl/templateImages/',
+            'path' => '@webroot/assets/templateImages/',
         ],
     ],
 

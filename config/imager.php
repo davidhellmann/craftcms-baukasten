@@ -9,8 +9,8 @@ use Yii;
 class Settings extends Model
 {
     public $transformer = 'craft';
-    public $imagerSystemPath = '@webroot/imager/';
-    public $imagerUrl = '/imager/';
+    public $imagerSystemPath = '@webroot/assets/imager/';
+    public $imagerUrl = '/assets/imager/';
     public $cacheEnabled = true;
     public $cacheRemoteFiles = true;
     public $cacheDuration = 1209600;
