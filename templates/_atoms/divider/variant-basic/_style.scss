@@ -1,12 +1,22 @@
 /*
  |--------------------------------------------------------------------------
- | @package  craft-baukasten
- | @author David Hellmann [david@hellmann.io]
- |
- | .a-sample.variant-basic
+ |  a-divider.variant-basic
  |--------------------------------------------------------------------------
  */
 
-.a-sample.variant-basic {
-  // Put your styles here
+// Modul
+.variant-basic.a-divider {
+  $root: a-divider;
+  border: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--c-gray-300);
+
+  &--medium {
+    width: 50%;
+  }
+
+  &--narrow {
+    width: 25%;
+  }
 }

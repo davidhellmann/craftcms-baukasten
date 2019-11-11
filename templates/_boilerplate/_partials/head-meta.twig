@@ -5,15 +5,18 @@
 {# Prefetch & preconnect headers and links #}
 {% set headerLink = "Link: " %}
 {% for url in prefetchUrls %}
-    {% set headerLink = headerLink ~ "<#{url}>; rel=dns-prefetch;," %}
-    {% set headerLink = headerLink ~ "<#{url}>; rel=preconnect; crossorigin;" %}
-    {% if not loop.last %}
-        {% set headerLink = headerLink ~ "," %}
-    {% endif %}
-    <link rel="dns-prefetch" href="{{ url }}">
-    <link rel="preconnect" href="{{ url }}" crossorigin>
+  {% set headerLink = headerLink ~ "<#{url}>; rel=dns-prefetch;," %}
+  {% set headerLink = headerLink ~ "<#{url}>; rel=preconnect; crossorigin;" %}
+  {% if not loop.last %}
+    {% set headerLink = headerLink ~ "," %}
+  {% endif %}
+  <link rel="dns-prefetch" href="{{ url }}">
+  <link rel="preconnect" href="{{ url }}" crossorigin>
 {% endfor %}
 {% header headerLink %}
 
 {# Favicons, webapp manifests, etc. #}
-{{ craft.twigpack.includeFileFromManifest("webapp.html") }}
+{% if not craft.app.config.general.devMode %}
+  {{ craft.twigpack.includeFileFromManifest("webapp.html") }}
+{% endif %}
+

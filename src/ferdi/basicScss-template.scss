@@ -7,6 +7,12 @@
  |--------------------------------------------------------------------------
  */
 
-.<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>.variant-basic {
+.variant-basic.<%=
+  pathOptions.key.charAt(0)
+  %
+  > -<%=
+  moduleName.replace('-', '_')
+  %
+  > {
   // Put your styles here
 }

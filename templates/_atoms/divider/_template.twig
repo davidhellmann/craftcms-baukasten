@@ -3,24 +3,7 @@
   ------------------------------------------------------------
 #}
 
-{# Set Defaults #}
-{% set defaults = {
-  cn: 'a-divider',
-  modifiers: [],
-  customClasses: [],
-  data: {},
-  variant: 'basic'
-} %}
-
-{# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
-
-{# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
-
-{# Modul #}
 {# Include Variant #}
-{% include [
-  '_atoms/divider/_variant-' ~ opt.variant ~ '.twig',
-  '_atoms/divider/_variant-basic.twig'
-  ] %}
+{% include '_atoms/divider/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+  opt: opt ??? null
+} only %}

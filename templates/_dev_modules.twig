@@ -1,4 +1,11 @@
-<h4><pre>_atoms/code</pre></h4>
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<h4>
+  <pre>_atoms/code</pre>
+</h4>
 {# -- code -- #}
 {% include '_atoms/code/_template.twig' with {
   opt: {
@@ -6,21 +13,63 @@
     snippet: "code[class*='language-'],
 pre[class*='language-'] {
   color: #f8f8f2;
-  background: #272822;
-  font-weight: normal;
-  font-family: Menlo, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  border-radius: 5px;
   tab-size: 4;
   hyphens: none;
 }",
     language: 'scss'
   }
 } only %}
+
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<h4>
+  <pre>_atoms/divider</pre>
+</h4>
+{# -- divider -- #}
+{% include '_atoms/divider/_template.twig' with {
+  opt: {
+    variant: 'basic'
+  }
+} only %}
+
+{% include '_atoms/divider/_template.twig' with {
+  opt: {
+    modifiers: ['medium'],
+    variant: 'basic'
+  }
+} only %}
+
+{% include '_atoms/divider/_template.twig' with {
+  opt: {
+    modifiers: ['narrow'],
+    variant: 'basic'
+  }
+} only %}
+
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<h4>
+  <pre>_atoms/headline</pre>
+</h4>
+{# -- headline -- #}
+<div waypointTrigger>
+  {% include '_atoms/headline/_template.twig' with {
+    opt: {
+      variant: 'basic',
+      text: 'The quick brown fox jumps over the lazy dogs'
+    }
+  } only %}
+</div>
+
+
 
 
 

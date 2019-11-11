@@ -14,8 +14,8 @@ import(/* webpackChunkName: "resizeClass" */ './scripts/resizeClass.js')
   .catch(e => console.error(`${e.name} : ${e.message}`));
 
 // Scrollmonitor
-if (document.querySelectorAll('[waypointTrigger]').length) {
+if (document.querySelectorAll('[waypointTrigger], [waypoint]').length) {
   import(/* webpackChunkName: "scrollMonitor" */ './scripts/scrollMonitor.js')
-    .then(scrollMonitor => scrollMonitor.carousel.init())
+    .then(scrollMonitor => scrollMonitor.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }

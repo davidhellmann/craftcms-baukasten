@@ -3,20 +3,20 @@
  | @package  craft-baukasten
  | @author David Hellmann [david@hellmann.io]
  |
- | .a-sample.variant-basic
+ | .variant-basic.a-sample
  |--------------------------------------------------------------------------
  */
 
-.a-image.variant-basic {
+.variant-basic.a-image {
   display: inline-block;
 
-  .a-image__image {
+  &__image {
     display: block;
     width: 100%;
     max-width: 100%;
   }
 
-  .a-image__picture {
+  &__picture {
     transition: all 0.875s 0.875s ease('out-cubic');
   }
 }

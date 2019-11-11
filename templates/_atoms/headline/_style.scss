@@ -4,13 +4,5 @@
  |--------------------------------------------------------------------------
  */
 
-// Modul
-.a-headline {
-  $root: &;
-
-  &--cb {
-    @include vr(2);
-    @include f(s(-1), s(-2), margin-bottom);
-  }
-}
+@import 'variant-basic/style';
 
