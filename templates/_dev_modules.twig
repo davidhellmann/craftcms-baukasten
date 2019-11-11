@@ -60,13 +60,16 @@ pre[class*='language-'] {
   <pre>_atoms/headline</pre>
 </h4>
 {# -- headline -- #}
-<div waypointTrigger>
-  {% include '_atoms/headline/_template.twig' with {
-    opt: {
-      variant: 'basic',
-      text: 'The quick brown fox jumps over the lazy dogs'
-    }
-  } only %}
+<div class="stack-0.5" waypointTrigger>
+  {% for i in 1..6 %}
+    {% include '_atoms/headline/_template.twig' with {
+      opt: {
+        variant: 'basic',
+        text: 'The quick brown fox jumps over the lazy dogs',
+        size: 'h' ~ i
+      }
+    } only %}
+  {% endfor %}
 </div>
 
 
