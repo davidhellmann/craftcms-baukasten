@@ -1,20 +1,19 @@
 {#
-  Description of what this file is for
-
-  @package Baukasten
-  @author David Hellmann [david@hellmann.io]
-
-  a-spinner
+  a-link
   ------------------------------------------------------------
 #}
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'a-spinner',
+  cn: 'a-link',
   modifiers: [],
   customClasses: [],
   data: {},
-  variant: 'basic'
+  js: null,
+  url: null,
+  targetBlank: null,
+  text: null,
+  variant: 'inline'
 } %}
 
 {# Merge Default with Options #}
@@ -23,7 +22,8 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Modul #}
-<div {{ module.settings(opt) }}>
-  <div class="{{ opt.cn ~ '__inner' }}"></div>
-</div>
+{% if opt.text and opt.url %}
+  <a href="{{ opt.url }}" {{ opt.url starts with '#' ? 'data-scroll' : '' }}  {{ module.settings(opt) }} {{ opt.targetBlank ? 'target="_blank"' }}>
+    {{ opt.text }}
+  </a>
+{% endif %}

@@ -89,5 +89,153 @@ pre[class*='language-'] {
 </div>
 
 
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2">_atoms/image</pre>
+{# -- image -- #}
+{% include '_atoms/image/_template.twig' with {
+  opt: {
+    variant: 'basic',
+    ratio: 'landscape'
+  }
+} only %}
+<pre class="mt-4 mb-2">_atoms/image--raw</pre>
+{# -- image -- #}
+{% include '_atoms/image/_template.twig' with {
+  opt: {
+    variant: 'raw',
+    ratio: 'landscape'
+  }
+} only %}
+
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2">_atoms/image</pre>
+<div class="flex items-center flex-direction-row">
+  {# -- link -- #}
+  <div class="p-1">
+    {% include '_atoms/link/_template.twig' with {
+      opt: {
+        variant: 'basic',
+        text: 'Button',
+        url: 'https://google.com',
+      }
+    } only %}
+  </div>
+
+  <div class="p-1">
+    {% include '_atoms/link/_template.twig' with {
+      opt: {
+        modifiers: ['outlined'],
+        variant: 'basic',
+        text: 'Button',
+        url: 'https://google.com',
+      }
+    } only %}
+  </div>
+
+  <div class="p-1">
+    {% include '_atoms/link/_template.twig' with {
+      opt: {
+        variant: 'icon',
+        icon: 'social/twitter',
+        text: 'Button',
+        url: 'https://google.com',
+      }
+    } only %}
+  </div>
+
+  <div class="p-1">
+    {% include '_atoms/link/_template.twig' with {
+      opt: {
+        variant: 'inline',
+        text: 'Button',
+        url: 'https://google.com',
+      }
+    } only %}
+  </div>
+</div>
+
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2">_atoms/logo</pre>
+{# -- logo -- #}
+{% include '_atoms/logo/_template.twig' with {
+  opt: {
+    variant: 'basic',
+    name: 'logo'
+  }
+} only %}
+
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2">_atoms/plainText</pre>
+{# -- logo -- #}
+{% include '_atoms/plainText/_template.twig' with {
+  opt: {
+    variant: 'basic',
+    text: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in? Qui no viderer vivendum facilisi, pro illud possim legimus at. Illum sonet numquam id vis. Ei accumsan nominati eos? Nam suas admodum ancillae ne? Nullam noster scribentur per cu, te duis consetetur adipiscing pri? Mollis deseruisse te mei. Cu euismod singulis suavitate eam. Ex eos purto similique, an eum fabellas adolescens! Dolor signiferumque cum id. Dicunt cetero detracto mea ei? Ex dico dolor vis, splendide vituperatoribus cu usu, ei mea posse sonet labores! Ad duo veritus intellegam, alterum appellantur vix et. Vis dissentiet repudiandae eu, decore integre principes per ei. Id vim stet mentitum repudiandae, pri mentitum qualisque ea, ex usu augue viderer suscipit. Ea vel mucius graecis, mentitum perfecto eu duo, duo eu ipsum urbanitas. Eruditi recteque abhorreant ius et, omnes dolore debitis vel ei? An inani copiosae nec, audiam sanctus nostrum est ea? Assum iuvaret mea id.
+
+An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, falli doming vix no? No pri causae petentium! Id vocibus volutpat deterruisset usu, vocibus verterem sed ne, usu ne similique temporibus! Ex vix dicat discere partiendo, at ignota corpora mei, posse percipitur mea ut. At doming commodo deseruisse sit, eu diceret fabulas eligendi vix, sea nostrum scriptorem ad! Quo cu eius tollit instructior.'
+  }
+} only %}
+
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2">_atoms/richText</pre>
+{# -- logo -- #}
+{% include '_atoms/richText/_template.twig' with {
+  opt: {
+    variant: 'basic',
+    text: '<h2>The quick brown fox jumps over the lazy dogs</h2>
+    <p>Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in? Qui no viderer vivendum facilisi, pro illud possim legimus at. Illum sonet numquam id vis. Ei accumsan nominati eos? Nam suas admodum ancillae ne? Nullam noster scribentur per cu, te duis consetetur adipiscing pri? Mollis deseruisse te mei. Cu euismod singulis suavitate eam. Ex eos purto similique, an eum fabellas adolescens! Dolor signiferumque cum id. Dicunt cetero detracto mea ei? Ex dico dolor vis, splendide vituperatoribus cu usu, ei mea posse sonet labores! Ad duo veritus intellegam, alterum appellantur vix et. Vis dissentiet repudiandae eu, decore integre principes per ei. Id vim stet mentitum repudiandae, pri mentitum qualisque ea, ex usu augue viderer suscipit. Ea vel mucius graecis, mentitum perfecto eu duo, duo eu ipsum urbanitas. Eruditi recteque abhorreant ius et, omnes dolore debitis vel ei? An inani copiosae nec, audiam sanctus nostrum est ea? Assum iuvaret mea id.
+</p><p>
+An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, falli doming vix no? No pri causae petentium! Id vocibus volutpat deterruisset usu, vocibus verterem sed ne, usu ne similique temporibus! Ex vix dicat discere partiendo, at ignota corpora mei, posse percipitur mea ut. At doming commodo deseruisse sit, eu diceret fabulas eligendi vix, sea nostrum scriptorem ad! Quo cu eius tollit instructior.</p>'
+  }
+} only %}
+
+
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2">_atoms/spinner</pre>
+<div class="relative w-80px h-80px">
+  {# -- logo -- #}
+  {% include '_atoms/spinner/_template.twig' with {
+    opt: {
+      variant: 'basic',
+    }
+  } only %}
+
+</div>
+
+
+
+
+
+
+
 
 

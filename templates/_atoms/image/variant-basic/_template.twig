@@ -27,20 +27,82 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{#  Picture #}
-{% set placeholder = craft.assets.title('Placeholder').volume('templateImages').one() %}
-{% if opt.image ??? placeholder ??? null %}
-  {# Logic Part #}
-  {% include '_atoms/image/_partial-logic.twig' %}
+{# Picture #}
+{# Placeholder #}
+{% set image = craft.assets.title('Placeholder').volume('templateImages').one() ??? null %}
+
+{# Final Image #}
+{% if opt.image.title ??? null %}
+  {% set image = opt.image %}
+{% endif %}
+
+{% if image %}
+  {# Skip Transforms for the current filetypes #}
+  {% set skipTransformsForThisExtensions = ['gif', 'GIF', 'tiff', 'TIFF', 'svg', 'SVG'] %}
+  {% set focalpoint = image.getFocalpoint('asCss') %}
+
+  {% if image.extension not in skipTransformsForThisExtensions %}
+    {# Set correct ratio #}
+    {% if opt.ratio %}
+      {% switch opt.ratio %}
+
+      {% case "landscape" %}
+        {% set ratio = 4/3 %}
+
+      {% case "square" %}
+        {% set ratio = 1/1 %}
+
+      {% case "portrait" %}
+        {% set ratio = 3/4 %}
+
+      {% case "auto" %}
+        {% set ratio = image.width/image.height %}
+
+      {% default %}
+        {% set ratio = opt.ratio %}
+      {% endswitch %}
+    {% else %}
+      {% set ratio = image.width/image.height %}
+    {% endif %}
+
+    {# Define global variables #}
+    {% set imageSettings = {
+      mode: opt.mode,
+      position: focalpoint,
+      ratio: ratio
+    } %}
+
+    {# Final Image Set #}
+    {% set transformedImages = craft.imager.transformImage(image, opt.sizes, imageSettings) %}
+
+    {# Domiant Color (Use lase image from Final images #}
+    {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
+
+    {# Placeholder #}
+    {% set placeholderImage = craft.imager.placeholder({
+      type: 'svg',
+      color: dominantColor,
+      width: image.width,
+      height: image.width / ratio
+    }) %}
+  {% endif %}
+
+  {% if opt.dominantColor starts with '#' %}
+    {% set dominantColor = opt.dominantColor %}
+  {% endif %}
+
+  {% if image.extension == 'png' or image.extension == 'gif' or image.extension == 'svg' %}
+    {% set dominantColor = false %}
+  {% endif %}
 
   <picture {{ module.settings(opt) }} {% if opt.dominantColor %}style="{{ 'background-color: ' ~ dominantColor ?? 'transparent' }}"{% endif %}>
-    {% if opt.image.extension not in skipTransformsForThisExtensions %}
+    {% if image.extension not in skipTransformsForThisExtensions %}
       {# Transforming #}
-      {% include '_atoms/image/variant-_partial-transforming.twig' %}
+      {% include '_atoms/image/_partial-transforming.twig' %}
     {% else %}
       {# No Transforming #}
-      {% include '_atoms/image/variant-_partial-no-transforming.twig' %}
+      {% include '_atoms/image/_partial-no-transforming.twig' %}
     {% endif %}
-    <noscript><img src="{{ opt.image.getUrl() }}" alt="{{ opt.image.title }}"></noscript>
+    <noscript><img src="{{image.getUrl() }}" alt="{{ image.title }}"></noscript>
   </picture>
 {% endif %}

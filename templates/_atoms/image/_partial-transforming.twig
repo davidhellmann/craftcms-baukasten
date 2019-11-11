@@ -12,7 +12,7 @@
   srcset="{{ craft.imager.srcset(transformedImages) }}"
   data-sizes="100vw"
 {% endif %}
-    width="{{ opt.image.width }}"
+    width="{{ image.width }}"
     height="auto"
-    alt="{{ opt.image.title }}"
+    alt="{{ image.title }}"
     data-rootimage="{{ transformedImages|first.url }}"/>

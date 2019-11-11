@@ -1,8 +1,27 @@
+{#
+  a-richText
+  ------------------------------------------------------------
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'a-richText',
+  modifiers: [],
+  customClasses: ['stack'],
+  data: {},
+  text: null,
+  variant: 'basic'
+} %}
+
+{# Merge Default with Options #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{% if opt.foo %}
+{# Modul #}
+{% if opt.text %}
   <div {{ module.settings(opt) }}>
-    __BASIC_VARIANT_TEMPLATE__
+    {{ opt.text | raw }}
   </div>
 {% endif %}

@@ -6,10 +6,16 @@
 
 // Modul
 .variant-basic.a-icon {
+  display: inline-flex;
+
   > svg {
     display: inline-block;
     width: 24px;
     height: 24px;
+
+    path {
+      fill: currentColor;
+    }
   }
 
   &--32 {
