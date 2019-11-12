@@ -28,7 +28,8 @@
   "private": true,
   "scripts": {
     "debug": "webpack-dev-server --config webpack.dev.js",
-    "dev": "webpack-dashboard -- webpack-dev-server --config webpack.dev.js",
+    "dev-single": "webpack-dashboard -- webpack-dev-server --config webpack.dev.js",
+    "dev": "npm run build && webpack-dashboard -- webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js --progress --hide-modules"
   },
   "browserslist": {

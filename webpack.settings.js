@@ -40,11 +40,11 @@ module.exports = {
     exclude: [/(node_modules|bower_components)/],
   },
   copyWebpackConfig: [
-    // {
-    //   context: './src/img/svg/',
-    //   from: '**/*',
-    //   to: '../../templates/_svg',
-    // },
+    {
+      context: './src/fonts/',
+      from: '**/*',
+      to: 'fonts',
+    },
     {
       context: './src/img/svg/',
       from: '**/*',
