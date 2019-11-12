@@ -24,8 +24,7 @@ if (document.querySelectorAll('.js-code.variant-basic').length) {
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
 
-// Code Snippets
-// Code Snippets
+// Grid overlay
 if (document.querySelectorAll('.m-gridOverlay').length) {
   import(
     /* webpackChunkName: "gridOverlay" */ '../templates/_molecules/gridOverlay/variant-basic/_script.js'
