@@ -32,8 +32,8 @@
 {% set image = craft.assets.title('Placeholder').volume('templateImages').one() ??? null %}
 
 {# Final Image #}
-{% if image.title ??? null %}
-  {% set image = image %}
+{% if opt.image.title ??? null %}
+  {% set image = opt.image %}
 {% endif %}
 
 {% if image %}
