@@ -51,7 +51,11 @@
     padding-right: 36px;
     border: 1px solid var(--c-gray-200);
     border-radius: 100px;
-    transition: all 0.25s ease('out-cubic');
+    box-shadow: var(--bs-longer);
+    transform: translateY(0);
+    transition: box-shadow 250ms var(--ease-out-cubic),
+    border 250ms var(--ease-out-cubic),
+    transform 250ms var(--ease-out-cubic);
 
     &::before,
     &::after {
@@ -64,7 +68,7 @@
       top: 50%;
       transform: translate(0, -50%);
       background-color: var(--c-gray-300);
-      transition: all 0.25s ease('out-cubic');
+      transition: all 250ms var(--ease-out-cubic);
     }
 
     &::after {
@@ -74,7 +78,9 @@
 
   &:hover {
     span {
-      border: 1px solid var(--c-gray-500);
+      border: 1px solid transparent;
+      box-shadow: var(--bs-1);
+      transform: translateY(2px);
     }
   }
 

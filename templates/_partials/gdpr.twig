@@ -1,7 +1,5 @@
-{% cache globally using key 'klaro' %}
-  {% set klaroSnippets = klaroSnippets.klaroSnippets.all() ?? null %}
-  {% set purposes = klaroSnippets[0].snippetPurpose.options ?? null %}
-{% endcache %}
+{% set klaroSnippets = klaroSnippets.klaroSnippets.all() ?? null %}
+{% set purposes = klaroSnippets[0].snippetPurpose.options ?? null %}
 
 {% for item in klaroSnippets if item.isActive %}
   {% set snippet = item.snippetCode %}
