@@ -1,11 +1,9 @@
 {#-- Global footer --#}
 {# Cookie Manage Button if Cookie has been set #}
-{% if not craft.app.config.general.devMode %}
 <a id="mangeCookies" onClick="klaro.show();return false;">
   {{ svg('@webroot/dist/img/svg/cookie.svg') }}
   <div>{{ 'translate.klaro.manage-cookies'|t }}</div>
 </a>
-{% endif %}
 
 {#-- Browser fixes --#}
 <!--[if lt IE 9]>

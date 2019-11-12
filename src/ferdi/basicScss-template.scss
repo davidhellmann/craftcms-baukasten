@@ -7,12 +7,7 @@
  |--------------------------------------------------------------------------
  */
 
-.variant-basic.<%=
-  pathOptions.key.charAt(0)
-  %
-  > -<%=
-  moduleName.replace('-', '_')
-  %
-  > {
+/* prettier-ignore */
+.variant-basic.<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %> {
   // Put your styles here
 }

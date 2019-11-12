@@ -2,6 +2,7 @@
 return [
     // GDPR Stuff
     'translate.klaro.manage-cookies' => 'Settings',
+    'translate.klaro.open-settings' => 'You like to see that content? Change your cookie settings!',
 
     'translate.klaro.consentModal.title' =>
         'Cookie Einstellungen',

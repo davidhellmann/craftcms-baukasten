@@ -1,4 +1,3 @@
-{% if not craft.app.config.general.devMode %}
 {% cache globally using key 'klaro' %}
   {% set klaroSnippets = klaroSnippets.klaroSnippets.all() ?? null %}
   {% set purposes = klaroSnippets[0].snippetPurpose.options ?? null %}
@@ -90,7 +89,7 @@
                 poweredBy: '{{ 'translate.klaro.poweredBy' | t }}',
                 purposes: {
                   {% for purpose in purposes %}
-                  {{ purpose.value ~ ': '}}{{ "'" | raw }}{{ purpose.label }}{{ "'," | raw }}
+                  {{ purpose.value ~ ': ' }}{{ "'" | raw }}{{ purpose.label }}{{ "'," | raw }}
                   {% endfor %}
                 },
 
@@ -116,7 +115,7 @@
                 title: '{{ item.snippetName }}',
                 default: {{ item.snippetDefaultState ? 1 : 0 }},
                 required: {{ item.snippetRequired ? 1 : 0 }},
-                purposes: [ '{{ snippetPurposes | join("','") | raw }}' ],
+                purposes: ['{{ snippetPurposes | join("','") | raw }}'],
                 callback: klaroCallback,
             },
           {% endfor %}
@@ -147,4 +146,3 @@
         }
     })
 </script>
-{% endif %}

@@ -34,6 +34,16 @@ const common = require('./webpack.common.js');
 const pkg = require('./package.json');
 const settings = require('./webpack.settings.js');
 
+// Custom PurgeCSS extractor for Tailwind that allows special characters in
+// class names.
+//
+// https://github.com/FullHuman/purgecss#extractor
+class SpecialCharsExtractor {
+  static extract(content) {
+    return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
+  }
+}
+
 // Configure file banner
 const configureBanner = () => {
   let commitHash = 'n/a';
@@ -291,7 +301,12 @@ const configurePurgeCss = () => {
     paths: glob.sync(paths),
     whitelist: WhitelisterPlugin(settings.purgeCssConfig.whitelist),
     whitelistPatterns: settings.purgeCssConfig.whitelistPatterns,
-    extractors: [],
+    extractors: [
+      {
+        extractor: SpecialCharsExtractor,
+        extensions: settings.purgeCssConfig.extensions,
+      },
+    ],
   };
 };
 

@@ -140,15 +140,18 @@ module.exports = {
   },
   purgeCssConfig: {
     paths: [
-      './templates/**/*.{twig,html}',
+      './templates/**/*.{twig,html,js,vue,php}',
       './src/vue/**/*.{vue,html}',
       './src/js/**/*.{js}',
     ],
     whitelist: [
-      './src/css/ITCSS/03-generic/**/*.{scss,css}',
-      './src/css/ITCSS/04-elements/**/*.{scss,css}',
-      './src/css/ITCSS/06-components/**/*.{scss,css}',
-      // './src/templates/**/*.{scss,css}',
+      './src/css/ITCSS/03-generic/**/*.{css}',
+      './src/css/ITCSS/04-elements/**/*.{css}',
+      './src/css/ITCSS/05-objects/**/*.{css}',
+      './src/css/ITCSS/06-components/**/*.{css}',
+      './src/css/ITCSS/07-vendors/**/*.{css}',
+      './src/css/ITCSS/08-utilities/**/*.{css}',
+      './templates/**/*.{css}',
     ],
     whitelistPatterns: [
       /flickity-.*/,
@@ -156,6 +159,8 @@ module.exports = {
       /lazyloaded.*/,
       /is-.*/,
       /has-.*/,
+      // /--.*/,
+      // /__.*/,
     ],
     extensions: ['html', 'js', 'twig', 'vue'],
   },

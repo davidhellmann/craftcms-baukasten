@@ -13,19 +13,36 @@
 
 {# -- Merge Default with Options -- #}
 {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set opt = opt | merge({
+  customClasses: opt.customClasses | merge([
+    'o-ratio',
+    'o-ratio--16-9',
+  ])
+}) %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# GDPR Ready Youtube Embeds#}
 {% set klaro = getCookie('klaro') | json_decode %}
-{% if klaro.youtube or craft.app.config.general.devMode ??? null %}
+{% set craftEnv = craft.app.config.env != 'live' ? true : false %}
+{% if klaro.youtube ??? craftEnv ??? null %}
   {% if opt.videoId %}
     <div {{ module.settings(opt) }}>
       <iframe class="lazyload"
-              data-src="https://youtube-nocookie.com/embed/{{ opt.videoId }}?rel=0&loop={{ opt.loop }}&showinfo={{ opt.showinfo }}&autoplay={{ opt.autoplay }}"
+              data-src="https://www.youtube-nocookie.com/embed/{{ opt.videoId }}?rel=0&loop={{ opt.loop }}&showinfo={{ opt.showinfo }}&autoplay={{ opt.autoplay }}"
               frameborder="0">
       </iframe>
+
+      {% if not klaro.youtube ??? null %}
+        {# -- cookieClue -- #}
+        {% include '_atoms/cookieClue/_template.twig' with {
+          opt: {
+            variant: 'basic',
+          }
+        } only %}
+      {% endif %}
     </div>
   {% endif %}
 {% endif %}
+

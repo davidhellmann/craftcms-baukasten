@@ -24,6 +24,23 @@ pre[class*='language-'] {
 {#      SEPERATOR                                                 #}
 {#                                                                #}
 {# ============================================================== #}
+<pre class="mt-4 mb-2">_atoms/cookieClue</pre>
+<div class="m:w-2/24">asdasd</div>
+<div class="relative w-full m:w-12/24 m:w-2/24" style="height: 0; padding-bottom: 50%;">
+  {# -- cookieClue -- #}
+  {% include '_atoms/cookieClue/_template.twig' with {
+    opt: {
+      variant: 'basic',
+    }
+  } only %}
+</div>
+
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/divider</pre>
 {# -- divider -- #}
 {% include '_atoms/divider/_template.twig' with {
@@ -74,7 +91,6 @@ pre[class*='language-'] {
 {# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/icon</pre>
 {% set sizes = ['24', '32', '48', '64', '96'] %}
-
 <div class="flex items-center flex-direction-row">
   {% for i in sizes %}
     {# -- icon -- #}
@@ -117,7 +133,7 @@ pre[class*='language-'] {
 {#      SEPERATOR                                                 #}
 {#                                                                #}
 {# ============================================================== #}
-<pre class="mt-4 mb-2">_atoms/image</pre>
+<pre class="mt-4 mb-2">_atoms/link</pre>
 <div class="flex items-center flex-direction-row">
   {# -- link -- #}
   <div class="p-1">
@@ -214,7 +230,6 @@ An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, fa
 } only %}
 
 
-
 {# ============================================================== #}
 {#                                                                #}
 {#      SEPERATOR                                                 #}
@@ -228,8 +243,25 @@ An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, fa
       variant: 'basic',
     }
   } only %}
-
 </div>
+
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2">_atoms/youtube</pre>
+{# -- logo -- #}
+{% include '_atoms/youtube/_template.twig' with {
+  opt: {
+    variant: 'basic',
+    videoId: '2kVmvORQp4s',
+    autoplay: 0,
+    loop: 0,
+    showinfo: 0,
+  }
+} only %}
 
 
 

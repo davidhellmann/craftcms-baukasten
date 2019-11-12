@@ -1,0 +1,30 @@
+/*
+ |--------------------------------------------------------------------------
+ | @package  craft-baukasten
+ | @author David Hellmann [david@hellmann.io]
+ |
+ | .a-cookieClue.variant-basic
+ |--------------------------------------------------------------------------
+ */
+
+/* prettier-ignore */
+.variant-basic.a-cookieClue {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--c-gray-200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    cursor: pointer;
+    color: var(--c-gray-500);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

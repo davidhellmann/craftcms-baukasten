@@ -1,0 +1,12 @@
+{#
+  @package craft-baukasten
+  @author David Hellmann [david@hellmann.io]
+
+  a-cookieClue
+  ------------------------------------------------------------
+#}
+
+{# Include Variant #}
+{% include '_atoms/cookieClue/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+  opt: opt ??? null
+} only %}

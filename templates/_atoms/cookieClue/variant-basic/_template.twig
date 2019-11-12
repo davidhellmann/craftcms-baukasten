@@ -1,0 +1,24 @@
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'a-cookieClue',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  variant: 'basic',
+  text: 'translate.klaro.open-settings'|t
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{% if opt.text %}
+  <div {{ module.settings(opt) }}>
+    <a class="{{ opt.cn ~ '__link' }}" onClick="klaro.show();return false;">
+      <div>{{ 'translate.klaro.open-settings'|t }}</div>
+    </a>
+  </div>
+{% endif %}
+
