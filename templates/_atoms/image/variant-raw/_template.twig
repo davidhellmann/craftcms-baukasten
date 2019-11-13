@@ -28,9 +28,11 @@
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Image #}
-{% if opt.image.getUrl() | fileExists %}
+{% if opt.image.getVolume().path ~ opt.image.filename | fileExists %}
   {% set image = opt.image %}
-{% elseif craft.assets.title('Placeholder').volume('templateImages').one() | fileExists %}
+{% endif %}
+
+{% if not image ??? null %}
   {% set image = craft.assets.title('Placeholder').volume('templateImages').one() %}
 {% endif %}
 
