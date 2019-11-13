@@ -27,16 +27,16 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Picture #}
-{# Placeholder #}
-{% set image = craft.assets.title('Placeholder').volume('templateImages').one() ??? null %}
-
-{# Final Image #}
-{% if opt.image.title ??? null %}
+{# Image #}
+{% if opt.image.getVolume().path ~ opt.image.filename | fileExists %}
   {% set image = opt.image %}
 {% endif %}
 
-{% if image %}
+{% if not image ??? null %}
+  {% set image = craft.assets.title('Placeholder').volume('templateImages').one() %}
+{% endif %}
+
+{% if image ??? null %}
   {# Skip Transforms for the current filetypes #}
   {% set skipTransformsForThisExtensions = ['gif', 'GIF', 'tiff', 'TIFF', 'svg', 'SVG'] %}
   {% set focalpoint = image.getFocalpoint('asCss') %}
