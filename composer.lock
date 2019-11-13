@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb27684f0ba3777f98f5a6673822dbe4",
+    "content-hash": "d9c3d667c7492fccbe3aedef9efb1bc1",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -2754,6 +2754,51 @@
             "description": "lesserphp is a compiler for LESS written in PHP based on leafo's lessphp.",
             "homepage": "http://leafo.net/lessphp/",
             "time": "2018-05-28T12:54:01+00:00"
+        },
+        {
+            "name": "marionnewlevant/twig-perversion",
+            "version": "2.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marionnewlevant/craft-twig_perversion/zipball/d201d177a892f64bf0de541a3d291b227b973b0d",
+                "reference": "d201d177a892f64bf0de541a3d291b227b973b0d",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.29"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "twig-perversion",
+                "name": "Twig Perversion",
+                "schemaVersion": "1.0.0",
+                "hasSettings": false,
+                "hasCpSection": false,
+                "documentationUrl": "https://github.com/marionnewlevant/craft-twig_perversion/blob/v2/README.md",
+                "changelogUrl": "https://raw.githubusercontent.com/marionnewlevant/craft-twig_perversion/v2/CHANGELOG.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "marionnewlevant\\twigperversion\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marion Newlevant",
+                    "homepage": "http://marion.newlevant.com"
+                }
+            ],
+            "description": "Making twig do things it really shouldn't",
+            "keywords": [
+                "craft",
+                "craftcms",
+                "plugin",
+                "twigperversion"
+            ],
+            "time": "2019-06-09T22:12:28+00:00"
         },
         {
             "name": "masterminds/html5",
