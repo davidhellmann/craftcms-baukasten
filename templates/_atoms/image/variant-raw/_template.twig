@@ -27,12 +27,11 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Picture #}
 {# Placeholder #}
 {% set image = craft.assets.title('Placeholder').volume('templateImages').one() ??? null %}
 
 {# Final Image #}
-{% if opt.image.title ??? null %}
+{% if opt.image.getUrl() | fileExists %}
   {% set image = opt.image %}
 {% endif %}
 
