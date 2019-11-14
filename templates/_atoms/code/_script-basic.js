@@ -4,7 +4,7 @@
 
 const code = {
   cfg: {
-    codeBlocks: [...document.querySelectorAll('.js-code.variant-basic')],
+    codeBlocks: [...document.querySelectorAll('.js-code-basic')],
   },
 
   toggleCodeBlock(els) {

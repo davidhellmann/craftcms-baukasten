@@ -28,7 +28,7 @@
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Image #}
-{% if opt.image.getVolume().path ~ opt.image.filename | fileExists %}
+{% if (opt.image.getVolume().path ~ opt.image.filename) | fileExists %}
   {% set image = opt.image %}
 {% endif %}
 

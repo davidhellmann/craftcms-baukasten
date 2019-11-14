@@ -6,7 +6,7 @@ if (document.querySelectorAll('.js-gallery').length) {
 }
 
 // Slider
-if (document.querySelectorAll('.js-slider.variant-basic').length) {
+if (document.querySelectorAll('.js-slider-basic').length) {
   import(
     /* webpackChunkName: "slider" */ '../templates/_organisms/slider/_script-basic.js'
   )
@@ -15,7 +15,7 @@ if (document.querySelectorAll('.js-slider.variant-basic').length) {
 }
 
 // Code Snippets
-if (document.querySelectorAll('.js-code.variant-basic').length) {
+if (document.querySelectorAll('.js-code-basic').length) {
   import(/* webpackChunkName: "prism" */ './scripts/prism.js');
   import(
     /* webpackChunkName: "code" */ '../templates/_atoms/code/_script-basic.js'

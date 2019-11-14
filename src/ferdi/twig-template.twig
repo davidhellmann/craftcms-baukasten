@@ -7,6 +7,6 @@
 #}
 
 {# Include Variant #}
-{% include '_<%= pathOptions.key %>/<%= moduleName %>/' ~ opt.variant | default('basic') ~ '--basic/_template.twig' with {
+{% include '_<%= pathOptions.key %>/<%= moduleName %>/' ~ opt.variant | default('basic') ~ '-basic/_template.twig' with {
   opt: opt ??? null
 } only %}

@@ -21,7 +21,7 @@ module.exports = {
       extension: 'twig',
     },
     basicTwig: {
-      name: '_template--basic',
+      name: '_template-basic',
       postfix: '',
       extension: 'twig',
     },
@@ -31,17 +31,17 @@ module.exports = {
       extension: 'scss',
     },
     basicScss: {
-      name: '_style--basic',
+      name: '_style-basic',
       postfix: '',
       extension: 'scss',
     },
     basicJs: {
-      name: '_script--basic',
+      name: '_script-basic',
       postfix: '',
       extension: 'js',
     },
     basicVue: {
-      name: '_component--basic',
+      name: '_component-basic',
       postfix: '',
       extension: 'vue',
     },
