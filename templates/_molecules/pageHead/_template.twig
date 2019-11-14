@@ -30,7 +30,7 @@
 {# Modul #}
 {% if opt.object or opt.text %}
   {# Include Variant #}
-{% include '_atoms/logo/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+{% include '_atoms/logo/_template-' ~ opt.variant | default('basic') ~ '.twig' with {
   opt: opt ??? null
 } only %}
   {% if opt.text %}

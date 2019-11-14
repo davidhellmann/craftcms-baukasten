@@ -4,7 +4,7 @@
 #}
 
 {# Modul #}
-{% include '_atoms/link/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+{% include '_atoms/link/_template-' ~ opt.variant | default('basic') ~ '.twig' with {
   opt: opt ??? null
 } only %}
 

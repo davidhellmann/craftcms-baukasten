@@ -7,9 +7,9 @@
 
 const <%= moduleName.replace('-', '_') %>Basic = {
     cfg:  {
-        name: '<%= moduleName.replace('-', '_') %>Basic',
+        name: '<%= moduleName.replace('-', '_') %> Basic',
         selectors: {
-            <%= moduleName.replace('-', '_') %>: '<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>Basic',
+            <%= moduleName.replace('-', '_') %>: '<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>--basic',
         },
         classes: {
             active: 'is-active',

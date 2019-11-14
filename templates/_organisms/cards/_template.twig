@@ -34,7 +34,7 @@
 {# Modul #}
 {% if opt.items %}
   {# Include Variant #}
-{% include '_atoms/logo/variant-' ~ opt.variant | default('basic') ~ '/_template.twig' with {
+{% include '_atoms/logo/_template-' ~ opt.variant | default('basic') ~ '.twig' with {
   opt: opt ??? null
 } only %}
   <div {{ module.settings(opt) }}>

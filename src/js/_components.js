@@ -8,7 +8,7 @@ if (document.querySelectorAll('.js-gallery').length) {
 // Slider
 if (document.querySelectorAll('.js-slider.variant-basic').length) {
   import(
-    /* webpackChunkName: "slider" */ '../templates/_organisms/slider/variant-basic/_script.js'
+    /* webpackChunkName: "slider" */ '../templates/_organisms/slider/_script-basic.js'
   )
     .then(slider => slider.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
@@ -18,7 +18,7 @@ if (document.querySelectorAll('.js-slider.variant-basic').length) {
 if (document.querySelectorAll('.js-code.variant-basic').length) {
   import(/* webpackChunkName: "prism" */ './scripts/prism.js');
   import(
-    /* webpackChunkName: "code" */ '../templates/_atoms/code/variant-basic/_script.js'
+    /* webpackChunkName: "code" */ '../templates/_atoms/code/_script-basic.js'
   )
     .then(code => code.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
@@ -27,7 +27,7 @@ if (document.querySelectorAll('.js-code.variant-basic').length) {
 // Grid overlay
 if (document.querySelectorAll('.m-gridOverlay').length) {
   import(
-    /* webpackChunkName: "gridOverlay" */ '../templates/_molecules/gridOverlay/variant-basic/_script.js'
+    /* webpackChunkName: "gridOverlay" */ '../templates/_molecules/gridOverlay/_script-basic.js'
   )
     .then(gridOverlay => gridOverlay.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
