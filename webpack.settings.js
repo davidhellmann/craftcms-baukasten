@@ -21,7 +21,7 @@ module.exports = {
       base: './web/dist/',
       clean: ['**/*'],
     },
-    templates: './templates/**/*.{twig,html,php,vue,js}',
+    templates: "./templates/"
   },
   urls: {
     live: 'https://craft-baukasten.baukasten.io/',
@@ -140,18 +140,16 @@ module.exports = {
   },
   purgeCssConfig: {
     paths: [
-      './templates/**/*.{twig,html,js,vue,php}',
-      './src/vue/**/*.{vue,html}',
-      './src/js/**/*.{js}',
+      "./templates/**/*.{twig,html}",
+      "./src/vue/**/*.{vue,html}",
+      "./src/js/**/*.{js}"
     ],
     whitelist: [
-      './src/css/ITCSS/03-generic/**/*.{css}',
-      './src/css/ITCSS/04-elements/**/*.{css}',
-      './src/css/ITCSS/05-objects/**/*.{css}',
-      './src/css/ITCSS/06-components/**/*.{css}',
-      './src/css/ITCSS/07-vendors/**/*.{css}',
-      './src/css/ITCSS/08-utilities/**/*.{css}',
-      './templates/**/*.{css}',
+      './src/css/03-generic/**/*.{css}',
+      './src/css/04-elements/**/*.{css}',
+      './src/css/05-objects/**/*.{css}',
+      './src/css/06-components/**/*.{css}',
+      './src/css/07-vendors/**/*.{css}',
     ],
     whitelistPatterns: [
       /flickity-.*/,
@@ -159,8 +157,6 @@ module.exports = {
       /lazyloaded.*/,
       /is-.*/,
       /has-.*/,
-      // /--.*/,
-      // /__.*/,
     ],
     extensions: ['html', 'js', 'twig', 'vue'],
   },
