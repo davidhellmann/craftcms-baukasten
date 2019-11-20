@@ -1,17 +1,17 @@
 <!--
  @author <%= author.name %> [<%= author.email %>]
 
- <%= moduleName.replace('-', '_') %>Basic
+ <%= moduleName.replace('-', '_') %>
 -->
 <template>
   <div :class="rootClass">
-    <%= moduleName %>Basic
+    <%= moduleName %>
   </div>
 </template>
 
 <script>
 export default {
-    name: '<%= moduleName.replace('-', '_').charAt(0).toUpperCase() %><%= moduleName.replace('-', '_').slice(1) %>Basic',
+    name: '<%= moduleName.replace('-', '_').charAt(0).toUpperCase() %><%= moduleName.replace('-', '_').slice(1) %>',
     components: {},
     props: {
         modifiers: {

@@ -4,7 +4,7 @@ $componentMeta = [
     'title' => '<%= moduleName.replace('-', '_') %>',
     'status' => 'wip',
     'visible' => true,
-    'type' => '<%= pathOptions.key.slice(0, -1) %>',
+    'type' => 'c',
     'path' => '_<%= pathOptions.key %>/<%= moduleName.replace('-', '_') %>/',
     'description' => '<%= moduleName.replace('-', '_') %> Description goes here…'
 ];
@@ -15,7 +15,7 @@ $defaultVariant = [
     'title' => '<%= moduleName.replace('-', '_') %>',
     'status' => '',
     'description' => '<%= moduleName.replace('-', '_') %> Description goes here…',
-    'cn' => '<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>',
+    'cn' => 'c-<%= moduleName.replace('-', '_') %>',
     'modifiers' => [],
     'customClasses' => [],
     'data' => [],

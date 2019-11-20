@@ -2,14 +2,14 @@
  * @package  <%= projectName %>
  * @author <%= author.name %> [<%= author.email %>]
  *
- * <%= moduleName.replace('-', '_') %>Basic
+ * <%= moduleName.replace('-', '_') %>
  */
 
-const <%= moduleName.replace('-', '_') %>Basic = {
+const <%= moduleName.replace('-', '_') %> = {
     cfg:  {
-        name: '<%= moduleName.replace('-', '_') %> Basic',
+        name: '<%= moduleName.replace('-', '_') %>',
         selectors: {
-            <%= moduleName.replace('-', '_') %>: '<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>-basic',
+            <%= moduleName.replace('-', '_') %>: 'c-<%= moduleName.replace('-', '_') %>',
         },
         classes: {
             active: 'is-active',
@@ -35,4 +35,4 @@ const <%= moduleName.replace('-', '_') %>Basic = {
     },
 };
 
-export default <%= moduleName.replace('-', '_') %>Basic;
+export default <%= moduleName.replace('-', '_') %>;

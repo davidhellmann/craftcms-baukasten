@@ -1,10 +1,9 @@
 {# -- Set Defaults -- #}
 {% set defaults = {
-  cn: '<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>-basic',
+  cn: 'c-<%= moduleName.replace('-', '_') %>',
   modifiers: [],
   customClasses: [],
   data: {},
-  variant: 'basic',
   foo: null
 } %}
 
@@ -16,7 +15,7 @@
 
 {% if opt.foo %}
   <div {{ module.settings(opt) }}>
-    __BASIC_VARIANT_TEMPLATE__
+    <%= moduleName.replace('-', '_') %>
   </div>
 {% endif %}
 
