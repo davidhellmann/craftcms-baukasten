@@ -8,7 +8,7 @@ if (document.querySelectorAll('.js-gallery').length) {
 // Slider
 if (document.querySelectorAll('.js-slider-basic').length) {
   import(
-    /* webpackChunkName: "slider" */ '../templates/_organisms/slider/_script-basic.js'
+    /* webpackChunkName: "slider" */ '../templates/_organisms/slider/variant-basic/_script.js'
   )
     .then(slider => slider.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
