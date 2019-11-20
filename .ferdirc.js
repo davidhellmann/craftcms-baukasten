@@ -17,7 +17,7 @@ module.exports = {
       name: '',
       postfix: '',
       extension: 'twig',
-      path: 'src/'
+      path: 'src/templates/components/'
     },
     pcss: {
       name: '',
@@ -29,18 +29,19 @@ module.exports = {
       name: '',
       postfix: '',
       extension: 'js',
-      path: 'src/js/'
+      path: 'src/js/components/'
     },
     vue: {
       name: '',
       postfix: '',
       extension: 'vue',
-      path: 'src/vue/'
+      path: 'src/vue/components/'
     },
     config: {
       name: 'config',
       postfix: '',
       extension: 'php',
+      path: 'src/templates/components/'
     },
   },
   paths: {
