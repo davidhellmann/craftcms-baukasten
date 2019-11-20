@@ -5,7 +5,7 @@ $componentMeta = [
     'status' => 'wip',
     'visible' => true,
     'type' => 'c',
-    'path' => '_<%= pathOptions.key %>/<%= moduleName.replace('-', '_') %>/',
+    'path' => '_<%= modulePath %>/<%= moduleName.replace('-', '_') %>/',
     'description' => '<%= moduleName.replace('-', '_') %> Description goes here…'
 ];
 

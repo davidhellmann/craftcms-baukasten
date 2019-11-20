@@ -21,7 +21,7 @@ export default {
     },
     data() {
         return {
-            cn: '<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>'
+            cn: 'c-<%= moduleName.replace('-', '_') %>'
         };
     },
     computed: {
