@@ -2,13 +2,11 @@ const pkg = require('./package');
 
 module.exports = {
   defaults: {
-    config: false,
+    config: true,
     pcss: true,
     twig: true,
-    basicJs: false,
-    basicScss: true,
-    basicTwig: true,
-    basicVue: false,
+    js: true,
+    vue: true,
   },
   fileHeader: {
     author: pkg.author,
@@ -16,34 +14,28 @@ module.exports = {
   },
   files: {
     twig: {
-      name: '_template',
+      name: '',
       postfix: '',
       extension: 'twig',
+      path: 'src/'
     },
-    basicTwig: {
-      name: '_template-basic',
-      postfix: '',
-      extension: 'twig',
-    },
-    scss: {
-      name: '_style',
+    pcss: {
+      name: '',
       postfix: '',
       extension: 'pcss',
+      path: 'src/css/06-components/'
     },
-    basicScss: {
-      name: '_style-basic',
-      postfix: '',
-      extension: 'pcss',
-    },
-    basicJs: {
-      name: '_script-basic',
+    js: {
+      name: '',
       postfix: '',
       extension: 'js',
+      path: 'src/js/'
     },
-    basicVue: {
-      name: '_component-basic',
+    vue: {
+      name: '',
       postfix: '',
       extension: 'vue',
+      path: 'src/vue/'
     },
     config: {
       name: 'config',

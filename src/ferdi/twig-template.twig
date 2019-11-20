@@ -1,12 +1,22 @@
-{#
-  @package <%= projectName %>
-  @author <%= author.name %> [<%= author.email %>]
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: '<%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>-basic',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  variant: 'basic',
+  foo: null
+} %}
 
-  <%= pathOptions.key.charAt(0) %>-<%= moduleName.replace('-', '_') %>
-  ------------------------------------------------------------
-#}
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
 
-{# Include Variant #}
-{% include '_<%= pathOptions.key %>/<%= moduleName %>/' ~ opt.variant | default('basic') ~ '-basic/_template.twig' with {
-  opt: opt ??? null
-} only %}
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{% if opt.foo %}
+  <div {{ module.settings(opt) }}>
+    __BASIC_VARIANT_TEMPLATE__
+  </div>
+{% endif %}
+
