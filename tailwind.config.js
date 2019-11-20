@@ -6,5 +6,7 @@ module.exports = {
     // Replace the default Tailwind config here
   },
   corePlugins: {},
-  plugins: [],
+  plugins: [
+    require('tailwindcss-baukasten-modularscale')()
+  ],
 };

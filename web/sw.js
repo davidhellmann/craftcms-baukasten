@@ -15,7 +15,7 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 
 importScripts(
   "/dist/workbox-catch-handler.js",
-  "/dist/js/precache-manifest.177ff5253606b7f9d42c3a4f38798a46.js"
+  "/dist/js/precache-manifest.bc5a428c3d2582c750cfc39a8d9ae097.js"
 );
 
 /**
