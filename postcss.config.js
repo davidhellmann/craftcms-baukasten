@@ -12,6 +12,7 @@ module.exports = {
     require('postcss-mixins')({
       mixins,
     }),
+    require('postcss-css-variables'),
     require('postcss-fixes'),
     require('postcss-preset-env')({
       autoprefixer: { grid: true },

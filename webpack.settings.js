@@ -2,9 +2,6 @@
 
 // node modules
 require('dotenv').config();
-const Terser = require('terser');
-const Postcss = require('postcss');
-const Cssnano = require('cssnano');
 
 // Webpack settings exports
 // noinspection WebpackConfigHighlighting
@@ -80,7 +77,7 @@ module.exports = {
       from: './src/inlineJs/load-fonts.js',
       to: 'js/[name].[ext]',
       transform(content) {
-        return Terser.minify(content.toString()).code;
+        return content;
       },
     },
     // copy and minify inlineJs
@@ -88,7 +85,7 @@ module.exports = {
       from: './src/inlineJs/tab-handler.js',
       to: 'js/[name].[ext]',
       transform(content) {
-        return Terser.minify(content.toString()).code;
+        return content;
       },
     },
     // copy and minify inlineJs
@@ -96,7 +93,7 @@ module.exports = {
       from: './src/inlineJs/service-worker.js',
       to: 'js/[name].[ext]',
       transform(content) {
-        return Terser.minify(content.toString()).code;
+        return content;
       },
     },
     // copy and minify webfonts css
@@ -126,7 +123,11 @@ module.exports = {
         url: '',
         template: 'index',
       },
-    ],
+      {
+        url: "",
+        template: "amp_index"
+      },
+    ]
   },
   devServerConfig: {
     public: () => process.env.DEVSERVER_PUBLIC || 'http://localhost:8080',
@@ -145,20 +146,15 @@ module.exports = {
       "./src/js/**/*.{js}"
     ],
     whitelist: [
-      // './src/css/03-generic/**/*.{css}',
-      // './src/css/04-elements/**/*.{css}',
-      // './src/css/05-objects/**/*.{css}',
-      // './src/css/06-components/**/*.{css}',
-      // './src/css/07-vendors/**/*.{css}',
+      "./src/css/components/*.css"
     ],
-    whitelistPatterns: [
-      // /flickity-.*/,
-      // /lazyload.*/,
-      // /lazyloaded.*/,
-      // /is-.*/,
-      // /has-.*/,
-    ],
-    extensions: ['html', 'js', 'twig', 'vue'],
+    whitelistPatterns: [],
+    extensions: [
+      "html",
+      "js",
+      "twig",
+      "vue"
+    ]
   },
   saveRemoteFileConfig: [
     {
