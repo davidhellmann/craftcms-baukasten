@@ -1,0 +1,9 @@
+{% include '../_organisms/slider' with {
+  opt: {
+    modifiers: [
+      'cb',
+    ],
+    images: data.images.all() ?? null,
+    ratio: data.ratio ?? null,
+  }
+} only %}

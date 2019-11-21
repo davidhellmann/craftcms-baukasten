@@ -1,0 +1,10 @@
+{% include '_atoms/embed/_template.twig' with {
+  opt: {
+    modifiers: [
+      'cb',
+      data.position ?? null,
+      data.width ?? null
+    ],
+    code: data.code ?? null
+  }
+} only %}

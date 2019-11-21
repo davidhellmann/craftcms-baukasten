@@ -1,0 +1,21 @@
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'c-spacer',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  foo: null
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{% if opt.foo %}
+  <div {{ module.settings(opt) }}>
+    spacer
+  </div>
+{% endif %}
+

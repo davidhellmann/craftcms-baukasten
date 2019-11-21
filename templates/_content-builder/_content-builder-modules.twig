@@ -1,193 +1,91 @@
-{#
-  Content Builder Modules
-  =======================
-#}
+{# Content Builder Modules #}
+{# Loop over all block and choose the right one #}
+{# data has all the block data included #}
 
 {% switch data.type %}
-    {# Accordion Modul #}
-    {# TODO: Accordion Simple Headline Text #}
+  {# Accordion #}
 {% case 'accordion' %}
-    {% include '_organisms/accordion/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb'
-            ],
-            items: data.children ?? null
-        }
-    } only %}
+  {% include '_content-builder/_includes/_cb-accordion.twig' with {
+    data: data
+  } only %}
 
-    {# Content Section Modul #}
+  {# Section #}
 {% case 'bkSection' %}
-    {% include '_organisms/section/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb',
-                data.paddingVertical ?? null,
-                data.width ?? null,
-                data.background ?? null
-            ],
-            closetags: false
-        }
-    } only %}
+  {% include '_content-builder/_includes/_cb-bksection.twig' with {
+    data: data
+  } only %}
 
-    {# Snippet Modul #}
+  {# Code #}
 {% case 'code' %}
-    {% include '_atoms/code/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb',
-            ],
-            snippet: data.snippet ?? null,
-            language: data.language ?? null
-        }
-    } only %}
+  {% include '_content-builder/_includes/_cb-code.twig' with {
+    data: data
+  } only %}
 
-    {# Definiton List Modul #}
+  {# Definition List #}
 {% case 'definitionList' %}
-    {% include '_molecules/definitionList/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb',
-            ],
-            items: data.definitionList ?? null
-        }
-    } only %}
+  {% include '_content-builder/_includes/_cb-definition-list.twig' with {
+    data: data
+  } only %}
 
-    {# Embed Modul #}
-{% case 'embed' %}
-    {% include '_atoms/embed/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb',
-                data.position ?? null,
-                data.width ?? null
-            ],
-            code: data.code ?? null
-        }
-    } only %}
-
-    {# Headline Modul #}
-{% case 'headline' %}
-    {% include '_atoms/headline/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb',
-            ],
-            text: data.headline ?? null,
-            size: data.size ?? null
-        }
-    } only %}
-
-    {# Image Cover Modul #}
-{% case 'imageCover' %}
-    {% include '_organisms/imageCover/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb',
-                data.color ?? null,
-                data.position ?? null,
-                data.alignment ?? null
-            ],
-            image: data.image.one() ?? null,
-            ratio: data.ratio ?? null,
-            text: data.text ?? null
-        }
-    } only %}
-
-    {# Image Gallery Modul #}
-{% case 'imageGallery' %}
-    {% include '_organisms/imageGallery/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb'
-            ],
-            customClasses: ['test'],
-            images: data.images.all() ?? null,
-            ratio: data.ratio ?? null,
-        }
-    } only %}
-
-    {# Image Grid Modul #}
-{% case 'imageGrid' %}
-    {% include '_organisms/imageGrid/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb',
-                data.columns ?? null
-            ],
-            images: data.images.all() ?? null,
-            ratio: data.ratio ?? null,
-            caption: data.caption ?? null,
-        }
-    } only %}
-
-    {# Image Single Modul #}
-{% case 'imageSingle' %}
-    {% set image = data.image.one() %}
-    {% include '_organisms/imageSingle/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb',
-                data.alignment ?? null,
-                data.width ?? null
-            ],
-            image: image ?? null,
-            ratio: data.ratio ?? null,
-            caption: data.caption ?? null,
-            captionHeadline: image.imageTitle ?? null,
-            captionText: image.imageCaption ?? null,
-            captionSource: image.imageSource ?? null,
-            captionSourceUrl: image.imageSourceUrl ?? null
-        }
-    } only %}
-
-    {# Image Slider Modul #}
-{% case 'slider' %}
-    {% include '../_organisms/slider' with {
-        opt: {
-            modifiers: [
-                'cb',
-            ],
-            images: data.images.all() ?? null,
-            ratio: data.ratio ?? null,
-        }
-    } only %}
-
-    {# Quote Modul #}
-{% case 'quote' %}
-    {% include '_molecules/quote/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb',
-            ],
-            quote: data.quote ?? null,
-            source: data.source ?? null,
-            sourceUrl: data.sourceUrl ?? null
-        }
-    } only %}
-
-    {# Rich Text Modul #}
-{% case 'richText' %}
-    {% include '_atoms/richText/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb',
-            ],
-            text: data.richText ?? null
-        }
-    } only %}
-
-    {# Separator Modul #}
+  {# Divider #}
 {% case 'divider' %}
-    {% include '_atoms/divider/_template.twig' with {
-        opt: {
-            modifiers: [
-                'cb',
-                data.settingsDivider.style ?? null,
-                data.settingsDivider.marginVertical ?? null
-            ]
-        }
-    } only %}
+  {% include '_content-builder/_includes/_cb-divider.twig' with {
+    data: data
+  } only %}
+
+  {# Image Cover #}
+{% case 'imageCover' %}
+  {% include '_content-builder/_includes/_cb-image-cover.twig' with {
+    data: data
+  } only %}
+
+  {# Image Gallery #}
+{% case 'imageGallery' %}
+  {% include '_content-builder/_includes/_cb-image-gallery.twig' with {
+    data: data
+  } only %}
+
+  {# Image Grid #}
+{% case 'imageGrid' %}
+  {% include '_content-builder/_includes/_cb-image-grid.twig' with {
+    data: data
+  } only %}
+
+  {# Image Single #}
+{% case 'imageSingle' %}
+  {% include '_content-builder/_includes/_cb-image-single.twig' with {
+    data: data
+  } only %}
+
+  {# Image Slider #}
+{% case 'imageSlider' %}
+  {% include '_content-builder/_includes/_cb-image-slider.twig' with {
+    data: data
+  } only %}
+
+  {# Quote #}
+{% case 'quote' %}
+  {% include '_content-builder/_includes/_cb-quote.twig' with {
+    data: data
+  } only %}
+
+  {# Rich Text #}
+{% case 'richText' %}
+  {% include '_content-builder/_includes/_cb-richt-text.twig' with {
+    data: data
+  } only %}
+
+  {# Spacer#}
+{% case 'spacer' %}
+  {% include '_content-builder/_includes/_cb-spacer.twig' with {
+    data: data
+  } only %}
+
+  {# Youtube #}
+{% case 'youtube' %}
+  {% include '_content-builder/_includes/_cb-youtube.twig' with {
+    data: data
+  } only %}
 
 {% endswitch %}
 

@@ -1,0 +1,8 @@
+{% include '_molecules/definitionList/_template.twig' with {
+  opt: {
+    modifiers: [
+      'cb',
+    ],
+    items: data.definitionList ?? null
+  }
+} only %}

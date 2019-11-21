@@ -17,7 +17,7 @@ module.exports = {
       name: '',
       postfix: '',
       extension: 'twig',
-      path: 'src/templates/components/'
+      path: 'src/templates/_components/'
     },
     pcss: {
       name: '',
@@ -41,7 +41,7 @@ module.exports = {
       name: 'config',
       postfix: '',
       extension: 'php',
-      path: 'src/templates/components/'
+      path: 'src/templates/_components/'
     },
   },
   paths: {

@@ -47,11 +47,11 @@ module.exports = {
       from: '**/*',
       to: 'img/svg',
     },
-    {
-      context: './src/img/bitmap/',
-      from: '**/*',
-      to: 'img/bitmap',
-    },
+    // {
+    //   context: './src/img/bitmap/',
+    //   from: '**/*',
+    //   to: 'img/bitmap',
+    // },
     {
       from: './src/js/workbox-catch-handler.js',
       to: 'js/[name].[ext]',
