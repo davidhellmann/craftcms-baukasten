@@ -1,0 +1,19 @@
+/*
+ |--------------------------------------------------------------------------
+ |  Font Families
+ |--------------------------------------------------------------------------
+ */
+
+@function fontfamily($key) {
+  @if map-has-key($fontfamilies, $key) {
+    @return map-get($fontfamilies, $key);
+  }
+
+  @warn "Unknown '#{$key}' in #{map-keys($fontfamilies)}";
+  @return null;
+}
+
+// Shorthand Version
+@function ff($key) {
+  @return fontfamily($key);
+}

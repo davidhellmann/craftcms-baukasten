@@ -4,84 +4,82 @@
  |--------------------------------------------------------------------------
  */
 
-.m-paginationSimple {
-  $root: &;
 
-  &__item--next {
-    margin-left: auto;
-  }
+.m-paginationSimple__item--next {
+  margin-left: auto;
+}
 
-  &__link {
-    display: block;
-    position: relative;
-    color: var(--c-gray-500);
-    border: 1px solid var(--c-gray-100);
-    padding-top: s(2);
-    padding-bottom: s(2);
+.m-paginationSimple__link {
+  display: block;
+  position: relative;
+  color: var(--c-gray-500);
+  border: 1px solid var(--c-gray-100);
+  padding-top: s(2);
+  padding-bottom: s(2);
+}
 
-    &:hover {
-      border-color: var(--c-gray-300);
-      color: var(--c-gray-900);
+.m-paginationSimple__link:hover {
+  border-color: var(--c-gray-300);
+  color: var(--c-gray-900);
+}
 
-      #{$root}__icon svg path {
-        fill: var(--c-gray-500);
-      }
-    }
+.m-paginationSimple__link:hover  .m-paginationSimple__icon svg path {
+  fill: var(--c-gray-500);
+}
 
-    &--prev {
-      padding-left: s(9);
-      text-align: left;
-    }
+.m-paginationSimple--prev {
+  padding-left: s(9);
+  text-align: left;
+}
 
-    &--next {
-      padding-right: s(9);
-      text-align: right;
-    }
-  }
+.m-paginationSimple--next {
+  padding-right: s(9);
+  text-align: right;
+}
 
-  &__icon {
+
+.m-paginationSimple__icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+
+  svg {
     width: 24px;
     height: 24px;
-    display: inline-block;
-    position: absolute;
-    top: 50%;
+  }
 
-    svg {
-      width: 24px;
-      height: 24px;
-    }
+  svg path {
+    fill: var(--c-gray-300);
+    transition: all 250ms var(--ease-out-cubic);
+  }
 
-    svg path {
-      fill: var(--c-gray-300);
-      transition: all 250ms var(--ease-out-cubic);
-    }
+  .m-paginationSimple--prev {
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-    &--prev {
-      left: 50%;
-      transform: translate(-50%, -50%);
-
-      @include media('>=s') {
-        left: s(3);
-        transform: translateY(-50%);
-      }
-    }
-
-    &--next {
-      right: 50%;
-      transform: translate(50%, -50%);
-
-      @include media('>=s') {
-        right: s(3);
-        transform: translateY(-50%);
-      }
+    @include media('>=s') {
+      left: s(3);
+      transform: translateY(-50%);
     }
   }
 
-  &__title {
-    display: none;
+  .m-paginationSimple--next {
+    right: 50%;
+    transform: translate(50%, -50%);
 
     @include media('>=s') {
-      display: block;
+      right: s(3);
+      transform: translateY(-50%);
     }
+  }
+}
+
+.m-paginationSimple__title {
+  display: none;
+
+  @include media('>=s') {
+    display: block;
   }
 }

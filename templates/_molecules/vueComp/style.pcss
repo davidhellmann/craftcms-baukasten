@@ -1,0 +1,31 @@
+/*
+ |--------------------------------------------------------------------------
+ |
+ | Description of what this file is for
+ |
+ | @package Baukasten
+ | @author David Hellmann [david@hellmann.io]
+ | .m-vueComp
+ |--------------------------------------------------------------------------
+ */
+
+
+.m-vueComp {
+  $root: &;
+  @include vr();
+
+  &__input {
+    @include vr();
+  }
+}
+
+
+.m-vueComp--modifier {
+  .m-vueComp__block {
+    // Styles here
+  }
+
+  @at-root {
+    // Use this for nesting with root selector
+  }
+}

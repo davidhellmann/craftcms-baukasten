@@ -1,0 +1,19 @@
+/*
+ |--------------------------------------------------------------------------
+ |  Border Radius
+ |--------------------------------------------------------------------------
+ */
+
+@function borderradius($key) {
+  @if map-has-key($border-radius, $key) {
+    @return map-get($border-radius, $key);
+  }
+
+  @warn "Unknown '#{$key}' in #{map-keys($border-radius)}";
+  @return null;
+}
+
+// Shorthand Version
+@function br($key) {
+  @return borderradius($key);
+}

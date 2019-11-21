@@ -101,7 +101,7 @@ module.exports = {
     },
     // copy and minify webfonts css
     {
-      from: './src/css/ITCSS/03-generic/generic.webfonts.scss',
+      from: './src/css/03-generic/generic.webfonts.pcss',
       to: 'css/[name].css',
       transform(content) {
         return Postcss([Cssnano])

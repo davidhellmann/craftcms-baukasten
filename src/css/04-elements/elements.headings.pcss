@@ -5,32 +5,56 @@ h4,
 h5,
 h6 {
   word-wrap: break-word;
-  line-height: 1.2;
+  line-height: $base-line-height-headings;
   font-style: italic;
   font-weight: 900;
   @include wf('headline');
 }
 
 h1 {
-  @include ms-respond(font-size, 6);
+  @apply ms-6--mobile;
+
+  @include media('>=m') {
+    @apply ms-6;
+  }
 }
 
 h2 {
-  @include ms-respond(font-size, 5);
+  @apply ms-5--mobile;
+
+  @include media('>=m') {
+    @apply ms-5;
+  }
 }
 
 h3 {
-  @include ms-respond(font-size, 4);
+  @apply ms-4--mobile;
+
+  @include media('>=m') {
+    @apply ms-4;
+  }
 }
 
 h4 {
-  @include ms-respond(font-size, 3);
+  @apply ms-3--mobile;
+
+  @include media('>=m') {
+    @apply ms-3;
+  }
 }
 
 h5 {
-  @include ms-respond(font-size, 2);
+  @apply ms-2--mobile;
+
+  @include media('>=m') {
+    @apply ms-2;
+  }
 }
 
 h6 {
-  @include ms-respond(font-size, 1);
+  @apply ms-1--mobile;
+
+  @include media('>=m') {
+    @apply ms-1;
+  }
 }

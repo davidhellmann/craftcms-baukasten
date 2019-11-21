@@ -1,0 +1,20 @@
+/*
+ |--------------------------------------------------------------------------
+ | @package  craft-baukasten
+ | @author David Hellmann [david@hellmann.io]
+ |
+ | .a-link--inline
+ |--------------------------------------------------------------------------
+ */
+
+.a-link--inline {
+  display: inline-block;
+  @include spaceY(padding-top padding-bottom, 0.25);
+  color: var(--c-blue);
+  font-weight: 700;
+  transition: color 250ms var(--ease-out-cubic);
+
+  &:hover {
+    color: var(--c-blue-700);
+  }
+}

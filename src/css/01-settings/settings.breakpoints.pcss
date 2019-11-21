@@ -1,47 +1,11 @@
-// Breakpoints
-@import '../02-tools/tools.mixin.create-css-vars';
-
-$breakpoints: (
-  'min': 320px,
-  's': 600px,
-  'm': 800px,
-  'l': 1200px,
-  'max': 1600px
-);
+/*
+ * Breakpoints
+ */
 
 :root {
-  // Create Colors
-  @include createCSSVars($breakpoints, 'bp');
+  --bp-min: 320px;
+  --bp-s: 600px;
+  --bp-m: 800px;
+  --bp-l: 1200px;
+  --bp-max: 1600px;
 }
-
-// Breakpoints
-// Important to include "Include Media" at this point
-// Cause we set the map our Breakpoints to their map $breakpoints
-@import '~include-media/dist/include-media';
-
-// Nothing to change here
-$bk-gutter: 8px;
-$bk-gutter-min-factor: 1;
-$bk-gutter-max-factor: 2;
-$bk-gutter-min-vertical-factor: 1;
-$bk-gutter-max-vertical-factor: 2;
-
-// Settings
-$bk-grid-settings-custom: (
-  units: (
-    gutter: $bk-gutter,
-    gutter-min-factor: $bk-gutter-min-factor,
-    gutter-max-factor: $bk-gutter-max-factor,
-    gutter-min-vertical-factor: $bk-gutter-min-vertical-factor,
-    gutter-max-vertical-factor: $bk-gutter-max-vertical-factor
-  ),
-  breakpoints: (
-    min: map_get($breakpoints, min),
-    s: map_get($breakpoints, s),
-    m: map_get($breakpoints, m),
-    l: map_get($breakpoints, l),
-    max: map_get($breakpoints, max)
-  )
-);
-
-@import '~baukasten-grid/scss/baukasten-grid';

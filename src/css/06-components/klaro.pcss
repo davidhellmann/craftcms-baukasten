@@ -16,7 +16,11 @@
   padding: 8px 12px;
   box-shadow: 0 2px 10px rgba(#212121, 0.1);
   border: 1px solid rgba(#212121, 0.1);
-  @include ms-respond(font-size, -1);
+  @apply ms--1--mobile;
+
+  @include media('>=m') {
+    @apply ms--1;
+  }
 
   &:hover svg {
     transform: scale(1.2) rotate(15deg);
@@ -33,7 +37,11 @@
 
 .klaro .cookie-modal,
 .klaro .cookie-notice {
-  @include ms-respond(font-size, -1);
+  @apply ms--1--mobile;
+
+  @include media('>=m') {
+    @apply ms--1;
+  }
 }
 
 .klaro .cookie-modal .switch,
@@ -339,12 +347,20 @@
 }
 
 .klaro .cookie-modal .cm-modal .cm-header p {
-  @include ms-respond(font-size, 0);
+  @apply ms-0--mobile;
+
+  @include media('>=m') {
+    @apply ms-0;
+  }
 }
 
 .klaro .cookie-modal .cm-modal .cm-header h1.title {
   padding-right: 0;
-  @include ms-respond(font-size, 2);
+  @apply ms-2--mobile;
+
+  @include media('>=m') {
+    @apply ms-2;
+  }
   @include space(padding-left padding-right, 1);
 }
 
@@ -396,7 +412,11 @@
 }
 
 .klaro .cookie-modal .cm-modal .cm-body ul.cm-apps li.cm-app p.purposes {
-  @include ms-respond(font-size, -2);
+  @apply ms--2--mobile;
+
+  @include media('>=m') {
+    @apply ms--2;
+  }
   margin-top: s(1/2);
   color: var(--c-gray-900);
 }
@@ -413,7 +433,11 @@
 .klaro .cookie-modal .cm-modal .cm-body ul.cm-apps li.cm-app span.cm-opt-out,
 .klaro .cookie-modal .cm-modal .cm-body ul.cm-apps li.cm-app span.cm-required {
   padding-left: s(1/2);
-  @include ms-respond(font-size, -2);
+  @apply ms--2--mobile;
+
+  @include media('>=m') {
+    @apply ms--2;
+  }
   color: var(--c-red);
 }
 

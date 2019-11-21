@@ -1,7 +1,8 @@
-// Box Shadows
-@import '../02-tools/tools.mixin.create-css-vars';
+/*
+ * Box Shadows
+ * https://tobiasahlin.com/blog/layered-smooth-box-shadows/
+ */
 
-// https://tobiasahlin.com/blog/layered-smooth-box-shadows/
 $bs-none: 'none';
 $bs-1: '0 1px 1px rgba(0,0,0,0.30)';
 $bs-2: '0 1px 1px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.25)';
@@ -15,22 +16,18 @@ $bs-shorter: '0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px 
 $bs-longer: '0 2px 1px rgba(0,0,0,0.09), 0 4px 2px rgba(0,0,0,0.09), 0 8px 4px rgba(0,0,0,0.09), 0 16px 8px rgba(0,0,0,0.09), 0 32px 16px rgba(0,0,0,0.09)';
 $bs-dreamy: '0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07), 0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)';
 
-$box-shadows: (
-  '0': $bs-none,
-  '1': $bs-1,
-  '2': $bs-2,
-  '3': $bs-3,
-  '4': $bs-4,
-  '5': $bs-5,
-  '6': $bs-6,
-  'sharp': $bs-sharp,
-  'diffuse': $bs-diffuse,
-  'shorter': $bs-shorter,
-  'longer': $bs-longer,
-  'dreamy': $bs-dreamy,
-);
 
 :root {
-  // Create Colors
-  @include createCSSVars($box-shadows, 'bs');
+  --bs-0: $bs-none;
+  --bs-1: $bs-1;
+  --bs-2: $bs-2;
+  --bs-3: $bs-3;
+  --bs-4: $bs-4;
+  --bs-5: $bs-5;
+  --bs-6: $bs-6;
+  --bs-sharp: $bs-sharp;
+  --bs-diffuse: $bs-diffuse;
+  --bs-shorter: $bs-shorter;
+  --bs-longer: $bs-longer;
+  --bs-dreamy: $bs-dreamy;
 }

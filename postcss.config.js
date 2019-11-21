@@ -1,7 +1,16 @@
+let functions = require('./postcss.functions');
+let mixins = require('./postcss.mixins');
+
 module.exports = {
   plugins: [
     require('postcss-import')({
       plugins: [require('stylelint')],
+    }),
+    require('postcss-functions')({
+      functions,
+    }),
+    require('postcss-mixins')({
+      mixins,
     }),
     require('postcss-fixes'),
     require('postcss-preset-env')({

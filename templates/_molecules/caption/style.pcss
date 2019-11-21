@@ -1,0 +1,24 @@
+/*
+ |--------------------------------------------------------------------------
+ |  m-caption
+ |--------------------------------------------------------------------------
+ */
+
+
+.m-caption {
+  $root: &;
+  display: block;
+  @include vr(1/2);
+
+  &__inner {
+    @include ms-respond(font-size, -1);
+    color: var(--c-gray-700);
+  }
+}
+
+
+.m-caption--modifier {
+  .m-caption__block {
+    // Styles here
+  }
+}

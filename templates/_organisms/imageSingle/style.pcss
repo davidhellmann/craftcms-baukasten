@@ -1,0 +1,113 @@
+/*
+ |--------------------------------------------------------------------------
+ |
+ | Description of what this file is for
+ |
+ | @package Baukasten
+ | @author David Hellmann [davidhellmann.com@gmail.com]
+ | .o-imageSingle
+ |--------------------------------------------------------------------------
+ */
+
+
+.o-imageSingle {
+  $root: &;
+
+  .m-figure__inner {
+    width: auto;
+    @include row();
+  }
+
+  .m-figure__figure {
+    @include col-padding();
+  }
+
+  .m-figure__caption {
+    @include col-padding();
+  }
+}
+
+// Full Image
+.o-imageSingle--w-full {
+  .m-figure__figure {
+    @include col(12, 12);
+
+    @include media('>=m') {
+      @include col(24, 24);
+    }
+  }
+
+  .m-figure__caption {
+    @include col(12, 12);
+
+    @include media('>=m') {
+      @include col(24, 24);
+    }
+  }
+}
+
+// Half Image
+.o-imageSingle--w-half {
+  .m-figure__figure {
+    @include col(12, 12);
+
+    @include media('>=m') {
+      @include col(12, 24);
+    }
+  }
+
+  .m-figure__caption {
+    @include col(12, 12);
+
+    @include media('>=m') {
+      @include col(12, 24);
+    }
+  }
+
+  &.o-imageSingle--a-right {
+    .m-figure__figure {
+      @include media('>=m') {
+        order: 2;
+      }
+    }
+
+    .m-figure__caption {
+      @include media('>=m') {
+        order: 1;
+      }
+    }
+  }
+}
+
+// Three Quarter Image
+.o-imageSingle--w-threeQuarter {
+  .m-figure__figure {
+    @include col(12, 12);
+
+    @include media('>=m') {
+      @include col(16, 24);
+    }
+  }
+
+  .m-figure__caption {
+    @include col(12, 12);
+
+    @include media('>=m') {
+      @include col(8, 24);
+    }
+  }
+
+  &.o-imageSingle--a-right {
+    .m-figure__figure {
+      @include media('>=m') {
+        order: 2;
+      }
+    }
+
+    .m-figure__caption {
+      @include media('>=m') {
+        order: 1;
+      }
+    }
+  }
+}

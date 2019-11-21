@@ -1,0 +1,26 @@
+/*
+ |--------------------------------------------------------------------------
+ |  Colors
+ |--------------------------------------------------------------------------
+ */
+
+@function color($key, $tone: base) {
+  @if map-has-key($colors, $key) {
+    $getTone: map-get(map-get($colors, $key), $tone);
+
+    @if ($getTone != null) {
+      @return map-get(map-get($colors, $key), $tone);
+    } @else {
+      @warn "'#{$tone}' is not a valid tone in: '#{$key}'";
+      @return null;
+    }
+  }
+
+  @warn "'#{$key}' is not a valid color in: '$colors'";
+  @return null;
+}
+
+// Shorthand Version
+@function c($key, $tone: base) {
+  @return color($key, $tone);
+}

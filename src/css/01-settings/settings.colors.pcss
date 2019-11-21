@@ -1,67 +1,55 @@
-// Colors
-@import '../02-tools/tools.mixin.create-css-vars';
-
-$colors: (
-  'black': '#000',
-  'white': '#fff',
-  'gray': (
-    'base': '#9e9e9e',
-    '50': '#fafafa',
-    '100': '#f5f5f5',
-    '200': '#eee',
-    '300': '#e0e0e0',
-    '400': '#bdbdbd',
-    '500': '#9e9e9e',
-    '600': '#757575',
-    '700': '#616161',
-    '800': '#424242',
-    '900': '#212121'
-  ),
-  // Default Red
-  'red': (
-    'base': '#f44336',
-    '50': '#ffebee',
-    '100': '#ffcdd2',
-    '200': '#ef9a9a',
-    '300': '#e57373',
-    '400': '#ef5350',
-    '500': '#f44336',
-    '600': '#e53935',
-    '700': '#d32f2f',
-    '800': '#c62828',
-    '900': '#b71c1c',
-  ),
-  // Default Green
-  'green': (
-    'base': '#4caf50',
-    '50': '#e8f5e9',
-    '100': '#c8e6c9',
-    '200': '#a5d6a7',
-    '300': '#81c784',
-    '400': '#66bb6a',
-    '500': '#4caf50',
-    '600': '#43a047',
-    '700': '#388e3c',
-    '800': '#2e7d32',
-    '900': '#1b5e20',
-  ),
-  // Default Blue
-  'blue': (
-    'base': '#2196f3',
-    '50': '#e3f2fd',
-    '100': '#bbdefb',
-    '200': '#90caf9',
-    '300': '#64b5f6',
-    '400': '#42a5f5',
-    '500': '#2196f3',
-    '600': '#1e88e5',
-    '700': '#1976d2',
-    '800': '#1565c0',
-    '900': '#0d47a1',
-  )
-);
+/*
+ * Colors
+ */
 
 :root {
-  // Create Colors
-  @include createCSSVars($colors, 'c');
+  --c-black: #000;
+  --c-white: #fff;
+  --c-gray: #9e9e9e;
+  --c-gray-50: #fafafa;
+  --c-gray-100: #f5f5f5;
+  --c-gray-200: #eee;
+  --c-gray-300: #e0e0e0;
+  --c-gray-400: #bdbdbd;
+  --c-gray-500: #9e9e9e;
+  --c-gray-600: #757575;
+  --c-gray-700: #616161;
+  --c-gray-800: #424242;
+  --c-gray-900: #212121;
+
+  --c-red: #f44336;
+  --c-red-50: #ffebee;
+  --c-red-100: #ffcdd2;
+  --c-red-200: #ef9a9a;
+  --c-red-300: #e57373;
+  --c-red-400: #ef5350;
+  --c-red-500: #f44336;
+  --c-red-600: #e53935;
+  --c-red-700: #d32f2f;
+  --c-red-800: #c62828;
+  --c-red-900: #b71c1c;
+
+  --c-green: #4caf50;
+  --c-green-50: #e8f5e9;
+  --c-green-100: #c8e6c9;
+  --c-green-200: #a5d6a7;
+  --c-green-300: #81c784;
+  --c-green-400: #66bb6a;
+  --c-green-500: #4caf50;
+  --c-green-600: #43a047;
+  --c-green-700: #388e3c;
+  --c-green-800: #2e7d32;
+  --c-green-900: #1b5e20;
+
+  --c-blue: #2196f3;
+  --c-blue-50: #e3f2fd;
+  --c-blue-100: #bbdefb;
+  --c-blue-200: #90caf9;
+  --c-blue-300: #64b5f6;
+  --c-blue-400: #42a5f5;
+  --c-blue-500: #2196f3;
+  --c-blue-600: #1e88e5;
+  --c-blue-700: #1976d2;
+  --c-blue-800: #1565c0;
+  --c-blue-900: #0d47a1;
 }
