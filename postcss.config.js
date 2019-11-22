@@ -6,13 +6,14 @@ module.exports = {
     require('postcss-import')({
       plugins: [require('stylelint')],
     }),
-    require('postcss-functions')({
+    require('tailwindcss')('./tailwind.config.js'),
+    /*require('postcss-functions')({
       functions,
     }),
     require('postcss-mixins')({
       mixins,
     }),
-    require('postcss-css-variables'),
+    require('postcss-css-variables'),*/
     require('postcss-fixes'),
     require('postcss-preset-env')({
       autoprefixer: { grid: true },

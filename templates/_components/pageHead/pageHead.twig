@@ -1,0 +1,53 @@
+{#
+  Description of what this file is for
+
+  @package Baukasten
+  @author David Hellmann [davidhellmann.com@gmail.com]
+
+  m-pageHead
+  ------------------------------------------------------------
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'm-pageHead',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  object: entry ?? null,
+  text: null,
+  size: 'h1',
+  link: null,
+  variant: 'basic'
+} %}
+
+{# Merge Default with Options #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{# Modul #}
+{% if opt.object or opt.text %}
+  {% if opt.text %}
+    {% set headline = opt.text %}
+  {% elseif opt.object.entryCustomH1 ?? null and opt.object.entryCustomH1 | length %}
+    {% set headline = opt.object.entryCustomH1 %}
+  {% else %}
+    {% set headline = opt.object.title %}
+  {% endif %}
+
+  <{{ opt.size }} {{ module.settings(opt) }}>
+  <div class="{{ opt.cn ~ '__wrapper' }}">
+    <div class="{{ opt.cn ~ '__inner' }}">
+      {% if opt.link %}
+      <a class="{{ opt.cn ~ '__link' }}" href="{{ opt.link }}">
+        {% endif %}
+        {{ headline | nl2br }}
+        {% if opt.link %}
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  </{{ opt.size }}>
+{% endif %}

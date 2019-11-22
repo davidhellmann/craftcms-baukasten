@@ -1,0 +1,44 @@
+{#
+  Description of what this file is for
+
+  @package Baukasten
+  @author David Hellmann [davidhellmann.com@gmail.com]
+
+  o-imageSingle
+  ------------------------------------------------------------
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'o-imageSingle',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  image: null,
+  caption: null,
+  ratio: null,,
+  variant: 'basic'
+} %}
+
+{# Merge Default with Options #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{# Modul #}
+{% if opt.image %}
+  <div {{ module.settings(opt) }}>
+    {% include '_molecules/figure/_template.twig' with {
+      opt: {
+        image: opt.image ?? null,
+        ratio: opt.ratio ?? null,
+        caption: opt.caption ?? null,
+        captionHeadline: opt.image.imageTitle ?? null,
+        captionText: opt.image.imageCaption ?? null,
+        captionSource: opt.image.imageSource ?? null,
+        captionSourceUrl: opt.image.imageSourceUrl ?? null
+      }
+    } only %}
+  </div>
+{% endif %}

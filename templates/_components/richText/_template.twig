@@ -1,8 +1,0 @@
-{#
-  a-richText
-  ------------------------------------------------------------
-#}
-
-{% include '_atoms/richText/_template-' ~ opt.variant | default('basic') ~ '.twig' with {
-  opt: opt ??? null
-} only %}

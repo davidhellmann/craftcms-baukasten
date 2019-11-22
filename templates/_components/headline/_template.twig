@@ -1,9 +1,0 @@
-{#
-  a-headline
-  ------------------------------------------------------------
-#}
-
-{# Include Variant #}
-{% include '_atoms/headline/_template-' ~ opt.variant | default('basic') ~ '.twig' with {
-  opt: opt ??? null
-} only %}

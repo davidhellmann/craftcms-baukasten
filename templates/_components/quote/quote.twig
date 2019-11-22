@@ -1,0 +1,53 @@
+{#
+  Description of what this file is for
+
+  @package Baukasten
+  @author David Hellmann [david@hellmann.io]
+
+  m-quote
+  ------------------------------------------------------------
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'm-quote',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  quote: null,
+  source: null,
+  sourceUrl: null,
+  variant: 'basic'
+} %}
+
+{# Merge Default with Options #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{# Modul #}
+{% if opt.quote %}
+  <div {{ module.settings(opt) }}>
+    <div class="{{ opt.cn ~ '__inner' }}">
+      <blockquote class="{{ opt.cn ~ '__blockquote' }}">
+        <p>
+          {{ '"' ~ opt.quote ~ '"' | raw }}
+        </p>
+        {% if opt.source %}
+          <footer>
+            <cite>
+              {% if opt.sourceUrl %}
+              <a href="{{ opt.sourceUrl }}" target="_blank">
+                {% endif %}
+                {{ opt.source }}
+                {% if opt.sourceUrl %}
+              </a>
+              {% endif %}
+            </cite>
+          </footer>
+        {% endif %}
+      </blockquote>
+    </div>
+  </div>
+{% endif %}

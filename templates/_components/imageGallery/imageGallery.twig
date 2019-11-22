@@ -1,0 +1,61 @@
+{#
+  Description of what this file is for
+
+  @package Baukasten
+  @author David Hellmann [davidhellmann.com@gmail.com]
+
+  o-imageGallery
+  ------------------------------------------------------------
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'o-imageGallery',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  js: true,
+  images: null,
+  ratio: null,
+  variant: 'basic'
+} %}
+
+{# Merge Default with Options #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set opt = opt | merge({  customClasses: opt.customClasses | merge(['js-imageGallery'])}) %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{# Modul #}
+{% if opt.images %}
+  <div {{ module.settings(opt) }} itemscope itemtype="http://schema.org/ImageGallery" waypointTrigger>
+    <div class="{{ opt.cn ~ '__inner' }}">
+      {% for image in opt.images %}
+        {% set imageSrc = image.getUrl() %}
+        {% set imageMaxWidth = image.getWidth() %}
+        {% set imageMaxHeight = image.getHeight() %}
+
+        <figure class="{{ opt.cn ~ '__figure' }} is-fadeInUp" waypoint>
+          <a class="{{ opt.cn ~ '__link' }}"
+             href="{{ imageSrc }}"
+             itemprop="contentUrl"
+             data-size="{{ imageMaxWidth }}x{{ imageMaxHeight }}">
+
+            {% include '_atoms/image/variant-_template.twig' with {
+              opt: {
+                image: image ?? null,
+                sizes: [
+                  { width: 400 },
+                  { width: 200 },
+                  { width: 100 }
+                ],
+                ratio: opt.ratio ?? null
+              }
+            } only %}
+          </a>
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

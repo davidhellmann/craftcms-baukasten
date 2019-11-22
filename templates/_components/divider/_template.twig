@@ -1,9 +1,0 @@
-{#
-  a-divider
-  ------------------------------------------------------------
-#}
-
-{# Include Variant #}
-{% include '_atoms/divider/_template-' ~ opt.variant | default('basic') ~ '.twig' with {
-  opt: opt ??? null
-} only %}

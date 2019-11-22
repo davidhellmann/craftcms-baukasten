@@ -1,0 +1,30 @@
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'o-appHeader',
+  modifiers: [],
+  customClasses: [''],
+  data: {},
+  variant: 'basic'
+} %}
+
+{# Merge Default with Options #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+<header {{ module.settings(opt) }}>
+  <div class="container py-2--fluid">
+    <div class="row items-center">
+      {# -- logo -- #}
+      {% include '_components/logo/logo.twig' with {
+        opt: {
+          customClasses: ['px-1--fluid'],
+          variant: 'basic',
+          name: 'logo'
+        }
+      } only %}
+      <h2 class="ms-3 px-1--fluid">Craft 3 Baukasten Sample</h2>
+    </div>
+  </div>
+</header>

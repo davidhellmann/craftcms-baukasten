@@ -2,11 +2,11 @@ const pkg = require('./package');
 
 module.exports = {
   defaults: {
-    config: true,
+    config: false,
     pcss: true,
     twig: true,
-    js: true,
-    vue: true,
+    js: false,
+    vue: false,
   },
   fileHeader: {
     author: pkg.author,

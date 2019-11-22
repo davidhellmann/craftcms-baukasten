@@ -1,0 +1,108 @@
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'a-image',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  js: null,
+  image: null,
+  sizes: [
+    { width: 1600 },
+    { width: 800 },
+    { width: 400 },
+    { width: 200 },
+    { width: 100 }
+  ],
+  ratio: null,
+  dominantColor: true,
+  objectFit: null,
+  mode: 'crop',
+  lazy: true,
+  variant: 'basic'
+} %}
+
+{# Merge Default with Options #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{# Image #}
+{% if (opt.image.getVolume().path ~ opt.image.filename) | fileExists %}
+  {% set image = opt.image %}
+{% endif %}
+
+{% if not image ??? null %}
+  {% set image = craft.assets.title('Placeholder').volume('templateImages').one() %}
+{% endif %}
+
+{% if image ??? null %}
+  {# Skip Transforms for the current filetypes #}
+  {% set skipTransformsForThisExtensions = ['gif', 'GIF', 'tiff', 'TIFF', 'svg', 'SVG'] %}
+  {% set focalpoint = image.getFocalpoint('asCss') %}
+
+  {% if image.extension not in skipTransformsForThisExtensions %}
+    {# Set correct ratio #}
+    {% if opt.ratio %}
+      {% switch opt.ratio %}
+
+      {% case "landscape" %}
+        {% set ratio = 4/3 %}
+
+      {% case "square" %}
+        {% set ratio = 1/1 %}
+
+      {% case "portrait" %}
+        {% set ratio = 3/4 %}
+
+      {% case "auto" %}
+        {% set ratio = image.width/image.height %}
+
+      {% default %}
+        {% set ratio = opt.ratio %}
+      {% endswitch %}
+    {% else %}
+      {% set ratio = image.width/image.height %}
+    {% endif %}
+
+    {# Define global variables #}
+    {% set imageSettings = {
+      mode: opt.mode,
+      position: focalpoint,
+      ratio: ratio
+    } %}
+
+    {# Final Image Set #}
+    {% set transformedImages = craft.imager.transformImage(image, opt.sizes, imageSettings) %}
+
+    {# Domiant Color (Use lase image from Final images #}
+    {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
+
+    {# Placeholder #}
+    {% set placeholderImage = craft.imager.placeholder({
+      type: 'svg',
+      color: dominantColor,
+      width: image.width,
+      height: image.width / ratio
+    }) %}
+  {% endif %}
+
+  {% if opt.dominantColor starts with '#' %}
+    {% set dominantColor = opt.dominantColor %}
+  {% endif %}
+
+  {% if image.extension == 'png' or image.extension == 'gif' or image.extension == 'svg' %}
+    {% set dominantColor = false %}
+  {% endif %}
+
+  <picture {{ module.settings(opt) }} {% if opt.dominantColor %}style="{{ 'background-color: ' ~ dominantColor ?? 'transparent' }}"{% endif %}>
+    {% if image.extension not in skipTransformsForThisExtensions %}
+      {# Transforming #}
+      {% include '_components/image/_transforming.twig' %}
+    {% else %}
+      {# No Transforming #}
+      {% include '_components/image/_no-transforming.twig' %}
+    {% endif %}
+    <noscript><img src="{{image.getUrl() }}" alt="{{ image.title }}"></noscript>
+  </picture>
+{% endif %}

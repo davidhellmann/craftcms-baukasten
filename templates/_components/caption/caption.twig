@@ -1,0 +1,58 @@
+{#
+  m-caption
+  ------------------------------------------------------------
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'm-caption',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  element: 'figcaption',
+  headline: null,
+  text: null,
+  source: null,
+  sourceUrl: null,
+  variant: 'basic'
+} %}
+
+{# Merge Default with Options #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{# Modul #}
+{% if opt.headline ?? null or opt.text ?? null %}
+  <{{ opt.element }} {{ module.settings(opt) }}>
+  <div class="{{ opt.cn ~ '__wrapper' }}">
+    <div class="{{ opt.cn ~ '__inner' }}">
+
+      {# Headline --#}
+      {% if opt.headline ?? null %}
+        <strong>{{- opt.headline ~ ' ' -}}</strong>
+      {% endif %}
+
+      {# Caption #}
+      {{ opt.text ?? null }}{{ opt.source ? '&nbsp;&mdash;&nbsp;' }}
+
+      {# Caption Source Url #}
+      {% if (opt.source ?? null) and (opt.sourceUrl ?? null) %}
+        {# link #}
+        {% include '_atoms/link/_template.twig' with {
+          opt: {
+            modifiers: ['inline'],
+            url: opt.sourceUrl ?? null,
+            targetBlank: true,
+            text: opt.source ?? null,
+            icon: null,
+          }
+        } only %}
+      {% elseif opt.source ?? null %}
+        {{ opt.source }}
+      {% endif %}
+    </div>
+  </div>
+  </{{ opt.element }}>
+{% endif %}

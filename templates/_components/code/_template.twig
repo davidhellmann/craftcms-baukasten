@@ -1,9 +1,0 @@
-{#
-  a-code
-  ------------------------------------------------------------
-#}
-
-{# Include Variant #}
-{% include '_atoms/code/_template-' ~ opt.variant | default('basic') ~ '.twig' with {
-  opt: opt ??? null
-} only %}

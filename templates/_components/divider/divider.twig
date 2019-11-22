@@ -1,0 +1,21 @@
+{#
+  a-divider
+  ------------------------------------------------------------
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'a-divider',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  variant: 'basic'
+} %}
+
+{# Merge Default with Options #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+<hr {{ module.settings(opt) }}>
