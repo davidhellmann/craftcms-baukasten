@@ -27,7 +27,7 @@ module.exports = {
       'min': '320px',
       's': '600px',
       'm': '800px',
-      'l': 'var(--bp-l)',
+      'l': '1200px',
       'max': '1600px',
     },
     fontSize: {
