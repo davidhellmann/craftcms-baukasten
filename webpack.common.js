@@ -28,16 +28,16 @@ const configureBabelLoader = (browserList) => {
         presets: [
           [
             '@babel/preset-env', {
-            modules: false,
-            corejs: {
-              version: 3,
-              proposals: true
-            },
-            useBuiltIns: 'usage',
-            targets: {
-              browsers: browserList,
-            },
-          }
+              modules: false,
+              corejs: {
+                version: 3,
+                proposals: true
+              },
+              useBuiltIns: 'usage',
+              targets: {
+                browsers: browserList,
+              },
+            }
           ],
         ],
         plugins: [
@@ -103,8 +103,10 @@ const baseConfig = {
     publicPath: settings.urls.publicPath()
   },
   resolve: {
+    modules: [path.resolve(__dirname, 'templates'), 'node_modules'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      // 'Templates': path.resolve(__dirname, 'templates'),
     }
   },
   module: {
@@ -114,7 +116,7 @@ const baseConfig = {
     ],
   },
   plugins: [
-    new WebpackNotifierPlugin({title: 'Webpack', excludeWarnings: true, alwaysNotify: true}),
+    new WebpackNotifierPlugin({ title: 'Webpack', excludeWarnings: true, alwaysNotify: true }),
     new VueLoaderPlugin(),
   ]
 };

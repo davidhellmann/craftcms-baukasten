@@ -62,11 +62,14 @@ const configureBanner = () => {
       ' * @build          ' + moment().format('llll') + ' ET',
       ' * @release        ' + commitHash + ' [' + branch + ']',
       ' * @copyright      Copyright (c) ' + moment().format('YYYY') + ' ' + settings.copyright,
+        moment().format('YYYY') +
+        ' ' +
+        settings.copyright,
       ' *',
       ' */',
-      ''
+      '',
     ].join('\n'),
-    raw: true
+    raw: true,
   };
 };
 
@@ -211,7 +214,7 @@ const configureOptimization = (buildType) => {
           common: false,
           styles: {
             name: settings.vars.cssName,
-            test: /\.(pcss|css|vue)$/,
+            test: /\.(pcss|scss|css|vue)$/,
             chunks: 'all',
             enforce: true
           }
@@ -249,33 +252,44 @@ const configureOptimization = (buildType) => {
 const configurePostcssLoader = (buildType) => {
   if (buildType === LEGACY_CONFIG) {
     return {
-      test: /\.(pcss|css)$/,
+      test: /\.(pcss|css|scss)$/,
       use: [
         MiniCssExtractPlugin.loader,
         {
           loader: 'css-loader',
           options: {
-            importLoaders: 2,
-            sourceMap: true
-          }
+            importLoaders: 3,
+            sourceMap: true,
+          },
         },
         {
-          loader: 'resolve-url-loader'
+          loader: 'resolve-url-loader',
         },
         {
           loader: 'postcss-loader',
           options: {
-            sourceMap: true
-          }
-        }
-      ]
+            sourceMap: true,
+          },
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            // Prefer `dart-sass`
+            implementation: require('sass'),
+            sassOptions: {
+              includePaths: ['./node_modules'],
+            },
+            sourceMap: true,
+          },
+        },
+      ],
     };
   }
   // Don't generate CSS for the modern config in production
   if (buildType === MODERN_CONFIG) {
     return {
-      test: /\.(pcss|css)$/,
-      loader: 'ignore-loader'
+      test: /\.(pcss|css|scss)$/,
+      loader: 'ignore-loader',
     };
   }
 };

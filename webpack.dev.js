@@ -72,13 +72,13 @@ const configurePostcssLoader = (buildType) => {
   // Don't generate CSS for the legacy config in development
   if (buildType === LEGACY_CONFIG) {
     return {
-      test: /\.(pcss|css)$/,
-      loader: 'ignore-loader'
+      test: /\.(pcss|css|scss)$/,
+      loader: 'ignore-loader',
     };
   }
   if (buildType === MODERN_CONFIG) {
     return {
-      test: /\.(pcss|css)$/,
+      test: /\.(pcss|css|scss)$/,
       use: [
         {
           loader: 'style-loader',
@@ -89,20 +89,31 @@ const configurePostcssLoader = (buildType) => {
         {
           loader: 'css-loader',
           options: {
-            importLoaders: 2,
-            sourceMap: true
-          }
+            importLoaders: 3,
+            sourceMap: true,
+          },
         },
         {
-          loader: 'resolve-url-loader'
+          loader: 'resolve-url-loader',
         },
         {
           loader: 'postcss-loader',
           options: {
-            sourceMap: true
-          }
-        }
-      ]
+            sourceMap: true,
+          },
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            // Prefer `dart-sass`
+            implementation: require('sass'),
+            sassOptions: {
+              includePaths: ['./node_modules'],
+            },
+            sourceMap: true,
+          },
+        },
+      ],
     };
   }
 };

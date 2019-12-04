@@ -5,6 +5,8 @@ import styles from '../css/app.pcss';
 import 'core-js/modules/es.promise';
 import 'core-js/modules/es.array.iterator';
 
+import 'Templates/_components/image/test';
+
 // App main
 const main = async () => {
   // Import Vendors
@@ -22,6 +24,7 @@ const main = async () => {
 
 // Execute async function
 main().then(() => {
+
   console.log(
     '                                                               ',
   );
