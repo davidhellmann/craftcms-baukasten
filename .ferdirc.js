@@ -3,7 +3,7 @@ const pkg = require('./package');
 module.exports = {
   defaults: {
     config: false,
-    pcss: true,
+    scss: true,
     twig: true,
     js: false,
     vue: false,
@@ -19,23 +19,23 @@ module.exports = {
       extension: 'twig',
       path: 'src/templates/_components/'
     },
-    pcss: {
+    scss: {
       name: '',
       postfix: '',
-      extension: 'pcss',
-      path: 'src/css/06-components/'
+      extension: 'scss',
+      path: 'src/templates/_components/'
     },
     js: {
       name: '',
       postfix: '',
       extension: 'js',
-      path: 'src/js/components/'
+      path: 'src/templates/_components/'
     },
     vue: {
       name: '',
       postfix: '',
       extension: 'vue',
-      path: 'src/vue/components/'
+      path: 'src/templates/_components/'
     },
     config: {
       name: 'config',

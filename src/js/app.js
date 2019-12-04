@@ -1,11 +1,9 @@
 // Import our CSS
-import styles from '../css/app.pcss';
+import styles from '../css/app.scss';
 
 // because webpack generated code does not go through babel
 import 'core-js/modules/es.promise';
 import 'core-js/modules/es.array.iterator';
-
-import 'Templates/_components/image/test';
 
 // App main
 const main = async () => {
