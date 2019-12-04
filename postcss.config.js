@@ -7,13 +7,14 @@ module.exports = {
       plugins: [require('stylelint')],
     }),
     require('tailwindcss')('./tailwind.config.js'),
-    /*require('postcss-functions')({
+    require('postcss-nested'),
+    require('postcss-functions')({
       functions,
     }),
     require('postcss-mixins')({
       mixins,
     }),
-    require('postcss-css-variables'),*/
+    require('postcss-css-variables'),
     require('postcss-fixes'),
     require('postcss-preset-env')({
       autoprefixer: { grid: true },

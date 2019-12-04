@@ -11,6 +11,6 @@
   {% endif %}
   {# Set data attributes #}
   {% if opt.data ??? null %}
-    {% for key, value in opt.data %}{{ '  ' ~ key ~ '=' ~ value }} {% endfor %}
+    {% for key, value in opt.data %}  {{ key }}="{{ value }}" {% endfor %}
   {% endif %}
 {% endmacro %}

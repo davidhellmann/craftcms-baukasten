@@ -1,5 +1,5 @@
 // Import our CSS
-import styles from '../css/app.scss';
+import styles from '../css/app.pcss';
 
 // because webpack generated code does not go through babel
 import 'core-js/modules/es.promise';
