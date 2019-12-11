@@ -1,4 +1,4 @@
-dateModified: 1576105254
+dateModified: 1576106164
 email:
   fromEmail: david@hellmann.io
   fromName: $SITE_NAME
@@ -142,6 +142,11 @@ globalSets:
             sortOrder: 1
     handle: klaroSnippets
     name: 'Klaro Snippets'
+graphql:
+  schemas:
+    6183aec0-f270-4535-9fb9-d1b74f31cf0f:
+      isPublic: true
+      name: 'Public Schema'
 imageTransforms:
   32742592-645e-4fbc-b591-1a4ff1952aa1:
     format: null
@@ -1369,29 +1374,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  image-resizer:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.0.0
-    settings:
-      assetSourceSettings:
-        1:
-          enabled: '1'
-          imageHeight: ''
-          imageQuality: ''
-          imageWidth: ''
-        2:
-          enabled: '1'
-          imageHeight: ''
-          imageQuality: ''
-          imageWidth: ''
-      enabled: '1'
-      imageHeight: '2600'
-      imageQuality: '100'
-      imageWidth: '2600'
-      nonDestructiveCrop: false
-      nonDestructiveResize: ''
-      skipLarger: '1'
   imager:
     edition: standard
     enabled: true
