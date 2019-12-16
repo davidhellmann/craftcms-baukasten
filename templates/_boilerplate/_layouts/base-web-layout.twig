@@ -5,7 +5,7 @@
   {% minify %}
   <!DOCTYPE html>
     {% block htmlTag %}
-      <html lang="{{ craft.app.language | slice(0,2) }}">
+      <html class="no-js" lang="{{ craft.app.language | slice(0,2) }}">
     {% endblock htmlTag %}
     <head>
       {% include "_boilerplate/_partials/head-meta.twig" %}
