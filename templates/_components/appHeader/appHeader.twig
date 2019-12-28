@@ -2,29 +2,29 @@
 {% set defaults = {
   cn: 'o-appHeader',
   modifiers: [],
-  customClasses: [''],
+  customClasses: [],
   data: {},
   variant: 'basic'
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-<header {{ module.settings(opt) }}>
-  <div class="container py-2--fluid">
+<header {{ module.settings(props) }}>
+  <div class="container py-2">
     <div class="row items-center">
       {# -- logo -- #}
       {% include '_components/logo/logo.twig' with {
-        opt: {
+        props: {
           customClasses: ['p-8 w-120 h-120'],
           variant: 'basic',
           name: 'logo'
         }
       } only %}
-      <h2 class="ms-3 px-1--fluid">Craft 3 Baukasten Sample</h2>
+      <h2 class="ms-3 px-1">Craft 3 Baukasten Sample</h2>
     </div>
   </div>
 </header>

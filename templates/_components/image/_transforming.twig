@@ -1,18 +1,14 @@
-<img class="{{ opt.lazy ? 'lazyload' : '' }}"
-{% if opt.objectFit %}
-  style="object-fit: {{ opt.objectFit }};
-    object-position: {{ focalpoint }};
-    font-size: 'object-fit: {{ opt.objectFit }};';"
+<img class="{{ props.lazy ? 'lazyload' : '' }}" loading="lazy"
+{% if props.objectFit %}
+  style="object-fit: {{ props.objectFit }}; object-position: {{ focalpoint }};"
 {% endif %}
     src="{{ placeholderImage }}"
-{% if opt.lazy %}
+{% if props.lazy %}
   data-srcset="{{ craft.imager.srcset(transformedImages) }}"
   data-sizes="auto"
 {% else %}
   srcset="{{ craft.imager.srcset(transformedImages) }}"
-  data-sizes="100vw"
+  sizes="100vw"
 {% endif %}
-    width="{{ image.width }}"
-    height="auto"
     alt="{{ image.title }}"
     data-rootimage="{{ transformedImages|first.url }}"/>

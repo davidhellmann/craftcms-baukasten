@@ -20,23 +20,23 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 {% import '_partials/macros/_macro-isActive.twig' as macroIsActive %}
 
 {# Modul #}
-{% if opt.items %}
-  <div {{ module.settings(opt) }}>
-    <div class="{{ opt.cn ~ '__wrapper' }}">
-      <div class="{{ opt.cn ~ '__inner' }}">
-        <ul class="{{ opt.cn ~ '__list' }}  {{ opt.cn ~ '__list--level-1' }}">
-          {% nav item in opt.items %}
+{% if props.items %}
+  <div {{ module.settings(props) }}>
+    <div class="{{ props.cn ~ '__wrapper' }}">
+      <div class="{{ props.cn ~ '__inner' }}">
+        <ul class="{{ props.cn ~ '__list' }}  {{ props.cn ~ '__list--level-1' }}">
+          {% nav item in props.items %}
             {% set level = item.level %}
             {% set level = level + 0 %}
 
-            <li class="{{ opt.cn ~ '__listItem' }}  {{ opt.cn ~ '__listItem--level-' ~ level }}">
+            <li class="{{ props.cn ~ '__listItem' }}  {{ props.cn ~ '__listItem--level-' ~ level }}">
               {# Get Position #}
               {% set segmentPosition = item.level %}
 
@@ -63,7 +63,7 @@
                 item.title %}
 
               <a href="{{ item.navigationLink.url }}"
-                 class="{{ opt.cn ~ '__listItemLink' }}  {{ opt.cn ~ '__listItemLink--level-' ~ level }}  {{ macroIsActive.isActive(segments, segmentPosition) }}" {{ item.navigationLink.target ? 'target=blank' : '' }}>
+                 class="{{ props.cn ~ '__listItemLink' }}  {{ props.cn ~ '__listItemLink--level-' ~ level }}  {{ macroIsActive.isActive(segments, segmentPosition) }}" {{ item.navigationLink.target ? 'target=blank' : '' }}>
                 {{ text | raw }}
               </a>
 
@@ -71,7 +71,7 @@
                 {% set level = item.level %}
                 {% set level = level + 1 %}
 
-                <ul class="{{ opt.cn ~ '__list' }}  {{ opt.cn ~ '__list--level-' ~ level }}">
+                <ul class="{{ props.cn ~ '__list' }}  {{ props.cn ~ '__list--level-' ~ level }}">
                   {% children %}
                 </ul>
 

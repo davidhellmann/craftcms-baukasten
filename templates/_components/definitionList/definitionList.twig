@@ -19,20 +19,20 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Modul #}
-{% if opt.items %}
-  <dl {{ module.settings(opt) }} waypointTrigger>
-    <div class="{{ opt.cn ~ '__inner' }}">
-      {% for item in opt.items %}
-        <dt class="{{ opt.cn ~ '__term' }}  is-fadeInUp" waypoint>
+{% if props.items %}
+  <dl {{ module.settings(props) }} waypointTrigger>
+    <div class="{{ props.cn ~ '__inner' }}">
+      {% for item in props.items %}
+        <dt class="{{ props.cn ~ '__term' }}  is-fadeInUp" waypoint>
           {{ item.term | raw }}
         </dt>
-        <dd class="{{ opt.cn ~ '__description' }}  is-fadeInUp"  waypoint>
+        <dd class="{{ props.cn ~ '__description' }}  is-fadeInUp"  waypoint>
           <p>{{ item.description | nl2br }}</p>
         </dd>
       {% endfor %}

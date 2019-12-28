@@ -21,23 +21,23 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Modul #}
-{% if opt.image %}
-  <div {{ module.settings(opt) }}>
+{% if props.image %}
+  <div {{ module.settings(props) }}>
     {% include '_molecules/figure/_template.twig' with {
-      opt: {
-        image: opt.image ?? null,
-        ratio: opt.ratio ?? null,
-        caption: opt.caption ?? null,
-        captionHeadline: opt.image.imageTitle ?? null,
-        captionText: opt.image.imageCaption ?? null,
-        captionSource: opt.image.imageSource ?? null,
-        captionSourceUrl: opt.image.imageSourceUrl ?? null
+      props: {
+        image: props.image ?? null,
+        ratio: props.ratio ?? null,
+        caption: props.caption ?? null,
+        captionHeadline: props.image.imageTitle ?? null,
+        captionText: props.image.imageCaption ?? null,
+        captionSource: props.image.imageSource ?? null,
+        captionSourceUrl: props.image.imageSourceUrl ?? null
       }
     } only %}
   </div>

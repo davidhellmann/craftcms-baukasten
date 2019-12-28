@@ -22,32 +22,32 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Modul #}
-{% if opt.object or opt.text %}
-  {% if opt.text %}
-    {% set headline = opt.text %}
-  {% elseif opt.object.entryCustomH1 ?? null and opt.object.entryCustomH1 | length %}
-    {% set headline = opt.object.entryCustomH1 %}
+{% if props.object or props.text %}
+  {% if props.text %}
+    {% set headline = props.text %}
+  {% elseif props.object.entryCustomH1 ?? null and props.object.entryCustomH1 | length %}
+    {% set headline = props.object.entryCustomH1 %}
   {% else %}
-    {% set headline = opt.object.title %}
+    {% set headline = props.object.title %}
   {% endif %}
 
-  <{{ opt.size }} {{ module.settings(opt) }}>
-  <div class="{{ opt.cn ~ '__wrapper' }}">
-    <div class="{{ opt.cn ~ '__inner' }}">
-      {% if opt.link %}
-      <a class="{{ opt.cn ~ '__link' }}" href="{{ opt.link }}">
+  <{{ props.size }} {{ module.settings(props) }}>
+  <div class="{{ props.cn ~ '__wrapper' }}">
+    <div class="{{ props.cn ~ '__inner' }}">
+      {% if props.link %}
+      <a class="{{ props.cn ~ '__link' }}" href="{{ props.link }}">
         {% endif %}
         {{ headline | nl2br }}
-        {% if opt.link %}
+        {% if props.link %}
       </a>
       {% endif %}
     </div>
   </div>
-  </{{ opt.size }}>
+  </{{ props.size }}>
 {% endif %}

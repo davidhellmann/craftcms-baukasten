@@ -18,26 +18,26 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{% if opt.text and opt.url and opt.icon %}
+{% if props.text and props.url and props.icon %}
   <a
-    href="{{ opt.url }}" {{ opt.url starts with '#' ? 'data-scroll' : '' }}  {{ module.settings(opt) }} {{ opt.targetBlank ? 'target="_blank"' }}>
+    href="{{ props.url }}" {{ props.url starts with '#' ? 'data-scroll' : '' }}  {{ module.settings(props) }} {{ props.targetBlank ? 'target="_blank"' }}>
 
     {# Icon #}
     {% include '_atoms/icon/_template.twig' with {
-      opt: {
+      props: {
         variant: 'basic',
-        icon: opt.icon
+        icon: props.icon
       }
     } only %}
 
     {# Link Text #}
-    <span class="{{ opt.cn ~ '__text' }}">
-      {{ opt.text }}
+    <span class="{{ props.cn ~ '__text' }}">
+      {{ props.text }}
     </span>
   </a>
 {% endif %}

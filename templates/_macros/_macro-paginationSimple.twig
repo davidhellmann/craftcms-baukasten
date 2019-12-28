@@ -8,12 +8,12 @@
   @param {object}  pages                 - Pagination Object
   @param {object}  craft                 - Craft Request Object
   @param {object}  options               - Array of options
-  @param {string}  opt.cnname         - Classname (default: 'o-pagination')
-  @param {string}  opt.searchquery   - To pass search words from Searchfields (default: false)
-  @param {string}  opt.prevText      - Titletext for Prev
-  @param {string}  opt.nextText      - Titletext for Next
+  @param {string}  props.cnname         - Classname (default: 'o-pagination')
+  @param {string}  props.searchquery   - To pass search words from Searchfields (default: false)
+  @param {string}  props.prevText      - Titletext for Prev
+  @param {string}  props.nextText      - Titletext for Next
 #}
-{% macro paginationSimple(pages,craft,opt) %}
+{% macro paginationSimple(pages,craft,props) %}
   {% set defaults = {
     cn: 'm-paginationSimple',
     searchquery: false,
@@ -24,26 +24,26 @@
   } %}
 
   {# Merge Default with Options #}
-  {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+  {% set props = props is defined ? defaults|merge(props) : defaults %}
 
   {# Add Pagination only if the Page Number is higher than 1#}
   {% if pages.totalPages > 1 %}
-    <nav class="o-row  {{ opt.cn }}" role="navigation">
+    <nav class="o-row  {{ props.cn }}" role="navigation">
         {# Display the Previous Link if available #}
         {% if pages.prevUrl %}
-          <div class="o-col-6  o-col-s-12  {{ opt.cn ~ '__item' }}  {{ opt.cn ~ '__item--prev' }}">
-            <a class="{{ opt.cn ~ '__link' }}  {{ opt.cn ~ '__link--prev' }}"
-               href="{{ pages.prevUrl }}{{ opt.searchquery ? '?q='~opt.searchquery }}"
-               title="{{ opt.prevText }}">
+          <div class="o-col-6  o-col-s-12  {{ props.cn ~ '__item' }}  {{ props.cn ~ '__item--prev' }}">
+            <a class="{{ props.cn ~ '__link' }}  {{ props.cn ~ '__link--prev' }}"
+               href="{{ pages.prevUrl }}{{ props.searchquery ? '?q='~props.searchquery }}"
+               title="{{ props.prevText }}">
 
-              {% if opt.prevIcon %}
-                <span class="{{ opt.cn ~ '__icon' }}  {{ opt.cn ~ '__icon--prev' }}">
-                {% include '_partials/svg/' ~ opt.prevIcon ~ '.svg.twig' %}
+              {% if props.prevIcon %}
+                <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--prev' }}">
+                {% include '_partials/svg/' ~ props.prevIcon ~ '.svg.twig' %}
               </span>
               {% endif %}
 
-              <span class="{{ opt.cn ~ '__title' }}">
-                {{ opt.prevText }}
+              <span class="{{ props.cn ~ '__title' }}">
+                {{ props.prevText }}
               </span>
             </a>
           </div>
@@ -51,19 +51,19 @@
 
         {# Display next Page Link if available#}
         {% if pages.nextUrl %}
-        <div class="o-col-6  o-col-s-12  {{ opt.cn ~ '__item' }}  {{ opt.cn ~ '__item--next' }}">
-          <a class="{{ opt.cn ~ '__link' }}  {{ opt.cn ~ '__link--next' }}"
-             href="{{ pages.nextUrl }}{{ opt.searchquery ? '?q='~opt.searchquery }}"
-             title="{{ opt.nextText }}">
+        <div class="o-col-6  o-col-s-12  {{ props.cn ~ '__item' }}  {{ props.cn ~ '__item--next' }}">
+          <a class="{{ props.cn ~ '__link' }}  {{ props.cn ~ '__link--next' }}"
+             href="{{ pages.nextUrl }}{{ props.searchquery ? '?q='~props.searchquery }}"
+             title="{{ props.nextText }}">
 
-            {% if opt.nextIcon %}
-              <span class="{{ opt.cn ~ '__icon' }}  {{ opt.cn ~ '__icon--next' }}">
-                {% include '_partials/svg/' ~ opt.nextIcon ~ '.svg.twig' %}
+            {% if props.nextIcon %}
+              <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--next' }}">
+                {% include '_partials/svg/' ~ props.nextIcon ~ '.svg.twig' %}
               </span>
             {% endif %}
 
-            <span class="{{ opt.cn ~ '__title' }}">
-              {{ opt.nextText }}
+            <span class="{{ props.cn ~ '__title' }}">
+              {{ props.nextText }}
             </span>
           </a>
         </div>

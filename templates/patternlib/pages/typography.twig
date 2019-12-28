@@ -26,7 +26,7 @@
 
   {# -- pageTitle -- #}
   {% include '_molecules/pageTitle/_template.twig' with {
-    opt: {
+    props: {
       text: 'Typography' | t,
       size: 'h1',
     }
@@ -37,7 +37,7 @@
     <div class="typo-label">Headings</div>
     {# -- headline -- #}
     {% include '_atoms/headline/_template.twig' with {
-      opt: {
+      props: {
         text: 'H1: ' ~ headline,
         size: 'h1'
       }
@@ -45,7 +45,7 @@
 
     {# -- headline -- #}
     {% include '_atoms/headline/_template.twig' with {
-      opt: {
+      props: {
         text: 'H2: ' ~ headline,
         size: 'h2'
       }
@@ -53,7 +53,7 @@
 
     {# -- headline -- #}
     {% include '_atoms/headline/_template.twig' with {
-      opt: {
+      props: {
         text: 'H3: ' ~ headline,
         size: 'h3'
       }
@@ -61,7 +61,7 @@
 
     {# -- headline -- #}
     {% include '_atoms/headline/_template.twig' with {
-      opt: {
+      props: {
         text: 'H4: ' ~ headline,
         size: 'h4'
       }
@@ -69,7 +69,7 @@
 
     {# -- headline -- #}
     {% include '_atoms/headline/_template.twig' with {
-      opt: {
+      props: {
         text: 'H5: ' ~ headline,
         size: 'h5'
       }
@@ -77,7 +77,7 @@
 
     {# -- headline -- #}
     {% include '_atoms/headline/_template.twig' with {
-      opt: {
+      props: {
         text: 'H6: ' ~ headline,
         size: 'h6'
       }
@@ -86,7 +86,7 @@
 
   {# -- headline -- #}
   {% include '_atoms/headline/_template.twig' with {
-    opt: {
+    props: {
       text: 'Full Text Example',
       size: 'h2'
     }
@@ -98,7 +98,7 @@
     <div class="typo-paragraphs">
       {# -- richText -- #}
       {% include '_atoms/richText/_template.twig' with {
-        opt: {
+        props: {
           text: textFull
         }
       } only %}
@@ -109,7 +109,7 @@
 
   {# -- headline -- #}
   {% include '_atoms/headline/_template.twig' with {
-    opt: {
+    props: {
       text: 'Font Size Examples',
       size: 'h2'
     }
@@ -121,7 +121,7 @@
     <div class="typo-paragraphs ms-res-2">
       {# -- richText -- #}
       {% include '_atoms/richText/_template.twig' with {
-        opt: {
+        props: {
           text: textSimple
         }
       } only %}
@@ -135,7 +135,7 @@
     <div class="typo-paragraphs ms-res-1">
       {# -- richText -- #}
       {% include '_atoms/richText/_template.twig' with {
-        opt: {
+        props: {
           text: textSimple
         }
       } only %}
@@ -150,7 +150,7 @@
     <div class="typo-paragraphs ms-res-0">
       {# -- richText -- #}
       {% include '_atoms/richText/_template.twig' with {
-        opt: {
+        props: {
           text: textSimple
         }
       } only %}
@@ -165,7 +165,7 @@
     <div class="typo-paragraphs ms-res--1">
       {# -- richText -- #}
       {% include '_atoms/richText/_template.twig' with {
-        opt: {
+        props: {
           text: textSimple
         }
       } only %}
@@ -180,7 +180,7 @@
     <div class="typo-paragraphs ms-res--2">
       {# -- richText -- #}
       {% include '_atoms/richText/_template.twig' with {
-        opt: {
+        props: {
           text: textSimple
         }
       } only %}

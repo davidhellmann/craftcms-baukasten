@@ -2,15 +2,15 @@
   settings
   ========
 
-  {{ module.settings(opt) }}
+  {{ module.settings(props) }}
 #}
-{% macro settings(opt) %}
+{% macro settings(props) %}
   {# Set module class #}
-  {% if opt.cn %} class="{{ opt.cn }}{# Set variant #}{% if opt.variant ??? null %}{{ '  ' ~ opt.cn ~ '-' ~ opt.variant }}{% endif %}{# Set modfier classes #}{% if opt.modifiers ??? null %}{% for modifier in opt.modifiers %}{{ modifier | length ? '  ' ~ opt.cn ~ '--' ~ modifier }}{% endfor %}{% endif %}{# Set custom classes #}{% if opt.customClasses ??? null %}{% for customClass in opt.customClasses %}{{ customClass | length ? '  ' ~ customClass }}{% endfor %}
-  {% endif %}{# JS Class#}{% if opt.js ??? null %}{{ opt.cn|replace({ (opt.cn | slice(0,2)) : 'js-' }) }}{% endif %}"
+  {% if props.cn %} class="{{ props.cn }}{# Set variant #}{% if props.variant ??? null %}{{ '  ' ~ props.cn ~ '-' ~ props.variant }}{% endif %}{# Set modfier classes #}{% if props.modifiers ??? null %}{% for modifier in props.modifiers %}{{ modifier | length ? '  ' ~ props.cn ~ '--' ~ modifier }}{% endfor %}{% endif %}{# Set custom classes #}{% if props.customClasses ??? null %}{% for customClass in props.customClasses %}{{ customClass | length ? '  ' ~ customClass }}{% endfor %}
+  {% endif %}{# JS Class#}{% if props.js ??? null %}{{ props.cn|replace({ (props.cn | slice(0,2)) : 'js-' }) }}{% endif %}"
   {% endif %}
   {# Set data attributes #}
-  {% if opt.data ??? null %}
-    {% for key, value in opt.data %}  {{ key }}="{{ value }}" {% endfor %}
+  {% if props.data ??? null %}
+    {% for key, value in props.data %}  {{ key }}="{{ value }}" {% endfor %}
   {% endif %}
 {% endmacro %}

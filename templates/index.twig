@@ -2,34 +2,32 @@
 {% set bodyClass = 'p-home' %}
 
 {% block headLinks %}
-	{{ parent() }}
+  {{ parent() }}
 {% endblock headLinks %}
 
 {% block content %}
-	<section class="bg-black c-white py-2--fluid">
-		<div class="container">
-			<h1>Block Content</h1>
-		</div>
-	</section>
+  <section class="bg-black text-white py-2">
+    <div class="container">
+      <h1>Block Content</h1>
+    </div>
+  </section>
 {% endblock %}
 
 {% block subcontent %}
-	<section class="bg-gray-100 c-gray-900 py-2--fluid">
-		<div class="container">
-			<h2>Block Subcontent</h2>
-		</div>
-	</section>
+  <section class="bg-gray-100 text-gray-900 py-2">
+    <div class="container">
+      <h2>Block Subcontent</h2>
+    </div>
+  </section>
 
-	<section class="section  py-2--fluid">
-		<div class="container">
-			{% include '_dev_modules.twig' %}
-		</div>
-	</section>
-
+  <section class="section  py-2">
+    <div class="container">
+      {% include '_dev_modules.twig' %}
+    </div>
+  </section>
 {% endblock %}
-
 
 {# Any JavaScript that should be included before </body> #}
 {% block bodyJs %}
-	{{ parent() }}
+  {{ parent() }}
 {% endblock bodyJs %}

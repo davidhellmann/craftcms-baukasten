@@ -22,14 +22,14 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Image #}
-{% if (opt.image.getVolume().path ~ opt.image.filename) | fileExists %}
-  {% set image = opt.image %}
+{% if props.image ??? null %}
+  {% set image = props.image %}
 {% endif %}
 
 {% if not image ??? null %}
@@ -43,8 +43,8 @@
 
   {% if image.extension not in skipTransformsForThisExtensions %}
     {# Set correct ratio #}
-    {% if opt.ratio %}
-      {% switch opt.ratio %}
+    {% if props.ratio %}
+      {% switch props.ratio %}
 
       {% case "landscape" %}
         {% set ratio = 4/3 %}
@@ -59,7 +59,7 @@
         {% set ratio = image.width/image.height %}
 
       {% default %}
-        {% set ratio = opt.ratio %}
+        {% set ratio = props.ratio %}
       {% endswitch %}
     {% else %}
       {% set ratio = image.width/image.height %}
@@ -67,13 +67,13 @@
 
     {# Define global variables #}
     {% set imageSettings = {
-      mode: opt.mode,
+      mode: props.mode,
       position: focalpoint,
       ratio: ratio
     } %}
 
     {# Final Image Set #}
-    {% set transformedImages = craft.imager.transformImage(image, opt.sizes, imageSettings) %}
+    {% set transformedImages = craft.imager.transformImage(image, props.sizes, imageSettings) %}
 
     {# Domiant Color (Use lase image from Final images #}
     {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
@@ -87,15 +87,15 @@
     }) %}
   {% endif %}
 
-  {% if opt.dominantColor starts with '#' %}
-    {% set dominantColor = opt.dominantColor %}
+  {% if props.dominantColor starts with '#' %}
+    {% set dominantColor = props.dominantColor %}
   {% endif %}
 
   {% if image.extension == 'png' or image.extension == 'gif' or image.extension == 'svg' %}
     {% set dominantColor = false %}
   {% endif %}
 
-  <picture {{ module.settings(opt) }} {% if opt.dominantColor %}style="{{ 'background-color: ' ~ dominantColor ?? 'transparent' }}"{% endif %}>
+  <picture {{ module.settings(props) }} {% if props.dominantColor %}style="{{ 'background-color: ' ~ dominantColor ?? 'transparent' }}"{% endif %}>
     {% if image.extension not in skipTransformsForThisExtensions %}
       {# Transforming #}
       {% include '_components/image/_transforming.twig' %}

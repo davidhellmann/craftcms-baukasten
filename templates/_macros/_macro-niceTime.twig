@@ -2,25 +2,21 @@
   Set Active Class
   ------------------------------------------------------------
 
-  {{ macroNiceTime.niceTime(options) }}
+  {{ macroNiceTime.niceTime(props) }}
 #}
 
-{% macro niceTime(options) %}
+{% macro niceTime(props) %}
   {% set defaults = {
     classname: 'm-niceTime',
     date: false
   } %}
 
-  {% if options is defined %}
-    {% set options = options is defined ? defaults|merge(options) : defaults %}
-  {% else %}
-    {% set options = defaults %}
-  {% endif %}
+  {# Merge Default with Options #}
+  {% set props = props is defined ? defaults|merge(props) : defaults %}
 
-  {% set niceTime = date(options.date).diff(now) %}
+  {% set niceTime = date(props.date).diff(now) %}
   {% if niceTime %}
-    <span class="{{ options.classname }}">
-      <span class="{{ options.classname ~ '__inner' }}">
+    <span class="{{ props.classname }}">
         {% if niceTime.y >= 2 %}
           {{ 'am' | t }} {{ date|date('F Y') }}
         {% elseif niceTime.y >= 1 %}
@@ -42,7 +38,6 @@
         {% else %}
           {{ 'gerade eben' | t }}
         {% endif %}
-      </span>
     </span>
   {% endif %}
 {% endmacro %}

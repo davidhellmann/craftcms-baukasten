@@ -16,29 +16,29 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Merge JS Class #}
-{% set opt = opt | merge({  customClasses: opt.customClasses | merge(['js-slider'])}) %}
+{% set props= props| merge({  customClasses: props.customClasses | merge(['js-slider'])}) %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Modul #}
-{% if opt.images %}
-  <div {{ module.settings(opt) }} itemscope itemtype="http://schema.org/ImageGallery" role="presentation" waypointTrigger>
+{% if props.images %}
+  <div {{ module.settings(props) }} itemscope itemtype="http://schema.org/ImageGallery" role="presentation" waypointTrigger>
     <!-- Slides -->
-    {% for image in opt.images %}
-      <div class="{{ opt.cn ~ '__slide' }}" itemscope itemtype="http://schema.org/ImageObject">
+    {% for image in props.images %}
+      <div class="{{ props.cn ~ '__slide' }}" itemscope itemtype="http://schema.org/ImageObject">
         {% include '_molecules/figure/_template.twig' with {
-          opt: {
+          props: {
             customClasses: ['is-fadeInUp'],
             data: {
               'waypoint': ''
             },
             image: image ?? null,
-            ratio: opt.ratio ?? null,
-            caption: opt.caption ?? null,
+            ratio: props.ratio ?? null,
+            caption: props.caption ?? null,
             captionHeadline: image.imageTitle ?? null,
             captionText: image.imageCaption ?? null,
             captionSource: image.imageSource ?? null,

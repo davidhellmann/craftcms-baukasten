@@ -14,14 +14,14 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Modul #}
-{% if opt.text %}
-  <p {{ module.settings(opt) }}>
-    {{ opt.text | nl2br | raw }}
+{% if props.text %}
+  <p {{ module.settings(props) }}>
+    {{ props.text | nl2br | raw }}
   </p>
 {% endif %}

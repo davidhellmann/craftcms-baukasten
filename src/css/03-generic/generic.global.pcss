@@ -76,6 +76,7 @@ img[data-sizes='auto'] {
   transition: opacity 750ms 125ms var(--ease-out-cubic);
 }
 
+[loading='lazy'],
 .lazypreload {
   opacity: 1;
 }
@@ -83,6 +84,7 @@ img[data-sizes='auto'] {
 [v-cloak] > * {
   display: none !important;
 }
+
 [v-cloak]::before {
   content: 'loading…';
 }

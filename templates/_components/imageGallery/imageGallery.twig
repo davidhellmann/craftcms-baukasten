@@ -21,36 +21,36 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
-{% set opt = opt | merge({  customClasses: opt.customClasses | merge(['js-imageGallery'])}) %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
+{% set props= props| merge({  customClasses: props.customClasses | merge(['js-imageGallery'])}) %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Modul #}
-{% if opt.images %}
-  <div {{ module.settings(opt) }} itemscope itemtype="http://schema.org/ImageGallery" waypointTrigger>
-    <div class="{{ opt.cn ~ '__inner' }}">
-      {% for image in opt.images %}
+{% if props.images %}
+  <div {{ module.settings(props) }} itemscope itemtype="http://schema.org/ImageGallery" waypointTrigger>
+    <div class="{{ props.cn ~ '__inner' }}">
+      {% for image in props.images %}
         {% set imageSrc = image.getUrl() %}
         {% set imageMaxWidth = image.getWidth() %}
         {% set imageMaxHeight = image.getHeight() %}
 
-        <figure class="{{ opt.cn ~ '__figure' }} is-fadeInUp" waypoint>
-          <a class="{{ opt.cn ~ '__link' }}"
+        <figure class="{{ props.cn ~ '__figure' }} is-fadeInUp" waypoint>
+          <a class="{{ props.cn ~ '__link' }}"
              href="{{ imageSrc }}"
              itemprop="contentUrl"
              data-size="{{ imageMaxWidth }}x{{ imageMaxHeight }}">
 
             {% include '_atoms/image/variant-_template.twig' with {
-              opt: {
+              props: {
                 image: image ?? null,
                 sizes: [
                   { width: 400 },
                   { width: 200 },
                   { width: 100 }
                 ],
-                ratio: opt.ratio ?? null
+                ratio: props.ratio ?? null
               }
             } only %}
           </a>

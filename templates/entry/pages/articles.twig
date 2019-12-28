@@ -38,7 +38,7 @@
         <div class="o-col-6  o-col-s-24">
           {# -- Include Page Title -- #}
           {% include '_molecules/pageTitle/_template.twig' with {
-            opt: {
+            props: {
               object: entry,
               size: 'h1'
             }
@@ -53,7 +53,7 @@
           {# -- Entry Intro -- #}
           {% if entry.entrySummary ?? null %}
             {% include '_atoms/richText/_template.twig' with {
-              opt: {
+              props: {
                 text: entry.entrySummary
               }
             } only %}
@@ -67,7 +67,7 @@
         <div class="o-col-6  o-col-s-24">
           {# -- Cards --#}
           {% include '_organisms/cards/_template.twig' with {
-            opt: {
+            props: {
               items: pageEntries,
               pageInfo: pageInfo,
               pagination: true,

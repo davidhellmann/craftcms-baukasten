@@ -13,15 +13,15 @@
     {% set terabyte = gigabyte * 1024 %}
 
     {% if bytes < kilobyte %}
-      {{ bytes ~ ' B' }}
+      {{ bytes ~ ' b' }}
     {% elseif bytes < megabyte %}
-      {{ (bytes / kilobyte)|number_format(2, '.') ~ ' KB' }}
+      {{ (bytes / kilobyte)|number_format(2, '.') ~ ' kb' }}
     {% elseif bytes < gigabyte %}
-      {{ (bytes / megabyte)|number_format(2, '.') ~ ' MB' }}
+      {{ (bytes / megabyte)|number_format(2, '.') ~ ' mb' }}
     {% elseif bytes < terabyte %}
-      {{ (bytes / gigabyte)|number_format(2, '.') ~ ' GB' }}
+      {{ (bytes / gigabyte)|number_format(2, '.') ~ ' gb' }}
     {% else %}
-      {{ (bytes / terabyte)|number_format(2, '.') ~ ' TB' }}
+      {{ (bytes / terabyte)|number_format(2, '.') ~ ' tb' }}
     {% endif %}
   {% endspaceless %}
 {% endmacro %}

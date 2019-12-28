@@ -18,41 +18,41 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Modul #}
-{% if opt.headline ?? null or opt.text ?? null %}
-  <{{ opt.element }} {{ module.settings(opt) }}>
-  <div class="{{ opt.cn ~ '__wrapper' }}">
-    <div class="{{ opt.cn ~ '__inner' }}">
+{% if props.headline ?? null or props.text ?? null %}
+  <{{ props.element }} {{ module.settings(props) }}>
+  <div class="{{ props.cn ~ '__wrapper' }}">
+    <div class="{{ props.cn ~ '__inner' }}">
 
       {# Headline --#}
-      {% if opt.headline ?? null %}
-        <strong>{{- opt.headline ~ ' ' -}}</strong>
+      {% if props.headline ?? null %}
+        <strong>{{- props.headline ~ ' ' -}}</strong>
       {% endif %}
 
       {# Caption #}
-      {{ opt.text ?? null }}{{ opt.source ? '&nbsp;&mdash;&nbsp;' }}
+      {{ props.text ?? null }}{{ props.source ? '&nbsp;&mdash;&nbsp;' }}
 
       {# Caption Source Url #}
-      {% if (opt.source ?? null) and (opt.sourceUrl ?? null) %}
+      {% if (props.source ?? null) and (props.sourceUrl ?? null) %}
         {# link #}
         {% include '_atoms/link/_template.twig' with {
-          opt: {
+          props: {
             modifiers: ['inline'],
-            url: opt.sourceUrl ?? null,
+            url: props.sourceUrl ?? null,
             targetBlank: true,
-            text: opt.source ?? null,
+            text: props.source ?? null,
             icon: null,
           }
         } only %}
-      {% elseif opt.source ?? null %}
-        {{ opt.source }}
+      {% elseif props.source ?? null %}
+        {{ props.source }}
       {% endif %}
     </div>
   </div>
-  </{{ opt.element }}>
+  </{{ props.element }}>
 {% endif %}

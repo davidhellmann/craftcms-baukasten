@@ -11,20 +11,20 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{% if opt.name %}
-  <div {{ module.settings(opt) }}>
-    {% if opt.url %}
-    <a class="{{ opt.cn ~ '__link' }}" href="{{ opt.url }}">
+{% if props.name %}
+  <div {{ module.settings(props) }}>
+    {% if props.url %}
+    <a class="{{ props.cn ~ '__link' }}" href="{{ props.url }}">
       {% endif %}
 
       {{ svg('@webroot/dist/img/svg/logo.svg') }}
 
-      {% if opt.url %}
+      {% if props.url %}
     </a>
     {% endif %}
   </div>

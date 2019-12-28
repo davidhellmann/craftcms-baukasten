@@ -1,4 +1,4 @@
-dateModified: 1576621840
+dateModified: 1577498027
 email:
   fromEmail: david@hellmann.io
   fromName: $SITE_NAME
@@ -129,6 +129,9 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
 globalSets:
+  a2e96ff5-f77a-4de7-a1f3-bb94dbaaface:
+    handle: klaroTranslations
+    name: 'Klaro Translations'
   ef418c49-b6f5-4130-a824-19a299c64fda:
     fieldLayouts:
       3da9685d-8dbf-48ce-95ab-6081a48668c0:
@@ -143,9 +146,8 @@ globalSets:
     handle: klaroSnippets
     name: 'Klaro Snippets'
 graphql:
-  schemas:
+  scopes:
     6183aec0-f270-4535-9fb9-d1b74f31cf0f:
-      isPublic: true
       name: 'Public Schema'
 imageTransforms:
   32742592-645e-4fbc-b591-1a4ff1952aa1:
@@ -1362,10 +1364,6 @@ plugins:
       showLabel: true
       suffixText: null
       textColor: '#eee'
-  existential:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   feed-me:
     edition: standard
     enabled: true
@@ -1409,7 +1407,7 @@ plugins:
   super-table:
     edition: standard
     enabled: true
-    schemaVersion: 2.2.0
+    schemaVersion: 2.2.1
   templatecomments:
     edition: standard
     enabled: true
@@ -1556,13 +1554,14 @@ sections:
         titleLabel: Title
     handle: navigationMain
     name: 'Navigation Main'
+    previewTargets: null
     propagationMethod: all
     siteSettings:
       04677986-61a7-4935-a707-cae0601cc8d5:
         enabledByDefault: false
         hasUrls: false
         template: null
-        uriFormat: ''
+        uriFormat: null
     structure:
       maxLevels: 2
       uid: 6e12a140-52a6-4ca8-a569-22eb6133f09c
@@ -1589,13 +1588,13 @@ superTableBlockTypes:
           -
             fields:
               b4623113-f388-41e1-8610-19812a5433f0:
-                required: false
-                sortOrder: 2
+                required: '0'
+                sortOrder: '2'
               f56216a6-8623-42ab-b812-b10971f828e6:
-                required: false
-                sortOrder: 1
+                required: '0'
+                sortOrder: '1'
             name: Content
-            sortOrder: 1
+            sortOrder: '1'
     fields:
       b4623113-f388-41e1-8610-19812a5433f0:
         contentColumnType: text
@@ -1603,7 +1602,7 @@ superTableBlockTypes:
         handle: description
         instructions: ''
         name: Description
-        searchable: false
+        searchable: '0'
         settings:
           availableTransforms: '*'
           availableVolumes: '*'
@@ -1624,7 +1623,7 @@ superTableBlockTypes:
         handle: term
         instructions: ''
         name: Term
-        searchable: false
+        searchable: '0'
         settings:
           availableTransforms: '*'
           availableVolumes: '*'

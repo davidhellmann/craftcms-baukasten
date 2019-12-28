@@ -8,13 +8,13 @@
 } %}
 
 {# -- Merge Default with Options -- #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{% if opt.foo %}
-  <div {{ module.settings(opt) }}>
+{% if props.foo %}
+  <div {{ module.settings(props) }}>
     <%= moduleName.replace('-', '_') %>
   </div>
 {% endif %}

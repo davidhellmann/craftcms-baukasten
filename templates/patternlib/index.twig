@@ -90,7 +90,7 @@
 
 
   {% include component with {
-    opt: templateOptions | default([])
+    props: templateOptions | default([])
   } %}
 
   {% include '_partials/webpack/webpack-scripts.twig' %}

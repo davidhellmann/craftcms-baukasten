@@ -8,7 +8,7 @@
   }) }}
 #}
 
-{% macro socialNetworks(opt) %}
+{% macro socialNetworks(props) %}
   {% set defaults = {
     cn: 'm-socialNetworks',
     networks: [],
@@ -16,23 +16,23 @@
   } %}
 
   {# Merge Default with Options #}
-  {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+  {% set props = props is defined ? defaults|merge(props) : defaults %}
 
-  {% if opt.networks %}
-    <div class="{{ opt.cn }}">
+  {% if props.networks %}
+    <div class="{{ props.cn }}">
       {% set socialNetworks = socialNetworks.globalSocialNetworks %}
-      {% set networks = opt.networks %}
+      {% set networks = props.networks %}
 
       {% for socialNetwork in socialNetworks %}
-        {% if socialNetwork.network|lower in networks or opt.networks == 'all' %}
-          <a class="{{ opt.cn ~ '__link' }}"
+        {% if socialNetwork.network|lower in networks or props.networks == 'all' %}
+          <a class="{{ props.cn ~ '__link' }}"
              href="{{ socialNetwork.profilUrl }}" target="_blank">
-              <span class="{{ opt.cn ~ '__icon' }}  {{ opt.cn ~ '__icon--next' }}">
+              <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--next' }}">
                 {% include '_globals/_partials/svg/social/' ~ socialNetwork.network|lower ~ '.svg.twig' %}
               </span>
 
-            {% if opt.label %}
-              <div class="{{ opt.cn ~ '__label' }}">{{ socialNetwork.network|lower }}</div>
+            {% if props.label %}
+              <div class="{{ props.cn ~ '__label' }}">{{ socialNetwork.network|lower }}</div>
             {% endif %}
           </a>
         {% endif %}

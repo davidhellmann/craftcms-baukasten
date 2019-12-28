@@ -25,7 +25,7 @@
         <div class="o-col-6  o-col-s-24">
           {# -- Include Page Title -- #}
           {% include '_molecules/pageTitle/_template.twig' with {
-            opt: {
+            props: {
               object: entry,
               size: 'h1'
             }
@@ -40,7 +40,7 @@
           {# -- Entry Intro -- #}
           {% if entry.entrySummary ?? null %}
             {% include '_atoms/richText/_template.twig' with {
-              opt: {
+              props: {
                 text: entry.entrySummary
               }
             } only %}
@@ -49,14 +49,14 @@
           {# -- Image Entry -- #}
           {% if entry.entryImage.one() ?? null %}
             {% include '_atoms/headline/_template.twig' with {
-              opt: {
+              props: {
                 text: 'Image Entry',
                 size: 'h3'
               }
             } only %}
 
             {% include '_organisms/imageSingle/_template.twig' with {
-              opt: {
+              props: {
                 image: entry.entryImage.one() ?? null,
                 ratio: 'landscape'
               }
@@ -71,7 +71,7 @@
         <div class="o-col-6  o-col-s-24">
           {# -- Content Builder -- #}
           {% include '_contentBuilders/_contentBuilder.twig' with {
-            opt: {
+            props: {
               object: entry
             }
           } only %}

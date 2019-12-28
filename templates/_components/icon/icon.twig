@@ -14,13 +14,13 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{% if opt.icon %}
-  <span {{ module.settings(opt) }}>
-    {{ svg('@webroot/dist/img/svg/' ~ opt.icon ~ '.svg') }}
+{% if props.icon %}
+  <span {{ module.settings(props) }}>
+    {{ svg('@webroot/dist/img/svg/' ~ props.icon ~ '.svg') }}
   </span>
 {% endif %}

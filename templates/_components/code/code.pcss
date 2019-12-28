@@ -28,7 +28,7 @@
   .a-code__codeWrapper {
     width: 100%;
     border-radius: 5px;
-    font-size: ms(-2);
+    @apply .text-ms--2;
     line-height: 1.8;
   }
 
@@ -47,8 +47,7 @@
   span {
     display: inline-block;
     position: relative;
-    padding: s(1) s(2);
-    padding-right: 36px;
+    @apply .text-ms--2 .pl-12 .pr-32 .py-4;
     border: 1px solid var(--c-gray-200);
     border-radius: 100px;
     box-shadow: var(--bs-longer);
@@ -64,7 +63,7 @@
       width: 10px;
       height: 2px;
       position: absolute;
-      right: s(2);
+      right: 8px;
       top: 50%;
       transform: translate(0, -50%);
       background-color: var(--c-gray-300);

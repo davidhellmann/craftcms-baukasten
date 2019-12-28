@@ -12,9 +12,9 @@
 } %}
 
 {# -- Merge Default with Options -- #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
-{% set opt = opt | merge({
-  customClasses: opt.customClasses | merge([
+{% set props = props is defined ? defaults|merge(props) : defaults %}
+{% set props= props| merge({
+  customClasses: props.customClasses | merge([
     'o-ratio',
     'o-ratio--16-9',
   ])
@@ -27,17 +27,17 @@
 {% set klaro = getCookie('klaro') | json_decode %}
 {% set craftEnv = craft.app.config.env != 'live' ? true : false %}
 {% if klaro.youtube ??? craftEnv ??? null %}
-  {% if opt.videoId %}
-    <div {{ module.settings(opt) }}>
+  {% if props.videoId %}
+    <div {{ module.settings(props) }}>
       <iframe class="lazyload"
-              data-src="https://www.youtube-nocookie.com/embed/{{ opt.videoId }}?rel=0&loop={{ opt.loop }}&showinfo={{ opt.showinfo }}&autoplay={{ opt.autoplay }}"
+              data-src="https://www.youtube-nocookie.com/embed/{{ props.videoId }}?rel=0&loop={{ props.loop }}&showinfo={{ props.showinfo }}&autoplay={{ props.autoplay }}"
               frameborder="0">
       </iframe>
 
       {% if not klaro.youtube ??? null %}
         {# -- cookieClue -- #}
         {% include '_atoms/cookieClue/_template.twig' with {
-          opt: {
+          props: {
             variant: 'basic',
           }
         } only %}

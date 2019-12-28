@@ -18,12 +18,12 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Modul #}
-<div {{ module.settings(opt) }}>
-  <div class="{{ opt.cn ~ '__inner' }}"></div>
+<div {{ module.settings(props) }}>
+  <div class="{{ props.cn ~ '__inner' }}"></div>
 </div>

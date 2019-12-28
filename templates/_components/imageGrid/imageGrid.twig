@@ -16,22 +16,22 @@
 } %}
 
 {# Merge Default with Options #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Modul #}
-{% if opt.images %}
-  <div {{ module.settings(opt) }}  waypointTrigger>
-    <div class="{{ opt.cn ~ '__inner' }}">
-      {% for image in opt.images %}
-        <div class="{{ opt.cn ~ '__item' }} is-fadeInUp" waypoint>
+{% if props.images %}
+  <div {{ module.settings(props) }}  waypointTrigger>
+    <div class="{{ props.cn ~ '__inner' }}">
+      {% for image in props.images %}
+        <div class="{{ props.cn ~ '__item' }} is-fadeInUp" waypoint>
           {% include '_molecules/figure/_template.twig' with {
-            opt: {
+            props: {
               image: image ?? null,
-              ratio: opt.ratio ?? null,
-              caption: opt.caption ?? null,
+              ratio: props.ratio ?? null,
+              caption: props.caption ?? null,
               captionHeadline: image.imageTitle ?? null,
               captionText: image.imageCaption ?? null,
               captionSource: image.imageSource ?? null,

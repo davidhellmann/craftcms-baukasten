@@ -4,7 +4,7 @@
     position: '50% 50%',
   } %}
 
-  {% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+  {% set props = props is defined ? defaults|merge(props) : defaults %}
 
   {% if image.settingsDominantColorOverwrite ?? null %}
     {% set dominantColor = image.settingsDominantColorOverwrite %}
@@ -12,8 +12,8 @@
     {% set dominantColor = image.pluginPreparseDominantColor %}
   {% else %}
     {% set dominantImages = craft.imager.transformImage(image, [{ width: 100 }], {
-      ratio: opt.ratio,
-      position: opt.position,
+      ratio: props.ratio,
+      position: props.position,
       jpegQuality: 50
     }) %}
     {% set dominantColor = craft.imager.getDominantColor(dominantImages | last, 10) %}
