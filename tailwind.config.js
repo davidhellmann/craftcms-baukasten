@@ -1,7 +1,7 @@
 /*
-* Opatciy Map for Colors
-* https://www.viget.com/articles/tips-for-your-tailwind-config/
-* */
+ * Opatciy Map for Colors
+ * https://www.viget.com/articles/tips-for-your-tailwind-config/
+ * */
 
 // Base Typo Settings
 const typeSettings = {
@@ -9,21 +9,27 @@ const typeSettings = {
   baseFontSizeMobile: 16,
   ratio: 1.2,
   ratioMobile: 1.1,
-}
+};
 
 // Modular Scale Calc
-const ms = ((fontSize, ratio, y) => {
+const ms = (fontSize, ratio, y) => {
   return `${(fontSize * Math.pow(ratio, y)).toString()}px`;
-})
+};
 
 module.exports = {
   theme: {
     // Extend the default Tailwind config here
     extend: {
       colors: {
-        'foo': 'var(--c-red)'
+        foo: 'var(--c-red)',
       },
       width: {
+        '1/6': '16.666666666666664%',
+        '2/6': '33.33333333333333%',
+        '3/6': '50%',
+        '4/6': '66.66666666666666%',
+        '5/6': '83.33333333333334%',
+        '6/6': '100%',
         '1/24': '4.166666666666666%',
         '2/24': '8.333333333333332%',
         '3/24': '12.5%',
@@ -58,15 +64,15 @@ module.exports = {
         '8/10': '80%',
         '9/10': '90%',
         '10/10': '100%',
-      }
+      },
     },
     // Replace the default Tailwind config here
     screens: {
-      'min': '320px',
-      's': '600px',
-      'm': '800px', // Most important cause here is the switch from mobile to desktop
-      'l': '1200px',
-      'max': '1600px',
+      min: '320px',
+      s: '600px',
+      m: '800px', // Most important cause here is the switch from mobile to desktop
+      l: '1200px',
+      max: '1600px',
     },
     spacing: {
       '4': '4px',
@@ -117,19 +123,67 @@ module.exports = {
       'ms-8': ms(typeSettings.baseFontSize, typeSettings.ratio, 8),
       'ms-9': ms(typeSettings.baseFontSize, typeSettings.ratio, 9),
       // Mobile
-      'ms--2--mobile': ms(typeSettings.baseFontSizeMobile, typeSettings.ratioMobile, -2),
-      'ms--1--mobile': ms(typeSettings.baseFontSizeMobile, typeSettings.ratioMobile, -1),
-      'ms-0--mobile': ms(typeSettings.baseFontSizeMobile, typeSettings.ratioMobile, 0),
-      'ms-1--mobile': ms(typeSettings.baseFontSizeMobile, typeSettings.ratioMobile, 1),
-      'ms-2--mobile': ms(typeSettings.baseFontSizeMobile, typeSettings.ratioMobile, 2),
-      'ms-3--mobile': ms(typeSettings.baseFontSizeMobile, typeSettings.ratioMobile, 3),
-      'ms-4--mobile': ms(typeSettings.baseFontSizeMobile, typeSettings.ratioMobile, 4),
-      'ms-5--mobile': ms(typeSettings.baseFontSizeMobile, typeSettings.ratioMobile, 5),
-      'ms-6--mobile': ms(typeSettings.baseFontSizeMobile, typeSettings.ratioMobile, 6),
-      'ms-7--mobile': ms(typeSettings.baseFontSizeMobile, typeSettings.ratioMobile, 7),
-      'ms-8--mobile': ms(typeSettings.baseFontSizeMobile, typeSettings.ratioMobile, 8),
-      'ms-9--mobile': ms(typeSettings.baseFontSizeMobile, typeSettings.ratioMobile, 9),
-    }
+      'ms--2--mobile': ms(
+        typeSettings.baseFontSizeMobile,
+        typeSettings.ratioMobile,
+        -2,
+      ),
+      'ms--1--mobile': ms(
+        typeSettings.baseFontSizeMobile,
+        typeSettings.ratioMobile,
+        -1,
+      ),
+      'ms-0--mobile': ms(
+        typeSettings.baseFontSizeMobile,
+        typeSettings.ratioMobile,
+        0,
+      ),
+      'ms-1--mobile': ms(
+        typeSettings.baseFontSizeMobile,
+        typeSettings.ratioMobile,
+        1,
+      ),
+      'ms-2--mobile': ms(
+        typeSettings.baseFontSizeMobile,
+        typeSettings.ratioMobile,
+        2,
+      ),
+      'ms-3--mobile': ms(
+        typeSettings.baseFontSizeMobile,
+        typeSettings.ratioMobile,
+        3,
+      ),
+      'ms-4--mobile': ms(
+        typeSettings.baseFontSizeMobile,
+        typeSettings.ratioMobile,
+        4,
+      ),
+      'ms-5--mobile': ms(
+        typeSettings.baseFontSizeMobile,
+        typeSettings.ratioMobile,
+        5,
+      ),
+      'ms-6--mobile': ms(
+        typeSettings.baseFontSizeMobile,
+        typeSettings.ratioMobile,
+        6,
+      ),
+      'ms-7--mobile': ms(
+        typeSettings.baseFontSizeMobile,
+        typeSettings.ratioMobile,
+        7,
+      ),
+      'ms-8--mobile': ms(
+        typeSettings.baseFontSizeMobile,
+        typeSettings.ratioMobile,
+        8,
+      ),
+      'ms-9--mobile': ms(
+        typeSettings.baseFontSizeMobile,
+        typeSettings.ratioMobile,
+        9,
+      ),
+    },
   },
   corePlugins: {},
   plugins: [],
