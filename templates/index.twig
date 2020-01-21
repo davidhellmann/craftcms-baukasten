@@ -5,6 +5,13 @@
   {{ parent() }}
 {% endblock headLinks %}
 
+{# Critical CSS #}
+{% block inlineCriticalCss %}
+  <style>
+    {{ craft.twigpack.includeFile('@webroot/dist/criticalcss/' ~ _self ~  '_critical.min.css') }}
+  </style>
+{% endblock %}
+
 {% block content %}
   <section class="bg-black text-white py-2">
     <div class="container">
