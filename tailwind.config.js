@@ -3,46 +3,32 @@
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
 
-import './tailwind.custom';
+import schriftPlugin from 'tailwindcss-schrift';
+import baukastenConfig from './baukasten.config';
 
 module.exports = {
   theme: {
     // Extend the default Tailwind config here
     extend: {
-      colors: {
-        foo: 'var(--c-red)',
-      },
+      colors: baukastenConfig.colors,
       width: {
-        ...cols6,
-        ...cols10,
-        ...cols12,
-        ...cols24,
+        ...baukastenConfig.cols6,
+        ...baukastenConfig.cols10,
+        ...baukastenConfig.cols12,
+        ...baukastenConfig.cols24,
       },
-      maxWidth: {
-        min: '320px',
-        s: '600px',
-        m: '800px',
-        l: '1200px',
-        max: '1600px',
-      }
+      maxWidth: baukastenConfig.breakpoints
     },
     // Replace the default Tailwind config here
-    screens: {
-      min: '320px',
-      s: '600px',
-      m: '800px',
-      l: '1200px',
-      max: '1600px',
-    },
+    screens: baukastenConfig.breakpoints,
     spacing: {
-      ...spacingPx,
-      ...spacingRem,
-    },
-    fontSize: {
-      ...fontsMobile,
-      ...fontsDesktop
+      ...baukastenConfig.spacingPxSmall,
+      ...baukastenConfig.spacingPxBig,
+      ...baukastenConfig.spacingRem,
     },
   },
   corePlugins: {},
-  plugins: [],
+  plugins: [
+    schriftPlugin()
+  ],
 };
