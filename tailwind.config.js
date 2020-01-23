@@ -3,8 +3,8 @@
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
 
-import schriftPlugin from 'tailwindcss-schrift';
-import baukastenConfig from './baukasten.config';
+const schriftPlugin = require('tailwindcss-schrift');
+const baukastenConfig = require('./baukasten.config');
 
 module.exports = {
   theme: {
@@ -20,6 +20,7 @@ module.exports = {
       maxWidth: baukastenConfig.breakpoints
     },
     // Replace the default Tailwind config here
+    schrift: baukastenConfig.schrift,
     screens: baukastenConfig.breakpoints,
     spacing: {
       ...baukastenConfig.spacingPxSmall,
