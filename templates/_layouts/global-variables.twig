@@ -31,7 +31,8 @@
 
   {# Make stuff global available #}
   <script>
-      window.siteUrl = '{{ siteUrl }}'
+      window.siteUrl = '{{ siteUrl }}';
+      window.Craft = {{ csrfToken|json_encode|raw }};
   </script>
 
 {% endspaceless %}
