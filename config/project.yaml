@@ -1,4 +1,4 @@
-dateModified: 1580248295
+dateModified: 1580335994
 email:
   fromEmail: david@hellmann.io
   fromName: $SITE_NAME
@@ -129,9 +129,6 @@ fields:
     translationMethod: none
     type: craft\fields\PlainText
 globalSets:
-  a2e96ff5-f77a-4de7-a1f3-bb94dbaaface:
-    handle: klaroTranslations
-    name: 'Klaro Translations'
   ef418c49-b6f5-4130-a824-19a299c64fda:
     fieldLayouts:
       3da9685d-8dbf-48ce-95ab-6081a48668c0:
@@ -207,17 +204,38 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: ''
-              label: Wide
-              value: w-wide
+              __assoc__:
+                -
+                  - label
+                  - Wide
+                -
+                  - value
+                  - w-wide
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Medium
-              value: w-medium
+              __assoc__:
+                -
+                  - label
+                  - Medium
+                -
+                  - value
+                  - w-medium
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Narrow
-              value: w-narrow
+              __assoc__:
+                -
+                  - label
+                  - Narrow
+                -
+                  - value
+                  - w-narrow
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -232,21 +250,49 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: '1'
-              label: Auto
-              value: auto
+              __assoc__:
+                -
+                  - label
+                  - Auto
+                -
+                  - value
+                  - auto
+                -
+                  - default
+                  - '1'
             -
-              default: ''
-              label: Landscape
-              value: landscape
+              __assoc__:
+                -
+                  - label
+                  - Landscape
+                -
+                  - value
+                  - landscape
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Square
-              value: square
+              __assoc__:
+                -
+                  - label
+                  - Square
+                -
+                  - value
+                  - square
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Portrait
-              value: portrait
+              __assoc__:
+                -
+                  - label
+                  - Portrait
+                -
+                  - value
+                  - portrait
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -288,13 +334,27 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: ''
-              label: Basic
-              value: basic
+              __assoc__:
+                -
+                  - label
+                  - Basic
+                -
+                  - value
+                  - basic
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Cover
-              value: cover
+              __assoc__:
+                -
+                  - label
+                  - Cover
+                -
+                  - value
+                  - cover
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -343,33 +403,82 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: '1'
-              label: Inherit
-              value: ''
+              __assoc__:
+                -
+                  - label
+                  - Inherit
+                -
+                  - value
+                  - ''
+                -
+                  - default
+                  - '1'
             -
-              default: ''
-              label: 'MS 1'
-              value: ms-1
+              __assoc__:
+                -
+                  - label
+                  - 'MS 1'
+                -
+                  - value
+                  - ms-1
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'MS 2'
-              value: ms-2
+              __assoc__:
+                -
+                  - label
+                  - 'MS 2'
+                -
+                  - value
+                  - ms-2
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'MS 3'
-              value: ms-3
+              __assoc__:
+                -
+                  - label
+                  - 'MS 3'
+                -
+                  - value
+                  - ms-3
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'MS 4'
-              value: ms-4
+              __assoc__:
+                -
+                  - label
+                  - 'MS 4'
+                -
+                  - value
+                  - ms-4
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'MS 5'
-              value: ms-5
+              __assoc__:
+                -
+                  - label
+                  - 'MS 5'
+                -
+                  - value
+                  - ms-5
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'MS 6'
-              value: ms-6
+              __assoc__:
+                -
+                  - label
+                  - 'MS 6'
+                -
+                  - value
+                  - ms-6
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -401,25 +510,60 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: '1'
-              label: H2
-              value: h2
+              __assoc__:
+                -
+                  - label
+                  - H2
+                -
+                  - value
+                  - h2
+                -
+                  - default
+                  - '1'
             -
-              default: ''
-              label: H3
-              value: h3
+              __assoc__:
+                -
+                  - label
+                  - H3
+                -
+                  - value
+                  - h3
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: H4
-              value: h4
+              __assoc__:
+                -
+                  - label
+                  - H4
+                -
+                  - value
+                  - h4
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: H5
-              value: h5
+              __assoc__:
+                -
+                  - label
+                  - H5
+                -
+                  - value
+                  - h5
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: H6
-              value: h6
+              __assoc__:
+                -
+                  - label
+                  - H6
+                -
+                  - value
+                  - h6
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -486,21 +630,49 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: '1'
-              label: Portrait
-              value: portrait
+              __assoc__:
+                -
+                  - label
+                  - Portrait
+                -
+                  - value
+                  - portrait
+                -
+                  - default
+                  - '1'
             -
-              default: ''
-              label: Lanscape
-              value: lanscape
+              __assoc__:
+                -
+                  - label
+                  - Lanscape
+                -
+                  - value
+                  - lanscape
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Square
-              value: square
+              __assoc__:
+                -
+                  - label
+                  - Square
+                -
+                  - value
+                  - square
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Auto
-              value: auto
+              __assoc__:
+                -
+                  - label
+                  - Auto
+                -
+                  - value
+                  - auto
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -515,13 +687,27 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: '1'
-              label: '2'
-              value: c-2
+              __assoc__:
+                -
+                  - label
+                  - '2'
+                -
+                  - value
+                  - c-2
+                -
+                  - default
+                  - '1'
             -
-              default: ''
-              label: '3'
-              value: c-3
+              __assoc__:
+                -
+                  - label
+                  - '3'
+                -
+                  - value
+                  - c-3
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -562,10 +748,21 @@ matrixBlockTypes:
         searchable: true
         settings:
           columns:
-            25:
-              width: ''
-            26:
-              width: ''
+            __assoc__:
+              -
+                - 26
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
+              -
+                - 25
+                -
+                  __assoc__:
+                    -
+                      - width
+                      - ''
           contentTable: '{{%stc_6_definitionlist}}'
           fieldLayout: table
           maxRows: ''
@@ -633,21 +830,49 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: '1'
-              label: Square
-              value: square
+              __assoc__:
+                -
+                  - label
+                  - Square
+                -
+                  - value
+                  - square
+                -
+                  - default
+                  - '1'
             -
-              default: ''
-              label: Landscape
-              value: landscape
+              __assoc__:
+                -
+                  - label
+                  - Landscape
+                -
+                  - value
+                  - landscape
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Portrait
-              value: portrait
+              __assoc__:
+                -
+                  - label
+                  - Portrait
+                -
+                  - value
+                  - portrait
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Auto
-              value: auto
+              __assoc__:
+                -
+                  - label
+                  - Auto
+                -
+                  - value
+                  - auto
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -693,49 +918,126 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: ''
-              label: Bash
-              value: bash
+              __assoc__:
+                -
+                  - label
+                  - Bash
+                -
+                  - value
+                  - bash
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: CSS
-              value: css
+              __assoc__:
+                -
+                  - label
+                  - CSS
+                -
+                  - value
+                  - css
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: HTML
-              value: html
+              __assoc__:
+                -
+                  - label
+                  - HTML
+                -
+                  - value
+                  - html
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: JS
-              value: js
+              __assoc__:
+                -
+                  - label
+                  - JS
+                -
+                  - value
+                  - js
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: JSON
-              value: json
+              __assoc__:
+                -
+                  - label
+                  - JSON
+                -
+                  - value
+                  - json
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Markdown
-              value: markdown
+              __assoc__:
+                -
+                  - label
+                  - Markdown
+                -
+                  - value
+                  - markdown
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: PHP
-              value: php
+              __assoc__:
+                -
+                  - label
+                  - PHP
+                -
+                  - value
+                  - php
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Scss
-              value: scss
+              __assoc__:
+                -
+                  - label
+                  - Scss
+                -
+                  - value
+                  - scss
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: TXT
-              value: txt
+              __assoc__:
+                -
+                  - label
+                  - TXT
+                -
+                  - value
+                  - txt
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Twig
-              value: twig
+              __assoc__:
+                -
+                  - label
+                  - Twig
+                -
+                  - value
+                  - twig
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Vue
-              value: vue
+              __assoc__:
+                -
+                  - label
+                  - Vue
+                -
+                  - value
+                  - vue
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -769,9 +1071,16 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: ''
-              label: Default
-              value: default
+              __assoc__:
+                -
+                  - label
+                  - Default
+                -
+                  - value
+                  - default
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -786,29 +1095,71 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: ''
-              label: None
-              value: my-0--fluid
+              __assoc__:
+                -
+                  - label
+                  - None
+                -
+                  - value
+                  - my-0--fluid
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'Factor 1'
-              value: my-1--fluid
+              __assoc__:
+                -
+                  - label
+                  - 'Factor 1'
+                -
+                  - value
+                  - my-1--fluid
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'Factor 2'
-              value: my-2--fluid
+              __assoc__:
+                -
+                  - label
+                  - 'Factor 2'
+                -
+                  - value
+                  - my-2--fluid
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'Factor 3'
-              value: my-3--fluid
+              __assoc__:
+                -
+                  - label
+                  - 'Factor 3'
+                -
+                  - value
+                  - my-3--fluid
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'Factor 4'
-              value: my-4--fluid
+              __assoc__:
+                -
+                  - label
+                  - 'Factor 4'
+                -
+                  - value
+                  - my-4--fluid
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'Factor 5'
-              value: my-5--fluid
+              __assoc__:
+                -
+                  - label
+                  - 'Factor 5'
+                -
+                  - value
+                  - my-5--fluid
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -961,25 +1312,60 @@ matrixBlockTypes:
           multi: true
           options:
             -
-              default: ''
-              label: Necessary
-              value: necessary
+              __assoc__:
+                -
+                  - label
+                  - Necessary
+                -
+                  - value
+                  - necessary
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Statistics
-              value: statistics
+              __assoc__:
+                -
+                  - label
+                  - Statistics
+                -
+                  - value
+                  - statistics
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'External Media'
-              value: externalMedia
+              __assoc__:
+                -
+                  - label
+                  - 'External Media'
+                -
+                  - value
+                  - externalMedia
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'Live Chat'
-              value: liveChat
+              __assoc__:
+                -
+                  - label
+                  - 'Live Chat'
+                -
+                  - value
+                  - liveChat
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Advertisement
-              value: advertisement
+              __assoc__:
+                -
+                  - label
+                  - Advertisement
+                -
+                  - value
+                  - advertisement
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Checkboxes
@@ -1094,17 +1480,38 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: '1'
-              label: Transparent
-              value: bg-transparent
+              __assoc__:
+                -
+                  - label
+                  - Transparent
+                -
+                  - value
+                  - bg-transparent
+                -
+                  - default
+                  - '1'
             -
-              default: ''
-              label: White
-              value: bg-white
+              __assoc__:
+                -
+                  - label
+                  - White
+                -
+                  - value
+                  - bg-white
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Black
-              value: bg-black
+              __assoc__:
+                -
+                  - label
+                  - Black
+                -
+                  - value
+                  - bg-black
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -1119,29 +1526,71 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: '1'
-              label: None
-              value: py-0--fluid
+              __assoc__:
+                -
+                  - label
+                  - None
+                -
+                  - value
+                  - py-0--fluid
+                -
+                  - default
+                  - '1'
             -
-              default: ''
-              label: 'Factor 1'
-              value: py-1--fluid
+              __assoc__:
+                -
+                  - label
+                  - 'Factor 1'
+                -
+                  - value
+                  - py-1--fluid
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'Factor 2'
-              value: py-2--fluid
+              __assoc__:
+                -
+                  - label
+                  - 'Factor 2'
+                -
+                  - value
+                  - py-2--fluid
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'Factor 3'
-              value: py-3--fluid
+              __assoc__:
+                -
+                  - label
+                  - 'Factor 3'
+                -
+                  - value
+                  - py-3--fluid
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'Factor 4'
-              value: py-4--fluid
+              __assoc__:
+                -
+                  - label
+                  - 'Factor 4'
+                -
+                  - value
+                  - py-4--fluid
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: 'Factor 5'
-              value: py-5--fluid
+              __assoc__:
+                -
+                  - label
+                  - 'Factor 5'
+                -
+                  - value
+                  - py-5--fluid
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -1156,13 +1605,27 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: '1'
-              label: Content
-              value: content
+              __assoc__:
+                -
+                  - label
+                  - Content
+                -
+                  - value
+                  - content
+                -
+                  - default
+                  - '1'
             -
-              default: ''
-              label: Full
-              value: full
+              __assoc__:
+                -
+                  - label
+                  - Full
+                -
+                  - value
+                  - full
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -1265,21 +1728,49 @@ matrixBlockTypes:
           optgroups: true
           options:
             -
-              default: '1'
-              label: Landscape
-              value: landscape
+              __assoc__:
+                -
+                  - label
+                  - Landscape
+                -
+                  - value
+                  - landscape
+                -
+                  - default
+                  - '1'
             -
-              default: ''
-              label: Square
-              value: square
+              __assoc__:
+                -
+                  - label
+                  - Square
+                -
+                  - value
+                  - square
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Portrait
-              value: portrait
+              __assoc__:
+                -
+                  - label
+                  - Portrait
+                -
+                  - value
+                  - portrait
+                -
+                  - default
+                  - ''
             -
-              default: ''
-              label: Auto
-              value: auto
+              __assoc__:
+                -
+                  - label
+                  - Auto
+                -
+                  - value
+                  - auto
+                -
+                  - default
+                  - ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
@@ -1399,7 +1890,7 @@ plugins:
   retour:
     edition: standard
     enabled: true
-    schemaVersion: 3.0.7
+    schemaVersion: 3.0.9
   seomatic:
     edition: standard
     enabled: true
