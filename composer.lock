@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "20cf8c7473869232c14d25b7aaf5be14",
+    "content-hash": "c7209a5013ba4d8d5aaae539b1dbc261",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -576,11 +576,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.4.0.1",
+            "version": "3.4.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/7f73dea08692dbd4e0101194ceee270e2a96ad38",
-                "reference": "7f73dea08692dbd4e0101194ceee270e2a96ad38",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/9a9d5a5d1f512105042edb55b2d0468de4e72f3d",
+                "reference": "9a9d5a5d1f512105042edb55b2d0468de4e72f3d",
                 "shasum": ""
             },
             "require": {
@@ -661,7 +661,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2020-01-28T20:54:41+00:00"
+            "time": "2020-01-29T21:03:20+00:00"
         },
         {
             "name": "craftcms/feed-me",
@@ -4067,11 +4067,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.2.39",
+            "version": "3.2.41",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/c04732f04a8ce9ce3a72d7170bce1b6cce2ffe08",
-                "reference": "c04732f04a8ce9ce3a72d7170bce1b6cce2ffe08",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/a04521c70b07634c7b9dc4a76f6670870722cb9a",
+                "reference": "a04521c70b07634c7b9dc4a76f6670870722cb9a",
                 "shasum": ""
             },
             "require": {
@@ -4135,7 +4135,7 @@
                 "docs": "https://nystudio107.com/plugins/seomatic/documentation",
                 "issues": "https://nystudio107.com/plugins/seomatic/support"
             },
-            "time": "2020-01-17T13:54:42+00:00"
+            "time": "2020-01-29T17:25:51+00:00"
         },
         {
             "name": "nystudio107/craft-templatecomments",
@@ -7915,6 +7915,36 @@
             "time": "2019-12-28T07:12:03+00:00"
         },
         {
+            "name": "verbb/base",
+            "version": "1.0.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verbb/verbb-base/zipball/c95545f2b86db0791294a4b25e967a007f1dbf57",
+                "reference": "c95545f2b86db0791294a4b25e967a007f1dbf57",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "yii-module",
+            "autoload": {
+                "psr-4": {
+                    "verbb\\base\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Verbb",
+                    "homepage": "https://verbb.io"
+                }
+            ],
+            "description": "Common utilities and building-blocks for Verbb plugins for Craft CMS.",
+            "time": "2020-01-23T22:22:44+00:00"
+        },
+        {
             "name": "verbb/field-manager",
             "version": "2.1.1",
             "dist": {
@@ -7966,15 +7996,16 @@
         },
         {
             "name": "verbb/super-table",
-            "version": "2.3.3",
+            "version": "2.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/9bbce0b328a717ea8ecc269791c0d4b8eed79fe1",
-                "reference": "9bbce0b328a717ea8ecc269791c0d4b8eed79fe1",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/0c42d9f41a984678569fb030c387754726769a84",
+                "reference": "0c42d9f41a984678569fb030c387754726769a84",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.3.1.1"
+                "craftcms/cms": "^3.4.0",
+                "verbb/base": "^1.0.0"
             },
             "type": "craft-plugin",
             "extra": {
@@ -8014,7 +8045,7 @@
                 "docs": "https://github.com/verbb/super-table",
                 "rss": "https://github.com/verbb/super-table/commits/v2.atom"
             },
-            "time": "2020-01-18T21:00:42+00:00"
+            "time": "2020-01-29T07:15:52+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
