@@ -33,3 +33,20 @@ module.exports = {
     schriftPlugin()
   ],
 };
+
+/*
+* screens: overwrite
+* colors: overwrite (rgb, black, white, transparent)
+* spacings: extend
+* border-radius: overwrite, none
+* borderColor: overwrite, default black, currentColor
+* borderWidth: overwerite, 1-5px
+* box-shadows: overwrite, none
+* container: false
+* fonts: sans, serif, mono leeres array auskommentiert
+* fontSize: false
+* maxWidth: none muss noch rein.
+* opacity: extend, leeres object
+*
+*
+* */
