@@ -34,7 +34,7 @@ module.exports = {
   plugins: [
     schriftPlugin(),
     function({ addComponents, config }) {
-      const container = {
+      const grid = {
         '.container': {
           width: '100%',
           marginLeft: 'auto',
@@ -43,9 +43,16 @@ module.exports = {
           paddingLeft: config('theme.spacing.2'),
           paddingRight: config('theme.spacing.2'),
         },
+        '.row': {
+          marginLeft: `-${config('theme.spacing.2')}`,
+          marginRight: `-${config('theme.spacing.2')}`,
+          flexFlow: 'row wrap',
+          flex: '1 1 0',
+          display: 'flex',
+        },
       };
 
-      addComponents(container);
+      addComponents(grid);
     },
   ],
 };
