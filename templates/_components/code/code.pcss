@@ -28,8 +28,12 @@
   .a-code__codeWrapper {
     width: 100%;
     border-radius: 5px;
-    @apply .text-ms--2;
+    @apply .text-ms--2--min;
     line-height: 1.8;
+
+    @screen max {
+      @apply .text-ms--2--max;
+    }
   }
 
   .a-code__code {
@@ -47,7 +51,7 @@
   span {
     display: inline-block;
     position: relative;
-    @apply .text-ms--2 .pl-12 .pr-32 .py-4;
+    @apply .text-ms--2--min .pl-12 .pr-32 .py-4;
     border: 1px solid var(--c-gray-200);
     border-radius: 100px;
     box-shadow: var(--bs-longer);
@@ -55,6 +59,10 @@
     transition: box-shadow 250ms var(--ease-out-cubic),
     border 250ms var(--ease-out-cubic),
     transform 250ms var(--ease-out-cubic);
+
+    @screen max {
+      @apply .text-ms--2--max;
+    }
 
     &::before,
     &::after {
