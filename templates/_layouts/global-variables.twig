@@ -29,6 +29,11 @@
   {% block htmlPage %}
   {% endblock %}
 
+  {% set csrfToken = {
+    csrfTokenName: craft.app.config.general.csrfTokenName,
+    csrfTokenValue: craft.app.request.csrfToken,
+  } %}
+
   {# Make stuff global available #}
   <script>
       window.siteUrl = '{{ siteUrl }}';

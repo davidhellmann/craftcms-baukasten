@@ -31,6 +31,10 @@
     @apply .text-ms--2--min;
     line-height: 1.8;
 
+    @screen min {
+      @apply .text-ms--2--fluid;
+    }
+
     @screen max {
       @apply .text-ms--2--max;
     }
@@ -51,7 +55,7 @@
   span {
     display: inline-block;
     position: relative;
-    @apply .text-ms--2--min .pl-12 .pr-32 .py-4;
+    @apply .text-ms--2--min .pl-12px .pr-32px .py-4px;
     border: 1px solid var(--c-gray-200);
     border-radius: 100px;
     box-shadow: var(--bs-longer);
@@ -59,6 +63,10 @@
     transition: box-shadow 250ms var(--ease-out-cubic),
     border 250ms var(--ease-out-cubic),
     transform 250ms var(--ease-out-cubic);
+
+    @screen min {
+      @apply .text-ms--2--fluid;
+    }
 
     @screen max {
       @apply .text-ms--2--max;

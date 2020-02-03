@@ -1,0 +1,21 @@
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'c-container',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  foo: null
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{% if props.foo %}
+  <div {{ module.settings(props) }}>
+    container
+  </div>
+{% endif %}
+
