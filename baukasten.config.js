@@ -1,14 +1,13 @@
 /*
-** TailwindCSS Configuration File
-**
-** Docs: https://tailwindcss.com/docs/configuration
-** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
-*/
-
+ ** TailwindCSS Configuration File
+ **
+ ** Docs: https://tailwindcss.com/docs/configuration
+ ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
+ */
 
 // Cols Function
 function cols(col, context, unit) {
-  return `${col / context * 100}${unit}`;
+  return `${(col / context) * 100}${unit}`;
 }
 
 // Space Function
@@ -42,38 +41,44 @@ module.exports = {
   },
 
   // Create PX Spacings
-  spacingPxSmall: Array.from(new Array(13), (entry, index) => (index * 4)).reduce(
-    (a, b) => ({ ...a, [`${b}px`]: space(b, 1, 'px') }),
-  ),
+  spacingPxSmall: Array.from(
+    new Array(13),
+    (entry, index) => index * 4,
+  ).reduce((a, b) => ({ ...a, [`${b}px`]: space(b, 1, 'px') })),
 
   // Create PX Spacings
-  spacingPxBig: Array.from(new Array(18), (entry, index) => (index * 16 + 48)).reduce(
-    (a, b) => ({ ...a, [`${b}px`]: space(b, 1, 'px') }),
-  ),
+  spacingPxBig: Array.from(
+    new Array(18),
+    (entry, index) => index * 16 + 48,
+  ).reduce((a, b) => ({ ...a, [`${b}px`]: space(b, 1, 'px') })),
 
   // Create REM Spacings
-  spacingRem: Array.from(new Array(65), (entry, index) => (index) / 2).reduce(
-    (a, b) => ({...a, [b]: space(b, 1, 'rem')}),
-  ),
+  spacingRem: Array.from(
+    new Array(65),
+    (entry, index) => index / 2,
+  ).reduce((a, b) => ({ ...a, [b]: space(b, 1, 'rem') })),
 
   // 6er Cols
-  cols6: Array.from(new Array(7), (entry, index) => (index)).reduce(
-    (a, b) => ({...a, [`${b}/6`]: cols(b, 6, '%')}),
-  ),
+  cols6: Array.from(new Array(7), (entry, index) => index).reduce((a, b) => ({
+    ...a,
+    [`${b}/6`]: cols(b, 6, '%'),
+  })),
 
   // 10er Cols
-  cols10: Array.from(new Array(11), (entry, index) => (index)).reduce(
-    (a, b) => ({...a, [`${b}/10`]: cols(b, 10, '%')}),
-  ),
+  cols10: Array.from(new Array(11), (entry, index) => index).reduce((a, b) => ({
+    ...a,
+    [`${b}/10`]: cols(b, 10, '%'),
+  })),
 
   // 12er Cols
-  cols12: Array.from(new Array(13), (entry, index) => (index)).reduce(
-    (a, b) => ({...a, [`${b}/12`]: cols(b, 12, '%')}),
-  ),
+  cols12: Array.from(new Array(13), (entry, index) => index).reduce((a, b) => ({
+    ...a,
+    [`${b}/12`]: cols(b, 12, '%'),
+  })),
 
   // 24er Cols
-  cols24: Array.from(new Array(25), (entry, index) => (index)).reduce(
-    (a, b) => ({...a, [`${b}/24`]: cols(b, 24, '%')}),
-  ),
+  cols24: Array.from(new Array(25), (entry, index) => index).reduce((a, b) => ({
+    ...a,
+    [`${b}/24`]: cols(b, 24, '%'),
+  })),
 };
-

@@ -17,7 +17,7 @@ module.exports = {
         ...baukastenConfig.cols12,
         ...baukastenConfig.cols24,
       },
-      maxWidth: baukastenConfig.breakpoints
+      maxWidth: baukastenConfig.breakpoints,
     },
     // Replace the default Tailwind config here
     schrift: baukastenConfig.schrift,
@@ -28,25 +28,41 @@ module.exports = {
       ...baukastenConfig.spacingRem,
     },
   },
-  corePlugins: {},
+  corePlugins: {
+    container: false,
+  },
   plugins: [
-    schriftPlugin()
+    schriftPlugin(),
+    function({ addComponents, config }) {
+      const container = {
+        '.container': {
+          width: '100%',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          maxWidth: config('theme.screens.max'),
+          paddingLeft: config('theme.spacing.2'),
+          paddingRight: config('theme.spacing.2'),
+        },
+      };
+
+      addComponents(container);
+    },
   ],
 };
 
 /*
-* screens: overwrite
-* colors: overwrite (rgb, black, white, transparent)
-* spacings: extend
-* border-radius: overwrite, none
-* borderColor: overwrite, default black, currentColor
-* borderWidth: overwerite, 1-5px
-* box-shadows: overwrite, none
-* container: false
-* fonts: sans, serif, mono leeres array auskommentiert
-* fontSize: false
-* maxWidth: none muss noch rein.
-* opacity: extend, leeres object
-*
-*
-* */
+ * screens: overwrite
+ * colors: overwrite (rgb, black, white, transparent)
+ * spacings: extend
+ * border-radius: overwrite, none
+ * borderColor: overwrite, default black, currentColor
+ * borderWidth: overwerite, 1-5px
+ * box-shadows: overwrite, none
+ * container: false
+ * fonts: sans, serif, mono leeres array auskommentiert
+ * fontSize: false
+ * maxWidth: none muss noch rein.
+ * opacity: extend, leeres object
+ *
+ *
+ * */
