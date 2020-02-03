@@ -120,14 +120,14 @@ module.exports = {
     ampCriticalWidth: 600,
     criticalIgnore: ['@font-face'],
     pages: [
-      {
+      /*{
         url: '',
         template: 'index',
       },
       {
         url: "",
         template: "amp_index"
-      },
+      },*/
     ]
   },
   devServerConfig: {
