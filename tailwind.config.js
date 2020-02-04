@@ -9,31 +9,49 @@ const baukastenConfig = require('./baukasten.config');
 module.exports = {
   theme: {
     // Extend the default Tailwind config here
-    extend: {
-      colors: baukastenConfig.colors,
-      width: {
-        ...baukastenConfig.cols6,
-        ...baukastenConfig.cols10,
-        ...baukastenConfig.cols12,
-        ...baukastenConfig.cols24,
-      },
-      maxWidth: baukastenConfig.breakpoints,
+    colors: baukastenConfig.colors,
+    maxWidth: {
+      'none': 'none',
+      'full': '100%',
+      ...baukastenConfig.breakpoints
     },
-    // Replace the default Tailwind config here
-    schrift: baukastenConfig.schrift,
     screens: baukastenConfig.breakpoints,
+    width: {
+      '0': '0',
+      'full': '100%',
+      'screen': '100vw',
+      'auto': 'auto',
+      ...baukastenConfig.cols6,
+      ...baukastenConfig.cols10,
+      ...baukastenConfig.cols12,
+      ...baukastenConfig.cols24,
+    },
     spacing: {
       ...baukastenConfig.spacingPxSmall,
       ...baukastenConfig.spacingPxBig,
       ...baukastenConfig.spacingRem,
     },
+    borderRadius: baukastenConfig.borderRadius,
+    borderColor: theme => ({
+      ...theme('colors'),
+      default: theme('colors.black', 'currentColor'),
+    }),
+    borderWidth: baukastenConfig.borderWidth,
+    boxShadow: baukastenConfig.boxShadow,
+    fontFamily: baukastenConfig.fontFamily,
+    extend: {
+      opacity: baukastenConfig.opacity
+    },
+    // Replace the default Tailwind config here
+    schrift: baukastenConfig.schrift,
   },
   corePlugins: {
     container: false,
+    fontSize: false
   },
   plugins: [
     schriftPlugin(),
-    function({ addComponents, config }) {
+    function ({addComponents, config}) {
       const grid = {
         '.container': {
           width: '100%',
@@ -58,18 +76,18 @@ module.exports = {
 };
 
 /*
- * screens: overwrite
- * colors: overwrite (rgb, black, white, transparent)
- * spacings: extend
- * border-radius: overwrite, none
- * borderColor: overwrite, default black, currentColor
- * borderWidth: overwerite, 1-5px
- * box-shadows: overwrite, none
- * container: false
- * fonts: sans, serif, mono leeres array auskommentiert
- * fontSize: false
- * maxWidth: none muss noch rein.
- * opacity: extend, leeres object
+ * screens: overwrite --- done
+ * colors: overwrite (rgb, black, white, transparent) --- done
+ * spacings: extend --- done
+ * border-radius: overwrite, none --- done
+ * borderColor: overwrite, default black, currentColor --- done
+ * borderWidth: overwerite, 1-5px --- done
+ * box-shadows: overwrite, none --- done
+ * container: false (custom) --- done
+ * fonts: sans, serif, mono leeres array auskommentiert --- done
+ * fontSize: false --- done
+ * maxWidth: none muss noch rein. --- done
+ * opacity: extend, leeres object --- done
  *
  *
  * */

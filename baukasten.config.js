@@ -28,7 +28,55 @@ module.exports = {
     transparent: 'transparent',
     black: '#000',
     white: '#fff',
+    red: '#f00',
+    blue: '#00f',
+    green: '#0f0',
   },
+
+  borderRadius: {
+    'none': '0',
+    '1px': '1px',
+    '2px': '2px',
+    '3px': '3px',
+    '4px': '4px',
+    '5px': '5px',
+    '10px': '10px',
+    '25px': '25px',
+    'full': '9999px',
+  },
+
+  borderWidth: {
+    default: '1px',
+    '0': '0',
+    '1px': '1px',
+    '2px': '2px',
+    '3px': '3px',
+    '4px': '4px',
+    '5px': '5px',
+  },
+
+  boxShadow: {
+    '0': 'none',
+    '1': '0 1px 1px rgba(0,0,0,0.30)',
+    '2': '0 1px 1px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.25)',
+    '3': '0 1px 1px rgba(0,0,0,0.20), 0 2px 2px rgba(0,0,0,0.20), 0 4px 4px rgba(0,0,0,0.20)',
+    '4': '0 1px 1px rgba(0,0,0,0.15), 0 2px 2px rgba(0,0,0,0.15), 0 4px 4px rgba(0,0,0,0.15), 0 8px 8px rgba(0,0,0,0.15)',
+    '5': '0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.12), 0 8px 8px rgba(0,0,0,0.12), 0 16px 16px rgba(0,0,0,0.12)',
+    '6': '0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 8px 8px rgba(0,0,0,0.11), 0 16px 16px rgba(0,0,0,0.11), 0 32px 32px rgba(0,0,0,0.11)',
+    sharp: '0 1px 1px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.20), 0 4px 4px rgba(0,0,0,0.15), 0 8px 8px rgba(0,0,0,0.10), 0 16px 16px rgba(0,0,0,0.05)',
+    diffuse: '0 1px 1px rgba(0,0,0,0.08), 0 2px 2px rgba(0,0,0,0.12), 0 4px 4px rgba(0,0,0,0.16), 0 8px 8px rgba(0,0,0,0.20)',
+    shorter: '0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 6px 8px rgba(0,0,0,0.11), 0 8px 16px rgba(0,0,0,0.11)',
+    longer: '0 2px 1px rgba(0,0,0,0.09), 0 4px 2px rgba(0,0,0,0.09), 0 8px 4px rgba(0,0,0,0.09), 0 16px 8px rgba(0,0,0,0.09), 0 32px 16px rgba(0,0,0,0.09)',
+    dreamy: '0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07), 0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07)',
+  },
+
+  fontFamily: {
+    'sans': [],
+    'serif': [],
+    'mono': [],
+  },
+
+  opacity: {},
 
   schrift: {
     minFontSize: '16px',
@@ -44,19 +92,19 @@ module.exports = {
   spacingPxSmall: Array.from(
     new Array(13),
     (entry, index) => index * 4,
-  ).reduce((a, b) => ({ ...a, [`${b}px`]: space(b, 1, 'px') })),
+  ).reduce((a, b) => ({...a, [`${b}px`]: space(b, 1, 'px')})),
 
   // Create PX Spacings
   spacingPxBig: Array.from(
     new Array(18),
     (entry, index) => index * 16 + 48,
-  ).reduce((a, b) => ({ ...a, [`${b}px`]: space(b, 1, 'px') })),
+  ).reduce((a, b) => ({...a, [`${b}px`]: space(b, 1, 'px')})),
 
   // Create REM Spacings
   spacingRem: Array.from(
     new Array(65),
     (entry, index) => index / 2,
-  ).reduce((a, b) => ({ ...a, [b]: space(b, 1, 'rem') })),
+  ).reduce((a, b) => ({...a, [b]: space(b, 1, 'rem')})),
 
   // 6er Cols
   cols6: Array.from(new Array(7), (entry, index) => index).reduce((a, b) => ({

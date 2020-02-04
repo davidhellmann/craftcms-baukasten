@@ -15,11 +15,13 @@
 
 <header {{ module.settings(props) }}>
   <div class="container py-2">
-    <div class="row items-center">
+    <div class="flex items-center">
       {# -- logo -- #}
       {% include '_components/logo/logo.twig' with {
         props: {
-          customClasses: ['p-8 w-120 h-120'],
+          customClasses: [
+            'w-96px h-96px'
+          ],
           variant: 'basic',
           name: 'logo'
         }
