@@ -36,11 +36,25 @@
 .m-postNav--prev {
   padding-left: s(9);
   text-align: left;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include media('>=s') {
+    left: s(3);
+    transform: translateY(-50%);
+  }
 }
 
 .m-postNav--next {
   padding-right: s(9);
   text-align: right;
+  right: 50%;
+  transform: translate(50%, -50%);
+
+  @include media('>=s') {
+    right: s(3);
+    transform: translateY(-50%);
+  }
 }
 
 .m-postNav__icon {
@@ -57,26 +71,6 @@
   svg path {
     fill: var(--c-gray-300);
     transition: all 0.25s var(--ease-out-cubic);
-  }
-}
-
-.m-postNav--prev {
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  @include media('>=s') {
-    left: s(3);
-    transform: translateY(-50%);
-  }
-}
-
-.m-postNav--next {
-  right: 50%;
-  transform: translate(50%, -50%);
-
-  @include media('>=s') {
-    right: s(3);
-    transform: translateY(-50%);
   }
 }
 
