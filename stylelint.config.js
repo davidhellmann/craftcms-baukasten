@@ -15,10 +15,12 @@ module.exports = {
           'each',
           'if',
           'warn',
+          'define-mixin',
         ],
       },
     ],
     'block-no-empty': null,
+    'no-descending-specificity': null,
   },
 };
 

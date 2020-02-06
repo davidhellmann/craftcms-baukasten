@@ -4,6 +4,15 @@
  *
  */
 
+
+[v-cloak] > * {
+  display: none !important;
+}
+
+[v-cloak]::before {
+  content: 'loading…';
+}
+
 html {
   /* Min Multiplicator */
   font-size: 8px;
@@ -24,13 +33,6 @@ html {
   /* Max Multiplicator */
   @screen max {
     font-size: 16px;
-  }
-}
-
-.user-is-tabbing {
-  *:focus {
-    outline: 2px solid var(--c-gray-500) !important;
-    outline: 5px auto -webkit-focus-ring-color !important;
   }
 }
 
@@ -101,12 +103,11 @@ img[data-sizes='auto'] {
   opacity: 1;
 }
 
-[v-cloak] > * {
-  display: none !important;
-}
-
-[v-cloak]::before {
-  content: 'loading…';
+.user-is-tabbing {
+  *:focus {
+    outline: 2px solid var(--c-gray-500) !important;
+    outline: 5px auto -webkit-focus-ring-color !important;
+  }
 }
 
 .sr-only {
