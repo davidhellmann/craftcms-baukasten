@@ -17,7 +17,9 @@ module.exports = {
     require('postcss-css-vars'),
     require('postcss-fixes'),
     require('postcss-preset-env')({
-      autoprefixer: { grid: false },
+      autoprefixer: {
+        grid: false,
+      },
       features: {
         'nesting-rules': true,
       },
