@@ -2,6 +2,9 @@
 
 // node modules
 require('dotenv').config();
+const Terser = require('terser');
+const Postcss = require('postcss');
+const Cssnano = require('cssnano');
 
 // Webpack settings exports
 // noinspection WebpackConfigHighlighting
@@ -78,7 +81,7 @@ module.exports = {
       from: './src/inlineJs/load-fonts.js',
       to: 'js/[name].[ext]',
       transform(content) {
-        return content;
+        return Terser.minify(content.toString()).code;
       },
     },
     // copy and minify inlineJs
@@ -86,7 +89,7 @@ module.exports = {
       from: './src/inlineJs/tab-handler.js',
       to: 'js/[name].[ext]',
       transform(content) {
-        return content;
+        return Terser.minify(content.toString()).code;
       },
     },
     // copy and minify inlineJs
@@ -94,7 +97,7 @@ module.exports = {
       from: './src/inlineJs/service-worker.js',
       to: 'js/[name].[ext]',
       transform(content) {
-        return content;
+        return Terser.minify(content.toString()).code;
       },
     },
     // copy and minify webfonts css

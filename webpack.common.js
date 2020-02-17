@@ -17,7 +17,7 @@ const pkg = require('./package.json');
 const settings = require('./webpack.settings.js');
 
 // Configure Babel loader
-const configureBabelLoader = (browserList) => {
+const configureBabelLoader = (browserList, legacy) => {
   return {
     test: /\.js$/,
     exclude: settings.babelLoaderConfig.exclude,
@@ -28,7 +28,7 @@ const configureBabelLoader = (browserList) => {
         presets: [
           [
             '@babel/preset-env', {
-              modules: false,
+              modules: legacy ? 'auto' : false,
               corejs: {
                 version: 3,
                 proposals: true
@@ -42,7 +42,12 @@ const configureBabelLoader = (browserList) => {
         ],
         plugins: [
           '@babel/plugin-syntax-dynamic-import',
-          '@babel/plugin-transform-runtime',
+          [
+            '@babel/transform-runtime',
+            {
+              corejs: 3,
+            },
+          ],
         ],
       },
     },
