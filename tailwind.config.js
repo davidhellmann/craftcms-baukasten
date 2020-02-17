@@ -11,9 +11,9 @@ module.exports = {
     // Extend the default Tailwind config here
     colors: baukastenConfig.colors,
     maxWidth: {
-      'none': 'none',
-      'full': '100%',
-      ...baukastenConfig.breakpoints
+      none: 'none',
+      full: '100%',
+      ...baukastenConfig.breakpoints,
     },
     screens: baukastenConfig.breakpoints,
     width: baukastenConfig.widths,
@@ -27,18 +27,18 @@ module.exports = {
     boxShadow: baukastenConfig.boxShadow,
     fontFamily: baukastenConfig.fontFamily,
     extend: {
-      opacity: baukastenConfig.opacity
+      opacity: baukastenConfig.opacity,
     },
     // Replace the default Tailwind config here
     schrift: baukastenConfig.schrift,
   },
   corePlugins: {
     container: false,
-    fontSize: false
+    fontSize: false,
   },
   plugins: [
     schriftPlugin(),
-    function ({addComponents, config}) {
+    function({ addComponents, config }) {
       const grid = {
         '.container': {
           width: '100%',

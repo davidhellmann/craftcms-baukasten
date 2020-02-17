@@ -14,10 +14,10 @@ module.exports = {
     require('postcss-mixins')({
       mixins,
     }),
-    require('postcss-css-variables'),
+    require('postcss-css-vars'),
     require('postcss-fixes'),
     require('postcss-preset-env')({
-      autoprefixer: { grid: true },
+      autoprefixer: { grid: false },
       features: {
         'nesting-rules': true,
       },
