@@ -32,7 +32,7 @@
   {% set image = props.image %}
 {% endif %}
 
-{% if not image ??? null %}
+{% if not image  | fileExists %}
   {% set image = craft.assets.title('Placeholder').volume('templateImages').one() %}
 {% endif %}
 
@@ -103,6 +103,6 @@
       {# No Transforming #}
       {% include '_components/image/_no-transforming.twig' %}
     {% endif %}
-    <noscript><img src="{{image.getUrl() }}" alt="{{ image.title }}"></noscript>
+    <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}"></noscript>
   </picture>
 {% endif %}

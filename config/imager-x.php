@@ -1,6 +1,14 @@
 <?php
+/**
+ * Imager X plugin for Craft CMS
+ *
+ * Ninja powered image transforms.
+ *
+ * @link      https://www.spacecat.ninja
+ * @copyright Copyright (c) 2020 André Elvan
+ */
 
-namespace aelvan\imager\models;
+namespace spacecatninja\imagerx\models;
 
 use craft\helpers\FileHelper;
 use craft\base\Model;
@@ -21,7 +29,7 @@ class Settings extends Model
     public $pngCompressionLevel = 2;
     public $webpQuality = 80;
     public $webpImagickOptions = [];
-    public $useCwebp = true;
+    public $useCwebp = false;
     public $cwebpPath = '/usr/bin/cwebp';
     public $cwebpOptions = '';
     public $interlace = false;
@@ -29,6 +37,7 @@ class Settings extends Model
     public $resizeFilter = 'lanczos';
     public $smartResizeEnabled = false;
     public $removeMetadata = false;
+    public $preserveColorProfiles = false;
     public $bgColor = '';
     public $position = '50% 50%';
     public $letterbox = ['color' => '#000', 'opacity' => 0];
@@ -50,6 +59,8 @@ class Settings extends Model
     public $fillTransforms = false;
     public $fillAttribute = 'width';
     public $fillInterval = '200';
+    public $fallbackImage = null;
+    public $mockImage = null;
     public $clearKey = '';
 
     public $useForNativeTransforms = false;
@@ -66,7 +77,7 @@ class Settings extends Model
             'signKey' => '',
             'sourceIsWebProxy' => false,
             'useCloudSourcePath' => true,
-            'shardStrategy' => 'cycle',
+            // 'shardStrategy' => 'cycle',
             'getExternalImageDimensions' => true,
             'defaultParams' => [],
             'apiKey' => '',
@@ -156,15 +167,14 @@ class Settings extends Model
         parent::__construct($config);
 
         if (!empty($config)) {
-            \Yii::configure($this, $config);
+            Yii::configure($this, $config);
         }
         $this->init();
     }
 
     public function init()
     {
-        // Have to set this here cause Yii::getAlias can't be used in default value
-        $this->imagerSystemPath = FileHelper::normalizePath(Yii::getAlias($this->imagerSystemPath));
+        // Set default based on devMode. Overridable through config.
         $this->suppressExceptions = !\Craft::$app->getConfig()->general->devMode;
     }
 }
