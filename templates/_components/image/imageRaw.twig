@@ -28,7 +28,7 @@
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Image #}
-{% if (props.image.getVolume().path ~ props.image.filename) | fileExists %}
+{% if props.image ??? null %}
   {% set image = props.image %}
 {% endif %}
 
@@ -40,6 +40,12 @@
   {# Skip Transforms for the current filetypes #}
   {% set skipTransformsForThisExtensions = ['gif', 'GIF', 'tiff', 'TIFF', 'svg', 'SVG'] %}
   {% set focalpoint = image.getFocalpoint('asCss') %}
+
+  {% if image is iterable %}
+    {% set extension = image.extension %}
+  {% else %}
+    {% set extension = image | split('.') | last %}
+  {% endif %}
 
   {% if image.extension not in skipTransformsForThisExtensions %}
     {# Set correct ratio #}

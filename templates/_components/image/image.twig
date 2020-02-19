@@ -39,9 +39,15 @@
 {% if image ??? null %}
   {# Skip Transforms for the current filetypes #}
   {% set skipTransformsForThisExtensions = ['gif', 'GIF', 'tiff', 'TIFF', 'svg', 'SVG'] %}
-  {% set focalpoint = image.getFocalpoint('asCss') %}
+  {% set focalpoint = image.getFocalpoint('asCss') | default('50% 50%') %}
 
-  {% if image.extension not in skipTransformsForThisExtensions %}
+  {% if image is iterable %}
+    {% set extension = image.extension %}
+  {% else %}
+    {% set extension = image | split('.') | last %}
+  {% endif %}
+
+  {% if extension not in skipTransformsForThisExtensions %}
     {# Set correct ratio #}
     {% if props.ratio %}
       {% switch props.ratio %}
@@ -56,13 +62,13 @@
         {% set ratio = 3/4 %}
 
       {% case "auto" %}
-        {% set ratio = image.width/image.height %}
+        {% set ratio = (image.width/image.height) | default(null) %}
 
       {% default %}
         {% set ratio = props.ratio %}
       {% endswitch %}
     {% else %}
-      {% set ratio = image.width/image.height %}
+      {% set ratio = (image.width/image.height) | default(null) %}
     {% endif %}
 
     {# Define global variables #}
