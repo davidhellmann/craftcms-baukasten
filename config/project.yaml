@@ -1,4 +1,4 @@
-dateModified: 1582027255
+dateModified: 1582114229
 email:
   fromEmail: david@hellmann.io
   fromName: $SITE_NAME
@@ -1856,7 +1856,6 @@ plugins:
       suffixText: null
       textColor: '#eee'
   existential:
-    edition: standard
     enabled: true
     schemaVersion: 1.0.0
   feed-me:
@@ -1872,7 +1871,6 @@ plugins:
     enabled: true
     schemaVersion: 2.0.0
   imager-x:
-    edition: pro
     enabled: true
     schemaVersion: 3.0.0
   linkit:
@@ -2087,13 +2085,13 @@ superTableBlockTypes:
           -
             fields:
               b4623113-f388-41e1-8610-19812a5433f0:
-                required: false
-                sortOrder: 2
+                required: '0'
+                sortOrder: '2'
               f56216a6-8623-42ab-b812-b10971f828e6:
-                required: false
-                sortOrder: 1
+                required: '0'
+                sortOrder: '1'
             name: Content
-            sortOrder: 1
+            sortOrder: '1'
     fields:
       b4623113-f388-41e1-8610-19812a5433f0:
         contentColumnType: text
@@ -2101,7 +2099,7 @@ superTableBlockTypes:
         handle: description
         instructions: ''
         name: Description
-        searchable: false
+        searchable: '0'
         settings:
           availableTransforms: '*'
           availableVolumes: '*'
@@ -2122,7 +2120,7 @@ superTableBlockTypes:
         handle: term
         instructions: ''
         name: Term
-        searchable: false
+        searchable: '0'
         settings:
           availableTransforms: '*'
           availableVolumes: '*'
@@ -2141,7 +2139,7 @@ system:
   edition: pro
   live: true
   name: $SITE_NAME
-  schemaVersion: 3.4.7
+  schemaVersion: 3.4.9
   timeZone: Europe/Berlin
 users:
   allowPublicRegistration: false

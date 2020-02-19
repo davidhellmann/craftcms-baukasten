@@ -28,5 +28,11 @@ return [
         'deprecator' => [
             'throwExceptions' => YII_DEBUG,
         ],
+        'db' => function() {
+            $config = craft\helpers\App::dbConfig();
+            $config['enableSchemaCache'] = true;
+            $config['schemaCacheDuration'] = 60; // 1 day
+            return Craft::createObject($config);
+        },
     ],
 ];
