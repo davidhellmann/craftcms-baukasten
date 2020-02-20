@@ -30,7 +30,11 @@
     "upgrade-interactive": "npm-check --update",
     "debug": "webpack-dev-server --config webpack.dev.js",
     "dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js --progress --hide-modules"
+    "build": "webpack --config webpack.prod.js --progress --hide-modules",
+    "preinstall": "$npm_execpath --silent run checknpm",
+    "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)",
+    "eslint": "eslint src/**/*.{js,vue} --fix",
+    "stylelint": "stylelint src/**/*.scss --fix"
   },
   "browserslist": {
     "production": [
