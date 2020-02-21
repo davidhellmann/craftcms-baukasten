@@ -12,22 +12,14 @@
   "plugins": [
     "inlinestyle"
   ],
-  "formatting": [
-    "h2",
-    "h3",
-    "h4",
-    "h5",
-    "h6",
-    "pre",
-    "blockquote"
-  ],
+  "formatting": [],
   "formattingAdd": {
     "smaller-text": {
       "title": "Smaller Text",
       "api": "module.block.format",
       "args": {
         "tag": "p",
-        "class": "ut-smaller-text",
+        "class": "ms--1",
         "type": "set"
       }
     },
@@ -36,7 +28,7 @@
       "api": "module.block.format",
       "args": {
         "tag": "p",
-        "class": "ut-normal-text",
+        "class": "ms-0",
         "type": "set"
       }
     },
@@ -45,17 +37,62 @@
       "api": "module.block.format",
       "args": {
         "tag": "p",
-        "class": "ut-bigger-text",
+        "class": "ms-1",
         "type": "set"
       }
     },
-    "note": {
-      "title": "Note",
+    "quote": {
+      "title": "Quote",
       "api": "module.block.format",
       "args": {
-        "tag": "p",
-        "class": "ut-note",
-        "type": "toggle"
+        "tag": "blockquote",
+        "class": "blockquote",
+        "type": "set"
+      }
+    },
+    "h2": {
+      "title": "H2",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h2",
+        "class": "ms-5",
+        "type": "set"
+      }
+    },
+    "h3": {
+      "title": "H3",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h3",
+        "class": "ms-4",
+        "type": "set"
+      }
+    },
+    "h4": {
+      "title": "H4",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h4",
+        "class": "ms-3",
+        "type": "set"
+      }
+    },
+    "h5": {
+      "title": "H5",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h5",
+        "class": "ms-2",
+        "type": "set"
+      }
+    },
+    "h6": {
+      "title": "H6",
+      "api": "module.block.format",
+      "args": {
+        "tag": "h6",
+        "class": "ms-1",
+        "type": "set"
       }
     }
   },
