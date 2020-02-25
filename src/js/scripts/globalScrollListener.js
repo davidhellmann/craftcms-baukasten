@@ -20,7 +20,7 @@ const globalScrollListener = {
 
 
     const scrollOffsetTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollOffsetTop > 100 && scrollOffsetTop > this.cfg.lastScrollTop) {
+    if (scrollOffsetTop > this.cfg.lastScrollTop) {
       // downscroll code
       this.cfg.body.classList.remove('is-scrollingUp');
       this.cfg.body.classList.add('is-scrollingDown');
