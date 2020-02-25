@@ -24,10 +24,23 @@ const globalScrollListener = {
       // downscroll code
       this.cfg.body.classList.remove('is-scrollingUp');
       this.cfg.body.classList.add('is-scrollingDown');
+
+      if (scrollOffsetTop > 100) {
+        this.cfg.body.classList.add('is-scrollingDown--100');
+      }
+
+      if (scrollOffsetTop > 500) {
+        this.cfg.body.classList.add('is-scrollingDown--500');
+      }
     } else {
       // upscroll code
       this.cfg.body.classList.remove('is-scrollingDown');
       this.cfg.body.classList.add('is-scrollingUp');
+
+      if (scrollOffsetTop <= 100) {
+        this.cfg.body.classList.remove('is-scrollingDown--100');
+        this.cfg.body.classList.remove('is-scrollingDown--500');
+      }
     }
     // For Mobile or negative scrolling
     this.cfg.lastScrollTop = scrollOffsetTop <= 0 ? 0 : scrollOffsetTop;
