@@ -4,8 +4,8 @@
 //   .catch(e => console.error(`${e.name} : ${e.message}`));
 
 // disableHover
-import(/* webpackChunkName: "disableHover" */ './scripts/disableHover.js')
-  .then(disableHover => disableHover.default.init())
+import(/* webpackChunkName: "disableHover" */ './scripts/globalScrollListener.js')
+  .then(globalScrollListener => globalScrollListener.default.init())
   .catch(e => console.error(`${e.name} : ${e.message}`));
 
 // resizeClass
