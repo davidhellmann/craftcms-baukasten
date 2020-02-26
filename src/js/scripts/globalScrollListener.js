@@ -1,6 +1,7 @@
 /**
  * globalScrollListener
  */
+import _throttle from 'lodash/throttle';
 
 const globalScrollListener = {
   cfg: {
@@ -47,7 +48,11 @@ const globalScrollListener = {
   },
 
   init() {
-    window.addEventListener('scroll', this.setClasses.bind(this), false);
+    const winScroll = _throttle(() => {
+      this.setClasses();
+    }, 500);
+
+    window.addEventListener('scroll', winScroll);
   },
 };
 
