@@ -3,14 +3,14 @@
 //   .then(browserDetect => browserDetect.default.init())
 //   .catch(e => console.error(`${e.name} : ${e.message}`));
 
-// disableHover
-import(/* webpackChunkName: "disableHover" */ './scripts/globalScrollListener.js')
+// globalScrollListener
+import(/* webpackChunkName: "globalScrollListener" */ './scripts/globalScrollListener.js')
   .then(globalScrollListener => globalScrollListener.default.init())
   .catch(e => console.error(`${e.name} : ${e.message}`));
 
-// resizeClass
-import(/* webpackChunkName: "resizeClass" */ './scripts/resizeClass.js')
-  .then(resizeClass => resizeClass.default.init())
+// globalResizeListener
+import(/* webpackChunkName: "globalResizeListener" */ './scripts/globalResizeListener.js')
+  .then(globalResizeListener => globalResizeListener.default.init())
   .catch(e => console.error(`${e.name} : ${e.message}`));
 
 // csrfToken

@@ -1,11 +1,11 @@
 /**
- * bodyClass
+ * globalResizeListener
  */
 
-const resizeClass = {
+const globalResizeListener = {
   cfg: {
     body: document.body,
-    timer: null,
+    timer: null
   },
 
   isDoneResizing() {
@@ -18,16 +18,25 @@ const resizeClass = {
     this.cfg.body.classList.remove('is-resized');
   },
 
+  saveViewPortWidthsToLocalStorage() {
+    const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+    localStorage.setItem('vw', vw);
+    localStorage.setItem('vh', vh);
+  },
+
   init() {
     window.addEventListener('resize', () => {
+      this.saveViewPortWidthsToLocalStorage();
       this.isResizing();
 
       clearTimeout(this.cfg.timer);
       this.cfg.timer = setTimeout(() => {
         this.isDoneResizing();
       }, 250);
-    });
-  },
+    }, false);
+  }
 };
 
-export default resizeClass;
+export default globalResizeListener;
