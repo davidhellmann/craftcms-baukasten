@@ -3,8 +3,7 @@
   cn: 'a-youtube-basic',
   modifiers: [],
   customClasses: [],
-  data: {},
-  variant: 'basic',
+  data: {}
   videoId: null,
   autoplay: 0,
   loop: 0,
@@ -37,9 +36,7 @@
       {% if not klaro.youtube ??? null %}
         {# -- cookieClue -- #}
         {% include '_atoms/cookieClue/_template.twig' with {
-          props: {
-            variant: 'basic',
-          }
+          props: {}
         } only %}
       {% endif %}
     </div>

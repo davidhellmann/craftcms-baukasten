@@ -1,9 +1,49 @@
+<h1 class="">Tailwind Party.</h1>
+
 {# ============================================================== #}
 {#                                                                #}
 {#      SEPERATOR                                                 #}
 {#                                                                #}
 {# ============================================================== #}
-<h1 class="">Tailwind Party.</h1>
+<pre class="mt-4 mb-2">_components/imageRaw</pre>
+{# -- link -- #}
+{% include '_components/image/imageRaw.twig' with {
+  props: {
+    image: craft.assets.title('Placeholder').volume('templateImages').one(),
+    ratio: 'landscape'
+  }
+} only %}
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2">_components/image</pre>
+{# -- link -- #}
+{% include '_components/image/image.twig' with {
+  props: {
+    image: craft.assets.title('Placeholder').volume('templateImages').one(),
+    ratio: 'landscape'
+  }
+} only %}
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2">_components/link</pre>
+{# -- link -- #}
+{% include '_components/link/link.twig' with {
+  props: {}
+} only %}
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
 <pre class="mt-4 mb-2">_components/code</pre>
 {# -- code -- #}
 {% include '_components/code/code.twig' with {

@@ -13,8 +13,7 @@
   url: null,
   targetBlank: null,
   text: null,
-  icon: null,
-  variant: 'icon'
+  icon: null
 } %}
 
 {# Merge Default with Options #}
@@ -30,7 +29,6 @@
     {# Icon #}
     {% include '_atoms/icon/_template.twig' with {
       props: {
-        variant: 'basic',
         icon: props.icon
       }
     } only %}
