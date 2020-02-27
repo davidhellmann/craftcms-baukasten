@@ -7,7 +7,7 @@ const globalScrollListener = {
   cfg: {
     body: document.body,
     timer: '',
-    lastScrollTop: 0
+    lastScrollTop: 0,
   },
 
   setClasses() {
@@ -19,8 +19,8 @@ const globalScrollListener = {
       this.cfg.body.classList.remove('no-hover');
     }, 250);
 
-
-    const scrollOffsetTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollOffsetTop =
+      window.pageYOffset || document.documentElement.scrollTop;
     if (scrollOffsetTop > this.cfg.lastScrollTop) {
       // downscroll code
       this.cfg.body.classList.remove('is-scrollingUp');
@@ -50,7 +50,7 @@ const globalScrollListener = {
   init() {
     const winScroll = _throttle(() => {
       this.setClasses();
-    }, 500);
+    }, 250);
 
     window.addEventListener('scroll', winScroll);
   },

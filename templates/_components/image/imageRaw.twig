@@ -32,7 +32,7 @@
   {% set image = props.image %}
 {% endif %}
 
-{% if not image  | fileExists %}
+{% if not image | fileExists %}
   {% set image = craft.assets.title('Placeholder').volume('templateImages').one() %}
 {% endif %}
 

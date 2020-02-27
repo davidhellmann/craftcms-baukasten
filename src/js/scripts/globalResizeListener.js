@@ -6,7 +6,7 @@ import _throttle from 'lodash/throttle';
 const globalResizeListener = {
   cfg: {
     body: document.body,
-    timer: null
+    timer: null,
   },
 
   isDoneResizing() {
@@ -20,8 +20,14 @@ const globalResizeListener = {
   },
 
   saveViewPortWidthsToLocalStorage() {
-    const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    const vw = Math.max(
+      document.documentElement.clientWidth,
+      window.innerWidth || 0,
+    );
+    const vh = Math.max(
+      document.documentElement.clientHeight,
+      window.innerHeight || 0,
+    );
 
     localStorage.setItem('vw', vw);
     localStorage.setItem('vh', vh);
@@ -36,10 +42,10 @@ const globalResizeListener = {
       this.cfg.timer = setTimeout(() => {
         this.isDoneResizing();
       }, 250);
-    }, 500);
+    }, 250);
 
     window.addEventListener('resize', winResize);
-  }
+  },
 };
 
 export default globalResizeListener;
