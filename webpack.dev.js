@@ -89,12 +89,9 @@ module.exports = merge(common.modernConfig, {
   },
   mode: 'development',
   devtool: 'inline-source-map',
-  devServer: configureDevServer(MODERN_CONFIG),
+  devServer: configureDevServer(),
   module: {
-    rules: [
-      configurePostcssLoader(MODERN_CONFIG),
-      configureImageLoader(MODERN_CONFIG),
-    ],
+    rules: [configurePostcssLoader(), configureImageLoader()],
   },
   plugins: [new webpack.HotModuleReplacementPlugin(), new DashboardPlugin()],
 });

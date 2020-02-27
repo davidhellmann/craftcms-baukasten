@@ -32,6 +32,7 @@ return [
         'subLeft' => true,
         'subRight' => true,
     ],
+    'defaultTokenDuration' => 'P2W',
     'enableCsrfProtection' => true,
     'errorTemplatePrefix' => 'errors/',
     'limitAutoSlugsToAscii' => true,

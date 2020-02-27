@@ -25,19 +25,21 @@ const configureBabelLoader = (browserList, legacy) => {
       loader: 'babel-loader',
       options: {
         cacheDirectory: true,
+        sourceType: 'unambiguous',
         presets: [
           [
-            '@babel/preset-env', {
+            '@babel/preset-env',
+            {
               modules: legacy ? 'auto' : false,
               corejs: {
                 version: 3,
-                proposals: true
+                proposals: true,
               },
               useBuiltIns: 'usage',
               targets: {
                 browsers: browserList,
               },
-            }
+            },
           ],
         ],
         plugins: [
@@ -72,19 +74,19 @@ const configureFontLoader = () => {
       {
         loader: 'file-loader',
         options: {
-          name: 'fonts/[name].[ext]'
-        }
-      }
-    ]
+          name: 'fonts/[name].[ext]',
+        },
+      },
+    ],
   };
 };
 
 // Configure Manifest
-const configureManifest = (fileName) => {
+const configureManifest = fileName => {
   return {
     fileName: fileName,
     basePath: settings.manifestConfig.basePath,
-    map: (file) => {
+    map: file => {
       file.name = file.name.replace(/(\.[a-f0-9]{32})(\..*)$/, '$2');
       return file;
     },
@@ -95,7 +97,7 @@ const configureManifest = (fileName) => {
 const configureVueLoader = () => {
   return {
     test: /\.vue$/,
-    loader: 'vue-loader'
+    loader: 'vue-loader',
   };
 };
 
@@ -105,25 +107,26 @@ const baseConfig = {
   entry: configureEntries(),
   output: {
     path: path.resolve(__dirname, settings.paths.dist.base),
-    publicPath: settings.urls.publicPath()
+    publicPath: settings.urls.publicPath(),
   },
   resolve: {
     modules: [path.resolve(__dirname, 'templates'), 'node_modules'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
+      vue$: 'vue/dist/vue.esm.js',
       // 'Templates': path.resolve(__dirname, 'templates'),
-    }
+    },
   },
   module: {
-    rules: [
-      configureFontLoader(),
-      configureVueLoader(),
-    ],
+    rules: [configureFontLoader(), configureVueLoader()],
   },
   plugins: [
-    new WebpackNotifierPlugin({ title: 'Webpack', excludeWarnings: true, alwaysNotify: true }),
+    new WebpackNotifierPlugin({
+      title: 'Webpack',
+      excludeWarnings: true,
+      alwaysNotify: true,
+    }),
     new VueLoaderPlugin(),
-  ]
+  ],
 };
 
 // Legacy webpack config
@@ -134,13 +137,9 @@ const legacyConfig = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin(
-      settings.copyWebpackConfig
-    ),
-    new ManifestPlugin(
-      configureManifest('manifest-legacy.json')
-    ),
-  ]
+    new CopyWebpackPlugin(settings.copyWebpackConfig),
+    new ManifestPlugin(configureManifest('manifest-legacy.json')),
+  ],
 };
 
 // Modern webpack config
@@ -150,28 +149,18 @@ const modernConfig = {
       configureBabelLoader(Object.values(pkg.browserslist.modernBrowsers)),
     ],
   },
-  plugins: [
-    new ManifestPlugin(
-      configureManifest('manifest.json')
-    ),
-  ]
+  plugins: [new ManifestPlugin(configureManifest('manifest.json'))],
 };
 
 // Common module exports
 // noinspection WebpackConfigHighlighting
 module.exports = {
-  'legacyConfig': merge.strategy({
+  legacyConfig: merge.strategy({
     module: 'prepend',
     plugins: 'prepend',
-  })(
-    baseConfig,
-    legacyConfig,
-  ),
-  'modernConfig': merge.strategy({
+  })(baseConfig, legacyConfig),
+  modernConfig: merge.strategy({
     module: 'prepend',
     plugins: 'prepend',
-  })(
-    baseConfig,
-    modernConfig,
-  ),
+  })(baseConfig, modernConfig),
 };
