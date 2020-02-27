@@ -36,7 +36,10 @@
 <pre class="mt-4 mb-2">_components/link</pre>
 {# -- link -- #}
 {% include '_components/link/link.twig' with {
-  props: {}
+  props: {
+    url: 'https://davidhellmann.com',
+    text: 'Click me'
+  }
 } only %}
 
 {# ============================================================== #}

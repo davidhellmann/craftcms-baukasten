@@ -10,8 +10,9 @@
   customClasses: [],
   data: {},
   js: null,
-  url: null,
+  twClasses: null,
   targetBlank: null,
+  url: null,
   text: null
 } %}
 
@@ -21,8 +22,13 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
+{# Tailwind Magic #}
+{# Default Class Set #}
+{% set twClasses = 'inline-block px-2 py-1 text-gray-700 hover:text-gray-900 bg-gray-100 rounded-5px shadow-5 hover:shadow-1' %}
+{# purgecss: inline-block px-2 py-1 text-gray-700 hover:text-gray-900 bg-gray-100 rounded-5px shadow-5 hover:shadow-1 #}
+
 {% if props.text and props.url %}
-  <a href="{{ props.url }}" {{ props.url starts with '#' ? 'data-scroll' : '' }}  {{ module.settings(props) }} {{ props.targetBlank ? 'target="_blank"' }}>
+  <a class="{{ twClasses }}" href="{{ props.url }}" {{ props.url starts with '#' ? 'data-scroll' : '' }}  {{ module.settings(props) }} {{ props.targetBlank ? 'target="_blank"' }}>
     {{ props.text }}
   </a>
 {% endif %}
