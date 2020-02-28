@@ -13,6 +13,7 @@
   cn: 'gridOverlay',
   modifiers: [],
   customClasses: [],
+  twClassSet: null,
   data: {},
   cols: 24
 } %}
@@ -23,10 +24,25 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
+{# Tailwind Magic #}
+{% switch props.twClassSet %}
+{% case "caseA" %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss:  #}
+
+{% default %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss: custuom classes here as string #}
+{% endswitch %}
+
 {# Modul #}
 {% if props.cols %}
   <div class="js-toggleGrid">G</div>
-  <div {{ module.settings(props) }}>
+  <div {{ module.settings(props, twClasses.root) }}>
     <div class="section">
       <div class="container">
         <div class="row">

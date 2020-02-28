@@ -3,6 +3,7 @@
   cn: 'a-image',
   modifiers: [],
   customClasses: [],
+  twClassSet: null,
   data: {},
   js: null,
   image: null,
@@ -25,6 +26,21 @@
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
+
+{# Tailwind Magic #}
+{% switch props.twClassSet %}
+{% case "caseA" %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss:  #}
+
+{% default %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss: custuom classes here as string #}
+{% endswitch %}
 
 {# Image #}
 {% if props.image ??? null %}

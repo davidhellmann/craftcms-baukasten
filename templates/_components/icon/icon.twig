@@ -8,6 +8,7 @@
   cn: 'a-icon',
   modifiers: [],
   customClasses: [],
+  twClassSet: null,
   data: {},
   icon: null
 } %}
@@ -18,8 +19,23 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
+{# Tailwind Magic #}
+{% switch props.twClassSet %}
+{% case "caseA" %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss:  #}
+
+{% default %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss: custuom classes here as string #}
+{% endswitch %}
+
 {% if props.icon %}
-  <span {{ module.settings(props) }}>
+  <span {{ module.settings(props, twClasses.root) }}>
     {{ svg('@webroot/dist/img/svg/' ~ props.icon ~ '.svg') }}
   </span>
 {% endif %}

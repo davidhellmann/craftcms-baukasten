@@ -8,6 +8,7 @@
   cn: 'a-plainText',
   modifiers: [],
   customClasses: [],
+  twClassSet: null,
   data: {},
   text: null
 } %}
@@ -18,9 +19,24 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
+{# Tailwind Magic #}
+{% switch props.twClassSet %}
+{% case "caseA" %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss:  #}
+
+{% default %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss: custuom classes here as string #}
+{% endswitch %}
+
 {# Modul #}
 {% if props.text %}
-  <p {{ module.settings(props) }}>
+  <p {{ module.settings(props, twClasses.root) }}>
     {{ props.text | nl2br | raw }}
   </p>
 {% endif %}

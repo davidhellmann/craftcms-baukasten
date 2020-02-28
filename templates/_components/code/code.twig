@@ -3,6 +3,7 @@
   cn: 'a-code',
   modifiers: [],
   customClasses: ['js-code'],
+  twClassSet: null,
   data: {},
   open: false,
   textShow: 'Expand Code Block',
@@ -17,8 +18,23 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
+{# Tailwind Magic #}
+{% switch props.twClassSet %}
+{% case "caseA" %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss:  #}
+
+{% default %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss: custuom classes here as string #}
+{% endswitch %}
+
 {% if props.snippet %}
-  <div {{ module.settings(props) }} data-status="{{ props.open ? 'open' : 'closed' }}">
+  <div {{ module.settings(props, twClasses.root) }} data-status="{{ props.open ? 'open' : 'closed' }}">
     <div class="{{ props.cn ~ '__wrapper' }}">
       {% spaceless %}
         <pre class="line-numbers  language-{{ props.language }}  {{ props.cn ~ '__codeWrapper' }}">

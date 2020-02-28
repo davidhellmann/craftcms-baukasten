@@ -8,6 +8,7 @@
   cn: 'a-divider',
   modifiers: [],
   customClasses: [],
+  twClassSet: null,
   data: {}
 } %}
 
@@ -17,4 +18,19 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-<hr {{ module.settings(props) }}>
+{# Tailwind Magic #}
+{% switch props.twClassSet %}
+{% case "caseA" %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss:  #}
+
+{% default %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss: custuom classes here as string #}
+{% endswitch %}
+
+<hr {{ module.settings(props, twClasses.root) }}>

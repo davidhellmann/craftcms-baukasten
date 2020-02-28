@@ -3,6 +3,7 @@
   cn: 'c-container',
   modifiers: [],
   customClasses: [],
+  twClassSet: null,
   data: {},
   foo: null
 } %}
@@ -13,8 +14,23 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
+{# Tailwind Magic #}
+{% switch props.twClassSet %}
+{% case "caseA" %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss:  #}
+
+{% default %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss: custuom classes here as string #}
+{% endswitch %}
+
 {% if props.foo %}
-  <div {{ module.settings(props) }}>
+  <div {{ module.settings(props, twClasses.root) }}>
     container
   </div>
 {% endif %}

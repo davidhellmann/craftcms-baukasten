@@ -13,6 +13,7 @@
   cn: 'o-imageGallery',
   modifiers: [],
   customClasses: [],
+  twClassSet: null,
   data: {},
   js: true,
   images: null,
@@ -26,9 +27,24 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
+{# Tailwind Magic #}
+{% switch props.twClassSet %}
+{% case "caseA" %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss:  #}
+
+{% default %}
+  {% set twClasses = {
+    root: ''
+  } %}
+  {# purgecss: custuom classes here as string #}
+{% endswitch %}
+
 {# Modul #}
 {% if props.images %}
-  <div {{ module.settings(props) }} itemscope itemtype="http://schema.org/ImageGallery" waypointTrigger>
+  <div {{ module.settings(props, twClasses.root) }} itemscope itemtype="http://schema.org/ImageGallery" waypointTrigger>
     <div class="{{ props.cn ~ '__inner' }}">
       {% for image in props.images %}
         {% set imageSrc = image.getUrl() %}
