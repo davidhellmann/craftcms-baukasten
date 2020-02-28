@@ -29,7 +29,7 @@
   "scripts": {
     "upgrade-interactive": "npm-check --update",
     "debug": "webpack-dev-server --config webpack.dev.js",
-    "dev": "webpack-dev-server --config webpack.dev.js",
+    "dev": "npx tailwindcss build src/css/app.pcss -o src/css/tailwind.output.css -c tailwind.config.js && webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js --progress --hide-modules",
     "preinstall": "$npm_execpath --silent run checknpm",
     "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)",
