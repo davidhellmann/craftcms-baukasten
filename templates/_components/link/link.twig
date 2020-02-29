@@ -8,7 +8,7 @@
   cn: 'a-link',
   modifiers: [],
   customClasses: [],
-  twClassSet: null,
+  twClassSet: 'primary',
   data: {},
   js: null,
   targetBlank: null,
@@ -24,20 +24,21 @@
 
 {# Tailwind Magic #}
 {% switch props.twClassSet %}
-  {% case "primary" %}
-    {% set twClasses = {} %}
-    {# purgecss:  #}
-
-  {% default %}
+  {% case 'primary' %}
     {% set twClasses = {
-      root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-700 hover:text-gray-900 bg-gray-100 rounded-5px shadow-5 hover:shadow-1'
+      root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-100 hover:text-gray-200 bg-gray-800 hover:bg-gray-900 rounded-5px shadow-5 hover:shadow-1'
+    } %}
+    {# purgecss: inline-block px-2 py-1 text-gray-700 hover:text-gray-900 bg-gray-100 rounded-5px shadow-5 hover:shadow-1 #}
+  {% case 'secondary' %}
+    {% set twClasses = {
+      root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-700 hover:text-gray-600 bg-gray-100 rounded-5px shadow-5 hover:shadow-1'
     } %}
     {# purgecss: inline-block px-2 py-1 text-gray-700 hover:text-gray-900 bg-gray-100 rounded-5px shadow-5 hover:shadow-1 #}
 {% endswitch %}
 
 {% if props.text and props.url %}
   <a {{ module.settings(props, twClasses.root) }}
-     href="{{ props.url }}" {{ props.url starts with '#' ? 'data-scroll' : '' }}  {{ module.settings(props, twClasses.root) }} {{ props.targetBlank ? 'target="_blank"' }}>
+    href="{{ props.url }}" {{ props.url starts with '#' ? 'data-scroll' : '' }}  {{ module.settings(props, twClasses.root) }} {{ props.targetBlank ? 'target="_blank"' }}>
     {{ props.text }}
   </a>
 {% endif %}

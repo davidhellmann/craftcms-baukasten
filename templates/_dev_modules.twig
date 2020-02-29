@@ -37,8 +37,19 @@
 {# -- link -- #}
 {% include '_components/link/link.twig' with {
   props: {
+    twClassSet: 'primary',
     url: 'https://davidhellmann.com',
-    text: 'Click me'
+    text: 'Primary Link'
+  }
+} only %}
+
+{# -- link -- #}
+{% include '_components/link/link.twig' with {
+  props: {
+    twClassSet: 'secondary',
+    customClasses: ['ml-1'],
+    url: 'https://davidhellmann.com',
+    text: 'Secondary Link'
   }
 } only %}
 
