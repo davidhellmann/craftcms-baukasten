@@ -24,16 +24,18 @@
 
 {# Tailwind Magic #}
 {% switch props.twClassSet %}
-  {% case 'primary' %}
-    {% set twClasses = {
-      root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-100 hover:text-gray-200 bg-gray-800 hover:bg-gray-900 rounded-5px shadow-5 hover:shadow-1'
-    } %}
-    {# purgecss: inline-block px-2 py-1 text-gray-700 hover:text-gray-900 bg-gray-100 rounded-5px shadow-5 hover:shadow-1 #}
-  {% case 'secondary' %}
-    {% set twClasses = {
-      root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-700 hover:text-gray-600 bg-gray-100 rounded-5px shadow-5 hover:shadow-1'
-    } %}
-    {# purgecss: inline-block px-2 py-1 text-gray-700 hover:text-gray-900 bg-gray-100 rounded-5px shadow-5 hover:shadow-1 #}
+{% case 'primary' %}
+  {% set twClasses = {
+    root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-100 hover:text-gray-200 bg-gray-800 hover:bg-gray-900 rounded-5px shadow-5 hover:shadow-1'
+  } %}
+{% case 'secondary' %}
+  {% set twClasses = {
+    root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-700 hover:text-gray-600 bg-gray-200 rounded-5px shadow-1 hover:shadow-0'
+  } %}
+{% case 'ghost' %}
+  {% set twClasses = {
+    root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-700 hover:text-gray-600 rounded-5px'
+  } %}
 {% endswitch %}
 
 {% if props.text and props.url %}

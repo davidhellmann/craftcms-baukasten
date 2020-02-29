@@ -15,26 +15,18 @@
 {% block content %}
   <section class="bg-black text-white py-2">
     <div class="container">
-      <h1>Block Content</h1>
+      <h1>Welcome. Some components, enjoy!</h1>
+    </div>
+  </section>
+  <section class="section  py-2">
+    <div class="container">
+      {% include '_dev_modules.twig' %}
     </div>
   </section>
 {% endblock %}
 
 {% block subcontent %}
-  <section class="bg-gray-100 text-gray-900 py-2">
-    <div class="container">
-      <h2>Block Subcontent</h2>
-      {# -- link -- #}
-      {% include '_components/link/link.twig' with {
-        props: {
-          twClassSet: 'primary',
-          customClasses: ['mt-1'],
-          url: '/welcome',
-          text: 'Welcome'
-        }
-      } only %}
-    </div>
-  </section>
+
 {% endblock %}
 
 {# Any JavaScript that should be included before </body> #}

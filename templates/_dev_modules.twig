@@ -1,5 +1,3 @@
-<h1 class="">Tailwind Party.</h1>
-
 {# ============================================================== #}
 {#                                                                #}
 {#      SEPERATOR                                                 #}
@@ -50,6 +48,16 @@
     customClasses: ['ml-1'],
     url: 'https://davidhellmann.com',
     text: 'Secondary Link'
+  }
+} only %}
+
+{# -- link -- #}
+{% include '_components/link/link.twig' with {
+  props: {
+    twClassSet: 'ghost',
+    customClasses: ['ml-1'],
+    url: 'https://davidhellmann.com',
+    text: 'Ghost Link'
   }
 } only %}
 
