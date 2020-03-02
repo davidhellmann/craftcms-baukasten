@@ -61,6 +61,16 @@
   }
 } only %}
 
+{# -- link -- #}
+{% include '_components/link/link.twig' with {
+  props: {
+    twClassSet: 'outline',
+    customClasses: ['ml-1'],
+    url: 'https://davidhellmann.com',
+    text: 'Outlined Link'
+  }
+} only %}
+
 {# ============================================================== #}
 {#                                                                #}
 {#      SEPERATOR                                                 #}

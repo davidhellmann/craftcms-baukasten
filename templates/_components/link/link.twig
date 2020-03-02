@@ -26,15 +26,19 @@
 {% switch props.twClassSet %}
 {% case 'primary' %}
   {% set twClasses = {
-    root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-100 hover:text-gray-200 bg-gray-800 hover:bg-gray-900 rounded-5px shadow-5 hover:shadow-1'
+    root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-100 hover:text-gray-200 bg-gray-800 hover:bg-gray-900 rounded-5px shadow-5 hover:shadow-1 border-3px border-transparent'
   } %}
 {% case 'secondary' %}
   {% set twClasses = {
-    root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-700 hover:text-gray-600 bg-gray-200 rounded-5px shadow-1 hover:shadow-0'
+    root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-700 hover:text-gray-600 bg-gray-200 rounded-5px shadow-1 hover:shadow-0 border-3px border-transparent'
   } %}
 {% case 'ghost' %}
   {% set twClasses = {
-    root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-700 hover:text-gray-600 rounded-5px'
+    root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-700 hover:text-gray-600 rounded-5px border-3px border-transparent'
+  } %}
+{% case 'outline' %}
+  {% set twClasses = {
+    root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-800 hover:text-gray-900 rounded-5px border-3px border-gray-800 hover:border-gray-900'
   } %}
 {% endswitch %}
 
