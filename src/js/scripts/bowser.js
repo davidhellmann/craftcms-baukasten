@@ -93,8 +93,28 @@ const browserDetect = {
         `${this.cfg.name}-${this.cfg.version}`,
       );
     }
+
+    this.checkForIe();
   },
   /* eslint-enable */
+
+  checkForIe() {
+    if (this.cfg.name === 'internet-explorer') {
+      const version = parseFloat(this.cfg.version);
+
+      if (version <= 11) {
+        const images = [...document.querySelectorAll('[data-rootimage]')];
+
+        if (images) {
+          images.forEach(image => {
+            const rootImageUrl = image.getAttribute('data-rootimage');
+
+            image.setAttribute('src', rootImageUrl);
+          });
+        }
+      }
+    }
+  },
 
   init() {
     this.detectBrowser();
