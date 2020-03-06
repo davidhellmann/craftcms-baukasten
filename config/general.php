@@ -26,6 +26,7 @@ return [
     'runQueueAutomatically' => (bool)getenv('RUN_QUEUE_AUTOMATICALLY'),
     'securityKey' => getenv('SECURITY_KEY'),
     'maxRevisions' => 5,
+    'testToEmailAddress' => getenv('TEST_EMAIL_ADDRESS'),
     // Craft config settings from constants
     'cacheDuration' => false,
     'defaultSearchTermOptions' => [
