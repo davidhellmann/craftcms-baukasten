@@ -24,7 +24,7 @@
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Baukasten:Minimal #}
-{% if props.theme %}
+{% if props.theme == 'Baukasten:Minimal' %}
   {% switch props.variant %}
   {% case 'primary' %}
     {% set twClasses = {
@@ -46,7 +46,7 @@
 {% endif %}
 
 {# Custom Styling #}
-{% if not props.theme %}
+{% if not props.theme == 'Baukasten:Minimal' %}
   {% switch props.variant %}
   {% default %}
     {% set twClasses = {

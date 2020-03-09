@@ -28,7 +28,7 @@
 {% import '_partials/macros/_macro-isActive.twig' as macroIsActive %}
 
 {# Baukasten:Minimal #}
-{% if props.theme %}
+{% if props.theme == 'Baukasten:Minimal' %}
   {% switch props.variant %}
   {% case 'default' %}
     {% set twClasses = {
@@ -38,7 +38,7 @@
 {% endif %}
 
 {# Custom Styling #}
-{% if not props.theme %}
+{% if not props.theme == 'Baukasten:Minimal' %}
   {% switch props.variant %}
   {% case 'default' %}
     {% set twClasses = {
