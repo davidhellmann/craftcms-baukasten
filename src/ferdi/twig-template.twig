@@ -1,9 +1,10 @@
 {# -- Set Defaults -- #}
 {% set defaults = {
   cn: 'c-<%= moduleName.replace('-', '_') %>',
+  theme: getenv('BAUKASTEN_THEME') | default(null),
+  variant: 'default',
   modifiers: [],
   customClasses: [],
-  twClassSet: null,
   data: {},
   foo: null
 } %}
@@ -14,20 +15,25 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Tailwind Magic #}
-{% switch props.twClassSet %}
-  {% case "caseA" %}
+{# Baukasten:Minimal #}
+{% if props.theme %}
+  {% switch props.variant %}
+  {% case 'default' %}
     {% set twClasses = {
       root: ''
     } %}
-    {# purgecss:  #}
+  {% endswitch %}
+{% endif %}
 
-  {% default %}
+{# Custom Styling #}
+{% if not props.theme %}
+  {% switch props.variant %}
+  {% case 'default' %}
     {% set twClasses = {
       root: ''
     } %}
-    {# purgecss: custuom classes here as string #}
-{% endswitch %}
+  {% endswitch %}
+{% endif %}
 
 {% if props.foo %}
   <div {{ module.settings(props, twClasses.root) }}>

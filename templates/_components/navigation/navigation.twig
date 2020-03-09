@@ -11,9 +11,10 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'm-navMain',
+  theme: getenv('BAUKASTEN_THEME') | default(null),
+  variant: 'default',
   modifiers: [],
   customClasses: [],
-  twClassSet: null,
   data: {},
   js: null,
   items: null
@@ -26,20 +27,25 @@
 {% import '_macros/_macro-settings.twig' as module %}
 {% import '_partials/macros/_macro-isActive.twig' as macroIsActive %}
 
-{# Tailwind Magic #}
-{% switch props.twClassSet %}
-{% case "caseA" %}
-  {% set twClasses = {
-    root: ''
-  } %}
-  {# purgecss:  #}
+{# Baukasten:Minimal #}
+{% if props.theme %}
+  {% switch props.variant %}
+  {% case 'default' %}
+    {% set twClasses = {
+      root: ''
+    } %}
+  {% endswitch %}
+{% endif %}
 
-{% default %}
-  {% set twClasses = {
-    root: ''
-  } %}
-  {# purgecss: custuom classes here as string #}
-{% endswitch %}
+{# Custom Styling #}
+{% if not props.theme %}
+  {% switch props.variant %}
+  {% case 'default' %}
+    {% set twClasses = {
+      root: ''
+    } %}
+  {% endswitch %}
+{% endif %}
 
 {# Modul #}
 {% if props.items %}

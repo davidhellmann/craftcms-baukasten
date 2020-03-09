@@ -3,7 +3,7 @@
   cn: 'o-appHeader',
   modifiers: [],
   customClasses: ['section'],
-  twClassSet: null,
+  variant: null,
   data: {}
 } %}
 
@@ -13,20 +13,25 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Tailwind Magic #}
-{% switch props.twClassSet %}
-{% case "caseA" %}
-  {% set twClasses = {
-    root: ''
-  } %}
-  {# purgecss:  #}
+{# Baukasten:Minimal #}
+{% if props.theme %}
+  {% switch props.variant %}
+  {% case 'default' %}
+    {% set twClasses = {
+      root: ''
+    } %}
+  {% endswitch %}
+{% endif %}
 
-{% default %}
-  {% set twClasses = {
-    root: ''
-  } %}
-  {# purgecss: custuom classes here as string #}
-{% endswitch %}
+{# Custom Styling #}
+{% if not props.theme %}
+  {% switch props.variant %}
+  {% case 'default' %}
+    {% set twClasses = {
+      root: ''
+    } %}
+  {% endswitch %}
+{% endif %}
 
 <footer {{ module.settings(props, twClasses.root) }}>
   <div class="container py-2">

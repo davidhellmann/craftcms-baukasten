@@ -1,9 +1,10 @@
 {# -- Set Defaults -- #}
 {% set defaults = {
   cn: 'a-youtube-basic',
+  theme: getenv('BAUKASTEN_THEME') | default(null),
+  variant: 'default',
   modifiers: [],
   customClasses: [],
-  twClassSet: null,
   data: {}
   videoId: null,
   autoplay: 0,
@@ -23,20 +24,25 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Tailwind Magic #}
-{% switch props.twClassSet %}
-{% case "caseA" %}
-  {% set twClasses = {
-    root: ''
-  } %}
-  {# purgecss:  #}
+{# Baukasten:Minimal #}
+{% if props.theme %}
+  {% switch props.variant %}
+  {% case 'default' %}
+    {% set twClasses = {
+      root: ''
+    } %}
+  {% endswitch %}
+{% endif %}
 
-{% default %}
-  {% set twClasses = {
-    root: ''
-  } %}
-  {# purgecss: custuom classes here as string #}
-{% endswitch %}
+{# Custom Styling #}
+{% if not props.theme %}
+  {% switch props.variant %}
+  {% case 'default' %}
+    {% set twClasses = {
+      root: ''
+    } %}
+  {% endswitch %}
+{% endif %}
 
 {# GDPR Ready Youtube Embeds#}
 {% set klaro = getCookie('klaro') | json_decode %}

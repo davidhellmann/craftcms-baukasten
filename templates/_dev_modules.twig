@@ -35,7 +35,7 @@
 {# -- link -- #}
 {% include '_components/link/link.twig' with {
   props: {
-    twClassSet: 'primary',
+    variant: 'primary',
     url: 'https://davidhellmann.com',
     text: 'Primary Link'
   }
@@ -44,7 +44,7 @@
 {# -- link -- #}
 {% include '_components/link/link.twig' with {
   props: {
-    twClassSet: 'secondary',
+    variant: 'secondary',
     customClasses: ['ml-1'],
     url: 'https://davidhellmann.com',
     text: 'Secondary Link'
@@ -54,7 +54,7 @@
 {# -- link -- #}
 {% include '_components/link/link.twig' with {
   props: {
-    twClassSet: 'ghost',
+    variant: 'ghost',
     customClasses: ['ml-1'],
     url: 'https://davidhellmann.com',
     text: 'Ghost Link'
@@ -64,7 +64,7 @@
 {# -- link -- #}
 {% include '_components/link/link.twig' with {
   props: {
-    twClassSet: 'outline',
+    variant: 'outline',
     customClasses: ['ml-1'],
     url: 'https://davidhellmann.com',
     text: 'Outlined Link'
@@ -80,7 +80,6 @@
 {# -- code -- #}
 {% include '_components/code/code.twig' with {
   props: {
-    variant: 'basic',
     snippet: "code[class*='language-'],
 pre[class*='language-'] {
   color: #f8f8f2;

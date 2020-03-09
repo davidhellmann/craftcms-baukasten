@@ -27,6 +27,7 @@ return [
     'securityKey' => getenv('SECURITY_KEY'),
     'maxRevisions' => 5,
     'testToEmailAddress' => getenv('TEST_EMAIL_ADDRESS') ?: null,
+    'baukastenTheme' => getenv('BAUKASTEN_THEME') ?: null,
     // Craft config settings from constants
     'cacheDuration' => false,
     'defaultSearchTermOptions' => [

@@ -11,9 +11,10 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'm-pageHead',
+  theme: getenv('BAUKASTEN_THEME') | default(null),
+  variant: 'default',
   modifiers: [],
   customClasses: [],
-  twClassSet: null,
   data: {},
   object: entry ?? null,
   text: null,
@@ -27,20 +28,25 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Tailwind Magic #}
-{% switch props.twClassSet %}
-{% case "caseA" %}
-  {% set twClasses = {
-    root: ''
-  } %}
-  {# purgecss:  #}
+{# Baukasten:Minimal #}
+{% if props.theme %}
+  {% switch props.variant %}
+  {% case 'default' %}
+    {% set twClasses = {
+      root: ''
+    } %}
+  {% endswitch %}
+{% endif %}
 
-{% default %}
-  {% set twClasses = {
-    root: ''
-  } %}
-  {# purgecss: custuom classes here as string #}
-{% endswitch %}
+{# Custom Styling #}
+{% if not props.theme %}
+  {% switch props.variant %}
+  {% case 'default' %}
+    {% set twClasses = {
+      root: ''
+    } %}
+  {% endswitch %}
+{% endif %}
 
 {# Modul #}
 {% if props.object or props.text %}
