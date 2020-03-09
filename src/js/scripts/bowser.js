@@ -27,6 +27,17 @@ const browserDetect = {
     name: browserName.toLowerCase().replace(' ', '-'),
   },
 
+  useImagesWithoutSrcSet() {
+    const images = [...document.querySelectorAll('[data-rootimage]')];
+
+    if (images) {
+      images.forEach(image => {
+        const rootImageUrl = image.getAttribute('data-rootimage');
+        image.setAttribute('src', rootImageUrl);
+      });
+    }
+  },
+
   /**
    *
    */
@@ -47,6 +58,7 @@ const browserDetect = {
             'browser-ie',
             `browser-ie-${this.cfg.version}`,
           );
+          this.useImagesWithoutSrcSet();
           break;
 
         case 'Firefox':
@@ -93,28 +105,8 @@ const browserDetect = {
         `${this.cfg.name}-${this.cfg.version}`,
       );
     }
-
-    this.checkForIe();
   },
   /* eslint-enable */
-
-  checkForIe() {
-    if (this.cfg.name === 'internet-explorer') {
-      const version = parseFloat(this.cfg.version);
-
-      if (version <= 11) {
-        const images = [...document.querySelectorAll('[data-rootimage]')];
-
-        if (images) {
-          images.forEach(image => {
-            const rootImageUrl = image.getAttribute('data-rootimage');
-
-            image.setAttribute('src', rootImageUrl);
-          });
-        }
-      }
-    }
-  },
 
   init() {
     this.detectBrowser();

@@ -1,15 +1,19 @@
 // Adds Browser Classes to the document
-// await import(/* webpackChunkName: "browserDetect" */ './scripts/bowser.js')
-//   .then(browserDetect => browserDetect.default.init())
-//   .catch(e => console.error(`${e.name} : ${e.message}`));
+import(/* webpackChunkName: "browserDetect" */ './scripts/bowser.js')
+  .then(browserDetect => browserDetect.default.init())
+  .catch(e => console.error(`${e.name} : ${e.message}`));
 
 // globalScrollListener
-import(/* webpackChunkName: "globalScrollListener" */ './scripts/globalScrollListener.js')
+import(
+  /* webpackChunkName: "globalScrollListener" */ './scripts/globalScrollListener.js'
+)
   .then(globalScrollListener => globalScrollListener.default.init())
   .catch(e => console.error(`${e.name} : ${e.message}`));
 
 // globalResizeListener
-import(/* webpackChunkName: "globalResizeListener" */ './scripts/globalResizeListener.js')
+import(
+  /* webpackChunkName: "globalResizeListener" */ './scripts/globalResizeListener.js'
+)
   .then(globalResizeListener => globalResizeListener.default.init())
   .catch(e => console.error(`${e.name} : ${e.message}`));
 
