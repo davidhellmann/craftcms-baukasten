@@ -21,7 +21,7 @@ module.exports = {
       base: './web/dist/',
       clean: ['**/*'],
     },
-    templates: "./templates/"
+    templates: './templates/**/*.{twig,php,html}'
   },
   urls: {
     live: 'https://craft-baukasten.baukasten.io/',
