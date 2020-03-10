@@ -1,7 +1,7 @@
 // Adds Browser Classes to the document
-import(/* webpackChunkName: "browserDetect" */ './scripts/bowser.js')
-  .then(browserDetect => browserDetect.default.init())
-  .catch(e => console.error(`${e.name} : ${e.message}`));
+// import(/* webpackChunkName: "browserDetect" */ './scripts/bowser.js')
+//   .then(browserDetect => browserDetect.default.init())
+//   .catch(e => console.error(`${e.name} : ${e.message}`));
 
 // globalScrollListener
 import(
