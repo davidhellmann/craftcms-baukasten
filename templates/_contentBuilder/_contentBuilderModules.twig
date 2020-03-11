@@ -4,6 +4,12 @@
 
 {% switch data.type %}
   {# Accordion #}
+{% case 'hero' %}
+  {% include '_contentBuilder/_includes/_cbHero.twig' with {
+    data: data
+  } only %}
+
+  {# Accordion #}
 {% case 'accordion' %}
   {% include '_contentBuilder/_includes/_cbAccordion.twig' with {
     data: data

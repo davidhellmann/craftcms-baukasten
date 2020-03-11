@@ -1,0 +1,29 @@
+{% extends "_layouts/generic-page-layout.twig" %}
+{% set bodyClass = 'p-home' %}
+
+{% block headLinks %}
+  {{ parent() }}
+{% endblock headLinks %}
+
+{# Critical CSS #}
+{% block inlineCriticalCss %}
+  <style>
+    {{ craft.twigpack.includeFile('@webroot/dist/criticalcss/' ~ _self ~  '_critical.min.css') }}
+  </style>
+{% endblock %}
+
+{% block content %}
+  {# -- Content Builder -- #}
+  {% include '_contentBuilder/_contentBuilder.twig' with {
+    props: {
+      object: entry
+    }
+  } only %}
+{% endblock %}
+
+{% block subcontent %}{% endblock %}
+
+{# Any JavaScript that should be included before </body> #}
+{% block bodyJs %}
+  {{ parent() }}
+{% endblock bodyJs %}
