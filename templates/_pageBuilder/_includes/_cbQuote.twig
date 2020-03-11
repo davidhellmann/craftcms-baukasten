@@ -1,0 +1,10 @@
+{% include '_molecules/quote/_template.twig' with {
+  props: {
+    modifiers: [
+      'cb',
+    ],
+    quote: data.quote ?? null,
+    source: data.source ?? null,
+    sourceUrl: data.sourceUrl ?? null
+  }
+} only %}

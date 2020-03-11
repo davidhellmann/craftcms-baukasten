@@ -1,0 +1,9 @@
+{% include '_atoms/code/_template.twig' with {
+  props: {
+    modifiers: [
+      'cb',
+    ],
+    snippet: data.snippet ?? null,
+    language: data.language ?? null
+  }
+} only %}

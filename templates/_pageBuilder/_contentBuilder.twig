@@ -1,0 +1,36 @@
+{#
+  Content Builder Matrix
+  ======================
+
+  Matrix Content Builder use the Core Matrix Field from Craft CMS
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'o-contentBuilder',
+  modifiers: [],
+  customClasses: [],
+  object: entry ?? null,
+} %}
+
+{# Merge Default with Options #}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{% if props.object %}
+
+  <div {{ module.settings(props) }}>
+    {% if props.object.contentBuilder|length %}
+      {% set matrixfield = props.object.contentBuilder.all() %}
+
+      {% for content in matrixfield %}
+        {% include '_contentBuilder/_contentBuilderModules.twig' with {
+          data: content
+        } only %}
+      {% endfor %}
+      <!-- end: o-section -->
+    {% endif %}
+  </div>
+{% endif %}

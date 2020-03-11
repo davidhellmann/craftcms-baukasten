@@ -1,0 +1,11 @@
+{% include '_organisms/imageGrid/_template.twig' with {
+  props: {
+    modifiers: [
+      'cb',
+      data.columns ?? null
+    ],
+    images: data.images.all() ?? null,
+    ratio: data.ratio ?? null,
+    caption: data.caption ?? null,
+  }
+} only %}

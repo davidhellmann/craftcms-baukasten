@@ -1,0 +1,99 @@
+{# Content Builder Modules #}
+{# Loop over all block and choose the right one #}
+{# data has all the block data included #}
+
+{% switch data.type %}
+  {# Accordion #}
+{% case 'hero' %}
+  {% include '_contentBuilder/_includes/_cbHero.twig' with {
+    data: data
+  } only %}
+
+  {# Accordion #}
+{% case 'accordion' %}
+  {% include '_contentBuilder/_includes/_cbAccordion.twig' with {
+    data: data
+  } only %}
+
+  {# Section #}
+{% case 'bkSection' %}
+  {% include '_contentBuilder/_includes/_cbBksection.twig' with {
+    data: data
+  } only %}
+
+  {# Code #}
+{% case 'code' %}
+  {% include '_contentBuilder/_includes/_cbCode.twig' with {
+    data: data
+  } only %}
+
+  {# Definition List #}
+{% case 'definitionList' %}
+  {% include '_contentBuilder/_includes/_cbDefinitionList.twig' with {
+    data: data
+  } only %}
+
+  {# Divider #}
+{% case 'divider' %}
+  {% include '_contentBuilder/_includes/_cbDivider.twig' with {
+    data: data
+  } only %}
+
+  {# Image Cover #}
+{% case 'imageCover' %}
+  {% include '_contentBuilder/_includes/_cbImageCover.twig' with {
+    data: data
+  } only %}
+
+  {# Image Gallery #}
+{% case 'imageGallery' %}
+  {% include '_contentBuilder/_includes/_cbImageGallery.twig' with {
+    data: data
+  } only %}
+
+  {# Image Grid #}
+{% case 'imageGrid' %}
+  {% include '_contentBuilder/_includes/_cbImageGrid.twig' with {
+    data: data
+  } only %}
+
+  {# Image Single #}
+{% case 'imageSingle' %}
+  {% include '_contentBuilder/_includes/_cbImageSingle.twig' with {
+    data: data
+  } only %}
+
+  {# Image Slider #}
+{% case 'imageSlider' %}
+  {% include '_contentBuilder/_includes/_cbImageSlider.twig' with {
+    data: data
+  } only %}
+
+  {# Quote #}
+{% case 'quote' %}
+  {% include '_contentBuilder/_includes/_cbQuote.twig' with {
+    data: data
+  } only %}
+
+  {# Rich Text #}
+{% case 'richText' %}
+  {% include '_contentBuilder/_includes/_cbRichtText.twig' with {
+    data: data
+  } only %}
+
+  {# Spacer#}
+{% case 'spacer' %}
+  {% include '_contentBuilder/_includes/_cbSpacer.twig' with {
+    data: data
+  } only %}
+
+  {# Youtube #}
+{% case 'youtube' %}
+  {% include '_contentBuilder/_includes/_cbYoutube.twig' with {
+    data: data
+  } only %}
+
+{% endswitch %}
+
+
+

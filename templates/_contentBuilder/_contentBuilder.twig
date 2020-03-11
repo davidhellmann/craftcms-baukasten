@@ -21,16 +21,43 @@
 
 {% if props.object %}
 
-  <div {{ module.settings(props) }}>
-    {% if props.object.contentBuilder|length %}
-      {% set matrixfield = props.object.contentBuilder.all() %}
+<div {{ module.settings(props) }}>
 
-      {% for content in matrixfield %}
+  {% if props.object.contentBuilder|length %}
+    {% set matrixfield = props.object.contentBuilder.all() %}
+
+    {% for content in matrixfield %}
+      {% if loop.first and content.type != 'bkSection' %}
+        {% include '_organisms/section/_template.twig' with {
+          props: {
+            modifiers: ['cb'],
+            closetags: false
+          }
+        } only %}
+      {% endif %}
+
+      {# Check if an other Section is opened and close the Section before #}
+      {% if content.type == 'bkSection' %}
+        {% if not loop.first %}
+          </div>
+          </section>
+          <!-- end: o-section -->
+        {% endif %}
+        <!-- start: o-section -->
         {% include '_contentBuilder/_contentBuilderModules.twig' with {
           data: content
         } only %}
-      {% endfor %}
-      <!-- end: o-section -->
-    {% endif %}
+
+        {# All other Content Modules #}
+      {% elseif content.type != 'bkSection' %}
+        {% include '_contentBuilder/_contentBuilderModules.twig' with {
+          data: content
+        } only %}
+      {% endif %}
+    {% endfor %}
+    </div>
+    </section>
+    <!-- end: o-section -->
+  {% endif %}
   </div>
 {% endif %}

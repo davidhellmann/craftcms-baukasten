@@ -1,0 +1,9 @@
+
+{% include '_atoms/richText/_template.twig' with {
+  props: {
+    modifiers: [
+      'cb',
+    ],
+    text: data.richText ?? null
+  }
+} only %}

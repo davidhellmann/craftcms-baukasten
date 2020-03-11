@@ -1,0 +1,10 @@
+{% include '_organisms/imageGallery/_template.twig' with {
+  props: {
+    modifiers: [
+      'cb'
+    ],
+    customClasses: ['test'],
+    images: data.images.all() ?? null,
+    ratio: data.ratio ?? null,
+  }
+} only %}

@@ -1,0 +1,9 @@
+{% include '_atoms/divider/_template.twig' with {
+  props: {
+    modifiers: [
+      'cb',
+      data.settingsDivider.style ?? null,
+      data.settingsDivider.marginVertical ?? null
+    ]
+  }
+} only %}
