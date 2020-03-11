@@ -8,137 +8,82 @@
  * @copyright Copyright (c) 2020 André Elvan
  */
 
-namespace spacecatninja\imagerx\models;
+return [
+    'transformer' => 'craft',
+    'imagerSystemPath' => '@webroot/assets/imager/',
+    'imagerUrl' => '/assets/imager/',
+    'cacheEnabled' => true,
+    'cacheRemoteFiles' => true,
+    'cacheDuration' => 1209600,
+    'cacheDurationRemoteFiles' => 1209600,
+    'cacheDurationExternalStorage' => 1209600,
+    'cacheDurationNonOptimized' => 300,
+    'jpegQuality' => 90,
+    'pngCompressionLevel' => 2,
+    'webpQuality' => 90,
+    'webpImagickOptions' => [],
+    'useCwebp' => false,
+    'cwebpPath' => '/usr/bin/cwebp',
+    'cwebpOptions' => '',
+    'interlace' => false,
+    'allowUpscale' => true,
+    'resizeFilter' => 'lanczos',
+    'smartResizeEnabled' => false,
+    'removeMetadata' => false,
+    'preserveColorProfiles' => false,
+    'bgColor' => '',
+    'position' => '50% 50%',
+    'letterbox' => ['color' => '#000', 'opacity' => 0],
+    'useFilenamePattern' => true,
+    'filenamePattern' => '{basename}_{transformString|hash}.{extension}',
+    'shortHashLength' => 10,
+    'hashFilename' => 'postfix', // deprecated
+    'hashPath' => false,
+    'addVolumeToPath' => true,
+    'hashRemoteUrl' => false,
+    'useRemoteUrlQueryString' => false,
+    'instanceReuseEnabled' => false,
+    'noop' => false,
+    'suppressExceptions' => false,
+    'convertToRGB' => false,
+    'skipExecutableExistCheck' => false,
+    'curlOptions' => [],
+    'runJobsImmediatelyOnAjaxRequests' => true,
+    'fillTransforms' => false,
+    'fillAttribute' => 'width',
+    'fillInterval' => '200',
+    'fallbackImage' => getenv('FALLBACK_IMAGE') ?: null,
+    'mockImage' => getenv('MOCK_IMAGE') ?: null,
+    'clearKey' => '',
 
-use craft\helpers\FileHelper;
-use craft\base\Model;
-use Yii;
+    'useForNativeTransforms' => false,
+    'useForCpThumbs' => false,
 
-class Settings extends Model
-{
-    public $transformer = 'craft';
-    public $imagerSystemPath = '@webroot/assets/imager/';
-    public $imagerUrl = '/assets/imager/';
-    public $cacheEnabled = true;
-    public $cacheRemoteFiles = true;
-    public $cacheDuration = 1209600;
-    public $cacheDurationRemoteFiles = 1209600;
-    public $cacheDurationExternalStorage = 1209600;
-    public $cacheDurationNonOptimized = 300;
-    public $jpegQuality = 80;
-    public $pngCompressionLevel = 2;
-    public $webpQuality = 80;
-    public $webpImagickOptions = [];
-    public $useCwebp = false;
-    public $cwebpPath = '/usr/bin/cwebp';
-    public $cwebpOptions = '';
-    public $interlace = false;
-    public $allowUpscale = true;
-    public $resizeFilter = 'lanczos';
-    public $smartResizeEnabled = false;
-    public $removeMetadata = false;
-    public $preserveColorProfiles = false;
-    public $bgColor = '';
-    public $position = '50% 50%';
-    public $letterbox = ['color' => '#000', 'opacity' => 0];
-    public $useFilenamePattern = true;
-    public $filenamePattern = '{basename}_{transformString|hash}.{extension}';
-    public $shortHashLength = 10;
-    public $hashFilename = 'postfix'; // deprecated
-    public $hashPath = false;
-    public $addVolumeToPath = true;
-    public $hashRemoteUrl = false;
-    public $useRemoteUrlQueryString = false;
-    public $instanceReuseEnabled = false;
-    public $noop = false;
-    public $suppressExceptions = false;
-    public $convertToRGB = false;
-    public $skipExecutableExistCheck = false;
-    public $curlOptions = [];
-    public $runJobsImmediatelyOnAjaxRequests = true;
-    public $fillTransforms = false;
-    public $fillAttribute = 'width';
-    public $fillInterval = '200';
-    public $fallbackImage = null;
-    public $mockImage = null;
-    public $clearKey = '';
-
-    public $useForNativeTransforms = false;
-    public $useForCpThumbs = false;
-
-    public $imgixProfile = 'default';
-    public $imgixApiKey = '';
-    public $imgixEnableAutoPurging = true;
-    public $imgixEnablePurgeElementAction = true;
-    public $imgixConfig = [
+    'imgixProfile' => 'default',
+    'imgixApiKey' => '',
+    'imgixEnableAutoPurging' => true,
+    'imgixEnablePurgeElementAction' => true,
+    'imgixConfig' => [
         'default' => [
-            'domains' => [],
+            'domain' => 'imager.imgix.net',
             'useHttps' => true,
-            'signKey' => '',
+            'signKey' => 'XxXxXxXx',
             'sourceIsWebProxy' => false,
             'useCloudSourcePath' => true,
-            // 'shardStrategy' => 'cycle',
             'getExternalImageDimensions' => true,
-            'defaultParams' => [],
-            'apiKey' => '',
-            'excludeFromPurge' => false,
+            'defaultParams' => ['auto' => 'compress,format', 'q' => 90],
+        ],
+        'external' => [
+            'domain' => 'imager-external.imgix.net',
+            'useHttps' => true,
+            'signKey' => 'XxXxXxXx',
+            'sourceIsWebProxy' => true,
+            'useCloudSourcePath' => true,
+            'getExternalImageDimensions' => true,
+            'defaultParams' => ['auto' => 'compress,format', 'q' => 90],
         ]
-    ];
-
-    public $optimizeType = 'job';
-    public $optimizers = [];
-    public $optimizerConfig = [
-        'jpegoptim' => [
-            'extensions' => ['jpg'],
-            'path' => '/usr/bin/jpegoptim',
-            'optionString' => '-s',
-        ],
-        'jpegtran' => [
-            'extensions' => ['jpg'],
-            'path' => '/usr/bin/jpegtran',
-            'optionString' => '-optimize -copy none',
-        ],
-        'mozjpeg' => [
-            'extensions' => ['jpg'],
-            'path' => '/usr/bin/mozjpeg',
-            'optionString' => '-optimize -copy none',
-        ],
-        'optipng' => [
-            'extensions' => ['png'],
-            'path' => '/usr/bin/optipng',
-            'optionString' => '-o2',
-        ],
-        'pngquant' => [
-            'extensions' => ['png'],
-            'path' => '/usr/bin/pngquant',
-            'optionString' => '--strip --skip-if-larger',
-        ],
-        'gifsicle' => [
-            'extensions' => ['gif'],
-            'path' => '/usr/bin/gifsicle',
-            'optionString' => '--optimize=3 --colors 256',
-        ],
-        'tinypng' => [
-            'extensions' => ['png','jpg'],
-            'apiKey' => '',
-        ],
-        'kraken' => [
-            'extensions' => ['png', 'jpg', 'gif'],
-            'apiKey' => '',
-            'apiSecret' => '',
-            'additionalParams' => [
-                'lossy' => true,
-            ]
-        ],
-        'imageoptim' => [
-            'extensions' => ['png', 'jpg', 'gif'],
-            'apiUsername' => '',
-            'quality' => 'medium'
-        ],
-    ];
-
-    public $storages = [];
-    public $storageConfig = [
+    ],
+    'storageConfig' => [
         'aws' => [
             'accessKey' => '',
             'secretAccessKey' => '',
@@ -155,26 +100,5 @@ class Settings extends Model
             'bucket' => '',
             'folder' => '',
         ],
-    ];
-
-    /**
-     * Settings constructor.
-     *
-     * @param array $config
-     */
-    public function __construct($config = [])
-    {
-        parent::__construct($config);
-
-        if (!empty($config)) {
-            Yii::configure($this, $config);
-        }
-        $this->init();
-    }
-
-    public function init()
-    {
-        // Set default based on devMode. Overridable through config.
-        $this->suppressExceptions = !\Craft::$app->getConfig()->general->devMode;
-    }
-}
+    ]
+];
