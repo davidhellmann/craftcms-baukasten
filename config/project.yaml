@@ -1,4 +1,4 @@
-dateModified: 1583885181
+dateModified: 1583964886
 email:
   fromEmail: david@hellmann.io
   fromName: $SITE_NAME
@@ -1407,7 +1407,7 @@ matrixBlockTypes:
         translationMethod: none
         type: craft\fields\PlainText
     handle: hero
-    name: .Hero
+    name: Hero
     sortOrder: 1
   c329f6d6-6ce9-4580-bb3c-ee191d344252:
     field: 8ea6300e-c7ee-4655-8226-8ad9f0725531
@@ -2043,7 +2043,7 @@ plugins:
       textColor: '#eee'
   existential:
     enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: 1.0.2
   feed-me:
     edition: standard
     enabled: true
@@ -2288,13 +2288,13 @@ superTableBlockTypes:
           -
             fields:
               b4623113-f388-41e1-8610-19812a5433f0:
-                required: false
-                sortOrder: 2
+                required: '0'
+                sortOrder: '2'
               f56216a6-8623-42ab-b812-b10971f828e6:
-                required: false
-                sortOrder: 1
+                required: '0'
+                sortOrder: '1'
             name: Content
-            sortOrder: 1
+            sortOrder: '1'
     fields:
       b4623113-f388-41e1-8610-19812a5433f0:
         contentColumnType: text
@@ -2302,7 +2302,7 @@ superTableBlockTypes:
         handle: description
         instructions: ''
         name: Description
-        searchable: false
+        searchable: '0'
         settings:
           availableTransforms: '*'
           availableVolumes: '*'
@@ -2325,7 +2325,7 @@ superTableBlockTypes:
         handle: term
         instructions: ''
         name: Term
-        searchable: false
+        searchable: '0'
         settings:
           availableTransforms: '*'
           availableVolumes: '*'
@@ -2350,13 +2350,13 @@ superTableBlockTypes:
           -
             fields:
               4afe7728-65d2-48c1-80f7-aeafcf978ff6:
-                required: false
-                sortOrder: 1
+                required: '0'
+                sortOrder: '1'
               85fef928-9fd5-4b9b-a7c5-73976952425b:
-                required: false
-                sortOrder: 2
+                required: '0'
+                sortOrder: '2'
             name: Content
-            sortOrder: 1
+            sortOrder: '1'
     fields:
       4afe7728-65d2-48c1-80f7-aeafcf978ff6:
         contentColumnType: text
@@ -2364,184 +2364,66 @@ superTableBlockTypes:
         handle: button
         instructions: ''
         name: Button
-        searchable: true
+        searchable: '1'
         settings:
           allowCustomText: '1'
           allowTarget: '1'
           defaultText: ''
           selectLinkText: ''
           types:
-            __assoc__:
-              -
-                - fruitstudios\linkit\models\Email
-                -
-                  __assoc__:
-                    -
-                      - enabled
-                      - '1'
-                    -
-                      - customLabel
-                      - ''
-                    -
-                      - customPlaceholder
-                      - ''
-              -
-                - fruitstudios\linkit\models\Phone
-                -
-                  __assoc__:
-                    -
-                      - enabled
-                      - ''
-                    -
-                      - customLabel
-                      - ''
-                    -
-                      - customPlaceholder
-                      - ''
-              -
-                - fruitstudios\linkit\models\Url
-                -
-                  __assoc__:
-                    -
-                      - enabled
-                      - '1'
-                    -
-                      - customLabel
-                      - ''
-                    -
-                      - customPlaceholder
-                      - ''
-                    -
-                      - allowAlias
-                      - ''
-                    -
-                      - allowMailto
-                      - ''
-                    -
-                      - allowHash
-                      - '1'
-                    -
-                      - allowPaths
-                      - ''
-              -
-                - fruitstudios\linkit\models\Twitter
-                -
-                  __assoc__:
-                    -
-                      - enabled
-                      - ''
-                    -
-                      - customLabel
-                      - ''
-                    -
-                      - customPlaceholder
-                      - ''
-              -
-                - fruitstudios\linkit\models\Facebook
-                -
-                  __assoc__:
-                    -
-                      - enabled
-                      - ''
-                    -
-                      - customLabel
-                      - ''
-                    -
-                      - customPlaceholder
-                      - ''
-              -
-                - fruitstudios\linkit\models\Instagram
-                -
-                  __assoc__:
-                    -
-                      - enabled
-                      - ''
-                    -
-                      - customLabel
-                      - ''
-                    -
-                      - customPlaceholder
-                      - ''
-              -
-                - fruitstudios\linkit\models\LinkedIn
-                -
-                  __assoc__:
-                    -
-                      - enabled
-                      - ''
-                    -
-                      - customLabel
-                      - ''
-                    -
-                      - customPlaceholder
-                      - ''
-              -
-                - fruitstudios\linkit\models\Entry
-                -
-                  __assoc__:
-                    -
-                      - enabled
-                      - '1'
-                    -
-                      - customLabel
-                      - ''
-                    -
-                      - sources
-                      - '*'
-                    -
-                      - customSelectionLabel
-                      - ''
-              -
-                - fruitstudios\linkit\models\Category
-                -
-                  __assoc__:
-                    -
-                      - enabled
-                      - '1'
-                    -
-                      - customLabel
-                      - ''
-                    -
-                      - sources
-                      - '*'
-                    -
-                      - customSelectionLabel
-                      - ''
-              -
-                - fruitstudios\linkit\models\Asset
-                -
-                  __assoc__:
-                    -
-                      - enabled
-                      - ''
-                    -
-                      - customLabel
-                      - ''
-                    -
-                      - sources
-                      - '*'
-                    -
-                      - customSelectionLabel
-                      - ''
-              -
-                - fruitstudios\linkit\models\User
-                -
-                  __assoc__:
-                    -
-                      - enabled
-                      - ''
-                    -
-                      - customLabel
-                      - ''
-                    -
-                      - sources
-                      - '*'
-                    -
-                      - customSelectionLabel
-                      - ''
-                    -
-                      - userPath
-                      - ''
+            fruitstudios\linkit\models\Asset:
+              customLabel: ''
+              customSelectionLabel: ''
+              enabled: ''
+              sources: '*'
+            fruitstudios\linkit\models\Category:
+              customLabel: ''
+              customSelectionLabel: ''
+              enabled: '1'
+              sources: '*'
+            fruitstudios\linkit\models\Email:
+              customLabel: ''
+              customPlaceholder: ''
+              enabled: '1'
+            fruitstudios\linkit\models\Entry:
+              customLabel: ''
+              customSelectionLabel: ''
+              enabled: '1'
+              sources: '*'
+            fruitstudios\linkit\models\Facebook:
+              customLabel: ''
+              customPlaceholder: ''
+              enabled: ''
+            fruitstudios\linkit\models\Instagram:
+              customLabel: ''
+              customPlaceholder: ''
+              enabled: ''
+            fruitstudios\linkit\models\LinkedIn:
+              customLabel: ''
+              customPlaceholder: ''
+              enabled: ''
+            fruitstudios\linkit\models\Phone:
+              customLabel: ''
+              customPlaceholder: ''
+              enabled: ''
+            fruitstudios\linkit\models\Twitter:
+              customLabel: ''
+              customPlaceholder: ''
+              enabled: ''
+            fruitstudios\linkit\models\Url:
+              allowAlias: ''
+              allowHash: '1'
+              allowMailto: ''
+              allowPaths: ''
+              customLabel: ''
+              customPlaceholder: ''
+              enabled: '1'
+            fruitstudios\linkit\models\User:
+              customLabel: ''
+              customSelectionLabel: ''
+              enabled: ''
+              sources: '*'
+              userPath: ''
         translationKeyFormat: null
         translationMethod: none
         type: fruitstudios\linkit\fields\LinkitField
@@ -2551,54 +2433,26 @@ superTableBlockTypes:
         handle: variant
         instructions: ''
         name: Variant
-        searchable: true
+        searchable: '1'
         settings:
           optgroups: true
           options:
             -
-              __assoc__:
-                -
-                  - label
-                  - Primary
-                -
-                  - value
-                  - primary
-                -
-                  - default
-                  - '1'
+              default: '1'
+              label: Primary
+              value: primary
             -
-              __assoc__:
-                -
-                  - label
-                  - Secondary
-                -
-                  - value
-                  - secondary
-                -
-                  - default
-                  - ''
+              default: ''
+              label: Secondary
+              value: secondary
             -
-              __assoc__:
-                -
-                  - label
-                  - Ghost
-                -
-                  - value
-                  - ghost
-                -
-                  - default
-                  - ''
+              default: ''
+              label: Ghost
+              value: ghost
             -
-              __assoc__:
-                -
-                  - label
-                  - Outlined
-                -
-                  - value
-                  - outlined
-                -
-                  - default
-                  - ''
+              default: ''
+              label: Outlined
+              value: outlined
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Dropdown
