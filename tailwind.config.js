@@ -69,8 +69,8 @@ module.exports = {
           paddingRight: config('theme.spacing.2'),
         },
         '.row': {
-          marginLeft: `-${config('theme.spacing.2')}`,
-          marginRight: `-${config('theme.spacing.2')}`,
+          marginLeft: `-${config('theme.spacing.1')}`,
+          marginRight: `-${config('theme.spacing.1')}`,
           flexFlow: 'row wrap',
           flex: '1 1 0',
           display: 'flex',

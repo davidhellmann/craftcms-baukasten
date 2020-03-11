@@ -15,6 +15,7 @@ module.exports = {
       mixins,
     }),
     require('postcss-css-vars'),
+    require('postcss-hexrgba'),
     require('postcss-fixes'),
     require('postcss-preset-env')({
       autoprefixer: {
