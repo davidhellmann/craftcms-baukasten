@@ -14,7 +14,7 @@ return [
         '@assetsUrl' => getenv('ASSETS_URL'),
         '@cloudfrontUrl' => getenv('CLOUDFRONT_URL'),
         '@web' => getenv('SITE_URL'),
-        '@webroot' => dirname(__DIR__) . '/web',
+        '@webroot' => getenv('WEB_ROOT_PATH'),
     ],
     'allowUpdates' => (bool)getenv('ALLOW_UPDATES'),
     'allowAdminChanges' => (bool)getenv('ALLOW_ADMIN_CHANGES'),
