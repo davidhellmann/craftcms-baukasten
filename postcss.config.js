@@ -7,13 +7,13 @@ module.exports = {
       plugins: [require('stylelint')],
     }),
     require('tailwindcss')('./tailwind.config.js'),
-    require('postcss-nested'),
     require('postcss-functions')({
       functions,
     }),
     require('postcss-mixins')({
       mixins,
     }),
+    require('postcss-nested'),
     require('postcss-css-vars'),
     require('postcss-hexrgba'),
     require('postcss-fixes'),
