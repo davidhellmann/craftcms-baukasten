@@ -8,7 +8,7 @@ if (document.querySelectorAll('.js-gallery').length) {
 // Slider
 if (document.querySelectorAll('.js-slider').length) {
   import(
-    /* webpackChunkName: "slider" */ '../templates/_components/imageSlider/imageSlider.js'
+    /* webpackChunkName: "slider" */ '../../templates/_components/imageSlider/imageSlider.js'
   )
     .then(slider => slider.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
@@ -18,7 +18,7 @@ if (document.querySelectorAll('.js-slider').length) {
 if (document.querySelectorAll('.js-code').length) {
   import(/* webpackChunkName: "prism" */ './scripts/prism.js');
   import(
-    /* webpackChunkName: "code" */ '../templates/_components/code/code.js'
+    /* webpackChunkName: "code" */ '../../templates/_components/code/code.js'
   )
     .then(code => code.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
@@ -27,10 +27,8 @@ if (document.querySelectorAll('.js-code').length) {
 // Grid overlay
 if (document.querySelectorAll('.gridOverlay').length) {
   import(
-    /* webpackChunkName: "gridOverlay" */ '../templates/_components/gridOverlay/gridOverlay.js'
+    /* webpackChunkName: "gridOverlay" */ '../../templates/_components/gridOverlay/gridOverlay.js'
   )
     .then(gridOverlay => gridOverlay.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
-
-

@@ -21,7 +21,7 @@ module.exports = {
       base: './web/dist/',
       clean: ['**/*'],
     },
-    templates: './templates/**/*.{twig,php,html}'
+    templates: './templates/**/*.{twig,php,html}',
   },
   urls: {
     live: 'https://craft-baukasten.baukasten.io/',
@@ -131,7 +131,7 @@ module.exports = {
         url: "",
         template: "amp_index"
       },*/
-    ]
+    ],
   },
   devServerConfig: {
     public: () => process.env.DEVSERVER_PUBLIC || 'http://localhost:8080',
@@ -145,20 +145,13 @@ module.exports = {
   },
   purgeCssConfig: {
     paths: [
-      "./templates/**/*.{twig,html}",
-      "./src/vue/**/*.{vue,html}",
-      "./src/js/**/*.{js}"
+      './templates/**/*.{twig,html}',
+      './src/vue/**/*.{vue,html}',
+      './src/js/**/*.{js}',
     ],
-    whitelist: [
-      "./src/css/components/*.css"
-    ],
+    whitelist: ['./src/css/components/*.css'],
     whitelistPatterns: [],
-    extensions: [
-      "html",
-      "js",
-      "twig",
-      "vue"
-    ]
+    extensions: ['html', 'js', 'twig', 'vue'],
   },
   saveRemoteFileConfig: [
     {
