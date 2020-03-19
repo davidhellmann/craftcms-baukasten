@@ -2,6 +2,7 @@
 
 // node modules
 require('dotenv').config();
+const path = require('path');
 const Terser = require('terser');
 const Postcss = require('postcss');
 const Cssnano = require('cssnano');
@@ -22,6 +23,10 @@ module.exports = {
       clean: ['**/*'],
     },
     templates: './templates/**/*.{twig,php,html}',
+    ignore: [
+      /node_modules/,
+      path.resolve(__dirname, './templates/_boilerplate/_layouts'),
+    ],
   },
   urls: {
     live: 'https://craft-baukasten.baukasten.io/',
