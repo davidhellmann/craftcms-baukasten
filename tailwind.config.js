@@ -16,7 +16,10 @@ module.exports = {
       ...baukastenConfig.breakpoints,
     },
     screens: baukastenConfig.breakpoints,
-    width: baukastenConfig.widths,
+    width: {
+      ...baukastenConfig.widths,
+      ...baukastenConfig.spacings,
+    },
     spacing: baukastenConfig.spacings,
     borderRadius: baukastenConfig.borderRadius,
     borderColor: theme => ({

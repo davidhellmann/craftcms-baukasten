@@ -8,9 +8,9 @@
 module.exports = {
   breakpoints: {
     min: '320px',
-    s: { min: '320px', max: '799px' },
-    m: { min: '800px', max: '1199px' },
-    l: { min: '1200px', max: '1599px' },
+    s: '480px',
+    m: '800px',
+    l: '1200px',
     max: '1600px',
   },
 

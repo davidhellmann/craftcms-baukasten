@@ -17,31 +17,31 @@ module.exports = {
       name: '',
       postfix: '',
       extension: 'twig',
-      path: 'src/templates/_components/'
+      path: 'templates/_components/',
     },
     pcss: {
       name: '',
       postfix: '',
       extension: 'pcss',
-      path: 'src/templates/_components/'
+      path: 'templates/_components/',
     },
     js: {
       name: '',
       postfix: '',
       extension: 'js',
-      path: 'src/templates/_components/'
+      path: 'templates/_components/',
     },
     vue: {
       name: '',
       postfix: '',
       extension: 'vue',
-      path: 'src/templates/_components/'
+      path: 'templates/_components/',
     },
     config: {
       name: 'config',
       postfix: '',
       extension: 'php',
-      path: 'src/templates/_components/'
+      path: 'templates/_components/',
     },
   },
   paths: {
