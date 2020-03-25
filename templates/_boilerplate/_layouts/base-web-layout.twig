@@ -31,7 +31,7 @@
     {% block bodyContent %}
     {% endblock bodyContent %}
 
-    {% if craft.app.config.general.devMode %}
+    {% if craft.app.config.general.custom.craftEnv != 'live' %}
       {# -- gridOverlay -- #}
       {% include '_components/gridOverlay/gridOverlay.twig' only %}
     {% endif %}

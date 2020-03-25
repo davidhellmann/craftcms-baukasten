@@ -47,7 +47,7 @@
   </style>
 
   {# Critical CSS #}
-  {% if not craft.app.config.general.devMode %}
+  {% if craft.app.config.general.custom.craftEnv != 'local' %}
     {% set criticalCss = getCookie('critical-css') %}
     {% if criticalCss == 'loaded' %}
       {{ craft.twigpack.includeCssModule("styles.css", false) }}
@@ -73,7 +73,7 @@
   {{ craft.twigpack.includeJsModule("app.js", true) }}
 
   {# Twigpack/Webpack #}
-  {% if craft.app.config.general.devMode %}
+  {% if craft.app.config.general.custom.craftEnv == 'local' %}
     {{ craft.twigpack.includeJsModule("css.js", true) }}
   {% endif %}
 

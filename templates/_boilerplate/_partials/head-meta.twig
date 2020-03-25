@@ -16,7 +16,7 @@
 {% header headerLink %}
 
 {# Favicons, webapp manifests, etc. #}
-{% if not craft.app.config.general.devMode %}
+  {% if craft.app.config.general.custom.craftEnv != 'local' %}
   {{ craft.twigpack.includeFileFromManifest("webapp.html") }}
 {% endif %}
 

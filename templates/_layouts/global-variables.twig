@@ -10,10 +10,10 @@
 #}
 {% spaceless %}
   {# Asset Hash for Cookies #}
-  {% if craft.app.config.general.devMode %}
+  {% if craft.app.config.general.custom.craftEnv == 'local' %}
     {% set assetHash = craft.twigpack.getModuleHash("styles.css", "modern") %}
-    {% else %}
-      {% set assetHash = craft.twigpack.getModuleHash("styles.css", "legacy") %}
+  {% else %}
+    {% set assetHash = craft.twigpack.getModuleHash("styles.css", "legacy") %}
   {% endif %}
 
   {# Prefetch & preconnect headers and links #}
@@ -40,8 +40,8 @@
 
   {# Make stuff global available #}
   <script>
-      window.siteUrl = '{{ siteUrl }}';
-      window.Craft = {{ csrfToken|json_encode|raw }};
+    window.siteUrl = '{{ siteUrl }}';
+    window.Craft = {{ csrfToken|json_encode|raw }};
   </script>
 
 {% endspaceless %}

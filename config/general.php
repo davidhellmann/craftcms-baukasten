@@ -16,6 +16,9 @@ return [
         '@web' => getenv('SITE_URL'),
         '@webroot' => getenv('WEB_ROOT_PATH'),
     ],
+    'custom' => [
+        'craftEnv' => getenv('ENVIRONMENT') ?: 'local',
+    ],
     'allowUpdates' => (bool)getenv('ALLOW_UPDATES'),
     'allowAdminChanges' => (bool)getenv('ALLOW_ADMIN_CHANGES'),
     'backupOnUpdate' => (bool)getenv('BACKUP_ON_UPDATE'),

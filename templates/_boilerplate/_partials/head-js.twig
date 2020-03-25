@@ -2,7 +2,7 @@
 <script src="https://cdn.polyfill.io/v3/polyfill.min.js?callback=polyfillsAreLoaded&flags=gated" defer async></script>
 
 {# Register our Service Worker #}
-{% if not craft.app.config.general.devMode %}
+  {% if craft.app.config.general.custom.craftEnv != 'local' %}
     {% include "_boilerplate/_partials/register-service-worker.twig" %}
 {% endif %}
 

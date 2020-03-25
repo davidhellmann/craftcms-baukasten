@@ -6,7 +6,7 @@
 {% else %}
   {% do setCookie('critical-css', 'loaded', now | date_modify("+7 days").timestamp ) %}
 
-  {% if not craft.app.config.general.devMode %}
+  {% if craft.app.config.general.custom.craftEnv == 'live' %}
     {{ craft.twigpack.includeCriticalCssTags() }}
   {% endif %}
 
