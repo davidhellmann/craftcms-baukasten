@@ -47,17 +47,15 @@
   </style>
 
   {# Critical CSS #}
-  {% if not craft.app.config.general.devMode %}
-    {% set criticalCss = getCookie('critical-css') %}
-    {% if criticalCss == 'loaded' %}
-      {{ craft.twigpack.includeCssModule("styles.css", false) }}
-    {% else %}
-      {% do setCookie('critical-css', 'loaded', now | date_modify("+7 days").timestamp ) %}
-      {% block inlineCriticalCss %}
-        {{ craft.twigpack.includeCriticalCssTags() }}
-      {% endblock %}
-      {{ craft.twigpack.includeCssModule("styles.css", true) }}
-    {% endif %}
+  {% set criticalCss = getCookie('critical-css') %}
+  {% if criticalCss == 'loaded' %}
+    {{ craft.twigpack.includeCssModule("styles.css", false) }}
+  {% else %}
+    {% do setCookie('critical-css', 'loaded', now | date_modify("+7 days").timestamp ) %}
+    {% block inlineCriticalCss %}
+      {{ craft.twigpack.includeCriticalCssTags() }}
+    {% endblock %}
+    {{ craft.twigpack.includeCssModule("styles.css", true) }}
   {% endif %}
 
 {% endblock headContent %}
