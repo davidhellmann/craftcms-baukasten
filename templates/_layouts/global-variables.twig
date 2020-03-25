@@ -10,7 +10,11 @@
 #}
 {% spaceless %}
   {# Asset Hash for Cookies #}
-  {% set assetHash = craft.twigpack.getModuleHash("styles.css", "legacy") %}
+  {% if craft.app.config.general.devMode %}
+    {% set assetHash = craft.twigpack.getModuleHash("styles.css", "modern") %}
+    {% else %}
+      {% set assetHash = craft.twigpack.getModuleHash("styles.css", "legacy") %}
+  {% endif %}
 
   {# Prefetch & preconnect headers and links #}
   {% set prefetchUrls = [
