@@ -7,7 +7,12 @@ import Bowser from 'bowser';
 /* eslint-disable */
 const browser = Bowser.getParser(window.navigator.userAgent);
 const browserName = browser.getBrowserName();
+let platform = browser.getPlatformType();
 let browserVersion = browser.getBrowserVersion();
+
+if (typeof platform === 'undefined') {
+  platform = null;
+}
 
 if (typeof browserVersion === 'undefined') {
   browserVersion = null;
@@ -25,6 +30,7 @@ const browserDetect = {
     docHead: document.querySelector('html'),
     version: browserVersion,
     name: browserName.toLowerCase().replace(' ', '-'),
+    platform,
   },
 
   useImagesWithoutSrcSet() {
@@ -50,6 +56,7 @@ const browserDetect = {
           this.cfg.docHead.classList.add(
             'browser-edge',
             `browser-edge-${this.cfg.version}`,
+            `os-${this.cfg.platform}`,
           );
           break;
 
@@ -57,6 +64,7 @@ const browserDetect = {
           this.cfg.docHead.classList.add(
             'browser-ie',
             `browser-ie-${this.cfg.version}`,
+            `os-${this.cfg.platform}`,
           );
           this.useImagesWithoutSrcSet();
           break;
@@ -65,6 +73,7 @@ const browserDetect = {
           this.cfg.docHead.classList.add(
             'browser-firefox',
             `browser-firefox-${this.cfg.version}`,
+            `os-${this.cfg.platform}`,
           );
           break;
 
@@ -72,6 +81,7 @@ const browserDetect = {
           this.cfg.docHead.classList.add(
             'browser-safari',
             `browser-safari-${this.cfg.version}`,
+            `os-${this.cfg.platform}`,
           );
           break;
 
@@ -79,6 +89,7 @@ const browserDetect = {
           this.cfg.docHead.classList.add(
             'browser-chrome',
             `browser-chrome-${this.cfg.version}`,
+            `os-${this.cfg.platform}`,
           );
           break;
 
@@ -103,6 +114,7 @@ const browserDetect = {
       this.cfg.docHead.classList.add(
         this.cfg.name,
         `${this.cfg.name}-${this.cfg.version}`,
+        `os-${this.cfg.platform}`,
       );
     }
   },

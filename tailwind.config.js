@@ -3,7 +3,6 @@
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
 
-const schriftPlugin = require('tailwindcss-schrift');
 const baukastenConfig = require('./baukasten.config');
 
 module.exports = {
@@ -21,46 +20,99 @@ module.exports = {
       ...baukastenConfig.spacings,
     },
     spacing: baukastenConfig.spacings,
-    borderRadius: baukastenConfig.borderRadius,
-    borderColor: theme => ({
-      ...theme('colors'),
-      default: theme('colors.black', 'currentColor'),
-    }),
-    borderWidth: baukastenConfig.borderWidth,
-    boxShadow: baukastenConfig.boxShadow,
-    fontFamily: baukastenConfig.fontFamily,
-    extend: {
-      opacity: baukastenConfig.opacity,
-    },
-    // Replace the default Tailwind config here
-    schrift: baukastenConfig.schrift,
   },
   corePlugins: {
     container: false,
-    fontSize: false,
-    transitionProperty: false,
-    transitionDuration: false,
-    transitionTimingFunction: false,
+    boxSizing: false,
+    display: false,
+    float: false,
+    clear: false,
+    objectFit: false,
+    objectPosition: false,
+    overflow: false,
+    position: false,
+    inset: false,
+    visibility: false,
+    zIndex: false,
+    flexDirection: true,
+    flexWrap: true,
+    alignItems: true,
+    alignContent: true,
+    alignSelf: true,
+    justifyContent: true,
+    flex: true,
+    flexGrow: true,
+    flexShrink: true,
+    order: true,
     gridTemplateColumns: false,
     gridColumn: false,
     gridColumnStart: false,
-    gridColumnStartEnd: false,
     gridColumnEnd: false,
+    gridColumnStartEnd: false,
     gridTemplateRows: false,
     gridRow: false,
     gridRowStart: false,
-    gridRowStartEnd: false,
     gridRowEnd: false,
-    gridAutoFlow: false,
     gap: false,
+    gridAutoFlow: false,
+    padding: true,
+    margin: true,
+    width: true,
+    minWidth: false,
+    maxWidth: true,
+    height: false,
+    minHeight: false,
+    maxHeight: false,
+    fontFamily: false,
+    fontSize: false,
+    fontSmoothing: false,
+    fontStyle: false,
+    fontWeight: false,
+    letterSpacing: false,
+    lineHeight: false,
+    listStyleType: false,
+    listStylePosition: false,
+    placeholderColor: false,
+    textAlign: false,
+    textColor: false,
+    textDecoration: false,
+    textTransform: false,
+    verticalAlign: false,
+    whitespace: false,
+    wordBreak: false,
+    backgroundAttachment: false,
+    backgroundColor: false,
+    backgroundPosition: false,
+    backgroundRepeat: false,
+    backgroundSize: false,
+    borderColor: false,
+    borderStyle: false,
+    borderWidth: false,
+    borderRadius: false,
+    borderCollapse: false,
+    tableLayout: false,
+    boxShadow: false,
+    opacity: false,
+    transitionProperty: false,
+    transitionDuration: false,
+    transitionTimingFunction: false,
     scale: false,
     rotate: false,
     translate: false,
     skew: false,
     transformOrigin: false,
+    appearance: false,
+    cursor: false,
+    outline: false,
+    pointerEvents: false,
+    resize: false,
+    userSelect: false,
+    fill: false,
+    stroke: false,
+    strokeWidth: false,
+    accessibility: true,
   },
   plugins: [
-    schriftPlugin(),
     function({ addComponents, config }) {
       const grid = {
         '.container': {
@@ -84,20 +136,3 @@ module.exports = {
     },
   ],
 };
-
-/*
- * screens: overwrite --- done
- * colors: overwrite (rgb, black, white, transparent) --- done
- * spacings: extend --- done
- * border-radius: overwrite, none --- done
- * borderColor: overwrite, default black, currentColor --- done
- * borderWidth: overwerite, 1-5px --- done
- * box-shadows: overwrite, none --- done
- * container: false (custom) --- done
- * fonts: sans, serif, mono leeres array auskommentiert --- done
- * fontSize: false --- done
- * maxWidth: none muss noch rein. --- done
- * opacity: extend, leeres object --- done
- *
- *
- * */
