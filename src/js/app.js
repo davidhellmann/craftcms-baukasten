@@ -3,7 +3,7 @@ import 'core-js/modules/es.promise';
 import 'core-js/modules/es.array.iterator';
 
 // Add JS Loaded class to the body
-document.body.classList.add('js-loaded');
+document.documentElement.classList.add('js-loaded');
 
 // App main
 const main = async () => {

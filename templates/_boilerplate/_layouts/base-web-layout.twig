@@ -22,11 +22,7 @@
       {% endblock headContent %}
     </head>
 
-    {# Add some body classes #}
-    {% set sectionHandle = entry.section.handle ??? null %}
-    {% set pageClassSection = sectionHandle ? 'p-' ~ sectionHandle : '' %}
-    {% set pageClassEntryType = sectionHandle ? 'p-' ~ sectionHandle ??? null ~ '--' ~ entry.type.handle : '' %}
-    <body class="{{ pageClassSection }} {{ pageClassEntryType }} {{ bodyClass ??? null }} {{ craft.app.config.general.devMode ? 't-devMode' : '' }}">
+    <body>
     {# Page content that should be included in the <body> #}
     {% block bodyContent %}
     {% endblock bodyContent %}

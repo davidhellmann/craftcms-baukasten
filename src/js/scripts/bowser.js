@@ -27,7 +27,6 @@ if (typeof browserVersion === 'undefined') {
 const browserDetect = {
   cfg: {
     customOutput: true,
-    docHead: document.querySelector('html'),
     version: browserVersion,
     name: browserName.toLowerCase().replace(' ', '-'),
     platform,
@@ -53,7 +52,7 @@ const browserDetect = {
       // Use the switch condition if you want to customize the output
       switch (browserName) {
         case 'Microsoft Edge':
-          this.cfg.docHead.classList.add(
+          document.documentElement.classList.add(
             'browser-edge',
             `browser-edge-${this.cfg.version}`,
             `os-${this.cfg.platform}`,
@@ -61,7 +60,7 @@ const browserDetect = {
           break;
 
         case 'Internet Explorer':
-          this.cfg.docHead.classList.add(
+          document.documentElement.classList.add(
             'browser-ie',
             `browser-ie-${this.cfg.version}`,
             `os-${this.cfg.platform}`,
@@ -70,7 +69,7 @@ const browserDetect = {
           break;
 
         case 'Firefox':
-          this.cfg.docHead.classList.add(
+          document.documentElement.classList.add(
             'browser-firefox',
             `browser-firefox-${this.cfg.version}`,
             `os-${this.cfg.platform}`,
@@ -78,7 +77,7 @@ const browserDetect = {
           break;
 
         case 'Safari':
-          this.cfg.docHead.classList.add(
+          document.documentElement.classList.add(
             'browser-safari',
             `browser-safari-${this.cfg.version}`,
             `os-${this.cfg.platform}`,
@@ -86,7 +85,7 @@ const browserDetect = {
           break;
 
         case 'Chrome':
-          this.cfg.docHead.classList.add(
+          document.documentElement.classList.add(
             'browser-chrome',
             `browser-chrome-${this.cfg.version}`,
             `os-${this.cfg.platform}`,
@@ -107,11 +106,11 @@ const browserDetect = {
       ];
 
       if (oldSpecBrowser.includes(`${this.cfg.name}-${this.cfg.version}`)) {
-        this.cfg.docHead.classList.add('browser-oldies');
+        document.documentElement.classList.add('browser-oldies');
       }
     } else {
       // Generate Classes based on Browser and BrowserVersion
-      this.cfg.docHead.classList.add(
+      document.documentElement.classList.add(
         this.cfg.name,
         `${this.cfg.name}-${this.cfg.version}`,
         `os-${this.cfg.platform}`,

@@ -4,8 +4,15 @@
   : "_boilerplate/_layouts/base-web-layout.twig" %}
 
 {% block htmlTag %}
-<html class="fonts-loaded no-js" lang="{{ craft.app.language |slice(0,2) }}"
-      prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+{# Add some body classes #}
+{% set sectionHandle = entry.section.handle ??? null %}
+{% set pageClassSection = sectionHandle ? 'p-' ~ sectionHandle : '' %}
+{% set pageClassEntryType = sectionHandle ? 'p-' ~ sectionHandle ??? null ~ '--' ~ entry.type.handle : '' %}
+<html
+  class="no-js {{ pageClassSection }} {{ pageClassEntryType }} {{ appClass ??? null }} {{ craft.app.config.general.devMode ? 't-devMode' : '' }}"
+  style="{{ craft.app.request.url == "/" ? 'overflow: hidden !important;' }}"
+  lang="{{ craft.app.language |slice(0,2) }}"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 {% endblock htmlTag %}
 
 {# Page content that should be included in the <head> #}
