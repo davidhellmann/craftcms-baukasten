@@ -21,7 +21,7 @@ $bk-stacks: (
 
 // Ratio variants
 @each $stack in $bk-stacks {
-  .stack-#{$stack} > * + * {
+  .u-stack-#{$stack} > * + * {
     margin-top: #{$stack}rem;
   }
 }

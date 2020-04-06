@@ -1,6 +1,8 @@
 // Gallery
 if (document.querySelectorAll('.js-gallery').length) {
-  import(/* webpackChunkName: "photoswipe" */ './components/photoswipe.js')
+  import(
+    /* webpackChunkName: "photoswipe" */ '../../templates/_components/imageGallery/imageGallery.js'
+  )
     .then(photoswipe => photoswipe.default.init('.js-gallery'))
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }

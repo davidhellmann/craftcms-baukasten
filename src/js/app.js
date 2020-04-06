@@ -41,7 +41,7 @@ main().then(() => {
     '||                                                           ||',
   );
   console.log(
-    '||   Maintainer    David Hellmnann                           ||',
+    '||   Maintainer    David Hellmnann / @fredmansky             ||',
   );
   console.log(
     '||   Website       https://davidhellmann.com                 ||',

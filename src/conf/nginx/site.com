@@ -24,7 +24,7 @@ server {
 
     client_max_body_size 100M;
 
-        # Ban certain bots from crawling the site
+    # Ban certain bots from crawling the site
     if ($limit_bots = 1) {
         return 403;
     }
@@ -137,14 +137,27 @@ server {
     location ^~ /sw.js {
         try_files $uri $uri/ /index.php?$query_string;
     }
-    # Pass our ElementAPI requests through
-    location ^~ /rss {
-        try_files $uri $uri/ /index.php?$query_string;
+
+    location ~* (?:^|/)\. {
+        deny all;
     }
-    # Pass instantanalytics through
-    location ^~ /instantanalytics {
-        try_files $uri $uri/ @phpfpm_nocache;
+
+    location ~* (?:\.(?:bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$ {
+        deny all;
     }
+
+    location ~* \.(?:manifest|appcache|html?|xml|json)$ {
+        try_files $uri /index.php?$query_string;
+        expires -1;
+        access_log /var/log/nginx/example.com-access.log;
+    }
+
+    location ~* \.(?:rss|atom)$ {
+        try_files $uri /index.php?$query_string;
+        expires 1h;
+        add_header Cache-Control "public";
+    }
+
     # Pass Retour through
     location ^~ /retour {
         try_files $uri $uri/ @phpfpm_nocache;
@@ -153,6 +166,24 @@ server {
     # Pass Webperf through
     location ^~ /webperf {
         try_files $uri $uri/ @phpfpm_nocache;
+    }
+
+    location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm|htc)$ {
+      try_files $uri /index.php?$query_string;
+      expires 1M;
+      add_header Cache-Control "public";
+    }
+
+    location ~* \.(?:css|js)$ {
+      try_files $uri /index.php?$query_string;
+      expires 1y;
+      add_header Cache-Control "public";
+    }
+
+    location ~* \.(?:ttf|ttc|otf|eot|woff)$ {
+      try_files $uri /index.php?$query_string;
+      expires 1M;
+      add_header Cache-Control "public";
     }
 
     # php-fpm configuration

@@ -51,7 +51,7 @@
 {% if props.quote %}
   <div {{ module.settings(props, twClasses.root) }}>
     <div class="{{ props.cn ~ '__inner' }}">
-      <blockquote class="{{ props.cn ~ '__blockquote' }} stack-3">
+      <blockquote class="{{ props.cn ~ '__blockquote' }} u-stack">
         <p>
           {{ '"' ~ props.quote ~ '"' | raw }}
         </p>
