@@ -148,7 +148,7 @@
 .pswp__button--arrow--right:before {
   content: '';
   top: 35px;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(var(--c-white), 0.75);
   height: 30px;
   width: 32px;
   position: absolute;
@@ -170,7 +170,7 @@
 
 .pswp__share-modal {
   display: block;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(var(--c-black), 0.5);
   width: 100%;
   height: 100%;
   top: 0;
@@ -192,14 +192,14 @@
 .pswp__share-tooltip {
   z-index: 1620;
   position: absolute;
-  background: #fff;
+  background: var(--c-white);
   top: 56px;
   border-radius: 2px;
   display: block;
   width: auto;
   right: 44px;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 2px 5px rgba(var(--c-black), 0.25);
+  box-shadow: 0 2px 5px rgba(var(--c-black), 0.25);
   -webkit-transform: translateY(6px);
   -ms-transform: translateY(6px);
   transform: translateY(6px);
@@ -212,7 +212,7 @@
 .pswp__share-tooltip a {
   display: block;
   padding: 8px 12px;
-  color: #000;
+  color: var(--c-black);
   text-decoration: none;
   font-size: 14px;
   line-height: 18px;
@@ -220,7 +220,7 @@
 
 .pswp__share-tooltip a:hover {
   text-decoration: none;
-  color: #000;
+  color: var(--c-black);
 }
 
 .pswp__share-tooltip a:first-child {
@@ -256,7 +256,7 @@ a.pswp__share--facebook:before {
   top: -12px;
   right: 15px;
   border: 6px solid transparent;
-  border-bottom-color: #fff;
+  border-bottom-color: var(--c-white);
   -webkit-pointer-events: none;
   -moz-pointer-events: none;
   pointer-events: none;
@@ -264,7 +264,7 @@ a.pswp__share--facebook:before {
 
 a.pswp__share--facebook:hover {
   background: #3e5c9a;
-  color: #fff;
+  color: var(--c-white);
 }
 
 a.pswp__share--facebook:hover:before {
@@ -273,7 +273,7 @@ a.pswp__share--facebook:hover:before {
 
 a.pswp__share--twitter:hover {
   background: #55acee;
-  color: #fff;
+  color: var(--c-white);
 }
 
 a.pswp__share--pinterest:hover {
@@ -318,7 +318,7 @@ a.pswp__share--download:hover {
 
 .pswp__caption small {
   font-size: 11px;
-  color: #bbb;
+  color: var(--c-gray-300);
 }
 
 .pswp__caption__center {
@@ -328,7 +328,7 @@ a.pswp__share--download:hover {
   font-size: 13px;
   padding: 10px;
   line-height: 20px;
-  color: #ccc;
+  color: var(--c-gray-400);
 }
 
 .pswp__caption--empty {
@@ -425,7 +425,7 @@ a.pswp__share--download:hover {
   box-sizing: border-box;
   width: 14px;
   height: 14px;
-  border: 2px solid #fff;
+  border: 2px solid var(--c-white);
   border-radius: 50%;
   border-left-color: transparent;
   border-bottom-color: transparent;
@@ -538,13 +538,13 @@ a.pswp__share--download:hover {
 
 .pswp__top-bar,
 .pswp__caption {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(var(--c-white), 0.75);
 }
 
 /* pswp__ui--fit class is added when main image "fits" between top bar and bottom bar (caption) */
 .pswp__ui--fit .pswp__top-bar,
 .pswp__ui--fit .pswp__caption {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(var(--c-white), 0.75);
 }
 
 /* pswp__ui--idle class is added when mouse isn't moving for several seconds (JS option timeToIdle) */

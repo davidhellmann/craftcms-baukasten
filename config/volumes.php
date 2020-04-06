@@ -21,8 +21,8 @@ return [
     'live'  => [
     ],
 
-    // Staging (pre-production) environment
-    'staging'  => [
+    // Stage (pre-production) environment
+    'stage'  => [
     ],
 
     // Local (development) environment

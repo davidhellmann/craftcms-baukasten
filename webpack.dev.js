@@ -53,7 +53,7 @@ const configureImageLoader = () => {
 // Configure the Postcss loader
 const configurePostcssLoader = () => {
   return {
-    test: /\.(pcss|css)$/,
+    test: /\.(scss|css)$/,
     use: [
       {
         loader: 'style-loader',
@@ -64,7 +64,7 @@ const configurePostcssLoader = () => {
       {
         loader: 'css-loader',
         options: {
-          importLoaders: 2,
+          importLoaders: 3,
           sourceMap: true,
         },
       },
@@ -74,6 +74,17 @@ const configurePostcssLoader = () => {
       {
         loader: 'postcss-loader',
         options: {
+          sourceMap: true,
+        },
+      },
+      {
+        loader: 'sass-loader',
+        options: {
+          // Prefer `dart-sass`
+          implementation: require('sass'),
+          sassOptions: {
+            includePaths: ['./node_modules'],
+          },
           sourceMap: true,
         },
       },

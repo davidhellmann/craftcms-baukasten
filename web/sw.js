@@ -11,14 +11,16 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
-
 importScripts(
-  "/dist/js/workbox-catch-handler.js",
-  "/dist/js/precache-manifest.30f24e6406b67763ef2182bcccb9bee4.js"
+  'https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js',
 );
 
-self.addEventListener('message', (event) => {
+importScripts(
+  '/dist/js/workbox-catch-handler.js',
+  '/dist/js/precache-manifest.2835c69a486a5426f32db940b30e392d.js',
+);
+
+self.addEventListener('message', event => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
@@ -32,8 +34,28 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/\/admin.*$/, new workbox.strategies.NetworkOnly(), 'GET');
-workbox.routing.registerRoute(/\.php$/, new workbox.strategies.NetworkOnly(), 'GET');
-workbox.routing.registerRoute(/\.(?:png|jpg|jpeg|svg|webp)$/, new workbox.strategies.CacheFirst({ "cacheName":"images", plugins: [new workbox.expiration.Plugin({ maxEntries: 20, purgeOnQuotaError: false })] }), 'GET');
+workbox.routing.registerRoute(
+  /\/admin.*$/,
+  new workbox.strategies.NetworkOnly(),
+  'GET',
+);
+workbox.routing.registerRoute(
+  /\.php$/,
+  new workbox.strategies.NetworkOnly(),
+  'GET',
+);
+workbox.routing.registerRoute(
+  /\.(?:png|jpg|jpeg|svg|webp)$/,
+  new workbox.strategies.CacheFirst({
+    cacheName: 'images',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 20,
+        purgeOnQuotaError: false,
+      }),
+    ],
+  }),
+  'GET',
+);
 
 workbox.googleAnalytics.initialize({});

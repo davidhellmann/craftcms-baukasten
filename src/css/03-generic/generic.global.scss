@@ -4,6 +4,9 @@
  *
  */
 
+@import "../01-settings/settings.breakpoints";
+@import "../01-settings/settings.modular-scale";
+@import "../02-tools/tools.mixin.webfont";
 
 [v-cloak] > * {
   display: none !important;
@@ -15,24 +18,25 @@
 
 html {
   /* Min Multiplicator */
-  font-size: 8px;
+  font-size: $bk-spacingMin;
   height: 100%;
-  line-height: 1.5;
+  line-height: var(--lh-base);
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-font-smoothing: subpixel-antialiased;
+  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   -moz-osx-font-smoothing: grayscale;
 
   /* Fluid Multiplicator */
-  @screen min {
-    font-size: calc(8px + 8 * ((100vw - 320px) / 1280));
+  @include media('>=min') {
+    font-size: calc(#{$bk-spacingMin} + #{strip-unit($bk-spacingMin)} * ((100vw - #{map_get($breakpoints, min)}) / #{strip-unit(map_get($breakpoints, max))}));
   }
 
   /* Max Multiplicator */
-  @screen max {
-    font-size: 16px;
+  @include media('>=max') {
+    font-size: $bk-spacingMax;
   }
 }
 
@@ -43,19 +47,10 @@ body {
   flex-direction: column;
   background-color: var(--c-white);
   color: var(--c-gray-900);
-  font-size: 16px;
-  @apply text-ms-0--min;
+  @include ms(0);
   line-height: var(--lh-base);
   @include wf('body');
   font-weight: 300;
-
-  @screen min {
-    @apply text-ms-0--fluid;
-  }
-
-  @screen max {
-    @apply text-ms-0--max;
-  }
 
   &.no-hover > * {
     pointer-events: none;
@@ -110,7 +105,7 @@ img[data-sizes='auto'] {
   }
 }
 
-.sr-only {
+.sro {
   border: 0 !important;
   clip: rect(0 0 0 0) !important;
   height: 1px !important;
@@ -125,7 +120,7 @@ code,
 kbd,
 pre,
 samp {
-  @include wf('mono');
+  font-family: var(--ff-mono);
 }
 
 ::selection {

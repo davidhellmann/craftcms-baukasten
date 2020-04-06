@@ -1,17 +1,13 @@
 <?php
 return [
     "compFolders" => [
-        "_atoms",
-        "_molecules",
-        "_organisms",
+        "_components",
     ],
     "mqButtons" => [
         "min" => "320px",
-        "xs" => "400px",
-        "s" => "600px",
         "m" => "800px",
-        "l" => "1000px",
-        "max" => "1440px",
+        "l" => "1200px",
+        "max" => "1600px",
         "fluid" => "100vw"
     ],
     "compStatus" => [

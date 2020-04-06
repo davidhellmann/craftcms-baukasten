@@ -2,8 +2,13 @@
 /*    Web Font Loaded
 /* -------------------------------------------------- */
 
-@define-mixin wf $font {
+@mixin webfont($font) {
   .fonts-loaded & {
-    font-family: var(--ff-$font);
+    font-family: var(--ff-#{$font});
   }
+}
+
+// Shorthand Version
+@mixin wf($args...) {
+  @include webfont($args...);
 }

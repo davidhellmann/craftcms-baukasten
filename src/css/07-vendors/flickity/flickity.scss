@@ -47,17 +47,17 @@ https://flickity.metafizzy.co
   position: absolute;
   background: hsla(0, 0%, 100%, 0.75);
   border: none;
-  color: #333;
+  color: var(--c-gray-800);
 }
 
 .flickity-button:hover {
-  background: white;
+  background: var(--c-white);
   cursor: pointer;
 }
 
 .flickity-button:focus {
   outline: none;
-  box-shadow: 0 0 0 5px #19F;
+  box-shadow: 0 0 0 5px var(--c-blue);
 }
 
 .flickity-button:active {
@@ -126,7 +126,7 @@ https://flickity.metafizzy.co
   width: 10px;
   height: 10px;
   margin: 0 8px;
-  background: #333;
+  background: var(--c-gray-800);
   border-radius: 50%;
   opacity: 0.25;
   cursor: pointer;

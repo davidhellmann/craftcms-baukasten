@@ -4,14 +4,14 @@
  |--------------------------------------------------------------------------
  */
 
-.m-postNav {
+.c-postNav {
 }
 
-.m-postNav__item--next {
+.c-postNav__item--next {
   margin-left: auto;
 }
 
-.m-postNav__link {
+.c-postNav__link {
   display: block;
   position: relative;
   color: var(--c-gray-500);
@@ -20,20 +20,20 @@
   padding-bottom: s(2);
 }
 
-.m-postNav__link:hover {
+.c-postNav__link:hover {
   border-color: var(--c-gray-300);
   color: var(--c-gray-900);
 }
 
-.m-postNav__link:hover svg path {
+.c-postNav__link:hover svg path {
   fill: var(--c-gray-500);
 }
 
-.m-postNav__link:hover .m-postNav__label {
+.c-postNav__link:hover .c-postNav__label {
   color: var(--c-gray-900);
 }
 
-.m-postNav--prev {
+.c-postNav--prev {
   padding-left: s(9);
   text-align: left;
   left: 50%;
@@ -45,7 +45,7 @@
   }
 }
 
-.m-postNav--next {
+.c-postNav--next {
   padding-right: s(9);
   text-align: right;
   right: 50%;
@@ -57,7 +57,7 @@
   }
 }
 
-.m-postNav__icon {
+.c-postNav__icon {
   width: 24px;
   height: 24px;
   position: absolute;
@@ -74,7 +74,7 @@
   }
 }
 
-.m-postNav__label {
+.c-postNav__label {
   /*// @include ms-respond(font-size, -2); TODO*/
   display: none;
   color: var(--c-gray-400);
@@ -86,7 +86,7 @@
   }
 }
 
-.m-postNav__title {
+.c-postNav__title {
   display: none;
 
   @include media('>=s') {

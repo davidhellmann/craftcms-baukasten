@@ -1,7 +1,7 @@
 // Adds Browser Classes to the document
-// import(/* webpackChunkName: "browserDetect" */ './scripts/bowser.js')
-//   .then(browserDetect => browserDetect.default.init())
-//   .catch(e => console.error(`${e.name} : ${e.message}`));
+import(/* webpackChunkName: "browserDetect" */ './scripts/bowser.js')
+  .then(browserDetect => browserDetect.default.init())
+  .catch(e => console.error(`${e.name} : ${e.message}`));
 
 // globalScrollListener
 import(
@@ -28,5 +28,12 @@ if (document.querySelectorAll('input[name="CRAFT_CSRF_TOKEN"]').length) {
 if (document.querySelectorAll('[waypointTrigger], [waypoint]').length) {
   import(/* webpackChunkName: "scrollMonitor" */ './scripts/scrollMonitor.js')
     .then(scrollMonitor => scrollMonitor.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
+}
+
+// Smooth Scroll
+if (document.querySelectorAll('[data-scroll]').length) {
+  import(/* webpackChunkName: "smoothScroll" */ './scripts/smoothScroll.js')
+    .then(smoothScroll => scroll()) // eslint-disable-line
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }

@@ -28,9 +28,14 @@ const globalResizeListener = {
       document.documentElement.clientHeight,
       window.innerHeight || 0,
     );
+    const sh = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight || 0,
+    );
 
     localStorage.setItem('vw', vw);
     localStorage.setItem('vh', vh);
+    localStorage.setItem('sh', sh);
   },
 
   init() {
@@ -44,6 +49,7 @@ const globalResizeListener = {
       }, 250);
     }, 250);
 
+    this.saveViewPortWidthsToLocalStorage();
     window.addEventListener('resize', winResize);
   },
 };

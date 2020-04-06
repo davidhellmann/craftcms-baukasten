@@ -59,6 +59,7 @@ return [
     'useForNativeTransforms' => false,
     'useForCpThumbs' => false,
 
+    /*
     'imgixProfile' => 'default',
     'imgixApiKey' => '',
     'imgixEnableAutoPurging' => true,
@@ -100,5 +101,5 @@ return [
             'bucket' => '',
             'folder' => '',
         ],
-    ]
+    ]*/
 ];

@@ -3,11 +3,10 @@
 /* -------------------------------------------------- */
 
 a {
-  @apply text-gray-700;
-  transition: all 125ms ease-out;
-
+  color: var(--c-gray-700);
+  transition: all 125ms var(--ease-out-cubic);
 
   &:hover {
-    @apply text-gray-900;
+    color: var(--c-gray-900);
   }
 }

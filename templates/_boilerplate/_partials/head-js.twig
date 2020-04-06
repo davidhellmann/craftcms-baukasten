@@ -4,12 +4,12 @@
 {# Register our Service Worker #}
   {% if craft.app.config.general.custom.craftEnv != 'local' %}
     {% include "_boilerplate/_partials/register-service-worker.twig" %}
-{% endif %}
+  {% endif %}
 
 {# Handle tabs gracefully as per https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2 #}
 {% include "_boilerplate/_partials/tab-handler.twig" %}
 
 {# Tiny Cookie JavaScript #}
 <script>
-    {{ source("_inline-js/tiny-cookie.min.js") }}
+  {{ source("_inline-js/tiny-cookie.min.js") }}
 </script>

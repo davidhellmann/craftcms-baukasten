@@ -10,7 +10,6 @@
 {% set pageClassEntryType = sectionHandle ? 'p-' ~ sectionHandle ??? null ~ '--' ~ entry.type.handle : '' %}
 <html
   class="no-js {{ pageClassSection }} {{ pageClassEntryType }} {{ appClass ??? null }} {{ craft.app.config.general.devMode ? 't-devMode' : '' }}"
-  style="{{ craft.app.request.url == "/" ? 'overflow: hidden !important;' }}"
   lang="{{ craft.app.language |slice(0,2) }}"
   prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 {% endblock htmlTag %}

@@ -38,7 +38,7 @@ return [
         'regenerateSitemapsAutomatically' => true,
         // Should SEOmatic add to the http response headers?
         'headersEnabled' => true,
-        // The server environment, either `live`, `staging`, or `local`
+        // The server environment, either `live`, `stage`, or `local`
         'environment' => 'live',
         // Should SEOmatic display the SEO Preview sidebar?
         'displayPreviewSidebar' => true,
@@ -82,7 +82,7 @@ return [
         'environment' => 'live',
     ],
 
-    // Staging (pre-production) environment
+    // Stage (pre-production) environment
     'stage' => [
         'environment' => 'stage',
     ],

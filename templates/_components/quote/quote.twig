@@ -51,21 +51,13 @@
 {% if props.quote %}
   <div {{ module.settings(props, twClasses.root) }}>
     <div class="{{ props.cn ~ '__inner' }}">
-      <blockquote class="{{ props.cn ~ '__blockquote' }}">
+      <blockquote class="{{ props.cn ~ '__blockquote' }} stack-3">
         <p>
           {{ '"' ~ props.quote ~ '"' | raw }}
         </p>
         {% if props.source %}
           <footer>
-            <cite>
-              {% if props.sourceUrl %}
-              <a href="{{ props.sourceUrl }}" target="_blank">
-                {% endif %}
-                {{ props.source }}
-                {% if props.sourceUrl %}
-              </a>
-              {% endif %}
-            </cite>
+            {{ props.quoter| raw }}
           </footer>
         {% endif %}
       </blockquote>

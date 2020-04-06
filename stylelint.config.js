@@ -15,7 +15,8 @@ module.exports = {
           'each',
           'if',
           'warn',
-          'define-mixin',
+          'mixin',
+          'function',
         ],
       },
     ],
@@ -23,4 +24,3 @@ module.exports = {
     'no-descending-specificity': null,
   },
 };
-

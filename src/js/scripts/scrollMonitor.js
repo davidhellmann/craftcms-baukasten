@@ -3,7 +3,6 @@
  */
 
 import scrollMonitor from 'scrollmonitor';
-// import anime from '../../../../node_modules/animejs/anime'
 
 const scrollMonitorScript = {
   handleWaypointTriggers(waypointTriggers) {

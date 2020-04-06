@@ -41,7 +41,7 @@ return [
         'labelColor' => '#23892C',
     ],
 
-    // Staging (pre-production) environment
+    // Stage (pre-production) environment
     'stage' => [
         'labelColor' => '#F1D302',
     ],

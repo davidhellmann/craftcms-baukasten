@@ -22,11 +22,8 @@ module.exports = {
       base: './web/dist/',
       clean: ['**/*'],
     },
-    templates: './templates/**/*.{twig,php,html}',
-    ignore: [
-      /node_modules/,
-      path.resolve(__dirname, './templates/_boilerplate/_layouts'),
-    ],
+    templates: './templates/**/*.{twig,rss,csv,php,html,js}',
+    ignore: [/node_modules/],
   },
   urls: {
     live: 'https://craft-baukasten.baukasten.io/',
@@ -56,11 +53,11 @@ module.exports = {
       from: '**/*',
       to: 'img/svg',
     },
-    // {
-    //   context: './src/img/bitmap/',
-    //   from: '**/*',
-    //   to: 'img/bitmap',
-    // },
+    {
+      context: './src/img/bitmap/',
+      from: '**/*',
+      to: 'img/bitmap',
+    },
     {
       from: './src/js/workbox-catch-handler.js',
       to: 'js/[name].[ext]',
@@ -107,7 +104,7 @@ module.exports = {
     },
     // copy and minify webfonts css
     {
-      from: './src/css/03-generic/generic.webfonts.pcss',
+      from: './src/css/03-generic/generic.webfonts.scss',
       to: 'css/[name].css',
       transform(content) {
         return Postcss([Cssnano])
@@ -121,7 +118,7 @@ module.exports = {
   criticalCssConfig: {
     base: './web/dist/criticalcss/',
     suffix: '_critical.min.css',
-    criticalHeight: 1200,
+    criticalHeight: 1680,
     criticalWidth: 1200,
     ampPrefix: 'amp_',
     ampCriticalHeight: 19200,
@@ -150,11 +147,16 @@ module.exports = {
   },
   purgeCssConfig: {
     paths: [
-      './templates/**/*.{twig,html}',
+      './templates/**/*.{twig,html,js,vue,php}',
       './src/vue/**/*.{vue,html}',
       './src/js/**/*.{js}',
     ],
-    whitelist: ['./src/css/components/*.css'],
+    whitelist: [
+      './src/css/**/*.{scss}',
+      './src/js/**/*.{js}',
+      './src/vue/**/*.{vue}',
+      './templates/**/*.{scss,vue,js}',
+    ],
     whitelistPatterns: [],
     extensions: ['html', 'js', 'twig', 'vue'],
   },

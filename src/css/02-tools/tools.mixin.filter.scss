@@ -1,0 +1,18 @@
+/*
+ |--------------------------------------------------------------------------
+ |  FILTER
+ |  https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html
+ |  grayscale      ex: filter: grayscale(100%);
+ |  sepia          ex: filter: sepia(100%);
+ |  saturate       ex: filter: saturate(0%);
+ |  hue-rotate     ex: filter: hue-rotate(45deg);
+ |  invert         ex: filter: invert(100%);
+ |  brightness     ex: filter: brightness(15%);
+ |  contrast       ex: filter: contrast(200%);
+ |  blur           ex: filter: blur(2px);
+ |--------------------------------------------------------------------------
+ */
+
+@mixin filter($filter-type, $filter-amount) {
+  filter: $filter-type+unquote('(#{$filter-amount})');
+}

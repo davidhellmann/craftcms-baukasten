@@ -17,7 +17,6 @@
 
     {% set options = options is defined ? defaults|merge(options) : defaults %}
 
-
     {% if options.ratio %}
         {% set ratio = options.ratio|split(':') %}
         {% set ratio = ratio|first/ratio|last %}
@@ -28,8 +27,6 @@
     {# Set Position #}
     {% if options.position %}
         {% set position = options.position %}
-    {% elseif image.settingsFocalPoint is defined %}
-        {% set position = image.settingsFocalPoint %}
     {% else %}
         {% set position = '50% 50%' %}
     {% endif %}

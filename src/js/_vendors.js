@@ -1,8 +1,9 @@
 // Async load LazySizes and it's plugins
 if (document.querySelectorAll('.lazyload').length) {
-  if ('loading' in HTMLImageElement.prototype) {
+  const nativeLazy = false;
+  if ('loading' in HTMLImageElement.prototype && nativeLazy) {
     const images = [...document.querySelectorAll('img[loading="lazy"]')];
-    images.forEach((img) => {
+    images.forEach(img => {
       img.src = img.dataset.src || img.src;
       img.srcset = img.dataset.srcset;
       img.sizes = `${img.getBoundingClientRect().width}px`;

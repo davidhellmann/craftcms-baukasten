@@ -1,0 +1,21 @@
+/**
+ * app.css
+ *
+ * The entry point for the css.
+ *
+ */
+
+/*@import '01-settings';*/
+
+@import 'tailwindcss/components';
+
+/* purgecss start ignore */
+@import '01-settings';
+@import '02-tools';
+@import '03-generic';
+@import '04-elements';
+@import '05-objects';
+@import '06-components';
+@import '07-vendors';
+
+@import 'tailwindcss/utilities';

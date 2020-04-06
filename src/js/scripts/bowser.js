@@ -11,7 +11,7 @@ let platform = browser.getPlatformType();
 let browserVersion = browser.getBrowserVersion();
 
 if (typeof platform === 'undefined') {
-  platform = null;
+  platform = 'unknownDevice';
 }
 
 if (typeof browserVersion === 'undefined') {
@@ -51,11 +51,11 @@ const browserDetect = {
     if (this.cfg.customOutput) {
       // Use the switch condition if you want to customize the output
       switch (browserName) {
-        case 'Microsoft Edge':
+        case 'Micrdeviceoft Edge':
           document.documentElement.classList.add(
             'browser-edge',
             `browser-edge-${this.cfg.version}`,
-            `os-${this.cfg.platform}`,
+            `device-${this.cfg.platform}`,
           );
           break;
 
@@ -63,7 +63,7 @@ const browserDetect = {
           document.documentElement.classList.add(
             'browser-ie',
             `browser-ie-${this.cfg.version}`,
-            `os-${this.cfg.platform}`,
+            `device-${this.cfg.platform}`,
           );
           this.useImagesWithoutSrcSet();
           break;
@@ -72,7 +72,7 @@ const browserDetect = {
           document.documentElement.classList.add(
             'browser-firefox',
             `browser-firefox-${this.cfg.version}`,
-            `os-${this.cfg.platform}`,
+            `device-${this.cfg.platform}`,
           );
           break;
 
@@ -80,7 +80,7 @@ const browserDetect = {
           document.documentElement.classList.add(
             'browser-safari',
             `browser-safari-${this.cfg.version}`,
-            `os-${this.cfg.platform}`,
+            `device-${this.cfg.platform}`,
           );
           break;
 
@@ -88,7 +88,7 @@ const browserDetect = {
           document.documentElement.classList.add(
             'browser-chrome',
             `browser-chrome-${this.cfg.version}`,
-            `os-${this.cfg.platform}`,
+            `device-${this.cfg.platform}`,
           );
           break;
 
@@ -113,7 +113,7 @@ const browserDetect = {
       document.documentElement.classList.add(
         this.cfg.name,
         `${this.cfg.name}-${this.cfg.version}`,
-        `os-${this.cfg.platform}`,
+        `device-${this.cfg.platform}`,
       );
     }
   },

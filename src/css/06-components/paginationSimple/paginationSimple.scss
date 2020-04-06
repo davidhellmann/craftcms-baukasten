@@ -5,11 +5,11 @@
  */
 
 
-.m-paginationSimple__item--next {
+.c-paginationSimple__item--next {
   margin-left: auto;
 }
 
-.m-paginationSimple__link {
+.c-paginationSimple__link {
   display: block;
   position: relative;
   color: var(--c-gray-500);
@@ -18,27 +18,27 @@
   padding-bottom: s(2);
 }
 
-.m-paginationSimple__link:hover {
+.c-paginationSimple__link:hover {
   border-color: var(--c-gray-300);
   color: var(--c-gray-900);
 }
 
-.m-paginationSimple__link:hover  .m-paginationSimple__icon svg path {
+.c-paginationSimple__link:hover  .c-paginationSimple__icon svg path {
   fill: var(--c-gray-500);
 }
 
-.m-paginationSimple--prev {
+.c-paginationSimple--prev {
   padding-left: s(9);
   text-align: left;
 }
 
-.m-paginationSimple--next {
+.c-paginationSimple--next {
   padding-right: s(9);
   text-align: right;
 }
 
 
-.m-paginationSimple__icon {
+.c-paginationSimple__icon {
   width: 24px;
   height: 24px;
   display: inline-block;
@@ -55,7 +55,7 @@
     transition: all 250ms var(--ease-out-cubic);
   }
 
-  .m-paginationSimple--prev {
+  .c-paginationSimple--prev {
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -65,7 +65,7 @@
     }
   }
 
-  .m-paginationSimple--next {
+  .c-paginationSimple--next {
     right: 50%;
     transform: translate(50%, -50%);
 
@@ -76,7 +76,7 @@
   }
 }
 
-.m-paginationSimple__title {
+.c-paginationSimple__title {
   display: none;
 
   @include media('>=s') {

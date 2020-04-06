@@ -5,9 +5,11 @@
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'a-richText',
+  cn: 'c-richText',
+  theme: getenv('BAUKASTEN_THEME') | default(null),
+  variant: 'default',
   modifiers: [],
-  customClasses: ['stack'],
+  customClasses: ['stack-3'],
   data: {},
   text: null
 } %}

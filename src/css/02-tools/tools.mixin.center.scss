@@ -1,14 +1,11 @@
 /*
  |--------------------------------------------------------------------------
- | @package  craft-baukasten
- | @author David Hellmann [david@hellmann.io]
- |
- | .a-image
+ |  Center
  |--------------------------------------------------------------------------
  */
 
-.a-image {
-    .no-js & {
-      display: none;
-    }
+@mixin center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
 }

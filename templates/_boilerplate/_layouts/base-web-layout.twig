@@ -8,11 +8,11 @@
       <html class="no-js" lang="{{ craft.app.language | slice(0,2) }}">
     {% endblock htmlTag %}
     <head>
-      {# check if js is enabled #}
       <script>
-          var myHTML  = document.getElementsByTagName('html')[0];
-          myHTML.classList.add('js');
-          myHTML.classList.remove('no-js');
+        {# check if js is enabled #}
+        var myHTML = document.getElementsByTagName('html')[0];
+        myHTML.classList.add('js');
+        myHTML.classList.remove('no-js');
       </script>
 
       {% include "_boilerplate/_partials/head-meta.twig" %}

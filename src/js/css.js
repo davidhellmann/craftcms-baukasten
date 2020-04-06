@@ -1,2 +1,2 @@
 // Import our CSS
-import styles from '../css/app.pcss';
+import styles from '../css/app.scss';
