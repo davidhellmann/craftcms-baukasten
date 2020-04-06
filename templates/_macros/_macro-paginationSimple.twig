@@ -1,18 +1,8 @@
 {#
-  Pagination
-  ==========
-  Powered by Kittn Generator: http://kittn.de/
-  Generate navigation buttons for paginations
-  It use the Pagination Module, include before the Loop `{% paginate entries as pageInfo, pageEntries %}`
-
-  @param {object}  pages                 - Pagination Object
-  @param {object}  craft                 - Craft Request Object
-  @param {object}  options               - Array of options
-  @param {string}  props.cnname         - Classname (default: 'o-pagination')
-  @param {string}  props.searchquery   - To pass search words from Searchfields (default: false)
-  @param {string}  props.prevText      - Titletext for Prev
-  @param {string}  props.nextText      - Titletext for Next
+  Pagination Simple
+  =================
 #}
+
 {% macro paginationSimple(pages,craft,props) %}
   {% set defaults = {
     cn: 'm-paginationSimple',
@@ -28,32 +18,32 @@
 
   {# Add Pagination only if the Page Number is higher than 1#}
   {% if pages.totalPages > 1 %}
-    <nav class="o-row  {{ props.cn }}" role="navigation">
-        {# Display the Previous Link if available #}
-        {% if pages.prevUrl %}
-          <div class="o-col-6  o-col-s-12  {{ props.cn ~ '__item' }}  {{ props.cn ~ '__item--prev' }}">
-            <a class="{{ props.cn ~ '__link' }}  {{ props.cn ~ '__link--prev' }}"
-               href="{{ pages.prevUrl }}{{ props.searchquery ? '?q='~props.searchquery }}"
-               title="{{ props.prevText }}">
+    <nav class="{{ props.cn }}" role="navigation">
+      {# Display the Previous Link if available #}
+      {% if pages.prevUrl %}
+        <div class="{{ props.cn ~ '__item' }}  {{ props.cn ~ '__item--prev' }}">
+          <a class="{{ props.cn ~ '__link' }}  {{ props.cn ~ '__link--prev' }}"
+             data-link="{{ pages.prevUrl | base64enc }}" {{ props.searchquery ? 'data-search=?q=' ~ props.searchquery }}
+             title="{{ props.prevText }}">
 
-              {% if props.prevIcon %}
-                <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--prev' }}">
+            {% if props.prevIcon %}
+              <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--prev' }}">
                 {% include '_partials/svg/' ~ props.prevIcon ~ '.svg.twig' %}
               </span>
-              {% endif %}
+            {% endif %}
 
-              <span class="{{ props.cn ~ '__title' }}">
+            <span class="{{ props.cn ~ '__title' }}">
                 {{ props.prevText }}
               </span>
-            </a>
-          </div>
-        {% endif %}
+          </a>
+        </div>
+      {% endif %}
 
-        {# Display next Page Link if available#}
-        {% if pages.nextUrl %}
-        <div class="o-col-6  o-col-s-12  {{ props.cn ~ '__item' }}  {{ props.cn ~ '__item--next' }}">
+      {# Display next Page Link if available#}
+      {% if pages.nextUrl %}
+        <div class="{{ props.cn ~ '__item' }}  {{ props.cn ~ '__item--next' }}">
           <a class="{{ props.cn ~ '__link' }}  {{ props.cn ~ '__link--next' }}"
-             href="{{ pages.nextUrl }}{{ props.searchquery ? '?q='~props.searchquery }}"
+             data-link="{{ pages.nextUrl | base64enc }}" {{ props.searchquery ? 'data-search=?q=' ~ props.searchquery }}
              title="{{ props.nextText }}">
 
             {% if props.nextIcon %}
@@ -67,7 +57,41 @@
             </span>
           </a>
         </div>
-        {% endif %}
+      {% endif %}
     </nav>
+
+    {% js %}
+      var paginationElement = document.querySelector('.m-paginationSimple');
+      var links = paginationElement.querySelectorAll('a');
+
+      for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+
+      link.addEventListener('click', function(evt) {
+      var link = evt.currentTarget;
+      var base64url = link.dataset.link;
+      var url = atob(base64url);
+      var search = link.dataset.search;
+      if (search) {
+      window.location = url + search;
+      } else {
+      window.location = url;
+      }
+      });
+      }
+    {% endjs %}
+  {% endif %}
+  
+  {# link rel="next/prev" #}
+  {% if seomatic %}
+    {% do seomatic.helper.paginate(pages) %}
+
+    {# set canonical to first page #}
+    {% do seomatic.meta.canonicalUrl(pages.getBasePath) %}
+
+    {# meta robots noindex, follow on paginated pages #}
+    {% if pages.currentPage > 1 %}
+      {% do seomatic.tag.get("robots").content("noindex, follow") %}
+    {% endif %}
   {% endif %}
 {% endmacro %}
