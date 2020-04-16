@@ -5,9 +5,7 @@
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'a-icon',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
+  cn: 'c-icon',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -20,28 +18,8 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
 {% if props.icon %}
-  <span {{ module.settings(props, twClasses.root) }}>
+  <span {{ module.settings(props) }}>
     {{ svg('@webroot/dist/img/svg/' ~ props.icon ~ '.svg') }}
   </span>
 {% endif %}

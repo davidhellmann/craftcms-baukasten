@@ -10,7 +10,9 @@
     prevText: 'Prev Page',
     nextText: 'Next Page',
     prevIcon: 'icon-arrow-left',
-    nextIcon: 'icon-arrow-right'
+    nextIcon: 'icon-arrow-right',
+    removeCanonical: true,
+    setNoindex: true
   } %}
 
   {# Merge Default with Options #}
@@ -91,7 +93,13 @@
 
     {# meta robots noindex, follow on paginated pages #}
     {% if pages.currentPage > 1 %}
-      {% do seomatic.tag.get("robots").content("noindex, follow") %}
+      {% if opt.setNoindex %}
+        {% do seomatic.tag.get('robots').content('noindex, follow') %}
+      {% endif %}
+
+      {% if opt.removeCanonical %}
+        {% do seomatic.link.get('canonical').include(false) %}
+      {% endif %}
     {% endif %}
   {% endif %}
 {% endmacro %}

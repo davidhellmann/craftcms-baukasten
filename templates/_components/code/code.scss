@@ -1,12 +1,12 @@
 /*
  |--------------------------------------------------------------------------
- |  .a-code
+ |  .c-code
  |--------------------------------------------------------------------------
  */
 
 
-.a-code {
-  .a-code__wrapper {
+.c-code {
+  .c-code__wrapper {
     width: 100%;
     margin: 0;
     height: auto;
@@ -25,52 +25,35 @@
     }
   }
 
-  .a-code__codeWrapper {
+  .c-code__codeWrapper {
     width: 100%;
     border-radius: 5px;
-    @apply .text-ms--2--min;
+    @include ms(-2);
     line-height: 1.8;
-
-    @screen min {
-      @apply .text-ms--2--fluid;
-    }
-
-    @screen max {
-      @apply .text-ms--2--max;
-    }
   }
 
-  .a-code__code {
+  .c-code__code {
     width: 100%;
   }
 }
 
-.a-code__toggle {
-  /*// @include vr(1/2);*/
+.c-code__toggle {
+  margin-bottom: 1rem;
   display: block;
   text-align: center;
   cursor: pointer;
-  /*// font-size: ms(-2);*/
+  @include ms(-2);
 
   span {
+    background-color: var(--c-red);
     display: inline-block;
     position: relative;
-    @apply .text-ms--2--min .pl-12px .pr-40px .py-4px;
-    border: 1px solid var(--c-gray-200);
-    border-radius: 100px;
-    box-shadow: var(--bs-longer);
-    transform: translateY(0);
-    transition: box-shadow 250ms var(--ease-out-cubic),
-    border 250ms var(--ease-out-cubic),
-    transform 250ms var(--ease-out-cubic);
-
-    @screen min {
-      @apply .text-ms--2--fluid;
-    }
-
-    @screen max {
-      @apply .text-ms--2--max;
-    }
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-weight: 700;
+    color: var(--c-white);
+    user-select: none;
 
     &::before,
     &::after {
@@ -79,23 +62,15 @@
       width: 10px;
       height: 2px;
       position: absolute;
-      right: 8px;
+      right: 1rem;
       top: 50%;
       transform: translate(0, -50%);
-      background-color: var(--c-gray-300);
+      background-color: var(--c-white);
       transition: all 250ms var(--ease-out-cubic);
     }
 
     &::after {
       transform: translate(0, -50%) rotate(0);
-    }
-  }
-
-  &:hover {
-    span {
-      border: 1px solid transparent;
-      box-shadow: var(--bs-1);
-      transform: translateY(2px);
     }
   }
 

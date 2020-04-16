@@ -11,7 +11,7 @@
     {% endif %}{{ siteName }}
   </title>
 
-  {# -- CRITICAL CSS -- #}
+  {# CRITICAL CSS #}
   {% set cacheVal = getCookie('critical-css') %}
   {% if not cacheVal or craft.app.config.general.devMode %}
     {{ setCookie('critical-css', now | date_modify("+7 days").timestamp ) }}
@@ -24,7 +24,7 @@
 <body>
 <div class="o-appWrapper">
 
-  {# -- pageTitle -- #}
+  {# pageTitle #}
   {% include '_molecules/pageTitle/_template.twig' with {
     props: {
       text: 'Typography' | t,
@@ -35,7 +35,7 @@
 
   <div class="typo-section">
     <div class="typo-label">Headings</div>
-    {# -- headline -- #}
+    {# headline #}
     {% include '_atoms/headline/_template.twig' with {
       props: {
         text: 'H1: ' ~ headline,
@@ -43,7 +43,7 @@
       }
     } only %}
 
-    {# -- headline -- #}
+    {# headline #}
     {% include '_atoms/headline/_template.twig' with {
       props: {
         text: 'H2: ' ~ headline,
@@ -51,7 +51,7 @@
       }
     } only %}
 
-    {# -- headline -- #}
+    {# headline #}
     {% include '_atoms/headline/_template.twig' with {
       props: {
         text: 'H3: ' ~ headline,
@@ -59,7 +59,7 @@
       }
     } only %}
 
-    {# -- headline -- #}
+    {# headline #}
     {% include '_atoms/headline/_template.twig' with {
       props: {
         text: 'H4: ' ~ headline,
@@ -67,7 +67,7 @@
       }
     } only %}
 
-    {# -- headline -- #}
+    {# headline #}
     {% include '_atoms/headline/_template.twig' with {
       props: {
         text: 'H5: ' ~ headline,
@@ -75,7 +75,7 @@
       }
     } only %}
 
-    {# -- headline -- #}
+    {# headline #}
     {% include '_atoms/headline/_template.twig' with {
       props: {
         text: 'H6: ' ~ headline,
@@ -84,7 +84,7 @@
     } only %}
   </div>
 
-  {# -- headline -- #}
+  {# headline #}
   {% include '_atoms/headline/_template.twig' with {
     props: {
       text: 'Full Text Example',
@@ -96,7 +96,7 @@
   <div class="typo-section">
     <div class="typo-label">Mixed Text</div>
     <div class="typo-paragraphs">
-      {# -- richText -- #}
+      {# richText #}
       {% include '_atoms/richText/_template.twig' with {
         props: {
           text: textFull
@@ -107,7 +107,7 @@
 
 
 
-  {# -- headline -- #}
+  {# headline #}
   {% include '_atoms/headline/_template.twig' with {
     props: {
       text: 'Font Size Examples',
@@ -115,11 +115,11 @@
     }
   } only %}
 
-  {# -- BLOCK -- #}
+  {# BLOCK #}
   <div class="typo-section">
     <div class="typo-label">Paragraphs MS Respond 2</div>
     <div class="typo-paragraphs ms-res-2">
-      {# -- richText -- #}
+      {# richText #}
       {% include '_atoms/richText/_template.twig' with {
         props: {
           text: textSimple
@@ -127,13 +127,13 @@
       } only %}
     </div>
   </div>
-  {# -- BLOCK END -- #}
+  {# BLOCK END #}
 
-  {# -- BLOCK -- #}
+  {# BLOCK #}
   <div class="typo-section">
     <div class="typo-label">Paragraphs MS Respond 1</div>
     <div class="typo-paragraphs ms-res-1">
-      {# -- richText -- #}
+      {# richText #}
       {% include '_atoms/richText/_template.twig' with {
         props: {
           text: textSimple
@@ -141,14 +141,14 @@
       } only %}
     </div>
   </div>
-  {# -- BLOCK END -- #}
+  {# BLOCK END #}
 
 
-  {# -- BLOCK -- #}
+  {# BLOCK #}
   <div class="typo-section">
     <div class="typo-label">Paragraphs MS Respond 0</div>
     <div class="typo-paragraphs ms-res-0">
-      {# -- richText -- #}
+      {# richText #}
       {% include '_atoms/richText/_template.twig' with {
         props: {
           text: textSimple
@@ -156,14 +156,14 @@
       } only %}
     </div>
   </div>
-  {# -- BLOCK END -- #}
+  {# BLOCK END #}
 
 
-  {# -- BLOCK -- #}
+  {# BLOCK #}
   <div class="typo-section">
     <div class="typo-label">Paragraphs MS Respond -1</div>
     <div class="typo-paragraphs ms-res--1">
-      {# -- richText -- #}
+      {# richText #}
       {% include '_atoms/richText/_template.twig' with {
         props: {
           text: textSimple
@@ -171,14 +171,14 @@
       } only %}
     </div>
   </div>
-  {# -- BLOCK END -- #}
+  {# BLOCK END #}
 
 
-  {# -- BLOCK -- #}
+  {# BLOCK #}
   <div class="typo-section">
     <div class="typo-label">Paragraphs MS Respond -2</div>
     <div class="typo-paragraphs ms-res--2">
-      {# -- richText -- #}
+      {# richText #}
       {% include '_atoms/richText/_template.twig' with {
         props: {
           text: textSimple
@@ -186,7 +186,7 @@
       } only %}
     </div>
   </div>
-  {# -- BLOCK END -- #}
+  {# BLOCK END #}
 
 
   {# Lowercase Glyphs #}

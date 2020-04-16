@@ -1,17 +1,17 @@
-{# -- Pages Articles -- #}
+{# Pages Articles #}
 {# ---------------------------------------------------------------------- #}
 
 {% extends "_layouts/_master.twig" %}
 {% set bodyClass = "p-articles" %}
 
-{# -- CRITICAL CSS -- #}
+{# CRITICAL CSS #}
 {% block appInlineCSS %}
   <style>
     {{ source (_self ~ '_critical.min.css', ignore_missing = true) }}
   </style>
 {% endblock %}
 
-{# -- Query Entries -- #}
+{# Query Entries #}
 {# To Skip the Current id add: id: 'and, not ' ~ entry.id #}
 {% set entries = craft.entries({
   section: 'articles',
@@ -21,22 +21,22 @@
 }) %}
 {% paginate entries as pageInfo, pageEntries %}
 
-{# -- Rel Nav -- #}
+{# Rel Nav #}
 {% block appHeader %}
   {% include '_partials/header/_siteHeaderLinks.twig' with {
     pageInfo: pageInfo
   } only %}
 {% endblock %}
 
-{# -- App Content -- #}
+{# App Content #}
 {% block appContent %}
-  {# -- Cache -- #}
+  {# Cache #}
   {% cache using key 'article-archive-' ~ craft.app.request.pathInfo ~ (craft.app.request.pageNum ? '/p' ~ craft.app.request.pageNum : '') %}
 
     <div class="o-section">
       <div class="o-row">
         <div class="o-col-6  o-col-s-24">
-          {# -- Include Page Title -- #}
+          {# Include Page Title #}
           {% include '_molecules/pageTitle/_template.twig' with {
             props: {
               object: entry,
@@ -50,7 +50,7 @@
     <div class="o-section">
       <div class="o-row">
         <div class="o-col-6  o-col-s-24">
-          {# -- Entry Intro -- #}
+          {# Entry Intro #}
           {% if entry.entrySummary ?? null %}
             {% include '_atoms/richText/_template.twig' with {
               props: {
@@ -65,7 +65,7 @@
     <div class="o-section">
       <div class="o-row">
         <div class="o-col-6  o-col-s-24">
-          {# -- Cards --#}
+          {# Cards --#}
           {% include '_organisms/cards/_template.twig' with {
             props: {
               items: pageEntries,
@@ -77,7 +77,7 @@
         </div>
       </div>
     </div>
-    {# -- Cache End -- #}
+    {# Cache End #}
   {% endcache %}
 {% endblock %}
 

@@ -1,4 +1,4 @@
-dateModified: 1584345122
+dateModified: 1586993701
 email:
   fromEmail: david@hellmann.io
   fromName: $SITE_NAME
@@ -2605,6 +2605,12 @@ plugins:
   imager-x:
     enabled: true
     schemaVersion: 3.0.0
+  kint:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      kintDisplayTheme: solarized-dark.css
   linkit:
     edition: standard
     enabled: true
@@ -2614,10 +2620,6 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   minify:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  nocache:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
@@ -2633,6 +2635,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.0.8
+  string-base64:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   super-table:
     edition: standard
     enabled: true

@@ -6,8 +6,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'o-imageGrid',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -22,29 +20,13 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
 
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
+
+
 
 {# Modul #}
 {% if props.images %}
-  <div {{ module.settings(props, twClasses.root) }}  waypointTrigger>
+  <div {{ module.settings(props) }}  waypointTrigger>
     <div class="{{ props.cn ~ '__inner' }}">
       {% for image in props.images %}
         <div class="{{ props.cn ~ '__item' }} is-fadeInUp" waypoint>

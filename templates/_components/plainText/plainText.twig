@@ -6,8 +6,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'a-plainText',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -20,29 +18,13 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
 
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
+
+
 
 {# Modul #}
 {% if props.text %}
-  <p {{ module.settings(props, twClasses.root) }}>
+  <p {{ module.settings(props) }}>
     {{ props.text | nl2br | raw }}
   </p>
 {% endif %}

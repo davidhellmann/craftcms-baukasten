@@ -1,10 +1,8 @@
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'o-appHeader',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
+  cn: 'c-appFooter',
   modifiers: [],
-  customClasses: ['section'],
+  customClasses: [],
   data: {}
 } %}
 
@@ -14,37 +12,15 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
+<footer {{ module.settings(props) }}>
+  <div class="container {{ props.cn ~ '__content' }}">
+    Baukasten &copy;2014 &mdash; {{ "now"|date("Y") }}
 
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
-<footer {{ module.settings(props, twClasses.root) }}>
-  <div class="container py-2">
-    <div class="row items-center">
-      Baukasten &copy;2014 &mdash; {{ "now"|date("Y") }}
-
-      {# Pagination Simple #}
-      {#{% import '_macros/_macro-socialNetworks.twig' as macroSocialNetworks %}
-      {{ macroSocialNetworks.socialNetworks({
-        networks: 'all',
-        label: true,
-      }) }}#}
-    </div>
+    {# Pagination Simple #}
+    {#{% import '_macros/_macro-socialNetworks.twig' as macroSocialNetworks %}
+    {{ macroSocialNetworks.socialNetworks({
+      networks: 'all',
+      label: true,
+    }) }}#}
   </div>
 </footer>

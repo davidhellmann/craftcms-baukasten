@@ -16,7 +16,9 @@
     lastPageText: 'Last Page',
     prevText: 'Prev Page',
     nextText: 'Next Page',
-    jumpText: 'Jump to Page:'
+    jumpText: 'Jump to Page:',
+    removeCanonical: true,
+    setNoindex: true
   } %}
 
   {# Merge Default with Options #}
@@ -107,7 +109,13 @@
 
     {# meta robots noindex, follow on paginated pages #}
     {% if pages.currentPage > 1 %}
-      {% do seomatic.tag.get("robots").content("noindex, follow") %}
+      {% if opt.setNoindex %}
+        {% do seomatic.tag.get('robots').content('noindex, follow') %}
+      {% endif %}
+
+      {% if opt.removeCanonical %}
+        {% do seomatic.link.get('canonical').include(false) %}
+      {% endif %}
     {% endif %}
   {% endif %}
 {% endmacro %}

@@ -1,8 +1,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'a-logo',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -17,38 +15,16 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
-{% if props.name %}
-  <div {{ module.settings(props, twClasses.root) }}>
-    {% if props.url %}
-    <a class="{{ props.cn ~ '__link' }}" href="{{ props.url }}">
-      {% endif %}
-
-      {{ svg('@webroot/dist/img/svg/logo.svg') }}
-
-      {% if props.url %}
-    </a>
+<div {{ module.settings(props) }}>
+  {% if props.url %}
+  <a class="{{ props.cn ~ '__link' }}" href="{{ props.url }}">
     {% endif %}
-  </div>
-{% endif %}
+
+    {{ svg('@webroot/dist/img/svg/logo.svg') }}
+
+    {% if props.url %}
+  </a>
+  {% endif %}
+</div>
 
 

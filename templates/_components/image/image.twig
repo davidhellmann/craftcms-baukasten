@@ -1,8 +1,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'c-image',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -22,31 +20,12 @@
   lazy: true
 } %}
 
+
 {# Merge Default with Options #}
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
-
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
 
 {# Image #}
 {% if props.image ??? null %}
@@ -101,6 +80,7 @@
     {# Domiant Color (Use lase image from Final images #}
     {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
 
+
     {# Placeholder #}
     {% set placeholderImage = craft.imager.placeholder({
       type: 'svg',
@@ -118,7 +98,7 @@
     {% set dominantColor = false %}
   {% endif %}
 
-  <picture {{ module.settings(props, twClasses.root) }} {% if props.dominantColor %}style="{{ 'background-color: ' ~ dominantColor ?? 'transparent' }}"{% endif %}>
+  <picture {{ module.settings(props) }} {% if props.dominantColor %}style="{{ 'background-color: ' ~ dominantColor ?? 'transparent' }}"{% endif %}>
     {% if image.extension not in skipTransformsForThisExtensions %}
       {# Transforming #}
       {% include '_components/image/_transforming.twig' %}

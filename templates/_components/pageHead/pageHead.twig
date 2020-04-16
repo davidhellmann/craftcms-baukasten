@@ -11,8 +11,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'm-pageHead',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -28,25 +26,9 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
 
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
+
+
 
 {# Modul #}
 {% if props.object or props.text %}
@@ -58,7 +40,7 @@
     {% set headline = props.object.title %}
   {% endif %}
 
-  <{{ props.size }} {{ module.settings(props, twClasses.root) }}>
+  <{{ props.size }} {{ module.settings(props) }}>
   <div class="{{ props.cn ~ '__wrapper' }}">
     <div class="{{ props.cn ~ '__inner' }}">
       {% if props.link %}

@@ -1,0 +1,30 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{# @var entry \craft\elements\Entry #}Ω
+{#
+  seomaticPaginationOverwrites
+  ============================
+
+  {% import '_partials/macros/_macro-mergedPosts.html' as macroSeomaticPaginationOverwrites  %}
+  {{ macroSeomaticPaginationOverwrites.seomaticPaginationOverwrites(pageInfo) }}
+#}
+{% macro seomaticPaginationOverwrites(pageInfo) %}
+  {% if pageInfo.currentPage > 1 %}
+    {% do seomatic.tag.get('robots').content('noindex, follow') %}
+    {% do seomatic.link.get('alternate').include(false) %}
+    {% do seomatic.link.get('canonical').include(false) %}
+  {% endif %}
+
+  {% if pageInfo.currentPage > 1 and pageInfo.currentPage <= pageInfo.totalPages %}
+    {% set linkTag = seomatic.link.create({
+      "rel": "prev",
+      "href": pageInfo.prevUrl
+    }) %}
+  {% endif %}
+
+  {% if pageInfo.currentPage <  pageInfo.totalPages %}
+    {% set linkTag = seomatic.link.create({
+      "rel": "next",
+      "href":  pageInfo.nextUrl
+    }) %}
+  {% endif %}
+{% endmacro %}

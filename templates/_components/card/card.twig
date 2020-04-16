@@ -11,8 +11,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'm-card',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -28,29 +26,13 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
 
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
+
+
 
 {# Modul #}
 {% if props.item %}
-  <article {{ module.settings(props, twClasses.root) }}>
+  <article {{ module.settings(props) }}>
     <div class="{{ props.cn ~ '__wrapper' }}">
       <div class="{{ props.cn ~ '__inner' }}">
         <a class="{{ props.cn ~ '__link' }}" href="{{ props.item.url }}">

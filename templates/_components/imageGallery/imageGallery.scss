@@ -1,21 +1,20 @@
 /*
  |--------------------------------------------------------------------------
- |  o-imageGallery
+ |  c-imageGallery
  |--------------------------------------------------------------------------
  */
 
 @import '~photoswipe/dist/photoswipe';
 
-
-.o-imageGallery {
-  $root: &;
+.c-imageGallery {
+  margin-top: -2rem;
 
   &__inner {
     @include row();
   }
 
   &__figure {
-    @include vr();
+    margin-top: 2rem;
     @include col(3, 6);
     @include col-padding();
 
@@ -37,18 +36,7 @@
   }
 }
 
-
-.o-imageGallery--modifier {
-  .o-imageGallery__block {
-    /*// Styles here*/
-  }
-
-  @at-root {
-    /*// Use this for nesting with root selector*/
-  }
-}
-
 /*// PhotoSwipe Stuff*/
 .pswp__bg {
-  background: rgba(c('white'), 0.98);
+  background: rgba(white, 0.98);
 }

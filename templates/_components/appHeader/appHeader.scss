@@ -3,10 +3,24 @@
  | @package  craft-baukasten
  | @author David Hellmann [david@hellmann.io]
  |
- | .o-appHeader
+ | .c-appHeader
  |--------------------------------------------------------------------------
  */
 
-.o-appHeader {
-  /* --- */
+.c-appHeader {
+  background-color: var(--c-gray-100);
+
+  &__content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  &__headline {
+    @include ms(1);
+    margin-left: 1rem;
+  }
 }
+

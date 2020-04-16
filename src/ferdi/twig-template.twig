@@ -1,42 +1,20 @@
-{# -- Set Defaults -- #}
+{# Set Defaults #}
 {% set defaults = {
   cn: 'c-<%= moduleName.replace('-', '_') %>',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
   foo: null
 } %}
 
-{# -- Merge Default with Options -- #}
+{# Merge Default with Options #}
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
 {% if props.foo %}
-  <div {{ module.settings(props, twClasses.root) }}>
+  <div {{ module.settings(props) }}>
     <%= moduleName.replace('-', '_') %>
   </div>
 {% endif %}

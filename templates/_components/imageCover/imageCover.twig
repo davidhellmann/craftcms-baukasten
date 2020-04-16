@@ -11,8 +11,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'o-imageCover',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -28,29 +26,13 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
 
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
+
+
 
 {# Modul #}
 {% if props.image %}
-  <div {{ module.settings(props, twClasses.root) }} waypointTrigger>
+  <div {{ module.settings(props) }} waypointTrigger>
     {% include '_molecules/figure/_template.twig' with {
       props: {
         customClasses: ['is-fadeInUp'],

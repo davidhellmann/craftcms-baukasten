@@ -1,8 +1,6 @@
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'o-appHeader',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
+  cn: 'c-appHeader',
   modifiers: [],
   customClasses: [],
   data: {}
@@ -14,39 +12,11 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
-<header {{ module.settings(props, twClasses.root) }}>
-  <div class="container py-2">
-    <div class="flex items-center">
-      {# -- logo -- #}
-      {% include '_components/logo/logo.twig' with {
-        props: {
-          customClasses: [
-            'w-96px h-96px'
-          ],
-          name: 'logo'
-        }
-      } only %}
-      <h2 class="ms-3 px-1">Craft 3 Baukasten Sample</h2>
-    </div>
+<header {{ module.settings(props) }}>
+  <div class="container {{ props.cn ~ '__content' }}">
+    {# logo #}
+    {% include '_components/logo/logo.twig' only %}
+    <h1 class="{{ props.cn ~ '__headline' }}">Baukasten</h1>
   </div>
 </header>
+

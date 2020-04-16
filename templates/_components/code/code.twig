@@ -1,8 +1,6 @@
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'a-code',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
+  cn: 'c-code',
   modifiers: [],
   customClasses: ['js-code'],
   data: {},
@@ -13,34 +11,16 @@
   language: null
 } %}
 
+{# TODO: Translations #}
+
 {# Merge Default with Options #}
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
 {% if props.snippet %}
-  <div {{ module.settings(props, twClasses.root) }} data-status="{{ props.open ? 'open' : 'closed' }}">
+  <div {{ module.settings(props) }} data-status="{{ props.open ? 'open' : 'closed' }}">
     <div class="{{ props.cn ~ '__wrapper' }}">
       {% spaceless %}
         <pre class="line-numbers  language-{{ props.language }}  {{ props.cn ~ '__codeWrapper' }}">

@@ -1,83 +1,13 @@
-{# ============================================================== #}
-{#                                                                #}
-{#      SEPERATOR                                                 #}
-{#                                                                #}
-{# ============================================================== #}
-<pre class="mt-4 mb-2">_components/imageRaw</pre>
-{# -- link -- #}
-{% include '_components/image/imageRaw.twig' with {
-  props: {
-    image: craft.assets.title('Placeholder').volume('templateImages').one(),
-    ratio: 'landscape'
-  }
-} only %}
+{# Global Stuff #}
+{% set dummyImage = craft.assets.title('Placeholder').volume('templateImages').one() %}
 
 {# ============================================================== #}
 {#                                                                #}
 {#      SEPERATOR                                                 #}
 {#                                                                #}
 {# ============================================================== #}
-<pre class="mt-4 mb-2">_components/image</pre>
-{# -- link -- #}
-{% include '_components/image/image.twig' with {
-  props: {
-    image: craft.assets.title('Placeholder').volume('templateImages').one(),
-    ratio: 'landscape'
-  }
-} only %}
-
-{# ============================================================== #}
-{#                                                                #}
-{#      SEPERATOR                                                 #}
-{#                                                                #}
-{# ============================================================== #}
-<pre class="mt-4 mb-2">_components/link</pre>
-{# -- link -- #}
-{% include '_components/link/link.twig' with {
-  props: {
-    variant: 'primary',
-    url: 'https://davidhellmann.com',
-    text: 'Primary Link'
-  }
-} only %}
-
-{# -- link -- #}
-{% include '_components/link/link.twig' with {
-  props: {
-    variant: 'secondary',
-    customClasses: ['ml-1'],
-    url: 'https://davidhellmann.com',
-    text: 'Secondary Link'
-  }
-} only %}
-
-{# -- link -- #}
-{% include '_components/link/link.twig' with {
-  props: {
-    variant: 'ghost',
-    customClasses: ['ml-1'],
-    url: 'https://davidhellmann.com',
-    text: 'Ghost Link'
-  }
-} only %}
-
-{# -- link -- #}
-{% include '_components/link/link.twig' with {
-  props: {
-    variant: 'outline',
-    customClasses: ['ml-1'],
-    url: 'https://davidhellmann.com',
-    text: 'Outlined Link'
-  }
-} only %}
-
-{# ============================================================== #}
-{#                                                                #}
-{#      SEPERATOR                                                 #}
-{#                                                                #}
-{# ============================================================== #}
-<pre class="mt-4 mb-2">_components/code</pre>
-{# -- code -- #}
+<pre class="mt-4 mb-2" id="code">_components/code</pre>
+{# code #}
 {% include '_components/code/code.twig' with {
   props: {
     snippet: "code[class*='language-'],
@@ -90,3 +20,165 @@ pre[class*='language-'] {
   }
 } only %}
 
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2" id="image">_components/image</pre>
+{# link #}
+{% include '_components/image/image.twig' with {
+  props: {
+    image: dummyImage,
+    ratio: 'landscape'
+  }
+} only %}
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2" id="imageRaw">_components/image-raw</pre>
+{# link #}
+{% include '_components/image/image-raw.twig' with {
+  props: {
+    image: dummyImage,
+    ratio: 'landscape'
+  }
+} only %}
+
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2" id="imageGallery">_components/imageGallery</pre>
+{# link #}
+
+{% include '_components/imageGallery/imageGallery.twig' with {
+  props: {
+    images: [dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage,dummyImage]
+  }
+} only %}
+
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2" id="link">_components/link</pre>
+{# link #}
+{% include '_components/link/link.twig' with {
+  props: {
+    modifiers: ['primary'],
+    url: 'https://davidhellmann.com',
+    text: 'Primary Link'
+  }
+} only %}
+
+{# link #}
+{% include '_components/link/link.twig' with {
+  props: {
+    modifiers: ['secondary'],
+    customClasses: ['ml-1'],
+    url: 'https://davidhellmann.com',
+    text: 'Secondary Link'
+  }
+} only %}
+
+{# link #}
+{% include '_components/link/link.twig' with {
+  props: {
+    modifiers: ['ghost'],
+    customClasses: ['ml-1'],
+    url: 'https://davidhellmann.com',
+    text: 'Ghost Link'
+  }
+} only %}
+
+{# link #}
+{% include '_components/link/link.twig' with {
+  props: {
+    modifiers: ['outlined'],
+    customClasses: ['ml-1'],
+    url: 'https://davidhellmann.com',
+    text: 'Outlined Link'
+  }
+} only %}
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<pre class="mt-4 mb-2" id="linkIcon">_components/link-icon</pre>
+{# link #}
+{% include '_components/link/link-icon.twig' with {
+  props: {
+    modifiers: ['primary'],
+    url: 'https://davidhellmann.com',
+    text: 'Primary Link',
+    icon: 'iconSample'
+  }
+} only %}
+
+
+
+
+
+
+{# ============================================================== #}
+{#                                                                #}
+{#      DROPDOWN                                                  #}
+{#                                                                #}
+{# ============================================================== #}
+<div id="selector">
+  <select name="dropDown" id="dropDown">
+    <option>Select Component</option>
+    <option value="#code">Code</option>
+    <option value="#image">Image</option>
+    <option value="#imageRaw">Image Raw</option>
+    <option value="#imageGallery">Image Gallery</option>
+    <option value="#link">Link</option>
+    <option value="#linkIcon">Link Icon</option>
+  </select>
+</div>
+
+<script>
+  var dropDownValue = document.getElementById("dropDown");
+
+  dropDownValue.addEventListener('change', function () {
+    if (this.selectedIndex !== 0) {
+      window.location.href = this.value;
+    }
+  });
+</script>
+
+<style>
+  body {
+    margin-bottom: 80px;
+  }
+
+  #selector {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: black;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+  }
+
+  #dropDown {
+    width: 280px;
+    font-size: 15px;
+    padding: 0.5rem 1rem;
+    -webkit-appearance: none;
+  }
+</style>

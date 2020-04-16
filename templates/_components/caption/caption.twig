@@ -6,8 +6,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'm-caption',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -24,29 +22,13 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
 
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
+
+
 
 {# Modul #}
 {% if props.headline ?? null or props.text ?? null %}
-  <{{ props.element }} {{ module.settings(props, twClasses.root) }}>
+  <{{ props.element }} {{ module.settings(props) }}>
   <div class="{{ props.cn ~ '__wrapper' }}">
     <div class="{{ props.cn ~ '__inner' }}">
 

@@ -1,7 +1,7 @@
 
 
 <div class="section {{ data.variant.value == 'cover' ? 'h-screen' : ''}}">
-  {# -- image -- #}
+  {# image #}
   {% include '_components/image/image.twig' with {
     props: {
       image: data.image.one() ??? null,

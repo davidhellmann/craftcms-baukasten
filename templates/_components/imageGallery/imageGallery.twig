@@ -1,18 +1,6 @@
-{#
-  Description of what this file is for
-
-  @package Baukasten
-  @author David Hellmann [davidhellmann.com@gmail.com]
-
-  o-imageGallery
-  ------------------------------------------------------------
-#}
-
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'o-imageGallery',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
+  cn: 'c-imageGallery',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -28,29 +16,9 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
 {# Modul #}
 {% if props.images %}
-  <div {{ module.settings(props, twClasses.root) }} itemscope itemtype="http://schema.org/ImageGallery" waypointTrigger>
+  <div {{ module.settings(props) }} waypointTrigger>
     <div class="{{ props.cn ~ '__inner' }}">
       {% for image in props.images %}
         {% set imageSrc = image.getUrl() %}
@@ -63,9 +31,9 @@
              itemprop="contentUrl"
              data-size="{{ imageMaxWidth }}x{{ imageMaxHeight }}">
 
-            {% include '_atoms/image/variant-_template.twig' with {
+            {% include '_components/image/image-raw.twig' with {
               props: {
-                image: image ?? null,
+                image: image ??? null,
                 sizes: [
                   { width: 400 },
                   { width: 200 },

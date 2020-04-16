@@ -17,7 +17,7 @@ importScripts(
 
 importScripts(
   '/dist/js/workbox-catch-handler.js',
-  '/dist/js/precache-manifest.2835c69a486a5426f32db940b30e392d.js',
+  '/dist/js/precache-manifest.f4b25823e3e046fa14e9bc445e7da7b9.js',
 );
 
 self.addEventListener('message', event => {

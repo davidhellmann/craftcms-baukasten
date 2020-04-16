@@ -11,8 +11,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'm-navMain',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -27,29 +25,13 @@
 {% import '_macros/_macro-settings.twig' as module %}
 {% import '_partials/macros/_macro-isActive.twig' as macroIsActive %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
 
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
+
+
 
 {# Modul #}
 {% if props.items %}
-  <div {{ module.settings(props, twClasses.root) }}>
+  <div {{ module.settings(props) }}>
     <div class="{{ props.cn ~ '__wrapper' }}">
       <div class="{{ props.cn ~ '__inner' }}">
         <ul class="{{ props.cn ~ '__list' }}  {{ props.cn ~ '__list--level-1' }}">

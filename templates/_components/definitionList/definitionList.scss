@@ -28,15 +28,14 @@
 
   &__term {
     @include vr(1/2);
-    @include spaceY(padding-bottom);
     border-bottom: 1px dotted var(--c-gray-300);
     font-weight: 700;
   }
 
   &__description {
     @include vr(1/2);
-    @include spaceY(padding-bottom, 0.5);
-    @include spaceY(margin-bottom, 1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
 
     p {
       max-width: 80ch;
@@ -51,16 +50,5 @@
       border-bottom: 1px dotted var(--c-gray-300);
       margin-bottom: 0;
     }
-  }
-}
-
-
-.m-definitionList--modifier {
-  .m-definitionList__block {
-    /*// Styles here*/
-  }
-
-  @at-root {
-    /*// Use this for nesting with root selector*/
   }
 }

@@ -11,8 +11,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'm-quote',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -27,29 +25,13 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
 
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
+
+
 
 {# Modul #}
 {% if props.quote %}
-  <div {{ module.settings(props, twClasses.root) }}>
+  <div {{ module.settings(props) }}>
     <div class="{{ props.cn ~ '__inner' }}">
       <blockquote class="{{ props.cn ~ '__blockquote' }} u-stack">
         <p>

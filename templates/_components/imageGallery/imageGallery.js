@@ -282,10 +282,10 @@ const imageGallery = {
   },
 
   init() {
-    const gallery = document.querySelector('.js-imageGallery-cb');
+    const gallery = document.querySelector('.js-imageGallery');
     if (gallery) {
       this.addCode();
-      this.creatGallery('.js-imageGallery-cb');
+      this.creatGallery('.js-imageGallery');
     }
   },
 };

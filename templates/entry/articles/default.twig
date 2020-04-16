@@ -1,17 +1,17 @@
-{# -- News Entry Template -- #}
+{# News Entry Template #}
 {# ---------------------------------------------------------------------- #}
 
 {% extends "_layouts/_master.twig" %}
 {% set bodyClass = "p-articleSingle" %}
 
-{# -- CRITICAL CSS -- #}
+{# CRITICAL CSS #}
 {% block appInlineCSS %}
   <style>
     {{ source (_self ~ '_critical.min.css', ignore_missing = true) }}
   </style>
 {% endblock %}
 
-{# -- Rel Nav -- #}
+{# Rel Nav #}
 {% block siteHeader %}
   {% include '_partials/header/_siteHeaderLinks--single.twig' with {
     section: 'articles',
@@ -20,9 +20,9 @@
   } only %}
 {% endblock %}
 
-{# -- App Content -- #}
+{# App Content #}
 {% block appContent %}
-  {# -- Cache -- #}
+  {# Cache #}
   {% cache using key craft.app.request.pathInfo %}
     <article role="article">
 
@@ -30,7 +30,7 @@
       <div class="o-section">
         <div class="o-row">
           <div class="o-col-6  o-col-s-24">
-            {# -- Include Page Title -- #}
+            {# Include Page Title #}
             {% include '_molecules/pageTitle/_template.twig' with {
               props: {
                 object: entry,
@@ -38,7 +38,7 @@
               }
             } only %}
 
-            {# -- Entry Intro -- #}
+            {# Entry Intro #}
             {% if entry.entrySummary ?? null %}
               {% include '_atoms/richText/_template.twig' with {
                 props: {
@@ -47,7 +47,7 @@
               } only %}
             {% endif %}
 
-            {# -- Image Entry -- #}
+            {# Image Entry #}
             {% if entry.entryImage.one() ?? null %}
               {% include '_atoms/headline/_template.twig' with {
                 props: {
@@ -68,7 +68,7 @@
       </div>
 
 
-      {# -- Content Builder -- #}
+      {# Content Builder #}
       {% include '_contentBuilders/_contentBuilder.twig' with {
         props: {
           object: entry
@@ -77,7 +77,7 @@
     </article>
 
     <div class="o-section">
-      {# -- Post Nav -- #}
+      {# Post Nav #}
       {% import '_partials/macros/_macro-postNav.twig' as macroPostNav %}
       {{ macroPostNav.postNav(entry, {
         section: 'articles',
@@ -88,6 +88,6 @@
       }) }}
     </div>
 
-    {# -- Cache End -- #}
+    {# Cache End #}
   {% endcache %}
 {% endblock %}

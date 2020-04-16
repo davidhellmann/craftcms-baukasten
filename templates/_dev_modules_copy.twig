@@ -4,10 +4,9 @@
 {#                                                                #}
 {# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/code</pre>
-{# -- code -- #}
+{# code #}
 {% include '_atoms/code/_template.twig' with {
   props: {
-    variant: 'basic',
     snippet: "code[class*='language-'],
 pre[class*='language-'] {
   color: #f8f8f2;
@@ -26,10 +25,9 @@ pre[class*='language-'] {
 {# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/cookieClue</pre>
 <div class="relative w-full m:w-12/24" style="height: 0; padding-bottom: 50%;">
-  {# -- cookieClue -- #}
+  {# cookieClue #}
   {% include '_atoms/cookieClue/_template.twig' with {
     props: {
-      variant: 'basic',
     }
   } only %}
 </div>
@@ -41,24 +39,21 @@ pre[class*='language-'] {
 {#                                                                #}
 {# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/divider</pre>
-{# -- divider -- #}
+{# divider #}
 {% include '_atoms/divider/_template.twig' with {
   props: {
-    variant: 'basic'
   }
 } only %}
 
 {% include '_atoms/divider/_template.twig' with {
   props: {
     modifiers: ['medium'],
-    variant: 'basic'
   }
 } only %}
 
 {% include '_atoms/divider/_template.twig' with {
   props: {
     modifiers: ['narrow'],
-    variant: 'basic'
   }
 } only %}
 
@@ -69,12 +64,11 @@ pre[class*='language-'] {
 {#                                                                #}
 {# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/headline</pre>
-{# -- headline -- #}
+{# headline #}
 <div class="u-stack-0.5" waypointTrigger>
   {% for i in 1..6 %}
     {% include '_atoms/headline/_template.twig' with {
       props: {
-        variant: 'basic',
         text: 'The quick brown fox jumps over the lazy dogs',
         size: 'h' ~ i
       }
@@ -92,11 +86,10 @@ pre[class*='language-'] {
 {% set sizes = ['24', '32', '48', '64', '96'] %}
 <div class="flex items-center flex-direction-row">
   {% for i in sizes %}
-    {# -- icon -- #}
+    {# icon #}
     {% include '_atoms/icon/_template.twig' with {
       props: {
         modifiers: [i],
-        variant: 'basic',
         icon: 'social/twitter'
       }
     } only %}
@@ -110,18 +103,16 @@ pre[class*='language-'] {
 {#                                                                #}
 {# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/image</pre>
-{# -- image -- #}
+{# image #}
 {% include '_atoms/image/_template.twig' with {
   props: {
-    variant: 'basic',
     ratio: 'landscape'
   }
 } only %}
 <pre class="mt-4 mb-2">_atoms/image--raw</pre>
-{# -- image -- #}
+{# image #}
 {% include '_atoms/image/_template.twig' with {
   props: {
-    variant: 'raw',
     ratio: 'landscape'
   }
 } only %}
@@ -134,11 +125,10 @@ pre[class*='language-'] {
 {# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/link</pre>
 <div class="flex items-center flex-direction-row">
-  {# -- link -- #}
+  {# link #}
   <div class="p-1">
     {% include '_atoms/link/_template.twig' with {
       props: {
-        variant: 'basic',
         text: 'Button',
         url: 'https://google.com',
       }
@@ -149,7 +139,6 @@ pre[class*='language-'] {
     {% include '_atoms/link/_template.twig' with {
       props: {
         modifiers: ['outlined'],
-        variant: 'basic',
         text: 'Button',
         url: 'https://google.com',
       }
@@ -159,7 +148,6 @@ pre[class*='language-'] {
   <div class="p-1">
     {% include '_atoms/link/_template.twig' with {
       props: {
-        variant: 'icon',
         icon: 'social/twitter',
         text: 'Button',
         url: 'https://google.com',
@@ -170,7 +158,6 @@ pre[class*='language-'] {
   <div class="p-1">
     {% include '_atoms/link/_template.twig' with {
       props: {
-        variant: 'inline',
         text: 'Button',
         url: 'https://google.com',
       }
@@ -185,10 +172,9 @@ pre[class*='language-'] {
 {#                                                                #}
 {# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/logo</pre>
-{# -- logo -- #}
+{# logo #}
 {% include '_atoms/logo/_template.twig' with {
   props: {
-    variant: 'basic',
     name: 'logo'
   }
 } only %}
@@ -200,10 +186,9 @@ pre[class*='language-'] {
 {#                                                                #}
 {# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/plainText</pre>
-{# -- logo -- #}
+{# logo #}
 {% include '_atoms/plainText/_template.twig' with {
   props: {
-    variant: 'basic',
     text: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in? Qui no viderer vivendum facilisi, pro illud possim legimus at. Illum sonet numquam id vis. Ei accumsan nominati eos? Nam suas admodum ancillae ne? Nullam noster scribentur per cu, te duis consetetur adipiscing pri? Mollis deseruisse te mei. Cu euismod singulis suavitate eam. Ex eos purto similique, an eum fabellas adolescens! Dolor signiferumque cum id. Dicunt cetero detracto mea ei? Ex dico dolor vis, splendide vituperatoribus cu usu, ei mea posse sonet labores! Ad duo veritus intellegam, alterum appellantur vix et. Vis dissentiet repudiandae eu, decore integre principes per ei. Id vim stet mentitum repudiandae, pri mentitum qualisque ea, ex usu augue viderer suscipit. Ea vel mucius graecis, mentitum perfecto eu duo, duo eu ipsum urbanitas. Eruditi recteque abhorreant ius et, omnes dolore debitis vel ei? An inani copiosae nec, audiam sanctus nostrum est ea? Assum iuvaret mea id.
 
 An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, falli doming vix no? No pri causae petentium! Id vocibus volutpat deterruisset usu, vocibus verterem sed ne, usu ne similique temporibus! Ex vix dicat discere partiendo, at ignota corpora mei, posse percipitur mea ut. At doming commodo deseruisse sit, eu diceret fabulas eligendi vix, sea nostrum scriptorem ad! Quo cu eius tollit instructior.'
@@ -217,10 +202,9 @@ An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, fa
 {#                                                                #}
 {# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/richText</pre>
-{# -- logo -- #}
+{# logo #}
 {% include '_atoms/richText/_template.twig' with {
   props: {
-    variant: 'basic',
     text: '<h2>The quick brown fox jumps over the lazy dogs</h2>
     <p>Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in? Qui no viderer vivendum facilisi, pro illud possim legimus at. Illum sonet numquam id vis. Ei accumsan nominati eos? Nam suas admodum ancillae ne? Nullam noster scribentur per cu, te duis consetetur adipiscing pri? Mollis deseruisse te mei. Cu euismod singulis suavitate eam. Ex eos purto similique, an eum fabellas adolescens! Dolor signiferumque cum id. Dicunt cetero detracto mea ei? Ex dico dolor vis, splendide vituperatoribus cu usu, ei mea posse sonet labores! Ad duo veritus intellegam, alterum appellantur vix et. Vis dissentiet repudiandae eu, decore integre principes per ei. Id vim stet mentitum repudiandae, pri mentitum qualisque ea, ex usu augue viderer suscipit. Ea vel mucius graecis, mentitum perfecto eu duo, duo eu ipsum urbanitas. Eruditi recteque abhorreant ius et, omnes dolore debitis vel ei? An inani copiosae nec, audiam sanctus nostrum est ea? Assum iuvaret mea id.
 </p><p>
@@ -236,10 +220,9 @@ An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, fa
 {# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/spinner</pre>
 <div class="relative w-80px h-80px">
-  {# -- logo -- #}
+  {# logo #}
   {% include '_atoms/spinner/_template.twig' with {
     props: {
-      variant: 'basic',
     }
   } only %}
 </div>
@@ -251,10 +234,9 @@ An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, fa
 {#                                                                #}
 {# ============================================================== #}
 <pre class="mt-4 mb-2">_atoms/youtube</pre>
-{# -- logo -- #}
+{# logo #}
 {% include '_atoms/youtube/_template.twig' with {
   props: {
-    variant: 'basic',
     videoId: '2kVmvORQp4s',
     autoplay: 0,
     loop: 0,

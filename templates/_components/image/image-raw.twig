@@ -1,8 +1,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'c-imageRaw',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -16,7 +14,6 @@
     { width: 100 }
   ],
   ratio: null,
-  dominantColor: true,
   objectFit: null,
   mode: 'crop',
   lazy: true
@@ -27,26 +24,6 @@
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
-
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
 
 {# Image #}
 {% if props.image ??? null %}
@@ -98,24 +75,12 @@
     {# Final Image Set #}
     {% set transformedImages = craft.imager.transformImage(image, props.sizes, imageSettings) %}
 
-    {# Domiant Color (Use lase image from Final images #}
-    {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
-
     {# Placeholder #}
     {% set placeholderImage = craft.imager.placeholder({
       type: 'svg',
-      color: dominantColor,
       width: image.width,
       height: image.width / ratio
     }) %}
-  {% endif %}
-
-  {% if props.dominantColor starts with '#' %}
-    {% set dominantColor = props.dominantColor %}
-  {% endif %}
-
-  {% if image.extension == 'png' or image.extension == 'gif' or image.extension == 'svg' %}
-    {% set dominantColor = false %}
   {% endif %}
 
   {% if image.extension not in skipTransformsForThisExtensions %}

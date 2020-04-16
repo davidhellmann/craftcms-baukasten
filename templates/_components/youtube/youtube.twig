@@ -1,8 +1,6 @@
-{# -- Set Defaults -- #}
+{# Set Defaults #}
 {% set defaults = {
   cn: 'a-youtube-basic',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {}
@@ -12,7 +10,7 @@
   showinfo: 0,
 } %}
 
-{# -- Merge Default with Options -- #}
+{# Merge Default with Options #}
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 {% set props= props| merge({
   customClasses: props.customClasses | merge([
@@ -24,39 +22,23 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
 
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
+
+
 
 {# GDPR Ready Youtube Embeds#}
 {% set klaro = getCookie('klaro') | json_decode %}
 {% set craftEnv = craft.app.config.env != 'live' ? true : false %}
 {% if klaro.youtube ??? craftEnv ??? null %}
   {% if props.videoId %}
-    <div {{ module.settings(props, twClasses.root) }}>
+    <div {{ module.settings(props) }}>
       <iframe class="lazyload"
               data-src="https://www.youtube-nocookie.com/embed/{{ props.videoId }}?rel=0&loop={{ props.loop }}&showinfo={{ props.showinfo }}&autoplay={{ props.autoplay }}"
               frameborder="0">
       </iframe>
 
       {% if not klaro.youtube ??? null %}
-        {# -- cookieClue -- #}
+        {# cookieClue #}
         {% include '_atoms/cookieClue/_template.twig' with {
           props: {}
         } only %}

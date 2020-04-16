@@ -6,8 +6,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'o-slider',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'default',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -25,29 +23,13 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
 
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'default' %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
+
+
 
 {# Modul #}
 {% if props.images %}
-  <div {{ module.settings(props, twClasses.root) }} itemscope itemtype="http://schema.org/ImageGallery" role="presentation" waypointTrigger>
+  <div {{ module.settings(props) }} itemscope itemtype="http://schema.org/ImageGallery" role="presentation" waypointTrigger>
     <!-- Slides -->
     {% for image in props.images %}
       <div class="{{ props.cn ~ '__slide' }}" itemscope itemtype="http://schema.org/ImageObject">

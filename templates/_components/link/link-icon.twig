@@ -5,9 +5,7 @@
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'a-link',
-  theme: getenv('BAUKASTEN_THEME') | default(null),
-  variant: 'primary',
+  cn: 'c-linkIcon',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -24,46 +22,15 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{# Baukasten:Minimal #}
-{% if props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% case 'primary' %}
-    {% set twClasses = {
-      root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-100 hover:text-gray-200 bg-gray-800 hover:bg-gray-900 rounded-5px shadow-5 hover:shadow-1 border-3px border-transparent'
-    } %}
-  {% case 'secondary' %}
-    {% set twClasses = {
-      root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-700 hover:text-gray-600 bg-gray-200 rounded-5px shadow-1 hover:shadow-0 border-3px border-transparent'
-    } %}
-  {% case 'ghost' %}
-    {% set twClasses = {
-      root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-700 hover:text-gray-600 rounded-5px border-3px border-transparent'
-    } %}
-  {% case 'outline' %}
-    {% set twClasses = {
-      root: 'inline-block relative px-2 py-1 uppercase font-bold text-ms--1 text-gray-800 hover:text-gray-900 rounded-5px border-3px border-gray-800 hover:border-gray-900'
-    } %}
-  {% endswitch %}
-{% endif %}
-
-{# Custom Styling #}
-{% if not props.theme == 'Baukasten:Minimal' %}
-  {% switch props.variant %}
-  {% default %}
-    {% set twClasses = {
-      root: ''
-    } %}
-  {% endswitch %}
-{% endif %}
-
 {% if props.text and props.url and props.icon %}
   <a
-    href="{{ props.url }}" {{ props.url starts with '#' ? 'data-scroll' : '' }}  {{ module.settings(props, twClasses.root) }} {{ props.targetBlank ? 'target="_blank"' }}>
+    href="{{ props.url }}" {{ props.url starts with '#' ? 'data-scroll' : '' }}  {{ module.settings(props) }} {{ props.targetBlank ? 'target="_blank"' }}>
 
     {# Icon #}
-    {% include '_atoms/icon/_template.twig' with {
+    {% include '_components/icon/icon.twig' with {
       props: {
-        icon: props.icon
+        modifiers: ['24'],
+        icon: props.icon,
       }
     } only %}
 

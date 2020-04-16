@@ -11,7 +11,7 @@
     {% endif %}{{ siteName }}
   </title>
 
-  {# -- CRITICAL CSS -- #}
+  {# CRITICAL CSS #}
   {% set cacheVal = getCookie('critical-css') %}
   {% if not cacheVal or craft.app.config.general.devMode %}
     {{ setCookie('critical-css', now | date_modify("+7 days").timestamp ) }}
@@ -24,7 +24,7 @@
 <body>
 <div class="o-appWrapper">
 
-  {# -- pageTitle -- #}
+  {# pageTitle #}
   {% include '_molecules/pageTitle/_template.twig' with {
     props: {
       text: 'Colors' | t,

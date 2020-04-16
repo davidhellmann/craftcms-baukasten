@@ -21,7 +21,7 @@
   width: 44px;
   height: 44px;
   position: relative;
-  background: none;
+  background-color: transparent;
   cursor: pointer;
   overflow: visible;
   -webkit-appearance: none;
@@ -35,7 +35,7 @@
   transition: opacity 0.2s;
   -webkit-box-shadow: none;
   box-shadow: none;
-  background-image: url('/dist/img/svg/default-skin.svg');
+  background-image: url('/dist/img/svg/default-skin-black.svg');
   background-size: 264px 88px;
 }
 
@@ -68,7 +68,7 @@
   width: 44px !important;
   height: 44px !important;
   top: 28px !important;
-  left: s(2) !important;
+  left: 2rem !important;
 }
 
 .pswp__button--arrow--right:before {
@@ -80,7 +80,7 @@
   width: 44px !important;
   height: 44px !important;
   top: 28px !important;
-  right: s(2) !important;
+  right: 2rem !important;
 }
 
 .pswp__button--close {
@@ -148,7 +148,7 @@
 .pswp__button--arrow--right:before {
   content: '';
   top: 35px;
-  background-color: rgba(var(--c-white), 0.75);
+  background-color: rgba(white, 0.75);
   height: 30px;
   width: 32px;
   position: absolute;
@@ -170,7 +170,7 @@
 
 .pswp__share-modal {
   display: block;
-  background: rgba(var(--c-black), 0.5);
+  background: rgba(black, 0.5);
   width: 100%;
   height: 100%;
   top: 0;
@@ -198,8 +198,8 @@
   display: block;
   width: auto;
   right: 44px;
-  -webkit-box-shadow: 0 2px 5px rgba(var(--c-black), 0.25);
-  box-shadow: 0 2px 5px rgba(var(--c-black), 0.25);
+  -webkit-box-shadow: 0 2px 5px rgba(black, 0.25);
+  box-shadow: 0 2px 5px rgba(black, 0.25);
   -webkit-transform: translateY(6px);
   -ms-transform: translateY(6px);
   transform: translateY(6px);
@@ -538,13 +538,13 @@ a.pswp__share--download:hover {
 
 .pswp__top-bar,
 .pswp__caption {
-  background-color: rgba(var(--c-white), 0.75);
+  background-color: rgba(white, 0.75);
 }
 
 /* pswp__ui--fit class is added when main image "fits" between top bar and bottom bar (caption) */
 .pswp__ui--fit .pswp__top-bar,
 .pswp__ui--fit .pswp__caption {
-  background-color: rgba(var(--c-white), 0.75);
+  background-color: rgba(white, 0.75);
 }
 
 /* pswp__ui--idle class is added when mouse isn't moving for several seconds (JS option timeToIdle) */
