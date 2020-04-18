@@ -1,54 +1,55 @@
 /*
  |--------------------------------------------------------------------------
- |  [data-waypoint]
+ |  [waypoint-target]
  |--------------------------------------------------------------------------
  */
 
-[waypointTrigger] {
-  [waypoint].is-fadeInUp {
-    opacity: 0;
-    transform: translate3d(0, 50px, 0);
 
-    &.is-animated {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-      transition: transform 500ms var(--ease-out-cubic),
-        opacity 500ms var(--ease-out-cubic);
-    }
-  }
+[waypoint-target].is-fadeInUp {
+  opacity: 0;
+  transform: translate3d(0, 50px, 0);
 
-  [waypoint].is-fadeInDown {
-    opacity: 0;
-    transform: translate3d(0, -50px, 0);
-    &.is-animated {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-      transition: transform 500ms var(--ease-out-cubic),
-        opacity 500ms var(--ease-out-cubic);
-    }
-  }
-
-  [waypoint].is-fadeInLeft {
-    opacity: 0;
-    transform: translate3d(50px, 0, 0);
-
-    &.is-animated {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-      transition: transform 500ms var(--ease-out-cubic),
-        opacity 500ms var(--ease-out-cubic);
-    }
-  }
-
-  [waypoint].is-fadeInRight {
-    opacity: 0;
-    transform: translate3d(-50px, 0, 0);
-
-    &.is-animated {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-      transition: transform 500ms var(--ease-out-cubic),
-        opacity 500ms var(--ease-out-cubic);
-    }
+  &.is-animated {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform 500ms var(--ease-out-cubic),
+    opacity 500ms var(--ease-out-cubic);
   }
 }
+
+[waypoint-target].is-fadeInDown {
+  opacity: 0;
+  transform: translate3d(0, -50px, 0);
+
+  &.is-animated {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform 500ms var(--ease-out-cubic),
+    opacity 500ms var(--ease-out-cubic);
+  }
+}
+
+[waypoint-target].is-fadeInLeft {
+  opacity: 0;
+  transform: translate3d(50px, 0, 0);
+
+  &.is-animated {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform 500ms var(--ease-out-cubic),
+    opacity 500ms var(--ease-out-cubic);
+  }
+}
+
+[waypoint-target].is-fadeInRight {
+  opacity: 0;
+  transform: translate3d(-50px, 0, 0);
+
+  &.is-animated {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform 500ms var(--ease-out-cubic),
+    opacity 500ms var(--ease-out-cubic);
+  }
+}
+

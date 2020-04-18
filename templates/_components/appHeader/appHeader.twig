@@ -13,7 +13,7 @@
 {% import '_macros/_macro-settings.twig' as module %}
 
 <header {{ module.settings(props) }}>
-  <div class="container {{ props.cn ~ '__content' }}">
+  <div class="l-container {{ props.cn ~ '__content' }}">
     {# logo #}
     {% include '_components/logo/logo.twig' only %}
     <h1 class="{{ props.cn ~ '__headline' }}">Baukasten</h1>

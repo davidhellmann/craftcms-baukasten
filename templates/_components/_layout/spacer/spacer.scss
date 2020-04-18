@@ -1,0 +1,49 @@
+/*
+ |-------------------------------------------------------------------------- #}
+ | .c-spacer
+ |--------------------------------------------------------------------------
+ */
+
+.c-spacer {
+  border: 0;
+  width: 100%;
+}
+
+.c-spacer--40 {
+  height: 40px;
+}
+
+.c-spacer--80 {
+  height: 80px;
+}
+
+.c-spacer--120 {
+  height: 120px;
+}
+
+.c-spacer--160 {
+  height: 160px;
+}
+
+.c-spacer--240 {
+  height: 240px;
+}
+
+.c-spacer--visible {
+  background-color: rgba(turquoise, 0.1);
+  box-shadow: inset 0 0 0 1px turquoise;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after {
+    content: 'SPACER';
+    line-height: 1;
+    font-size: 11px;
+    color: turquoise;
+    letter-spacing: 5px;
+    font-weight: 700;
+    pointer-events: none;
+    user-select: none;
+  }
+}

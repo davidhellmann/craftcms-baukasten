@@ -1,53 +1,49 @@
 /*
- |--------------------------------------------------------------------------
- | @package  craft-baukasten
- | @author David Hellmann [david@hellmann.io]
- |
- | .a-spinner
+ |-------------------------------------------------------------------------- #}
+ | .c-spinner
  |--------------------------------------------------------------------------
  */
 
-.a-spinner {
+.c-spinner {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 8px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  opacity: 1;
+  display: flex;
+  justify-content: space-around;
 
-  .a-spinner__inner {
-    width: 60px;
-    height: 60px;
-
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      display: inline-block;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--c-gray-500);
-      animation: spin 1.6s var(--ease-in-quad) infinite;
-    }
-
-    &::after {
-      animation-delay: 0.8s;
-    }
+  &__bounce {
+    width: 8px;
+    height: 8px;
+    background-color: var(--c-white);
+    border-radius: 100%;
+    display: inline-block;
+    animation: spinnerBounce 1.4s infinite var(--ease-in-out-cubic) both;
   }
 
+  &__bounce--1 {
+    animation-delay: -0.32s;
+  }
 
-  @keyframes spin {
-    from {
+  &__bounce--2 {
+    animation-delay: -0.16s;
+  }
+
+  @keyframes spinnerBounce {
+    0%, 80%, 100% {
       transform: scale(0);
-      opacity: 1;
     }
+    40% {
+      transform: scale(1.0);
+    }
+  }
+}
 
-    to {
-      transform: scale(1);
-      opacity: 0;
-    }
+.c-spinner--dark  {
+  .c-spinner__bounce {
+    background-color: var(--c-black);
   }
 }

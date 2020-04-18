@@ -1,6 +1,4 @@
 <!--
- @author <%= author.name %> [<%= author.email %>]
-
  <%= moduleName.replace('-', '_') %>
 -->
 <template>

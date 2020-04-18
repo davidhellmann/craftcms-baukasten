@@ -112,27 +112,5 @@ module.exports = {
     strokeWidth: false,
     accessibility: true,
   },
-  plugins: [
-    function({ addComponents, config }) {
-      const grid = {
-        '.container': {
-          width: '100%',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: config('theme.screens.max'),
-          paddingLeft: config('theme.spacing.2'),
-          paddingRight: config('theme.spacing.2'),
-        },
-        '.row': {
-          marginLeft: `-${config('theme.spacing.1')}`,
-          marginRight: `-${config('theme.spacing.1')}`,
-          flexFlow: 'row wrap',
-          flex: '1 1 0',
-          display: 'flex',
-        },
-      };
-
-      addComponents(grid);
-    },
-  ],
+  plugins: [],
 };

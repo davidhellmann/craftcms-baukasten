@@ -78,8 +78,11 @@
     {% set transformedImages = craft.imager.transformImage(image, props.sizes, imageSettings) %}
 
     {# Domiant Color (Use lase image from Final images #}
-    {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
-
+    {% if craft.imager.getDominantColor(transformedImages|last) %}
+      {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
+    {% else %}
+      {% set dominantColor = 'transparent' %}
+    {% endif %}
 
     {# Placeholder #}
     {% set placeholderImage = craft.imager.placeholder({

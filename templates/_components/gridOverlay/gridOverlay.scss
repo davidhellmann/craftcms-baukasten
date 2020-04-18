@@ -40,17 +40,17 @@
     display: block;
   }
 
-  .container {
+  .l-container {
     position: relative;
     height: 100vh;
     outline: 1px solid rgba(#D81B60, 0.25);
   }
 
-  .row {
+  .l-row {
     height: 100vh;
   }
 
-  .col {
+  .l-col {
     position: relative;
     height: 100vh;
     box-shadow: 1px 0px 0px 0px rgba(#4FC3F7, 0.25);
@@ -64,7 +64,7 @@
       display: none;
     }
 
-    @screen m {
+    @include media('>=m') {
       width: calc(1 / 12 * 100%);
 
       &:nth-child(n+7) {
@@ -76,7 +76,7 @@
       }
     }
 
-    @screen l {
+    @include media('>=l') {
       width: calc(1 / 24 * 100%);
 
       &:nth-child(n+7) {
@@ -84,7 +84,7 @@
       }
     }
 
-    @screen max {
+    @include media('>=max') {
       width: calc(1 / 24 * 100%);
       display: block !important;
     }

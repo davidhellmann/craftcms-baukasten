@@ -5,19 +5,50 @@
 import scrollMonitor from 'scrollmonitor';
 
 const scrollMonitorScript = {
-  handleWaypointTriggers(waypointTriggers) {
-    waypointTriggers.forEach(waypointTrigger => {
-      const elementWatcher = scrollMonitor.create(waypointTrigger);
+  cfg: {
+    selectors: {
+      waypoint: '[waypoint]',
+      waypointTarget: '[waypoint-target]',
+    },
+    classes: {
+      isInViewport: 'is-inViewport',
+      isAnimated: 'is-animated',
+    },
+    els: {
+      $waypoints: undefined,
+      $waypointTargets: undefined,
+    },
+  },
 
+  setElements() {
+    this.cfg.els.$waypoints = [
+      ...document.querySelectorAll(this.cfg.selectors.waypoint),
+    ];
+  },
+
+  handleWaypoints(waypoints) {
+    waypoints.forEach(waypoint => {
+      // Create Watcher
+      const elementWatcher = scrollMonitor.create(waypoint, -100);
+
+      // Action when comes into viewport
       elementWatcher.enterViewport(() => {
-        waypointTrigger.classList.add('is-inViewport');
+        // Add class to the waypoint when comes into viewport
+        waypoint.classList.add(this.cfg.classes.isInViewport);
 
-        // Get all elements
-        const waypointTriggerEls = waypointTrigger.querySelectorAll(
-          '[waypoint]',
-        );
-        if (waypointTriggerEls) {
-          this.handleAnimateClasses(waypointTriggerEls);
+        // Get all targets
+        this.cfg.els.$waypointTargets = [
+          ...waypoint.querySelectorAll(this.cfg.selectors.waypointTarget),
+        ];
+
+        console.log(waypoint);
+
+        if (this.cfg.els.$waypointTargets.length > 0) {
+          // Animate Targets if exits
+          this.handleAnimateClasses(this.cfg.els.$waypointTargets);
+        } else if (waypoint.hasAttribute('waypoint-target')) {
+          // Animate the waypoint itself if no targets exists
+          this.handleAnimateClasses([waypoint]);
         }
         // Do it just on time
         elementWatcher.destroy();
@@ -25,22 +56,26 @@ const scrollMonitorScript = {
     });
   },
 
-  handleAnimateClasses(waypointTriggerEls) {
-    waypointTriggerEls.forEach((waypointTriggerEl, index) => {
+  handleAnimateClasses(targets) {
+    targets.forEach((target, index) => {
       const delay = 250 + 100 * index;
+      console.log(target, index);
 
-      if (!waypointTriggerEl.classList.contains('is-animated')) {
+      if (!target.classList.contains('is-animated')) {
         setTimeout(() => {
-          waypointTriggerEl.classList.add('is-animated');
+          target.classList.add('is-animated');
         }, delay);
       }
     });
   },
 
   init() {
-    const waypointTriggers = document.querySelectorAll('[waypointTrigger]');
-    if (waypointTriggers) {
-      this.handleWaypointTriggers(waypointTriggers);
+    // Set Elements
+    this.setElements();
+
+    // Handle Waypoints
+    if (this.cfg.els.$waypoints) {
+      this.handleWaypoints(this.cfg.els.$waypoints);
     }
   },
 };

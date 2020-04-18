@@ -31,11 +31,11 @@
 {% if props.cols %}
   <div class="js-toggleGrid">Grid</div>
   <div {{ module.settings(props) }}>
-    <div class="section">
-      <div class="container">
-        <div class="row">
+    <div class="l-section">
+      <div class="l-container">
+        <div class="l-row">
           {% for i in 1..props.cols %}
-            <div class="col"></div>
+            <div class="l-col"></div>
           {% endfor %}
         </div>
       </div>

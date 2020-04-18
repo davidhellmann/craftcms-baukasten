@@ -29,7 +29,7 @@ if (document.querySelectorAll('.lazyload').length) {
       if (target && target.style.backgroundColor) {
         setTimeout(() => {
           target.style.backgroundColor = 'transparent';
-        }, 250);
+        }, 1000);
       }
     });
   }

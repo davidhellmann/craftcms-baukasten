@@ -32,7 +32,7 @@ if (document.querySelectorAll('.c-pagination, .c-paginationSimple').length) {
 }
 
 // Scrollmonitor
-if (document.querySelectorAll('[waypointTrigger], [waypoint]').length) {
+if (document.querySelectorAll('[waypoint]').length) {
   import(/* webpackChunkName: "scrollMonitor" */ './scripts/scrollMonitor.js')
     .then(scrollMonitor => scrollMonitor.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));

@@ -14,14 +14,12 @@
 
 {% block content %}
   <section class="py-2" style="background-color: var(--c-red); color: var(--c-white); text-align: center">
-    <div class="container">
+    <div class="l-container">
       <h1>Component Library</h1>
     </div>
   </section>
-  <section class="py-2">
-    <div class="container">
-      {% include '_dev_modules.twig' %}
-    </div>
+  <section class="py-4">
+    {% include '_dev_modules.twig' %}
   </section>
 {% endblock %}
 

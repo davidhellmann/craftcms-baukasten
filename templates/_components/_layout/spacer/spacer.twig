@@ -4,7 +4,6 @@
   modifiers: [],
   customClasses: [],
   data: {},
-  foo: null
 } %}
 
 {# Merge Default with Options #}
@@ -13,13 +12,5 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-
-
-
-
-{% if props.foo %}
-  <div {{ module.settings(props) }}>
-    spacer
-  </div>
-{% endif %}
+<hr {{ module.settings(props) }}>
 

@@ -1,133 +1,235 @@
 {# Global Stuff #}
 {% set dummyImage = craft.assets.title('Placeholder').volume('templateImages').one() %}
+<div id="home"></div>
+<div class="l-container">
+  <h3>Layout</h3>
+</div>
 
 {# ============================================================== #}
 {#                                                                #}
 {#      SEPERATOR                                                 #}
 {#                                                                #}
 {# ============================================================== #}
-<pre class="mt-4 mb-2" id="code">_components/code</pre>
-{# code #}
-{% include '_components/code/code.twig' with {
-  props: {
-    snippet: "code[class*='language-'],
+<div class="l-container">
+  <pre class="mt-4 mb-2" id="section">_components/_layout/section</pre>
+</div>
+
+<div class="l-section l-section--lightgray l-section--visible mt-1"></div>
+<div class="l-section l-section--visible mt-1"></div>
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<div class="l-container">
+  <pre class="mt-4 mb-2" id="container">_components/_layout/container</pre>
+</div>
+<div class="l-container l-container--max l-container--visible mt-1"></div>
+<div class="l-container l-container--large l-container--visible mt-1"></div>
+<div class="l-container l-container--medium l-container--visible mt-1"></div>
+
+{# ============================================================== #}
+{#                                                                #}
+{#      SEPERATOR                                                 #}
+{#                                                                #}
+{# ============================================================== #}
+<div class="l-container">
+  <pre class="mt-4 mb-2" id="row">_components/_layout/row</pre>
+</div>
+{# TODO: Row #}
+
+<div class="l-container">
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="spacer">_components/_layout/spacer</pre>
+  {# spacer #}
+  {% include '_components/_layout/spacer/spacer.twig' with {
+    props: {
+      customClasses: ['mt-1'],
+      modifiers: ['40', 'visible']
+    }
+  } only %}
+
+  {% include '_components/_layout/spacer/spacer.twig' with {
+    props: {
+      customClasses: ['mt-1'],
+      modifiers: ['80', 'visible']
+    }
+  } only %}
+
+  {% include '_components/_layout/spacer/spacer.twig' with {
+    props: {
+      customClasses: ['mt-1'],
+      modifiers: ['120', 'visible']
+    }
+  } only %}
+
+  {% include '_components/_layout/spacer/spacer.twig' with {
+    props: {
+      customClasses: ['mt-1'],
+      modifiers: ['160', 'visible']
+    }
+  } only %}
+
+  {% include '_components/_layout/spacer/spacer.twig' with {
+    props: {
+      customClasses: ['mt-1'],
+      modifiers: ['240', 'visible']
+    }
+  } only %}
+</div>
+
+
+<div class="l-container">
+  <h3 class="mt-4">Components</h3>
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="code">_components/code</pre>
+  {# code #}
+  {% include '_components/code/code.twig' with {
+    props: {
+      snippet: "code[class*='language-'],
 pre[class*='language-'] {
   color: #f8f8f2;
   tab-size: 4;
   hyphens: none;
 }",
-    language: 'scss'
-  }
-} only %}
+      language: 'scss'
+    }
+  } only %}
 
-{# ============================================================== #}
-{#                                                                #}
-{#      SEPERATOR                                                 #}
-{#                                                                #}
-{# ============================================================== #}
-<pre class="mt-4 mb-2" id="image">_components/image</pre>
-{# link #}
-{% include '_components/image/image.twig' with {
-  props: {
-    image: dummyImage,
-    ratio: 'landscape'
-  }
-} only %}
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="image">_components/image</pre>
+  {# image #}
+  {% include '_components/image/image.twig' with {
+    props: {
+      image: dummyImage,
+      ratio: 'landscape'
+    }
+  } only %}
 
-{# ============================================================== #}
-{#                                                                #}
-{#      SEPERATOR                                                 #}
-{#                                                                #}
-{# ============================================================== #}
-<pre class="mt-4 mb-2" id="imageRaw">_components/image-raw</pre>
-{# link #}
-{% include '_components/image/image-raw.twig' with {
-  props: {
-    image: dummyImage,
-    ratio: 'landscape'
-  }
-} only %}
-
-
-{# ============================================================== #}
-{#                                                                #}
-{#      SEPERATOR                                                 #}
-{#                                                                #}
-{# ============================================================== #}
-<pre class="mt-4 mb-2" id="imageGallery">_components/imageGallery</pre>
-{# link #}
-
-{% include '_components/imageGallery/imageGallery.twig' with {
-  props: {
-    images: [dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage,dummyImage]
-  }
-} only %}
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="imageRaw">_components/image-raw</pre>
+  {# image-raw #}
+  {% include '_components/image/image-raw.twig' with {
+    props: {
+      image: dummyImage,
+      ratio: 'landscape'
+    }
+  } only %}
 
 
-{# ============================================================== #}
-{#                                                                #}
-{#      SEPERATOR                                                 #}
-{#                                                                #}
-{# ============================================================== #}
-<pre class="mt-4 mb-2" id="link">_components/link</pre>
-{# link #}
-{% include '_components/link/link.twig' with {
-  props: {
-    modifiers: ['primary'],
-    url: 'https://davidhellmann.com',
-    text: 'Primary Link'
-  }
-} only %}
-
-{# link #}
-{% include '_components/link/link.twig' with {
-  props: {
-    modifiers: ['secondary'],
-    customClasses: ['ml-1'],
-    url: 'https://davidhellmann.com',
-    text: 'Secondary Link'
-  }
-} only %}
-
-{# link #}
-{% include '_components/link/link.twig' with {
-  props: {
-    modifiers: ['ghost'],
-    customClasses: ['ml-1'],
-    url: 'https://davidhellmann.com',
-    text: 'Ghost Link'
-  }
-} only %}
-
-{# link #}
-{% include '_components/link/link.twig' with {
-  props: {
-    modifiers: ['outlined'],
-    customClasses: ['ml-1'],
-    url: 'https://davidhellmann.com',
-    text: 'Outlined Link'
-  }
-} only %}
-
-{# ============================================================== #}
-{#                                                                #}
-{#      SEPERATOR                                                 #}
-{#                                                                #}
-{# ============================================================== #}
-<pre class="mt-4 mb-2" id="linkIcon">_components/link-icon</pre>
-{# link #}
-{% include '_components/link/link-icon.twig' with {
-  props: {
-    modifiers: ['primary'],
-    url: 'https://davidhellmann.com',
-    text: 'Primary Link',
-    icon: 'iconSample'
-  }
-} only %}
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="imageGallery">_components/imageGallery</pre>
+  {# image-gallery #}
+  {% include '_components/imageGallery/imageGallery.twig' with {
+    props: {
+      images: [dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage,dummyImage]
+    }
+  } only %}
 
 
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="link">_components/link</pre>
+  {# link #}
+  {% include '_components/link/link.twig' with {
+    props: {
+      modifiers: ['primary'],
+      url: 'https://davidhellmann.com',
+      text: 'Primary Link'
+    }
+  } only %}
 
+  {# link #}
+  {% include '_components/link/link.twig' with {
+    props: {
+      modifiers: ['secondary'],
+      customClasses: ['ml-1'],
+      url: 'https://davidhellmann.com',
+      text: 'Secondary Link'
+    }
+  } only %}
 
+  {# link #}
+  {% include '_components/link/link.twig' with {
+    props: {
+      modifiers: ['ghost'],
+      customClasses: ['ml-1'],
+      url: 'https://davidhellmann.com',
+      text: 'Ghost Link'
+    }
+  } only %}
+
+  {# link #}
+  {% include '_components/link/link.twig' with {
+    props: {
+      modifiers: ['outlined'],
+      customClasses: ['ml-1'],
+      url: 'https://davidhellmann.com',
+      text: 'Outlined Link'
+    }
+  } only %}
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="linkIcon">_components/link-icon</pre>
+  {# link-icon #}
+  {% include '_components/link/link-icon.twig' with {
+    props: {
+      modifiers: ['primary'],
+      url: 'https://davidhellmann.com',
+      text: 'Primary Link',
+      icon: 'iconSample'
+    }
+  } only %}
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="spinner">_components/spinner</pre>
+  {# spinner #}
+  <div style="position:relative; width: 100%; height: 48px; background-color: black;">
+    {% include '_components/spinner/spinner.twig' with {
+      props: {}
+    } only %}
+  </div>
+
+  <div style="position:relative; width: 100%; height: 48px;">
+    {% include '_components/spinner/spinner.twig' with {
+      props: {
+        modifiers: ['dark']
+      }
+    } only %}
+  </div>
+</div>
 
 
 {# ============================================================== #}
@@ -137,13 +239,20 @@ pre[class*='language-'] {
 {# ============================================================== #}
 <div id="selector">
   <select name="dropDown" id="dropDown">
-    <option>Select Component</option>
-    <option value="#code">Code</option>
-    <option value="#image">Image</option>
-    <option value="#imageRaw">Image Raw</option>
-    <option value="#imageGallery">Image Gallery</option>
-    <option value="#link">Link</option>
-    <option value="#linkIcon">Link Icon</option>
+    <option value="#home">Select Component</option>
+    <option>LAYOUT</option>
+    <option value="#section">- Section</option>
+    <option value="#container">- Container</option>
+    <option value="#row">- Row</option>
+    <option value="#spacer">- Spacer</option>
+    <option>COMPONENTS</option>
+    <option value="#code">- Code</option>
+    <option value="#image">- Image</option>
+    <option value="#imageRaw">- Image Raw</option>
+    <option value="#imageGallery">- Image Gallery</option>
+    <option value="#link">- Link</option>
+    <option value="#linkIcon">- Link Icon</option>
+    <option value="#spinner">- Spinner</option>
   </select>
 </div>
 
@@ -151,9 +260,7 @@ pre[class*='language-'] {
   var dropDownValue = document.getElementById("dropDown");
 
   dropDownValue.addEventListener('change', function () {
-    if (this.selectedIndex !== 0) {
-      window.location.href = this.value;
-    }
+    window.location.href = this.value;
   });
 </script>
 

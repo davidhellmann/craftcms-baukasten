@@ -1,0 +1,64 @@
+/*
+ |--------------------------------------------------------------------------
+ | .l-container
+ |--------------------------------------------------------------------------
+ */
+
+.l-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: map_get($breakpoints, 'max');
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  .l-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.l-container--max {
+  max-width: map_get($breakpoints, 'max');
+}
+
+.l-container--large {
+  max-width: map_get($breakpoints, 'l');
+}
+
+.l-container--medium {
+  max-width: map_get($breakpoints, 'm');
+}
+
+
+.l-container--visible {
+  background-color: var(--c-gray-100);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+
+  &::after {
+    content: 'CONTAINER';
+    line-height: 1;
+    font-size: 11px;
+    color: var(--c-gray-500);
+    letter-spacing: 5px;
+    font-weight: 700;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 2rem;
+    right: 2rem;
+    top: 0;
+    bottom: 0;
+    background-color: var(--c-gray-200);
+    z-index: 0;
+  }
+}

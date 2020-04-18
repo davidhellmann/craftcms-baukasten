@@ -1,13 +1,13 @@
 /*
  |--------------------------------------------------------------------------
- | @package  craft-baukasten
- | @author David Hellmann [david@hellmann.io]
- |
- | .c-spacer
+ | .l-row
  |--------------------------------------------------------------------------
  */
 
-/* prettier-ignore */
-.c-spacer {
-  /* Put your styles here */
+.l-row {
+  display: flex;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  flex-flow: row wrap;
+  flex: 1 1 auto;
 }
