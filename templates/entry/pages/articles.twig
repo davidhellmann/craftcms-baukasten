@@ -51,7 +51,7 @@
       <div class="o-row">
         <div class="o-col-6  o-col-s-24">
           {# Entry Intro #}
-          {% if entry.entrySummary ?? null %}
+          {% if entry.entrySummary ??? null %}
             {% include '_atoms/richText/_template.twig' with {
               props: {
                 text: entry.entrySummary

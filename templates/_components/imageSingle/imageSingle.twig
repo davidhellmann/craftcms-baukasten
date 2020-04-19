@@ -1,16 +1,11 @@
 {#
-  Description of what this file is for
-
-  @package Baukasten
-  @author David Hellmann [davidhellmann.com@gmail.com]
-
-  o-imageSingle
+  c-imageSingle
   ------------------------------------------------------------
 #}
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'o-imageSingle',
+  cn: 'c-imageSingle',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -34,13 +29,13 @@
   <div {{ module.settings(props) }}>
     {% include '_molecules/figure/_template.twig' with {
       props: {
-        image: props.image ?? null,
-        ratio: props.ratio ?? null,
-        caption: props.caption ?? null,
-        captionHeadline: props.image.imageTitle ?? null,
-        captionText: props.image.imageCaption ?? null,
-        captionSource: props.image.imageSource ?? null,
-        captionSourceUrl: props.image.imageSourceUrl ?? null
+        image: props.image ??? null,
+        ratio: props.ratio ??? null,
+        caption: props.caption ??? null,
+        captionHeadline: props.image.imageTitle ??? null,
+        captionText: props.image.imageCaption ??? null,
+        captionSource: props.image.imageSource ??? null,
+        captionSourceUrl: props.image.imageSourceUrl ??? null
       }
     } only %}
   </div>

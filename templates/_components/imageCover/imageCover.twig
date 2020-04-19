@@ -1,22 +1,16 @@
 {#
-  Description of what this file is for
-
-  @package Baukasten
-  @author David Hellmann [davidhellmann.com@gmail.com]
-
-  o-imageCover
+  c-imageCover
   ------------------------------------------------------------
 #}
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'o-imageCover',
+  cn: 'c-imageCover',
   modifiers: [],
   customClasses: [],
   data: {},
   image: null,
   ratio: null,
-  text: null,
   objectFit: null
 } %}
 
@@ -26,30 +20,19 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-
-
-
-
 {# Modul #}
 {% if props.image %}
-  <div {{ module.settings(props) }} waypointTrigger>
-    {% include '_molecules/figure/_template.twig' with {
+  <div {{ module.settings(props) }} waypoint>
+    {% include '_components/image/image.twig' with {
       props: {
         customClasses: ['is-fadeInUp'],
         data: {
-          'waypoint': ''
+          'waypoint-target': ''
         },
-        image: props.image ?? null,
-        ratio: props.ratio ?? null,
-        objectFit: props.objectFit ?? 'cover'
+        image: props.image ??? null,
+        ratio: props.ratio ??? null,
+        objectFit: props.objectFit ??? 'cover'
       }
     } only %}
-
-    {# Text #}
-    {% if props.text %}
-      <div class="{{ props.cn ~ '__text' }} is-fadeInUp" waypoint>
-        {{ props.text }}
-      </div>
-    {% endif %}
   </div>
 {% endif %}

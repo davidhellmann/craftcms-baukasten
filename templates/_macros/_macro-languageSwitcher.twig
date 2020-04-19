@@ -42,7 +42,7 @@
                 {% set current = true %}
               {% endif %}
 
-              {% if entry ?? null %}
+              {% if entry ??? null %}
                 {% set siteEntry = craft.entries.id(entry.id).site(site).one() %}
 
                 {% if siteEntry and (siteEntry.site.handle is defined and siteEntry.site.handle == site) %}

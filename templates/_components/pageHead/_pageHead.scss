@@ -1,16 +1,15 @@
 /*
  |--------------------------------------------------------------------------
- |
- | Description of what this file is for
- |
- | @package Baukasten
- | @author David Hellmann [david@hellmann.io]
- | .m-navMain
+ | .c-pageHead
  |--------------------------------------------------------------------------
  */
 
 
-.m-navMain {
+.m-pageHead {
   $root: &;
   @include vr();
+
+  &__inner {
+    max-width: 28ch;
+  }
 }

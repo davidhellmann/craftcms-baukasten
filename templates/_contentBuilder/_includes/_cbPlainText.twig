@@ -12,7 +12,7 @@
             modifiers: [
                 'cb'
             ],
-            items: data.children ?? null
+            items: data.children ??? null
         }
     } only %}
 
@@ -22,9 +22,9 @@
         props: {
             modifiers: [
                 'cb',
-                data.paddingVertical ?? null,
-                data.width ?? null,
-                data.background ?? null
+                data.paddingVertical ??? null,
+                data.width ??? null,
+                data.background ??? null
             ],
             closetags: false
         }
@@ -37,8 +37,8 @@
             modifiers: [
                 'cb',
             ],
-            snippet: data.snippet ?? null,
-            language: data.language ?? null
+            snippet: data.snippet ??? null,
+            language: data.language ??? null
         }
     } only %}
 
@@ -49,7 +49,7 @@
             modifiers: [
                 'cb',
             ],
-            items: data.definitionList ?? null
+            items: data.definitionList ??? null
         }
     } only %}
 
@@ -59,10 +59,10 @@
         props: {
             modifiers: [
                 'cb',
-                data.position ?? null,
-                data.width ?? null
+                data.position ??? null,
+                data.width ??? null
             ],
-            code: data.code ?? null
+            code: data.code ??? null
         }
     } only %}
 
@@ -73,8 +73,8 @@
             modifiers: [
                 'cb',
             ],
-            text: data.headline ?? null,
-            size: data.size ?? null
+            text: data.headline ??? null,
+            size: data.size ??? null
         }
     } only %}
 
@@ -84,13 +84,13 @@
         props: {
             modifiers: [
                 'cb',
-                data.color ?? null,
-                data.position ?? null,
-                data.alignment ?? null
+                data.color ??? null,
+                data.position ??? null,
+                data.alignment ??? null
             ],
-            image: data.image.one() ?? null,
-            ratio: data.ratio ?? null,
-            text: data.text ?? null
+            image: data.image.one() ??? null,
+            ratio: data.ratio ??? null,
+            text: data.text ??? null
         }
     } only %}
 
@@ -102,8 +102,8 @@
                 'cb'
             ],
             customClasses: ['test'],
-            images: data.images.all() ?? null,
-            ratio: data.ratio ?? null,
+            images: data.images.all() ??? null,
+            ratio: data.ratio ??? null,
         }
     } only %}
 
@@ -113,11 +113,11 @@
         props: {
             modifiers: [
                 'cb',
-                data.columns ?? null
+                data.columns ??? null
             ],
-            images: data.images.all() ?? null,
-            ratio: data.ratio ?? null,
-            caption: data.caption ?? null,
+            images: data.images.all() ??? null,
+            ratio: data.ratio ??? null,
+            caption: data.caption ??? null,
         }
     } only %}
 
@@ -128,16 +128,16 @@
         props: {
             modifiers: [
                 'cb',
-                data.alignment ?? null,
-                data.width ?? null
+                data.alignment ??? null,
+                data.width ??? null
             ],
-            image: image ?? null,
-            ratio: data.ratio ?? null,
-            caption: data.caption ?? null,
-            captionHeadline: image.imageTitle ?? null,
-            captionText: image.imageCaption ?? null,
-            captionSource: image.imageSource ?? null,
-            captionSourceUrl: image.imageSourceUrl ?? null
+            image: image ??? null,
+            ratio: data.ratio ??? null,
+            caption: data.caption ??? null,
+            captionHeadline: image.imageTitle ??? null,
+            captionText: image.imageCaption ??? null,
+            captionSource: image.imageSource ??? null,
+            captionSourceUrl: image.imageSourceUrl ??? null
         }
     } only %}
 
@@ -148,8 +148,8 @@
             modifiers: [
                 'cb',
             ],
-            images: data.images.all() ?? null,
-            ratio: data.ratio ?? null,
+            images: data.images.all() ??? null,
+            ratio: data.ratio ??? null,
         }
     } only %}
 
@@ -160,9 +160,9 @@
             modifiers: [
                 'cb',
             ],
-            quote: data.quote ?? null,
-            source: data.source ?? null,
-            sourceUrl: data.sourceUrl ?? null
+            quote: data.quote ??? null,
+            source: data.source ??? null,
+            sourceUrl: data.sourceUrl ??? null
         }
     } only %}
 
@@ -173,7 +173,7 @@
             modifiers: [
                 'cb',
             ],
-            text: data.richText ?? null
+            text: data.richText ??? null
         }
     } only %}
 
@@ -183,8 +183,8 @@
         props: {
             modifiers: [
                 'cb',
-                data.settingsDivider.style ?? null,
-                data.settingsDivider.marginVertical ?? null
+                data.settingsDivider.style ??? null,
+                data.settingsDivider.marginVertical ??? null
             ]
         }
     } only %}

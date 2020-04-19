@@ -1,10 +1,5 @@
 {#
-  Description of what this file is for
-
-  @package Baukasten
-  @author David Hellmann [davidhellmann.com@gmail.com]
-
-  m-pageHead
+  c-pageHead
   ------------------------------------------------------------
 #}
 
@@ -14,7 +9,7 @@
   modifiers: [],
   customClasses: [],
   data: {},
-  object: entry ?? null,
+  object: entry ??? null,
   text: null,
   size: 'h1',
   link: null
@@ -34,7 +29,7 @@
 {% if props.object or props.text %}
   {% if props.text %}
     {% set headline = props.text %}
-  {% elseif props.object.entryCustomH1 ?? null and props.object.entryCustomH1 | length %}
+  {% elseif props.object.entryCustomH1 ??? null and props.object.entryCustomH1 | length %}
     {% set headline = props.object.entryCustomH1 %}
   {% else %}
     {% set headline = props.object.title %}

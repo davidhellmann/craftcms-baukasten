@@ -1,23 +1,20 @@
 {#
-  Description of what this file is for
-
-  @package Baukasten
-  @author David Hellmann [david@hellmann.io]
-
-  m-card
+  c-card
   ------------------------------------------------------------
 #}
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'm-card',
+  cn: 'c-card',
   modifiers: [],
   customClasses: [],
   data: {},
-  item: null,
   image: null,
-  content: null,
-  link: null
+  imageRatio: null,
+  headline: null,
+  copy: null,
+  linkUrl: null,
+  linkText: null
 } %}
 
 {# Merge Default with Options #}
@@ -26,53 +23,26 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-
-
-
-
 {# Modul #}
-{% if props.item %}
+{% if props.image and props.headline and props.linkUrl %}
   <article {{ module.settings(props) }}>
-    <div class="{{ props.cn ~ '__wrapper' }}">
-      <div class="{{ props.cn ~ '__inner' }}">
-        <a class="{{ props.cn ~ '__link' }}" href="{{ props.item.url }}">
-          {% if props.image %}
-            {% include '_atoms/image/variant-_template.twig' with {
-              props: {
-                image: props.item.entryImage ?? null,
-                ratio: 'landscape'
-              }
-            } only %}
-          {% endif %}
-
-          {% if props.content %}
-            {% include '_atoms/headline/_template.twig' with {
-              props: {
-                modifiers: [
-                  'h6'
-                ],
-                text: props.item.title,
-                size: 'h2'
-              }
-            } only %}
-
-            {# Entry Intro #}
-            {% if props.item.entrySummary ?? null %}
-
-              {% include '_atoms/richText/_template.twig' with {
-                props: {
-                  text: '<p>' ~ props.item.entrySummary | striptags | truncateOnWord(140) ~ '</p>'
-                }
-              } only %}
-
-            {% endif %}
-          {% endif %}
-
-          {% if props.link %}
-            <span class="{{ props.cn ~ '__readmore' }}">Read more</span>
-          {% endif %}
-        </a>
+    <a class="{{ props.cn ~ '__link' }}" href="{{ props.linkUrl }}">
+      <div class="{{ props.cn ~ '__header' }}">
+        {% include '_components/image/image.twig' with {
+          props: {
+            image: props.image ??? null,
+            ratio: props.imageRatio ??? null
+          }
+        } only %}
       </div>
-    </div>
+      <div class="{{ props.cn ~ '__body' }}">
+        <h2>{{ props.headline }}</h2>
+        {% if props.copy %}
+          <p>
+            {{ props.copy | nl2br }}
+          </p>
+        {% endif %}
+      </div>
+    </a>
   </article>
 {% endif %}

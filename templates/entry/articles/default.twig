@@ -39,7 +39,7 @@
             } only %}
 
             {# Entry Intro #}
-            {% if entry.entrySummary ?? null %}
+            {% if entry.entrySummary ??? null %}
               {% include '_atoms/richText/_template.twig' with {
                 props: {
                   text: entry.entrySummary
@@ -48,7 +48,7 @@
             {% endif %}
 
             {# Image Entry #}
-            {% if entry.entryImage.one() ?? null %}
+            {% if entry.entryImage.one() ??? null %}
               {% include '_atoms/headline/_template.twig' with {
                 props: {
                   text: 'Image Entry',
@@ -58,7 +58,7 @@
 
               {% include '_organisms/imageSingle/_template.twig' with {
                 props: {
-                  image: entry.entryImage.one() ?? null,
+                  image: entry.entryImage.one() ??? null,
                   ratio: 'landscape'
                 }
               } only %}

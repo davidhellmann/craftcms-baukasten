@@ -32,13 +32,13 @@
         <div class="{{ props.cn ~ '__item' }} is-fadeInUp" waypoint>
           {% include '_molecules/figure/_template.twig' with {
             props: {
-              image: image ?? null,
-              ratio: props.ratio ?? null,
-              caption: props.caption ?? null,
-              captionHeadline: image.imageTitle ?? null,
-              captionText: image.imageCaption ?? null,
-              captionSource: image.imageSource ?? null,
-              captionSourceUrl: image.imageSourceUrl ?? null
+              image: image ??? null,
+              ratio: props.ratio ??? null,
+              caption: props.caption ??? null,
+              captionHeadline: image.imageTitle ??? null,
+              captionText: image.imageCaption ??? null,
+              captionSource: image.imageSource ??? null,
+              captionSourceUrl: image.imageSourceUrl ??? null
             }
           } only %}
         </div>

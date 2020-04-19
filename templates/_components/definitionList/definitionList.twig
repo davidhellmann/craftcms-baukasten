@@ -1,16 +1,11 @@
 {#
-  Description of what this file is for
-
-  @package Baukasten
-  @author David Hellmann [david@hellmann.io]
-
-  m-definitionList
+  c-definitionList
   ------------------------------------------------------------
 #}
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'm-definitionList',
+  cn: 'c-definitionList',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -29,16 +24,14 @@
 
 {# Modul #}
 {% if props.items %}
-  <dl {{ module.settings(props) }} waypointTrigger>
-    <div class="{{ props.cn ~ '__inner' }}">
-      {% for item in props.items %}
-        <dt class="{{ props.cn ~ '__term' }}  is-fadeInUp" waypoint>
-          {{ item.term | raw }}
-        </dt>
-        <dd class="{{ props.cn ~ '__description' }}  is-fadeInUp"  waypoint>
-          <p>{{ item.description | nl2br }}</p>
-        </dd>
-      {% endfor %}
-    </div>
+  <dl {{ module.settings(props) }} waypoint>
+    {% for item in props.items %}
+      <dt class="{{ props.cn ~ '__term' }}  is-fadeInUp" waypoint-target>
+        {{ item.term | raw }}
+      </dt>
+      <dd class="{{ props.cn ~ '__description' }}  is-fadeInUp" waypoint-target>
+        <p>{{ item.description | nl2br }}</p>
+      </dd>
+    {% endfor %}
   </dl>
 {% endif %}

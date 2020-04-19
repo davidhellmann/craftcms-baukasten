@@ -1,22 +1,24 @@
 /*
  |--------------------------------------------------------------------------
- |  a-divider
+ |  c-divider
  |--------------------------------------------------------------------------
  */
 
 
-.a-divider {
-  $root: a-divider;
+.c-divider {
   border: 0;
   width: 100%;
-  height: 3px;
+  height: 2px;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   background-color: var(--c-gray-300);
+}
 
-  &--medium {
-    width: 50%;
-  }
+.c-divider--medium {
+  width: 50%;
+}
 
-  &--narrow {
-    width: 25%;
-  }
+
+.c-divider--narrow {
+  width: 25%;
 }

@@ -89,6 +89,43 @@
 
 <div class="l-container">
   <h3 class="mt-4">Components</h3>
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="caption">_components/caption</pre>
+  {# caption #}
+  {% include '_components/caption/caption.twig' with {
+    props: {
+      headline: 'The quick brown fox jumps over the lazy dogs',
+      text: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in',
+      source: 'Baukasten',
+      sourceUrl: siteUrl,
+    }
+  } only %}
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="card">_components/card</pre>
+  {# card #}
+  <div style="max-width: 400px;">
+    {% include '_components/card/card.twig' with {
+      props: {
+        image: dummyImage ??? null,
+        imageRatio: 'landscape',
+        headline: 'The quick brown fox jumps over the lazy dogs',
+        copy: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo.',
+        linkUrl: siteUrl,
+        linkText: null
+      }
+    } only %}
+  </div>
+
   {# ============================================================== #}
   {#                                                                #}
   {#      SEPERATOR                                                 #}
@@ -113,11 +150,72 @@ pre[class*='language-'] {
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="definitionList">_components/definitionList</pre>
+  {# definitionList #}
+  {% include '_components/definitionList/definitionList.twig' with {
+    props: {
+      image: dummyImage ??? null,
+      items: [
+        { term: 'Definition Term', description: 'The quick brown fox jumps over the lazy dogs'},
+        { term: 'John Wayne', description: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in?'},
+        { term: 'Lorem Ipsum ', description: 'Quick brown fox jumps over the lazy dogs'},
+        { term: 'Definition Term', description: 'The quick brown fox jumps over the lazy dogs'},
+        { term: 'John Wayne', description: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in?'},
+      ]
+    }
+  } only %}
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="divider">_components/divider</pre>
+  {# divider #}
+  <div class="l-container">
+    {% include '_components/divider/divider.twig' only %}
+    {% include '_components/divider/divider.twig' with {
+      props: {
+        modifiers: ['medium']
+      }
+    } only %}
+    {% include '_components/divider/divider.twig' with {
+      props: {
+        modifiers: ['narrow']
+      }
+    } only %}
+  </div>
+
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="figure">_components/figure</pre>
+  {# figure #}
+  {% include '_components/figure/figure.twig' with {
+    props: {
+      image: dummyImage ??? null,
+      caption: true,
+      captionHeadline: 'The quick brown fox jumps over the lazy dogs',
+      captionText: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in.',
+      captionSource: 'Baukasten',
+      captionSourceUrl: siteUrl,
+    }
+  } only %}
+
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
   <pre class="mt-4 mb-2" id="image">_components/image</pre>
   {# image #}
   {% include '_components/image/image.twig' with {
     props: {
-      image: dummyImage,
+      image: dummyImage ??? null,
       ratio: 'landscape'
     }
   } only %}
@@ -127,14 +225,28 @@ pre[class*='language-'] {
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="imageRaw">_components/image-raw</pre>
-  {# image-raw #}
-  {% include '_components/image/image-raw.twig' with {
+  <pre class="mt-4 mb-2" id="imageRaw">_components/imageRaw</pre>
+  {# imageRaw #}
+  {% include '_components/image/imageRaw.twig' with {
     props: {
-      image: dummyImage,
+      image: dummyImage ??? null,
       ratio: 'landscape'
     }
   } only %}
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="imageCover">_components/imageCover</pre>
+  {# image #}
+  {% include '_components/imageCover/imageCover.twig' with {
+    props: {
+      image: dummyImage ??? null,
+    }
+  } only %}
+
 
 
   {# ============================================================== #}
@@ -143,10 +255,10 @@ pre[class*='language-'] {
   {#                                                                #}
   {# ============================================================== #}
   <pre class="mt-4 mb-2" id="imageGallery">_components/imageGallery</pre>
-  {# image-gallery #}
+  {# imageGallery #}
   {% include '_components/imageGallery/imageGallery.twig' with {
     props: {
-      images: [dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage, dummyImage,dummyImage, dummyImage,dummyImage]
+      images: [dummyImage ??? null, dummyImage ??? null, dummyImage ??? null,dummyImage ??? null, dummyImage ??? null, dummyImage ??? null,dummyImage ??? null, dummyImage ??? null, dummyImage ??? null,dummyImage ??? null, dummyImage ??? null, dummyImage ??? null,dummyImage ??? null, dummyImage ??? null, dummyImage ??? null,dummyImage ??? null, dummyImage ??? null,dummyImage ??? null]
     }
   } only %}
 
@@ -201,9 +313,9 @@ pre[class*='language-'] {
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="linkIcon">_components/link-icon</pre>
-  {# link-icon #}
-  {% include '_components/link/link-icon.twig' with {
+  <pre class="mt-4 mb-2" id="linkIcon">_components/linkIcon</pre>
+  {# linkIcon #}
+  {% include '_components/link/linkIcon.twig' with {
     props: {
       modifiers: ['primary'],
       url: 'https://davidhellmann.com',
@@ -250,8 +362,14 @@ pre[class*='language-'] {
     <option value="#spacer">- Spacer</option>
     <option>COMPONENTS</option>
     <option value="#code">- Code</option>
+    <option value="#caption">- Caption</option>
+    <option value="#card">- Card</option>
+    <option value="#definitionList">- Definition List</option>
+    <option value="#divider">- Divider</option>
+    <option value="#figure">- Figure</option>
     <option value="#image">- Image</option>
     <option value="#imageRaw">- Image Raw</option>
+    <option value="#imageCover">- Image Cover</option>
     <option value="#imageGallery">- Image Gallery</option>
     <option value="#link">- Link</option>
     <option value="#linkIcon">- Link Icon</option>
@@ -283,6 +401,7 @@ pre[class*='language-'] {
     align-items: center;
     justify-content: center;
     height: 80px;
+    z-index: 999999;
   }
 
   #dropDown {

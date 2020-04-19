@@ -1,19 +1,11 @@
 /*
  |--------------------------------------------------------------------------
- |  m-figure
+ | .c-caption
  |--------------------------------------------------------------------------
  */
 
-
-.m-figure {
-  $root: &;
-  width: 100%;
-
-  &--cb {
-    @include vr();
-
-    .a-image {
-      margin-top: 0;
-    }
-  }
+.c-caption {
+  @include ms(-2);
+  background-color: var(--c-gray-100);
+  padding: 1rem 2rem;
 }

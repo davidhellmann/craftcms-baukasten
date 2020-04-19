@@ -1,0 +1,30 @@
+/*
+ |--------------------------------------------------------------------------
+ | .c-card
+ |--------------------------------------------------------------------------
+ */
+
+
+.c-card {
+  width: 100%;
+
+  &__link {
+    display: flex;
+    flex-flow: column;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__body {
+    background-color: var(--c-gray-100);
+    @include stack(1);
+    padding: 2rem;
+
+    h2 {
+      @include ms(2);
+    }
+  }
+}

@@ -21,12 +21,12 @@
   {% set excludePosts = [] %}
 
   {# If field exists do this #}
-  {% if field ?? null %}
+  {% if field ??? null %}
     {% set entriesFromFieldCount = field | length %}
     {% set entriesFromField = field.all() %}
     {% set excludePostsIds = field.ids() %}
 
-    {% if entry ?? null %}
+    {% if entry ??? null %}
       {% set excludePostsIds = excludePostsIds | merge([entry.id]) %}
     {% endif %}
     {% set excludePosts = excludePostsIds | join(', not ') %}

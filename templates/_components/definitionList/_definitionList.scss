@@ -1,0 +1,61 @@
+/*
+ |--------------------------------------------------------------------------
+ | .c-definitionList
+ |--------------------------------------------------------------------------
+ */
+
+
+.c-definitionList {
+  @include row();
+
+  &__term {
+    margin-top: 0.5rem;
+    padding-bottom: 1rem;
+    font-weight: 700;
+    @include col(6,6);
+    @include col-padding();
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 1rem;
+      right: 1rem;
+      height: 1px;
+      background-color: var(--c-gray-100);
+    }
+
+    @include media('>=m') {
+      @include col(8,24);
+    }
+  }
+
+  &__description {
+    margin-top: 0.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    @include col(6,6);
+    @include col-padding();
+
+    @include media('>=m') {
+      @include col(16,24);
+      margin-bottom: 0;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 1rem;
+        right: 1rem;
+        height: 1px;
+        background-color: var(--c-gray-100);
+      }
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

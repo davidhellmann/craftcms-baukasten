@@ -3,15 +3,15 @@
     props: {
       modifiers: [
         'cb',
-        data.alignment ?? null,
-        data.width ?? null
+        data.alignment ??? null,
+        data.width ??? null
       ],
-      image: image ?? null,
-      ratio: data.ratio ?? null,
-      caption: data.caption ?? null,
-      captionHeadline: image.imageTitle ?? null,
-      captionText: image.imageCaption ?? null,
-      captionSource: image.imageSource ?? null,
-      captionSourceUrl: image.imageSourceUrl ?? null
+      image: image ??? null,
+      ratio: data.ratio ??? null,
+      caption: data.caption ??? null,
+      captionHeadline: image.imageTitle ??? null,
+      captionText: image.imageCaption ??? null,
+      captionSource: image.imageSource ??? null,
+      captionSourceUrl: image.imageSourceUrl ??? null
     }
   } only %}

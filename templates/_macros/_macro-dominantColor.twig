@@ -6,9 +6,9 @@
 
   {% set props = props is defined ? defaults|merge(props) : defaults %}
 
-  {% if image.settingsDominantColorOverwrite ?? null %}
+  {% if image.settingsDominantColorOverwrite ??? null %}
     {% set dominantColor = image.settingsDominantColorOverwrite %}
-  {% elseif image.pluginPreparseDominantColor ?? null %}
+  {% elseif image.pluginPreparseDominantColor ??? null %}
     {% set dominantColor = image.pluginPreparseDominantColor %}
   {% else %}
     {% set dominantImages = craft.imager.transformImage(image, [{ width: 100 }], {

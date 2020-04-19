@@ -5,7 +5,7 @@
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'm-figure',
+  cn: 'c-figure',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -27,36 +27,27 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-
-
-
-
 {# Modul #}
 {% if props.image %}
-  <figure {{ module.settings(props) }} itemprop=" associatedMedia"
-                                     itemscope itemtype="http://schema.org/ImageObject">
+  <figure {{ module.settings(props) }}>
     {# image #}
-    {% include '_atoms/image/variant-_template.twig' with {
+    {% include '_components/image/image.twig' with {
       props: {
-        image: props.image,
-        ratio: props.ratio,
-        dominantColor: props.dominantColor,
-        objectFit: props.objectFit
+        image: props.image ??? null,
+        ratio: props.ratio ??? null
       }
     } only %}
 
     {% if props.caption %}
-      <figcaption class="{{- props.cn ~ '__caption' -}}">
-        {# caption #}
-        {% include '_molecules/caption/_template.twig' with {
-          props: {
-            headline: props.captionHeadline ?? null,
-            text: props.captionText ?? null,
-            source: props.captionSource ?? null,
-            sourceUrl: props.captionSourceUrl ?? null
-          }
-        } only %}
-      </figcaption>
+      {# caption #}
+      {% include '_components/caption/caption.twig' with {
+        props: {
+          headline: props.captionHeadline ??? null,
+          text: props.captionText ??? null,
+          source: props.captionSource ??? null,
+          sourceUrl: props.captionSourceUrl ??? null
+        }
+      } only %}
     {% endif %}
   </figure>
 {% endif %}

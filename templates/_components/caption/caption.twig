@@ -1,0 +1,42 @@
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'c-caption',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  element: 'figcaption',
+  headline: null,
+  text: null,
+  source: null,
+  sourceUrl: null
+} %}
+
+{# Merge Default with Options #}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{% if props.headline or props.text %}
+  <{{ props.element }} {{ module.settings(props) }}>
+      {# Headline --#}
+      {% if props.headline ?? null %}
+        <strong>{{- props.headline ~ ' ' -}}</strong>
+      {% endif %}
+
+      {# Caption #}
+      <p>
+        {{ props.text | nl2br }}
+
+        {% if props.source and props.sourceUrl %}
+          &mdash;&nbsp;
+          <a href="{{ props.sourceUrl }}">{{ props.source }}</a>
+        {% elseif props.source ?? null %}
+          &mdash;&nbsp;
+          {{ props.source }}
+        {% endif %}
+      </p>
+  </{{ props.element }}>
+{% endif %}
+
+

@@ -31,7 +31,7 @@
              itemprop="contentUrl"
              data-size="{{ imageMaxWidth }}x{{ imageMaxHeight }}">
 
-            {% include '_components/image/image-raw.twig' with {
+            {% include '_components/image/imageRaw.twig' with {
               props: {
                 image: image ??? null,
                 sizes: [
@@ -39,7 +39,7 @@
                   { width: 200 },
                   { width: 100 }
                 ],
-                ratio: props.ratio ?? null
+                ratio: props.ratio ??? null
               }
             } only %}
           </a>

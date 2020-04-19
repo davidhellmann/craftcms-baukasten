@@ -39,7 +39,7 @@
               {# richText #}
               {% include '_atoms/richText/_template.twig' with {
                 props: {
-                  text: item.accordionContent ?? null
+                  text: item.accordionContent ??? null
                 }
               } only %}
             </div>
