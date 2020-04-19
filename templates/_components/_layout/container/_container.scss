@@ -30,9 +30,8 @@
   max-width: map_get($breakpoints, 'm');
 }
 
-
 .l-container--visible {
-  background-color: var(--c-gray-100);
+  background-color: #f4f4f4;
   position: relative;
   display: flex;
   justify-content: center;
@@ -43,7 +42,7 @@
     content: 'CONTAINER';
     line-height: 1;
     font-size: 11px;
-    color: var(--c-gray-500);
+    color: #a4a4a4;
     letter-spacing: 5px;
     font-weight: 700;
     pointer-events: none;
@@ -58,7 +57,7 @@
     right: 2rem;
     top: 0;
     bottom: 0;
-    background-color: var(--c-gray-200);
+    background-color: #e4e4e4;
     z-index: 0;
   }
 }

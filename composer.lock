@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d48756a476fbee3fada9f1505c5f473",
+    "content-hash": "ff5679cfde9e563b6ef7926f0b830074",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -88,11 +88,6 @@
         {
             "name": "brick/math",
             "version": "0.8.15",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/brick/math.git",
-                "reference": "9b08d412b9da9455b210459ff71414de7e6241cd"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/brick/math/zipball/9b08d412b9da9455b210459ff71414de7e6241cd",
@@ -3385,58 +3380,6 @@
                 "shell"
             ],
             "time": "2019-12-20T08:48:10+00:00"
-        },
-        {
-            "name": "mildlygeeky/craft-kint",
-            "version": "1.0.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mildlygeeky/craft-kint/zipball/ddb46ef0be05fac57d577090bbe3e49b265f26ba",
-                "reference": "ddb46ef0be05fac57d577090bbe3e49b265f26ba",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^3.0.0-RC1",
-                "kint-php/kint": "^3.1",
-                "kint-php/kint-js": "^2.0",
-                "kint-php/kint-twig": "^2.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Kint",
-                "handle": "kint",
-                "hasCpSettings": true,
-                "hasCpSection": false,
-                "changelogUrl": "https://raw.githubusercontent.com/mildlygeeky/craft-kint/master/CHANGELOG.md",
-                "class": "mildlygeeky\\kint\\Plugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "mildlygeeky\\kint\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mildly Geeky, Inc.",
-                    "homepage": "https://mildlygeeky.com"
-                }
-            ],
-            "description": "Adds Kint, an in-app PHP debugger, to Craft CMS 3.x for use in Twig and PHP.",
-            "keywords": [
-                "cms",
-                "craft",
-                "craft-plugin",
-                "craftcms",
-                "kint"
-            ],
-            "support": {
-                "docs": "https://github.com/mildlygeeky/craft-kint/blob/master/README.md",
-                "issues": "https://github.com/mildlygeeky/craft-kint/issues"
-            },
-            "time": "2019-02-05T18:59:14+00:00"
         },
         {
             "name": "mmikkel/cp-clearcache",

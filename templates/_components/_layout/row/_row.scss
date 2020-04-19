@@ -11,3 +11,30 @@
   flex-flow: row wrap;
   flex: 1 1 auto;
 }
+
+.l-row--visible {
+  background-color: #f4f4f4;
+  position: relative;
+  height: 100px;
+
+  &::after {
+    content: 'ROW';
+    line-height: 1;
+    font-size: 11px;
+    color: #a4a4a4;
+    background-color: #e4e4e4;
+    letter-spacing: 5px;
+    font-weight: 700;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

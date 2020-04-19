@@ -77,6 +77,18 @@
     {# Final Image Set #}
     {% set transformedImages = craft.imager.transformImage(image, props.sizes, imageSettings) %}
 
+    {# If the server has support for WebP, create transforms #}
+    {% if craft.imager.serverSupportsWebp() %}
+      {% set imageSettingsWebp = {
+        mode: props.mode,
+        position: focalpoint,
+        ratio: ratio,
+        format: 'webp'
+      } %}
+
+      {% set transformedImagesWebp = craft.imager.transformImage(image, props.sizes, imageSettingsWebp) %}
+    {% endif %}
+
     {# Domiant Color (Use lase image from Final images #}
     {% if craft.imager.getDominantColor(transformedImages|last) %}
       {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
@@ -104,6 +116,11 @@
   <picture {{ module.settings(props) }} {% if props.dominantColor %}style="{{ 'background-color: ' ~ dominantColor ?? 'transparent' }}"{% endif %}>
     {% if image.extension not in skipTransformsForThisExtensions %}
       {# Transforming #}
+      {% if craft.imager.serverSupportsWebp() %}
+        <source data-sizes="auto"
+                data-srcset="{{ craft.imager.srcset(transformedImagesWebp) }}"
+                type="image/webp">
+      {% endif %}
       {% include '_components/image/_transforming.twig' %}
     {% else %}
       {# No Transforming #}
