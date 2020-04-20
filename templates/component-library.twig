@@ -13,6 +13,11 @@
 {% endblock %}
 
 {% block content %}
+  {# Redirect to home if on a live env #}
+  {% if craft.app.config.general.custom.craftEnv == 'live' %}
+    {% redirect siteUrl %}
+  {% endif %}
+
   <section class="py-2" style="background-color: var(--c-red); color: var(--c-white); text-align: center">
     <div class="l-container">
       <h1>Component Library</h1>
