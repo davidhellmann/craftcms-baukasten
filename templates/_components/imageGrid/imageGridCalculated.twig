@@ -5,7 +5,7 @@
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-imageGrid',
+  cn: 'c-imageGridCalculated',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -17,10 +17,7 @@
 
 {# Merge Default with Options #}
 {% set props = props is defined ? defaults|merge(props) : defaults %}
-
-{% if props.calculated %}
-  {% set props = props | merge({  customClasses: props.customClasses | merge(['js-imageGridCalculated'])}) %}
-{% endif %}
+{% set props = props | merge({  customClasses: props.customClasses | merge(['js-imageGridCalculated'])}) %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}

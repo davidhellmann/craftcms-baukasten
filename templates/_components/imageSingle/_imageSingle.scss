@@ -4,7 +4,16 @@
  |--------------------------------------------------------------------------
  */
 
-
-.o-imageSingle {
+.c-imageSingle {
   /* silence */
+}
+
+.c-imageSingle--medium {
+  @include center();
+  width: 75%;
+}
+
+.c-imageSingle--small {
+  @include center();
+  width: 50%;
 }

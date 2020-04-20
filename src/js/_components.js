@@ -16,6 +16,15 @@ if (document.querySelectorAll('.js-slider').length) {
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
 
+// Image Grid Calculated
+if (document.querySelectorAll('.js-imageGridCalculated').length) {
+  import(
+    /* webpackChunkName: "imageGridCalculated" */ '../../templates/_components/imageGrid/imageGridCalculated.js'
+  )
+    .then(imageGridCalculated => imageGridCalculated.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
+}
+
 // Code Snippets
 if (document.querySelectorAll('.js-code').length) {
   import(/* webpackChunkName: "prism" */ './scripts/prism.js');

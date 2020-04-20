@@ -29,16 +29,12 @@
 
 {# Modul #}
 {% if props.images %}
-  <div {{ module.settings(props) }} itemscope itemtype="http://schema.org/ImageGallery" role="presentation" waypointTrigger>
+  <div {{ module.settings(props) }}>
     <!-- Slides -->
     {% for image in props.images %}
-      <div class="{{ props.cn ~ '__slide' }}" itemscope itemtype="http://schema.org/ImageObject">
+      <div class="{{ props.cn ~ '__slide' }}">
         {% include '_molecules/figure/_template.twig' with {
           props: {
-            customClasses: ['is-fadeInUp'],
-            data: {
-              'waypoint': ''
-            },
             image: image ??? null,
             ratio: props.ratio ??? null,
             caption: props.caption ??? null,

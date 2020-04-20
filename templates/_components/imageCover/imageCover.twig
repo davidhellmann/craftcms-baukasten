@@ -22,13 +22,9 @@
 
 {# Modul #}
 {% if props.image %}
-  <div {{ module.settings(props) }} waypoint>
+  <div {{ module.settings(props) }}>
     {% include '_components/image/image.twig' with {
       props: {
-        customClasses: ['is-fadeInUp'],
-        data: {
-          'waypoint-target': ''
-        },
         image: props.image ??? null,
         ratio: props.ratio ??? null,
         objectFit: props.objectFit ??? 'cover'

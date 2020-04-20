@@ -29,7 +29,7 @@ const scrollMonitorScript = {
   handleWaypoints(waypoints) {
     waypoints.forEach(waypoint => {
       // Create Watcher
-      const elementWatcher = scrollMonitor.create(waypoint, -100);
+      const elementWatcher = scrollMonitor.create(waypoint);
 
       // Action when comes into viewport
       elementWatcher.enterViewport(() => {

@@ -1,48 +1,36 @@
 /*
  |--------------------------------------------------------------------------
- |  o-imageGrid
+ |  c-imageGrid
  |--------------------------------------------------------------------------
  */
 
 
-.o-imageGrid {
-  $root: &;
+.c-imageGrid {
+  margin-top: -2rem;
 
   &__inner {
     @include row();
   }
 
   &__item {
-    @include col(3, 6);
+    margin-top: 2rem;
+    @include col(6, 6);
     @include col-padding();
-
-    @include media('>=s') {
-      @include col(8, 24);
-    }
   }
 }
 
-
-.o-imageGrid--c-2 {
-  .o-imageGrid__item {
+.c-imageGrid--2 {
+  .c-imageGrid__item {
     @include media('>=s') {
       @include col(12, 24);
     }
   }
 }
 
-.o-imageGrid--c-3 {
-  .o-imageGrid__item {
+.c-imageGrid--3 {
+  .c-imageGrid__item {
     @include media('>=s') {
       @include col(8, 24);
-    }
-  }
-}
-
-.o-imageGrid--c-4 {
-  .o-imageGrid__item {
-    @include media('>=s') {
-      @include col(6, 24);
     }
   }
 }

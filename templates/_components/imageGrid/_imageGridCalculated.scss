@@ -1,0 +1,32 @@
+/*
+ |--------------------------------------------------------------------------
+ |  c-imageGridCalculated
+ |--------------------------------------------------------------------------
+ */
+
+
+.c-imageGridCalculated {
+  margin-top: -2rem;
+
+  &__inner {
+    @include row();
+
+    @include media('>=s') {
+      align-items: center;
+      justify-content: space-between;
+      flex-flow: row nowrap;
+    }
+  }
+
+  &__item {
+    @include col-padding();
+    margin-top: 2rem;
+    width: auto;
+
+    img {
+      max-width: 100%;
+      width: auto;
+      height: 10px;
+    }
+  }
+}

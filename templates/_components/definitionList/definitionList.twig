@@ -18,18 +18,14 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-
-
-
-
 {# Modul #}
 {% if props.items %}
-  <dl {{ module.settings(props) }} waypoint>
+  <dl {{ module.settings(props) }}>
     {% for item in props.items %}
-      <dt class="{{ props.cn ~ '__term' }}  is-fadeInUp" waypoint-target>
+      <dt class="{{ props.cn ~ '__term' }}">
         {{ item.term | raw }}
       </dt>
-      <dd class="{{ props.cn ~ '__description' }}  is-fadeInUp" waypoint-target>
+      <dd class="{{ props.cn ~ '__description' }}">
         <p>{{ item.description | nl2br }}</p>
       </dd>
     {% endfor %}

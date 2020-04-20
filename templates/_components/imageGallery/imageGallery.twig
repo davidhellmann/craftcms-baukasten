@@ -18,14 +18,14 @@
 
 {# Modul #}
 {% if props.images %}
-  <div {{ module.settings(props) }} waypoint>
+  <div {{ module.settings(props) }}>
     <div class="{{ props.cn ~ '__inner' }}">
       {% for image in props.images %}
         {% set imageSrc = image.getUrl() %}
         {% set imageMaxWidth = image.getWidth() %}
         {% set imageMaxHeight = image.getHeight() %}
 
-        <figure class="{{ props.cn ~ '__figure' }} is-fadeInUp" waypoint-target>
+        <figure class="{{ props.cn ~ '__figure' }}">
           <a class="{{ props.cn ~ '__link' }}"
              href="{{ imageSrc }}"
              itemprop="contentUrl"

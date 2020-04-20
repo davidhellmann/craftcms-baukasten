@@ -20,14 +20,10 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-
-
-
-
 {# Modul #}
 {% if props.image %}
   <div {{ module.settings(props) }}>
-    {% include '_molecules/figure/_template.twig' with {
+    {% include '_components/figure/figure.twig' with {
       props: {
         image: props.image ??? null,
         ratio: props.ratio ??? null,

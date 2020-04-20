@@ -1,9 +1,15 @@
 {# Global Stuff #}
-{% set dummyImage = craft.assets.title('Placeholder').volume('templateImages').one() %}
+{% set placeholderImage = craft.assets.title('Placeholder').volume('templateImages').one() %}
+{% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
+{% set cat02Image = craft.assets.title('Cat 02').volume('templateImages').one() %}
+{% set cat03Image = craft.assets.title('Cat 03').volume('templateImages').one() %}
+{% set cat04Image = craft.assets.title('Cat 04').volume('templateImages').one() %}
 <div id="home"></div>
 <div class="l-container">
   <h3>Layout Components</h3>
 </div>
+
+
 
 {# ============================================================== #}
 {#                                                                #}
@@ -17,6 +23,8 @@
 <div class="l-section l-section--lightgray l-section--visible mt-1"></div>
 <div class="l-section l-section--visible mt-1"></div>
 
+
+
 {# ============================================================== #}
 {#                                                                #}
 {#      SEPERATOR                                                 #}
@@ -29,6 +37,8 @@
 <div class="l-container l-container--large l-container--visible mt-1"></div>
 <div class="l-container l-container--medium l-container--visible mt-1"></div>
 
+
+
 {# ============================================================== #}
 {#                                                                #}
 {#      SEPERATOR                                                 #}
@@ -40,6 +50,7 @@
 <div class="l-container">
   <div class="l-row l-row--visible mt-1"></div>
 </div>
+
 
 
 <div class="l-container">
@@ -87,9 +98,9 @@
 </div>
 
 
+
 <div class="l-container">
   <h3 class="mt-4">Design Components</h3>
-
   {# ============================================================== #}
   {#                                                                #}
   {#      SEPERATOR                                                 #}
@@ -106,6 +117,8 @@
     }
   } only %}
 
+
+
   {# ============================================================== #}
   {#                                                                #}
   {#      SEPERATOR                                                 #}
@@ -116,7 +129,7 @@
   <div style="max-width: 400px;">
     {% include '_components/card/card.twig' with {
       props: {
-        image: dummyImage ??? null,
+        image: placeholderImage ??? null,
         imageRatio: 'landscape',
         headline: 'The quick brown fox jumps over the lazy dogs',
         copy: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo.',
@@ -125,6 +138,8 @@
       }
     } only %}
   </div>
+
+
 
   {# ============================================================== #}
   {#                                                                #}
@@ -145,6 +160,8 @@ pre[class*='language-'] {
     }
   } only %}
 
+
+
   {# ============================================================== #}
   {#                                                                #}
   {#      SEPERATOR                                                 #}
@@ -154,7 +171,7 @@ pre[class*='language-'] {
   {# definitionList #}
   {% include '_components/definitionList/definitionList.twig' with {
     props: {
-      image: dummyImage ??? null,
+      image: placeholderImage ??? null,
       items: [
         { term: 'Definition Term', description: 'The quick brown fox jumps over the lazy dogs'},
         { term: 'John Wayne', description: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in?'},
@@ -164,6 +181,8 @@ pre[class*='language-'] {
       ]
     }
   } only %}
+
+
 
   {# ============================================================== #}
   {#                                                                #}
@@ -196,7 +215,7 @@ pre[class*='language-'] {
   {# figure #}
   {% include '_components/figure/figure.twig' with {
     props: {
-      image: dummyImage ??? null,
+      image: placeholderImage ??? null,
       caption: true,
       captionHeadline: 'The quick brown fox jumps over the lazy dogs',
       captionText: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in.',
@@ -204,6 +223,7 @@ pre[class*='language-'] {
       captionSourceUrl: siteUrl,
     }
   } only %}
+
 
 
   {# ============================================================== #}
@@ -215,10 +235,12 @@ pre[class*='language-'] {
   {# image #}
   {% include '_components/image/image.twig' with {
     props: {
-      image: dummyImage ??? null,
+      image: placeholderImage ??? null,
       ratio: 'landscape'
     }
   } only %}
+
+
 
   {# ============================================================== #}
   {#                                                                #}
@@ -229,10 +251,12 @@ pre[class*='language-'] {
   {# imageRaw #}
   {% include '_components/image/imageRaw.twig' with {
     props: {
-      image: dummyImage ??? null,
+      image: placeholderImage ??? null,
       ratio: 'landscape'
     }
   } only %}
+
+
 
   {# ============================================================== #}
   {#                                                                #}
@@ -243,7 +267,7 @@ pre[class*='language-'] {
   {# image #}
   {% include '_components/imageCover/imageCover.twig' with {
     props: {
-      image: dummyImage ??? null,
+      image: placeholderImage ??? null,
     }
   } only %}
 
@@ -258,9 +282,117 @@ pre[class*='language-'] {
   {# imageGallery #}
   {% include '_components/imageGallery/imageGallery.twig' with {
     props: {
-      images: [dummyImage ??? null, dummyImage ??? null, dummyImage ??? null,dummyImage ??? null, dummyImage ??? null, dummyImage ??? null,dummyImage ??? null, dummyImage ??? null, dummyImage ??? null,dummyImage ??? null, dummyImage ??? null, dummyImage ??? null,dummyImage ??? null, dummyImage ??? null, dummyImage ??? null,dummyImage ??? null, dummyImage ??? null,dummyImage ??? null]
+      images: [placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null]
     }
   } only %}
+
+
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="imageGrid">_components/imageGrid</pre>
+  {# imageGrid #}
+  {% include '_components/imageGrid/imageGrid.twig' with {
+    props: {
+      images: [placeholderImage ??? null],
+      ratio: 'landscape'
+    }
+  } only %}
+
+  {# Spacer #}
+  {% include '_components/_layout/spacer/spacer.twig' with {
+    props: {
+      modifiers: ['40']
+    }
+  } only %}
+
+  {% include '_components/imageGrid/imageGrid.twig' with {
+    props: {
+      modifiers: ['2'],
+      images: [placeholderImage ??? null, cat03Image ??? null],
+      ratio: 'portrait'
+    }
+  } only %}
+
+  {# Spacer #}
+  {% include '_components/_layout/spacer/spacer.twig' with {
+    props: {
+      modifiers: ['40']
+    }
+  } only %}
+
+  {% include '_components/imageGrid/imageGrid.twig' with {
+    props: {
+      modifiers: ['3'],
+      images: [placeholderImage ??? null, cat01Image ??? null, cat03Image ??? null],
+      ratio: 'portrait'
+    }
+  } only %}
+
+  {# Spacer #}
+  {% include '_components/_layout/spacer/spacer.twig' with {
+    props: {
+      modifiers: ['40']
+    }
+  } only %}
+
+  {% include '_components/imageGrid/imageGridCalculated.twig' with {
+    props: {
+      images: [placeholderImage ??? null, cat01Image ??? null],
+    }
+  } only %}
+
+  {# Spacer #}
+  {% include '_components/_layout/spacer/spacer.twig' with {
+    props: {
+      modifiers: ['40']
+    }
+  } only %}
+
+  {% include '_components/imageGrid/imageGridCalculated.twig' with {
+    props: {
+      images: [placeholderImage ??? null, cat01Image ??? null, cat03Image ??? null],
+    }
+  } only %}
+
+
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="imageSingle">_components/imageSingle</pre>
+  {# imageSingle #}
+  {% include '_components/imageSingle/imageSingle.twig' with {
+    props: {
+      image: placeholderImage ??? null,
+      ratio: 'landscape'
+    }
+  } only %}
+
+  {% include '_components/imageSingle/imageSingle.twig' with {
+    props: {
+      modifiers: ['medium'],
+      customClasses: ['mt-2'],
+      image: placeholderImage ??? null,
+      ratio: 'landscape'
+    }
+  } only %}
+
+
+  {% include '_components/imageSingle/imageSingle.twig' with {
+    props: {
+      modifiers: ['small'],
+      customClasses: ['mt-2'],
+      image: placeholderImage ??? null,
+      ratio: 'landscape'
+    }
+  } only %}
+
 
 
   {# ============================================================== #}
@@ -308,6 +440,8 @@ pre[class*='language-'] {
     }
   } only %}
 
+
+
   {# ============================================================== #}
   {#                                                                #}
   {#      SEPERATOR                                                 #}
@@ -323,6 +457,8 @@ pre[class*='language-'] {
       icon: 'iconSample'
     }
   } only %}
+
+
 
   {# ============================================================== #}
   {#                                                                #}
@@ -371,6 +507,8 @@ pre[class*='language-'] {
     <option value="#imageRaw">- Image Raw</option>
     <option value="#imageCover">- Image Cover</option>
     <option value="#imageGallery">- Image Gallery</option>
+    <option value="#imageGrid">- Image Grid</option>
+    <option value="#imageSingle">- Image Single</option>
     <option value="#link">- Link</option>
     <option value="#linkIcon">- Link Icon</option>
     <option value="#spinner">- Spinner</option>
