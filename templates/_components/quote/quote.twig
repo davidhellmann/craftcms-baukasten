@@ -5,12 +5,13 @@
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'm-quote',
+  cn: 'c-quote',
   modifiers: [],
   customClasses: [],
   data: {},
   quote: null,
   source: null,
+  sourceSubline: null,
   sourceUrl: null
 } %}
 
@@ -20,24 +21,25 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-
-
-
-
 {# Modul #}
 {% if props.quote %}
-  <div {{ module.settings(props) }}>
-    <div class="{{ props.cn ~ '__inner' }}">
-      <blockquote class="{{ props.cn ~ '__blockquote' }} u-stack">
-        <p>
-          {{ '"' ~ props.quote ~ '"' | raw }}
-        </p>
-        {% if props.source %}
-          <footer>
-            {{ props.quoter| raw }}
-          </footer>
-        {% endif %}
-      </blockquote>
-    </div>
+  <div {{ module.settings(props) }} xmlns="http://www.w3.org/1999/html">
+    <blockquote class="{{ props.cn ~ '__blockquote' }} u-stack-2">
+      <p>
+        {{ props.quote | nl2br | raw }}
+      </p>
+      {% if props.source %}
+        <footer class="u-stack">
+          {% if props.sourceUrl %}
+            <a href="{{ props.sourceUrl }}"><strong>{{ props.source }}</strong></a>
+          {% else %}
+            <strong>{{ props.source }}</strong>
+          {% endif %}
+          {% if props.sourceSubline %}
+            <br>{{ props.sourceSubline }}
+          {% endif %}
+        </footer>
+      {% endif %}
+    </blockquote>
   </div>
 {% endif %}

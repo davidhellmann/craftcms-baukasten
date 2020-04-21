@@ -10,7 +10,6 @@
 </div>
 
 
-
 {# ============================================================== #}
 {#                                                                #}
 {#      SEPERATOR                                                 #}
@@ -22,7 +21,6 @@
 
 <div class="l-section l-section--lightgray l-section--visible mt-1"></div>
 <div class="l-section l-section--visible mt-1"></div>
-
 
 
 {# ============================================================== #}
@@ -38,7 +36,6 @@
 <div class="l-container l-container--medium l-container--visible mt-1"></div>
 
 
-
 {# ============================================================== #}
 {#                                                                #}
 {#      SEPERATOR                                                 #}
@@ -50,7 +47,6 @@
 <div class="l-container">
   <div class="l-row l-row--visible mt-1"></div>
 </div>
-
 
 
 <div class="l-container">
@@ -98,7 +94,6 @@
 </div>
 
 
-
 <div class="l-container">
   <h3 class="mt-4">Design Components</h3>
   {# ============================================================== #}
@@ -138,7 +133,6 @@
       }
     } only %}
   </div>
-
 
 
   {# ============================================================== #}
@@ -465,6 +459,83 @@ pre[class*='language-'] {
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="logo">_components/logo</pre>
+  {# logo #}
+  {% include '_components/logo/logo.twig' with {
+    props: {}
+  } only %}
+
+
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="plainText">_components/plainText</pre>
+  {# plainText #}
+  {% set plainText %}
+    An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, falli doming vix no? No pri causae petentium! Id vocibus volutpat deterruisset usu, vocibus verterem sed ne, usu ne similique temporibus!
+
+    Ex vix dicat discere partiendo, at ignota corpora mei, posse percipitur mea ut. At doming commodo deseruisse sit, eu diceret fabulas eligendi vix, sea nostrum scriptorem ad! Quo cu eius tollit instructior.
+  {% endset %}
+
+  {% include '_components/plainText/plainText.twig' with {
+    props: {
+      text: plainText ??? null
+    }
+  } only %}
+
+
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="quote">_components/quote</pre>
+  {# quote #}
+  {% include '_components/quote/quote.twig' with {
+    props: {
+      quote: 'The quick brown fox jumps over the lazy dogs',
+      source: 'John Wayne',
+      sourceSubline: 'Createtor of nichts',
+      sourceUrl: siteUrl ??? null
+    }
+  } only %}
+
+
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="slider">_components/slider</pre>
+  {# slider #}
+  {% include '_components/slider/sliderImages.twig' with {
+    props: {
+      images: [
+        placeholderImage ??? null,
+        cat01Image ??? null,
+        placeholderImage ??? null,
+        cat03Image ??? null,
+        placeholderImage ??? null,
+        cat02Image ??? null,
+        cat04Image ??? null,
+        placeholderImage ??? null
+      ],
+      ratio: 'portrait'
+    }
+  } only %}
+
+
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
   <pre class="mt-4 mb-2" id="spinner">_components/spinner</pre>
   {# spinner #}
   <div style="position:relative; width: 100%; height: 48px; background-color: black;">
@@ -480,6 +551,20 @@ pre[class*='language-'] {
       }
     } only %}
   </div>
+
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="youtube">_components/youtube</pre>
+  {# youtube #}
+  {% include '_components/youtube/youtube.twig' with {
+    props: {
+      videoId: 'bd4_PIxfMmQ'
+    }
+  } only %}
 </div>
 
 
@@ -511,7 +596,12 @@ pre[class*='language-'] {
     <option value="#imageSingle">- Image Single</option>
     <option value="#link">- Link</option>
     <option value="#linkIcon">- Link Icon</option>
+    <option value="#logo">- Logo</option>
+    <option value="#plainText">- Plain Text</option>
+    <option value="#quote">- Quote</option>
+    <option value="#slider">- Slider Images</option>
     <option value="#spinner">- Spinner</option>
+    <option value="#youtube">- Youtube</option>
   </select>
 </div>
 

@@ -7,12 +7,12 @@ if (document.querySelectorAll('.js-imageGallery').length) {
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
 
-// Slider
-if (document.querySelectorAll('.js-slider').length) {
+// sliderImages
+if (document.querySelectorAll('.js-sliderImages').length) {
   import(
-    /* webpackChunkName: "slider" */ '../../templates/_components/imageSlider/imageSlider.js'
+    /* webpackChunkName: "sliderImages" */ '../../templates/_components/slider/sliderImages.js'
   )
-    .then(slider => slider.default.init())
+    .then(sliderImages => sliderImages.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
 

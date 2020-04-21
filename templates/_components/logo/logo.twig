@@ -6,7 +6,7 @@
   data: {},
   js: null,
   url: null,
-  name: null
+  name: 'logo'
 } %}
 
 {# Merge Default with Options #}
@@ -15,16 +15,18 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-<div {{ module.settings(props) }}>
-  {% if props.url %}
-  <a class="{{ props.cn ~ '__link' }}" href="{{ props.url }}">
-    {% endif %}
-
-    {{ svg('@webroot/dist/img/svg/logo.svg') }}
-
+{% if props.name %}
+  <div {{ module.settings(props) }}>
     {% if props.url %}
-  </a>
-  {% endif %}
-</div>
+    <a class="{{ props.cn ~ '__link' }}" href="{{ props.url }}">
+      {% endif %}
+
+      {{ svg('@webroot/dist/img/svg/' ~ props.name ~ '.svg') }}
+
+      {% if props.url %}
+    </a>
+    {% endif %}
+  </div>
+{% endif %}
 
 

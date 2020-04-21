@@ -21,12 +21,21 @@
   &__item {
     @include col-padding();
     margin-top: 2rem;
-    width: auto;
+    width: 100%;
+
+    @include media('>=s') {
+      width: auto;
+    }
 
     img {
       max-width: 100%;
       width: auto;
       height: 10px;
+
+      @include media('<s') {
+        width: 100% !important;
+        height: auto !important;
+      }
     }
   }
 }

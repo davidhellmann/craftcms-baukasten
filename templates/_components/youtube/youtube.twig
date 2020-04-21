@@ -3,7 +3,7 @@
   cn: 'a-youtube-basic',
   modifiers: [],
   customClasses: [],
-  data: {}
+  data: {},
   videoId: null,
   autoplay: 0,
   loop: 0,
@@ -14,17 +14,13 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 {% set props= props| merge({
   customClasses: props.customClasses | merge([
-    'o-ratio',
-    'o-ratio--16-9',
+    'u-ratio',
+    'u-ratio--16-9',
   ])
 }) %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
-
-
-
-
 
 {# GDPR Ready Youtube Embeds#}
 {% set klaro = getCookie('klaro') | json_decode %}
@@ -37,12 +33,13 @@
               frameborder="0">
       </iframe>
 
-      {% if not klaro.youtube ??? null %}
-        {# cookieClue #}
+      {# TODO: GDPR Solution #}
+      {#{% if not klaro.youtube ??? null %}
+        #}{# cookieClue #}{#
         {% include '_atoms/cookieClue/_template.twig' with {
           props: {}
         } only %}
-      {% endif %}
+      {% endif %}#}
     </div>
   {% endif %}
 {% endif %}

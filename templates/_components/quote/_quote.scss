@@ -5,28 +5,18 @@
  */
 
 
-.m-quote {
-  $root: &;
-
-  &__cb {
-    @include vr();
-  }
-
-  &__inner {
-    @include row();
-  }
-
+.c-quote {
   &__blockquote {
-    @include col-padding();
-
-    @include media('>=m') {
-      @include col-offset(4, 24);
+    p {
+      line-height: var(--lh-base-headings);
+      max-width: 20ch;
+      @include wf('roboto');
+      @include ms(4);
+      font-weight: 700;
     }
 
-    p {
-      max-width: 40ch;
-      font-weight: 700;
-      font-style: normal;
+    footer {
+      @include ms(-1);
     }
   }
 }

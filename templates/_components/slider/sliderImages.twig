@@ -5,7 +5,7 @@
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'o-slider',
+  cn: 'c-sliderImages',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -18,14 +18,10 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Merge JS Class #}
-{% set props= props| merge({  customClasses: props.customClasses | merge(['js-slider'])}) %}
+{% set props= props| merge({  customClasses: props.customClasses | merge(['js-sliderImages is-hidden'])}) %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
-
-
-
-
 
 {# Modul #}
 {% if props.images %}
@@ -33,7 +29,7 @@
     <!-- Slides -->
     {% for image in props.images %}
       <div class="{{ props.cn ~ '__slide' }}">
-        {% include '_molecules/figure/_template.twig' with {
+        {% include '_components/figure/figure.twig' with {
           props: {
             image: image ??? null,
             ratio: props.ratio ??? null,
