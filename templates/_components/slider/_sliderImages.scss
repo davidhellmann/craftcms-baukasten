@@ -4,16 +4,14 @@
  |--------------------------------------------------------------------------
  */
 
-
 .c-sliderImages {
   opacity: 0;
   transition: opacity 250ms var(--ease-out-cubic);
   position: relative;
   width: 100%;
-  overflow: visible;
 
   @include media('>=s') {
-    padding-bottom: 3rem;
+    margin-bottom: 3rem;
   }
 
   &.is-hidden {
@@ -40,9 +38,12 @@
     }
   }
   /* stylelint-enable */
+
   &__slide {
     width: 90%;
     margin-right: 2rem;
+    display: flex;
+    align-items: flex-end;
 
     .is-flickityResize & {
       min-height: 100%;

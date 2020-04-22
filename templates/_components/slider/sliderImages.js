@@ -12,11 +12,14 @@ const sliderImages = {
     sliderOptions: {
       cellAlign: 'left',
       contain: true,
-      draggable: true,
+      draggable: '>1',
       groupCells: true,
       imagesLoaded: true,
       prevNextButtons: true,
-      pageDots: true,
+      pageDots: false,
+      percentPosition: true,
+      // freeScroll: true,
+      // freeScrollFriction: 0.03,
     },
   },
 

@@ -511,7 +511,7 @@ pre[class*='language-'] {
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="slider">_components/slider</pre>
+  <pre class="mt-4 mb-2" id="slider">_components/sliderImages</pre>
   {# slider #}
   {% include '_components/slider/sliderImages.twig' with {
     props: {
@@ -525,7 +525,54 @@ pre[class*='language-'] {
         cat04Image ??? null,
         placeholderImage ??? null
       ],
+      ratio: 'landscape'
+    }
+  } only %}
+
+  {% include '_components/slider/sliderImages.twig' with {
+    props: {
+      images: [
+        placeholderImage ??? null,
+        cat01Image ??? null,
+        placeholderImage ??? null,
+        cat03Image ??? null,
+        placeholderImage ??? null,
+        cat02Image ??? null,
+        cat04Image ??? null,
+        placeholderImage ??? null
+      ],
       ratio: 'portrait'
+    }
+  } only %}
+
+  {% include '_components/slider/sliderImages.twig' with {
+    props: {
+      images: [
+        placeholderImage ??? null,
+        cat01Image ??? null,
+        placeholderImage ??? null,
+        cat03Image ??? null,
+        placeholderImage ??? null,
+        cat02Image ??? null,
+        cat04Image ??? null,
+        placeholderImage ??? null
+      ],
+      ratio: 'square'
+    }
+  } only %}
+
+  {% include '_components/slider/sliderImages.twig' with {
+    props: {
+      images: [
+        placeholderImage ??? null,
+        cat01Image ??? null,
+        placeholderImage ??? null,
+        cat03Image ??? null,
+        placeholderImage ??? null,
+        cat02Image ??? null,
+        cat04Image ??? null,
+        placeholderImage ??? null
+      ],
     }
   } only %}
 
