@@ -29,15 +29,10 @@
     <!-- Slides -->
     {% for image in props.images %}
       <div class="{{ props.cn ~ '__slide' }}">
-        {% include '_components/figure/figure.twig' with {
+        {% include '_components/image/image.twig' with {
           props: {
             image: image ??? null,
             ratio: props.ratio ??? null,
-            caption: props.caption ??? null,
-            captionHeadline: image.imageTitle ??? null,
-            captionText: image.imageCaption ??? null,
-            captionSource: image.imageSource ??? null,
-            captionSourceUrl: image.imageSourceUrl ??? null
           }
         } only %}
       </div>
