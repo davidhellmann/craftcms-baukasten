@@ -26,10 +26,10 @@ module.exports = {
     ignore: [/node_modules/],
   },
   urls: {
-    live: 'https://craft-baukasten.baukasten.io/',
-    staging: 'https://craft-baukasten.baukasten.io/',
-    local: 'http://craft-baukasten-sample.test/',
-    critical: 'http://craft-baukasten-sample.test/',
+    live: 'https://craft-baukasten.baukasten.io',
+    staging: 'https://craft-baukasten.baukasten.io',
+    local: 'http://craft-baukasten-sample.test',
+    critical: 'http://craft-baukasten-sample.test',
     publicPath: () => process.env.PUBLIC_PATH || '/dist/',
   },
   vars: {
