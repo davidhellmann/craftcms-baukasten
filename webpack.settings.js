@@ -22,7 +22,7 @@ module.exports = {
       base: './web/dist/',
       clean: ['**/*'],
     },
-    templates: './templates/**/*.{twig,rss,csv,php,html,js}',
+    templates: './templates/**/*.{twig,rss,csv,php,html}',
     ignore: [/node_modules/],
   },
   urls: {
