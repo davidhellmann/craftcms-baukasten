@@ -2,6 +2,16 @@
 import 'core-js/modules/es.promise';
 import 'core-js/modules/es.array.iterator';
 
+// Clear Console
+// https://stackoverflow.com/questions/53070807/how-can-set-up-my-vue-js-site-to-clear-the-browsers-javascript-console-on-every/53933757#53933757
+if (module.hot) {
+  module.hot.accept(); // already had this init code
+
+  module.hot.addStatusHandler(status => {
+    if (status === 'prepare') console.clear();
+  });
+}
+
 // Add JS Loaded class to the body
 document.documentElement.classList.add('js-loaded');
 

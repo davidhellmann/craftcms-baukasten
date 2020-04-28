@@ -10,24 +10,26 @@
   margin: 0;
 }
 
-.c-spacer--40 {
-  height: 40px;
-}
+/* stylelint-disable */
+$bk-spacer: (
+    (2),
+    (4),
+    (6),
+    (8),
+    (10),
+    (12),
+    (14),
+    (16),
+    (18),
+    (20),
+);
+/* stylelint-enable */
 
-.c-spacer--80 {
-  height: 80px;
-}
-
-.c-spacer--120 {
-  height: 120px;
-}
-
-.c-spacer--160 {
-  height: 160px;
-}
-
-.c-spacer--240 {
-  height: 240px;
+// Ratio variants
+@each $spacer in $bk-spacer {
+  .c-spacer--#{$spacer} {
+    height: #{$spacer}rem;
+  }
 }
 
 .c-spacer--visible {

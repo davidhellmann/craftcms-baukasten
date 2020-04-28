@@ -5,7 +5,7 @@
 
 {% macro pagination(pages,craft,props) %}
   {% set defaults = {
-    cn: 'm-pagination',
+    cn: 'c-pagination',
     searchquery: false,
     pagenumber: 5,
     fistPageSign: '&laquo;',
@@ -79,7 +79,7 @@
     </nav>
 
     {% js %}
-      var paginationElement = document.querySelector('.m-pagination');
+      var paginationElement = document.querySelector('.c-pagination');
       var links = paginationElement.querySelectorAll('a');
 
       for (var i = 0; i < links.length; i++) {

@@ -21,9 +21,10 @@
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-cookies.twig' as cookies %}
 
 {# GDPR Ready Youtube Embeds#}
-{% set klaro = getCookie('klaro') | json_decode %}
+{% set klaro = cookies.get('klaro') %}
 {% set craftEnv = craft.app.config.env != 'live' ? true : false %}
 {% if klaro.youtube ??? craftEnv ??? null %}
   {% if props.videoId %}

@@ -1,14 +1,14 @@
 {# Critical CSS #}
-{% set criticalCss = getCookie('critical-css') %}
-{% if criticalCss == 'loaded' %}
-
-  {{ craft.twigpack.includeCssModule("styles.css", false) }}
-{% else %}
-  {% do setCookie('critical-css', 'loaded', now | date_modify("+7 days").timestamp ) %}
-
-  {% if craft.app.config.general.custom.craftEnv == 'live' %}
-    {{ craft.twigpack.includeCriticalCssTags() }}
+{% import '_macros/_macro-cookies.twig' as cookies %}
+{% if craft.app.config.general.custom.craftEnv != 'local' %}
+  {% set criticalCss = cookies.get('critical-css') %}
+  {% if criticalCss == 'loaded' %}
+    {{ craft.twigpack.includeCssModule("styles.css", false) }}
+  {% else %}
+    {% do cookies.set('critical-css', 'loaded', now | date_modify('+7 days').timestamp) %}
+    {% block inlineCriticalCss %}
+      {{ craft.twigpack.includeCriticalCssTags() }}
+    {% endblock %}
+    {{ craft.twigpack.includeCssModule("styles.css", true) }}
   {% endif %}
-
-  {{ craft.twigpack.includeCssModule("styles.css", true) }}
 {% endif %}

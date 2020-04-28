@@ -16,41 +16,29 @@
     path {
       fill: currentColor;
     }
-  }
 
-  &--24 {
-    > svg {
-      width: 24px;
-      height: 24px;
-    }
-  }
-
-  &--32 {
-    > svg {
-      width: 32px;
-      height: 32px;
-    }
-  }
-
-  &--48 {
-    > svg {
-      width: 48px;
-      height: 48px;
-    }
-  }
-
-  &--64 {
-    > svg {
-      width: 64px;
-      height: 64px;
-    }
-  }
-
-  &--128 {
-    > svg {
-      width: 128px;
-      height: 128px;
+    g > * {
+      fill: transparent;
     }
   }
 }
 
+/* stylelint-disable */
+$bk-icons: (
+    (24),
+    (32),
+    (48),
+    (64),
+    (128),
+);
+/* stylelint-enable */
+
+// Ratio variants
+@each $icon in $bk-icons {
+  .c-icon--#{$icon} {
+    > svg {
+      width: #{$icon}px;
+      height: #{$icon}px;
+    }
+  }
+}

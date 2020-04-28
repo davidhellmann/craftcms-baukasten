@@ -14,8 +14,8 @@
     order: 'postDate',
     prevLabel: false,
     nextLabel: false,
-    prevIcon: false,
-    nextIcon: false
+    prevIcon: 'arrow-back',
+    nextIcon: 'arrow-forward'
   } %}
 
   {# Merge Default with Options #}
@@ -41,7 +41,13 @@
           <a class="{{ props.cn ~ '__link' }}  {{ props.cn ~ '__link--prev' }}" href="{{ prevEntry.url }}">
             {% if props.prevIcon %}
               <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--prev' }}">
-                {% include '_globals/_partials/svg/' ~ props.prevIcon ~ '.svg.twig' %}
+                {# Icon #}
+                {% include '_components/icon/icon.twig' with {
+                  props: {
+                    modifiers: ['24'],
+                    icon: props.prevIcon,
+                  }
+                } only %}
               </span>
             {% endif %}
 
@@ -64,7 +70,13 @@
 
             {% if props.nextIcon %}
               <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--next' }}">
-                {% include '_globals/_partials/svg/' ~ props.nextIcon ~ '.svg.twig' %}
+                {# Icon #}
+                {% include '_components/icon/icon.twig' with {
+                  props: {
+                    modifiers: ['24'],
+                    icon: props.nextIcon,
+                  }
+                } only %}
               </span>
             {% endif %}
           </a>

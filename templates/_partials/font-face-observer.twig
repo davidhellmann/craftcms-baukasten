@@ -1,12 +1,13 @@
 <style>
   {{ craft.twigpack.includeFile("@webroot/dist/css/generic.webfonts.css") }}
 </style>
-{% set fontsLoaded = getCookie('fonts-loaded') %}
+{% import '_macros/_macro-cookies.twig' as cookies %}
+{% set fontsLoaded = cookies.get('fonts-loaded') %}
 {% if fontsLoaded or craft.app.config.general.custom.craftEnv == 'local' %}
   <script>
     document.documentElement.classList.add('fonts-loaded');
   </script>
-  {% do setCookie('fonts-loaded', 'true', now | date_modify("+7 days").timestamp ) %}
+  {% do cookies.set('fonts-loaded', 'true', now | date_modify('+7 days').timestamp) %}
 {% else %}
   <script>
     {{ craft.twigpack.includeFile("@webroot/dist/js/fontfaceobserver.js") }}

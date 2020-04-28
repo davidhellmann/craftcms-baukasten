@@ -5,12 +5,12 @@
 
 {% macro paginationSimple(pages,craft,props) %}
   {% set defaults = {
-    cn: 'm-paginationSimple',
+    cn: 'c-paginationSimple',
     searchquery: false,
     prevText: 'Prev Page',
     nextText: 'Next Page',
-    prevIcon: 'icon-arrow-left',
-    nextIcon: 'icon-arrow-right',
+    prevIcon: 'arrow-back',
+    nextIcon: 'arrow-forward',
     removeCanonical: true,
     setNoindex: true
   } %}
@@ -30,7 +30,13 @@
 
             {% if props.prevIcon %}
               <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--prev' }}">
-                {% include '_partials/svg/' ~ props.prevIcon ~ '.svg.twig' %}
+                {# Icon #}
+                {% include '_components/icon/icon.twig' with {
+                  props: {
+                    modifiers: ['24'],
+                    icon: props.prevIcon,
+                  }
+                } only %}
               </span>
             {% endif %}
 
@@ -50,7 +56,13 @@
 
             {% if props.nextIcon %}
               <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--next' }}">
-                {% include '_partials/svg/' ~ props.nextIcon ~ '.svg.twig' %}
+                {# Icon #}
+                {% include '_components/icon/icon.twig' with {
+                  props: {
+                    modifiers: ['24'],
+                    icon: props.nextIcon,
+                  }
+                } only %}
               </span>
             {% endif %}
 
@@ -63,7 +75,7 @@
     </nav>
 
     {% js %}
-      var paginationElement = document.querySelector('.m-paginationSimple');
+      var paginationElement = document.querySelector('.c-paginationSimple');
       var links = paginationElement.querySelectorAll('a');
 
       for (var i = 0; i < links.length; i++) {
