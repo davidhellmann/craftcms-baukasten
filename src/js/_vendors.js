@@ -34,3 +34,8 @@ if (document.querySelectorAll('.lazyload').length) {
     });
   }
 }
+
+// objectFitPolyfill
+if (document.querySelectorAll('[data-object-fit]').length) {
+  import(/* webpackChunkName: "objectFitPolyfill" */ 'objectFitPolyfill');
+}
