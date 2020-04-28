@@ -77,45 +77,5 @@
         {% endif %}
       </div>
     </nav>
-
-    {% js %}
-      var paginationElement = document.querySelector('.c-pagination');
-      var links = paginationElement.querySelectorAll('a');
-
-      for (var i = 0; i < links.length; i++) {
-      var link = links[i];
-
-      link.addEventListener('click', function(evt) {
-      var link = evt.currentTarget;
-      var base64url = link.dataset.link;
-      var url = atob(base64url);
-      var search = link.dataset.search;
-      if (search) {
-      window.location = url + search;
-      } else {
-      window.location = url;
-      }
-      });
-      }
-    {% endjs %}
-  {% endif %}
-
-  {# link rel="next/prev" #}
-  {% if seomatic %}
-    {% do seomatic.helper.paginate(pages) %}
-
-    {# set canonical to first page #}
-    {% do seomatic.meta.canonicalUrl(pages.getBasePath) %}
-
-    {# meta robots noindex, follow on paginated pages #}
-    {% if pages.currentPage > 1 %}
-      {% if opt.setNoindex %}
-        {% do seomatic.tag.get('robots').content('noindex, follow') %}
-      {% endif %}
-
-      {% if opt.removeCanonical %}
-        {% do seomatic.link.get('canonical').include(false) %}
-      {% endif %}
-    {% endif %}
   {% endif %}
 {% endmacro %}

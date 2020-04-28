@@ -31,53 +31,54 @@
 {# App Content #}
 {% block appContent %}
   {# Cache #}
-  {% cache using key 'article-archive-' ~ craft.app.request.pathInfo ~ (craft.app.request.pageNum ? '/p' ~ craft.app.request.pageNum : '') %}
-
-    <div class="o-section">
-      <div class="o-row">
-        <div class="o-col-6  o-col-s-24">
-          {# Include Page Title #}
-          {% include '_molecules/pageTitle/_template.twig' with {
-            props: {
-              object: entry,
-              size: 'h1'
-            }
-          } only %}
-        </div>
-      </div>
-    </div>
-
-    <div class="o-section">
-      <div class="o-row">
-        <div class="o-col-6  o-col-s-24">
-          {# Entry Intro #}
-          {% if entry.entrySummary ??? null %}
-            {% include '_atoms/richText/_template.twig' with {
+  {%- cache using key craft.app.request.pathInfo ~ (craft.app.request.pageNum ? '/p' ~ craft.app.request.pageNum : '') -%}
+    {%- minify -%}
+      <div class="o-section">
+        <div class="o-row">
+          <div class="o-col-6  o-col-s-24">
+            {# Include Page Title #}
+            {% include '_molecules/pageTitle/_template.twig' with {
               props: {
-                text: entry.entrySummary
+                object: entry,
+                size: 'h1'
               }
             } only %}
-          {% endif %}
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="o-section">
-      <div class="o-row">
-        <div class="o-col-6  o-col-s-24">
-          {# Cards --#}
-          {% include '_organisms/cards/_template.twig' with {
-            props: {
-              items: pageEntries,
-              pageInfo: pageInfo,
-              pagination: true,
-              paginationSimple: false
-            }
-          } only %}
+      <div class="o-section">
+        <div class="o-row">
+          <div class="o-col-6  o-col-s-24">
+            {# Entry Intro #}
+            {% if entry.entrySummary ??? null %}
+              {% include '_atoms/richText/_template.twig' with {
+                props: {
+                  text: entry.entrySummary
+                }
+              } only %}
+            {% endif %}
+          </div>
         </div>
       </div>
-    </div>
+
+      <div class="o-section">
+        <div class="o-row">
+          <div class="o-col-6  o-col-s-24">
+            {# Cards --#}
+            {% include '_organisms/cards/_template.twig' with {
+              props: {
+                items: pageEntries,
+                pageInfo: pageInfo,
+                pagination: true,
+                paginationSimple: false
+              }
+            } only %}
+          </div>
+        </div>
+      </div>
+    {%- endminify -%}
     {# Cache End #}
-  {% endcache %}
+  {%- endcache -%}
 {% endblock %}
 

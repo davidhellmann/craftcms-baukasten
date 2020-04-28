@@ -23,71 +23,70 @@
 {# App Content #}
 {% block appContent %}
   {# Cache #}
-  {% cache using key craft.app.request.pathInfo %}
-    <article role="article">
-
-
-      <div class="o-section">
-        <div class="o-row">
-          <div class="o-col-6  o-col-s-24">
-            {# Include Page Title #}
-            {% include '_molecules/pageTitle/_template.twig' with {
-              props: {
-                object: entry,
-                size: 'h1'
-              }
-            } only %}
-
-            {# Entry Intro #}
-            {% if entry.entrySummary ??? null %}
-              {% include '_atoms/richText/_template.twig' with {
+  {%- cache -%}
+    {%- minify -%}
+      <article role="article">
+        <div class="o-section">
+          <div class="o-row">
+            <div class="o-col-6  o-col-s-24">
+              {# Include Page Title #}
+              {% include '_molecules/pageTitle/_template.twig' with {
                 props: {
-                  text: entry.entrySummary
-                }
-              } only %}
-            {% endif %}
-
-            {# Image Entry #}
-            {% if entry.entryImage.one() ??? null %}
-              {% include '_atoms/headline/_template.twig' with {
-                props: {
-                  text: 'Image Entry',
-                  size: 'h3'
+                  object: entry,
+                  size: 'h1'
                 }
               } only %}
 
-              {% include '_organisms/imageSingle/_template.twig' with {
-                props: {
-                  image: entry.entryImage.one() ??? null,
-                  ratio: 'landscape'
-                }
-              } only %}
-            {% endif %}
+              {# Entry Intro #}
+              {% if entry.entrySummary ??? null %}
+                {% include '_atoms/richText/_template.twig' with {
+                  props: {
+                    text: entry.entrySummary
+                  }
+                } only %}
+              {% endif %}
+
+              {# Image Entry #}
+              {% if entry.entryImage.one() ??? null %}
+                {% include '_atoms/headline/_template.twig' with {
+                  props: {
+                    text: 'Image Entry',
+                    size: 'h3'
+                  }
+                } only %}
+
+                {% include '_organisms/imageSingle/_template.twig' with {
+                  props: {
+                    image: entry.entryImage.one() ??? null,
+                    ratio: 'landscape'
+                  }
+                } only %}
+              {% endif %}
+            </div>
           </div>
         </div>
+
+
+        {# Content Builder #}
+        {% include '_contentBuilders/_contentBuilder.twig' with {
+          props: {
+            object: entry
+          }
+        } only %}
+      </article>
+
+      <div class="o-section">
+        {# Post Nav #}
+        {% import '_partials/macros/_macro-postNav.twig' as macroPostNav %}
+        {{ macroPostNav.postNav(entry, {
+          section: 'articles',
+          prevLabel: 'Prev Article',
+          nextLabel: 'Next Article',
+          prevIcon: 'iconArrowLeft',
+          nextIcon: 'iconArrowRight'
+        }) }}
       </div>
-
-
-      {# Content Builder #}
-      {% include '_contentBuilders/_contentBuilder.twig' with {
-        props: {
-          object: entry
-        }
-      } only %}
-    </article>
-
-    <div class="o-section">
-      {# Post Nav #}
-      {% import '_partials/macros/_macro-postNav.twig' as macroPostNav %}
-      {{ macroPostNav.postNav(entry, {
-        section: 'articles',
-        prevLabel: 'Prev Article',
-        nextLabel: 'Next Article',
-        prevIcon: 'iconArrowLeft',
-        nextIcon: 'iconArrowRight'
-      }) }}
-    </div>
-
+    {%- endminify -%}
     {# Cache End #}
-  {% endcache %}
+  {%- endcache -%}
 {% endblock %}

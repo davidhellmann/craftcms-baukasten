@@ -14,10 +14,8 @@
 {% extends "_layouts/global-variables.twig" %}
 
 {% block htmlPage %}
-    {% minify %}
-        {# Primary content block #}
-        {% block content %}
-            <code>No content block defined.</code>
-        {% endblock content %}
-    {% endminify %}
+  {# Primary content block #}
+  {% block content %}
+    <code>No content block defined.</code>
+  {% endblock content %}
 {% endblock htmlPage %}
