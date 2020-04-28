@@ -28,7 +28,7 @@ if (document.querySelectorAll('.lazyload').length) {
       const target = e.target.parentNode;
       if (target && target.style.backgroundColor) {
         setTimeout(() => {
-          target.style.backgroundColor = 'transparent';
+          // target.style.backgroundColor = 'transparent';
         }, 1000);
       }
     });

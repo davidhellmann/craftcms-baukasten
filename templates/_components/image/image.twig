@@ -91,7 +91,7 @@
 
     {# Domiant Color (Use lase image from Final images #}
     {% if craft.imager.getDominantColor(transformedImages|last) %}
-      {% set dominantColor = craft.imager.getDominantColor(transformedImages|last) %}
+      {% set dominantColor = craft.imager.getDominantColor((transformedImages|last).url, 10) %}
     {% else %}
       {% set dominantColor = 'transparent' %}
     {% endif %}
