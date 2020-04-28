@@ -1,0 +1,20 @@
+{#
+ # Slugify
+ #
+ # Macros for getting and setting cookies natively with Craft CMS 3.1.17 or later
+ #
+ # Usage:
+ # {% import "_macros/_macro-safeTruncate.twig" as safeTruncate %}
+ # {{ safeTruncate.safeTruncate(string, lang, ending) }}
+ #}
+
+{%- macro safeTruncate(string, chars = 100, ending = '…') -%}
+  {% apply spaceless %}
+    {% set stringy = create(
+      "Stringy\\Stringy",
+      [string]
+    ) %}
+    {{ stringy.safeTruncate(chars, "…") }}
+  {% endapply %}
+{%- endmacro -%}
+
