@@ -18,6 +18,4 @@
  * set to the value `2012`.
  */
 
-return [
-    'amp' => ['template' => 'amp-index'],
-];
+return [];
