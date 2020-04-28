@@ -21,12 +21,10 @@
 }) %}
 {% paginate entries as pageInfo, pageEntries %}
 
-{# Rel Nav #}
-{% block appHeader %}
-  {% include '_partials/header/_siteHeaderLinks.twig' with {
-    pageInfo: pageInfo
-  } only %}
-{% endblock %}
+{# Seomatic Overwrites #}
+{% import '_macros/_macro-seomaticPaginationOverwrites.twig' as macroSeomaticPaginationOverwrites  %}
+{{ macroSeomaticPaginationOverwrites.seomaticPaginationOverwrites(pageInfo) }}
+
 
 {# App Content #}
 {% block appContent %}

@@ -11,15 +11,6 @@
   </style>
 {% endblock %}
 
-{# Rel Nav #}
-{% block siteHeader %}
-  {% include '_partials/header/_siteHeaderLinks--single.twig' with {
-    section: 'articles',
-    order: 'postDate',
-    entry: entry
-  } only %}
-{% endblock %}
-
 {# App Content #}
 {% block appContent %}
   {# Cache #}

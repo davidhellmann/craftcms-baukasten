@@ -4,7 +4,7 @@
   seomaticPaginationOverwrites
   ============================
 
-  {% import '_partials/macros/_macro-mergedPosts.html' as macroSeomaticPaginationOverwrites  %}
+  {% import '_macros/_macro-seomaticPaginationOverwrites.twig' as macroSeomaticPaginationOverwrites  %}
   {{ macroSeomaticPaginationOverwrites.seomaticPaginationOverwrites(pageInfo) }}
 #}
 {% macro seomaticPaginationOverwrites(pageInfo) %}

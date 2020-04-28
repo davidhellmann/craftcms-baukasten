@@ -73,5 +73,49 @@
         </div>
       {% endif %}
     </nav>
+
+    <script>
+      var paginationSimple = document.querySelectorAll('.c-paginationSimple');
+
+      for (var i = 0, len = paginationSimple.length; i < len; i++) {
+        var links = paginationSimple[i].querySelectorAll('a');
+
+        for (var j = 0; j < links.length; j++) {
+          var link = links[j];
+
+          link.addEventListener('click', function (evt) {
+            var link = evt.currentTarget;
+            var base64url = link.dataset.link;
+            var url = atob(base64url);
+            var search = link.dataset.search;
+
+            if (search) {
+              window.location = url + search;
+            } else {
+              window.location = url;
+            }
+          });
+        }
+      }
+    </script>
   {% endif %}
+
+  {# link rel="next/prev" #}
+  {% if seomatic %}
+  {% do seomatic.helper.paginate(pages) %}
+
+  {# set canonical to first page #}
+  {% do seomatic.meta.canonicalUrl(pages.getBasePath) %}
+
+  {# meta robots noindex, follow on paginated pages #}
+  {% if pages.currentPage > 1 %}
+    {% if opt.setNoindex %}
+      {% do seomatic.tag.get('robots').content('noindex, follow') %}
+    {% endif %}
+
+    {% if opt.removeCanonical %}
+      {% do seomatic.link.get('canonical').include(false) %}
+    {% endif %}
+  {% endif %}
+
 {% endmacro %}
