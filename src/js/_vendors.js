@@ -36,6 +36,9 @@ if (document.querySelectorAll('.lazyload').length) {
 }
 
 // objectFitPolyfill
-if (document.querySelectorAll('[data-object-fit]').length) {
+if (
+  document.querySelectorAll('[data-object-fit]').length &&
+  !('objectFit' in document.body.style)
+) {
   import(/* webpackChunkName: "objectFitPolyfill" */ 'objectFitPolyfill');
 }
