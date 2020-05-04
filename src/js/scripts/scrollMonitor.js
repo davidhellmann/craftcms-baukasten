@@ -10,6 +10,10 @@ const scrollMonitorScript = {
       waypoint: '[waypoint]',
       waypointTarget: '[waypoint-target]',
     },
+    settings: {
+      delay: 250,
+      staggeringDelay: 100,
+    },
     classes: {
       isInViewport: 'is-inViewport',
       isAnimated: 'is-animated',
@@ -31,6 +35,18 @@ const scrollMonitorScript = {
       // Create Watcher
       const elementWatcher = scrollMonitor.create(waypoint);
 
+      /* TODO: Test it in templates */
+      if (waypoint.hasAttribute('waypoint-delay')) {
+        this.cfg.settings.delay =
+          waypoint.getAttribute('waypoint-delay') || this.cfg.settings.delay;
+      }
+
+      if (waypoint.hasAttribute('waypoint-staggering-delay')) {
+        this.cfg.settings.staggeringDelay =
+          waypoint.getAttribute('waypoint-staggering-delay') ||
+          this.cfg.settings.staggeringDelay;
+      }
+
       // Action when comes into viewport
       elementWatcher.enterViewport(() => {
         // Add class to the waypoint when comes into viewport
@@ -40,8 +56,6 @@ const scrollMonitorScript = {
         this.cfg.els.$waypointTargets = [
           ...waypoint.querySelectorAll(this.cfg.selectors.waypointTarget),
         ];
-
-        console.log(waypoint);
 
         if (this.cfg.els.$waypointTargets.length > 0) {
           // Animate Targets if exits
@@ -58,7 +72,8 @@ const scrollMonitorScript = {
 
   handleAnimateClasses(targets) {
     targets.forEach((target, index) => {
-      const delay = 250 + 100 * index;
+      const delay =
+        this.cfg.settings.delay + this.cfg.settings.staggeringDelay * index;
       console.log(target, index);
 
       if (!target.classList.contains('is-animated')) {
