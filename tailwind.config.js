@@ -6,6 +6,12 @@
 const baukastenConfig = require('./baukasten.config');
 
 module.exports = {
+  purge: [
+    './templates/**/*.twig',
+    './templates/**/*.html',
+    './templates/**/*.vue',
+    './src/vue/**/*.vue',
+  ],
   theme: {
     // Extend the default Tailwind config here
     colors: baukastenConfig.colors,
@@ -22,9 +28,13 @@ module.exports = {
     spacing: baukastenConfig.spacings,
   },
   corePlugins: {
+  corePlugins: {
     container: false,
     boxSizing: false,
     display: false,
+    divideWidth: false,
+    divideColor: false,
+    divideOpacity: false,
     float: false,
     clear: false,
     objectFit: false,
@@ -73,10 +83,12 @@ module.exports = {
     listStyleType: false,
     listStylePosition: false,
     placeholderColor: false,
+    placeholderOpacity: false,
     textAlign: false,
     textColor: false,
     textDecoration: false,
     textTransform: false,
+    textOpacity: false,
     verticalAlign: false,
     whitespace: false,
     wordBreak: false,
@@ -85,11 +97,13 @@ module.exports = {
     backgroundPosition: false,
     backgroundRepeat: false,
     backgroundSize: false,
+    backgroundOpacity: false,
     borderColor: false,
     borderStyle: false,
     borderWidth: false,
     borderRadius: false,
     borderCollapse: false,
+    borderOpacity: false,
     tableLayout: false,
     boxShadow: false,
     opacity: false,
@@ -111,6 +125,7 @@ module.exports = {
     stroke: false,
     strokeWidth: false,
     accessibility: true,
+    space: false
   },
   plugins: [],
 };

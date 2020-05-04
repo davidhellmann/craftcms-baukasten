@@ -145,21 +145,6 @@ module.exports = {
   manifestConfig: {
     basePath: '',
   },
-  purgeCssConfig: {
-    paths: [
-      './templates/**/*.{twig,html,js,vue,php}',
-      './src/vue/**/*.{vue,html}',
-      './src/js/**/*.{js}',
-    ],
-    whitelist: [
-      './src/css/**/*.{scss}',
-      './src/js/**/*.{js}',
-      './src/vue/**/*.{vue}',
-      './templates/**/*.{scss,vue,js}',
-    ],
-    whitelistPatterns: [],
-    extensions: ['html', 'js', 'twig', 'vue'],
-  },
   saveRemoteFileConfig: [
     {
       url: 'https://www.google-analytics.com/analytics.js',

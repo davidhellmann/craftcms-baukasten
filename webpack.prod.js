@@ -21,11 +21,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
 const SaveRemoteFilePlugin = require('save-remote-file-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WebappWebpackPlugin = require('webapp-webpack-plugin');
-const WhitelisterPlugin = require('purgecss-whitelister');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const zopfli = require('@gfx/zopfli');
 
@@ -33,14 +31,6 @@ const zopfli = require('@gfx/zopfli');
 const common = require('./webpack.common.js');
 const pkg = require('./package.json');
 const settings = require('./webpack.settings.js');
-
-// Custom PurgeCSS extractor for Tailwind that allows special characters in
-// class names.
-//
-// https://github.com/FullHuman/purgecss#extractor
-const TailwindExtractor = content => {
-  return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
-};
 
 // Configure file banner
 const configureBanner = () => {
@@ -287,27 +277,6 @@ const configurePostcssLoader = buildType => {
   }
 };
 
-// Configure PurgeCSS
-const configurePurgeCss = () => {
-  let paths = [];
-  // Configure whitelist paths
-  for (const [key, value] of Object.entries(settings.purgeCssConfig.paths)) {
-    paths.push(path.join(__dirname, value));
-  }
-
-  return {
-    paths: glob.sync(paths),
-    whitelist: WhitelisterPlugin(settings.purgeCssConfig.whitelist),
-    whitelistPatterns: settings.purgeCssConfig.whitelistPatterns,
-    extractors: [
-      {
-        extractor: TailwindExtractor,
-        extensions: settings.purgeCssConfig.extensions,
-      },
-    ],
-  };
-};
-
 // Configure terser
 const configureTerser = () => {
   return {
@@ -365,7 +334,6 @@ module.exports = [
         path: path.resolve(__dirname, settings.paths.dist.base),
         filename: path.join('./css', '[name].css'),
       }),
-      // new PurgecssPlugin(configurePurgeCss()),
       new webpack.BannerPlugin(configureBanner()),
       new HtmlWebpackPlugin(configureHtml()),
       new WebappWebpackPlugin(configureWebapp()),
