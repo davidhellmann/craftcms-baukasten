@@ -24,9 +24,9 @@
 {% import '_macros/_macro-cookies.twig' as cookies %}
 
 {# GDPR Ready Youtube Embeds#}
-{% set klaro = cookies.get('klaro') %}
+{% set orejime = cookies.get('orejime') %}
 {% set craftEnv = craft.app.config.env != 'live' ? true : false %}
-{% if klaro.youtube ??? craftEnv ??? null %}
+{% if orejime.youtube ??? craftEnv ??? null %}
   {% if props.videoId %}
     <div {{ module.settings(props) }}>
       <iframe class="lazyload"
@@ -34,8 +34,12 @@
               frameborder="0">
       </iframe>
 
+      <div class="{{ opt.cn ~ '__notAllowed' }}">
+        <span onclick="window.orejime.show()">{{ 'gdrp.label.manageSettings' | t }}</span>
+      </div>
+
       {# TODO: GDPR Solution #}
-      {#{% if not klaro.youtube ??? null %}
+      {#{% if not orejime.youtube ??? null %}
         #}{# cookieClue #}{#
         {% include '_atoms/cookieClue/_template.twig' with {
           props: {}

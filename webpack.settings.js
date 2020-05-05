@@ -62,17 +62,29 @@ module.exports = {
       from: './src/js/workbox-catch-handler.js',
       to: 'js/[name].[ext]',
     },
-    // copy fontfaceobsever from node modules
+    // copy orejime js file from node_modules
     {
-      from: './node_modules/fontfaceobserver/fontfaceobserver.js',
+      from: './node_modules/orejime/dist/orejime.js',
       to: 'js/[name].[ext]',
       transform(content) {
         return content;
       },
     },
-    // copy klaro cookie consent from node modules
+    // copy orejime scss file from node_modules
     {
-      from: './node_modules/klaro/dist/klaro.js',
+      from: './src/css/06-components/components.orejime.scss',
+      to: 'css/[name].css',
+      transform(content) {
+        return Postcss([Cssnano])
+          .process(content.toString())
+          .then(result => {
+            return result.css;
+          });
+      },
+    },
+    // copy fontfaceobsever from node modules
+    {
+      from: './node_modules/fontfaceobserver/fontfaceobserver.js',
       to: 'js/[name].[ext]',
       transform(content) {
         return content;

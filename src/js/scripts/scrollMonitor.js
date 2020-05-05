@@ -35,15 +35,15 @@ const scrollMonitorScript = {
       // Create Watcher
       const elementWatcher = scrollMonitor.create(waypoint);
 
-      /* TODO: Test it in templates */
       if (waypoint.hasAttribute('waypoint-delay')) {
         this.cfg.settings.delay =
-          waypoint.getAttribute('waypoint-delay') || this.cfg.settings.delay;
+          parseInt(waypoint.getAttribute('waypoint-delay'), 10) ||
+          this.cfg.settings.delay;
       }
 
       if (waypoint.hasAttribute('waypoint-staggering-delay')) {
         this.cfg.settings.staggeringDelay =
-          waypoint.getAttribute('waypoint-staggering-delay') ||
+          parseInt(waypoint.getAttribute('waypoint-staggering-delay'), 10) ||
           this.cfg.settings.staggeringDelay;
       }
 
@@ -74,7 +74,6 @@ const scrollMonitorScript = {
     targets.forEach((target, index) => {
       const delay =
         this.cfg.settings.delay + this.cfg.settings.staggeringDelay * index;
-      console.log(target, index);
 
       if (!target.classList.contains('is-animated')) {
         setTimeout(() => {

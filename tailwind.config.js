@@ -28,7 +28,6 @@ module.exports = {
     spacing: baukastenConfig.spacings,
   },
   corePlugins: {
-  corePlugins: {
     container: false,
     boxSizing: false,
     display: false,
@@ -125,7 +124,7 @@ module.exports = {
     stroke: false,
     strokeWidth: false,
     accessibility: true,
-    space: false
+    space: false,
   },
   plugins: [],
 };
