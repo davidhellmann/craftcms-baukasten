@@ -11,6 +11,5 @@ check_run() {
 }
 
 # Example usage
-check_run yarn.lock "yarn"
 check_run package-lock.json "npm install"
 check_run composer.lock "composer install"

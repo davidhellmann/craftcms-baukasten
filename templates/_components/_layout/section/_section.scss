@@ -5,8 +5,10 @@
  */
 
 .l-section {
+  display: block;
   width: 100%;
   position: relative;
+  @include container('max');
 }
 
 .l-section--lightgray {
