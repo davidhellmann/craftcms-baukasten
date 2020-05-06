@@ -21,12 +21,20 @@
   max-width: map_get($breakpoints, 'max');
 }
 
-.l-container--large {
+.l-container--l {
   max-width: map_get($breakpoints, 'l');
 }
 
-.l-container--medium {
+.l-container--m {
   max-width: map_get($breakpoints, 'm');
+}
+
+.l-container--s {
+  max-width: map_get($breakpoints, 's');
+}
+
+.l-container--min {
+  max-width: map_get($breakpoints, 'min');
 }
 
 .l-container--visible {
