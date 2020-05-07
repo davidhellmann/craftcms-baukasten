@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2fc7a719ce876671b810fee306e6242a",
+    "content-hash": "4bc9e57180913d2e8a5bf144ada34973",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.137.2",
+            "version": "3.137.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/af91c2fc467a326e5bcb5665e4e2ad3d84d28be2",
-                "reference": "af91c2fc467a326e5bcb5665e4e2ad3d84d28be2",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/0bed146e6336ca1260e937fce2f4931681ceb3ce",
+                "reference": "0bed146e6336ca1260e937fce2f4931681ceb3ce",
                 "shasum": ""
             },
             "require": {
@@ -24,21 +24,6 @@
                 "guzzlehttp/psr7": "^1.4.1",
                 "mtdowling/jmespath.php": "^2.5",
                 "php": ">=5.5"
-            },
-            "require-dev": {
-                "andrewsville/php-token-reflection": "^1.4",
-                "aws/aws-php-sns-message-validator": "~1.0",
-                "behat/behat": "~3.0",
-                "doctrine/cache": "~1.4",
-                "ext-dom": "*",
-                "ext-openssl": "*",
-                "ext-pcntl": "*",
-                "ext-sockets": "*",
-                "nette/neon": "^2.3",
-                "phpunit/phpunit": "^4.8.35|^5.4.3",
-                "psr/cache": "^1.0",
-                "psr/simple-cache": "^1.0",
-                "sebastian/comparator": "^1.2.3"
             },
             "suggest": {
                 "aws/aws-php-sns-message-validator": "To validate incoming SNS notifications",
@@ -61,7 +46,6 @@
                     "src/functions.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache-2.0"
             ],
@@ -83,7 +67,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-05-04T18:13:52+00:00"
+            "time": "2020-05-06T18:19:09+00:00"
         },
         {
             "name": "brick/math",
@@ -597,11 +581,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.4.17.1",
+            "version": "3.4.18",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/6ede739270561cc417612e0d72ea7d9142c34884",
-                "reference": "6ede739270561cc417612e0d72ea7d9142c34884",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/0d182fa2d16ad49aa68cf3037ed80c63b0ed1745",
+                "reference": "0d182fa2d16ad49aa68cf3037ed80c63b0ed1745",
                 "shasum": ""
             },
             "require": {
@@ -637,7 +621,7 @@
                 "voku/stringy": "~5.1.0",
                 "webonyx/graphql-php": "^0.12.0",
                 "yii2tech/ar-softdelete": "^1.0.2",
-                "yiisoft/yii2": "~2.0.34.0",
+                "yiisoft/yii2": "~2.0.35.0",
                 "yiisoft/yii2-debug": "^2.1.0",
                 "yiisoft/yii2-queue": "~2.3.0",
                 "yiisoft/yii2-shell": "^2.0.2",
@@ -648,7 +632,7 @@
             },
             "provide": {
                 "bower-asset/inputmask": "~3.2.2 | ~3.3.5",
-                "bower-asset/jquery": "3.4.*@stable | 3.3.*@stable | 3.2.*@stable | 3.1.*@stable | 2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
+                "bower-asset/jquery": "3.5.*@stable | 3.4.*@stable | 3.3.*@stable | 3.2.*@stable | 3.1.*@stable | 2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
                 "bower-asset/punycode": "1.3.*",
                 "bower-asset/yii2-pjax": "~2.0.1"
             },
@@ -682,7 +666,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2020-04-27T16:08:13+00:00"
+            "time": "2020-05-05T17:00:32+00:00"
         },
         {
             "name": "craftcms/feed-me",
@@ -745,24 +729,23 @@
         },
         {
             "name": "craftcms/mailgun",
-            "version": "1.4.2",
+            "version": "1.4.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/mailgun/zipball/e97a0bb1cfb2790f41394e064914cab1457344dd",
-                "reference": "e97a0bb1cfb2790f41394e064914cab1457344dd",
+                "url": "https://api.github.com/repos/craftcms/mailgun/zipball/eb1ad291d6b5a2b2d24442048568e396f780e00b",
+                "reference": "eb1ad291d6b5a2b2d24442048568e396f780e00b",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^3.1.5",
                 "cspoo/swiftmailer-mailgun-bundle": "^1.0.0",
-                "php-http/guzzle6-adapter": "^1.1.1"
+                "php-http/guzzle6-adapter": "^1.1.1 || ^2.0"
             },
             "type": "craft-plugin",
             "extra": {
                 "name": "Mailgun",
                 "handle": "mailgun",
-                "changelogUrl": "https://raw.githubusercontent.com/craftcms/mailgun/master/CHANGELOG.md",
-                "downloadUrl": "https://github.com/craftcms/mailgun/archive/master.zip"
+                "documentationUrl": "https://github.com/craftcms/mailgun/blob/v1/README.md"
             },
             "autoload": {
                 "psr-4": {
@@ -790,10 +773,10 @@
                 "email": "support@craftcms.com",
                 "issues": "https://github.com/craftcms/mailgun/issues?state=open",
                 "source": "https://github.com/craftcms/mailgun",
-                "docs": "https://github.com/craftcms/mailgun",
+                "docs": "https://github.com/craftcms/mailgun/blob/v1/README.md",
                 "rss": "https://github.com/craftcms/mailgun/commits/master.atom"
             },
-            "time": "2019-02-22T13:14:31+00:00"
+            "time": "2020-05-05T06:56:32+00:00"
         },
         {
             "name": "craftcms/oauth2-craftid",
@@ -5610,17 +5593,17 @@
         },
         {
             "name": "spacecatninja/imager-x",
-            "version": "v3.0.7",
+            "version": "v3.0.8",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spacecatninja/craft-imager-x/zipball/e73841a4899044eaf2f7e9bf6a3e3d59f79ecf55",
-                "reference": "e73841a4899044eaf2f7e9bf6a3e3d59f79ecf55",
+                "url": "https://api.github.com/repos/spacecatninja/craft-imager-x/zipball/3aef142fe486f6e4b006d149e48e8f4fca67d9c0",
+                "reference": "3aef142fe486f6e4b006d149e48e8f4fca67d9c0",
                 "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.0.0",
                 "craftcms/cms": "^3.3.0",
-                "google/cloud": "~0.20",
+                "google/cloud-storage": "~1.0",
                 "imageoptim/imageoptim": "^1.3",
                 "imgix/imgix-php": "^3.0",
                 "kraken-io/kraken-php": "^1.2",
@@ -5670,7 +5653,7 @@
                 "docs": "http://imager-x.spacecat.ninja/",
                 "issues": "https://github.com/spacecatninja/craft-imager-x/issues"
             },
-            "time": "2020-04-11T12:04:42+00:00"
+            "time": "2020-05-06T20:17:49+00:00"
         },
         {
             "name": "ssnepenthe/color-utils",
@@ -7958,11 +7941,6 @@
         {
             "name": "voku/portable-utf8",
             "version": "5.4.42",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/voku/portable-utf8.git",
-                "reference": "dcdb1d8fbda1ce3047bf2377558e8fea13bd1ae9"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/voku/portable-utf8/zipball/dcdb1d8fbda1ce3047bf2377558e8fea13bd1ae9",
@@ -8371,11 +8349,11 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.34",
+            "version": "2.0.35",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ef2585379bc387433e150a62451a89a4b1e130d7",
-                "reference": "ef2585379bc387433e150a62451a89a4b1e130d7",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/d42809e4969cdc0adb97197ba32774b3e4cd9e8e",
+                "reference": "d42809e4969cdc0adb97197ba32774b3e4cd9e8e",
                 "shasum": ""
             },
             "require": {
@@ -8461,7 +8439,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2020-03-26T20:42:29+00:00"
+            "time": "2020-05-02T11:11:31+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
