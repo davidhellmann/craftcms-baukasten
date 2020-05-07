@@ -1,4 +1,4 @@
-# nystudio107/craft Change Log
+# nystudio107/craft Change Log.
 
 ## 2.0.3 - 2018.08.29
 ### Added
