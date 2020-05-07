@@ -1,8 +1,6 @@
 {#
-  Content Builder Matrix
-  ======================
-
-  Matrix Content Builder use the Core Matrix Field from Craft CMS
+  Content Builder
+  ===============
 #}
 
 {# Set Defaults #}
@@ -26,7 +24,7 @@
       {% set matrixfield = props.object.contentBuilder.all() %}
 
       {% for content in matrixfield %}
-        {% include '_contentBuilder/_contentBuilderModules.twig' with {
+        {% include '_builders/_blocks.twig' with {
           data: content
         } only %}
       {% endfor %}

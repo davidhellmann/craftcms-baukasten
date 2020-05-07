@@ -25,7 +25,7 @@
         .el {
           margin: 20px;
           width: calc(25% - 40px);
-          height: 300px;
+          height: 200px;
           box-shadow: 0 5px 5px #eee;
           border: 1px solid #eee;
           display: flex;
@@ -33,7 +33,16 @@
           justify-content: center;
         }
       </style>
-      <div class="els" waypoint waypoint-endless="true" waypoint-delay="1000">
+      <div class="els" waypoint>
+        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
+        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
+        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
+        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
+        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
+        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
+        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
+        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
+        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
         <div class="el is-fadeInUp" waypoint-target>Element 1</div>
         <div class="el is-fadeInUp" waypoint-target>Element 2</div>
         <div class="el is-fadeInUp" waypoint-target>Element 3</div>
@@ -42,196 +51,9 @@
         <div class="el is-fadeInUp" waypoint-target>Element 6</div>
         <div class="el is-fadeInUp" waypoint-target>Element 7</div>
         <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInDown" waypoint-target>Element 1</div>
-        <div class="el is-fadeInDown" waypoint-target>Element 2</div>
-        <div class="el is-fadeInDown" waypoint-target>Element 3</div>
-        <div class="el is-fadeInDown" waypoint-target>Element 4</div>
-        <div class="el is-fadeInDown" waypoint-target>Element 5</div>
-        <div class="el is-fadeInDown" waypoint-target>Element 6</div>
-        <div class="el is-fadeInDown" waypoint-target>Element 7</div>
-        <div class="el is-fadeInDown" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInLeft" waypoint-target>Element 1</div>
-        <div class="el is-fadeInLeft" waypoint-target>Element 2</div>
-        <div class="el is-fadeInLeft" waypoint-target>Element 3</div>
-        <div class="el is-fadeInLeft" waypoint-target>Element 4</div>
-        <div class="el is-fadeInLeft" waypoint-target>Element 5</div>
-        <div class="el is-fadeInLeft" waypoint-target>Element 6</div>
-        <div class="el is-fadeInLeft" waypoint-target>Element 7</div>
-        <div class="el is-fadeInLeft" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInRight" waypoint-target>Element 1</div>
-        <div class="el is-fadeInRight" waypoint-target>Element 2</div>
-        <div class="el is-fadeInRight" waypoint-target>Element 3</div>
-        <div class="el is-fadeInRight" waypoint-target>Element 4</div>
-        <div class="el is-fadeInRight" waypoint-target>Element 5</div>
-        <div class="el is-fadeInRight" waypoint-target>Element 6</div>
-        <div class="el is-fadeInRight" waypoint-target>Element 7</div>
-        <div class="el is-fadeInRight" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
         <div class="el is-fadeInUp" waypoint-target>Element 1</div>
         <div class="el is-fadeInUp" waypoint-target>Element 2</div>
         <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
-      </div>
-      <div class="els" waypoint>
-        <div class="el is-fadeInUp" waypoint-target>Element 1</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 2</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 3</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 4</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 5</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 6</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 7</div>
-        <div class="el is-fadeInUp" waypoint-target>Element 8</div>
       </div>
     </div>
   </section>

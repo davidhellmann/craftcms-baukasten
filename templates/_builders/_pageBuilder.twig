@@ -1,0 +1,34 @@
+{#
+  Page Builder
+  ============
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'o-pageBuilder',
+  modifiers: [],
+  customClasses: [],
+  object: entry ??? null,
+} %}
+
+{# Merge Default with Options #}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{% if props.object %}
+
+  <div {{ module.settings(props) }}>
+    {% if props.object.contentBuilder|length %}
+      {% set matrixfield = props.object.contentBuilder.all() %}
+
+      {% for content in matrixfield %}
+        {% include '_builders/_blocks.twig' with {
+          data: content
+        } only %}
+      {% endfor %}
+      <!-- end: o-section -->
+    {% endif %}
+  </div>
+{% endif %}

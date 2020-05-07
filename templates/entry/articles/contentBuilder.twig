@@ -1,5 +1,5 @@
 {% extends "_layouts/generic-page-layout.twig" %}
-{% set bodyClass = 'p-pages p-pageBuilder' %}
+{% set bodyClass = 'p-pages p-contentBuilder' %}
 
 {% block headLinks %}
   {{ parent() }}
@@ -13,8 +13,8 @@
 {% endblock %}
 
 {% block content %}
-  {# Page Builder #}
-  {% include '_builders/_pageBuilder.twig' with {
+  {# Content Builder #}
+  {% include '_builders/_contentBuilder.twig' with {
     props: {
       object: entry
     }
