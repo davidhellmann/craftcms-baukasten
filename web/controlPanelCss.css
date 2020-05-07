@@ -1,0 +1,70 @@
+/* Redactor Styles */
+.redactor-dropdown-format .redactor-dropdown-item-smaller-text span,
+.redactor-styles .ms--1 {
+  font-size: 13px;
+  color: #333;
+}
+
+.redactor-dropdown-format .redactor-dropdown-item-normal-text span,
+.redactor-styles .ms-0 {
+  font-size: 16px;
+}
+
+.redactor-dropdown-format .redactor-dropdown-item-bigger-text span,
+.redactor-styles .ms-1 {
+  font-size: 20px;
+}
+
+
+.redactor-dropdown-format .redactor-dropdown-item-h6 span,
+.redactor-styles .ms-1 {
+  font-size: 20px;
+}
+
+
+.redactor-dropdown-format .redactor-dropdown-item-h5 span,
+.redactor-styles .ms-2 {
+  font-size: 24px;
+}
+
+.redactor-dropdown-format .redactor-dropdown-item-h4 span,
+.redactor-styles .ms-3 {
+  font-size: 28px;
+}
+
+.redactor-dropdown-format .redactor-dropdown-item-h3 span,
+.redactor-styles .ms-4 {
+  font-size: 32px;
+}
+
+.redactor-dropdown-format .redactor-dropdown-item-h2 span,
+.redactor-styles .ms-5 {
+  font-size: 36px;
+}
+
+.redactor-dropdown-format .redactor-dropdown-item-note span,
+.redactor-styles .ut-note {
+  font-size: 13px;
+  color: #999;
+}
+
+.redactor-styles > * {
+  line-height: 1.5;
+}
+
+/* Matrix Section */
+.blocks .matrixblock {
+  width: calc(97% - 30px);
+  margin-left: 3%;
+}
+
+
+.blocks .matrixblock[data-type="bkSection"] {
+  width: calc(100% - 30px);
+  margin-left: 0;
+  margin-top: 40px;
+}
+
+.blocks .matrixblock:first-child {
+  margin-top: 10px;
+}
