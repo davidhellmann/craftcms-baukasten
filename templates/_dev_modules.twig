@@ -181,13 +181,102 @@
   {# code #}
   {% include '_components/code/code.twig' with {
     props: {
-      snippet: "code[class*='language-'],
-pre[class*='language-'] {
-  color: #f8f8f2;
-  tab-size: 4;
-  hyphens: none;
-}",
+      snippet: "/*
+ |--------------------------------------------------------------------------
+ | .l-container
+ |--------------------------------------------------------------------------
+ */
+
+.l-container {
+  @include center();
+  width: 100%;
+  max-width: map_get($breakpoints, 'max');
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  .l-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+",
       language: 'scss'
+    }
+  } only %}
+
+  {# code #}
+  {% include '_components/code/code.twig' with {
+    props: {
+      customClasses: ['mt-2'],
+      snippet: "npm i baukasten-grid",
+      language: 'bash'
+    }
+  } only %}
+
+
+  {# code #}
+  {% include '_components/code/code.twig' with {
+    props: {
+      customClasses: ['mt-2'],
+      snippet: "/**
+ * code
+ */
+
+import ClipboardJS from 'clipboard';
+
+const code = {
+  cfg: {
+    codeBlocks: [...document.querySelectorAll('.js-code')],
+  },
+
+  copyToClipboard() {
+    new ClipboardJS('.js-codeCopy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      },
+    });
+  },
+
+  toggleCodeBlock(els) {
+    els.forEach(el => {
+      const toggle = el.querySelector('.js-codeToggle');
+      let status = el.getAttribute('data-status');
+      const showText = toggle.getAttribute('data-show');
+      const hideText = toggle.getAttribute('data-hide');
+
+      toggle.addEventListener('click', () => {
+        if (status === 'open') {
+          status = 'closed';
+          toggle.innerHTML = showText;
+          toggle.setAttribute('data-status', 'closed');
+          toggle.parentElement.parentElement.setAttribute(
+            'data-status',
+            'closed',
+          );
+        } else {
+          status = 'open';
+          toggle.innerHTML = hideText;
+          toggle.setAttribute('data-status', 'open');
+          toggle.parentElement.parentElement.setAttribute(
+            'data-status',
+            'open',
+          );
+        }
+      });
+    });
+  },
+
+  init() {
+    if (!this.cfg.codeBlocks) return;
+    this.toggleCodeBlock(this.cfg.codeBlocks);
+    this.copyToClipboard();
+  },
+};
+
+export default code;
+
+",
+      language: 'javascript'
     }
   } only %}
 

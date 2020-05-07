@@ -6,6 +6,26 @@
 
 
 .c-code {
+  position: relative;
+
+  code, pre {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(180deg, rgba(#0a0e16, 0.5) 25%, rgba(#0a0e16, 0.9) 100%);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.25s var(--ease-out-cubic);
+  }
+
   .c-code__wrapper {
     width: 100%;
     margin: 0;
@@ -15,13 +35,13 @@
   }
 
   &[data-status='closed'] {
-    height: 92px !important;
+    max-height: 240px !important;
     overflow: hidden;
     pointer-events: none;
     user-select: none;
 
-    * {
-      color: var(--c-gray-800) !important;
+    &::before {
+      opacity: 1;
     }
   }
 
@@ -35,50 +55,57 @@
   .c-code__code {
     width: 100%;
   }
-}
 
-.c-code__toggle {
-  margin-bottom: 1rem;
-  display: block;
-  text-align: center;
-  cursor: pointer;
-  @include ms(-2);
-
-  span {
-    background-color: var(--c-red);
-    display: inline-block;
-    position: relative;
-    padding: 0.5rem 2.5rem 0.5rem 1rem;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    font-weight: 700;
-    color: var(--c-white);
-    user-select: none;
-
-    &::before,
-    &::after {
-      content: '';
-      transform-origin: center center;
-      width: 10px;
-      height: 2px;
-      position: absolute;
-      right: 1rem;
-      top: 50%;
-      transform: translate(0, -50%);
-      background-color: var(--c-white);
-      transition: all 250ms var(--ease-out-cubic);
-    }
-
-    &::after {
-      transform: translate(0, -50%) rotate(0);
-    }
+  .c-code__buttons {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 1000;
+    display: flex;
+    flex-flow: row nowrap;
   }
 
-  &[data-status='closed'] {
-    span {
-      &::before {
-        transform: translate(0, -50%) rotate(-90deg);
+  .c-code__button {
+    @include ms(-2);
+    color: var(--c-white);
+    background-color: var(--c-red);
+    position: relative;
+    display: block;
+    margin-left: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    font-weight: 700;
+    user-select: none;
+    cursor: pointer;
+    pointer-events: all;
+
+    &--toggle {
+      padding-right: 2rem;
+
+      &::before,
+      &::after {
+        content: '';
+        transform-origin: center center;
+        width: 10px;
+        height: 2px;
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translate(0, -50%);
+        background-color: var(--c-white);
+        transition: all 250ms var(--ease-out-cubic);
+      }
+
+      &::after {
+        transform: translate(0, -50%) rotate(0);
+      }
+
+      &[data-status='closed'] {
+        &::before {
+          transform: translate(0, -50%) rotate(-90deg);
+        }
       }
     }
   }
 }
+

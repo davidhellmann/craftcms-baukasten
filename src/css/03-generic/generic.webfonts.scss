@@ -56,11 +56,25 @@
   font-family: 'Roboto Mono';
   font-style: normal;
   font-display: swap;
-  font-weight: 300;
+  font-weight: 400;
   src: local('Roboto Mono Regular'), local('Roboto Mono-Regular'),
-    url('~typeface-roboto-mono/files/roboto-mono-latin-300.woff2')
+    url('~typeface-roboto-mono/files/roboto-mono-latin-400.woff2')
       format('woff2'),
     /* Super Modern Browsers */
-      url('~typeface-roboto-mono/files/roboto-mono-latin-300.woff')
+      url('~typeface-roboto-mono/files/roboto-mono-latin-400.woff')
+      format('woff'); /* Modern Browsers */
+}
+
+
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: local('Roboto Mono Regular'), local('Roboto Mono-Regular'),
+    url('~typeface-roboto-mono/files/roboto-mono-latin-700.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('~typeface-roboto-mono/files/roboto-mono-latin-700.woff')
       format('woff'); /* Modern Browsers */
 }

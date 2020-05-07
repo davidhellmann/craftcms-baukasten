@@ -2,19 +2,19 @@
 {% set defaults = {
   cn: 'c-code',
   modifiers: [],
-  customClasses: ['js-code'],
+  customClasses: [],
   data: {},
   open: false,
-  textShow: 'Expand Code Block',
-  textHide: 'Collapse Code Block',
+  textShow: 'translate.component.code.show' | t,
+  textHide: 'translate.component.code.hide' | t,
+  textCopy: 'translate.component.code.copy' | t,
   snippet: null,
   language: null
 } %}
 
-{# TODO: Translations #}
-
 {# Merge Default with Options #}
 {% set props = props is defined ? defaults|merge(props) : defaults %}
+{% set props= props| merge({ customClasses: props.customClasses | merge(['js-code'])}) %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
@@ -28,11 +28,22 @@
         </pre>
       {% endspaceless %}
     </div>
+
+    <div class="{{ props.cn ~ '__buttons' }}">
+      <span class="{{ props.cn ~ '__button' }}  {{ props.cn ~ '__button--toggle' }} js-codeToggle"
+            data-status="{{ props.open ? 'open' : 'closed' }}"
+            data-show="{{ props.textShow }}"
+            data-hide="{{ props.textHide }}">
+        {{ props.open ? props.textHide : props.textShow }}
+      </span>
+
+      <span class="{{ props.cn ~ '__button' }}  js-codeCopy">
+        {{ props.textCopy }}
+      </span>
+
+      <textarea class="sro">
+        {{- props.snippet | e -}}
+      </textarea>
+    </div>
   </div>
-  <span class="{{ props.cn ~ '__toggle' }}"
-        data-status="{{ props.open ? 'open' : 'closed' }}"
-        data-show="{{ props.textShow }}"
-        data-hide="{{ props.textHide }}">
-    <span class="{{ props.cn ~ '__toggleTextHolder' }} js-textHolder">{{ props.open ? props.textHide : props.textShow }}</span>
-  </span>
 {% endif %}
