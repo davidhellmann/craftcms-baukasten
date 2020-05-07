@@ -2,8 +2,6 @@
  * ScrollMonitor
  */
 
-import scrollMonitor from 'scrollmonitor';
-
 const scrollMonitorScript = {
   cfg: {
     selectors: {
@@ -13,6 +11,11 @@ const scrollMonitorScript = {
     settings: {
       delay: 250,
       staggeringDelay: 100,
+      endless: false,
+    },
+    observerConfig: {
+      threshold: [0],
+      rootMargin: '0px 0px -33% 0px',
     },
     classes: {
       isInViewport: 'is-inViewport',
@@ -30,50 +33,89 @@ const scrollMonitorScript = {
     ];
   },
 
-  handleWaypoints(waypoints) {
-    waypoints.forEach(waypoint => {
-      // Create Watcher
-      const elementWatcher = scrollMonitor.create(waypoint);
+  startObserving(waypoints) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const settings = this.updateSettings(entry.target);
+        const targets = this.getWaypointTargets(entry.target);
 
-      if (waypoint.hasAttribute('waypoint-delay')) {
-        this.cfg.settings.delay =
-          parseInt(waypoint.getAttribute('waypoint-delay'), 10) ||
-          this.cfg.settings.delay;
-      }
+        if (entry.isIntersecting) {
+          // Unobserve Element if endless setting false
+          if (!settings.endless) {
+            observer.unobserve(entry.target);
+          }
 
-      if (waypoint.hasAttribute('waypoint-staggering-delay')) {
-        this.cfg.settings.staggeringDelay =
-          parseInt(waypoint.getAttribute('waypoint-staggering-delay'), 10) ||
-          this.cfg.settings.staggeringDelay;
-      }
+          // Add in-view class for element
+          entry.target.classList.add(this.cfg.classes.isInViewport);
 
-      // Action when comes into viewport
-      elementWatcher.enterViewport(() => {
-        // Add class to the waypoint when comes into viewport
-        waypoint.classList.add(this.cfg.classes.isInViewport);
-
-        // Get all targets
-        this.cfg.els.$waypointTargets = [
-          ...waypoint.querySelectorAll(this.cfg.selectors.waypointTarget),
-        ];
-
-        if (this.cfg.els.$waypointTargets.length > 0) {
-          // Animate Targets if exits
-          this.handleAnimateClasses(this.cfg.els.$waypointTargets);
-        } else if (waypoint.hasAttribute('waypoint-target')) {
-          // Animate the waypoint itself if no targets exists
-          this.handleAnimateClasses([waypoint]);
+          // Animate Targets
+          this.handleAnimateClasses(targets, settings);
+        } else {
+          // Add in-view class for element
+          entry.target.classList.remove(this.cfg.classes.isInViewport);
+          targets.forEach(target => {
+            if (target.classList.contains('is-animated')) {
+              target.classList.remove('is-animated');
+            }
+          });
         }
-        // Do it just on time
-        elementWatcher.destroy();
       });
+    }, this.cfg.observerConfig);
+
+    waypoints.forEach(waypoint => {
+      observer.observe(waypoint);
     });
   },
 
-  handleAnimateClasses(targets) {
+  updateSettings(waypoint) {
+    const settings = {
+      delay: this.cfg.settings.delay,
+      staggeringDelay: this.cfg.settings.staggeringDelay,
+      endless: this.cfg.settings.endless,
+    };
+
+    if (waypoint.hasAttribute('waypoint-delay')) {
+      settings.delay = parseInt(waypoint.getAttribute('waypoint-delay'), 10);
+    }
+
+    if (waypoint.hasAttribute('waypoint-staggering-delay')) {
+      settings.staggeringDelay = parseInt(
+        waypoint.getAttribute('waypoint-staggering-delay'),
+        10,
+      );
+    }
+
+    if (waypoint.hasAttribute('waypoint-endless')) {
+      settings.endless = waypoint.getAttribute('waypoint-endless') === 'true';
+    }
+
+    return settings;
+  },
+
+  getWaypointTargets(holder) {
+    let targets;
+
+    // Get all targets
+    this.cfg.els.$waypointTargets = [
+      ...holder.querySelectorAll(this.cfg.selectors.waypointTarget),
+    ];
+
+    if (
+      this.cfg.els.$waypointTargets.length > this.cfg.observerConfig.threshold
+    ) {
+      // Animate Targets if exits
+      targets = this.cfg.els.$waypointTargets;
+    } else if (holder.hasAttribute('waypoint-target')) {
+      // Animate the waypoint itself if no targets exists
+      targets = '[waypoint]';
+    }
+
+    return targets;
+  },
+
+  handleAnimateClasses(targets, settings) {
     targets.forEach((target, index) => {
-      const delay =
-        this.cfg.settings.delay + this.cfg.settings.staggeringDelay * index;
+      const delay = settings.delay + settings.staggeringDelay * index;
 
       if (!target.classList.contains('is-animated')) {
         setTimeout(() => {
@@ -88,9 +130,8 @@ const scrollMonitorScript = {
     this.setElements();
 
     // Handle Waypoints
-    if (this.cfg.els.$waypoints) {
-      this.handleWaypoints(this.cfg.els.$waypoints);
-    }
+    if (!this.cfg.els.$waypoints) return;
+    this.startObserving(this.cfg.els.$waypoints);
   },
 };
 

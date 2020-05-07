@@ -1,4 +1,8 @@
-/* Redactor Styles */
+/*
+ |--------------------------------------------------------------------------
+ |  Redactor Styles
+ |--------------------------------------------------------------------------
+ */
 .redactor-dropdown-format .redactor-dropdown-item-smaller-text span,
 .redactor-styles .ms--1 {
   font-size: 13px;
@@ -52,19 +56,23 @@
   line-height: 1.5;
 }
 
-/* Matrix Section */
+/*
+ |--------------------------------------------------------------------------
+ |  Content Builder Stuff
+ |--------------------------------------------------------------------------
+ */
+
 .blocks .matrixblock {
   width: calc(97% - 30px);
   margin-left: 3%;
 }
 
+.blocks .matrixblock:first-child {
+  margin-top: 10px;
+}
 
 .blocks .matrixblock[data-type="bkSection"] {
   width: calc(100% - 30px);
   margin-left: 0;
   margin-top: 40px;
-}
-
-.blocks .matrixblock:first-child {
-  margin-top: 10px;
 }
