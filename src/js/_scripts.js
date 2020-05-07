@@ -31,10 +31,10 @@ if (document.querySelectorAll('.c-pagination, .c-paginationSimple').length) {
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
 
-// Scrollmonitor
+// scrollObserver
 if (document.querySelectorAll('[waypoint]').length) {
-  import(/* webpackChunkName: "scrollMonitor" */ './scripts/scrollMonitor.js')
-    .then(scrollMonitor => scrollMonitor.default.init())
+  import(/* webpackChunkName: "scrollMonitor" */ './scripts/scrollObserver.js')
+    .then(scrollObserver => scrollObserver.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
 
