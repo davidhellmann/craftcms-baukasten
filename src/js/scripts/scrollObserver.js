@@ -36,7 +36,7 @@ const scrollMonitorScript = {
   startObserving(waypoints) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        const settings = this.updateSettings(entry.target);
+        const settings = this.getSettings(entry.target);
         const targets = this.getWaypointTargets(entry.target);
 
         if (entry.isIntersecting) {
@@ -67,7 +67,7 @@ const scrollMonitorScript = {
     });
   },
 
-  updateSettings(waypoint) {
+  getSettings(waypoint) {
     const settings = {
       delay: this.cfg.settings.delay,
       staggeringDelay: this.cfg.settings.staggeringDelay,
