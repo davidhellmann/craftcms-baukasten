@@ -131,7 +131,10 @@ const scrollObserver = {
 
     // Handle Waypoints
     if (!this.cfg.els.$waypoints) return;
-    this.startObserving(this.cfg.els.$waypoints);
+
+    window.addEventListener('load', () => {
+      this.startObserving(this.cfg.els.$waypoints);
+    });
   },
 };
 
