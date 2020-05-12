@@ -33,7 +33,7 @@ if (document.querySelectorAll('.c-pagination, .c-paginationSimple').length) {
 
 // scrollObserver
 if (document.querySelectorAll('[waypoint]').length) {
-  import(/* webpackChunkName: "scrollMonitor" */ './scripts/scrollObserver.js')
+  import(/* webpackChunkName: "scrollObserver" */ './scripts/scrollObserver.js')
     .then(scrollObserver => scrollObserver.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
