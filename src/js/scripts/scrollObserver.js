@@ -126,13 +126,12 @@ const scrollObserver = {
   },
 
   init() {
-    // Set Elements
-    this.setElements();
-
-    // Handle Waypoints
-    if (!this.cfg.els.$waypoints) return;
-
     window.addEventListener('load', () => {
+      // Set Elements
+      this.setElements();
+
+      // Handle Waypoints
+      if (!this.cfg.els.$waypoints) return;
       this.startObserving(this.cfg.els.$waypoints);
     });
   },

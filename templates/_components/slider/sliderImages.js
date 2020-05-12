@@ -42,9 +42,11 @@ const sliderImages = {
   },
 
   init() {
-    const sliders = [...document.querySelectorAll(this.cfg.slider)];
-    if (!sliders) return;
-    this.initSliders(sliders);
+    window.addEventListener('load', () => {
+      const sliders = [...document.querySelectorAll(this.cfg.slider)];
+      if (!sliders) return;
+      this.initSliders(sliders);
+    });
   },
 };
 
