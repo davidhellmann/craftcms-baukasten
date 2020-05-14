@@ -7,13 +7,7 @@
     <html class="no-js" lang="{{ craft.app.language | slice(0,2) }}">
   {% endblock htmlTag %}
   <head>
-    <script>
-      {# check if js is enabled #}
-      var myHTML = document.getElementsByTagName('html')[0];
-      myHTML.classList.add('js');
-      myHTML.classList.remove('no-js');
-    </script>
-
+    {% include "_boilerplate/_partials/js-enabled-check.twig" %}
     {% include "_boilerplate/_partials/head-meta.twig" %}
     {% include "_boilerplate/_partials/rss-feeds.twig" %}
     {# Page content that should be included in the <head> #}

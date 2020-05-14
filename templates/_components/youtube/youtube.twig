@@ -14,8 +14,8 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 {% set props= props| merge({
   customClasses: props.customClasses | merge([
-    'u-ratio',
-    'u-ratio--16-9',
+    'o-ratio',
+    'o-ratio--16-9',
   ])
 }) %}
 

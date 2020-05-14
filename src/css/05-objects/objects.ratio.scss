@@ -20,7 +20,7 @@ $bk-ratios: (
   (10:16)
 ) !default;
 
-.u-ratio {
+.o-ratio {
   position: relative;
   display: block;
   overflow: hidden;
@@ -33,10 +33,10 @@ $bk-ratios: (
   }
 }
 
-.u-ratio__content,
-.u-ratio > iframe,
-.u-ratio > embed,
-.u-ratio > object {
+.o-ratio__content,
+.o-ratio > iframe,
+.o-ratio > embed,
+.o-ratio > object {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -56,7 +56,7 @@ $bk-ratios: (
       @error '`#{$consequent}` needs to be a number.';
     }
 
-    .u-ratio--#{$antecedent}-#{$consequent}::before {
+    .o-ratio--#{$antecedent}-#{$consequent}::before {
       padding-bottom: ($consequent/$antecedent) * 100%;
     }
   }
