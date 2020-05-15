@@ -3,7 +3,13 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.u-h1,
+.u-h2,
+.u-h3,
+.u-h4,
+.u-h5,
+.u-h6 {
   word-wrap: break-word;
   line-height: var(--lh-base-headings);
   font-style: normal;
@@ -11,26 +17,26 @@ h6 {
   @include wf('headline')
 }
 
-h1 {
+h1, .u-h1 {
   @include ms(6);
 }
 
-h2 {
+h2, .u-h2 {
   @include ms(5);
 }
 
-h3 {
+h3, .u-h3 {
   @include ms(4);
 }
 
-h4 {
+h4, .u-h4 {
   @include ms(3);
 }
 
-h5 {
+h5, .u-h5 {
   @include ms(2);
 }
 
-h6 {
+h6, .u-h6 {
   @include ms(1);
 }

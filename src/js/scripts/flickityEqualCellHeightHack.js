@@ -17,6 +17,10 @@ const flickityEqualCellHeightHack = {
       this.element.classList.remove('is-flickityResize');
       resize.call(this);
       this.element.classList.add('is-flickityResize');
+
+      this.cells.forEach(cell => {
+        cell.element.style.height = `${this.maxCellHeight}px`;
+      });
     };
   },
 };
