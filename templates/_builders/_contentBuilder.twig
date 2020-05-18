@@ -24,8 +24,15 @@
       {% set matrixfield = props.object.contentBuilder.all() %}
 
       {% for content in matrixfield %}
+        {% set createSection = false %}
+        {% if loop.first and content.type != 'cbSection' %}
+          {% set createSection = true %}
+        {% endif %}
+
         {% include '_builders/_blocks.twig' with {
-          data: content
+          data: content,
+          createSection: createSection,
+          builder: 'contentBuilder'
         } only %}
       {% endfor %}
       <!-- end: o-section -->

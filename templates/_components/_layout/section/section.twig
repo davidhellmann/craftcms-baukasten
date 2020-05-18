@@ -1,0 +1,28 @@
+{#
+  o-section
+  ------------------------------------------------------------
+#}
+
+{# -- Set Defaults -- #}
+{% set defaults = {
+  cn: 'l-section',
+  modifiers: [],
+  customClasses: [],
+  closetags: true,
+  containerWidth: 'max'
+} %}
+
+{# -- Merge Default with Options -- #}
+{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+
+{# -- Macros -- #}
+{% import '_partials/macros/_macro-settings.twig' as module %}
+
+{# -- Modul -- #}
+<section {{ module.settings(opt) }}>
+  <div class="l-container l-container--{{ props.containerWidth }}">
+    {% block sectionContent %}{% endblock %}
+  </div>
+  {% if opt.closetags %}
+</section>
+{% endif %}

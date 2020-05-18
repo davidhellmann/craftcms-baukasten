@@ -10,7 +10,7 @@
     {% include '_organisms/accordion/_template.twig' with {
         props: {
             modifiers: [
-                'cb'
+          builder
             ],
             items: data.children ??? null
         }
@@ -21,7 +21,7 @@
     {% include '_organisms/section/_template.twig' with {
         props: {
             modifiers: [
-                'cb',
+          builder,
                 data.paddingVertical ??? null,
                 data.width ??? null,
                 data.background ??? null
@@ -35,7 +35,7 @@
     {% include '_atoms/code/_template.twig' with {
         props: {
             modifiers: [
-                'cb',
+          builder,
             ],
             snippet: data.snippet ??? null,
             language: data.language ??? null
@@ -47,7 +47,7 @@
     {% include '_molecules/definitionList/_template.twig' with {
         props: {
             modifiers: [
-                'cb',
+          builder,
             ],
             items: data.definitionList ??? null
         }
@@ -58,7 +58,7 @@
     {% include '_atoms/embed/_template.twig' with {
         props: {
             modifiers: [
-                'cb',
+          builder,
                 data.position ??? null,
                 data.width ??? null
             ],
@@ -71,7 +71,7 @@
     {% include '_atoms/headline/_template.twig' with {
         props: {
             modifiers: [
-                'cb',
+          builder,
             ],
             text: data.headline ??? null,
             size: data.size ??? null
@@ -83,7 +83,7 @@
     {% include '_organisms/imageCover/_template.twig' with {
         props: {
             modifiers: [
-                'cb',
+          builder,
                 data.color ??? null,
                 data.position ??? null,
                 data.alignment ??? null
@@ -99,7 +99,7 @@
     {% include '_organisms/imageGallery/_template.twig' with {
         props: {
             modifiers: [
-                'cb'
+          builder
             ],
             customClasses: ['test'],
             images: data.images.all() ??? null,
@@ -112,7 +112,7 @@
     {% include '_organisms/imageGrid/_template.twig' with {
         props: {
             modifiers: [
-                'cb',
+          builder,
                 data.columns ??? null
             ],
             images: data.images.all() ??? null,
@@ -127,7 +127,7 @@
     {% include '_organisms/imageSingle/_template.twig' with {
         props: {
             modifiers: [
-                'cb',
+          builder,
                 data.alignment ??? null,
                 data.width ??? null
             ],
@@ -146,7 +146,7 @@
     {% include '../_organisms/slider' with {
         props: {
             modifiers: [
-                'cb',
+          builder,
             ],
             images: data.images.all() ??? null,
             ratio: data.ratio ??? null,
@@ -158,7 +158,7 @@
     {% include '_molecules/quote/_template.twig' with {
         props: {
             modifiers: [
-                'cb',
+          builder,
             ],
             quote: data.quote ??? null,
             source: data.source ??? null,
@@ -171,7 +171,7 @@
     {% include '_atoms/richText/_template.twig' with {
         props: {
             modifiers: [
-                'cb',
+          builder,
             ],
             text: data.richText ??? null
         }
@@ -182,7 +182,7 @@
     {% include '_atoms/divider/_template.twig' with {
         props: {
             modifiers: [
-                'cb',
+          builder,
                 data.settingsDivider.style ??? null,
                 data.settingsDivider.marginVertical ??? null
             ]
