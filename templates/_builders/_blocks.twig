@@ -2,7 +2,7 @@
 {# Loop over all block and choose the right one #}
 {# data has all the block data included #}
 
-{% if data.type == 'cbSection' and createSection %}
+{% if createSection %}
   {% include ('_builders/_includes/_cbSection.twig') with {
     data: data,
     builder: builder

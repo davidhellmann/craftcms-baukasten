@@ -16,18 +16,16 @@ return [
         'cacheDuration' => 31536000, // 1 Year
         'cacheDurationRemoteFiles' => 31536000, // 1 Year
         'cacheDurationExternalStorage' => 31536000, // 1 Year
+        'jpegQuality' => 90,
+        'webpQuality' => 90,
+        'pngCompressionLevel' => 0,
         'useCwebp' => true,
-        'cwebpPath' => '/usr/bin/cwebp',
         'optimizers' => [
             'jpegoptim',
             'jpegtran',
             'mozjpeg',
             'optipng',
-            'pngquant',
             'gifsicle',
-            'tinypng',
-            'kraken',
-            'imageoptim'
         ]
     ],
     // Live Env

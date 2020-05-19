@@ -1,0 +1,34 @@
+{#
+  c-imageCover
+  ------------------------------------------------------------
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'c-imageCover',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  image: null,
+  transform: null,
+  objectFit: null
+} %}
+
+{# Merge Default with Options #}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{# Modul #}
+{% if props.image %}
+  <div {{ module.settings(props) }}>
+    {% include '_components/image/image.twig' with {
+      props: {
+        image: props.image ??? null,
+        transform: props.transform ??? null,
+        objectFit: props.objectFit ??? 'cover'
+      }
+    } only %}
+  </div>
+{% endif %}

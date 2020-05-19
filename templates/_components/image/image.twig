@@ -6,17 +6,9 @@
   data: {},
   js: null,
   image: null,
-  sizes: [
-    { width: 1600 },
-    { width: 800 },
-    { width: 400 },
-    { width: 200 },
-    { width: 100 }
-  ],
-  ratio: null,
+  transform: null | default('landscape'),
   dominantColor: true,
   objectFit: null,
-  mode: 'crop',
   lazy: true
 } %}
 
@@ -35,7 +27,6 @@
 {% if image ??? null %}
   {# Skip Transforms for the current filetypes #}
   {% set skipTransformsForThisExtensions = ['gif', 'GIF', 'tiff', 'TIFF', 'svg', 'SVG'] %}
-  {% set focalpoint = image.getFocalpoint('asCss') | default('50% 50%') %}
 
   {% if image is iterable %}
     {% set extension = image.extension %}
@@ -44,49 +35,13 @@
   {% endif %}
 
   {% if extension not in skipTransformsForThisExtensions %}
-    {# Set correct ratio #}
-    {% if props.ratio %}
-      {% switch props.ratio %}
-
-      {% case "landscape" %}
-        {% set ratio = 4/3 %}
-
-      {% case "square" %}
-        {% set ratio = 1/1 %}
-
-      {% case "portrait" %}
-        {% set ratio = 3/4 %}
-
-      {% case "auto" %}
-        {% set ratio = (image.width/image.height) | default(null) %}
-
-      {% default %}
-        {% set ratio = props.ratio %}
-      {% endswitch %}
-    {% else %}
-      {% set ratio = (image.width/image.height) | default(null) %}
-    {% endif %}
-
-    {# Define global variables #}
-    {% set imageSettings = {
-      mode: props.mode,
-      position: focalpoint,
-      ratio: ratio
-    } %}
 
     {# Final Image Set #}
-    {% set transformedImages = craft.imager.transformImage(image, props.sizes, imageSettings) %}
+    {% set transformedImages = craft.imager.transformImage(image, props.transform) %}
 
     {# If the server has support for WebP, create transforms #}
     {% if craft.imager.serverSupportsWebp() %}
-      {% set imageSettingsWebp = {
-        mode: props.mode,
-        position: focalpoint,
-        ratio: ratio,
-        format: 'webp'
-      } %}
-
-      {% set transformedImagesWebp = craft.imager.transformImage(image, props.sizes, imageSettingsWebp) %}
+      {% set transformedImagesWebp = craft.imager.transformImage(image, props.transform, { format: 'webp' }) %}
     {% endif %}
 
     {# Domiant Color (Use lase image from Final images #}
@@ -98,10 +53,15 @@
 
     {# Placeholder #}
     {% set placeholderImage = craft.imager.placeholder({
-      type: 'svg',
+      color: dominantColor,
+      width: transformedImages|first.width,
+      height: transformedImages|first.height
+    }) %}
+  {% else %}
+    {% set placeholderImage = craft.imager.placeholder({
       color: dominantColor,
       width: image.width,
-      height: image.width / ratio
+      height: image.height,
     }) %}
   {% endif %}
 

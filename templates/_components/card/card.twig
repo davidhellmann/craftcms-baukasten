@@ -10,7 +10,7 @@
   customClasses: [],
   data: {},
   image: null,
-  imageRatio: null,
+  transform: null,
   headline: null,
   copy: null,
   linkUrl: null,
@@ -31,7 +31,7 @@
         {% include '_components/image/image.twig' with {
           props: {
             image: props.image ??? null,
-            ratio: props.imageRatio ??? null
+            transform: props.transform ??? null
           }
         } only %}
       </div>

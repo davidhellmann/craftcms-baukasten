@@ -163,7 +163,7 @@
     {% include '_components/card/card.twig' with {
       props: {
         image: placeholderImage ??? null,
-        imageRatio: 'landscape',
+        transform: 'landscape',
         headline: 'The quick brown fox jumps over the lazy dogs',
         copy: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo.',
         linkUrl: siteUrl,
@@ -171,7 +171,6 @@
       }
     } only %}
   </div>
-
 
   {# ============================================================== #}
   {#                                                                #}
@@ -282,7 +281,6 @@ export default code;
   } only %}
 
 
-
   {# ============================================================== #}
   {#                                                                #}
   {#      SEPERATOR                                                 #}
@@ -334,7 +332,7 @@ export default code;
   {# ============================================================== #}
   <pre class="mt-4 mb-2" id="figure">_components/figure</pre>
   {# figure #}
-  {% include '_components/figure/figure.twig' with {
+  {% include '_components/figure/image.twig' with {
     props: {
       image: placeholderImage ??? null,
       caption: true,
@@ -357,7 +355,7 @@ export default code;
   {% include '_components/image/image.twig' with {
     props: {
       image: placeholderImage ??? null,
-      ratio: 'landscape'
+      transform: 'landscape'
     }
   } only %}
 
@@ -373,7 +371,6 @@ export default code;
   {% include '_components/image/imageRaw.twig' with {
     props: {
       image: placeholderImage ??? null,
-      ratio: 'landscape'
     }
   } only %}
 
@@ -384,9 +381,9 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="imageCover">_components/imageCover</pre>
+  <pre class="mt-4 mb-2" id="coverImage">_components/coverImage</pre>
   {# image #}
-  {% include '_components/imageCover/imageCover.twig' with {
+  {% include '_components/cover/image.twig' with {
     props: {
       image: placeholderImage ??? null,
     }
@@ -399,9 +396,9 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="imageGallery">_components/imageGallery</pre>
-  {# imageGallery #}
-  {% include '_components/imageGallery/imageGallery.twig' with {
+  <pre class="mt-4 mb-2" id="galleryImage">_components/galleryImage</pre>
+  {# galleryImage #}
+  {% include '_components/gallery/images.twig' with {
     props: {
       images: [placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null]
     }
@@ -414,12 +411,12 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="imageGrid">_components/imageGrid</pre>
-  {# imageGrid #}
-  {% include '_components/imageGrid/imageGrid.twig' with {
+  <pre class="mt-4 mb-2" id="gridImage">_components/gridImage</pre>
+  {# gridImage #}
+  {% include '_components/grid/images.twig' with {
     props: {
       images: [placeholderImage ??? null],
-      ratio: 'landscape'
+      transform: 'landscape'
     }
   } only %}
 
@@ -430,11 +427,11 @@ export default code;
     }
   } only %}
 
-  {% include '_components/imageGrid/imageGrid.twig' with {
+  {% include '_components/gridImage/gridImage.twig' with {
     props: {
       modifiers: ['2'],
       images: [placeholderImage ??? null, cat03Image ??? null],
-      ratio: 'portrait'
+      transform: 'portrait'
     }
   } only %}
 
@@ -445,11 +442,11 @@ export default code;
     }
   } only %}
 
-  {% include '_components/imageGrid/imageGrid.twig' with {
+  {% include '_components/gridImage/gridImage.twig' with {
     props: {
       modifiers: ['3'],
       images: [placeholderImage ??? null, cat01Image ??? null, cat03Image ??? null],
-      ratio: 'portrait'
+      transform: 'portrait'
     }
   } only %}
 
@@ -460,7 +457,7 @@ export default code;
     }
   } only %}
 
-  {% include '_components/imageGrid/imageGridCalculated.twig' with {
+  {% include '_components/gridImage/gridImageCalculated.twig' with {
     props: {
       images: [placeholderImage ??? null, cat01Image ??? null],
     }
@@ -473,7 +470,7 @@ export default code;
     }
   } only %}
 
-  {% include '_components/imageGrid/imageGridCalculated.twig' with {
+  {% include '_components/gridImage/gridImageCalculated.twig' with {
     props: {
       images: [placeholderImage ??? null, cat01Image ??? null, cat03Image ??? null],
     }
@@ -491,7 +488,7 @@ export default code;
   {% include '_components/imageSingle/imageSingle.twig' with {
     props: {
       image: placeholderImage ??? null,
-      ratio: 'landscape'
+      transform: 'landscape'
     }
   } only %}
 
@@ -500,7 +497,7 @@ export default code;
       modifiers: ['medium'],
       customClasses: ['mt-2'],
       image: placeholderImage ??? null,
-      ratio: 'landscape'
+      transform: 'landscape'
     }
   } only %}
 
@@ -510,7 +507,7 @@ export default code;
       modifiers: ['small'],
       customClasses: ['mt-2'],
       image: placeholderImage ??? null,
-      ratio: 'landscape'
+      transform: 'landscape'
     }
   } only %}
 
@@ -652,7 +649,7 @@ export default code;
         cat04Image ??? null,
         placeholderImage ??? null
       ],
-      ratio: 'landscape'
+      transform: 'landscape'
     }
   } only %}
 
@@ -668,7 +665,7 @@ export default code;
         cat04Image ??? null,
         placeholderImage ??? null
       ],
-      ratio: 'portrait'
+      transform: 'portrait'
     }
   } only %}
 
@@ -684,7 +681,7 @@ export default code;
         cat04Image ??? null,
         placeholderImage ??? null
       ],
-      ratio: 'square'
+      transform: 'square'
     }
   } only %}
 
@@ -918,9 +915,9 @@ export default code;
     <option value="#figure">- Figure</option>
     <option value="#image">- Image</option>
     <option value="#imageRaw">- Image Raw</option>
-    <option value="#imageCover">- Image Cover</option>
-    <option value="#imageGallery">- Image Gallery</option>
-    <option value="#imageGrid">- Image Grid</option>
+    <option value="#coverImage">- Image Cover</option>
+    <option value="#galleryImage">- Image Gallery</option>
+    <option value="#gridImage">- Image Grid</option>
     <option value="#imageSingle">- Image Single</option>
     <option value="#link">- Link</option>
     <option value="#linkIcon">- Link Icon</option>

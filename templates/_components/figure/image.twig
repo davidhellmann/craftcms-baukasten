@@ -1,0 +1,54 @@
+{#
+  m-figure
+  ------------------------------------------------------------
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'c-figure',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+  js: null,
+  image: null,
+  transform: null | default('landscape'),
+  dominantColor: true,
+  caption: null,
+  captionHeadline: null,
+  captionText: null,
+  captionSource: null,
+  captionSourceUrl: null,
+  objectFit: null
+} %}
+
+{# Merge Default with Options #}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
+
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{# Modul #}
+{% if props.image %}
+  <figure {{ module.settings(props) }}>
+    {# image #}
+    {% include '_components/image/image.twig' with {
+      props: {
+        image: props.image ??? null,
+        transform: props.transform ??? null
+      }
+    } only %}
+
+    {% if props.caption %}
+      {# caption #}
+      {% include '_components/caption/caption.twig' with {
+        props: {
+          headline: props.captionHeadline ??? null,
+          text: props.captionText ??? null,
+          source: props.captionSource ??? null,
+          sourceUrl: props.captionSourceUrl ??? null
+        }
+      } only %}
+    {% endif %}
+  </figure>
+{% endif %}

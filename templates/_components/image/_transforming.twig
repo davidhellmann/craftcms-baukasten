@@ -1,7 +1,7 @@
 <img class="{{ props.lazy ? 'lazyload' : '' }}" {#loading="lazy"#}
 {% if props.objectFit %}
   data-object-fit="{{ props.objectFit }}"
-  data-object-position="{{ focalpoint }}"
+  data-object-position="{{ image.getFocalpoint('asCss') | default('50% 50%') }}"
 {% endif %}
     src="{{ placeholderImage }}"
 {% if props.lazy %}

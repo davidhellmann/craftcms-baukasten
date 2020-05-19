@@ -1,27 +1,27 @@
 // Gallery
 if (document.querySelectorAll('.js-imageGallery').length) {
   import(
-    /* webpackChunkName: "photoswipe" */ '../../templates/_components/imageGallery/imageGallery.js'
+    /* webpackChunkName: "imageGallery" */ '../../templates/_components/gallery/images.js'
   )
-    .then(photoswipe => photoswipe.default.init())
+    .then(imageGallery => imageGallery.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
 
 // sliderImages
 if (document.querySelectorAll('.js-sliderImages').length) {
   import(
-    /* webpackChunkName: "sliderImages" */ '../../templates/_components/slider/sliderImages.js'
+    /* webpackChunkName: "imageSlider" */ '../../templates/_components/slider/images.js'
   )
-    .then(sliderImages => sliderImages.default.init())
+    .then(imageSlider => imageSlider.images.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
 
 // Image Grid Calculated
 if (document.querySelectorAll('.js-imageGridCalculated').length) {
   import(
-    /* webpackChunkName: "imageGridCalculated" */ '../../templates/_components/imageGrid/imageGridCalculated.js'
+    /* webpackChunkName: "imagesCalculated" */ '../../templates/_components/grid/imagesCalculated.js'
   )
-    .then(imageGridCalculated => imageGridCalculated.default.init())
+    .then(imagesCalculated => imagesCalculated.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
 
