@@ -1,7 +1,11 @@
-dateModified: 1589790320
+dateModified: 1590355854
 email:
-  fromEmail: david@hellmann.io
+  fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
+  replyToEmail: $REPLY_MAIL
+  template: ''
+  transportSettings:
+    command: ''
   transportType: craft\mail\transportadapters\Sendmail
 fieldGroups:
   620c6d25-40c2-46af-915c-d700f182745d:
@@ -2548,6 +2552,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  blitz-recommendations:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   code-mirror:
     edition: standard
     enabled: true
@@ -2579,17 +2587,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  environment-label:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-    settings:
-      labelColor: '#111'
-      labelText: LOCAL
-      prefixText: null
-      showLabel: true
-      suffixText: null
-      textColor: '#eee'
   feed-me:
     edition: standard
     enabled: true
@@ -2830,9 +2827,10 @@ siteGroups:
 sites:
   04677986-61a7-4935-a707-cae0601cc8d5:
     baseUrl: $SITE_URL
+    enabled: true
     handle: default
     hasUrls: true
-    language: en-US
+    language: en
     name: 'Craft Baukasten Sample'
     primary: true
     siteGroup: 4b746bfb-9ec7-48d7-9841-1b642cffa702
@@ -3164,14 +3162,15 @@ system:
   edition: pro
   live: true
   name: $SITE_NAME
-  schemaVersion: 3.4.10
+  schemaVersion: 3.5.0
   timeZone: Europe/Berlin
 users:
   allowPublicRegistration: false
-  defaultGroup: null
-  photoSubpath: ''
-  photoVolumeUid: null
+  defaultGroup: ''
+  photoSubpath: '{username}'
+  photoVolumeUid: 428c6546-4871-45b9-9fe9-00512b88c4d2
   requireEmailVerification: true
+  suspendByDefault: false
 volumes:
   1b735f91-a5f7-488b-9746-93d65fb4f211:
     fieldLayouts:
@@ -3198,7 +3197,7 @@ volumes:
     name: Images
     settings:
       path: '@assetsUrl/images/'
-    sortOrder: 1
+    sortOrder: 2
     type: craft\volumes\Local
     url: '@webroot/assets/images/'
   3f1e1a84-bf8f-4543-b3a8-4c210f0d244a:
@@ -3220,9 +3219,18 @@ volumes:
     name: Files
     settings:
       path: '@assetsUrl/files/'
-    sortOrder: 2
+    sortOrder: 1
     type: craft\volumes\Local
     url: '@webroot/assets/files/'
+  428c6546-4871-45b9-9fe9-00512b88c4d2:
+    handle: users
+    hasUrls: true
+    name: Users
+    settings:
+      path: '@webroot/assets/users/'
+    sortOrder: 4
+    type: craft\volumes\Local
+    url: '@assetsUrl/users/'
   ab231bcf-0d85-44a6-bde9-8ad408e5b15f:
     handle: templateImages
     hasUrls: true
