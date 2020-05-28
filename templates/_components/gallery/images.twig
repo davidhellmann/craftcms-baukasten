@@ -6,7 +6,8 @@
   data: {},
   js: true,
   images: null,
-  ratio: null
+  ratio: null,
+  cutAfter: null
 } %}
 
 {# Merge Default with Options #}
@@ -25,24 +26,27 @@
         {% set imageMaxWidth = image.getWidth() %}
         {% set imageMaxHeight = image.getHeight() %}
 
-        <figure class="{{ props.cn ~ '__figure' }}">
+        <figure
+          class="{{ props.cn ~ '__figure' }} {{ (loop.index >= (props.cutAfter + 1) and props.cutAfter) ? 'is-hidden' : null }}">
           <a class="{{ props.cn ~ '__link' }}"
              href="{{ imageSrc }}"
-             itemprop="contentUrl"
              data-size="{{ imageMaxWidth }}x{{ imageMaxHeight }}">
 
-            {% include '_components/image/imageRaw.twig' with {
-              props: {
-                image: image ??? null,
-                sizes: [
-                  { width: 400 },
-                  { width: 200 },
-                  { width: 100 }
-                ],
-                ratio: props.ratio ??? null
-              }
-            } only %}
+            {% if not (loop.index == (props.cutAfter) and props.cutAfter) %}
+              {% include '_components/image/imageRaw.twig' with {
+                props: {
+                  image: image ??? null,
+                  transform: 'thumbnail'
+                }
+              } only %}
+            {% endif %}
+
           </a>
+          {% if (loop.index == (props.cutAfter) and props.cutAfter) %}
+            <div class="{{ props.cn ~ '__more' }} js-imageGallery--more">
+              +{{ props.images | length - props.cutAfter }}
+            </div>
+          {% endif %}
         </figure>
       {% endfor %}
     </div>

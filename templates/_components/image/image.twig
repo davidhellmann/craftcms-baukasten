@@ -6,8 +6,8 @@
   data: {},
   js: null,
   image: null,
-  transform: null | default('landscape'),
-  dominantColor: true,
+  transform: 'landscape',
+  dominantColor: 'transparent',
   objectFit: null,
   lazy: true
 } %}
@@ -15,6 +15,12 @@
 
 {# Merge Default with Options #}
 {% set props = props is defined ? defaults|merge(props) : defaults %}
+
+{# Template for image transforms #}
+{#{% extends "_components/image/_boilerplate/base-image-transform.twig" %}
+{% block markup %}
+  {% include '_components/image/_includes/_markupSelector.twig' %}
+{% endblock %}#}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
@@ -26,12 +32,12 @@
 
 {% if image ??? null %}
   {# Skip Transforms for the current filetypes #}
-  {% set skipTransformsForThisExtensions = ['gif', 'GIF', 'tiff', 'TIFF', 'svg', 'SVG'] %}
+  {% set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] %}
 
   {% if image is iterable %}
-    {% set extension = image.extension %}
+    {% set extension = image.extension | lower %}
   {% else %}
-    {% set extension = image | split('.') | last %}
+    {% set extension = image | split('.') | last | lower %}
   {% endif %}
 
   {% if extension not in skipTransformsForThisExtensions %}
@@ -45,10 +51,14 @@
     {% endif %}
 
     {# Domiant Color (Use lase image from Final images #}
-    {% if craft.imager.getDominantColor(transformedImages|last) %}
-      {% set dominantColor = craft.imager.getDominantColor((transformedImages|last).url, 10) %}
+    {% if props.dominantColor starts with '#' and extension != 'png' %}
+      {% set dominantColor = props.dominantColor %}
     {% else %}
-      {% set dominantColor = 'transparent' %}
+      {# (Use smallest image from final images) #}
+      {% set dominantColorCalculation = craft.imager.getDominantColor(transformedImages|first) %}
+      {% if dominantColorCalculation %}
+        {% set dominantColor = dominantColorCalculation %}
+      {% endif %}
     {% endif %}
 
     {# Placeholder #}
@@ -65,16 +75,8 @@
     }) %}
   {% endif %}
 
-  {% if props.dominantColor starts with '#' %}
-    {% set dominantColor = props.dominantColor %}
-  {% endif %}
-
-  {% if image.extension == 'png' or image.extension == 'gif' or image.extension == 'svg' %}
-    {% set dominantColor = false %}
-  {% endif %}
-
   <picture {{ module.settings(props) }} {% if props.dominantColor %}style="{{ 'background-color: ' ~ dominantColor ?? 'transparent' }}"{% endif %}>
-    {% if image.extension not in skipTransformsForThisExtensions %}
+    {% if extension not in skipTransformsForThisExtensions %}
       {# Transforming #}
       {% if craft.imager.serverSupportsWebp() %}
         <source data-sizes="auto"

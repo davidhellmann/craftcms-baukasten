@@ -1,0 +1,52 @@
+{# Image #}
+{% if props.image ??? null %}
+  {% set image = props.image %}
+
+  {# Skip Transforms for the current filetypes #}
+  {% set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg'] %}
+
+  {% if image is iterable %}
+    {% set extension = image.extension | lower %}
+  {% else %}
+    {% set extension = image | split('.') | last | lower %}
+  {% endif %}
+
+  {% if extension not in skipTransformsForThisExtensions %}
+
+    {# Final Image Set #}
+    {% set transformedImages = craft.imager.transformImage(image, props.transform) %}
+
+    {# If the server has support for WebP, create transforms #}
+    {% if craft.imager.serverSupportsWebp() %}
+      {% set transformedImagesWebp = craft.imager.transformImage(image, props.transform, { format: 'webp' }) %}
+    {% endif %}
+
+    {# Domiant Color #}
+    {% if props.dominantColor starts with '#' %}
+      {% set dominantColor = props.dominantColor %}
+    {% elseif extension != 'png' and not props.dominantColor == false %}
+      {# (Use smallest image from final images) #}
+      {% set dominantColorCalculation = craft.imager.getDominantColor(transformedImages|first) %}
+      {% if dominantColorCalculation %}
+        {% set dominantColor = dominantColorCalculation %}
+      {% endif %}
+    {% endif %}
+
+    {# Placeholder #}
+    {% set placeholderImage = craft.imager.placeholder({
+      color: dominantColor ? dominantColor : 'transparent',
+      width: transformedImages|first.width,
+      height: transformedImages|first.height
+    }) %}
+  {% else %}
+    {# Domiant Color #}
+    {% if props.dominantColor starts with '#' %}
+      {% set dominantColor = props.dominantColor %}
+    {% endif %}
+
+    {% set placeholderImage = craft.imager.placeholder({
+      color: dominantColor ? dominantColor : 'transparent',
+      width: image.width,
+      height: image.height,
+    }) %}
+  {% endif %}

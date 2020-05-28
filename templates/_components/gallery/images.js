@@ -68,6 +68,12 @@ const imageGallery = {
 
       var eTarget = e.target || e.srcElement;
 
+      // If Gallery is cutted After x Images
+      if (eTarget.classList.contains('js-imageGallery--more')) {
+        eTarget.parentNode.parentNode.childNodes[0].childNodes[0].click();
+        return;
+      }
+
       // find root element of slide
       var clickedListItem = closest(eTarget, function(el) {
         return el.tagName && el.tagName.toUpperCase() === 'FIGURE';
@@ -282,11 +288,8 @@ const imageGallery = {
   },
 
   init() {
-    const gallery = document.querySelector('.js-imageGallery');
-    if (gallery) {
-      this.addCode();
-      this.creatGallery('.js-imageGallery');
-    }
+    this.addCode();
+    this.creatGallery('.js-imageGallery');
   },
 };
 /* eslint-enable */

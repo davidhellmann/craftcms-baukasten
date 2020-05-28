@@ -28,7 +28,7 @@
     <div class="{{ props.cn ~ '__inner' }}">
       {% for image in props.images if image %}
         <div class="{{ props.cn ~ '__item' }}">
-          {% include '_components/figure/figure.twig' with {
+          {% include '_components/figure/image.twig' with {
             props: {
               image: image ??? null,
               ratio: props.ratio ??? null,

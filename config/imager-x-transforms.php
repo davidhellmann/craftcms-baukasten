@@ -3,18 +3,18 @@
 return [
     'auto' => [
         'transforms' => [
-            ['width' => 1600],
-            ['width' => 800],
-            ['width' => 400],
             ['width' => 200],
+            ['width' => 400],
+            ['width' => 800],
+            ['width' => 1600],
         ],
     ],
     'square' => [
         'transforms' => [
-            ['width' => 1600],
-            ['width' => 800],
-            ['width' => 400],
             ['width' => 200],
+            ['width' => 400],
+            ['width' => 800],
+            ['width' => 1600],
         ],
         'defaults' => [
             'ratio' => 1/1,
@@ -22,10 +22,10 @@ return [
     ],
     'landscape' => [
         'transforms' => [
-            ['width' => 1600],
-            ['width' => 800],
-            ['width' => 400],
             ['width' => 200],
+            ['width' => 400],
+            ['width' => 800],
+            ['width' => 1600],
         ],
         'defaults' => [
             'ratio' => 3/2,
@@ -33,22 +33,31 @@ return [
     ],
     'portrait' => [
         'transforms' => [
-            ['width' => 1600],
-            ['width' => 800],
-            ['width' => 400],
             ['width' => 200],
+            ['width' => 400],
+            ['width' => 800],
+            ['width' => 1600],
         ],
         'defaults' => [
             'ratio' => 2/3,
         ],
     ],
+    'thumbnail' => [
+        'transforms' => [
+            ['width' => 200],
+            ['width' => 400],
+        ],
+        'defaults' => [
+            'ratio' => 1/1,
+        ],
+    ],
     'cover' => [
         'transforms' => [
-            ['width' => 2400],
-            ['width' => 1600],
-            ['width' => 800],
-            ['width' => 400],
             ['width' => 200],
+            ['width' => 400],
+            ['width' => 800],
+            ['width' => 1600],
+            ['width' => 2400],
         ],
     ],
 ];

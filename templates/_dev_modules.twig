@@ -157,10 +157,10 @@
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="card">_components/card</pre>
+  <pre class="mt-4 mb-2" id="card/image">_components/card/image</pre>
   {# card #}
   <div style="max-width: 400px;">
-    {% include '_components/card/card.twig' with {
+    {% include '_components/card/image.twig' with {
       props: {
         image: placeholderImage ??? null,
         transform: 'landscape',
@@ -330,7 +330,7 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="figure">_components/figure</pre>
+  <pre class="mt-4 mb-2" id="figure/image">_components/figure/image</pre>
   {# figure #}
   {% include '_components/figure/image.twig' with {
     props: {
@@ -350,7 +350,7 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="image">_components/image</pre>
+  <pre class="mt-4 mb-2" id="image/image">_components/image/image</pre>
   {# image #}
   {% include '_components/image/image.twig' with {
     props: {
@@ -366,7 +366,7 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="imageRaw">_components/imageRaw</pre>
+  <pre class="mt-4 mb-2" id="image/imageRaw">_components/image/imageRaw</pre>
   {# imageRaw #}
   {% include '_components/image/imageRaw.twig' with {
     props: {
@@ -381,7 +381,7 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="coverImage">_components/coverImage</pre>
+  <pre class="mt-4 mb-2" id="cover/image">_components/cover/image</pre>
   {# image #}
   {% include '_components/cover/image.twig' with {
     props: {
@@ -396,11 +396,28 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="galleryImage">_components/galleryImage</pre>
+  <pre class="mt-4 mb-2" id="gallery/images">_components/gallery/images</pre>
   {# galleryImage #}
   {% include '_components/gallery/images.twig' with {
     props: {
       images: [placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null]
+    }
+  } only %}
+
+  {# galleryImage #}
+  {% include '_components/gallery/images.twig' with {
+    props: {
+      customClasses: ['mt-2'],
+      images: [placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null]
+    }
+  } only %}
+
+  {# galleryImage #}
+  {% include '_components/gallery/images.twig' with {
+    props: {
+      customClasses: ['mt-2'],
+      images: [placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null],
+      cutAfter: 4
     }
   } only %}
 
@@ -411,8 +428,8 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="gridImage">_components/gridImage</pre>
-  {# gridImage #}
+  <pre class="mt-4 mb-2" id="grid/images">_components/grid/images</pre>
+  {# grid/image #}
   {% include '_components/grid/images.twig' with {
     props: {
       images: [placeholderImage ??? null],
@@ -427,7 +444,7 @@ export default code;
     }
   } only %}
 
-  {% include '_components/gridImage/gridImage.twig' with {
+  {% include '_components/grid/images.twig' with {
     props: {
       modifiers: ['2'],
       images: [placeholderImage ??? null, cat03Image ??? null],
@@ -442,7 +459,7 @@ export default code;
     }
   } only %}
 
-  {% include '_components/gridImage/gridImage.twig' with {
+  {% include '_components/grid/images.twig' with {
     props: {
       modifiers: ['3'],
       images: [placeholderImage ??? null, cat01Image ??? null, cat03Image ??? null],
@@ -457,7 +474,7 @@ export default code;
     }
   } only %}
 
-  {% include '_components/gridImage/gridImageCalculated.twig' with {
+  {% include '_components/grid/imagesCalculated.twig' with {
     props: {
       images: [placeholderImage ??? null, cat01Image ??? null],
     }
@@ -470,7 +487,7 @@ export default code;
     }
   } only %}
 
-  {% include '_components/gridImage/gridImageCalculated.twig' with {
+  {% include '_components/grid/imagesCalculated.twig' with {
     props: {
       images: [placeholderImage ??? null, cat01Image ??? null, cat03Image ??? null],
     }
@@ -483,42 +500,7 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="imageSingle">_components/imageSingle</pre>
-  {# imageSingle #}
-  {% include '_components/imageSingle/imageSingle.twig' with {
-    props: {
-      image: placeholderImage ??? null,
-      transform: 'landscape'
-    }
-  } only %}
-
-  {% include '_components/imageSingle/imageSingle.twig' with {
-    props: {
-      modifiers: ['medium'],
-      customClasses: ['mt-2'],
-      image: placeholderImage ??? null,
-      transform: 'landscape'
-    }
-  } only %}
-
-
-  {% include '_components/imageSingle/imageSingle.twig' with {
-    props: {
-      modifiers: ['small'],
-      customClasses: ['mt-2'],
-      image: placeholderImage ??? null,
-      transform: 'landscape'
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="link">_components/link</pre>
+  <pre class="mt-4 mb-2" id="link/link">_components/link/link</pre>
   {# link #}
   {% include '_components/link/link.twig' with {
     props: {
@@ -565,7 +547,7 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="linkIcon">_components/linkIcon</pre>
+  <pre class="mt-4 mb-2" id="link/linkIcon">_components/link/linkIcon</pre>
   {# linkIcon #}
   {% include '_components/link/linkIcon.twig' with {
     props: {
@@ -635,9 +617,9 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="slider">_components/sliderImages</pre>
+  <pre class="mt-4 mb-2" id="slider/images">_components/slider/images</pre>
   {# slider #}
-  {% include '_components/slider/sliderImages.twig' with {
+  {% include '_components/slider/images.twig' with {
     props: {
       images: [
         placeholderImage ??? null,
@@ -653,7 +635,7 @@ export default code;
     }
   } only %}
 
-  {% include '_components/slider/sliderImages.twig' with {
+  {% include '_components/slider/images.twig' with {
     props: {
       images: [
         placeholderImage ??? null,
@@ -669,7 +651,7 @@ export default code;
     }
   } only %}
 
-  {% include '_components/slider/sliderImages.twig' with {
+  {% include '_components/slider/images.twig' with {
     props: {
       images: [
         placeholderImage ??? null,
@@ -685,7 +667,7 @@ export default code;
     }
   } only %}
 
-  {% include '_components/slider/sliderImages.twig' with {
+  {% include '_components/slider/images.twig' with {
     props: {
       images: [
         placeholderImage ??? null,
@@ -883,9 +865,9 @@ export default code;
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="youtube">_components/youtube</pre>
+  <pre class="mt-4 mb-2" id="embed/youtube">_components/embed/youtube</pre>
   {# youtube #}
-  {% include '_components/youtube/youtube.twig' with {
+  {% include '_components/embed/youtube.twig' with {
     props: {
       videoId: 'bd4_PIxfMmQ'
     }
@@ -909,25 +891,24 @@ export default code;
     <option>COMPONENTS</option>
     <option value="#code">- Code</option>
     <option value="#caption">- Caption</option>
-    <option value="#card">- Card</option>
+    <option value="#card/image">- Card/Image</option>
     <option value="#definitionList">- Definition List</option>
     <option value="#divider">- Divider</option>
-    <option value="#figure">- Figure</option>
-    <option value="#image">- Image</option>
-    <option value="#imageRaw">- Image Raw</option>
-    <option value="#coverImage">- Image Cover</option>
-    <option value="#galleryImage">- Image Gallery</option>
-    <option value="#gridImage">- Image Grid</option>
-    <option value="#imageSingle">- Image Single</option>
-    <option value="#link">- Link</option>
-    <option value="#linkIcon">- Link Icon</option>
+    <option value="#figure/image">- Figure/Image</option>
+    <option value="#image/image">- Image/Image</option>
+    <option value="#image/imageRaw">- Image/ImageRaw</option>
+    <option value="#cover/image">- Cover/Image</option>
+    <option value="#gallery/images">- Gallery/Images</option>
+    <option value="#grid/images">- Grid/Images</option>
+    <option value="#link/link">- Link/Link</option>
+    <option value="#link/linkIcon">- Link/LinkIcon</option>
     <option value="#logo">- Logo</option>
     <option value="#plainText">- Plain Text</option>
     <option value="#quote">- Quote</option>
-    <option value="#slider">- Slider Images</option>
+    <option value="#slider/images">- Slider/Images</option>
     <option value="#spinner">- Spinner</option>
     <option value="#icon">- Icon</option>
-    <option value="#youtube">- Youtube</option>
+    <option value="#embed/youtube">- Embed/Youtube</option>
   </select>
 </div>
 

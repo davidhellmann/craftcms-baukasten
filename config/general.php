@@ -19,6 +19,7 @@ return [
     'custom' => [
         'craftEnv' => getenv('ENVIRONMENT') ?: 'local',
     ],
+    'allowedFileExtensions' => getenv('ALLOWED_FILE_EXTENSIONS'),
     'allowUpdates' => (bool)getenv('ALLOW_UPDATES'),
     'allowAdminChanges' => (bool)getenv('ALLOW_ADMIN_CHANGES'),
     'backupOnUpdate' => (bool)getenv('BACKUP_ON_UPDATE'),

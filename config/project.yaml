@@ -1,4 +1,4 @@
-dateModified: 1590355854
+dateModified: 1590643419
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -2646,6 +2646,57 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.1
+    settings:
+      automaticallyTrimDataSamples: true
+      automaticallyTrimErrorSamples: true
+      connectThreshold: 0.5
+      craftDbMsThreshold: !!float 2
+      craftOtherMsThreshold: !!float 2
+      craftTotalMsThreshold: !!float 2
+      craftTwigMsThreshold: !!float 2
+      dashboardAverageColor: '#ffff00'
+      dashboardFastColor: '#00c800'
+      dashboardSlowColor: '#c80000'
+      dataSamplesStoredLimit: 100000
+      displaySidebar: true
+      dnsThreshold: 0.5
+      domInteractiveThreshold: !!float 5
+      errorSamplesStoredLimit: 1000
+      excludePatterns:
+        -
+          __assoc__:
+            -
+              - pattern
+              - '/webperf/.*'
+        -
+          __assoc__:
+            -
+              - pattern
+              - '/cpresources/.*'
+        -
+          __assoc__:
+            -
+              - pattern
+              - '/retour/.*'
+        -
+          __assoc__:
+            -
+              - pattern
+              - '/seomatic/.*'
+      filterBotUserAgents: true
+      firstByteThreshold: !!float 2
+      firstContentfulPaintThreshold: !!float 5
+      firstPaintThreshold: !!float 5
+      includeBeacon: true
+      includeCraftProfiling: true
+      includeCraftWarnings: true
+      pageLoadThreshold: !!float 10
+      pluginName: Webperf
+      rateLimitMs: 500
+      samplesRateLimitMs: '3600000'
+      staticCachedSite: false
+      trimOutlierDataSamples: true
+      webpageTestApiKey: ''
 sections:
   2bb2c616-10f1-4d48-96ad-a33312d55c5c:
     enableVersioning: false
