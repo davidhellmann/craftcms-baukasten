@@ -27,12 +27,12 @@
         {% set imageMaxHeight = image.getHeight() %}
 
         <figure
-          class="{{ props.cn ~ '__figure' }} {{ (loop.index >= (props.cutAfter + 1) and props.cutAfter) ? 'is-hidden' : null }}">
+          class="{{ props.cn ~ '__figure' }} {{ (loop.index >= (props.cutAfter + 2) and props.cutAfter) ? 'is-hidden' : null }}">
           <a class="{{ props.cn ~ '__link' }}"
              href="{{ imageSrc }}"
              data-size="{{ imageMaxWidth }}x{{ imageMaxHeight }}">
 
-            {% if not (loop.index == (props.cutAfter) and props.cutAfter) %}
+            {% if not (loop.index == (props.cutAfter + 1) and props.cutAfter) %}
               {% include '_components/image/imageRaw.twig' with {
                 props: {
                   image: image ??? null,
@@ -42,7 +42,7 @@
             {% endif %}
 
           </a>
-          {% if (loop.index == (props.cutAfter) and props.cutAfter) %}
+          {% if (loop.index == (props.cutAfter + 1) and props.cutAfter) %}
             <div class="{{ props.cn ~ '__more' }} js-imageGallery--more">
               +{{ props.images | length - props.cutAfter }}
             </div>
