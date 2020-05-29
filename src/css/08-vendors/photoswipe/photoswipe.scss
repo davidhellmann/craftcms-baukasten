@@ -39,6 +39,10 @@
   background-size: 264px 88px;
 }
 
+.pswp__bg {
+  background-color: var(--c-white);
+}
+
 .pswp__button:focus,
 .pswp__button:hover {
   opacity: 1;
@@ -46,7 +50,7 @@
 
 .pswp__button:active {
   outline: none;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .pswp__button::-moz-focus-inner {
@@ -316,19 +320,12 @@ a.pswp__share--download:hover {
   min-height: 44px;
 }
 
-.pswp__caption small {
-  font-size: 11px;
-  color: var(--c-gray-300);
-}
-
 .pswp__caption__center {
   text-align: left;
-  max-width: 420px;
   margin: 0 auto;
-  font-size: 13px;
-  padding: 10px;
-  line-height: 20px;
-  color: var(--c-gray-400);
+  @include ms(-2);
+  background-color: var(--c-white);
+  padding: 1rem 2rem;
 }
 
 .pswp__caption--empty {
@@ -536,16 +533,6 @@ a.pswp__share--download:hover {
   visibility: visible;
 }
 
-.pswp__top-bar,
-.pswp__caption {
-  background-color: rgba(white, 0.75);
-}
-
-/* pswp__ui--fit class is added when main image "fits" between top bar and bottom bar (caption) */
-.pswp__ui--fit .pswp__top-bar,
-.pswp__ui--fit .pswp__caption {
-  background-color: rgba(white, 0.75);
-}
 
 /* pswp__ui--idle class is added when mouse isn't moving for several seconds (JS option timeToIdle) */
 .pswp__ui--idle .pswp__top-bar {

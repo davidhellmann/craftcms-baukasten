@@ -14,6 +14,10 @@
     @include row();
   }
 
+  .c-caption {
+    display: none;
+  }
+
   &__figure {
     position: relative;
     margin-top: 2rem;
@@ -56,9 +60,4 @@
   .a-image {
     margin-top: 0;
   }
-}
-
-/*// PhotoSwipe Stuff*/
-.pswp__bg {
-  background: rgba(white, 0.98);
 }

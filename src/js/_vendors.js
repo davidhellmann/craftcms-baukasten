@@ -24,13 +24,14 @@ if (document.querySelectorAll('.lazyload').length) {
       LazySizes.init();
     });
 
-    document.addEventListener('lazyloaded', e => {
-      const target = e.target.parentNode;
-      if (target && target.style.backgroundColor) {
-        setTimeout(() => {
-          target.style.backgroundColor = 'transparent';
-        }, 1000);
-      }
-    });
+    // Remove Dominant Color from Background
+    // document.addEventListener('lazyloaded', e => {
+    //   const target = e.target.parentNode;
+    //   if (target && target.style.backgroundColor) {
+    //     setTimeout(() => {
+    //       target.style.backgroundColor = 'transparent';
+    //     }, 1000);
+    //   }
+    // });
   }
 }

@@ -7,7 +7,8 @@
   js: true,
   images: null,
   ratio: null,
-  cutAfter: null
+  cutAfter: null,
+  caption: null
 } %}
 
 {# Merge Default with Options #}
@@ -33,15 +34,26 @@
              data-size="{{ imageMaxWidth }}x{{ imageMaxHeight }}">
 
             {% if not (loop.index == (props.cutAfter + 1) and props.cutAfter) %}
-              {% include '_components/image/imageRaw.twig' with {
+              {% include '_components/image/image.twig' with {
                 props: {
                   image: image ??? null,
                   transform: 'thumbnail'
                 }
               } only %}
             {% endif %}
-
           </a>
+
+          {% if props.caption %}
+            {% include '_components/caption/caption.twig' with {
+              props: {
+                headline: image.assetTitle ??? null,
+                text: image.assetCaption ??? null,
+                source: image.assetSource ??? null,
+                sourceUrl: image.assetSourceUrl ??? null,
+              }
+            } only %}
+          {% endif %}
+
           {% if (loop.index == (props.cutAfter + 1) and props.cutAfter) %}
             <div class="{{ props.cn ~ '__more' }} js-imageGallery--more">
               +{{ props.images | length - props.cutAfter }}

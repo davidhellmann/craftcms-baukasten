@@ -1,5 +1,5 @@
 {# Global Stuff #}
-{% set placeholderImage = craft.assets.title('Placeholder').volume('templateImages').one() %}
+{% set placeholderImage = craft.assets.title('Placeholder').volume('images').one() %}
 {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
 {% set cat02Image = craft.assets.title('Cat 02').volume('templateImages').one() %}
 {% set cat03Image = craft.assets.title('Cat 03').volume('templateImages').one() %}
@@ -409,7 +409,8 @@ export default code;
     props: {
       customClasses: ['mt-2'],
       images: [placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null],
-      cutAfter: 4
+      cutAfter: 4,
+      caption: true,
     }
   } only %}
 
@@ -928,7 +929,7 @@ export default code;
     align-items: center;
     justify-content: center;
     height: 80px;
-    z-index: 999999;
+    z-index: 1000;
   }
 
   #dropDown {
