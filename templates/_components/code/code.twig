@@ -8,6 +8,7 @@
   textShow: 'translate.component.code.show' | t,
   textHide: 'translate.component.code.hide' | t,
   textCopy: 'translate.component.code.copy' | t,
+  textCopied: 'translate.component.code.copied' | t,
   snippet: null,
   language: null
 } %}
@@ -30,15 +31,15 @@
     </div>
 
     <div class="{{ props.cn ~ '__buttons' }}">
+      <span class="{{ props.cn ~ '__button' }}  {{ props.cn ~ '__button--copy' }}  js-codeCopy c-tooltip c-tooltip--no-hover c-tooltip--n" aria-label="{{ props.textCopied }}">
+        {{ props.textCopy }}
+      </span>
+
       <span class="{{ props.cn ~ '__button' }}  {{ props.cn ~ '__button--toggle' }} js-codeToggle"
             data-status="{{ props.open ? 'open' : 'closed' }}"
             data-show="{{ props.textShow }}"
             data-hide="{{ props.textHide }}">
         {{ props.open ? props.textHide : props.textShow }}
-      </span>
-
-      <span class="{{ props.cn ~ '__button' }}  js-codeCopy">
-        {{ props.textCopy }}
       </span>
 
       <textarea class="sro">

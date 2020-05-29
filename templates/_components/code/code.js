@@ -10,10 +10,18 @@ const code = {
   },
 
   copyToClipboard() {
-    new ClipboardJS('.js-codeCopy', {
+    const clipboard = new ClipboardJS('.js-codeCopy', {
       target: function(trigger) {
         return trigger.nextElementSibling;
       },
+    });
+
+    clipboard.on('success', function(e) {
+      e.trigger.classList.add('is-active');
+
+      setTimeout(() => {
+        e.trigger.classList.remove('is-active');
+      }, 3000);
     });
   },
 
