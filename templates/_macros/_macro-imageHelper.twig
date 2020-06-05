@@ -19,7 +19,7 @@
     {% endif %}
   {%- endmacro -%}
 
-  {%- macro getImgTag(image, transform, lazy = false, objectFit = null) -%}
+  {%- macro renderImage(image, transform, lazy = true, objectFit = null) -%}
     {% if image ??? null %}
       {%- set transform = transform | default('landscape') -%}
 
@@ -40,6 +40,24 @@
     {% endif %}
   {% endmacro %}
 
+  {%- macro renderSource(image, transform, mediaQuery) -%}
+    {% if image ??? null %}
+      {%- set transform = transform | default('landscape') -%}
+
+      {% if craft.imager.clientSupportsWebp() and craft.imager.serverSupportsWebp() %}
+        <source data-sizes="auto"
+                data-srcset="{{- _self.getSrcset(image, transform, 'webp') -}}"
+                media="{{- mediaQuery -}}"
+                type="image/webp">
+      {% endif %}
+
+      <source sizes="auto"
+              media="{{- mediaQuery -}}"
+              srcset="{{- _self.getSrcset(image, transform) -}}">
+
+    {% endif %}
+  {% endmacro %}
+
   {# Get srcset #}
   {%- macro getSrcset(image, transform, format) -%}
     {% if image ??? null %}
@@ -57,6 +75,9 @@
   {# Dominant Color #}
   {% macro getDominantColor(image, dominantColor = null) %}
     {%- set extension = _self.getImageExtension(image) -%}
+
+    {# Create Mini Image for Dominant Color #}
+    {% set image = craft.imager.transformImage(image, 'dominantColor')|first %}
 
     {# Domiant Color (Use lase image from Final images #}
     {% if dominantColor starts with '#' and extension != 'png' %}

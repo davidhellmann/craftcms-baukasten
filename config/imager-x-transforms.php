@@ -60,4 +60,9 @@ return [
             ['width' => 2400],
         ],
     ],
+    'dominantColor' => [
+        'transforms' => [
+            ['width' => 10],
+        ],
+    ],
 ];
