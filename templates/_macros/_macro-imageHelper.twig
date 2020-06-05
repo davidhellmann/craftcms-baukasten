@@ -3,12 +3,10 @@
   ------------------------------------------------------------
 
   {% import '_macros/_macro-imageHelper.twig' as image  %}
-  {{ macroBytesToSize.bytesToSize(bytes) }}
 #}
 
-
-{# Check if an image or a url #}
 {% apply spaceless %}
+  {# Get Image Extension #}
   {%- macro getImageExtension(image) -%}
     {% if image ??? null %}
       {% if image is iterable %}
@@ -19,6 +17,7 @@
     {% endif %}
   {%- endmacro -%}
 
+  {# Render Image #}
   {%- macro renderImage(image, transform, lazy = true, objectFit = null) -%}
     {% if image ??? null %}
       {%- set transform = transform | default('landscape') -%}
@@ -40,6 +39,7 @@
     {% endif %}
   {% endmacro %}
 
+  {# Render Source #}
   {%- macro renderSource(image, transform, mediaQuery) -%}
     {% if image ??? null %}
       {%- set transform = transform | default('landscape') -%}
@@ -72,7 +72,7 @@
     {% endif %}
   {% endmacro %}
 
-  {# Dominant Color #}
+  {# Get Dominant Color #}
   {% macro getDominantColor(image, dominantColor = null) %}
     {%- set extension = _self.getImageExtension(image) -%}
 
@@ -93,7 +93,7 @@
     {% endif %}
   {% endmacro %}
 
-  {# Get srcset #}
+  {# Get Placeholder #}
   {%- macro getPlaceHolder(image, transform) -%}
     {% if image ??? null %}
       {%- set transform = transform | default('landscape') -%}
