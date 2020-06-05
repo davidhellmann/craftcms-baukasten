@@ -2,51 +2,42 @@
  * Image Slider
  */
 
-import Flickity from 'flickity';
-import flickityEqualCellHeightHack from '../../../src/js/scripts/flickityEqualCellHeightHack';
-import 'flickity-imagesloaded';
+import Swiper from 'swiper/js/swiper';
 
 const imageGallery = {
   cfg: {
     slider: '.js-sliderImages',
     sliderOptions: {
-      cellAlign: 'left',
-      contain: true,
-      draggable: '>1',
-      groupCells: true,
-      imagesLoaded: true,
-      prevNextButtons: true,
-      pageDots: false,
-      percentPosition: true,
-      // freeScroll: true,
-      // freeScrollFriction: 0.03,
+      init: false,
+      grabCursor: true,
+      slidesPerView: 'auto',
+
+      // Buttons
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // Pagination
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets', // 'bullets', fraction', 'progressbar'
+        clickable: true,
+      },
     },
   },
 
   initSliders(sliders) {
     sliders.forEach(slider => {
-      slider.classList.remove('is-hidden');
-      slider.offsetHeight;
-
-      const flkty = new Flickity(slider, this.cfg.sliderOptions);
-      flickityEqualCellHeightHack.init();
-
-      /* eslint-disable */
-      flkty.on(
-        'dragStart',
-        () => (document.ontouchmove = e => e.preventDefault()),
-      );
-      flkty.on('dragEnd', () => (document.ontouchmove = () => true));
-      /* eslint-enable */
+      const swiperSlider = new Swiper(slider, this.cfg.sliderOptions);
+      swiperSlider.init();
     });
   },
 
   init() {
-    window.addEventListener('load', () => {
-      const sliders = [...document.querySelectorAll(this.cfg.slider)];
-      if (!sliders) return;
-      this.initSliders(sliders);
-    });
+    const sliders = [...document.querySelectorAll(this.cfg.slider)];
+    if (!sliders) return;
+    this.initSliders(sliders);
   },
 };
 

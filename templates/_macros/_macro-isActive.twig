@@ -2,12 +2,12 @@
   Set Active Class
   ------------------------------------------------------------
 
-  {% import '_partials/macros/_macro-isActive.twig' as macroIsActive  %}
+  {% import '_macros/_macro-isActive.twig' as macroIsActive  %}
   {{ macroIsActive.isActive('news', -1, 'cn') }}
 #}
 
 {% macro isActive(segments, position, prefix, cn) %}
-  {% spaceless %}
+  {% apply spaceless %}
     {% set segments = segments | default(null) %}
     {% set position = position | default(-1) %}
     {% set prefix = prefix | default(null) %}
@@ -18,5 +18,5 @@
     {% elseif craft.app.request.getSegment(position) == segments %}
       {{ prefix ? prefix ~ cn : cn }}
     {% endif %}
-  {% endspaceless %}
+  {% endapply %}
 {% endmacro %}

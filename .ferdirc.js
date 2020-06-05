@@ -49,8 +49,9 @@ module.exports = {
     modulePath: './templates/',
     pathOptions: {
       // the first character of each key works as an alias for the path so you could use `-a` as an alias for atomic
+      elements: '_elements/',
       components: '_components/',
-      layout: '_components/_layout/',
+      layout: '_elements/_layout/',
     },
   },
 };

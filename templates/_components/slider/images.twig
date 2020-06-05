@@ -10,31 +10,49 @@
   customClasses: [],
   data: {},
   images: null,
-  ratio: null
+  transform: 'landscape',
+  buttons: true,
+  pagination: true,
+  progressbar: false,
 } %}
 
 {# Merge Default with Options #}
 {% set props = props is defined ? defaults|merge(props) : defaults %}
-
-{# Merge JS Class #}
-{% set props= props| merge({  customClasses: props.customClasses | merge(['js-sliderImages is-hidden'])}) %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# Modul #}
 {% if props.images %}
-  <div {{ module.settings(props) }}>
+  <div {{ module.settings(props) }} swiper-pagination="{{ props.pagination ? 'true' : 'false' }}"
+                                    swiper-progressbar="{{ props.progressbar ? 'true' : 'false' }}">
     <!-- Slides -->
-    {% for image in props.images %}
-      <div class="{{ props.cn ~ '__slide' }}">
-        {% include '_components/image/image.twig' with {
-          props: {
-            image: image ??? null,
-            ratio: props.ratio ??? null,
-          }
-        } only %}
+    <div class="{{ props.cn ~ '__slider' }} js-sliderImages swiper-container">
+      <div class="swiper-wrapper">
+        {% for image in props.images %}
+          <div class="swiper-slide  {{ props.cn ~ '__slide' }}">
+            <div class="{{ props.cn ~ '__inner' }}">
+              {% include '_elements/image/image.twig' with {
+                props: {
+                  image: image ??? null,
+                  transform: props.transform ??? null,
+                }
+              } only %}
+            </div>
+          </div>
+        {% endfor %}
       </div>
-    {% endfor %}
+
+      {% if props.buttons %}
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"><span></span></div>
+        <div class="swiper-button-next"><span></span></div>
+      {% endif %}
+
+      {% if props.pagination %}
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+      {% endif %}
+    </div>
   </div>
 {% endif %}

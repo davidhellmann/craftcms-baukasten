@@ -1,37 +1,31 @@
 /**
  * components/webfonts.css
  *
- * Project webfonts.
  *
  */
 
+// Headline Font
 @font-face {
   font-family: 'Merriweather';
   font-style: normal;
   font-display: swap;
   font-weight: 900;
   src: local('Merriweather Black'), local('Merriweather-Black'),
-    url('~typeface-merriweather/files/merriweather-latin-900.woff2')
-      format('woff2'),
-    /* Super Modern Browsers */
-      url('~typeface-merriweather/files/merriweather-latin-900.woff')
-      format('woff'); /* Modern Browsers */
+    url('~typeface-merriweather/files/merriweather-latin-900.woff2') format('woff2'),
+    url('~typeface-merriweather/files/merriweather-latin-900.woff') format('woff');
 }
 
-/* merriweather-900italic - latin */
 @font-face {
   font-family: 'Merriweather';
   font-style: italic;
   font-display: swap;
   font-weight: 900;
   src: local('Merriweather Black italic'), local('Merriweather-Blackitalic'),
-    url('~typeface-merriweather/files/merriweather-latin-900italic.woff2')
-      format('woff2'),
-    /* Super Modern Browsers */
-      url('~typeface-merriweather/files/merriweather-latin-900italic.woff')
-      format('woff'); /* Modern Browsers */
+    url('~typeface-merriweather/files/merriweather-latin-900italic.woff2') format('woff2'),
+    url('~typeface-merriweather/files/merriweather-latin-900italic.woff') format('woff');
 }
 
+// Body Font
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -52,19 +46,17 @@
     url('~typeface-lato/files/lato-latin-700.woff') format('woff');
 }
 
+
+// Monospace Font
 @font-face {
   font-family: 'Roboto Mono';
   font-style: normal;
   font-display: swap;
   font-weight: 400;
   src: local('Roboto Mono Regular'), local('Roboto Mono-Regular'),
-    url('~typeface-roboto-mono/files/roboto-mono-latin-400.woff2')
-      format('woff2'),
-    /* Super Modern Browsers */
-      url('~typeface-roboto-mono/files/roboto-mono-latin-400.woff')
-      format('woff'); /* Modern Browsers */
+    url('~typeface-roboto-mono/files/roboto-mono-latin-400.woff2') format('woff2'),
+    url('~typeface-roboto-mono/files/roboto-mono-latin-400.woff') format('woff');
 }
-
 
 @font-face {
   font-family: 'Roboto Mono';
@@ -72,9 +64,6 @@
   font-display: swap;
   font-weight: 700;
   src: local('Roboto Mono Regular'), local('Roboto Mono-Regular'),
-    url('~typeface-roboto-mono/files/roboto-mono-latin-700.woff2')
-      format('woff2'),
-    /* Super Modern Browsers */
-      url('~typeface-roboto-mono/files/roboto-mono-latin-700.woff')
-      format('woff'); /* Modern Browsers */
+    url('~typeface-roboto-mono/files/roboto-mono-latin-700.woff2') format('woff2'),
+    url('~typeface-roboto-mono/files/roboto-mono-latin-700.woff') format('woff');
 }

@@ -46,10 +46,10 @@
 
   {% if image.extension not in skipTransformsForThisExtensions %}
     {# Transforming #}
-    {% include '_components/image/_transforming.twig' %}
+    {% include '_elements/image/_transforming.twig' %}
   {% else %}
     {# No Transforming #}
-    {% include '_components/image/_no-transforming.twig' %}
+    {% include '_elements/image/_no-transforming.twig' %}
   {% endif %}
   <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}"></noscript>
 {% endif %}

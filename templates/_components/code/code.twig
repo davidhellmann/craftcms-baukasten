@@ -23,11 +23,11 @@
 {% if props.snippet %}
   <div {{ module.settings(props) }} data-status="{{ props.open ? 'open' : 'closed' }}">
     <div class="{{ props.cn ~ '__wrapper' }}">
-      {% spaceless %}
+      {% apply spaceless %}
         <pre class="line-numbers  language-{{ props.language }}  {{ props.cn ~ '__codeWrapper' }}">
           <code class="{{ props.cn ~ '__code' }}">{{- props.snippet | e -}}</code>
         </pre>
-      {% endspaceless %}
+      {% endapply %}
     </div>
 
     <div class="{{ props.cn ~ '__buttons' }}">

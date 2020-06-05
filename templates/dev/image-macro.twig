@@ -1,0 +1,63 @@
+{% extends "_layouts/generic-page-layout.twig" %}
+{% set appClass = 'p-home' %}
+
+{% block headLinks %}
+  {{ parent() }}
+{% endblock headLinks %}
+
+{# Critical CSS #}
+{% block inlineCriticalCss %}
+  <style>
+    {{ craft.twigpack.includeFile('@webroot/dist/criticalcss/' ~ _self ~  '_critical.min.css') }}
+  </style>
+{% endblock %}
+
+{% block content %}
+  {# Redirect to home if on a live env #}
+  {% if craft.app.config.general.custom.craftEnv == 'live' %}
+    {% redirect siteUrl %}
+  {% endif %}
+
+
+  {# Macros #}
+  {% import '_macros/_macro-imageHelper.twig' as imageHelper %}
+  {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
+  {% set cat02Image = craft.assets.title('Cat 02').volume('templateImages').one() %}
+
+  <picture style="background-color:#dd0; ">
+    {# webp #}
+    {% if craft.imager.clientSupportsWebp() and craft.imager.serverSupportsWebp() %}
+      {# Portrait #}
+      <source data-sizes="auto"
+              data-srcset="{{- imageHelper.getSrcset(cat01Image, 'portrait', 'webp') -}}"
+              media="(min-width: 500px)"
+              type="image/webp">
+
+      {# Landscape#}
+      <source data-sizes="auto"
+              data-srcset="{{- imageHelper.getSrcset(cat01Image, 'landscape', 'webp') -}}"
+              type="image/webp">
+    {% endif %}
+
+    {# Portrait #}
+    <source sizes="auto"
+            media="(min-width: 500px)"
+            srcset="{{- imageHelper.getSrcset(cat01Image, 'portrait') -}}">
+
+    {# Landscape#}
+    <source sizes="auto"
+            srcset="{{- imageHelper.getSrcset(cat01Image) -}}">
+
+    {{- imageHelper.getImgTag(cat01Image) -}}
+  </picture>
+{% endblock %}
+
+{% block subcontent %}
+
+{% endblock %}
+
+{# Any JavaScript that should be included before </body> #}
+{% block bodyJs %}
+  {{ parent() }}
+{% endblock bodyJs %}
+

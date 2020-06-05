@@ -17,9 +17,9 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Template for image transforms #}
-{#{% extends "_components/image/_boilerplate/base-image-transform.twig" %}
+{#{% extends "_elements/image/_boilerplate/base-image-transform.twig" %}
 {% block markup %}
-  {% include '_components/image/_includes/_markupSelector.twig' %}
+  {% include '_elements/image/_includes/_markupSelector.twig' %}
 {% endblock %}#}
 
 {# Macros #}
@@ -78,15 +78,15 @@
   <picture {{ module.settings(props) }} {% if props.dominantColor %}style="{{ 'background-color: ' ~ dominantColor ?? 'transparent' }}"{% endif %}>
     {% if extension not in skipTransformsForThisExtensions %}
       {# Transforming #}
-      {% if craft.imager.serverSupportsWebp() %}
+      {% if craft.imager.clientSupportsWebp() and craft.imager.serverSupportsWebp() %}
         <source data-sizes="auto"
                 data-srcset="{{ craft.imager.srcset(transformedImagesWebp) }}"
                 type="image/webp">
       {% endif %}
-      {% include '_components/image/_transforming.twig' %}
+      {% include '_elements/image/_transforming.twig' %}
     {% else %}
       {# No Transforming #}
-      {% include '_components/image/_no-transforming.twig' %}
+      {% include '_elements/image/_no-transforming.twig' %}
     {% endif %}
     <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}"></noscript>
   </picture>

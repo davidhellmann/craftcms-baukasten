@@ -46,7 +46,8 @@ const imageGallery = {
 
         if (linkEl.children.length > 0) {
           // <img> thumbnail element, retrieving thumbnail url
-          item.msrc = linkEl.children[0].getAttribute('data-photoswipe-thumb');
+          console.log(linkEl.children[0].children[0].src);
+          item.msrc = linkEl.children[0].children[0].src;
         }
 
         item.el = figureEl; // save link to element for getThumbBoundsFn

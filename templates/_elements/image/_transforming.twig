@@ -1,0 +1,14 @@
+<img class="{{ props.lazy ? 'lazyload' : '' }}" {#loading="lazy"#}
+  {% if props.objectFit %}
+    style="object-fit: {{ props.objectFit }}; object-position: {{ image.getFocalpoint('asCss') | default('50% 50%') }}"
+  {% endif %}
+     src="{{ placeholderImage }}"
+  {% if props.lazy %}
+    data-srcset="{{ craft.imager.srcset(transformedImages) }}"
+    data-sizes="auto"
+  {% else %}
+    srcset="{{ craft.imager.srcset(transformedImages) }}"
+    sizes="100vw"
+  {% endif %}
+     alt="{{ image.title }}"
+     data-rootimage="{{ transformedImages|last.url }}"/>

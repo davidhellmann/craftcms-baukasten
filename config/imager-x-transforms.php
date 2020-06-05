@@ -39,7 +39,7 @@ return [
             ['width' => 1600],
         ],
         'defaults' => [
-            'ratio' => 2/3,
+            'ratio' => 4/5,
         ],
     ],
     'thumbnail' => [

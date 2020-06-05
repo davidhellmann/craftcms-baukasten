@@ -12,7 +12,7 @@ if (document.querySelectorAll('.js-sliderImages').length) {
   import(
     /* webpackChunkName: "imageSlider" */ '../../templates/_components/slider/images.js'
   )
-    .then(imageSlider => imageSlider.images.init())
+    .then(imageSlider => imageSlider.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
 

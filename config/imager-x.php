@@ -39,7 +39,7 @@ return [
 
     // Local Env
     'local' => [
-        // 'cwebpPath' => '/usr/local/bin/cwebp', // Webp disabled
+        'cwebpPath' => '/usr/local/bin/cwebp', // Webp disabled
         'optimizers' => null,
         'fallbackImage' => getenv('FALLBACK_IMAGE') ?: null,
         'mockImage' => getenv('MOCK_IMAGE') ?: null,

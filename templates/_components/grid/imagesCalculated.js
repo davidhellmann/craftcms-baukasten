@@ -9,7 +9,6 @@ import _debounce from 'lodash/debounce';
 
 const imagesCalculated = {
   cfg: {
-    name: 'imageGridCalculated',
     selectors: {
       imageHolder: '.c-imageGridCalculated__inner',
     },
@@ -67,7 +66,6 @@ const imagesCalculated = {
   },
 
   init() {
-    console.debug(`Init: ${this.cfg.name}`);
     this.setElements();
 
     if (!this.cfg.els.$imageHolders) return;

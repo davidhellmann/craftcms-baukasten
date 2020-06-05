@@ -5,60 +5,45 @@
  */
 
 .c-sliderImages {
-  opacity: 0;
-  transition: opacity 250ms var(--ease-out-cubic);
+  $root: &;
   position: relative;
-  width: 100%;
+  @include row();
 
-  @include media('>=s') {
-    margin-bottom: 3rem;
+  &__slider {
+    [swiper-pagination="true"] & {
+      padding-bottom: 40px;
+    }
+
+    [swiper-progressbar="true"] & {
+      padding-bottom: 12px;
+    }
   }
 
-  &.is-hidden {
-    display: none;
-  }
+  &__slide.swiper-slide {
+    @include col(5, 6);
+    @include col-padding();
+    height: auto;
 
-  &.flickity-enabled {
-    opacity: 1;
-  }
+    &:last-child {
+      margin-right: 0;
+    }
 
-  /* stylelint-disable */
-  .flickity-prev-next-button {
-    opacity: 0;
-    transition: opacity 250ms var(--ease-out-cubic);
-  }
+    .is-resizing &,
+    .is-resizing & > a {
+      transition: none;
+    }
 
-  &:hover {
-    .flickity-prev-next-button {
+    &.swiper-slide-active,
+    &.swiper-slide-active ~ #{$root}__slide {
       opacity: 1;
-
-      &:disabled {
-        opacity: 0;
-      }
-    }
-  }
-  /* stylelint-enable */
-
-  &__slide {
-    width: 90%;
-    margin-right: 2rem;
-    display: flex;
-    align-items: flex-end;
-
-    .is-flickityResize & {
-      min-height: 100%;
-    }
-
-    @include media('>=s') {
-      width: 80%;
     }
 
     @include media('>=m') {
-      width: 60%;
+      @include col(9, 12);
     }
 
-    @include media('>=max') {
-      width: 40%;
+    @include media('>=l') {
+      @include col(18, 24);
     }
   }
 }

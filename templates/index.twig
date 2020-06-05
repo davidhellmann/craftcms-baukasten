@@ -24,11 +24,11 @@
     <div class="l-container">
       <h2>Block Subcontent</h2>
       {# link #}
-      {% include '_components/link/link.twig' with {
+      {% include '_elements/link/link.twig' with {
         props: {
           modifiers: ['primary'],
           customClasses: ['mt-1'],
-          url: '/component-library',
+          url: '/dev/component-library',
           text: 'Component Library'
         }
       } only %}

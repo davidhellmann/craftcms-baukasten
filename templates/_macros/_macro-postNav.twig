@@ -42,7 +42,7 @@
             {% if props.prevIcon %}
               <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--prev' }}">
                 {# Icon #}
-                {% include '_components/icon/icon.twig' with {
+                {% include '_elements/icon/icon.twig' with {
                   props: {
                     modifiers: ['24'],
                     icon: props.prevIcon,
@@ -71,7 +71,7 @@
             {% if props.nextIcon %}
               <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--next' }}">
                 {# Icon #}
-                {% include '_components/icon/icon.twig' with {
+                {% include '_elements/icon/icon.twig' with {
                   props: {
                     modifiers: ['24'],
                     icon: props.nextIcon,

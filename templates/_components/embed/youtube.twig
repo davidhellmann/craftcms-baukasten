@@ -34,12 +34,12 @@
               frameborder="0">
       </iframe>
 
-      <div class="{{ props.cn ~ '__notAllowed' }}">
-        <span onclick="window.orejime.show()">{{ 'gdrp.label.manageSettings' | t }}</span>
-      </div>
 
       {# TODO: GDPR Solution #}
-      {#{% if not orejime.youtube ??? null %}
+      {#<div class="{{ props.cn ~ '__notAllowed' }}">
+        <span onclick="window.orejime.show()">{{ 'gdrp.label.manageSettings' | t }}</span>
+      </div>
+      {% if not orejime.youtube ??? null %}
         #}{# cookieClue #}{#
         {% include '_atoms/cookieClue/_template.twig' with {
           props: {}

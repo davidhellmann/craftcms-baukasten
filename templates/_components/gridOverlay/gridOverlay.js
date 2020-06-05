@@ -8,7 +8,6 @@
 
 const gridOverlay = {
   cfg: {
-    name: 'gridOverlay',
     selectors: {
       toggleGrid: '.js-toggleGrid',
       gridOverlay: '.gridOverlay',
@@ -44,7 +43,6 @@ const gridOverlay = {
   },
 
   init() {
-    console.debug(`Init: ${this.cfg.name}`); // eslint-disable-line
     setTimeout(() => {
       this.setElements();
 
@@ -58,9 +56,13 @@ const gridOverlay = {
 
       // Toggle Grid
       if (this.cfg.el.$toggleGrid) {
-        this.cfg.el.$toggleGrid.addEventListener('click', () => {
-          this.toggleGrid();
-        }, false);
+        this.cfg.el.$toggleGrid.addEventListener(
+          'click',
+          () => {
+            this.toggleGrid();
+          },
+          false,
+        );
       }
     }, 500);
   },

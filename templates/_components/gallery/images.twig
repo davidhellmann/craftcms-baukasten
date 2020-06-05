@@ -34,7 +34,7 @@
              data-size="{{ imageMaxWidth }}x{{ imageMaxHeight }}">
 
             {% if not (loop.index == (props.cutAfter + 1) and props.cutAfter) %}
-              {% include '_components/image/image.twig' with {
+              {% include '_elements/image/image.twig' with {
                 props: {
                   image: image ??? null,
                   transform: 'thumbnail'
@@ -55,7 +55,8 @@
           {% endif %}
 
           {% if (loop.index == (props.cutAfter + 1) and props.cutAfter) %}
-            <div class="{{ props.cn ~ '__more' }} js-imageGallery--more">
+            {# TODO: Multiline Todo and Translations #}
+            <div class="{{ props.cn ~ '__more' }} js-imageGallery--more c-tooltip c-tooltip--n" aria-label=" ;akosjd ;kasdipash jdpi asipdh asipodiaoh sdidash">
               +{{ props.images | length - props.cutAfter }}
             </div>
           {% endif %}

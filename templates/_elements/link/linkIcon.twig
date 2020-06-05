@@ -27,7 +27,7 @@
     href="{{ props.url }}" {{ props.url starts with '#' ? 'data-scroll' : '' }}  {{ module.settings(props) }} {{ props.targetBlank ? 'target="_blank"' }}>
 
     {# Icon #}
-    {% include '_components/icon/icon.twig' with {
+    {% include '_elements/icon/icon.twig' with {
       props: {
         modifiers: ['24'],
         icon: props.icon,

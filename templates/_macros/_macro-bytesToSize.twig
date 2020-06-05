@@ -2,11 +2,11 @@
   Set Active Class
   ------------------------------------------------------------
 
-  {% import '_partials/macros/_macro-bytesToSize.twig' as macroBytesToSize  %}
+  {% import '_macros/_macro-bytesToSize.twig' as macroBytesToSize  %}
   {{ macroBytesToSize.bytesToSize(bytes) }}
 #}
 {% macro bytesToSize(bytes) %}
-  {% spaceless %}
+  {% apply spaceless %}
     {% set kilobyte = 1024 %}
     {% set megabyte = kilobyte * 1024 %}
     {% set gigabyte = megabyte * 1024 %}
@@ -23,5 +23,5 @@
     {% else %}
       {{ (bytes / terabyte)|number_format(2, '.') ~ ' tb' }}
     {% endif %}
-  {% endspaceless %}
+  {% endapply %}
 {% endmacro %}

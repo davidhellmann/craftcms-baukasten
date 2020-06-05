@@ -8,7 +8,7 @@
  │                                  htmlPage                                   │
  └─────────────────────────────────────────────────────────────────────────────┘
 #}
-{% spaceless %}
+{% apply spaceless %}
   {# Prefetch & preconnect headers and links #}
   {% set prefetchUrls = [
     alias("@assetsUrl"),
@@ -32,4 +32,4 @@
     window.Craft = {{ csrfToken|json_encode|raw }};
   </script>
 
-{% endspaceless %}
+{% endapply %}

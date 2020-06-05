@@ -123,7 +123,7 @@ const baseConfig = {
     new WebpackNotifierPlugin({
       title: 'Webpack',
       excludeWarnings: true,
-      alwaysNotify: true,
+      alwaysNotify: JSON.parse(process.env.SHOW_BUILD_SUCCESS_NOTIFICATIONS),
     }),
     new VueLoaderPlugin(),
   ],
