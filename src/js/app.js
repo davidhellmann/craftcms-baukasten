@@ -51,16 +51,13 @@ main().then(() => {
     '||                                                           ||',
   );
   console.log(
-    '||   Maintainer    David Hellmnann / @fredmansky             ||',
+    '||   Maintainer    David Hellmnann                           ||',
   );
   console.log(
     '||   Website       https://davidhellmann.com                 ||',
   );
   console.log(
     '||   GitHub Repo   https://github.com/davidhellmann/craft    ||',
-  );
-  console.log(
-    '||   Agency        https://fredmansky.com                    ||',
   );
   console.log(
     '||                                                           ||',

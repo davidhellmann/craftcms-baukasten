@@ -2,7 +2,7 @@
 
 return [
     'volumes' => [
-        'images' => ['landscape'],
-        'templateImages' => ['auto', 'landscape', 'square', 'portrait'],
+        'images' => ['landscape', 'dominantColor'],
+        'templateImages' => ['auto', 'landscape', 'square', 'portrait', 'dominantColor'],
     ],
 ];

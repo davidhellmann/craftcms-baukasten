@@ -77,7 +77,7 @@
     {%- set extension = _self.getImageExtension(image) -%}
 
     {# Create Mini Image for Dominant Color #}
-    {% set image = craft.imager.transformImage(image, 'dominantColor')|first %}
+    {%- set image = craft.imager.transformImage(image, 'dominantColor')|first -%}
 
     {# Domiant Color (Use lase image from Final images #}
     {% if dominantColor starts with '#' and extension != 'png' %}
