@@ -35,7 +35,8 @@
     "preinstall": "$npm_execpath --silent run checknpm",
     "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)",
     "eslint": "eslint src/**/*.{js,vue} --fix",
-    "stylelint": "stylelint src/**/*.scss --fix"
+    "stylelint": "stylelint src/**/*.scss --fix",
+    "cy:run": "cypress run"
   },
   "browserslist": {
     "production": [
@@ -135,7 +136,7 @@
     "critical-css-webpack-plugin": "^0.2.0",
     "css-loader": "^3.5.3",
     "cssnano": "^4.1.0",
-    "cypress": "^4.7.0",
+    "cypress": "^4.8.0",
     "cypress-localstorage-commands": "^1.2.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
