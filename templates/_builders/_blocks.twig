@@ -8,7 +8,7 @@
     builder: builder
   } only %}
 {% else %}
-  {% include ('_builders/_includes/_cb' ~ data.type ~ '.twig') with {
+  {% include ('_builders/_includes/_cb' ~ data.type | pascal ~ '.twig') with {
     data: data,
     builder: builder
   } only %}

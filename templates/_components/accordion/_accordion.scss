@@ -1,82 +1,82 @@
 /* -------------------------------------------------- */
-/*    o-accordion
+/*    c-accordion
 /* -------------------------------------------------- */
 
-.o-accordion {
+.c-accordion {
   $root: &;
-  @include vr();
-  user-select: none;
 
-  &--no-margin {
-    margin-top: 0;
-  }
-
-  &__item {
-    position: relative;
-    overflow: hidden;
-    border-top: 1px solid var(--c-gray-200);
-    border-bottom: 0;
-
-    &:last-child {
-      border-bottom: 1px solid var(--c-gray-200);
-    }
+  + .c-accordion {
+    margin-top: 0.5rem;
   }
 
   &__trigger {
-    @include col-padding();
+    user-select: none;
+    cursor: pointer;
+    background-color: var(--c-gray-100);
+    border-radius: 15px;
+    padding: 1.5rem 4rem 1.5rem 2rem;
+    @include ms(-1);
+    font-weight: 700;
+    position: relative;
+    z-index: 10;
+
+    &.is-open {
+      background-color: var(--c-gray-200);
+    }
+
+    &.is-open ~ #{$root}__content {
+      display: block;
+    }
+
+    &.is-open > #{$root}__indicator {
+      &::after {
+        transform: translate(-50%, -50%) rotate(-90deg);
+      }
+    }
   }
 
-  &__headline {
-    @include f(s(2), s(4), padding-top padding-bottom);
-    @include f(s(6), s(12), padding-right);
-    @include ms-respond(font-size, 1);
-    position: relative;
-    transition: all 0.25s var(--ease-out-cubic);
+  &__indicator {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-color: var(--c-white);
+    border-radius: 16px;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
 
     &::before,
     &::after {
       content: '';
-      width: 10px;
-      height: 2px;
       position: absolute;
-      top: calc(50%);
-      background-color: var(--c-red);
-      transition: all 250ms var(--ease-out-cubic);
-    }
-
-    &::before {
-      transform: rotate(45deg);
-      right: calc(0.5rem + 6px);
-    }
-
-    &::after {
-      transform: rotate(-45deg);
-      right: 0.5rem;
-    }
-
-    .is-open & {
-      &::before {
-        transform: rotate(-45deg);
-      }
-
-      &::after {
-        transform: rotate(45deg);
-      }
+      left: 50%;
+      top: 50%;
+      width: 14px;
+      height: 2px;
+      background-color: var(--c-gray-500);
+      transform: translate(-50%, -50%) rotate(0);
+      transition: transform 0.25s var(--ease-out-cubic);
     }
   }
 
   &__content {
     display: none;
-    @include section-padding(1);
-    @include col-padding();
-    width: 100%;
+    background-color: var(--c-gray-100);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 2rem 4rem 1.5rem 2rem;
+    position: relative;
+    z-index: 5;
+    margin-top: -1rem;
 
-    @include media('>=m') {
-      width: calc(100% - 128px);
-    }
-
-    p:first-of-type {
-      margin-top: 0;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 2rem;
+      right: 2rem;
+      top: 0;
+      height: 1px;
+      border-top: 1px dotted var(--c-gray-300);
     }
   }
 }

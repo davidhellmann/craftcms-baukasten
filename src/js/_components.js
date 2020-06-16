@@ -35,6 +35,15 @@ if (document.querySelectorAll('.js-code').length) {
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
 
+// Accordion
+if (document.querySelectorAll('.js-accordionTrigger').length) {
+  import(
+    /* webpackChunkName: "accordion" */ '../../templates/_components/accordion/accordion.js'
+  )
+    .then(accordion => accordion.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
+}
+
 // Grid overlay
 if (document.querySelectorAll('.gridOverlay').length) {
   import(

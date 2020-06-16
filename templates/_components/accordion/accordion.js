@@ -11,24 +11,20 @@ const accordion = {
   },
 
   // Toggle Content
-  toggleContent(event) {
-    event.preventDefault();
-    const target = event.currentTarget;
-    const accContent = target.nextElementSibling;
-
-    if (!target.classList.contains(this.cfg.status)) {
-      target.classList.add(this.cfg.status);
-      accContent.style.display = 'block';
+  toggleContent(e) {
+    if (!e.currentTarget.classList.contains(this.cfg.status)) {
+      e.currentTarget.classList.add(this.cfg.status);
     } else {
-      target.classList.remove(this.cfg.status);
-      accContent.style.display = 'none';
+      e.currentTarget.classList.remove(this.cfg.status);
     }
   },
 
   // Init
   init() {
-    this.cfg.triggers.forEach((trigger) => {
-      trigger.addEventListener('click', (event) => {
+    console.log(this.cfg);
+    if (!this.cfg.triggers) return;
+    this.cfg.triggers.forEach(trigger => {
+      trigger.addEventListener('click', event => {
         this.toggleContent(event);
       });
     });

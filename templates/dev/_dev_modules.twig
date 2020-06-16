@@ -452,6 +452,29 @@
   {#                                                                #}
   {# ============================================================== #}
   <pre class="mt-4 mb-2" id="caption">_components/caption</pre>
+  {# accordion #}
+  {% include '_components/accordion/accordion.twig' with {
+    props: {
+      trigger: 'Accordion Trigger 1',
+      content: '<p>Lorem ipsum dolor sit amet</p>'
+    }
+  } only %}
+  {# accordion #}
+  {% include '_components/accordion/accordion.twig' with {
+    props: {
+      trigger: 'Accordion Trigger 2',
+      content: '<p>Lorem ipsum dolor sit amet</p>'
+    }
+  } only %}
+
+
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="caption">_components/caption</pre>
   {# caption #}
   {% include '_components/caption/caption.twig' with {
     props: {
@@ -881,32 +904,34 @@ export default code;
 {# ============================================================== #}
 <div id="selector">
   <select name="dropDown" id="dropDown">
-    <option value="#home">Select Component</option>
+    <option value="#home">Quick Menu</option>
     <option>LAYOUT</option>
     <option value="#section">- Section</option>
     <option value="#container">- Container</option>
     <option value="#row">- Row</option>
     <option value="#spacer">- Spacer</option>
+    <option>ELEMENTS</option>
+    <option value="#divider">- Divider</option>
+    <option value="#icon">- Icon</option>
+    <option value="#image/image">- Image/Image</option>
+    <option value="#image/imageRaw">- Image/ImageRaw</option>
+    <option value="#link/link">- Link/Link</option>
+    <option value="#link/linkIcon">- Link/LinkIcon</option>
+    <option value="#logo">- Logo</option>
+    <option value="#spinner">- Spinner</option>
     <option>COMPONENTS</option>
+    <option value="#accordion">- Accordion</option>
     <option value="#code">- Code</option>
     <option value="#caption">- Caption</option>
     <option value="#card/image">- Card/Image</option>
     <option value="#definitionList">- Definition List</option>
-    <option value="#divider">- Divider</option>
     <option value="#figure/image">- Figure/Image</option>
-    <option value="#image/image">- Image/Image</option>
-    <option value="#image/imageRaw">- Image/ImageRaw</option>
     <option value="#cover/image">- Cover/Image</option>
     <option value="#gallery/images">- Gallery/Images</option>
     <option value="#grid/images">- Grid/Images</option>
-    <option value="#link/link">- Link/Link</option>
-    <option value="#link/linkIcon">- Link/LinkIcon</option>
-    <option value="#logo">- Logo</option>
     <option value="#plainText">- Plain Text</option>
     <option value="#quote">- Quote</option>
     <option value="#slider/images">- Slider/Images</option>
-    <option value="#spinner">- Spinner</option>
-    <option value="#icon">- Icon</option>
     <option value="#embed/youtube">- Embed/Youtube</option>
   </select>
 </div>
