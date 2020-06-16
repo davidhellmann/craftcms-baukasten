@@ -1,16 +1,19 @@
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-imageRaw',
+  cn: 'c-image',
   modifiers: [],
   customClasses: [],
   data: {},
   js: null,
   image: null,
-  transform: null | default('landscape'),
+  transform: 'landscape',
+  showDominantColor: true,
+  dominantColor: null,
   objectFit: null,
   lazy: true,
   noscript: true
 } %}
+
 
 {# Merge Default with Options #}
 {% set props = props is defined ? defaults|merge(props) : defaults %}
@@ -25,8 +28,11 @@
 {% endif %}
 
 {% if image ??? null %}
-  {{- imageHelper.renderImage(image, props.transform, props.lazy, props.objectFit) -}}
-  {% if props.noscript %}
-    {{- imageHelper.renderNoScript(image) -}}
-  {% endif %}
+  <picture {% if props.showDominantColor %}style="background-color: {{- props.dominantColor ??? imageHelper.getDominantColor(image) ??? 'transparent' -}}; "{% endif %}>
+    {{- imageHelper.renderSource(image, props.transform) -}}
+    {{- imageHelper.renderImage(image, props.transform, props.lazy, props.objectFit) -}}
+    {% if props.noscript %}
+      {{- imageHelper.renderNoScript(image) -}}
+    {% endif %}
+  </picture>
 {% endif %}

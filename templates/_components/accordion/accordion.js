@@ -21,7 +21,6 @@ const accordion = {
 
   // Init
   init() {
-    console.log(this.cfg);
     if (!this.cfg.triggers) return;
     this.cfg.triggers.forEach(trigger => {
       trigger.addEventListener('click', event => {

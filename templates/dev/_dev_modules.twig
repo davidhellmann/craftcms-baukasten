@@ -163,9 +163,9 @@
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="image/image">_elements/image/image</pre>
-  {# image #}
-  {% include '_elements/image/image.twig' with {
+  <pre class="mt-4 mb-2" id="image/picture">_elements/image/picture</pre>
+  {# picture #}
+  {% include '_elements/image/picture.twig' with {
     props: {
       image: placeholderImage ??? null,
       transform: 'landscape'
@@ -179,9 +179,9 @@
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="image/imageRaw">_elements/image/imageRaw</pre>
+  <pre class="mt-4 mb-2" id="image/image">_elements/image/image</pre>
   {# imageRaw #}
-  {% include '_elements/image/imageRaw.twig' with {
+  {% include '_elements/image/image.twig' with {
     props: {
       image: placeholderImage ??? null,
     }
@@ -913,8 +913,8 @@ export default code;
     <option>ELEMENTS</option>
     <option value="#divider">- Divider</option>
     <option value="#icon">- Icon</option>
-    <option value="#image/image">- Image/Image</option>
-    <option value="#image/imageRaw">- Image/ImageRaw</option>
+    <option value="#image/picture">- Image/Picture</option>
+    <option value="#image/image">- Image/image</option>
     <option value="#link/link">- Link/Link</option>
     <option value="#link/linkIcon">- Link/LinkIcon</option>
     <option value="#logo">- Logo</option>

@@ -20,22 +20,47 @@
   {# Render Image #}
   {%- macro renderImage(image, transform, lazy = true, objectFit = null) -%}
     {%- if image ??? null -%}
-      {%- set transform = transform | default('landscape') -%}
-      {%- set srcset = _self.getSrcset(image, transform) -%}
-      <img class="{{ lazy ? 'lazyload' : '' }}"
-        {%- if objectFit -%}
-          style="object-fit: {{ objectFit }}; object-position: {{ image.getFocalpoint('asCss') | default('50% 50%') }}"
-        {%- endif -%}
-           src="{{- _self.getPlaceHolder(craft.imager.transformImage(image, transform)|first.url, transform) -}}"
-        {%- if lazy -%}
-          data-srcset="{{- srcset -}}"
-          data-sizes="auto"
-        {%- else -%}
-          srcset="{{- srcset -}}"
-          sizes="100vw"
-        {%- endif -%}
-           alt="{{ image.title }}"
-           data-rootimage="{{- craft.imager.transformImage(image, transform)|last.url -}}"/>
+      {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] -%}
+      {%- set extension = _self.getImageExtension(image) -%}
+      {%- if extension not in skipTransformsForThisExtensions -%}
+        {%- set transform = transform | default('landscape') -%}
+        {%- set srcset = _self.getSrcset(image, transform) -%}
+        <img class="{{ lazy ? 'lazyload' : '' }}"
+          {%- if objectFit -%}
+            style="object-fit: {{ objectFit }}; object-position: {{ image.getFocalpoint('asCss') | default('50% 50%') }}"
+          {%- endif -%}
+             src="{{- _self.getPlaceHolder(craft.imager.transformImage(image, transform)|first.url, transform) -}}"
+          {%- if lazy -%}
+            data-srcset="{{- srcset -}}"
+            data-sizes="auto"
+          {%- else -%}
+            srcset="{{- srcset -}}"
+            sizes="100vw"
+          {%- endif -%}
+             alt="{{ image.title }}"
+             data-rootimage="{{- craft.imager.transformImage(image, transform)|last.url -}}"/>
+      {%- else -%}
+        <img class="{{ lazy ? 'lazyload' : '' }}"
+          {%- if objectFit -%}
+            style="object-fit: {{ objectFit }}; object-position: {{ image.getFocalpoint('asCss') | default('50% 50%') }}"
+          {%- endif -%}
+          {%- if lazy -%}
+            src="{{- _self.getPlaceHolder(craft.imager.transformImage(image, transform)|first.url, transform) -}}"
+            data-src="{{- image.getUrl() -}}"
+            data-sizes="auto"
+          {%- else -%}
+            src="{{- image.getUrl() -}}"
+            sizes="100vw"
+          {%- endif -%}
+             alt="{{- image.title -}}"/>
+      {%- endif -%}
+    {%- endif -%}
+  {%- endmacro -%}
+
+  {# Render NoScript #}
+  {%- macro renderNoScript(image) -%}
+    {%- if image ??? null -%}
+      <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}"></noscript>
     {%- endif -%}
   {%- endmacro -%}
 

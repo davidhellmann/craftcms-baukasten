@@ -1,0 +1,60 @@
+{% extends "_layouts/generic-page-layout.twig" %}
+{% set appClass = 'p-home' %}
+
+{% block headLinks %}
+  {{ parent() }}
+{% endblock headLinks %}
+
+{# Critical CSS #}
+{% block inlineCriticalCss %}
+  <style>
+    {{ craft.twigpack.includeFile('@webroot/dist/criticalcss/' ~ _self ~  '_critical.min.css') }}
+  </style>
+{% endblock %}
+
+{% block content %}
+  {# Redirect to home if on a live env #}
+  {% if craft.app.config.general.custom.craftEnv == 'live' %}
+    {% redirect siteUrl %}
+  {% endif %}
+
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="image/image">_elements/image/image</pre>
+  {# image #}
+  {% include '_elements/image/picture.twig' with {
+    props: {
+      image: craft.assets.title('Cat 01').volume('templateImages').one() ??? null,
+      transform: 'landscape'
+    }
+  } only %}
+
+
+
+  {# ============================================================== #}
+  {#                                                                #}
+  {#      SEPERATOR                                                 #}
+  {#                                                                #}
+  {# ============================================================== #}
+  <pre class="mt-4 mb-2" id="image/imageRaw">_elements/image/imageRaw</pre>
+  {# imageRaw #}
+  {% include '_elements/image/image.twig' with {
+    props: {
+      image: craft.assets.title('Cat 02').volume('templateImages').one() ??? null,
+    }
+  } only %}
+{% endblock %}
+
+{% block subcontent %}
+
+{% endblock %}
+
+{# Any JavaScript that should be included before </body> #}
+{% block bodyJs %}
+  {{ parent() }}
+{% endblock bodyJs %}
+

@@ -28,7 +28,7 @@
   <article {{ module.settings(props) }}>
     <a class="{{ props.cn ~ '__link' }}" href="{{ props.linkUrl }}">
       <div class="{{ props.cn ~ '__header' }}">
-        {% include '_elements/image/image.twig' with {
+        {% include '_elements/image/picture.twig' with {
           props: {
             image: props.image ??? null,
             transform: props.transform ??? null
