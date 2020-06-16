@@ -7,96 +7,13 @@
     "lists",
     "link",
     "line",
-    "file"
+    "file",
+    "html"
   ],
-  "plugins": [
-    "inlinestyle"
-  ],
-  "formatting": [],
-  "formattingAdd": {
-    "smaller-text": {
-      "title": "Smaller Text",
-      "api": "module.block.format",
-      "args": {
-        "tag": "p",
-        "class": "ms--1",
-        "type": "set"
-      }
-    },
-    "normal-text": {
-      "title": "Normal Text",
-      "api": "module.block.format",
-      "args": {
-        "tag": "p",
-        "class": "ms-0",
-        "type": "set"
-      }
-    },
-    "bigger-text": {
-      "title": "Bigger Text",
-      "api": "module.block.format",
-      "args": {
-        "tag": "p",
-        "class": "ms-1",
-        "type": "set"
-      }
-    },
-    "quote": {
-      "title": "Quote",
-      "api": "module.block.format",
-      "args": {
-        "tag": "blockquote",
-        "class": "blockquote",
-        "type": "set"
-      }
-    },
-    "h2": {
-      "title": "H2",
-      "api": "module.block.format",
-      "args": {
-        "tag": "h2",
-        "class": "ms-5",
-        "type": "set"
-      }
-    },
-    "h3": {
-      "title": "H3",
-      "api": "module.block.format",
-      "args": {
-        "tag": "h3",
-        "class": "ms-4",
-        "type": "set"
-      }
-    },
-    "h4": {
-      "title": "H4",
-      "api": "module.block.format",
-      "args": {
-        "tag": "h4",
-        "class": "ms-3",
-        "type": "set"
-      }
-    },
-    "h5": {
-      "title": "H5",
-      "api": "module.block.format",
-      "args": {
-        "tag": "h5",
-        "class": "ms-2",
-        "type": "set"
-      }
-    },
-    "h6": {
-      "title": "H6",
-      "api": "module.block.format",
-      "args": {
-        "tag": "h6",
-        "class": "ms-1",
-        "type": "set"
-      }
-    }
-  },
+  "plugins": ["baukasten"],
+  "formatting": ["h2", "h3", "h4", "h5", "h6", "p"],
   "pasteImages": false,
+  "pasteLinks": true,
   "linkNewTab": true,
   "toolbar": true,
   "toolbarFixed": true

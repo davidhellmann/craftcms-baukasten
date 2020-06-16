@@ -13,13 +13,13 @@
 
 {# Query Entries #}
 {# To Skip the Current id add: id: 'and, not ' ~ entry.id #}
-{% set entries = craft.entries({
+{% set entryQuery = craft.entries({
   section: 'articles',
   relatedTo: null,
   limit: 3,
   offset: null
 }) %}
-{% paginate entries as pageInfo, pageEntries %}
+{% paginate entryQuery as pageInfo, pageEntries %}
 
 {# Seomatic Overwrites #}
 {% import '_macros/_macro-seomaticPaginationOverwrites.twig' as macroSeomaticPaginationOverwrites  %}
