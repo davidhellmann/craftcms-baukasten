@@ -1,6 +1,6 @@
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-image',
+  cn: 'c-picture',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -28,7 +28,7 @@
 {% endif %}
 
 {% if image ??? null %}
-  <picture {% if props.showDominantColor %}style="background-color: {{- props.dominantColor ??? imageHelper.getDominantColor(image) ??? 'transparent' -}}; "{% endif %}>
+  <picture {{ module.settings(props) }}  {% if props.showDominantColor %}style="background-color: {{- props.dominantColor ??? imageHelper.getDominantColor(image) ??? 'transparent' -}}; "{% endif %}>
     {{- imageHelper.renderSource(image, props.transform) -}}
     {{- imageHelper.renderImage(image, props.transform, props.lazy, props.objectFit) -}}
     {% if props.noscript %}

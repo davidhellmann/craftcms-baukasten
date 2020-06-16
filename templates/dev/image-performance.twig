@@ -18,35 +18,23 @@
     {% redirect siteUrl %}
   {% endif %}
 
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="image/image">_elements/image/image</pre>
-  {# image #}
-  {% include '_elements/image/picture.twig' with {
-    props: {
-      image: craft.assets.title('Cat 01').volume('templateImages').one() ??? null,
-      transform: 'landscape'
-    }
-  } only %}
-
-
-
   {# ============================================================== #}
   {#                                                                #}
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
   <pre class="mt-4 mb-2" id="image/imageRaw">_elements/image/imageRaw</pre>
-  {# imageRaw #}
-  {% include '_elements/image/image.twig' with {
-    props: {
-      image: craft.assets.title('Cat 02').volume('templateImages').one() ??? null,
-    }
-  } only %}
+
+  {% cache %}
+    {% for i in 0..10 %}
+      {# imageRaw #}
+      {% include '_elements/image/picture.twig' with {
+        props: {
+          image: craft.assets.title('Cat 02').volume('templateImages').one() ??? null,
+        }
+      } only %}
+    {% endfor %}
+  {% endcache %}
 {% endblock %}
 
 {% block subcontent %}

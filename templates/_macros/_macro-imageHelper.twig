@@ -22,14 +22,17 @@
     {%- if image ??? null -%}
       {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] -%}
       {%- set extension = _self.getImageExtension(image) -%}
+      {%- set placeholder = _self.getPlaceHolder(craft.imager.transformImage(image, transform)|first.url, transform) -%}
+      {%- set focalpoint = image.getFocalpoint('asCss') -%}
+      {%- set imageTitle = image.title -%}
       {%- if extension not in skipTransformsForThisExtensions -%}
         {%- set transform = transform | default('landscape') -%}
         {%- set srcset = _self.getSrcset(image, transform) -%}
         <img class="{{ lazy ? 'lazyload' : '' }}"
           {%- if objectFit -%}
-            style="object-fit: {{ objectFit }}; object-position: {{ image.getFocalpoint('asCss') | default('50% 50%') }}"
+            style="object-fit: {{ objectFit }}; object-position: {{ focalpoint | default('50% 50%') }}"
           {%- endif -%}
-             src="{{- _self.getPlaceHolder(craft.imager.transformImage(image, transform)|first.url, transform) -}}"
+             src="{{- placeholder -}}"
           {%- if lazy -%}
             data-srcset="{{- srcset -}}"
             data-sizes="auto"
@@ -37,22 +40,23 @@
             srcset="{{- srcset -}}"
             sizes="100vw"
           {%- endif -%}
-             alt="{{ image.title }}"
+             alt="{{ imageTitle }}"
              data-rootimage="{{- craft.imager.transformImage(image, transform)|last.url -}}"/>
       {%- else -%}
+        {%- set imageUrl = image.getUrl() -%}
         <img class="{{ lazy ? 'lazyload' : '' }}"
           {%- if objectFit -%}
-            style="object-fit: {{ objectFit }}; object-position: {{ image.getFocalpoint('asCss') | default('50% 50%') }}"
+            style="object-fit: {{ objectFit }}; object-position: {{ focalpoint | default('50% 50%') }}"
           {%- endif -%}
           {%- if lazy -%}
-            src="{{- _self.getPlaceHolder(craft.imager.transformImage(image, transform)|first.url, transform) -}}"
-            data-src="{{- image.getUrl() -}}"
+            src="{{- placeholder -}}"
+            data-src="{{- imageUrl -}}"
             data-sizes="auto"
           {%- else -%}
-            src="{{- image.getUrl() -}}"
+            src="{{- imageUrl -}}"
             sizes="100vw"
           {%- endif -%}
-             alt="{{- image.title -}}"/>
+             alt="{{- imageTitle -}}"/>
       {%- endif -%}
     {%- endif -%}
   {%- endmacro -%}
@@ -96,6 +100,9 @@
 
   {# Get Dominant Color #}
   {%- macro getDominantColor(image, dominantColor = null) -%}
+    {%- if craft.app.config.general.custom.craftEnv == 'local' -%}
+      {{- 'transparent' -}}
+    {%- endif -%}
     {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] -%}
     {%- set extension = _self.getImageExtension(image) -%}
     {%- if extension not in skipTransformsForThisExtensions -%}
