@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3541b267187b329afd5d504cc3ed71ee",
+    "content-hash": "5a2fdcc6ba309b1f84f20e50a4afda58",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -5147,16 +5147,11 @@
         },
         {
             "name": "putyourlightson/craft-blitz-recommendations",
-            "version": "1.0.0-beta.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/putyourlightson/craft-blitz-recommendations.git",
-                "reference": "3b9ba1dcc484522641a783335aba7c3084cadd93"
-            },
+            "version": "1.0.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-blitz-recommendations/zipball/3b9ba1dcc484522641a783335aba7c3084cadd93",
-                "reference": "3b9ba1dcc484522641a783335aba7c3084cadd93",
+                "url": "https://api.github.com/repos/putyourlightson/craft-blitz-recommendations/zipball/e694ea33a7cbe9186d0ec890aa81f60b66afcf2c",
+                "reference": "e694ea33a7cbe9186d0ec890aa81f60b66afcf2c",
                 "shasum": ""
             },
             "require": {
@@ -5168,7 +5163,7 @@
                 "handle": "blitz-recommendations",
                 "developer": "PutYourLightsOn",
                 "developerUrl": "https://putyourlightson.com/",
-                "documentationUrl": "https://github.com/putyourlightson/craft-blitz-recommendations",
+                "documentationUrl": "https://putyourlightson.com/plugins/blitz-recommendations",
                 "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-blitz-recommendations/v1/CHANGELOG.md",
                 "class": "putyourlightson\\blitzrecommendations\\BlitzRecommendations"
             },
@@ -5177,20 +5172,24 @@
                     "putyourlightson\\blitzrecommendations\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "mit"
             ],
             "description": "Adds a utility that provides templating performance recommendations.",
-            "time": "2020-05-22T07:36:53+00:00"
+            "support": {
+                "docs": "https://putyourlightson.com/plugins/blitz-recommendations",
+                "source": "https://github.com/putyourlightson/craft-blitz-recommendations",
+                "issues": "https://github.com/putyourlightson/craft-blitz-recommendations/issues"
+            },
+            "time": "2020-06-11T14:57:32+00:00"
         },
         {
             "name": "putyourlightson/craft-elements-panel",
-            "version": "1.0.0-beta.1",
+            "version": "1.0.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-elements-panel/zipball/dd712abad10bd573a12d5a3b14871cac188f8885",
-                "reference": "dd712abad10bd573a12d5a3b14871cac188f8885",
+                "url": "https://api.github.com/repos/putyourlightson/craft-elements-panel/zipball/edbf83f5176f64cb62e3d729a6d963d9bf5e1edd",
+                "reference": "edbf83f5176f64cb62e3d729a6d963d9bf5e1edd",
                 "shasum": ""
             },
             "require": {
@@ -5202,7 +5201,7 @@
                 "handle": "elements-panel",
                 "developer": "PutYourLightsOn",
                 "developerUrl": "https://putyourlightson.com/",
-                "documentationUrl": "https://github.com/putyourlightson/craft-elements-panel",
+                "documentationUrl": "https://putyourlightson.com/plugins/elements-panel",
                 "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-elements-panel/v1/CHANGELOG.md",
                 "class": "putyourlightson\\elementspanel\\ElementsPanel"
             },
@@ -5211,12 +5210,16 @@
                     "putyourlightson\\elementspanel\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "mit"
             ],
             "description": "Adds an Elements and an Eager-Loading panel to the debug toolbar.",
-            "time": "2020-05-14T19:06:44+00:00"
+            "support": {
+                "docs": "https://putyourlightson.com/plugins/elements-panel",
+                "source": "https://github.com/putyourlightson/craft-elements-panel",
+                "issues": "https://github.com/putyourlightson/craft-elements-panel/issues"
+            },
+            "time": "2020-06-11T14:37:49+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -8700,9 +8703,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "craftcms/cms": 10,
-        "putyourlightson/craft-blitz-recommendations": 10,
-        "putyourlightson/craft-elements-panel": 10
+        "craftcms/cms": 10
     },
     "prefer-stable": false,
     "prefer-lowest": false,
