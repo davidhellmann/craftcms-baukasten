@@ -62,7 +62,7 @@ return [
     ],
     'dominantColor' => [
         'transforms' => [
-            ['width' => 10],
+            ['width' => 100],
         ],
     ],
 ];

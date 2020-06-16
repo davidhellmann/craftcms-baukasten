@@ -8,90 +8,82 @@
 {% apply spaceless %}
   {# Get Image Extension #}
   {%- macro getImageExtension(image) -%}
-    {% if image ??? null %}
-      {% if image is iterable %}
+    {%- if image ??? null -%}
+      {%- if image is iterable -%}
         {{- image.extension | lower -}}
-      {% else %}
+      {%- else -%}
         {{- image | split('.') | last | lower -}}
-      {% endif %}
-    {% endif %}
+      {%- endif -%}
+    {%- endif -%}
   {%- endmacro -%}
 
   {# Render Image #}
   {%- macro renderImage(image, transform, lazy = true, objectFit = null) -%}
-    {% if image ??? null %}
+    {%- if image ??? null -%}
       {%- set transform = transform | default('landscape') -%}
-
+      {%- set srcset = _self.getSrcset(image, transform) -%}
       <img class="{{ lazy ? 'lazyload' : '' }}"
-        {% if objectFit %}
+        {%- if objectFit -%}
           style="object-fit: {{ objectFit }}; object-position: {{ image.getFocalpoint('asCss') | default('50% 50%') }}"
-        {% endif %}
-           src="{{- _self.getPlaceHolder(craft.imager.transformImage(image, transform)|last.url, transform) -}}"
-        {% if lazy %}
-          data-srcset="{{- _self.getSrcset(image, transform) -}}"
+        {%- endif -%}
+           src="{{- _self.getPlaceHolder(craft.imager.transformImage(image, transform)|first.url, transform) -}}"
+        {%- if lazy -%}
+          data-srcset="{{- srcset -}}"
           data-sizes="auto"
-        {% else %}
-          srcset="{{- _self.getSrcset(image, transform) -}}"
+        {%- else -%}
+          srcset="{{- srcset -}}"
           sizes="100vw"
-        {% endif %}
+        {%- endif -%}
            alt="{{ image.title }}"
            data-rootimage="{{- craft.imager.transformImage(image, transform)|last.url -}}"/>
-    {% endif %}
-  {% endmacro %}
+    {%- endif -%}
+  {%- endmacro -%}
 
   {# Render Source #}
   {%- macro renderSource(image, transform, mediaQuery) -%}
-    {% if image ??? null %}
+    {%- if image ??? null -%}
       {%- set transform = transform | default('landscape') -%}
-
-      {% if craft.imager.clientSupportsWebp() and craft.imager.serverSupportsWebp() %}
+      {%- if craft.imager.clientSupportsWebp() and craft.imager.serverSupportsWebp() -%}
         <source data-sizes="auto"
                 data-srcset="{{- _self.getSrcset(image, transform, 'webp') -}}"
                 media="{{- mediaQuery -}}"
                 type="image/webp">
-      {% endif %}
-
+      {%- endif -%}
       <source sizes="auto"
               media="{{- mediaQuery -}}"
               srcset="{{- _self.getSrcset(image, transform) -}}">
-
-    {% endif %}
-  {% endmacro %}
+    {%- endif -%}
+  {%- endmacro -%}
 
   {# Get srcset #}
   {%- macro getSrcset(image, transform, format) -%}
-    {% if image ??? null %}
+    {%- if image ??? null -%}
       {%- set transform = transform | default('landscape') -%}
       {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] -%}
       {%- set extension = _self.getImageExtension(image) -%}
-      {% if extension not in skipTransformsForThisExtensions %}
+      {%- if extension not in skipTransformsForThisExtensions -%}
         {{- craft.imager.srcset(craft.imager.transformImage(image, transform, { format: format | default(null) })) | trim -}}
-      {% else %}
+      {%- else -%}
         {{- image.url -}}
-      {% endif %}
-    {% endif %}
-  {% endmacro %}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endmacro -%}
 
   {# Get Dominant Color #}
-  {% macro getDominantColor(image, dominantColor = null) %}
+  {%- macro getDominantColor(image, dominantColor = null) -%}
+    {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] -%}
     {%- set extension = _self.getImageExtension(image) -%}
-
-    {# Create Mini Image for Dominant Color #}
-    {%- set image = craft.imager.transformImage(image, 'dominantColor')|first -%}
-
-    {# Domiant Color (Use lase image from Final images #}
-    {% if dominantColor starts with '#' and extension != 'png' %}
-      {{- dominantColor -}}
-    {% else %}
-      {# (Use smallest image from final images) #}
-      {% set dominantColorCalculation = craft.imager.getDominantColor(image) %}
-      {% if dominantColorCalculation %}
+    {%- if extension not in skipTransformsForThisExtensions -%}
+      {# Create Mini Image for Dominant Color #}
+      {%- set image = craft.imager.transformImage(image, 'dominantColor')|first -%}
+      {%- set dominantColorCalculation = craft.imager.getDominantColor(image) -%}
+      {%- if dominantColorCalculation -%}
         {{- dominantColorCalculation -}}
-      {% else %}
+      {%- else -%}
         {{- 'transparent' -}}
-      {% endif %}
-    {% endif %}
-  {% endmacro %}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endmacro -%}
 
   {# Get Placeholder #}
   {%- macro getPlaceHolder(image, transform) -%}
@@ -99,22 +91,20 @@
       {%- set transform = transform | default('landscape') -%}
       {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] -%}
       {%- set extension = _self.getImageExtension(image) -%}
-
-      {% if extension not in skipTransformsForThisExtensions %}
-        {% set transformedImage = craft.imager.transformImage(image, transform)|first %}
-
+      {%- if extension not in skipTransformsForThisExtensions -%}
+        {%- set transformedImage = craft.imager.transformImage(image, transform)|first -%}
         {{- craft.imager.placeholder({
           color: _self.getDominantColor(transformedImage),
           width: transformedImage.width,
           height: transformedImage.height
         }) -}}
-      {% else %}
+      {%- else -%}
         {{- craft.imager.placeholder({
           color: 'transparent',
           width: image.width,
           height: image.height,
         }) -}}
-      {% endif %}
-    {% endif %}
-  {% endmacro %}
-{% endapply %}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endmacro -%}
+{%- endapply -%}
