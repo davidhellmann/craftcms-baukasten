@@ -18,6 +18,7 @@ return [
     ],
     'custom' => [
         'craftEnv' => getenv('ENVIRONMENT') ?: 'local',
+        'localDevPerformance' => (bool)getenv('LOCAL_DEV_PERFORMANCE') ?: null,
     ],
     'allowedFileExtensions' => getenv('ALLOWED_FILE_EXTENSIONS'),
     'allowUpdates' => (bool)getenv('ALLOW_UPDATES'),

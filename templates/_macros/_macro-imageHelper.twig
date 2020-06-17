@@ -100,19 +100,20 @@
 
   {# Get Dominant Color #}
   {%- macro getDominantColor(image, dominantColor = null) -%}
-    {%- if craft.app.config.general.custom.craftEnv == 'local' -%}
+    {%- if craft.app.config.general.custom.localDevPerformance -%}
       {{- 'transparent' -}}
-    {%- endif -%}
-    {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] -%}
-    {%- set extension = _self.getImageExtension(image) -%}
-    {%- if extension not in skipTransformsForThisExtensions -%}
-      {# Create Mini Image for Dominant Color #}
-      {%- set image = craft.imager.transformImage(image, 'dominantColor')|first -%}
-      {%- set dominantColorCalculation = craft.imager.getDominantColor(image) -%}
-      {%- if dominantColorCalculation -%}
-        {{- dominantColorCalculation -}}
-      {%- else -%}
-        {{- 'transparent' -}}
+    {%- else -%}
+      {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] -%}
+      {%- set extension = _self.getImageExtension(image) -%}
+      {%- if extension not in skipTransformsForThisExtensions -%}
+        {# Create Mini Image for Dominant Color #}
+        {%- set image = craft.imager.transformImage(image, 'dominantColor')|first -%}
+        {%- set dominantColorCalculation = craft.imager.getDominantColor(image) -%}
+        {%- if dominantColorCalculation -%}
+          {{- dominantColorCalculation -}}
+        {%- else -%}
+          {{- 'transparent' -}}
+        {%- endif -%}
       {%- endif -%}
     {%- endif -%}
   {%- endmacro -%}

@@ -48,7 +48,7 @@ return [
             ['width' => 400],
         ],
         'defaults' => [
-            'ratio' => 1/1,
+            'ratio' => 1,
         ],
     ],
     'cover' => [
