@@ -17,6 +17,8 @@
     {%- endif -%}
   {%- endmacro -%}
 
+
+  
   {# Render Image #}
   {%- macro renderImage(image, transform, lazy = true, objectFit = null) -%}
     {%- if image ??? null -%}
@@ -61,12 +63,16 @@
     {%- endif -%}
   {%- endmacro -%}
 
+
+
   {# Render NoScript #}
   {%- macro renderNoScript(image) -%}
     {%- if image ??? null -%}
       <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}"></noscript>
     {%- endif -%}
   {%- endmacro -%}
+
+
 
   {# Render Source #}
   {%- macro renderSource(image, transform, mediaQuery) -%}
@@ -84,6 +90,8 @@
     {%- endif -%}
   {%- endmacro -%}
 
+
+
   {# Get srcset #}
   {%- macro getSrcset(image, transform, format) -%}
     {%- if image ??? null -%}
@@ -97,6 +105,8 @@
       {%- endif -%}
     {%- endif -%}
   {%- endmacro -%}
+
+
 
   {# Get Dominant Color #}
   {%- macro getDominantColor(image, dominantColor = null) -%}
@@ -117,6 +127,8 @@
       {%- endif -%}
     {%- endif -%}
   {%- endmacro -%}
+
+
 
   {# Get Placeholder #}
   {%- macro getPlaceHolder(image, transform) -%}
