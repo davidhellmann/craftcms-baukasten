@@ -451,7 +451,7 @@
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="caption">_components/caption</pre>
+  <pre class="mt-4 mb-2" id="accordion">_components/accordion</pre>
   {# accordion #}
   {% include '_components/accordion/accordion.twig' with {
     props: {
@@ -463,6 +463,29 @@
   {% include '_components/accordion/accordion.twig' with {
     props: {
       trigger: 'Accordion Trigger 2',
+      content: '<p>Lorem ipsum dolor sit amet</p>'
+    }
+  } only %}
+
+  {% include '_elements/_layout/spacer/spacer.twig' with {
+    props: {
+      modifiers: ['4']
+    }
+  } only %}
+
+  {# accordion #}
+  {% include '_components/accordion/accordion.twig' with {
+    props: {
+      modifiers: ['narrow'],
+      trigger: 'Accordion Trigger 3',
+      content: '<p>Lorem ipsum dolor sit amet</p>'
+    }
+  } only %}
+  {# accordion #}
+  {% include '_components/accordion/accordion.twig' with {
+    props: {
+      modifiers: ['narrow'],
+      trigger: 'Accordion Trigger 4',
       content: '<p>Lorem ipsum dolor sit amet</p>'
     }
   } only %}

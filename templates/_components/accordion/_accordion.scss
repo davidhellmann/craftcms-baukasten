@@ -3,8 +3,6 @@
 /* -------------------------------------------------- */
 
 .c-accordion {
-  $root: &;
-
   + .c-accordion {
     margin-top: 0.5rem;
   }
@@ -24,11 +22,11 @@
       background-color: var(--c-gray-200);
     }
 
-    &.is-open ~ #{$root}__content {
+    &.is-open ~ .c-accordion__content {
       display: block;
     }
 
-    &.is-open > #{$root}__indicator {
+    &.is-open > .c-accordion__indicator {
       &::after {
         transform: translate(-50%, -50%) rotate(-90deg);
       }
@@ -53,7 +51,7 @@
       top: 50%;
       width: 14px;
       height: 2px;
-      background-color: var(--c-gray-500);
+      background-color: var(--c-gray-400);
       transform: translate(-50%, -50%) rotate(0);
       transition: transform 0.25s var(--ease-out-cubic);
     }
@@ -61,22 +59,38 @@
 
   &__content {
     display: none;
-    background-color: var(--c-gray-100);
+    background-color: var(--c-gray-50);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     padding: 2rem 4rem 1.5rem 2rem;
     position: relative;
     z-index: 5;
     margin-top: -1rem;
+  }
+}
 
-    &::before {
-      content: '';
-      position: absolute;
-      left: 2rem;
-      right: 2rem;
-      top: 0;
-      height: 1px;
-      border-top: 1px dotted var(--c-gray-300);
+.c-accordion--narrow {
+  .c-accordion__trigger {
+    background-color: transparent;
+    border-bottom: 1px dotted var(--c-gray-300);
+    padding: 0.5rem 2rem 0.5rem 0;
+    border-radius: 0;
+
+    &.is-open {
+      background-color: transparent;
     }
+  }
+
+  .c-accordion__indicator {
+    right: 0;
+    background-color: transparent;
+  }
+
+  .c-accordion__content {
+    background-color: transparent;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 0.5rem 2rem 0.5rem 0;
+    margin-top: 0;
   }
 }
