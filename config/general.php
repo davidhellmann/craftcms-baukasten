@@ -19,6 +19,7 @@ return [
     'custom' => [
         'craftEnv' => getenv('ENVIRONMENT') ?: 'local',
         'localDevPerformance' => (bool)getenv('LOCAL_DEV_PERFORMANCE') ?: null,
+        'dominantColor' => '#e8e8e8',
     ],
     'allowedFileExtensions' => getenv('ALLOWED_FILE_EXTENSIONS'),
     'allowUpdates' => (bool)getenv('ALLOW_UPDATES'),

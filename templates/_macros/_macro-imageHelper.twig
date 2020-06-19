@@ -18,17 +18,27 @@
   {%- endmacro -%}
 
 
+  {# Get Image Extension #}
+  {%- macro isTransformable(image) -%}
+    {%- set skipTransformsForThisExtensions = ['gif', 'svg'] -%}
+    {%- set extension = _self.getImageExtension(image) -%}
+    {%- if extension not in skipTransformsForThisExtensions -%}
+      {{- 'true' -}}
+    {%- else -%}
+      {{- 'false' -}}
+    {%- endif -%}
+  {%- endmacro -%}
+
+
 
   {# Render Image #}
   {%- macro renderImage(image, transform, lazy = true, objectFit = null) -%}
     {%- if image ??? null -%}
-      {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] -%}
-      {%- set extension = _self.getImageExtension(image) -%}
       {%- set transform = transform | default('landscape') -%}
       {%- set placeholder = _self.getPlaceHolder(craft.imager.transformImage(image, transform)|first.url, transform) -%}
       {%- set focalpoint = image.getFocalpoint('asCss') -%}
       {%- set imageTitle = image.title -%}
-      {%- if extension not in skipTransformsForThisExtensions -%}
+      {%- if _self.isTransformable(image) == 'true' -%}
         {%- set srcset = _self.getSrcset(image, transform) -%}
         <img class="{{ lazy ? 'lazyload' : '' }}"
           {%- if objectFit -%}
@@ -96,9 +106,7 @@
   {%- macro getSrcset(image, transform, format) -%}
     {%- if image ??? null -%}
       {%- set transform = transform | default('landscape') -%}
-      {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] -%}
-      {%- set extension = _self.getImageExtension(image) -%}
-      {%- if extension not in skipTransformsForThisExtensions -%}
+      {%- if _self.isTransformable(image) == 'true' -%}
         {{- craft.imager.srcset(craft.imager.transformImage(image, transform, { format: format | default(null) })) | trim -}}
       {%- else -%}
         {{- image.url -}}
@@ -109,24 +117,19 @@
 
 
   {# Get Dominant Color #}
-  {# TODO: Custom Color #}
-  {%- macro getDominantColor(image, dominantColor = null) -%}
-    {%- if craft.app.config.general.custom.localDevPerformance -%}
-      {{- 'transparent' -}}
-    {%- else -%}
-      {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] -%}
-      {%- set extension = _self.getImageExtension(image) -%}
-      {%- if extension not in skipTransformsForThisExtensions -%}
+  {%- macro getDominantColor(image, calcDominantColor = false) -%}
+    {%- set dominantColor = 'transparent' -%}
+    {%- if craft.app.config.general.custom.dominantColor -%}
+      {%- set dominantColor = craft.app.config.general.custom.dominantColor -%}
+    {%- endif -%}
+    {% if calcDominantColor and not craft.app.config.general.custom.localDevPerformance and not image.extension | lower == 'png' %}
+      {%- if _self.isTransformable(image) == 'true' -%}
         {# Create Mini Image for Dominant Color #}
         {%- set image = craft.imager.transformImage(image, 'dominantColor')|first -%}
-        {%- set dominantColorCalculation = craft.imager.getDominantColor(image) -%}
-        {%- if dominantColorCalculation -%}
-          {{- dominantColorCalculation -}}
-        {%- else -%}
-          {{- 'transparent' -}}
-        {%- endif -%}
+        {%- set dominantColor = craft.imager.getDominantColor(image) -%}
       {%- endif -%}
-    {%- endif -%}
+    {% endif %}
+    {{- dominantColor -}}
   {%- endmacro -%}
 
 
@@ -135,9 +138,7 @@
   {%- macro getPlaceHolder(image, transform) -%}
     {% if image ??? null %}
       {%- set transform = transform | default('landscape') -%}
-      {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg',] -%}
-      {%- set extension = _self.getImageExtension(image) -%}
-      {%- if extension not in skipTransformsForThisExtensions -%}
+      {%- if _self.isTransformable(image) == 'true' -%}
         {%- set transformedImage = craft.imager.transformImage(image, transform)|first -%}
         {{- craft.imager.placeholder({
           color: _self.getDominantColor(transformedImage),

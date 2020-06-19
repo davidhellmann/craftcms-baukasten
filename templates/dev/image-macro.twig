@@ -24,7 +24,7 @@
   {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
   {% set cat02Image = craft.assets.title('Cat 02').volume('templateImages').one() %}
 
-  <picture style="background-color: {{- imageHelper.getDominantColor(cat01Image) -}}; ">
+  <picture style="background-color: {{- imageHelper.getDominantColor(cat01Image, true) -}}; ">
     {{- imageHelper.renderSource(cat01Image, 'portrait', '(orientation: portrait)') -}}
     {{- imageHelper.renderSource(cat02Image, 'landscape', '(orientation: landscape)') -}}
     {{- imageHelper.renderImage(cat01Image) -}}
