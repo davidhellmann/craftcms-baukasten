@@ -6,9 +6,10 @@
   data: {},
   js: null,
   image: null,
-  transform: 'landscape',
+  transform: null | default('landscape'),
   showDominantColor: true,
   dominantColor: null,
+  calcDominantColor: false,
   objectFit: null,
   lazy: true,
   noscript: true
@@ -28,9 +29,9 @@
 {% endif %}
 
 {% if image ??? null %}
-  <picture {{ module.settings(props) }}  {% if props.showDominantColor %}style="background-color: {{- props.dominantColor ??? imageHelper.getDominantColor(image) ??? 'transparent' -}}; "{% endif %}>
+  <picture {{ module.settings(props) }}  {% if props.showDominantColor %}style="background-color: {{- imageHelper.getDominantColor(image, props.calcDominantColor) -}}; "{% endif %}>
     {{- imageHelper.renderSource(image, props.transform) -}}
-    {{- imageHelper.renderImage(image, props.transform, props.lazy, props.objectFit) -}}
+    {{- imageHelper.renderImage(image, props.transform, props.lazy, props.objectFit, props.calcDominantColor) -}}
     {% if props.noscript %}
       {{- imageHelper.renderNoScript(image) -}}
     {% endif %}

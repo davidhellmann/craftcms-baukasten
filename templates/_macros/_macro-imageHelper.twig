@@ -32,7 +32,7 @@
 
 
   {# Render Image #}
-  {%- macro renderImage(image, transform, lazy = true, objectFit = null) -%}
+  {%- macro renderImage(image, transform, lazy = true, objectFit = null, calcDominantColor = false) -%}
     {%- if image ??? null -%}
       {%- set transform = transform | default('landscape') -%}
       {%- set placeholder = _self.getPlaceHolder(craft.imager.transformImage(image, transform)|first.url, transform) -%}
@@ -135,13 +135,13 @@
 
 
   {# Get Placeholder #}
-  {%- macro getPlaceHolder(image, transform) -%}
+  {%- macro getPlaceHolder(image, transform, calcDominantColor = false) -%}
     {% if image ??? null %}
       {%- set transform = transform | default('landscape') -%}
       {%- if _self.isTransformable(image) == 'true' -%}
         {%- set transformedImage = craft.imager.transformImage(image, transform)|first -%}
         {{- craft.imager.placeholder({
-          color: _self.getDominantColor(transformedImage),
+          color: _self.getDominantColor(transformedImage, calcDominantColor),
           width: transformedImage.width,
           height: transformedImage.height
         }) -}}
