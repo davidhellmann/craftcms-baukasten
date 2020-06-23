@@ -52,3 +52,12 @@ if (document.querySelectorAll('.gridOverlay').length) {
     .then(gridOverlay => gridOverlay.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
+
+// Freeform
+if (document.querySelectorAll('.c-freeform').length) {
+  import(
+    /* webpackChunkName: "freeform" */ '../../templates/_components/freeform/freeform.js'
+    )
+    .then(freeform => freeform.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
+}

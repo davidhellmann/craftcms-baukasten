@@ -8,7 +8,6 @@
   image: null,
   transform: null | default('landscape'),
   showDominantColor: true,
-  dominantColor: null,
   calcDominantColor: false,
   objectFit: null,
   lazy: true,
@@ -25,15 +24,11 @@
 
 {# Image #}
 {% if props.image ??? null %}
-  {% set image = props.image %}
-{% endif %}
-
-{% if image ??? null %}
-  <picture {{ module.settings(props) }}  {% if props.showDominantColor %}style="background-color: {{- imageHelper.getDominantColor(image, props.calcDominantColor) -}}; "{% endif %}>
-    {{- imageHelper.renderSource(image, props.transform) -}}
-    {{- imageHelper.renderImage(image, props.transform, props.lazy, props.objectFit, props.calcDominantColor) -}}
+  <picture {{ module.settings(props) }}  {% if props.showDominantColor %}style="background-color: {{- imageHelper.getDominantColor(props.image, props.calcDominantColor) -}}; "{% endif %}>
+    {{- imageHelper.renderSource(props.image, props.transform) -}}
+    {{- imageHelper.renderImage(props.image, props.transform, props.lazy, props.objectFit, props.calcDominantColor) -}}
     {% if props.noscript %}
-      {{- imageHelper.renderNoScript(image) -}}
+      {{- imageHelper.renderNoScript(props.image) -}}
     {% endif %}
   </picture>
 {% endif %}

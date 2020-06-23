@@ -11,7 +11,7 @@
 {% apply spaceless %}
   {# Prefetch & preconnect headers and links #}
   {% set prefetchUrls = [
-    alias("@assetsUrl"),
+    alias('@assetsUrl'),
   ] %}
   {# General global variables #}
   {% set baseUrl = alias('@assetsUrl') ~ '/' %}

@@ -1,4 +1,4 @@
-dateModified: 1591771805
+dateModified: 1592944946
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -2591,12 +2591,19 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.1.2
+  freeform:
+    edition: lite
+    enabled: true
+    licenseKey: $PLUGIN_FREEFORM
+    schemaVersion: 3.0.6
   imager-x:
     enabled: true
+    licenseKey: $PLUGIN_IMAGERX
     schemaVersion: 3.0.0
   linkit:
     edition: standard
     enabled: true
+    licenseKey: $PLUGIN_LINKIT
     schemaVersion: 1.0.8
   mailgun:
     edition: standard
@@ -2613,10 +2620,12 @@ plugins:
   retour:
     edition: standard
     enabled: true
+    licenseKey: $PLUGIN_RETOUR
     schemaVersion: 3.0.9
   seomatic:
     edition: standard
     enabled: true
+    licenseKey: $PLUGIN_SEOMATIC
     schemaVersion: 3.0.9
   string-base64:
     edition: standard
@@ -2645,6 +2654,7 @@ plugins:
   webperf:
     edition: standard
     enabled: true
+    licenseKey: $PLUGIN_WEBPERF
     schemaVersion: 1.0.1
     settings:
       automaticallyTrimDataSamples: true

@@ -24,7 +24,8 @@
     "ostark/craft-async-queue": "2.1.1",
     "putyourlightson/craft-blitz-recommendations": "1.0.0",
     "putyourlightson/craft-elements-panel": "1.0.0",
-    "spacecatninja/imager-x": "v3.0.10",
+    "solspace/craft-freeform": "^3.6",
+    "spacecatninja/imager-x": "v3.0.11",
     "studioespresso/craft-dumper": "2.0.0",
     "verbb/super-table": "2.5.1",
     "vlucas/phpdotenv": "^3.4.0",
@@ -32,7 +33,7 @@
   },
   "autoload": {
     "psr-4": {
-      "modules\\sitemodule\\": "modules/sitemodule/src/"
+      "modules\\sitemodule\\": "modules/sitemodule/"
     }
   },
   "config": {
@@ -49,8 +50,7 @@
       "@php craft project-config/sync",
       "@php craft clear-caches/compiled-templates",
       "@php craft clear-caches/data",
-      "@php craft clear-caches/temp-files",
-      "@php craft clear-caches/template-caches"
+      "@php craft clear-caches/temp-files"
     ],
     "post-root-package-install": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

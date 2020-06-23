@@ -5,9 +5,6 @@ return [
         // The public-facing name of the plugin
         'pluginName' => 'SEOmatic',
 
-        // The server environment, either live, stage, or local
-        'environment' => 'live',
-
         // Should SEOmatic render metadata?
         'renderEnabled' => true,
 
@@ -22,6 +19,9 @@ return [
 
         // Should SEOmatic add to the http response headers?
         'headersEnabled' => true,
+
+        // The server environment, either `live`, `stage`, or `local`
+        'environment' => getenv('ENVIRONMENT'),
 
         // Should SEOmatic display the SEO Preview sidebar?
         'displayPreviewSidebar' => true,
@@ -86,16 +86,13 @@ return [
 
     // Live (production) environment
     'live'  => [
-        'environment' => 'live',
     ],
 
     // Staging (pre-production) environment
     'stage'  => [
-        'environment' => 'stage',
     ],
 
     // Local (development) environment
     'local'  => [
-        'environment' => 'local',
     ],
 ];

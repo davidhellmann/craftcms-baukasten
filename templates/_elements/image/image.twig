@@ -22,12 +22,8 @@
 
 {# Image #}
 {% if props.image ??? null %}
-  {% set image = props.image %}
-{% endif %}
-
-{% if image ??? null %}
-  {{- imageHelper.renderImage(image, props.transform, props.lazy, props.objectFit, props.calcDominantColor) -}}
+  {{- imageHelper.renderImage(props.image, props.transform, props.lazy, props.objectFit, props.calcDominantColor) -}}
   {% if props.noscript %}
-    {{- imageHelper.renderNoScript(image) -}}
+    {{- imageHelper.renderNoScript(props.image) -}}
   {% endif %}
 {% endif %}

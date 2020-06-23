@@ -78,7 +78,7 @@
   {# Render NoScript #}
   {%- macro renderNoScript(image) -%}
     {%- if image ??? null -%}
-      <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}"></noscript>
+      <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}" /></noscript>
     {%- endif -%}
   {%- endmacro -%}
 
@@ -92,11 +92,11 @@
         <source data-sizes="auto"
                 data-srcset="{{- _self.getSrcset(image, transform, 'webp') -}}"
                 media="{{- mediaQuery -}}"
-                type="image/webp">
+                type="image/webp" />
       {%- endif -%}
       <source sizes="auto"
               media="{{- mediaQuery -}}"
-              srcset="{{- _self.getSrcset(image, transform) -}}">
+              srcset="{{- _self.getSrcset(image, transform) -}}" />
     {%- endif -%}
   {%- endmacro -%}
 
