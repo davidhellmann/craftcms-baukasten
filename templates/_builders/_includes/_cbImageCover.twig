@@ -4,190 +4,190 @@
 #}
 
 {% switch data.type %}
-    {# Accordion Modul #}
-    {# TODO: Accordion Simple Headline Text #}
+  {# Accordion Modul #}
+  {# TODO: Accordion Simple Headline Text #}
 {% case 'accordion' %}
-    {% include '_organisms/accordion/_template.twig' with {
-        props: {
-            modifiers: [
-          builder
-            ],
-            items: data.children ??? null
-        }
-    } only %}
+  {% include '_organisms/accordion/_template.twig' with {
+    props: {
+      modifiers: [
+        builder
+      ],
+      items: data.children ??? null
+    }
+  } only %}
 
-    {# Content Section Modul #}
+  {# Content Section Modul #}
 {% case 'bkSection' %}
-    {% include '_organisms/section/_template.twig' with {
-        props: {
-            modifiers: [
-                builder,
-                data.paddingVertical ??? null,
-                data.width ??? null,
-                data.background ??? null
-            ],
-            closetags: false
-        }
-    } only %}
+  {% include '_organisms/section/_template.twig' with {
+    props: {
+      modifiers: [
+        builder,
+        data.paddingVertical ??? null,
+        data.width ??? null,
+        data.background ??? null
+      ],
+      closetags: false
+    }
+  } only %}
 
-    {# Snippet Modul #}
+  {# Snippet Modul #}
 {% case 'code' %}
-    {% include '_atoms/code/_template.twig' with {
-        props: {
-            modifiers: [
-          builder,
-            ],
-            snippet: data.snippet ??? null,
-            language: data.language ??? null
-        }
-    } only %}
+  {% include '_atoms/code/_template.twig' with {
+    props: {
+      modifiers: [
+        builder,
+      ],
+      snippet: data.snippet ??? null,
+      language: data.language ??? null
+    }
+  } only %}
 
-    {# Definiton List Modul #}
+  {# Definiton List Modul #}
 {% case 'definitionList' %}
-    {% include '_molecules/definitionList/_template.twig' with {
-        props: {
-            modifiers: [
-          builder,
-            ],
-            items: data.definitionList ??? null
-        }
-    } only %}
+  {% include '_molecules/definitionList/_template.twig' with {
+    props: {
+      modifiers: [
+        builder,
+      ],
+      items: data.definitionList ??? null
+    }
+  } only %}
 
-    {# Embed Modul #}
+  {# Embed Modul #}
 {% case 'embed' %}
-    {% include '_atoms/embed/_template.twig' with {
-        props: {
-            modifiers: [
-          builder,
-                data.position ??? null,
-                data.width ??? null
-            ],
-            code: data.code ??? null
-        }
-    } only %}
+  {% include '_atoms/embed/_template.twig' with {
+    props: {
+      modifiers: [
+        builder,
+        data.position ??? null,
+        data.width ??? null
+      ],
+      code: data.code ??? null
+    }
+  } only %}
 
-    {# Headline Modul #}
+  {# Headline Modul #}
 {% case 'headline' %}
-    {% include '_atoms/headline/_template.twig' with {
-        props: {
-            modifiers: [
-          builder,
-            ],
-            text: data.headline ??? null,
-            size: data.size ??? null
-        }
-    } only %}
+  {% include '_atoms/headline/_template.twig' with {
+    props: {
+      modifiers: [
+        builder,
+      ],
+      text: data.headline ??? null,
+      size: data.size ??? null
+    }
+  } only %}
 
-    {# Image Cover Modul #}
+  {# Image Cover Modul #}
 {% case 'imageCover' %}
-    {% include '_organisms/imageCover/_template.twig' with {
-        props: {
-            modifiers: [
-          builder,
-                data.color ??? null,
-                data.position ??? null,
-                data.alignment ??? null
-            ],
-            image: data.image.one() ??? null,
-            ratio: data.ratio ??? null,
-            text: data.text ??? null
-        }
-    } only %}
+  {% include '_organisms/imageCover/_template.twig' with {
+    props: {
+      modifiers: [
+        builder,
+        data.color ??? null,
+        data.position ??? null,
+        data.alignment ??? null
+      ],
+      image: data.image.one() ??? null,
+      ratio: data.ratio ??? null,
+      text: data.text ??? null
+    }
+  } only %}
 
-    {# Image Gallery Modul #}
+  {# Image Gallery Modul #}
 {% case 'imageGallery' %}
-    {% include '_organisms/imageGallery/_template.twig' with {
-        props: {
-            modifiers: [
-          builder
-            ],
-            customClasses: ['test'],
-            images: data.images.all() ??? null,
-            ratio: data.ratio ??? null,
-        }
-    } only %}
+  {% include '_organisms/imageGallery/_template.twig' with {
+    props: {
+      modifiers: [
+        builder
+      ],
+      customClasses: ['test'],
+      images: data.images.all() ??? null,
+      ratio: data.ratio ??? null,
+    }
+  } only %}
 
-    {# Image Grid Modul #}
+  {# Image Grid Modul #}
 {% case 'imageGrid' %}
-    {% include '_organisms/imageGrid/_template.twig' with {
-        props: {
-            modifiers: [
-          builder,
-                data.columns ??? null
-            ],
-            images: data.images.all() ??? null,
-            ratio: data.ratio ??? null,
-            caption: data.caption ??? null,
-        }
-    } only %}
+  {% include '_organisms/imageGrid/_template.twig' with {
+    props: {
+      modifiers: [
+        builder,
+        data.columns ??? null
+      ],
+      images: data.images.all() ??? null,
+      ratio: data.ratio ??? null,
+      caption: data.caption ??? null,
+    }
+  } only %}
 
-    {# Image Single Modul #}
+  {# Image Single Modul #}
 {% case 'imageSingle' %}
-    {% set image = data.image.one() %}
-    {% include '_organisms/imageSingle/_template.twig' with {
-        props: {
-            modifiers: [
-          builder,
-                data.alignment ??? null,
-                data.width ??? null
-            ],
-            image: image ??? null,
-            ratio: data.ratio ??? null,
-            caption: data.caption ??? null,
-            captionHeadline: image.imageTitle ??? null,
-            captionText: image.imageCaption ??? null,
-            captionSource: image.imageSource ??? null,
-            captionSourceUrl: image.imageSourceUrl ??? null
-        }
-    } only %}
+  {% set image = data.image.one() %}
+  {% include '_organisms/imageSingle/_template.twig' with {
+    props: {
+      modifiers: [
+        builder,
+        data.alignment ??? null,
+        data.width ??? null
+      ],
+      image: image ??? null,
+      ratio: data.ratio ??? null,
+      caption: data.caption ??? null,
+      captionHeadline: image.imageTitle ??? null,
+      captionText: image.imageCaption ??? null,
+      captionSource: image.imageSource ??? null,
+      captionSourceUrl: image.imageSourceUrl ??? null
+    }
+  } only %}
 
-    {# Image Slider Modul #}
+  {# Image Slider Modul #}
 {% case 'slider' %}
-    {% include '../_organisms/slider' with {
-        props: {
-            modifiers: [
-          builder,
-            ],
-            images: data.images.all() ??? null,
-            ratio: data.ratio ??? null,
-        }
-    } only %}
+  {% include '../_organisms/slider' with {
+    props: {
+      modifiers: [
+        builder,
+      ],
+      images: data.images.all() ??? null,
+      ratio: data.ratio ??? null,
+    }
+  } only %}
 
-    {# Quote Modul #}
+  {# Quote Modul #}
 {% case 'quote' %}
-    {% include '_molecules/quote/_template.twig' with {
-        props: {
-            modifiers: [
-          builder,
-            ],
-            quote: data.quote ??? null,
-            source: data.source ??? null,
-            sourceUrl: data.sourceUrl ??? null
-        }
-    } only %}
+  {% include '_molecules/quote/_template.twig' with {
+    props: {
+      modifiers: [
+        builder,
+      ],
+      quote: data.quote ??? null,
+      source: data.source ??? null,
+      sourceUrl: data.sourceUrl ??? null
+    }
+  } only %}
 
-    {# Rich Text Modul #}
+  {# Rich Text Modul #}
 {% case 'richText' %}
-    {% include '_atoms/richText/_template.twig' with {
-        props: {
-            modifiers: [
-          builder,
-            ],
-            text: data.richText ??? null
-        }
-    } only %}
+  {% include '_atoms/richText/_template.twig' with {
+    props: {
+      modifiers: [
+        builder,
+      ],
+      text: data.richText ??? null
+    }
+  } only %}
 
-    {# Separator Modul #}
+  {# Separator Modul #}
 {% case 'divider' %}
-    {% include '_atoms/divider/_template.twig' with {
-        props: {
-            modifiers: [
-          builder,
-                data.settingsDivider.style ??? null,
-                data.settingsDivider.marginVertical ??? null
-            ]
-        }
-    } only %}
+  {% include '_atoms/divider/_template.twig' with {
+    props: {
+      modifiers: [
+        builder,
+        data.settingsDivider.style ??? null,
+        data.settingsDivider.marginVertical ??? null
+      ]
+    }
+  } only %}
 
 {% endswitch %}
 

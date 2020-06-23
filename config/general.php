@@ -21,7 +21,7 @@ return [
         'localDevPerformance' => (bool)getenv('LOCAL_DEV_PERFORMANCE') ?: null,
         'dominantColor' => '#e8e8e8',
     ],
-    'allowedFileExtensions' => getenv('ALLOWED_FILE_EXTENSIONS'),
+    'allowedFileExtensions' => ['jpg','png','jpeg','gif','svg','mp4','wov','mp3','wav','pdf','zip','csv','rar'],
     'allowUpdates' => (bool)getenv('ALLOW_UPDATES'),
     'allowAdminChanges' => (bool)getenv('ALLOW_ADMIN_CHANGES'),
     'backupOnUpdate' => (bool)getenv('BACKUP_ON_UPDATE'),

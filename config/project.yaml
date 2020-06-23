@@ -1,4 +1,4 @@
-dateModified: 1592944946
+dateModified: 1592947271
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -323,6 +323,7 @@ matrixBlockTypes:
         name: Image
         searchable: true
         settings:
+          allowSelfRelations: ''
           allowedKinds:
             - image
           defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -622,6 +623,7 @@ matrixBlockTypes:
         name: Images
         searchable: true
         settings:
+          allowSelfRelations: ''
           allowedKinds:
             - image
           defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -993,6 +995,7 @@ matrixBlockTypes:
         name: Images
         searchable: true
         settings:
+          allowSelfRelations: ''
           allowedKinds:
             - image
           defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -1393,6 +1396,32 @@ matrixBlockTypes:
     handle: image
     name: Image
     sortOrder: 4
+  7306ad72-f109-4133-9033-1e46d7fc2f87:
+    field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7
+    fieldLayouts:
+      a927dffc-4caa-4e9f-9440-32eec896d193:
+        tabs:
+          -
+            fields:
+              0b3ac2de-d0c7-49a5-af9c-0704a584918f:
+                required: true
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      0b3ac2de-d0c7-49a5-af9c-0704a584918f:
+        contentColumnType: integer
+        fieldGroup: null
+        handle: freeform
+        instructions: ''
+        name: Freeform
+        searchable: false
+        translationKeyFormat: null
+        translationMethod: none
+        type: Solspace\Freeform\FieldTypes\FormFieldType
+    handle: freeform
+    name: Freeform
+    sortOrder: 14
   88d23e09-5ca6-46f0-97fa-5214ab13c9c5:
     field: d3a65ce7-395f-4a98-bbf8-24dd3bca3dab
     fieldLayouts:
@@ -1866,6 +1895,7 @@ matrixBlockTypes:
         name: Image
         searchable: true
         settings:
+          allowSelfRelations: ''
           allowedKinds:
             - image
           defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -2523,6 +2553,7 @@ matrixBlockTypes:
         name: Images
         searchable: true
         settings:
+          allowSelfRelations: ''
           allowedKinds:
             - image
           defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -2596,6 +2627,57 @@ plugins:
     enabled: true
     licenseKey: $PLUGIN_FREEFORM
     schemaVersion: 3.0.6
+    settings:
+      ajaxByDefault: ''
+      autoScrollToErrors: '1'
+      blockedEmails: ''
+      blockedEmailsError: 'Invalid Email Address'
+      blockedIpAddresses: ''
+      blockedKeywords: ''
+      blockedKeywordsError: 'Invalid Entry Data'
+      customErrorMessage: ''
+      customHoneypotName: ''
+      defaultTemplates: '1'
+      defaultView: dashboard
+      emailTemplateDirectory: null
+      emailTemplateStorage: db
+      fieldDisplayOrder: type
+      fillWithGet: ''
+      footerScripts: false
+      formSubmitDisable: '1'
+      formSubmitExpiration: ''
+      formTemplateDirectory: null
+      formattingTemplate: flexbox.html
+      freeformHoneypot: '1'
+      freeformHoneypotEnhancement: '1'
+      hideBannerDemo: ''
+      hideBannerOldFreeform: false
+      minimumSubmitTime: ''
+      pluginName: null
+      purgableSpamAgeInDays: '0'
+      purgableSubmissionAgeInDays: null
+      recaptchaBehaviour: display_error
+      recaptchaEnabled: '1'
+      recaptchaKey: $RECAPTCHA_SITE_KEY
+      recaptchaMinScore: '0.5'
+      recaptchaSecret: $RECAPTCHA_SECRET_KEY
+      recaptchaType: v2_checkbox
+      removeNewlines: ''
+      renderFormHtmlInCpViews: '1'
+      salesforce_client_id: null
+      salesforce_client_secret: null
+      salesforce_password: null
+      salesforce_username: null
+      scriptInsertLocation: form
+      sessionEntryMaxCount: 50
+      sessionEntryTTL: 10800
+      showErrorsForBlockedEmails: '1'
+      showErrorsForBlockedKeywords: '1'
+      showTutorial: '1'
+      spamFolderEnabled: '1'
+      spamProtectionBehaviour: simulate_success
+      submissionThrottlingCount: '5'
+      submissionThrottlingTimeFrame: m
   imager-x:
     enabled: true
     licenseKey: $PLUGIN_IMAGERX
