@@ -44,6 +44,11 @@
     }
   },
   "scripts": {
+    "create-folders": [
+      "mkdir -p ./storage",
+      "mkdir -p ./web/cpresources",
+      "mkdir -p ./web/assets"
+    ],
     "craft-update": [
       "@php nys-setup update",
       "@php craft migrate/all",
@@ -55,6 +60,8 @@
     "post-root-package-install": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ],
+    "pre-update-cmd": "@create-folders",
+    "pre-install-cmd": "@create-folders",
     "post-update-cmd": "@craft-update",
     "post-install-cmd": "@craft-update"
   }
