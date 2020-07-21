@@ -1,0 +1,259 @@
+field: 171fade2-74bd-4677-b8af-53699003dc44
+fieldLayouts:
+  b9bb2ac2-02e3-48c8-bde1-682fb8d46a45:
+    tabs:
+      -
+        fields:
+          4afe7728-65d2-48c1-80f7-aeafcf978ff6:
+            required: false
+            sortOrder: 1
+          85fef928-9fd5-4b9b-a7c5-73976952425b:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  4afe7728-65d2-48c1-80f7-aeafcf978ff6:
+    contentColumnType: text
+    fieldGroup: null
+    handle: button
+    instructions: ''
+    name: Button
+    searchable: true
+    settings:
+      allowCustomText: '1'
+      allowTarget: '1'
+      defaultText: ''
+      selectLinkText: ''
+      types:
+        __assoc__:
+          -
+            - fruitstudios\linkit\models\Email
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Phone
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Url
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+                -
+                  - allowAlias
+                  - ''
+                -
+                  - allowMailto
+                  - ''
+                -
+                  - allowHash
+                  - '1'
+                -
+                  - allowPaths
+                  - ''
+          -
+            - fruitstudios\linkit\models\Twitter
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Facebook
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Instagram
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\LinkedIn
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - fruitstudios\linkit\models\Entry
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - fruitstudios\linkit\models\Category
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - fruitstudios\linkit\models\Asset
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - fruitstudios\linkit\models\User
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+                -
+                  - userPath
+                  - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: fruitstudios\linkit\fields\LinkitField
+  85fef928-9fd5-4b9b-a7c5-73976952425b:
+    contentColumnType: string
+    fieldGroup: null
+    handle: variant
+    instructions: ''
+    name: Variant
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Primary
+            -
+              - value
+              - primary
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Secondary
+            -
+              - value
+              - secondary
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Ghost
+            -
+              - value
+              - ghost
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Outlined
+            -
+              - value
+              - outlined
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown

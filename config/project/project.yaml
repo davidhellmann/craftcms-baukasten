@@ -1,0 +1,181 @@
+dateModified: 1595364528
+email:
+  fromEmail: $SYSTEM_MAIL
+  fromName: $SITE_NAME
+  replyToEmail: $REPLY_MAIL
+  template: ''
+  transportSettings:
+    command: ''
+  transportType: craft\mail\transportadapters\Sendmail
+plugins:
+  async-queue:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  blitz-recommendations:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  code-mirror:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  cp-clearcache:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  cp-css:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+    settings:
+      additionalCss: ''
+      cssFile: /controlPanelCss.css
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  dumper:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  elements-panel:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  empty-coalesce:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  feed-me:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.1.2
+  formie:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  imager-x:
+    enabled: true
+    licenseKey: $PLUGIN_IMAGERX
+    schemaVersion: 3.0.0
+  linkit:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_LINKIT
+    schemaVersion: 1.0.8
+  mailgun:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  minify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  retour:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_RETOUR
+    schemaVersion: 3.0.9
+  seomatic:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_SEOMATIC
+    schemaVersion: 3.0.9
+  string-base64:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.1
+  templatecomments:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  twig-perversion:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  twig-profiler:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  twigpack:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  webperf:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_WEBPERF
+    schemaVersion: 1.0.1
+    settings:
+      automaticallyTrimDataSamples: true
+      automaticallyTrimErrorSamples: true
+      connectThreshold: 0.5
+      craftDbMsThreshold: !!float 2
+      craftOtherMsThreshold: !!float 2
+      craftTotalMsThreshold: !!float 2
+      craftTwigMsThreshold: !!float 2
+      dashboardAverageColor: '#ffff00'
+      dashboardFastColor: '#00c800'
+      dashboardSlowColor: '#c80000'
+      dataSamplesStoredLimit: 100000
+      displaySidebar: true
+      dnsThreshold: 0.5
+      domInteractiveThreshold: !!float 5
+      errorSamplesStoredLimit: 1000
+      excludePatterns:
+        -
+          __assoc__:
+            -
+              - pattern
+              - '/webperf/.*'
+        -
+          __assoc__:
+            -
+              - pattern
+              - '/cpresources/.*'
+        -
+          __assoc__:
+            -
+              - pattern
+              - '/retour/.*'
+        -
+          __assoc__:
+            -
+              - pattern
+              - '/seomatic/.*'
+      filterBotUserAgents: true
+      firstByteThreshold: !!float 2
+      firstContentfulPaintThreshold: !!float 5
+      firstPaintThreshold: !!float 5
+      includeBeacon: true
+      includeCraftProfiling: true
+      includeCraftWarnings: true
+      pageLoadThreshold: !!float 10
+      pluginName: Webperf
+      rateLimitMs: 500
+      samplesRateLimitMs: '3600000'
+      staticCachedSite: false
+      trimOutlierDataSamples: true
+      webpageTestApiKey: ''
+system:
+  edition: pro
+  live: true
+  name: $SITE_NAME
+  schemaVersion: 3.5.12
+  timeZone: Europe/Berlin
+users:
+  allowPublicRegistration: false
+  defaultGroup: ''
+  photoSubpath: '{username}'
+  photoVolumeUid: 428c6546-4871-45b9-9fe9-00512b88c4d2
+  requireEmailVerification: true
+  suspendByDefault: false

@@ -62,17 +62,11 @@
  |--------------------------------------------------------------------------
  */
 
-.blocks .matrixblock {
+.blocks .matrixblock[data-type="cbSection"] {
+  margin-top: 50px;
+}
+
+.blocks .matrixblock[data-type="cbSection"] ~ .matrixblock:not([data-type="cbSection"]) {
   width: calc(97% - 30px);
   margin-left: 3%;
-}
-
-.blocks .matrixblock:first-child {
-  margin-top: 10px;
-}
-
-.blocks .matrixblock[data-type="bkSection"] {
-  width: calc(100% - 30px);
-  margin-left: 0;
-  margin-top: 40px;
 }

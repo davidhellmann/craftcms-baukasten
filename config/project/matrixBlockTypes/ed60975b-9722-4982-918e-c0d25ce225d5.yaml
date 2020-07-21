@@ -1,0 +1,105 @@
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7
+fieldLayouts:
+  ae699838-815a-4752-b94e-54cd7d4cd20f:
+    tabs:
+      -
+        fields:
+          c05d9115-1f9c-40b9-a27c-89d93925353c:
+            required: false
+            sortOrder: 2
+          c8afcdef-5bca-4242-82cd-5714fc456f4c:
+            required: true
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  c05d9115-1f9c-40b9-a27c-89d93925353c:
+    contentColumnType: string
+    fieldGroup: null
+    handle: ratio
+    instructions: ''
+    name: Ratio
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Landscape
+            -
+              - value
+              - landscape
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Square
+            -
+              - value
+              - square
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Portrait
+            -
+              - value
+              - portrait
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Auto
+            -
+              - value
+              - auto
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  c8afcdef-5bca-4242-82cd-5714fc456f4c:
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: ''
+    name: Images
+    searchable: true
+    settings:
+      allowSelfRelations: ''
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: imageSlider
+name: 'Image Slider'
+sortOrder: 10

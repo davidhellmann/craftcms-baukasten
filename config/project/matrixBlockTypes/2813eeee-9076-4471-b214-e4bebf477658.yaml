@@ -1,0 +1,158 @@
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7
+fieldLayouts:
+  1ba1f2b9-3953-4131-89da-28c4ab8fb9a2:
+    tabs:
+      -
+        fields:
+          13c17c81-9eb9-42c8-a656-3f03051d91ff:
+            required: true
+            sortOrder: 1
+          5dcb3824-f538-4f5c-81c6-2fcd6b6bd38c:
+            required: false
+            sortOrder: 4
+          5f0bc252-87f4-4239-9928-86063fd664a3:
+            required: false
+            sortOrder: 3
+          e112cf13-2c4f-4604-89f8-48dd867dbba6:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  13c17c81-9eb9-42c8-a656-3f03051d91ff:
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: ''
+    name: Images
+    searchable: true
+    settings:
+      allowSelfRelations: ''
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  5dcb3824-f538-4f5c-81c6-2fcd6b6bd38c:
+    contentColumnType: string
+    fieldGroup: null
+    handle: ratio
+    instructions: ''
+    name: Ratio
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Portrait
+            -
+              - value
+              - portrait
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Lanscape
+            -
+              - value
+              - lanscape
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Square
+            -
+              - value
+              - square
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Auto
+            -
+              - value
+              - auto
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  5f0bc252-87f4-4239-9928-86063fd664a3:
+    contentColumnType: string
+    fieldGroup: null
+    handle: columns
+    instructions: ''
+    name: Columns
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - '2'
+            -
+              - value
+              - c-2
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - '3'
+            -
+              - value
+              - c-3
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  e112cf13-2c4f-4604-89f8-48dd867dbba6:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: caption
+    instructions: ''
+    name: Caption
+    searchable: true
+    settings:
+      default: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+handle: imageGrid
+name: 'Image Grid'
+sortOrder: 8

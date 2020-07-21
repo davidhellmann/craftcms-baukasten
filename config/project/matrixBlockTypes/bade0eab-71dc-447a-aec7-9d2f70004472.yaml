@@ -1,0 +1,188 @@
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7
+fieldLayouts:
+  86afdb97-6d79-44b6-a74f-b5b6c52cc8e2:
+    tabs:
+      -
+        fields:
+          171fade2-74bd-4677-b8af-53699003dc44:
+            required: false
+            sortOrder: 6
+          1cda9a64-a02b-4aa7-ae5c-0444b3ec7088:
+            required: true
+            sortOrder: 3
+          4bc7f0be-0101-45d6-b679-03519c8d225f:
+            required: true
+            sortOrder: 2
+          6c6f21ee-f91d-42a0-ba0b-45baf03649c7:
+            required: false
+            sortOrder: 5
+          d2feff78-0e41-4e04-995f-c4157f7ef946:
+            required: true
+            sortOrder: 1
+          fbb1e95c-8edc-45da-9885-235796cc10cc:
+            required: false
+            sortOrder: 4
+        name: Content
+        sortOrder: 1
+fields:
+  171fade2-74bd-4677-b8af-53699003dc44:
+    contentColumnType: string
+    fieldGroup: null
+    handle: buttons
+    instructions: ''
+    name: Buttons
+    searchable: true
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 4afe7728-65d2-48c1-80f7-aeafcf978ff6
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 85fef928-9fd5-4b9b-a7c5-73976952425b
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_14_buttons}}'
+      fieldLayout: table
+      maxRows: '3'
+      minRows: ''
+      propagationMethod: all
+      selectionLabel: 'Add Button'
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  1cda9a64-a02b-4aa7-ae5c-0444b3ec7088:
+    contentColumnType: text
+    fieldGroup: null
+    handle: headline
+    instructions: ''
+    name: Headline
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  4bc7f0be-0101-45d6-b679-03519c8d225f:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Image
+    searchable: true
+    settings:
+      allowSelfRelations: ''
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  6c6f21ee-f91d-42a0-ba0b-45baf03649c7:
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: inverted
+    instructions: ''
+    name: Inverted
+    searchable: true
+    settings:
+      default: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  d2feff78-0e41-4e04-995f-c4157f7ef946:
+    contentColumnType: string
+    fieldGroup: null
+    handle: variant
+    instructions: ''
+    name: Variant
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Cover '
+            -
+              - value
+              - cover
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Cover Half'
+            -
+              - value
+              - coverHalf
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Content
+            -
+              - value
+              - content
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  fbb1e95c-8edc-45da-9885-235796cc10cc:
+    contentColumnType: text
+    fieldGroup: null
+    handle: subline
+    instructions: ''
+    name: Subline
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: hero
+name: Hero
+sortOrder: 1

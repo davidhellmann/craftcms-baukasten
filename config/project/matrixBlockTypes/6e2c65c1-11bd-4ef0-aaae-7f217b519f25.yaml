@@ -1,0 +1,153 @@
+field: d3a65ce7-395f-4a98-bbf8-24dd3bca3dab
+fieldLayouts:
+  31cf2b6d-cc9e-44e9-b1e7-2f766c63768f:
+    tabs:
+      -
+        fields:
+          076109bc-eab5-403a-8345-67d598c23cad:
+            required: true
+            sortOrder: 1
+          94449ef9-35f7-4398-a87b-19a0f3999520:
+            required: false
+            sortOrder: 3
+          b67022d3-1ed6-41e9-aa10-274c19acfc63:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  076109bc-eab5-403a-8345-67d598c23cad:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Image
+    searchable: false
+    settings:
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: '1'
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  94449ef9-35f7-4398-a87b-19a0f3999520:
+    contentColumnType: string
+    fieldGroup: null
+    handle: variant
+    instructions: ''
+    name: Variant
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Wide
+            -
+              - value
+              - wide
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Content
+            -
+              - value
+              - content
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Cover
+            -
+              - value
+              - cover
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  b67022d3-1ed6-41e9-aa10-274c19acfc63:
+    contentColumnType: string
+    fieldGroup: null
+    handle: ratio
+    instructions: ''
+    name: Ratio
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Landscape
+            -
+              - value
+              - landscape
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Portrait
+            -
+              - value
+              - portrait
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Square
+            -
+              - value
+              - square
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Auto
+            -
+              - value
+              - auto
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: image
+name: Image
+sortOrder: 4

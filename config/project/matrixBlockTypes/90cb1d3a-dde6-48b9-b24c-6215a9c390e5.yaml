@@ -1,0 +1,121 @@
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7
+fieldLayouts:
+  a58ef570-6388-456c-8d67-dba89199dbf3:
+    tabs:
+      -
+        fields:
+          993e9d55-8cbd-4d37-95de-6a152b88a8ba:
+            required: false
+            sortOrder: 1
+          d32a76e1-0ec4-4c6e-a1f7-297f379e1957:
+            required: false
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  993e9d55-8cbd-4d37-95de-6a152b88a8ba:
+    contentColumnType: string
+    fieldGroup: null
+    handle: style
+    instructions: ''
+    name: Style
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Default
+            -
+              - value
+              - default
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  d32a76e1-0ec4-4c6e-a1f7-297f379e1957:
+    contentColumnType: string
+    fieldGroup: null
+    handle: marginVertical
+    instructions: ''
+    name: 'Margin Vertical'
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - None
+            -
+              - value
+              - my-0--fluid
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Factor 1'
+            -
+              - value
+              - my-1--fluid
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Factor 2'
+            -
+              - value
+              - my-2--fluid
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Factor 3'
+            -
+              - value
+              - my-3--fluid
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Factor 4'
+            -
+              - value
+              - my-4--fluid
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Factor 5'
+            -
+              - value
+              - my-5--fluid
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: divider
+name: Divider
+sortOrder: 13

@@ -1,0 +1,168 @@
+field: d3a65ce7-395f-4a98-bbf8-24dd3bca3dab
+fieldLayouts:
+  130c31d6-4d95-4629-8648-c7e6d8af6217:
+    tabs:
+      -
+        fields:
+          101a48dc-da89-49d0-aedf-31a81f20c28d:
+            required: true
+            sortOrder: 1
+          17aacf71-13da-4916-8a0e-ffbfee21d215:
+            required: false
+            sortOrder: 4
+          a4cfd0cd-cd11-4f2c-ac41-0d33caf17b3b:
+            required: true
+            sortOrder: 2
+          ca3874b1-fdc9-4ca6-86aa-e0d68307f24c:
+            required: false
+            sortOrder: 3
+        name: Content
+        sortOrder: 1
+fields:
+  101a48dc-da89-49d0-aedf-31a81f20c28d:
+    contentColumnType: text
+    fieldGroup: null
+    handle: copy
+    instructions: ''
+    name: Copy
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Baukasten.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  17aacf71-13da-4916-8a0e-ffbfee21d215:
+    contentColumnType: string
+    fieldGroup: null
+    handle: float
+    instructions: ''
+    name: Float
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Left
+            -
+              - value
+              - left
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Right
+            -
+              - value
+              - right
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  a4cfd0cd-cd11-4f2c-ac41-0d33caf17b3b:
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Image
+    searchable: false
+    settings:
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: '1'
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  ca3874b1-fdc9-4ca6-86aa-e0d68307f24c:
+    contentColumnType: string
+    fieldGroup: null
+    handle: ratio
+    instructions: ''
+    name: Ratio
+    searchable: true
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Portrait
+            -
+              - value
+              - portrait
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Landscape
+            -
+              - value
+              - landscape
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Square
+            -
+              - value
+              - square
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Auto
+            -
+              - value
+              - auto
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: copyFloatingImage
+name: 'Copy : Floating Image'
+sortOrder: 2
