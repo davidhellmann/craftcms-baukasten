@@ -49,6 +49,5 @@ return [
     'omitScriptNameInUrls' => true,
     'useEmailAsUsername' => true,
     'usePathInfo' => true,
-    'useProjectConfigFile' => true,
     'enableGraphQlCaching' => (bool)getenv('ENABLE_GQL_CACHING'),
 ];
