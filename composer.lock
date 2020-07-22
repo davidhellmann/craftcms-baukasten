@@ -4,16 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5bb529ed3010d30150ddb246c6521077",
+    "content-hash": "29daed7fa925644ca8882f4056beb4d5",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
             "version": "3.147.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c58688f53c730b74cec1b6cfee8d9ed5bb40d946"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c58688f53c730b74cec1b6cfee8d9ed5bb40d946",
@@ -666,11 +661,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.5.0-RC1",
+            "version": "3.5.0-RC1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/28f0beb51191eea424feb4b655ff4861f0a521c9",
-                "reference": "28f0beb51191eea424feb4b655ff4861f0a521c9",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/a465272af54b83a88d64d75454d28a1ddb574171",
+                "reference": "a465272af54b83a88d64d75454d28a1ddb574171",
                 "shasum": ""
             },
             "require": {
@@ -750,7 +745,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2020-07-21T15:14:20+00:00"
+            "time": "2020-07-21T21:48:18+00:00"
         },
         {
             "name": "craftcms/feed-me",
@@ -1790,11 +1785,6 @@
         {
             "name": "google/cloud-core",
             "version": "v1.38.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/googleapis/google-cloud-php-core.git",
-                "reference": "5379a3a2ffae2b6ad7eb55a4fa56acdd694a460e"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/googleapis/google-cloud-php-core/zipball/5379a3a2ffae2b6ad7eb55a4fa56acdd694a460e",
@@ -1851,11 +1841,6 @@
         {
             "name": "google/cloud-storage",
             "version": "v1.22.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/googleapis/google-cloud-php-storage.git",
-                "reference": "9412bf831a3fdd895378203b7e42b782deee8795"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/googleapis/google-cloud-php-storage/zipball/9412bf831a3fdd895378203b7e42b782deee8795",
@@ -5628,11 +5613,11 @@
         },
         {
             "name": "spacecatninja/imager-x",
-            "version": "v3.1.1",
+            "version": "v3.1.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spacecatninja/craft-imager-x/zipball/4f1112f203689e626ac0adf821951bc9c333530d",
-                "reference": "4f1112f203689e626ac0adf821951bc9c333530d",
+                "url": "https://api.github.com/repos/spacecatninja/craft-imager-x/zipball/94e35e2a8d64f82570797b45b38a2f6ba46764cb",
+                "reference": "94e35e2a8d64f82570797b45b38a2f6ba46764cb",
                 "shasum": ""
             },
             "require": {
@@ -5663,7 +5648,6 @@
                     "spacecatninja\\imagerx\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -5675,8 +5659,8 @@
             ],
             "description": "Ninja powered image transforms.",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "image",
@@ -5685,7 +5669,11 @@
                 "srcset",
                 "transform"
             ],
-            "time": "2020-07-05T17:52:02+00:00"
+            "support": {
+                "docs": "http://imager-x.spacecat.ninja/",
+                "issues": "https://github.com/spacecatninja/craft-imager-x/issues"
+            },
+            "time": "2020-07-22T18:29:11+00:00"
         },
         {
             "name": "ssnepenthe/color-utils",
@@ -7871,11 +7859,11 @@
         },
         {
             "name": "verbb/formie",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/formie/zipball/f787b733bdf9d3014a7a43a3107be3fe70668a7b",
-                "reference": "f787b733bdf9d3014a7a43a3107be3fe70668a7b",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/be07758d09d5859ad1c72684f98494cc607603f6",
+                "reference": "be07758d09d5859ad1c72684f98494cc607603f6",
                 "shasum": ""
             },
             "require": {
@@ -7899,7 +7887,6 @@
                     "verbb\\formie\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -7911,13 +7898,20 @@
             ],
             "description": "The most user-friendly forms plugin for Craft.",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "formie"
             ],
-            "time": "2020-07-21T08:16:29+00:00"
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/formie/issues?state=open",
+                "source": "https://github.com/verbb/formie",
+                "docs": "https://github.com/verbb/formie",
+                "rss": "https://github.com/verbb/formie/commits/v2.atom"
+            },
+            "time": "2020-07-22T01:47:34+00:00"
         },
         {
             "name": "verbb/super-table",
@@ -9012,7 +9006,182 @@
             "time": "2018-09-23T22:00:47+00:00"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "dnoegel/php-xdg-base-dir",
+            "version": "v0.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dnoegel/php-xdg-base-dir/zipball/8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd",
+                "reference": "8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "XdgBaseDir\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "implementation of xdg base directory specification for php",
+            "time": "2019-12-04T15:06:13+00:00"
+        },
+        {
+            "name": "nikic/php-parser",
+            "version": "v4.6.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/c346bbfafe2ff60680258b631afb730d186ed864",
+                "reference": "c346bbfafe2ff60680258b631afb730d186ed864",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "php": ">=7.0"
+            },
+            "bin": [
+                "bin/php-parse"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpParser\\": "lib/PhpParser"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov"
+                }
+            ],
+            "description": "A PHP parser written in PHP",
+            "keywords": [
+                "parser",
+                "php"
+            ],
+            "time": "2020-07-02T17:12:47+00:00"
+        },
+        {
+            "name": "psy/psysh",
+            "version": "v0.10.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/a8aec1b2981ab66882a01cce36a49b6317dc3560",
+                "reference": "a8aec1b2981ab66882a01cce36a49b6317dc3560",
+                "shasum": ""
+            },
+            "require": {
+                "dnoegel/php-xdg-base-dir": "0.1.*",
+                "ext-json": "*",
+                "ext-tokenizer": "*",
+                "nikic/php-parser": "~4.0|~3.0|~2.0|~1.3",
+                "php": "^8.0 || ^7.0 || ^5.5.9",
+                "symfony/console": "~5.0|~4.0|~3.0|^2.4.2|~2.3.10",
+                "symfony/var-dumper": "~5.0|~4.0|~3.0|~2.7"
+            },
+            "suggest": {
+                "ext-pcntl": "Enabling the PCNTL extension makes PsySH a lot happier :)",
+                "ext-pdo-sqlite": "The doc command requires SQLite to work.",
+                "ext-posix": "If you have PCNTL, you'll want the POSIX extension as well.",
+                "ext-readline": "Enables support for arrow-key history navigation, and showing and manipulating command history.",
+                "hoa/console": "A pure PHP readline implementation. You'll want this if your PHP install doesn't already support readline or libedit."
+            },
+            "bin": [
+                "bin/psysh"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.10.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "Psy\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Hileman",
+                    "email": "justin@justinhileman.info",
+                    "homepage": "http://justinhileman.com"
+                }
+            ],
+            "description": "An interactive shell for modern PHP.",
+            "homepage": "http://psysh.org",
+            "keywords": [
+                "REPL",
+                "console",
+                "interactive",
+                "shell"
+            ],
+            "time": "2020-05-03T19:32:03+00:00"
+        },
+        {
+            "name": "yiisoft/yii2-shell",
+            "version": "2.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-shell/zipball/6832c3dde303d89f7123bdbcb8cb4d5c80fae4df",
+                "reference": "6832c3dde303d89f7123bdbcb8cb4d5c80fae4df",
+                "shasum": ""
+            },
+            "require": {
+                "psy/psysh": "~0.9.3|~0.10.3",
+                "symfony/var-dumper": "~2.7|~3.0|~4.0|~5.0",
+                "yiisoft/yii2": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "yii\\shell\\Bootstrap",
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\shell\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Gomez Pan",
+                    "email": "pana_1990@hotmail.com"
+                },
+                {
+                    "name": "Sascha Vincent Kurowski",
+                    "email": "svkurowski@gmail.com"
+                }
+            ],
+            "description": "The interactive shell extension for Yii framework",
+            "keywords": [
+                "shell",
+                "yii2"
+            ],
+            "time": "2020-05-02T11:43:24+00:00"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
