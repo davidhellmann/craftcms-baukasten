@@ -64,7 +64,6 @@
     "post-root-package-install": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ],
-    "pre-update-cmd": "@create-folders",
     "pre-install-cmd": "@create-folders",
     "post-update-cmd": "@craft-update",
     "post-install-cmd": "@craft-update"
