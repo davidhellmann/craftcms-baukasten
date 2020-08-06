@@ -20,7 +20,7 @@
 
   {# Get Image Extension #}
   {%- macro isTransformable(image) -%}
-    {%- set skipTransformsForThisExtensions = ['gif', 'svg'] -%}
+    {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg'] -%}
     {%- set extension = _self.getImageExtension(image) -%}
     {%- if extension not in skipTransformsForThisExtensions -%}
       {{- 'true' -}}
