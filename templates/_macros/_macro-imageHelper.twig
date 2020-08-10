@@ -18,6 +18,7 @@
   {%- endmacro -%}
 
 
+
   {# Get Image Extension #}
   {%- macro isTransformable(image) -%}
     {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg'] -%}
@@ -85,18 +86,33 @@
 
 
   {# Render Source #}
-  {%- macro renderSource(image, transform, mediaQuery) -%}
+  {%- macro renderSource(image, transform, lazy = true, mediaQuery) -%}
     {%- if image ??? null -%}
       {%- set transform = transform | default('landscape') -%}
-      {%- if craft.imager.clientSupportsWebp() and craft.imager.serverSupportsWebp() -%}
+      {%- if craft.imager.serverSupportsWebp() -%}
+        {%- if lazy -%}
+          <source data-sizes="auto"
+                  data-srcset="{{- _self.getSrcset(image, transform, 'webp') -}}"
+                  media="{{- mediaQuery -}}"
+                  type="image/webp" />
+        {%- else -%}
+          <source sizes="100vw"
+                  srcset="{{- _self.getSrcset(image, transform, 'webp') -}}"
+                  media="{{- mediaQuery -}}"
+                  type="image/webp" />
+        {%- endif -%}        
+      {%- endif -%}
+      
+      {%- if lazy -%}
         <source data-sizes="auto"
-                data-srcset="{{- _self.getSrcset(image, transform, 'webp') -}}"
+                data-srcset="{{- _self.getSrcset(image, transform) -}}"
                 media="{{- mediaQuery -}}"
                 type="image/webp" />
-      {%- endif -%}
-      <source sizes="auto"
-              media="{{- mediaQuery -}}"
-              srcset="{{- _self.getSrcset(image, transform) -}}" />
+      {%- else -%}
+        <source sizes="100vw"
+                media="{{- mediaQuery -}}"
+                srcset="{{- _self.getSrcset(image, transform) -}}" />
+      {%- endif -%}  
     {%- endif -%}
   {%- endmacro -%}
 
