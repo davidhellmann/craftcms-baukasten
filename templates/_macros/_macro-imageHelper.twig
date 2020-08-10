@@ -35,7 +35,7 @@
   {%- macro renderImage(image, transform, lazy = true, objectFit = null, calcDominantColor = false) -%}
     {%- if image ??? null -%}
       {%- set transform = transform | default('landscape') -%}
-      {%- set placeholder = _self.getPlaceHolder(craft.imager.transformImage(image, transform)|first.url, transform) -%}
+      {%- set placeholder = _self.getPlaceHolder(craft.imager.transformImage(image, transform)|first.url, transform, calcDominantColor) -%}
       {%- set focalpoint = image.getFocalpoint('asCss') -%}
       {%- set imageTitle = image.title -%}
       {%- if _self.isTransformable(image) == 'true' -%}
