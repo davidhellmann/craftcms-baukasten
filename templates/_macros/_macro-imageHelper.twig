@@ -24,9 +24,9 @@
     {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg'] -%}
     {%- set extension = _self.getImageExtension(image) -%}
     {%- if extension not in skipTransformsForThisExtensions -%}
-      {{- 'true' -}}
+      {{- true -}}
     {%- else -%}
-      {{- 'false' -}}
+      {{- false -}}
     {%- endif -%}
   {%- endmacro -%}
 
@@ -36,10 +36,11 @@
   {%- macro renderImage(image, transform, lazy = true, objectFit = null, calcDominantColor = false) -%}
     {%- if image ??? null -%}
       {%- set transform = transform | default('landscape') -%}
-      {%- set placeholder = _self.getPlaceHolder(craft.imager.transformImage(image, transform)|first.url, transform, calcDominantColor) -%}
+      {%- set transformedImages = craft.imager.transformImage(image, transform) -%}
+      {%- set placeholder = _self.getPlaceHolder(transformedImages|first.url, transform, calcDominantColor) -%}
       {%- set focalpoint = image.getFocalpoint('asCss') -%}
       {%- set imageTitle = image.title -%}
-      {%- if _self.isTransformable(image) == 'true' -%}
+      {%- if _self.isTransformable(image) -%}
         {%- set srcset = _self.getSrcset(image, transform) -%}
         <img class="{{ lazy ? 'lazyload' : '' }}"
           {%- if objectFit -%}
@@ -54,7 +55,7 @@
             sizes="100vw"
           {%- endif -%}
              alt="{{ imageTitle }}"
-             data-rootimage="{{- craft.imager.transformImage(image, transform)|last.url -}}"/>
+             data-rootimage="{{- transformedImages|last.url -}}"/>
       {%- else -%}
         {%- set imageUrl = image.getUrl() -%}
         <img class="{{ lazy ? 'lazyload' : '' }}"
@@ -90,28 +91,38 @@
     {%- if image ??? null -%}
       {%- set transform = transform | default('landscape') -%}
       {%- if craft.imager.serverSupportsWebp() -%}
+      {%- set srcSetWebP = _self.getSrcset(image, transform, 'webp') -%}
+      {%- set srcSet = _self.getSrcset(image, transform) -%}
         {%- if lazy -%}
           <source data-sizes="auto"
-                  data-srcset="{{- _self.getSrcset(image, transform, 'webp') -}}"
-                  media="{{- mediaQuery -}}"
+                  data-srcset="{{- srcSetWebP -}}"
+                  {%- if mediaQuery -%}
+                    media="{{- mediaQuery -}}"
+                  {%- endif -%}
                   type="image/webp" />
         {%- else -%}
           <source sizes="100vw"
-                  srcset="{{- _self.getSrcset(image, transform, 'webp') -}}"
-                  media="{{- mediaQuery -}}"
+                  srcset="{{- srcSetWebP -}}"
+                  {%- if mediaQuery -%}
+                    media="{{- mediaQuery -}}"
+                  {%- endif -%}
                   type="image/webp" />
         {%- endif -%}        
       {%- endif -%}
       
       {%- if lazy -%}
         <source data-sizes="auto"
-                data-srcset="{{- _self.getSrcset(image, transform) -}}"
-                media="{{- mediaQuery -}}"
+                data-srcset="{{- srcSet -}}"
+                  {%- if mediaQuery -%}
+                    media="{{- mediaQuery -}}"
+                  {%- endif -%}
                 type="image/webp" />
       {%- else -%}
         <source sizes="100vw"
-                media="{{- mediaQuery -}}"
-                srcset="{{- _self.getSrcset(image, transform) -}}" />
+                  {%- if mediaQuery -%}
+                    media="{{- mediaQuery -}}"
+                  {%- endif -%}
+                srcset="{{- srcSet -}}" />
       {%- endif -%}  
     {%- endif -%}
   {%- endmacro -%}
@@ -122,7 +133,7 @@
   {%- macro getSrcset(image, transform, format) -%}
     {%- if image ??? null -%}
       {%- set transform = transform | default('landscape') -%}
-      {%- if _self.isTransformable(image) == 'true' -%}
+      {%- if _self.isTransformable(image) -%}
         {{- craft.imager.srcset(craft.imager.transformImage(image, transform, { format: format | default(null) })) | trim -}}
       {%- else -%}
         {{- image.url -}}
@@ -139,7 +150,7 @@
       {%- set dominantColor = craft.app.config.general.custom.dominantColor -%}
     {%- endif -%}
     {% if calcDominantColor and not craft.app.config.general.custom.localDevPerformance and not image.extension | lower == 'png' %}
-      {%- if _self.isTransformable(image) == 'true' -%}
+      {%- if _self.isTransformable(image) -%}
         {# Create Mini Image for Dominant Color #}
         {%- set image = craft.imager.transformImage(image, 'dominantColor')|first -%}
         {%- set dominantColor = craft.imager.getDominantColor(image) -%}
@@ -154,7 +165,7 @@
   {%- macro getPlaceHolder(image, transform, calcDominantColor = false) -%}
     {% if image ??? null %}
       {%- set transform = transform | default('landscape') -%}
-      {%- if _self.isTransformable(image) == 'true' -%}
+      {%- if _self.isTransformable(image) -%}
         {%- set transformedImage = craft.imager.transformImage(image, transform)|first -%}
         {{- craft.imager.placeholder({
           color: _self.getDominantColor(transformedImage, calcDominantColor),
