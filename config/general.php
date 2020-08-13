@@ -19,6 +19,7 @@ return [
     'custom' => [
         'craftEnv' => getenv('ENVIRONMENT') ?: 'local',
         'localDevPerformance' => (bool)getenv('LOCAL_DEV_PERFORMANCE') ?: null,
+        'ieSupport' => (bool)getenv('IE_SUPPORT') ?: null,
         'dominantColor' => '#e8e8e8',
     ],
     'allowedFileExtensions' => ['jpg','png','jpeg','gif','svg','mp4','wov','mp3','wav','pdf','zip','csv','rar'],

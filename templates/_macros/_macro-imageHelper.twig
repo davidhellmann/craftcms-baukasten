@@ -35,9 +35,7 @@
   {# Render Image #}
   {%- macro renderImage(image, transform, lazy = true, objectFit = null, calcDominantColor = false) -%}
     {%- if image ??? null -%}
-      {%- set transform = transform | default('landscape') -%}
-      {%- set transformedImages = craft.imager.transformImage(image, transform) -%}
-      {%- set placeholder = _self.getPlaceHolder(transformedImages|first.url, transform, calcDominantColor) -%}
+      {%- set placeholder = _self.getPlaceHolder(image, transform, calcDominantColor) -%}
       {%- set focalpoint = image.getFocalpoint('asCss') -%}
       {%- set imageTitle = image.title -%}
       {%- if _self.isTransformable(image) -%}
@@ -54,8 +52,10 @@
             srcset="{{- srcset -}}"
             sizes="100vw"
           {%- endif -%}
-             alt="{{ imageTitle }}"
-             data-rootimage="{{- transformedImages|last.url -}}"/>
+          {%- if craft.app.config.general.custom.ieSupport -%}
+            data-rootimage="{{- craft.imager.transformImage(image, transform)|last.url -}}"
+          {%- endif -%}
+             alt="{{ imageTitle }}"/>
       {%- else -%}
         {%- set imageUrl = image.getUrl() -%}
         <img class="{{ lazy ? 'lazyload' : '' }}"
@@ -85,59 +85,54 @@
   {%- endmacro -%}
 
 
-
-  {# Render Source #}
-  {%- macro renderSource(image, transform, lazy = true, mediaQuery) -%}
-    {%- if image ??? null -%}
-      {%- set transform = transform | default('landscape') -%}
-      {%- set srcSet = _self.getSrcset(image, transform) -%}
-      {%- if craft.imager.serverSupportsWebp() -%}
-        {%- set srcSetWebP = _self.getSrcset(image, transform, 'webp') -%}
-        {%- if lazy -%}
-          <source data-sizes="auto"
-                  data-srcset="{{- srcSetWebP -}}"
-            {%- if mediaQuery -%}
-              media="{{- mediaQuery -}}"
-            {%- endif -%}
-                  type="image/webp"/>
-        {%- else -%}
-          <source sizes="100vw"
-                  srcset="{{- srcSetWebP -}}"
-            {%- if mediaQuery -%}
-              media="{{- mediaQuery -}}"
-            {%- endif -%}
-                  type="image/webp"/>
-        {%- endif -%}
-      {%- endif -%}
-
+  {# Render SourceElement #}
+  {%- macro renderSourceElement(srcSet, lazy, mediaQuery, type) -%}
+    {%- if srcSet -%}
       {%- if lazy -%}
         <source data-sizes="auto"
                 data-srcset="{{- srcSet -}}"
           {%- if mediaQuery -%}
             media="{{- mediaQuery -}}"
           {%- endif -%}
-                type="image/webp"/>
+          {%- if type -%}
+          type="{{- type -}}"
+          {%- endif -%}/>
       {%- else -%}
         <source sizes="100vw"
           {%- if mediaQuery -%}
             media="{{- mediaQuery -}}"
           {%- endif -%}
-                srcset="{{- srcSet -}}"/>
+          {%- if type -%}
+          type="{{- type -}}"
+          {%- endif -%}/>
+        srcset="{{- srcSet -}}"/>
       {%- endif -%}
     {%- endif -%}
   {%- endmacro -%}
 
 
 
-  {# Get srcset #}
+  {# Render Source #}
+  {%- macro renderSource(image, transform, lazy = true, mediaQuery) -%}
+    {# Handle WebP Image #}
+    {%- if craft.imager.serverSupportsWebp() and image -%}
+      {{- _self.renderSourceElement(_self.getSrcset(image, transform, 'webp'), lazy, mediaQuery, 'image/webp') -}}
+    {%- endif -%}
+
+    {# Handle normal Image #}
+    {%- if image -%}
+      {{- _self.renderSourceElement(_self.getSrcset(image, transform), lazy, mediaQuery) -}}
+    {%- endif -%}
+  {%- endmacro -%}
+
+
+
+  {# Get srcSet #}
   {%- macro getSrcset(image, transform, format) -%}
-    {%- if image ??? null -%}
-      {%- set transform = transform | default('landscape') -%}
-      {%- if _self.isTransformable(image) -%}
-        {{- craft.imager.srcset(craft.imager.transformImage(image, transform, { format: format | default(null) })) | trim -}}
-      {%- else -%}
-        {{- image.url -}}
-      {%- endif -%}
+    {%- if image and _self.isTransformable(image) -%}
+      {{- craft.imager.srcset(craft.imager.transformImage(image, transform, { format: format | default(null) })) | trim -}}
+    {%- else -%}
+      {{- image.url -}}
     {%- endif -%}
   {%- endmacro -%}
 
@@ -161,8 +156,7 @@
 
   {# Get Placeholder #}
   {%- macro getPlaceHolder(image, transform, calcDominantColor = false) -%}
-    {% if image ??? null %}
-      {%- set transform = transform | default('landscape') -%}
+    {%- if image -%}
       {%- if _self.isTransformable(image) -%}
         {%- set transformedImage = craft.imager.transformImage(image, transform)|first -%}
         {{- craft.imager.placeholder({
