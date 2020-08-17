@@ -26,7 +26,7 @@
 {% if props.image ??? null %}
   <picture {{ module.settings(props) }}  {% if props.showDominantColor %}style="background-color: {{- imageHelper.getDominantColor(props.image, props.calcDominantColor) -}}; "{% endif %}>
     {{- imageHelper.renderSource(props.image, props.transform, props.lazy) -}}
-    {{- imageHelper.renderImage(props.image, props.transform, props.lazy, props.objectFit, props.calcDominantColor) -}}
+    {{- imageHelper.renderImage(props.image, props.transform, props.lazy, props.objectFit, props.calcDominantColor, true) -}}
     {% if props.noscript %}
       {{- imageHelper.renderNoScript(props.image) -}}
     {% endif %}

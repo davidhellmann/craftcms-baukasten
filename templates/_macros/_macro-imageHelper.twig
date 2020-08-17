@@ -1,8 +1,8 @@
 {#
-  Image Helper
-  ------------------------------------------------------------
+Image Helper
+------------------------------------------------------------
 
-  {% import '_macros/_macro-imageHelper.twig' as image  %}
+{% import '_macros/_macro-imageHelper.twig' as image  %}
 #}
 
 {% apply spaceless %}
@@ -33,45 +33,33 @@
 
 
   {# Render Image #}
-  {%- macro renderImage(image, transform, lazy = true, objectFit = null, calcDominantColor = false) -%}
+  {%- macro renderImage(image, transform, lazy = true, objectFit = null, calcDominantColor = false, simpleMarkup = false) -%}
     {%- if image ??? null -%}
       {%- set placeholder = _self.getPlaceHolder(image, transform, calcDominantColor) -%}
       {%- set focalpoint = image.getFocalpoint('asCss') -%}
       {%- set imageTitle = image.title -%}
-      {%- if _self.isTransformable(image) -%}
+      {% set isTransformable = _self.isTransformable(image) and not simpleMarkup %}
+      {%- set imageUrl = image.getUrl() -%}
+      {%- if isTransformable -%}
         {%- set srcset = _self.getSrcset(image, transform) -%}
-        <img class="{{ lazy ? 'lazyload' : '' }}"
-          {%- if objectFit -%}
-            style="object-fit: {{ objectFit }}; object-position: {{ focalpoint | default('50% 50%') }}"
-          {%- endif -%}
-             src="{{- placeholder -}}"
-          {%- if lazy -%}
-            data-srcset="{{- srcset -}}"
-            data-sizes="auto"
-          {%- else -%}
-            srcset="{{- srcset -}}"
-            sizes="100vw"
-          {%- endif -%}
-          {%- if craft.app.config.general.custom.ieSupport -%}
-            data-rootimage="{{- craft.imager.transformImage(image, transform)|last.url -}}"
-          {%- endif -%}
-             alt="{{ imageTitle }}"/>
-      {%- else -%}
-        {%- set imageUrl = image.getUrl() -%}
-        <img class="{{ lazy ? 'lazyload' : '' }}"
-          {%- if objectFit -%}
-            style="object-fit: {{ objectFit }}; object-position: {{ focalpoint | default('50% 50%') }}"
-          {%- endif -%}
-          {%- if lazy -%}
-            src="{{- placeholder -}}"
-            data-src="{{- imageUrl -}}"
-            data-sizes="auto"
-          {%- else -%}
-            src="{{- imageUrl -}}"
-            sizes="100vw"
-          {%- endif -%}
-             alt="{{- imageTitle -}}"/>
       {%- endif -%}
+
+      <img class="{{ lazy ? 'lazyload' : '' }}"
+        {%- if objectFit -%}
+          style="object-fit: {{ objectFit }}; object-position: {{ focalpoint | default('50% 50%') }}"
+        {%- endif -%}
+        {%- if lazy -%}
+          src="{{- placeholder -}}"
+          {%- if isTransformable -%}data-srcset="{{- srcset -}}"{%- else -%}data-src="{{- imageUrl -}}"{%- endif -%}
+          data-sizes="auto"
+        {%- else -%}
+          {%- if isTransformable -%}srcset="{{- srcset -}}"{%- else -%}src="{{- imageUrl -}}"{%- endif -%}
+          sizes="100vw"
+        {%- endif -%}
+        {%- if craft.app.config.general.custom.ieSupport and isTransformable -%}
+          data-rootimage="{{- craft.imager.transformImage(image, transform)|last.url -}}"
+        {%- endif -%}
+           alt="{{ imageTitle }}"/>
     {%- endif -%}
   {%- endmacro -%}
 
