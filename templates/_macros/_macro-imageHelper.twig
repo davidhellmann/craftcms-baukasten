@@ -76,25 +76,10 @@ Image Helper
   {# Render SourceElement #}
   {%- macro renderSourceElement(srcSet, lazy, mediaQuery, type) -%}
     {%- if srcSet -%}
-      {%- if lazy -%}
-        <source data-sizes="auto"
-                data-srcset="{{- srcSet -}}"
-          {%- if mediaQuery -%}
-            media="{{- mediaQuery -}}"
-          {%- endif -%}
-          {%- if type -%}
-          type="{{- type -}}"
-          {%- endif -%}/>
-      {%- else -%}
-        <source sizes="100vw"
-          {%- if mediaQuery -%}
-            media="{{- mediaQuery -}}"
-          {%- endif -%}
-          {%- if type -%}
-          type="{{- type -}}"
-          {%- endif -%}
-        srcset="{{- srcSet -}}"/>
-      {%- endif -%}
+        <source {% if lazy %} data-sizes="auto" data-srcset="{{- srcSet -}}"
+                {% else %}sizes="100vw" srcset="{{- srcSet -}}"{% endif %}
+          {% if mediaQuery %}media="{{- mediaQuery -}}"{% endif %}
+          {% if type %}type="{{- type -}}"{% endif %}/>
     {%- endif -%}
   {%- endmacro -%}
 
