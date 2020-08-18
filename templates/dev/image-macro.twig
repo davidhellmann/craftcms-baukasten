@@ -27,7 +27,7 @@
   <picture style="background-color: {{- imageHelper.getDominantColor(cat01Image, true) -}}; ">
     {{- imageHelper.renderSource(cat01Image, 'portrait', true, '(orientation: portrait)') -}}
     {{- imageHelper.renderSource(cat02Image, 'landscape', true,  '(orientation: landscape)') -}}
-    {{- imageHelper.renderImage(cat01Image, 'portrait', true, null, null, true) -}}
+    {{- imageHelper.renderImage(cat01Image, null, null, null, null, true) -}}
     {{- imageHelper.renderNoScript(cat01Image) -}}
   </picture>
 {% endblock %}

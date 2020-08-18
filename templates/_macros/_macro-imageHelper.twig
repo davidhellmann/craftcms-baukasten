@@ -33,9 +33,13 @@ Image Helper
 
 
   {# Render Image #}
-  {%- macro renderImage(image, transform, lazy = true, objectFit = null, calcDominantColor = false, simpleMarkup = false) -%}
+  {%- macro renderImage(image, transform, lazy, objectFit = null, calcDominantColor, simpleMarkup) -%}
+    {% set lazy = lazy | default(true) %}
+    {% set calcDominantColor = calcDominantColor | default(false) %}
+    {% set simpleMarkup = simpleMarkup | default(false) %}
+
     {%- if image ??? null -%}
-      {%- set placeholder = _self.getPlaceHolder(image, transform, calcDominantColor) -%}
+      {%- set placeholder = _self.getPlaceHolder(image, transform | default('landscape'), calcDominantColor) -%}
       {%- set focalpoint = image.getFocalpoint('asCss') -%}
       {%- set imageTitle = image.title -%}
       {% set isTransformable = _self.isTransformable(image) and not simpleMarkup %}
@@ -86,7 +90,10 @@ Image Helper
 
 
   {# Render Source #}
-  {%- macro renderSource(image, transform, lazy = true, mediaQuery) -%}
+  {%- macro renderSource(image, transform, lazy, mediaQuery = null) -%}
+    {% set lazy = lazy | default(true) %}
+    {% set transform = transform | default('landscape') %}
+
     {# Handle WebP Image #}
     {%- if craft.imager.serverSupportsWebp() and image -%}
       {{- _self.renderSourceElement(_self.getSrcset(image, transform, 'webp'), lazy, mediaQuery, 'image/webp') -}}
@@ -103,7 +110,7 @@ Image Helper
   {# Get srcSet #}
   {%- macro getSrcset(image, transform, format) -%}
     {%- if image and _self.isTransformable(image) -%}
-      {{- craft.imager.srcset(craft.imager.transformImage(image, transform, { format: format | default(null) })) | trim -}}
+      {{- craft.imager.srcset(craft.imager.transformImage(image, transform | default('landscape'), { format: format | default(null) })) | trim -}}
     {%- else -%}
       {{- image.url -}}
     {%- endif -%}
@@ -112,7 +119,8 @@ Image Helper
 
 
   {# Get Dominant Color #}
-  {%- macro getDominantColor(image, calcDominantColor = false) -%}
+  {%- macro getDominantColor(image, calcDominantColor) -%}
+    {% set calcDominantColor = calcDominantColor | default(false) %}
     {%- set dominantColor = 'transparent' -%}
     {%- if craft.app.config.general.custom.dominantColor -%}
       {%- set dominantColor = craft.app.config.general.custom.dominantColor -%}
@@ -128,10 +136,11 @@ Image Helper
 
 
   {# Get Placeholder #}
-  {%- macro getPlaceHolder(image, transform, calcDominantColor = false) -%}
+  {%- macro getPlaceHolder(image, transform, calcDominantColor) -%}
+    {% set calcDominantColor = calcDominantColor | default(false) %}
     {%- if image -%}
       {%- if _self.isTransformable(image) -%}
-        {%- set transformedImage = craft.imager.transformImage(image, transform)|first -%}
+        {%- set transformedImage = craft.imager.transformImage(image, transform | default('landscape'))|first -%}
         {{- craft.imager.placeholder({
           color: _self.getDominantColor(transformedImage, calcDominantColor),
           width: transformedImage.width,
