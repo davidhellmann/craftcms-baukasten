@@ -4,9 +4,17 @@
  |--------------------------------------------------------------------------
  */
 
+:root {
+  --containerWidth: 100%;
+
+  @include media('>=l') {
+    --containerWidth: 90%;
+  }
+}
+
 .l-container {
   @include center();
-  width: 100%;
+  width: var(--containerWidth);
   max-width: map_get($breakpoints, 'max');
   padding-left: 2rem;
   padding-right: 2rem;
@@ -18,6 +26,7 @@
 }
 
 .l-container--fluid {
+  width: 100%;
   max-width: none;
 }
 
@@ -26,19 +35,51 @@
 }
 
 .l-container--l {
-  max-width: map_get($breakpoints, 'l');
+  max-width: 100%;
+
+  @include media('>=m') {
+    max-width: calc(((var(--containerWidth) - 2rem) / 12 * 10) + 2rem);
+  }
+
+  @include media('>=l') {
+    max-width: calc(((var(--containerWidth) - 2rem) / 24 * 20) + 2rem);
+  }
+
+  @include media('>=max') {
+    max-width: calc(((#{map_get($breakpoints, 'max')} - 2rem) / 24 * 20) + 2rem);
+  }
 }
 
 .l-container--m {
-  max-width: map_get($breakpoints, 'm');
+  max-width: 100%;
+
+  @include media('>=m') {
+    max-width: calc(((var(--containerWidth) - 2rem) / 12 * 8) + 2rem);
+  }
+
+  @include media('>=l') {
+    max-width: calc(((var(--containerWidth) - 2rem) / 24 * 16) + 2rem);
+  }
+
+  @include media('>=max') {
+    max-width: calc(((#{map_get($breakpoints, 'max')} - 2rem) / 24 * 16) + 2rem);
+  }
 }
 
 .l-container--s {
-  max-width: map_get($breakpoints, 's');
-}
+  max-width: 100%;
 
-.l-container--min {
-  max-width: map_get($breakpoints, 'min');
+  @include media('>=m') {
+    max-width: calc(((var(--containerWidth) - 2rem) / 12 * 6) + 2rem);
+  }
+
+  @include media('>=l') {
+    max-width: calc(((var(--containerWidth) - 2rem) / 24 * 12) + 2rem);
+  }
+
+  @include media('>=max') {
+    max-width: calc(((#{map_get($breakpoints, 'max')} - 2rem) / 24 * 12) + 2rem);
+  }
 }
 
 .l-container--visible {
