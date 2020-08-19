@@ -12,6 +12,8 @@
   }
 }
 
+$containerWidthFactor: 0.9;
+
 .l-container {
   @include center();
   width: var(--containerWidth);
@@ -22,6 +24,8 @@
   .l-container {
     padding-left: 0;
     padding-right: 0;
+    width: 100%;
+    max-width: none;
   }
 }
 
@@ -45,7 +49,7 @@
     max-width: calc(((var(--containerWidth) - 2rem) / 24 * 20) + 2rem);
   }
 
-  @include media('>=max') {
+  @include media('>=#{map_get($breakpoints, 'max') * (2 - $containerWidthFactor)}') {
     max-width: calc(((#{map_get($breakpoints, 'max')} - 2rem) / 24 * 20) + 2rem);
   }
 }
@@ -61,7 +65,7 @@
     max-width: calc(((var(--containerWidth) - 2rem) / 24 * 16) + 2rem);
   }
 
-  @include media('>=max') {
+  @include media('>=#{map_get($breakpoints, 'max') * (2 - $containerWidthFactor)}') {
     max-width: calc(((#{map_get($breakpoints, 'max')} - 2rem) / 24 * 16) + 2rem);
   }
 }
@@ -77,7 +81,7 @@
     max-width: calc(((var(--containerWidth) - 2rem) / 24 * 12) + 2rem);
   }
 
-  @include media('>=max') {
+  @include media('>=#{map_get($breakpoints, 'max') * (2 - $containerWidthFactor)}') {
     max-width: calc(((#{map_get($breakpoints, 'max')} - 2rem) / 24 * 12) + 2rem);
   }
 }
