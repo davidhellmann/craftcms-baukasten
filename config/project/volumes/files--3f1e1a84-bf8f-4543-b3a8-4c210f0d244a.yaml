@@ -2,20 +2,57 @@ fieldLayouts:
   b7ec31a2-48bd-439f-a3f7-12beb57e1a2a:
     tabs:
       -
-        fields:
-          0807cf36-9d29-4810-9a89-3ca325a0ec6d:
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            autofocus: false
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
             required: false
-            sortOrder: 2
-          8022c412-08db-4075-8549-b0aeb7093b15:
-            required: false
-            sortOrder: 1
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8022c412-08db-4075-8549-b0aeb7093b15
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0807cf36-9d29-4810-9a89-3ca325a0ec6d
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 handle: files
-hasUrls: false
+hasUrls: true
 name: Files
 settings:
-  path: '@assetsUrl/files/'
+  path: '@webroot/assets/files/'
 sortOrder: 1
 type: craft\volumes\Local
-url: '@webroot/assets/files/'
+url: '@assetsUrl/files/'
