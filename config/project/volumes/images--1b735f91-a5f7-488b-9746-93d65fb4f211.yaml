@@ -2,26 +2,75 @@ fieldLayouts:
   033dfae7-ba48-4593-be29-b9ee4814ab4e:
     tabs:
       -
-        fields:
-          0807cf36-9d29-4810-9a89-3ca325a0ec6d:
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            autofocus: false
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
             required: false
-            sortOrder: 2
-          8022c412-08db-4075-8549-b0aeb7093b15:
-            required: false
-            sortOrder: 1
-          d3f43b9c-3c3e-4aa1-afeb-d2ba5afbe114:
-            required: false
-            sortOrder: 4
-          e9f13c1d-0525-4ecc-bf67-f927e561a2c8:
-            required: false
-            sortOrder: 3
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8022c412-08db-4075-8549-b0aeb7093b15
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0807cf36-9d29-4810-9a89-3ca325a0ec6d
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e9f13c1d-0525-4ecc-bf67-f927e561a2c8
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d3f43b9c-3c3e-4aa1-afeb-d2ba5afbe114
+            instructions: null
+            label: null
+            required: '0'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 handle: images
 hasUrls: true
 name: Images
 settings:
-  path: '@assetsUrl/images/'
+  path: '@webroot/assets/images/'
 sortOrder: 2
 type: craft\volumes\Local
-url: '@webroot/assets/images/'
+url: '@assetsUrl/images/'
