@@ -24,13 +24,6 @@ if (document.querySelectorAll('input[name="CRAFT_CSRF_TOKEN"]').length) {
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }
 
-// Pagination
-if (document.querySelectorAll('.c-pagination, .c-paginationSimple').length) {
-  import(/* webpackChunkName: "pagination" */ './scripts/pagination.js')
-    .then(pagination => pagination.default.init())
-    .catch(e => console.error(`${e.name} : ${e.message}`));
-}
-
 // scrollObserver
 if (document.querySelectorAll('[waypoint]').length) {
   import(/* webpackChunkName: "scrollObserver" */ './scripts/scrollObserver.js')

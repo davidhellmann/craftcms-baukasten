@@ -57,7 +57,21 @@ if (document.querySelectorAll('.gridOverlay').length) {
 if (document.querySelectorAll('.c-freeform').length) {
   import(
     /* webpackChunkName: "freeform" */ '../../templates/_components/freeform/freeform.js'
-    )
+  )
     .then(freeform => freeform.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
+}
+
+// Pagination
+if (document.querySelectorAll('.c-pagination, .c-paginationSimple').length) {
+  import(/* webpackChunkName: "pagination" */ './components/pagination.js')
+    .then(pagination => pagination.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
+}
+
+// Navigation
+if (document.querySelectorAll('.js-navigation').length) {
+  import(/* webpackChunkName: "navigation" */ './components/navigation.js')
+    .then(navigation => navigation.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 }

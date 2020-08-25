@@ -1,0 +1,27 @@
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'c-navigationMain',
+  modifiers: [],
+  customClasses: ['js-navigation'],
+  data: {},
+  nodes: null
+} %}
+
+{# Merge Default with Options #}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-navigation.twig' as macroNavigation  %}
+
+{% if props.nodes %}
+  <nav {{ module.settings(props) }}>
+    {% set navigationMainOptions = {
+      cn: props.cn,
+      nodes: props.nodes,
+    } %}
+
+    {{ macroNavigation.navigation(navigationMainOptions) }}
+  </nav>
+{% endif %}
+

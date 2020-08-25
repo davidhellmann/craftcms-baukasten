@@ -1,0 +1,59 @@
+{#
+Navigation
+------------------------------------------------------------
+
+{% import '_macros/_macro-navigation.twig' as macroNavigation  %}
+
+{{ macroNavigation.navigation(props) }}
+#}
+
+{% macro navigation(props) %}
+  {% set defaults = {
+    cn: 'c-navigation',
+    nodes: null,
+    ulClass: '__list',
+    liClass: '__listItem',
+    spanClass: '__listHeading',
+    linkClass: '__listLink',
+    divClass: '__subItemsWrapper',
+  } %}
+
+  {# Merge Default with Options #}
+  {% set props = props is defined ? defaults|merge(props) : defaults %}
+
+  <ul class="{{ props.cn ~ props.ulClass }}  {{ props.cn ~ props.ulClass ~ '--level-1' }}">
+    {% nav node in props.nodes %}
+      {% set level = node.level %}
+
+      <li class="{{ props.cn ~ props.liClass }}  {{ props.cn ~ props.liClass ~'--level-' ~ level }}  {% if node.classes | length %}{{ node.classes }}{% endif %}">
+        {% if not node.url %}
+          <span class="{{ props.cn ~ props.spanClass }}  {{ props.cn ~ props.spanClass ~ '--level-' ~ level }}" {% for attribute in node.customAttributes %}{{ attribute.attribute }}="{{ attribute.value }}"{% endfor %}>
+            {{- node.title -}}
+          </span>
+        {% else %}
+          <a href="{{ node.url }}"
+             class="{{ props.cn ~ props.linkClass }}  {{ props.cn ~ props.linkClass ~ '--level-' ~ level }}"
+             {% if node.newWindow %} target="_blank" rel="noopener"{% endif %}
+             {% for attribute in node.customAttributes %}{{ attribute.attribute }}="{{ attribute.value }}"{% endfor %}>
+            {{- node.title -}}
+          </a>
+        {% endif %}
+
+        {# Subitems #}
+        {% if node.hasDescendants %}
+        <div class="{{ props.cn ~ props.divClass }} {{ props.cn ~ props.divClass ~ '--level-' ~ (level + 1) }}">
+          {% endif %}
+          {% ifchildren %}
+            {% set level = node.level + 1 %}
+
+            <ul class="{{ props.cn ~ '__list' }}  {{ props.cn ~ '__list--level-' ~ level }}">
+              {% children %}
+            </ul>
+          {% endifchildren %}
+          {% if node.hasDescendants %}
+        </div>
+        {% endif %}
+      </li>
+    {% endnav %}
+  </ul>
+{% endmacro %}
