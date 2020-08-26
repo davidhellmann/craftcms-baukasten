@@ -23,7 +23,7 @@
 {# Modul #}
 {% if props.image %}
   <div {{ module.settings(props) }}>
-    {% include '_elements/image/picture.twig' with {
+    {% include '_components/image/picture.twig' with {
       props: {
         image: props.image ??? null,
         transform: props.transform ??? null,

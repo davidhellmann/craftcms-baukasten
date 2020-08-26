@@ -16,6 +16,7 @@ Navigation
     spanClass: '__listHeading',
     linkClass: '__listLink',
     divClass: '__subItemsWrapper',
+    customTabIndex: 0,
   } %}
 
   {# Merge Default with Options #}
@@ -27,12 +28,15 @@ Navigation
 
       <li class="{{ props.cn ~ props.liClass }}  {{ props.cn ~ props.liClass ~'--level-' ~ level }}  {% if node.classes | length %}{{ node.classes }}{% endif %}">
         {% if not node.url %}
-          <span class="{{ props.cn ~ props.spanClass }}  {{ props.cn ~ props.spanClass ~ '--level-' ~ level }}" {% for attribute in node.customAttributes %}{{ attribute.attribute }}="{{ attribute.value }}"{% endfor %}>
+          <span class="{{ props.cn ~ props.spanClass }}  {{ props.cn ~ props.spanClass ~ '--level-' ~ level }}" {% for attribute in node.customAttributes %}{{ attribute.attribute }}="{{ attribute.value }}"{% endfor %}
+          {% if node.hasDescendants %}aria-haspopup="true" aria-expanded="false"{% endif %}>
             {{- node.title -}}
           </span>
         {% else %}
           <a href="{{ node.url }}"
              class="{{ props.cn ~ props.linkClass }}  {{ props.cn ~ props.linkClass ~ '--level-' ~ level }}"
+             {% if node.hasDescendants %}aria-haspopup="true" aria-expanded="false"{% endif %}
+             tabindex="{{ level == 1 ? ('0' + props.customTabIndex) : '-1' }}"
              {% if node.newWindow %} target="_blank" rel="noopener"{% endif %}
              {% for attribute in node.customAttributes %}{{ attribute.attribute }}="{{ attribute.value }}"{% endfor %}>
             {{- node.title -}}

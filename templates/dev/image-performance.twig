@@ -23,12 +23,12 @@
   {#      SEPERATOR                                                 #}
   {#                                                                #}
   {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="image/imageRaw">_elements/image/imageRaw</pre>
+  <pre class="mt-4 mb-2" id="image/imageRaw">_components/image/imageRaw</pre>
 
   {% cache %}
     {% for i in 0..10 %}
       {# imageRaw #}
-      {% include '_elements/image/picture.twig' with {
+      {% include '_components/image/picture.twig' with {
         props: {
           image: craft.assets.title('Cat 02').volume('templateImages').one() ??? null,
         }

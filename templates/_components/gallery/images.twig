@@ -34,7 +34,7 @@
              data-size="{{ imageMaxWidth }}x{{ imageMaxHeight }}">
 
             {% if not (loop.index == (props.cutAfter + 1) and props.cutAfter) %}
-              {% include '_elements/image/picture.twig' with {
+              {% include '_components/image/picture.twig' with {
                 props: {
                   image: image ??? null,
                   transform: 'thumbnail'

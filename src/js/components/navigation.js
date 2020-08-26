@@ -1,66 +1,70 @@
-const navigation = {
+const navigationMain = {
   cfg: {
+    name: 'navigationMain',
     selectors: {
-      navigations: '.js-navigation',
+      navigationMain: '.c-navigationMain',
+      hasPopup: '[aria-haspopup="true"]',
     },
     classes: {
-      isActive: 'is-active',
+      isActive: 'sssss',
+    },
+    el: {
+      $navigationMain: undefined,
     },
     els: {
-      $navigations: null,
+      $hasPopup: undefined,
     },
+  },
+
+  handleClicks(e) {
+    e.preventDefault();
+    if (e.target.getAttribute('aria-expanded') === 'false') {
+      e.target.setAttribute('aria-expanded', 'true');
+    } else {
+      e.target.setAttribute('aria-expanded', 'false');
+    }
   },
 
   setElements() {
-    this.cfg.els.$navigations = [
-      ...document.querySelectorAll(this.cfg.selectors.navigations),
-    ];
-  },
+    this.cfg.el.$navigationMain = document.querySelector(
+      this.cfg.selectors.navigationMain,
+    );
 
-  setParentClasses(nav) {
-    const liElements = [...nav.querySelectorAll('li')];
-    if (!liElements) return;
-
-    liElements.forEach(el => {
-      el.classList.add(this.cfg.classes.isActive);
-    });
-  },
-
-  setActivesClasses(els) {
-    els.forEach(el => {
-      el.classList.add(this.cfg.classes.isActive);
-    });
-  },
-
-  liService(els) {
-    const currentUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
-
-    els.forEach(el => {
-      const matchingElements = [
-        ...el.querySelectorAll(`a[href="${currentUrl}"]`),
+    if (this.cfg.el.$navigationMain) {
+      this.cfg.els.$hasPopup = [
+        ...this.cfg.el.$navigationMain.querySelectorAll(
+          this.cfg.selectors.hasPopup,
+        ),
       ];
+    }
+  },
 
-      if (matchingElements.length > 0) {
-        const ulElements = [...el.querySelectorAll('ul, div')] || [];
-        this.setActivesClasses([...matchingElements, el, ...ulElements]);
-      }
+  closeSubNav(els) {
+    els.forEach(el => {
+      console.log(el.setAttribute('aria-expanded', 'false'));
     });
   },
 
-  navService() {
-    this.cfg.els.$navigations.forEach(nav => {
-      const liElements = [...nav.querySelectorAll('li')];
-
-      if (!liElements) return;
-      this.liService(liElements);
+  handleClickOutside() {
+    document.addEventListener('click', e => {
+      const navContainer = document.querySelector(
+        this.cfg.selectors.navigationMain,
+      );
+      if (!navContainer.contains(e.target) && this.cfg.els.$hasPopup) {
+        this.closeSubNav(this.cfg.els.$hasPopup);
+      }
     });
   },
 
   init() {
     this.setElements();
-    if (!this.cfg.els.$navigations) return;
-    this.navService();
+    this.handleClickOutside();
+
+    if (!this.cfg.els.$hasPopup) return;
+    this.cfg.els.$hasPopup.forEach(el =>
+      el.addEventListener('click', this.handleClicks),
+    );
   },
 };
 
-export default navigation;
+export default navigationMain;
