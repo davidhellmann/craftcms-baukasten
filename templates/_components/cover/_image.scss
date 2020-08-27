@@ -1,18 +1,17 @@
 /*
  |--------------------------------------------------------------------------
- | .c-imageCover
+ | .c-coverImage
  |--------------------------------------------------------------------------
  */
 
-.c-imageCover {
+.c-coverImage {
   width: 100vw;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   overflow: hidden;
 
-  .c-image,
-  .c-image img {
+  > img {
     height: 100%;
     width: 100%;
   }

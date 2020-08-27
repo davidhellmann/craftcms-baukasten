@@ -1,11 +1,11 @@
 {#
-  c-imageCover
+  c-coverImage
   ------------------------------------------------------------
 #}
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-imageCover',
+  cn: 'c-coverImage',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -19,16 +19,14 @@
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-imageHelper.twig' as imageHelper %}
 
 {# Modul #}
 {% if props.image %}
-  <div {{ module.settings(props) }}>
-    {% include '_components/image/picture.twig' with {
-      props: {
-        image: props.image ??? null,
-        transform: props.transform ??? null,
-        objectFit: props.objectFit ??? 'cover'
-      }
-    } only %}
-  </div>
+  <picture {{ module.settings(props) }} style="background-color: {{- imageHelper.getDominantColor(props.image, true) -}}; ">
+    {{- imageHelper.renderSource(props.image, 'portrait', true, '(orientation: portrait)') -}}
+    {{- imageHelper.renderSource(props.image, 'landscape', true,  '(orientation: landscape)') -}}
+    {{- imageHelper.renderImage(props.image, null, null, null, null, true) -}}
+    {{- imageHelper.renderNoScript(props.image) -}}
+  </picture>
 {% endif %}
