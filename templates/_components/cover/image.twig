@@ -1,6 +1,6 @@
 {#
-  c-coverImage
-  ------------------------------------------------------------
+c-imageCover
+------------------------------------------------------------
 #}
 
 {# Set Defaults #}
@@ -10,7 +10,6 @@
   customClasses: [],
   data: {},
   image: null,
-  transform: null | default('landscape'),
   objectFit: null
 } %}
 
@@ -23,10 +22,12 @@
 
 {# Modul #}
 {% if props.image %}
-  <picture {{ module.settings(props) }} style="background-color: {{- imageHelper.getDominantColor(props.image, true) -}}; ">
-    {{- imageHelper.renderSource(props.image, 'portrait', true, '(orientation: portrait)') -}}
-    {{- imageHelper.renderSource(props.image, 'landscape', true,  '(orientation: landscape)') -}}
-    {{- imageHelper.renderImage(props.image, null, null, null, null, true) -}}
-    {{- imageHelper.renderNoScript(props.image) -}}
-  </picture>
+  <div {{ module.settings(props) }}>
+    <picture style="background-color: {{- imageHelper.getDominantColor(props.image, true) -}}; ">
+      {{- imageHelper.renderSource(props.image, 'portrait', true, '(orientation: portrait)') -}}
+      {{- imageHelper.renderSource(props.image, 'landscape', true,  '(orientation: landscape)') -}}
+      {{- imageHelper.renderImage(props.image, null, null, null, null, true) -}}
+      {{- imageHelper.renderNoScript(props.image) -}}
+    </picture>
+  </div>
 {% endif %}
