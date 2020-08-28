@@ -105,11 +105,11 @@
       }
 
       var btnData = {
-        title: 'Custom Styles',
+        title: 'Styling',
       };
 
       // create the button
-      var $button = this.toolbar.addButtonAfter('format', 'baukasten', btnData);
+      var $button = this.toolbar.addButtonAfter('italic', 'baukasten', btnData);
 
       // set dropdown
       $button.setDropdown(dropdownData);
