@@ -101,6 +101,18 @@
           title: 'Looks like H3',
           api: 'plugin.baukasten.toogleHeadingsh3',
         },
+        lookslikeh4: {
+          title: 'Looks like H4',
+          api: 'plugin.baukasten.toogleHeadingsh4',
+        },
+        lookslikeh5: {
+          title: 'Looks like H5',
+          api: 'plugin.baukasten.toogleHeadingsh5',
+        },
+        lookslikeh6: {
+          title: 'Looks like H6',
+          api: 'plugin.baukasten.toogleHeadingsh6',
+        },
       };
 
       for (var key in this.styles) {
@@ -148,6 +160,39 @@
 
     toogleHeadingsh3: function() {
       this.toggleHeadingStyles('c-headline--h3', [
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h5',
+      ]);
+    },
+
+    toogleHeadingsh4: function() {
+      this.toggleHeadingStyles('c-headline--h4', [
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h5',
+      ]);
+    },
+
+    toogleHeadingsh5: function() {
+      this.toggleHeadingStyles('c-headline--h5', [
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h5',
+      ]);
+    },
+
+    toogleHeadingsh6: function() {
+      this.toggleHeadingStyles('c-headline--h6', [
         'h1',
         'h2',
         'h3',
