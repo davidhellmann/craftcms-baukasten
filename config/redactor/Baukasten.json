@@ -1,13 +1,14 @@
 {
   "buttons": [
+    "undo",
+    "redo",
     "format",
     "bold",
     "italic",
-    "deleted",
     "lists",
     "link",
-    "line",
-    "file"
+    "file",
+    "line"
   ],
   "plugins": ["baukasten"],
   "formatting": ["h2", "h3", "h4", "h5", "h6", "p"],
@@ -15,5 +16,16 @@
   "pasteLinks": true,
   "linkNewTab": true,
   "toolbar": true,
-  "toolbarFixed": true
+  "toolbarFixed": true,
+  "formattingAdd": {
+    "bigger-text": {
+      "title": "Bigger Text",
+      "api": "module.block.format",
+      "args": {
+        "tag": "p",
+        "class": "rd-text-big",
+        "type": "toggle"
+      }
+    }
+  }
 }
