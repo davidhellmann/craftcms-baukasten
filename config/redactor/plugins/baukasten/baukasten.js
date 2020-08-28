@@ -93,6 +93,14 @@
           title: 'Link Outlined',
           api: 'plugin.baukasten.toggleOutlined',
         },
+        lookslikeh2: {
+          title: 'Looks like H2',
+          api: 'plugin.baukasten.toogleHeadingsh2',
+        },
+        lookslikeh3: {
+          title: 'Looks like H3',
+          api: 'plugin.baukasten.toogleHeadingsh3',
+        },
       };
 
       for (var key in this.styles) {
@@ -116,21 +124,53 @@
     },
 
     togglePrimary: function() {
-      this.toggleLinkStyles('rd-link  rd-link--primary', 'a');
+      this.toggleLinkStyles('c-link--primary', 'a');
     },
 
     toggleSecondary: function() {
-      this.toggleLinkStyles('rd-link  rd-link--secondary', 'a');
+      this.toggleLinkStyles('c-link--secondary', 'a');
     },
 
     toggleOutlined: function() {
-      this.toggleLinkStyles('rd-link  rd-link--outlined', 'a');
+      this.toggleLinkStyles('c-link--outlined', 'a');
     },
 
-    // Other Styles
-    toggleStyles: function(classToToggle, element) {
-      var obj = { tag: element, class: classToToggle };
-      this.inline.format(obj);
+    toogleHeadingsh2: function() {
+      this.toggleHeadingStyles('c-headline--h2', [
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h5',
+      ]);
+    },
+
+    toogleHeadingsh3: function() {
+      this.toggleHeadingStyles('c-headline--h3', [
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h5',
+      ]);
+    },
+
+    // Heading Styles
+    toggleHeadingStyles: function(classToToggle, els) {
+      var selectedHeadings = this.selection.getBlocks({
+        first: true,
+        tags: els,
+      });
+
+      selectedHeadings.forEach(function(heading) {
+        if (heading.classList.contains(classToToggle)) {
+          heading.classList.remove(classToToggle);
+        } else {
+          heading.classList = [classToToggle];
+        }
+      });
     },
 
     // Link Styles

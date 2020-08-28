@@ -1,5 +1,7 @@
 /* Buttons */
-:root:root .redactor-in .rd-link,
+:root:root .redactor-in .c-link--primary,
+:root:root .redactor-in .c-link--secondary,
+:root:root .redactor-in .c-link--outlined,
 :root:root .redactor-dropdown-item-primary span,
 :root:root .redactor-dropdown-item-secondary span,
 :root:root .redactor-dropdown-item-outlined span {
@@ -11,36 +13,36 @@
   border-color: transparent;
 }
 
-:root:root .redactor-in .rd-link--primary,
+:root:root .redactor-in .c-link--primary,
 :root:root .redactor-dropdown-item-primary span {
   color: #f5f5f5;
   background-color: #212121;
 }
 
-:root:root .redactor-in .rd-link--primary:hover {
+:root:root .redactor-in .c-link--primary:hover {
   background-color: #000;
   text-decoration: none;
 }
 
-:root:root .redactor-in .rd-link--secondary,
+:root:root .redactor-in .c-link--secondary,
 :root:root .redactor-dropdown-item-secondary span {
   color: #757575;
   background-color: #eee;
 }
 
-:root:root .redactor-in .rd-link--secondary:hover {
+:root:root .redactor-in .c-link--secondary:hover {
   background-color: #f5f5f5;
   text-decoration: none;
 }
 
-:root:root .redactor-in .rd-link--outlined,
+:root:root .redactor-in .c-link--outlined,
 :root:root .redactor-dropdown-item-outlined span {
   color: #212121;
   background-color: transparent;
   border-color: #616161;
 }
 
-:root:root .redactor-in .rd-link--outlined:hover {
+:root:root .redactor-in .c-link--outlined:hover {
   border-color: #212121;
   text-decoration: none;
 }
