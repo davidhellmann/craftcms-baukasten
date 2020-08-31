@@ -1,5 +1,5 @@
 {#
-  o-section
+  l-section
   ------------------------------------------------------------
 #}
 
@@ -13,16 +13,16 @@
 } %}
 
 {# -- Merge Default with Options -- #}
-{% set opt = opt is defined ? defaults|merge(opt) : defaults %}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# -- Macros -- #}
 {% import '_macros/_macro-settings.twig' as module %}
 
 {# -- Modul -- #}
-<section {{ module.settings(opt) }}>
+<section {{ module.settings(props) }}>
   <div class="l-container l-container--{{ props.containerWidth }}">
     {% block sectionContent %}{% endblock %}
   </div>
-  {% if opt.closetags %}
+  {% if props.closetags %}
 </section>
 {% endif %}
