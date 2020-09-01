@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "538276019b9e9ee2488a464713e7e1b9",
+    "content-hash": "255900b26644a373a501b0b2df92b49e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.151.0",
+            "version": "3.151.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/10db635441685088731345da13c6680a3dacb003",
-                "reference": "10db635441685088731345da13c6680a3dacb003",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6deca431ad8d061face518bdde2072445385f45a",
+                "reference": "6deca431ad8d061face518bdde2072445385f45a",
                 "shasum": ""
             },
             "require": {
@@ -67,7 +67,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-08-26T21:08:26+00:00"
+            "time": "2020-08-31T18:25:57+00:00"
         },
         {
             "name": "cakephp/core",
@@ -629,11 +629,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.5.7",
+            "version": "3.5.8",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/b6280588722e1ee67bb810e8027f0c53b7cc9ea2",
-                "reference": "b6280588722e1ee67bb810e8027f0c53b7cc9ea2",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/4d3dc03a787248c05f2e0dd3698aea55a9fe7680",
+                "reference": "4d3dc03a787248c05f2e0dd3698aea55a9fe7680",
                 "shasum": ""
             },
             "require": {
@@ -714,7 +714,7 @@
                 "docs": "https://craftcms.com/docs/3.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2020-08-26T13:49:56+00:00"
+            "time": "2020-09-01T20:50:36+00:00"
         },
         {
             "name": "craftcms/feed-me",
@@ -904,11 +904,11 @@
         },
         {
             "name": "craftcms/redactor",
-            "version": "2.7.2",
+            "version": "2.7.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/redactor/zipball/75ac59de517bf0f4731abebeb7fd4e743c7fee9e",
-                "reference": "75ac59de517bf0f4731abebeb7fd4e743c7fee9e",
+                "url": "https://api.github.com/repos/craftcms/redactor/zipball/fe8b37c4c4978e397504a43d19aef40b4e495639",
+                "reference": "fe8b37c4c4978e397504a43d19aef40b4e495639",
                 "shasum": ""
             },
             "require": {
@@ -949,7 +949,7 @@
                 "docs": "https://github.com/craftcms/redactor/blob/v2/README.md",
                 "rss": "https://github.com/craftcms/redactor/commits/v2.atom"
             },
-            "time": "2020-08-25T11:32:19+00:00"
+            "time": "2020-08-28T16:11:20+00:00"
         },
         {
             "name": "craftcms/server-check",
@@ -1631,11 +1631,11 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "8.12.8",
+            "version": "8.12.9",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/5a6e4e730de52f55882d2db27016e2916f8791e9",
-                "reference": "5a6e4e730de52f55882d2db27016e2916f8791e9",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/674b79ae3362409d08e550cb196d982485a76225",
+                "reference": "674b79ae3362409d08e550cb196d982485a76225",
                 "shasum": ""
             },
             "require": {
@@ -1680,7 +1680,7 @@
                 "phonenumber",
                 "validation"
             ],
-            "time": "2020-08-13T17:48:08+00:00"
+            "time": "2020-08-31T09:51:44+00:00"
         },
         {
             "name": "giggsey/locale",
@@ -1973,6 +1973,48 @@
                 "web service"
             ],
             "time": "2020-06-16T21:01:06+00:00"
+        },
+        {
+            "name": "guzzlehttp/oauth-subscriber",
+            "version": "0.4.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/oauth-subscriber/zipball/47b4b9cd0b31a6733a3cc500d4285a8363502485",
+                "reference": "47b4b9cd0b31a6733a3cc500d4285a8363502485",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Subscriber\\Oauth\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle OAuth 1.0 subscriber",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "oauth"
+            ],
+            "time": "2020-07-01T06:28:13+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -2796,6 +2838,111 @@
             "time": "2020-07-26T07:20:36+00:00"
         },
         {
+            "name": "league/html-to-markdown",
+            "version": "4.10.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/html-to-markdown/zipball/0868ae7a552e809e5cd8f93ba022071640408e88",
+                "reference": "0868ae7a552e809e5cd8f93ba022071640408e88",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-xml": "*",
+                "php": ">=5.3.3"
+            },
+            "bin": [
+                "bin/html-to-markdown"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.10-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\HTMLToMarkdown\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Colin O'Dell",
+                    "email": "colinodell@gmail.com",
+                    "homepage": "https://www.colinodell.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Nick Cernis",
+                    "email": "nick@cern.is",
+                    "homepage": "http://modernnerd.net",
+                    "role": "Original Author"
+                }
+            ],
+            "description": "An HTML-to-markdown conversion helper for PHP",
+            "homepage": "https://github.com/thephpleague/html-to-markdown",
+            "keywords": [
+                "html",
+                "markdown"
+            ],
+            "time": "2020-07-01T00:34:03+00:00"
+        },
+        {
+            "name": "league/oauth1-client",
+            "version": "1.7.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth1-client/zipball/fca5f160650cb74d23fc11aa570dd61f86dcf647",
+                "reference": "fca5f160650cb74d23fc11aa570dd61f86dcf647",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth1\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Corlett",
+                    "email": "bencorlett@me.com",
+                    "homepage": "http://www.webcomm.com.au",
+                    "role": "Developer"
+                }
+            ],
+            "description": "OAuth 1.0 Client Library",
+            "keywords": [
+                "Authentication",
+                "SSO",
+                "authorization",
+                "bitbucket",
+                "identity",
+                "idp",
+                "oauth",
+                "oauth1",
+                "single sign on",
+                "trello",
+                "tumblr",
+                "twitter"
+            ],
+            "time": "2016-08-17T00:36:58+00:00"
+        },
+        {
             "name": "league/oauth2-client",
             "version": "2.5.0",
             "dist": {
@@ -2856,6 +3003,45 @@
                 "single sign on"
             ],
             "time": "2020-07-18T17:54:32+00:00"
+        },
+        {
+            "name": "league/oauth2-google",
+            "version": "3.0.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-google/zipball/18d1889897a8b18d85ecadacf74c9274d678d943",
+                "reference": "18d1889897a8b18d85ecadacf74c9274d678d943",
+                "shasum": ""
+            },
+            "require": {
+                "league/oauth2-client": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Woody Gilk",
+                    "email": "woody.gilk@gmail.com",
+                    "homepage": "http://shadowhand.me"
+                }
+            ],
+            "description": "Google OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "Authentication",
+                "authorization",
+                "client",
+                "google",
+                "oauth",
+                "oauth2"
+            ],
+            "time": "2020-07-24T15:16:12+00:00"
         },
         {
             "name": "luwes/craft3-codemirror",
@@ -3043,11 +3229,11 @@
         },
         {
             "name": "mikehaertl/php-shellcommand",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mikehaertl/php-shellcommand/zipball/8d98d8536e05abafe76a491da87296d824939076",
-                "reference": "8d98d8536e05abafe76a491da87296d824939076",
+                "url": "https://api.github.com/repos/mikehaertl/php-shellcommand/zipball/06d6220c77c4632b639f4855f76026c59bceb8aa",
+                "reference": "06d6220c77c4632b639f4855f76026c59bceb8aa",
                 "shasum": ""
             },
             "require": {
@@ -3059,7 +3245,6 @@
                     "mikehaertl\\shellcommand\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3073,7 +3258,7 @@
             "keywords": [
                 "shell"
             ],
-            "time": "2019-12-20T08:48:10+00:00"
+            "time": "2020-08-30T09:56:40+00:00"
         },
         {
             "name": "mmikkel/cp-clearcache",
@@ -3706,11 +3891,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.3.17",
+            "version": "3.3.18",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/7b63046e3bd809d7aa8848beb10ad245f774586f",
-                "reference": "7b63046e3bd809d7aa8848beb10ad245f774586f",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/2c32a61643c406577a80982c2b9d6d1f975dfd7d",
+                "reference": "2c32a61643c406577a80982c2b9d6d1f975dfd7d",
                 "shasum": ""
             },
             "require": {
@@ -3774,7 +3959,7 @@
                 "docs": "https://nystudio107.com/plugins/seomatic/documentation",
                 "issues": "https://nystudio107.com/plugins/seomatic/support"
             },
-            "time": "2020-08-24T18:59:23+00:00"
+            "time": "2020-09-01T03:03:28+00:00"
         },
         {
             "name": "nystudio107/craft-templatecomments",
@@ -5493,11 +5678,11 @@
         },
         {
             "name": "spacecatninja/imager-x",
-            "version": "v3.1.5",
+            "version": "v3.1.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spacecatninja/craft-imager-x/zipball/262fdd98250ebfd25e3098069888bfb9708f8d35",
-                "reference": "262fdd98250ebfd25e3098069888bfb9708f8d35",
+                "url": "https://api.github.com/repos/spacecatninja/craft-imager-x/zipball/48b4f6fd0a434821a37bd119d6543cdfa29f2d2b",
+                "reference": "48b4f6fd0a434821a37bd119d6543cdfa29f2d2b",
                 "shasum": ""
             },
             "require": {
@@ -5553,7 +5738,7 @@
                 "docs": "http://imager-x.spacecat.ninja/",
                 "issues": "https://github.com/spacecatninja/craft-imager-x/issues"
             },
-            "time": "2020-08-26T19:17:06+00:00"
+            "time": "2020-08-28T10:18:11+00:00"
         },
         {
             "name": "ssnepenthe/color-utils",
@@ -5828,11 +6013,11 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.4.11",
+            "version": "v4.4.12",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/55d07021da933dd0d633ffdab6f45d5b230c7e02",
-                "reference": "55d07021da933dd0d633ffdab6f45d5b230c7e02",
+                "url": "https://api.github.com/repos/symfony/console/zipball/1f601a29fd7591a0316bffbc0d7550a5953c6c1c",
+                "reference": "1f601a29fd7591a0316bffbc0d7550a5953c6c1c",
                 "shasum": ""
             },
             "require": {
@@ -5886,15 +6071,15 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2020-07-06T13:18:39+00:00"
+            "time": "2020-08-17T07:39:58+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v4.4.11",
+            "version": "v4.4.12",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/47aa9064d75db36389692dd4d39895a0820f00f2",
-                "reference": "47aa9064d75db36389692dd4d39895a0820f00f2",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/aeb73aca16a8f1fe958230fe44e6cf4c84cbb85e",
+                "reference": "aeb73aca16a8f1fe958230fe44e6cf4c84cbb85e",
                 "shasum": ""
             },
             "require": {
@@ -5934,7 +6119,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2020-07-23T08:31:43+00:00"
+            "time": "2020-08-10T07:47:39+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -6180,11 +6365,11 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.4.11",
+            "version": "v4.4.12",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/b27f491309db5757816db672b256ea2e03677d30",
-                "reference": "b27f491309db5757816db672b256ea2e03677d30",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/27575bcbc68db1f6d06218891296572c9b845704",
+                "reference": "27575bcbc68db1f6d06218891296572c9b845704",
                 "shasum": ""
             },
             "require": {
@@ -6220,15 +6405,15 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2020-05-30T18:50:54+00:00"
+            "time": "2020-08-21T17:19:37+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v4.4.11",
+            "version": "v4.4.12",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/2727aa35fddfada1dd37599948528e9b152eb742",
-                "reference": "2727aa35fddfada1dd37599948528e9b152eb742",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/2a78590b2c7e3de5c429628457c47541c58db9c7",
+                "reference": "2a78590b2c7e3de5c429628457c47541c58db9c7",
                 "shasum": ""
             },
             "require": {
@@ -6263,7 +6448,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2020-07-05T09:39:30+00:00"
+            "time": "2020-08-17T09:56:45+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -7089,7 +7274,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.4.11",
+            "version": "v4.4.12",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/process/zipball/65e70bab62f3da7089a8d4591fb23fbacacb3479",
@@ -7388,11 +7573,11 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v4.4.11",
+            "version": "v4.4.12",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c2d2cc66e892322cfcc03f8f12f8340dbd7a3f8a",
-                "reference": "c2d2cc66e892322cfcc03f8f12f8340dbd7a3f8a",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/e2a69525b11a33be51cb00b8d6d13a9258a296b1",
+                "reference": "e2a69525b11a33be51cb00b8d6d13a9258a296b1",
                 "shasum": ""
             },
             "require": {
@@ -7434,7 +7619,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2020-05-20T08:37:50+00:00"
+            "time": "2020-08-26T08:30:46+00:00"
         },
         {
             "name": "tinify/tinify",
@@ -7669,11 +7854,11 @@
         },
         {
             "name": "verbb/formie",
-            "version": "1.1.8",
+            "version": "1.2.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/formie/zipball/0a7197a5c2f5b4901526bb06ad1b12e6165ef569",
-                "reference": "0a7197a5c2f5b4901526bb06ad1b12e6165ef569",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/5113306782edde4900933e4a074389c8720e9604",
+                "reference": "5113306782edde4900933e4a074389c8720e9604",
                 "shasum": ""
             },
             "require": {
@@ -7683,7 +7868,12 @@
                 "ezyang/htmlpurifier": "^4.13",
                 "fzaninotto/faker": "^1.9",
                 "giggsey/libphonenumber-for-php": "^8.12",
+                "guzzlehttp/oauth-subscriber": "^0.4.0",
                 "html2text/html2text": "^4.3",
+                "league/html-to-markdown": "^4.10",
+                "league/oauth1-client": "^1.7",
+                "league/oauth2-client": "^2.5",
+                "league/oauth2-google": "^3.0",
                 "verbb/base": "^1.0.0"
             },
             "type": "craft-plugin",
@@ -7722,7 +7912,7 @@
                 "docs": "https://github.com/verbb/formie",
                 "rss": "https://github.com/verbb/formie/commits/v2.atom"
             },
-            "time": "2020-08-27T12:54:32+00:00"
+            "time": "2020-09-01T12:20:47+00:00"
         },
         {
             "name": "verbb/super-table",
@@ -7837,11 +8027,11 @@
         },
         {
             "name": "voku/anti-xss",
-            "version": "4.1.27",
+            "version": "4.1.28",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/anti-xss/zipball/462d39510b6a5b8fbcf85814f00239e2ba748814",
-                "reference": "462d39510b6a5b8fbcf85814f00239e2ba748814",
+                "url": "https://api.github.com/repos/voku/anti-xss/zipball/8919a19846d2b100e664d9e3cecfcaba4f57d9b4",
+                "reference": "8919a19846d2b100e664d9e3cecfcaba4f57d9b4",
                 "shasum": ""
             },
             "require": {
@@ -7881,7 +8071,7 @@
                 "security",
                 "xss"
             ],
-            "time": "2020-08-23T00:24:48+00:00"
+            "time": "2020-08-27T22:43:59+00:00"
         },
         {
             "name": "voku/arrayy",
