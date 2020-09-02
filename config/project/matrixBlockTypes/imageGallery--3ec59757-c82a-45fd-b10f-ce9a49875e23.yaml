@@ -3,13 +3,25 @@ fieldLayouts:
   913c40b7-d2b3-4cea-ac62-77ec2091aef2:
     tabs:
       -
-        fields:
-          8a0dc31d-c3e6-4205-ae27-67c8e3b3d256:
+        elements:
+          -
+            fieldUid: 8a0dc31d-c3e6-4205-ae27-67c8e3b3d256
+            instructions: null
+            label: null
             required: true
-            sortOrder: 1
-          b512cbc9-6c77-4ffd-9963-9cca00e3307a:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b512cbc9-6c77-4ffd-9963-9cca00e3307a
+            instructions: null
+            label: null
             required: false
-            sortOrder: 2
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -21,7 +33,7 @@ fields:
     name: Images
     searchable: true
     settings:
-      allowSelfRelations: ''
+      allowSelfRelations: false
       allowedKinds:
         - image
       defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -30,6 +42,7 @@ fields:
       localizeRelations: false
       restrictFiles: '1'
       selectionLabel: ''
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: true
       singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -38,7 +51,7 @@ fields:
       sources: '*'
       targetSiteId: null
       useSingleFolder: true
-      validateRelatedElements: ''
+      validateRelatedElements: false
       viewMode: large
     translationKeyFormat: null
     translationMethod: site

@@ -3,10 +3,16 @@ fieldLayouts:
   d10b1e97-bff7-4616-9232-1fca2b376a59:
     tabs:
       -
-        fields:
-          49d2cd4b-66d9-49e6-b274-8a67c9ea630a:
+        elements:
+          -
+            fieldUid: 49d2cd4b-66d9-49e6-b274-8a67c9ea630a
+            instructions: null
+            label: null
             required: true
-            sortOrder: 1
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -38,6 +44,7 @@ fields:
       fieldLayout: table
       maxRows: ''
       minRows: ''
+      placeholderKey: null
       propagationMethod: all
       selectionLabel: ''
       staticField: ''

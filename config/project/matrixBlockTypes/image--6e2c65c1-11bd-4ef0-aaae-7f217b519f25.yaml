@@ -3,16 +3,34 @@ fieldLayouts:
   31cf2b6d-cc9e-44e9-b1e7-2f766c63768f:
     tabs:
       -
-        fields:
-          076109bc-eab5-403a-8345-67d598c23cad:
+        elements:
+          -
+            fieldUid: 076109bc-eab5-403a-8345-67d598c23cad
+            instructions: null
+            label: null
             required: true
-            sortOrder: 1
-          94449ef9-35f7-4398-a87b-19a0f3999520:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b67022d3-1ed6-41e9-aa10-274c19acfc63
+            instructions: null
+            label: null
             required: false
-            sortOrder: 3
-          b67022d3-1ed6-41e9-aa10-274c19acfc63:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 94449ef9-35f7-4398-a87b-19a0f3999520
+            instructions: null
+            label: null
             required: false
-            sortOrder: 2
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -24,6 +42,7 @@ fields:
     name: Image
     searchable: false
     settings:
+      allowSelfRelations: false
       allowedKinds:
         - image
       defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -32,6 +51,7 @@ fields:
       localizeRelations: false
       restrictFiles: '1'
       selectionLabel: ''
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -40,7 +60,7 @@ fields:
       sources: '*'
       targetSiteId: null
       useSingleFolder: false
-      validateRelatedElements: '1'
+      validateRelatedElements: true
       viewMode: large
     translationKeyFormat: null
     translationMethod: site

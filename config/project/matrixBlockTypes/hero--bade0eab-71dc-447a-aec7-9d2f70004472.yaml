@@ -3,25 +3,61 @@ fieldLayouts:
   86afdb97-6d79-44b6-a74f-b5b6c52cc8e2:
     tabs:
       -
-        fields:
-          171fade2-74bd-4677-b8af-53699003dc44:
-            required: false
-            sortOrder: 6
-          1cda9a64-a02b-4aa7-ae5c-0444b3ec7088:
+        elements:
+          -
+            fieldUid: d2feff78-0e41-4e04-995f-c4157f7ef946
+            instructions: null
+            label: null
             required: true
-            sortOrder: 3
-          4bc7f0be-0101-45d6-b679-03519c8d225f:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4bc7f0be-0101-45d6-b679-03519c8d225f
+            instructions: null
+            label: null
             required: true
-            sortOrder: 2
-          6c6f21ee-f91d-42a0-ba0b-45baf03649c7:
-            required: false
-            sortOrder: 5
-          d2feff78-0e41-4e04-995f-c4157f7ef946:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1cda9a64-a02b-4aa7-ae5c-0444b3ec7088
+            instructions: null
+            label: null
             required: true
-            sortOrder: 1
-          fbb1e95c-8edc-45da-9885-235796cc10cc:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fbb1e95c-8edc-45da-9885-235796cc10cc
+            instructions: null
+            label: null
             required: false
-            sortOrder: 4
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6c6f21ee-f91d-42a0-ba0b-45baf03649c7
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 171fade2-74bd-4677-b8af-53699003dc44
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -53,6 +89,7 @@ fields:
       fieldLayout: table
       maxRows: '3'
       minRows: ''
+      placeholderKey: null
       propagationMethod: all
       selectionLabel: 'Add Button'
       staticField: ''
@@ -74,6 +111,7 @@ fields:
       initialRows: '4'
       multiline: ''
       placeholder: ''
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
@@ -85,7 +123,7 @@ fields:
     name: Image
     searchable: true
     settings:
-      allowSelfRelations: ''
+      allowSelfRelations: false
       allowedKinds:
         - image
       defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -94,6 +132,7 @@ fields:
       localizeRelations: false
       restrictFiles: '1'
       selectionLabel: ''
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -102,7 +141,7 @@ fields:
       sources: '*'
       targetSiteId: null
       useSingleFolder: false
-      validateRelatedElements: ''
+      validateRelatedElements: false
       viewMode: large
     translationKeyFormat: null
     translationMethod: site
@@ -115,7 +154,9 @@ fields:
     name: Inverted
     searchable: true
     settings:
-      default: ''
+      default: false
+      offLabel: null
+      onLabel: null
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
@@ -180,6 +221,7 @@ fields:
       initialRows: '4'
       multiline: ''
       placeholder: ''
+      uiMode: normal
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText

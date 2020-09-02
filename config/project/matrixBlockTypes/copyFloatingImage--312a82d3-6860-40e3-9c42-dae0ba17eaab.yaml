@@ -3,19 +3,43 @@ fieldLayouts:
   130c31d6-4d95-4629-8648-c7e6d8af6217:
     tabs:
       -
-        fields:
-          101a48dc-da89-49d0-aedf-31a81f20c28d:
+        elements:
+          -
+            fieldUid: 101a48dc-da89-49d0-aedf-31a81f20c28d
+            instructions: null
+            label: null
             required: true
-            sortOrder: 1
-          17aacf71-13da-4916-8a0e-ffbfee21d215:
-            required: false
-            sortOrder: 4
-          a4cfd0cd-cd11-4f2c-ac41-0d33caf17b3b:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a4cfd0cd-cd11-4f2c-ac41-0d33caf17b3b
+            instructions: null
+            label: null
             required: true
-            sortOrder: 2
-          ca3874b1-fdc9-4ca6-86aa-e0d68307f24c:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ca3874b1-fdc9-4ca6-86aa-e0d68307f24c
+            instructions: null
+            label: null
             required: false
-            sortOrder: 3
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 17aacf71-13da-4916-8a0e-ffbfee21d215
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -31,14 +55,19 @@ fields:
       availableVolumes: '*'
       cleanupHtml: true
       columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
       purifierConfig: ''
       purifyHtml: '1'
       redactorConfig: Baukasten.json
       removeEmptyTags: '1'
       removeInlineStyles: '1'
       removeNbsp: '1'
+      showHtmlButtonForNonAdmins: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
+      uiMode: enlarged
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
@@ -85,6 +114,7 @@ fields:
     name: Image
     searchable: false
     settings:
+      allowSelfRelations: false
       allowedKinds:
         - image
       defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -93,6 +123,7 @@ fields:
       localizeRelations: false
       restrictFiles: '1'
       selectionLabel: ''
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -101,7 +132,7 @@ fields:
       sources: '*'
       targetSiteId: null
       useSingleFolder: false
-      validateRelatedElements: '1'
+      validateRelatedElements: true
       viewMode: large
     translationKeyFormat: null
     translationMethod: site

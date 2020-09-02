@@ -3,19 +3,43 @@ fieldLayouts:
   1ba1f2b9-3953-4131-89da-28c4ab8fb9a2:
     tabs:
       -
-        fields:
-          13c17c81-9eb9-42c8-a656-3f03051d91ff:
+        elements:
+          -
+            fieldUid: 13c17c81-9eb9-42c8-a656-3f03051d91ff
+            instructions: null
+            label: null
             required: true
-            sortOrder: 1
-          5dcb3824-f538-4f5c-81c6-2fcd6b6bd38c:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e112cf13-2c4f-4604-89f8-48dd867dbba6
+            instructions: null
+            label: null
             required: false
-            sortOrder: 4
-          5f0bc252-87f4-4239-9928-86063fd664a3:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5f0bc252-87f4-4239-9928-86063fd664a3
+            instructions: null
+            label: null
             required: false
-            sortOrder: 3
-          e112cf13-2c4f-4604-89f8-48dd867dbba6:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5dcb3824-f538-4f5c-81c6-2fcd6b6bd38c
+            instructions: null
+            label: null
             required: false
-            sortOrder: 2
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -27,7 +51,7 @@ fields:
     name: Images
     searchable: true
     settings:
-      allowSelfRelations: ''
+      allowSelfRelations: false
       allowedKinds:
         - image
       defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -36,6 +60,7 @@ fields:
       localizeRelations: false
       restrictFiles: '1'
       selectionLabel: ''
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: true
       singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -44,7 +69,7 @@ fields:
       sources: '*'
       targetSiteId: null
       useSingleFolder: true
-      validateRelatedElements: ''
+      validateRelatedElements: false
       viewMode: large
     translationKeyFormat: null
     translationMethod: site
@@ -149,7 +174,9 @@ fields:
     name: Caption
     searchable: true
     settings:
-      default: ''
+      default: false
+      offLabel: null
+      onLabel: null
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch

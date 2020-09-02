@@ -3,8 +3,13 @@ handle: articles
 name: Articles
 previewTargets:
   -
-    label: 'Primary entry page'
-    urlFormat: '{url}'
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
 propagationMethod: all
 siteSettings:
   04677986-61a7-4935-a707-cae0601cc8d5:

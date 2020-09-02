@@ -3,23 +3,33 @@ fieldLayouts:
   a927dffc-4caa-4e9f-9440-32eec896d193:
     tabs:
       -
-        fields:
-          0b3ac2de-d0c7-49a5-af9c-0704a584918f:
+        elements:
+          -
+            fieldUid: 0b3ac2de-d0c7-49a5-af9c-0704a584918f
+            instructions: null
+            label: null
             required: true
-            sortOrder: 1
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
   0b3ac2de-d0c7-49a5-af9c-0704a584918f:
-    contentColumnType: integer
+    contentColumnType: string
     fieldGroup: null
     handle: freeform
     instructions: ''
     name: Freeform
     searchable: false
+    settings:
+      errorMessage: 'Unable to find component class ''Solspace\Freeform\FieldTypes\FormFieldType''.'
+      expectedType: Solspace\Freeform\FieldTypes\FormFieldType
+      settings: null
     translationKeyFormat: null
     translationMethod: none
-    type: Solspace\Freeform\FieldTypes\FormFieldType
+    type: craft\fields\MissingField
 handle: freeform
 name: Freeform
 sortOrder: 14

@@ -3,22 +3,52 @@ fieldLayouts:
   37e695da-df19-4255-85fe-6b83ec641b29:
     tabs:
       -
-        fields:
-          51fb96cf-4339-4982-8328-b94b7530848e:
-            required: false
-            sortOrder: 5
-          6475d0dc-d36f-464b-886b-0e49a2440722:
-            required: false
-            sortOrder: 3
-          96e667df-51a4-4667-84b3-43e52090f6e6:
+        elements:
+          -
+            fieldUid: 96e667df-51a4-4667-84b3-43e52090f6e6
+            instructions: null
+            label: null
             required: true
-            sortOrder: 1
-          df558051-c14a-48af-b089-c5abc1bf066b:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f4b93567-1a28-444d-8e1e-cc42606a33e4
+            instructions: null
+            label: null
             required: false
-            sortOrder: 4
-          f4b93567-1a28-444d-8e1e-cc42606a33e4:
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6475d0dc-d36f-464b-886b-0e49a2440722
+            instructions: null
+            label: null
             required: false
-            sortOrder: 2
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: df558051-c14a-48af-b089-c5abc1bf066b
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 51fb96cf-4339-4982-8328-b94b7530848e
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -133,7 +163,7 @@ fields:
     name: Image
     searchable: true
     settings:
-      allowSelfRelations: ''
+      allowSelfRelations: false
       allowedKinds:
         - image
       defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -142,6 +172,7 @@ fields:
       localizeRelations: false
       restrictFiles: '1'
       selectionLabel: ''
+      showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: true
       singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
@@ -150,7 +181,7 @@ fields:
       sources: '*'
       targetSiteId: null
       useSingleFolder: true
-      validateRelatedElements: ''
+      validateRelatedElements: false
       viewMode: large
     translationKeyFormat: null
     translationMethod: site
@@ -198,7 +229,9 @@ fields:
     name: Caption
     searchable: true
     settings:
-      default: ''
+      default: false
+      offLabel: null
+      onLabel: null
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
