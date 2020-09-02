@@ -5,6 +5,7 @@
       this.app = app;
       this.toolbar = app.toolbar;
       this.selection = app.selection;
+      this.headings = ['h1','h2','h3','h4','h5','h6']
 
       this.styles = {
         marked: {
@@ -148,58 +149,23 @@
     },
 
     toogleHeadingsh2: function() {
-      this.toggleHeadingStyles('c-headline--h2', [
-        'h1',
-        'h2',
-        'h3',
-        'h4',
-        'h5',
-        'h5',
-      ]);
+      this.toggleHeadingStyles('c-headline--h2', this.headings);
     },
 
     toogleHeadingsh3: function() {
-      this.toggleHeadingStyles('c-headline--h3', [
-        'h1',
-        'h2',
-        'h3',
-        'h4',
-        'h5',
-        'h5',
-      ]);
+      this.toggleHeadingStyles('c-headline--h3', this.headings);
     },
 
     toogleHeadingsh4: function() {
-      this.toggleHeadingStyles('c-headline--h4', [
-        'h1',
-        'h2',
-        'h3',
-        'h4',
-        'h5',
-        'h5',
-      ]);
+      this.toggleHeadingStyles('c-headline--h4', this.headings);
     },
 
     toogleHeadingsh5: function() {
-      this.toggleHeadingStyles('c-headline--h5', [
-        'h1',
-        'h2',
-        'h3',
-        'h4',
-        'h5',
-        'h5',
-      ]);
+      this.toggleHeadingStyles('c-headline--h5', this.headings);
     },
 
     toogleHeadingsh6: function() {
-      this.toggleHeadingStyles('c-headline--h6', [
-        'h1',
-        'h2',
-        'h3',
-        'h4',
-        'h5',
-        'h5',
-      ]);
+      this.toggleHeadingStyles('c-headline--h6', this.headings);
     },
 
     // Heading Styles
