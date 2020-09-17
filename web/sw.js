@@ -17,7 +17,7 @@ importScripts(
 
 importScripts(
   '/dist/js/workbox-catch-handler.js',
-  '/dist/js/precache-manifest.dc4654f5682caf658dbbd75a8351d52d.js',
+  '/dist/js/precache-manifest.91ce5b182092d0b3c8fd460ba3f731d3.js',
 );
 
 self.addEventListener('message', event => {
@@ -31,7 +31,16 @@ self.addEventListener('message', event => {
  * requests for URLs in the manifest.
  * See https://goo.gl/S9QRab
  */
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
+self.__precacheManifest = [
+  {
+    url: 'offline.html',
+    revision: 'd41d8cd98f00b204e9800998ecf8427e',
+  },
+  {
+    url: 'offline.svg',
+    revision: 'd41d8cd98f00b204e9800998ecf8427e',
+  },
+].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerRoute(
