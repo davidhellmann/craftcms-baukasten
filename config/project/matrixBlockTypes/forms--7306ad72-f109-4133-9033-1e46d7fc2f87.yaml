@@ -19,17 +19,24 @@ fields:
   0b3ac2de-d0c7-49a5-af9c-0704a584918f:
     contentColumnType: string
     fieldGroup: null
-    handle: freeform
+    handle: forms
     instructions: ''
-    name: Freeform
+    name: Forms
     searchable: false
     settings:
-      errorMessage: 'Unable to find component class ''Solspace\Freeform\FieldTypes\FormFieldType''.'
-      expectedType: Solspace\Freeform\FieldTypes\FormFieldType
-      settings: null
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: true
+      viewMode: null
     translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\MissingField
-handle: freeform
-name: Freeform
+    translationMethod: site
+    type: verbb\formie\fields\Forms
+handle: forms
+name: Forms
 sortOrder: 14
