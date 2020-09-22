@@ -2,7 +2,8 @@
  * Image Slider
  */
 
-import Swiper from 'swiper/js/swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
+Swiper.use([Navigation, Pagination]);
 
 const imageGallery = {
   cfg: {
