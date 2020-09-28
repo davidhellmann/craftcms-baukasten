@@ -1,6 +1,6 @@
 {#
-  Page Builder
-  ============
+Page Builder
+===============
 #}
 
 {# Set Defaults #}
@@ -8,7 +8,7 @@
   cn: 'o-pageBuilder',
   modifiers: [],
   customClasses: [],
-  blocks: null
+  object: entry ??? null,
 } %}
 
 {# Merge Default with Options #}
@@ -18,21 +18,33 @@
 {% import '_macros/_macro-settings.twig' as module %}
 
 {% if props.blocks %}
-  <div {{ module.settings(props) }}>
-    {% if props.blocks|length %}
-      {% for content in props.blocks %}
-        {% set createSection = false %}
-        {% if loop.first and content.type != 'cbSection' %}
-          {% set createSection = true %}
-        {% endif %}
+<div {{ module.settings(props) }}>
+  {% if props.blocks|length %}
+    {% for content in props.blocks %}
+      {% if loop.first and content.type.handle != 'cbSection' %}
+        {% include '_builders/_includes/_cbCbSection.twig' with {
+          data: content,
+          builder: 'pageBuilder',
+          closeCurrentSection: 0
+        } only %}
 
         {% include '_builders/_blocks.twig' with {
           data: content,
-          createSection: createSection,
-          builder: 'pageBuilder'
+          builder: 'pageBuilder',
+          closeCurrentSection: 0
         } only %}
-      {% endfor %}
-      <!-- end: o-section -->
-    {% endif %}
+      {% else %}
+        {% include '_builders/_blocks.twig' with {
+          data: content,
+          builder: 'pageBuilder',
+          closeCurrentSection: loop.first ? 0 : 1,
+        } only %}
+      {% endif %}
+    {% endfor %}
+
+    {# Close Last Section #}
+    </div>
+    </section>
+  {% endif %}
   </div>
 {% endif %}

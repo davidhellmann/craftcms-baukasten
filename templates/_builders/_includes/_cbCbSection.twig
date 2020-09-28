@@ -1,0 +1,24 @@
+{% set containerWidth = 'max' %}
+{% set stackClass = 'u-stack-3' %}
+{% set backgroundColor = '' %}
+
+{% if data.containerWidth ??? null %}
+  {% set containerWidth = data.containerWidth %}
+{% endif %}
+
+{% if data.blockMargin ??? null %}
+  {% set stackClass = data.blockMargin %}
+{% endif %}
+
+{% if data.backgroundColor ??? null %}
+  {% set backgroundColor = data.backgroundColor %}
+{% endif %}
+
+{% if closeCurrentSection %}
+  </div>
+  </section>
+{% endif %}
+
+<section class="l-section  l-section--{{ builder }}  {{ backgroundColor ? 'l-section--' ~ backgroundColor : '' }}">
+  <div class="l-container  l-container--{{ containerWidth }}  {{ stackClass }}">
+

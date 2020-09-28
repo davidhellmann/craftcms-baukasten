@@ -1,17 +1,5 @@
-{# Content Builder Modules #}
-{# Loop over all block and choose the right one #}
-{# data has all the block data included #}
-
-{% if createSection %}
-  {% include ('_builders/_includes/_cbSection.twig') with {
-    data: data,
-    builder: builder
-  } only %}
-{% else %}
-  {% include ('_builders/_includes/_cb' ~ data.type | pascal ~ '.twig') with {
-    data: data,
-    builder: builder
-  } only %}
-{% endif %}
-
-</section>
+{% include ('_builders/_includes/_cb' ~ data.type.handle | pascal ~ '.twig') with {
+  data: data,
+  builder: builder,
+  closeCurrentSection: closeCurrentSection
+} only %}

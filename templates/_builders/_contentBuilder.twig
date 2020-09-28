@@ -1,6 +1,6 @@
 {#
-  Content Builder
-  ===============
+Content Builder
+===============
 #}
 
 {# Set Defaults #}
@@ -8,7 +8,7 @@
   cn: 'o-contentBuilder',
   modifiers: [],
   customClasses: [],
-  blocks: null
+  object: entry ??? null,
 } %}
 
 {# Merge Default with Options #}
@@ -17,22 +17,34 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{% if props.object %}
-  <div {{ module.settings(props) }}>
-    {% if props.blocks|length %}
-      {% for content in props.blocks %}
-        {% set createSection = false %}
-        {% if loop.first and content.type != 'cbSection' %}
-          {% set createSection = true %}
-        {% endif %}
+{% if props.blocks %}
+<div {{ module.settings(props) }}>
+  {% if props.blocks|length %}
+    {% for content in props.blocks %}
+      {% if loop.first and content.type.handle != 'cbSection' %}
+        {% include '_builders/_includes/_cbCbSection.twig' with {
+          data: content,
+          builder: 'contentBuilder',
+          closeCurrentSection: 0
+        } only %}
 
         {% include '_builders/_blocks.twig' with {
           data: content,
-          createSection: createSection,
-          builder: 'contentBuilder'
+          builder: 'contentBuilder',
+          closeCurrentSection: 0
         } only %}
-      {% endfor %}
-      <!-- end: o-section -->
-    {% endif %}
+      {% else %}
+        {% include '_builders/_blocks.twig' with {
+          data: content,
+          builder: 'contentBuilder',
+          closeCurrentSection: loop.first ? 0 : 1,
+        } only %}
+      {% endif %}
+    {% endfor %}
+
+    {# Close Last Section #}
+    </div>
+    </section>
+  {% endif %}
   </div>
 {% endif %}
