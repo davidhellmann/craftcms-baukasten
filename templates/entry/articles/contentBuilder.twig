@@ -16,7 +16,7 @@
   {# Content Builder #}
   {% include '_builders/_contentBuilder.twig' with {
     props: {
-      object: entry
+      blocks: entry.contentBuilder ??? null
     }
   } only %}
 {% endblock %}

@@ -16,7 +16,7 @@
   {# Page Builder #}
   {% include '_builders/_pageBuilder.twig' with {
     props: {
-      object: entry
+      blocks: entry.pageBuilder ??? null
     }
   } only %}
 {% endblock %}

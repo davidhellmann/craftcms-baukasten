@@ -15,7 +15,7 @@
     {% if bytes < kilobyte %}
       {{ bytes ~ ' b' }}
     {% elseif bytes < megabyte %}
-      {{ (bytes / kilobyte)|number_format(2, '.') ~ ' kb' }}
+      {{ (bytes / kilobyte)|number_format(0, '.') ~ ' kb' }}
     {% elseif bytes < gigabyte %}
       {{ (bytes / megabyte)|number_format(2, '.') ~ ' mb' }}
     {% elseif bytes < terabyte %}

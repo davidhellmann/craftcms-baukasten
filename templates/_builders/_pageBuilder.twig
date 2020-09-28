@@ -8,7 +8,7 @@
   cn: 'o-pageBuilder',
   modifiers: [],
   customClasses: [],
-  object: entry ??? null,
+  blocks: null
 } %}
 
 {# Merge Default with Options #}
@@ -17,13 +17,10 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-{% if props.object %}
-
+{% if props.blocks %}
   <div {{ module.settings(props) }}>
-    {% if props.object.contentBuilder|length %}
-      {% set matrixfield = props.object.contentBuilder.all() %}
-
-      {% for content in matrixfield %}
+    {% if props.blocks|length %}
+      {% for content in props.blocks %}
         {% set createSection = false %}
         {% if loop.first and content.type != 'cbSection' %}
           {% set createSection = true %}
