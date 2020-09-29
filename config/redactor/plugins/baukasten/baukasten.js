@@ -137,35 +137,35 @@
     },
 
     togglePrimary: function() {
-      this.toggleLinkStyles('c-link--primary', 'a');
+      this.toggleLinkStyles('c-link  c-link--primary', 'a');
     },
 
     toggleSecondary: function() {
-      this.toggleLinkStyles('c-link--secondary', 'a');
+      this.toggleLinkStyles('c-link  c-link--secondary', 'a');
     },
 
     toggleOutlined: function() {
-      this.toggleLinkStyles('c-link--outlined', 'a');
+      this.toggleLinkStyles('c-link  c-link--outlined', 'a');
     },
 
     toogleHeadingsh2: function() {
-      this.toggleHeadingStyles('c-headline--h2', this.headings);
+      this.toggleHeadingStyles('c-headline  c-headline--h2', this.headings);
     },
 
     toogleHeadingsh3: function() {
-      this.toggleHeadingStyles('c-headline--h3', this.headings);
+      this.toggleHeadingStyles('c-headline  c-headline--h3', this.headings);
     },
 
     toogleHeadingsh4: function() {
-      this.toggleHeadingStyles('c-headline--h4', this.headings);
+      this.toggleHeadingStyles('c-headline  c-headline--h4', this.headings);
     },
 
     toogleHeadingsh5: function() {
-      this.toggleHeadingStyles('c-headline--h5', this.headings);
+      this.toggleHeadingStyles('c-headline  c-headline--h5', this.headings);
     },
 
     toogleHeadingsh6: function() {
-      this.toggleHeadingStyles('c-headline--h6', this.headings);
+      this.toggleHeadingStyles('c-headline  c-headline--h6', this.headings);
     },
 
     // Heading Styles

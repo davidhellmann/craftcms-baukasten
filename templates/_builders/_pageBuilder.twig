@@ -5,7 +5,7 @@ Page Builder
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'o-pageBuilder',
+  cn: 'c-pageBuilder',
   modifiers: [],
   customClasses: [],
   object: entry ??? null,
@@ -21,19 +21,26 @@ Page Builder
 <div {{ module.settings(props) }}>
   {% if props.blocks|length %}
     {% for content in props.blocks %}
+
+      {# Create Section if first block is not a section #}
       {% if loop.first and content.type.handle != 'cbSection' %}
+
+        {# Create Section #}
         {% include '_builders/_includes/_cbCbSection.twig' with {
           data: content,
           builder: 'pageBuilder',
           closeCurrentSection: 0
         } only %}
 
+        {# Create First Block #}
         {% include '_builders/_blocks.twig' with {
           data: content,
           builder: 'pageBuilder',
           closeCurrentSection: 0
         } only %}
+
       {% else %}
+        {# Create block elements and close section if it's loop.first #}
         {% include '_builders/_blocks.twig' with {
           data: content,
           builder: 'pageBuilder',
@@ -41,7 +48,6 @@ Page Builder
         } only %}
       {% endif %}
     {% endfor %}
-
     {# Close Last Section #}
     </div>
     </section>

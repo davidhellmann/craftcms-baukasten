@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97a5242d4972f8ec7cb51134bce2961d",
+    "content-hash": "dbeacb3db1205829e00e63b4782fbcb0",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -68,6 +68,59 @@
                 "sdk"
             ],
             "time": "2020-09-21T18:12:58+00:00"
+        },
+        {
+            "name": "barrelstrength/sprout-encode-email",
+            "version": "2.0.7",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barrelstrength/craft-sprout-encode-email/zipball/f2a962af40644525b7516626cf0fd34e7a66abbc",
+                "reference": "f2a962af40644525b7516626cf0fd34e7a66abbc",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Sprout Encode Email",
+                "handle": "sprout-encode-email",
+                "developer": "Barrel Strength",
+                "developerUrl": "https://barrelstrengthdesign.com",
+                "documentationUrl": "https://sprout.barrelstrengthdesign.com/craft-plugins/encode-email",
+                "changelogUrl": "https://raw.githubusercontent.com/barrelstrength/sprout-encode-email/master/CHANGELOG.md",
+                "downloadUrl": "https://github.com/barrelstrength/sprout-encode-email/archive/master.zip",
+                "class": "barrelstrength\\sproutencodeemail\\SproutEncodeEmail"
+            },
+            "autoload": {
+                "psr-4": {
+                    "barrelstrength\\sproutencodeemail\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barrel Strength",
+                    "homepage": "https://www.barrelstrengthdesign.com/"
+                }
+            ],
+            "description": "Encode the email addresses in your templates so they can't be harvested by evil spam bots.",
+            "keywords": [
+                "craftcms",
+                "encode email",
+                "twig",
+                "twig extension"
+            ],
+            "support": {
+                "email": "support@barrelstrengthdesign.com",
+                "issues": "https://github.com/barrelstrength/sprout-encode-email/issues?state=open",
+                "source": "https://github.com/barrelstrength/sprout-encode-email",
+                "docs": "https://sprout.barrelstrengthdesign.com/craft-plugins/encode-email/docs",
+                "rss": "https://github.com/barrelstrength/sprout-encode-email/commits/v2.atom"
+            },
+            "time": "2019-04-30T04:15:42+00:00"
         },
         {
             "name": "cakephp/core",
@@ -2842,11 +2895,11 @@
         },
         {
             "name": "league/oauth1-client",
-            "version": "v1.8.1",
+            "version": "v1.8.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth1-client/zipball/3a68155c3f27a91f4b66a2dc03996cd6f3281c9f",
-                "reference": "3a68155c3f27a91f4b66a2dc03996cd6f3281c9f",
+                "url": "https://api.github.com/repos/thephpleague/oauth1-client/zipball/159c3d2bf27568f9af87d6c3f4bb616a251eb12b",
+                "reference": "159c3d2bf27568f9af87d6c3f4bb616a251eb12b",
                 "shasum": ""
             },
             "require": {
@@ -2896,7 +2949,7 @@
                 "tumblr",
                 "twitter"
             ],
-            "time": "2020-09-04T11:07:03+00:00"
+            "time": "2020-09-28T09:39:08+00:00"
         },
         {
             "name": "league/oauth2-client",
@@ -3836,11 +3889,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.3.18",
+            "version": "3.3.20",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/2c32a61643c406577a80982c2b9d6d1f975dfd7d",
-                "reference": "2c32a61643c406577a80982c2b9d6d1f975dfd7d",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/f04a14e040f6e3d7a57065be9aca8624e163c25b",
+                "reference": "f04a14e040f6e3d7a57065be9aca8624e163c25b",
                 "shasum": ""
             },
             "require": {
@@ -3904,7 +3957,7 @@
                 "docs": "https://nystudio107.com/plugins/seomatic/documentation",
                 "issues": "https://nystudio107.com/plugins/seomatic/support"
             },
-            "time": "2020-09-01T03:03:28+00:00"
+            "time": "2020-09-29T15:56:10+00:00"
         },
         {
             "name": "nystudio107/craft-templatecomments",
@@ -7700,11 +7753,11 @@
         },
         {
             "name": "verbb/formie",
-            "version": "1.2.17",
+            "version": "1.2.19",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/formie/zipball/ad91ab30d929d213095f8a5282a26d9ae9a48720",
-                "reference": "ad91ab30d929d213095f8a5282a26d9ae9a48720",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/ca5c4e36471af1bf25f304f488c02c121641c2ba",
+                "reference": "ca5c4e36471af1bf25f304f488c02c121641c2ba",
                 "shasum": ""
             },
             "require": {
@@ -7758,15 +7811,15 @@
                 "docs": "https://github.com/verbb/formie",
                 "rss": "https://github.com/verbb/formie/commits/v2.atom"
             },
-            "time": "2020-09-23T09:56:15+00:00"
+            "time": "2020-09-26T07:53:56+00:00"
         },
         {
             "name": "verbb/super-table",
-            "version": "2.6.2",
+            "version": "2.6.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/34a3c1a79c2956fc0c83c349fa2b303b4d9cbced",
-                "reference": "34a3c1a79c2956fc0c83c349fa2b303b4d9cbced",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/d1e7b06082aebb67750e0793eaa7f0e5a868107e",
+                "reference": "d1e7b06082aebb67750e0793eaa7f0e5a868107e",
                 "shasum": ""
             },
             "require": {
@@ -7811,7 +7864,7 @@
                 "docs": "https://github.com/verbb/super-table",
                 "rss": "https://github.com/verbb/super-table/commits/v2.atom"
             },
-            "time": "2020-08-21T00:48:21+00:00"
+            "time": "2020-09-29T00:19:36+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -8158,11 +8211,11 @@
         },
         {
             "name": "voku/stringy",
-            "version": "6.3.1",
+            "version": "6.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/Stringy/zipball/68429ad7626e94e2ec3a2a9f0b530e96ebb4a4db",
-                "reference": "68429ad7626e94e2ec3a2a9f0b530e96ebb4a4db",
+                "url": "https://api.github.com/repos/voku/Stringy/zipball/b534a95b58b020faf3e3b779abc0bc277b5fb83c",
+                "reference": "b534a95b58b020faf3e3b779abc0bc277b5fb83c",
                 "shasum": ""
             },
             "require": {
@@ -8179,9 +8232,6 @@
             "replace": {
                 "danielstjules/stringy": "~3.0"
             },
-            "require-dev": {
-                "phpunit/phpunit": "~6.0 || ~7.0"
-            },
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -8191,7 +8241,6 @@
                     "src/Create.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -8222,7 +8271,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2020-05-24T00:26:26+00:00"
+            "time": "2020-09-27T21:32:36+00:00"
         },
         {
             "name": "voku/urlify",

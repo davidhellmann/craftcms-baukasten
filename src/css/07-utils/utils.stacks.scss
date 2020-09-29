@@ -4,24 +4,12 @@
  |--------------------------------------------------------------------------
  */
 
-/* stylelint-disable */
-$bk-stacks: (
-    (0\.5),
-    (1),
-    (1\.5),
-    (2),
-    (2\.5),
-    (3),
-    (3\.5),
-    (4),
-    (4\.5),
-    (5),
-) !default;
-/* stylelint-enable */
+@for $i from 0 through 5 {
+  .u-stack-#{$i} > * + * {
+    margin-top: #{$i}rem;
+  }
 
-// Ratio variants
-@each $stack in $bk-stacks {
-  .u-stack-#{$stack} > * + * {
-    margin-top: #{$stack}rem;
+  .u-stack-#{$i}\.5 > * + * {
+    margin-top: #{$i + 0.5}rem;
   }
 }
