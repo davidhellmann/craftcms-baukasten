@@ -7,6 +7,7 @@
 
 {# Any <link> tags that should be included in the <head> #}
 {% block headLinks %}
+  {% include '_boilerplate/_partials/preload-fonts.twig' %}
 {% endblock headLinks %}
 
 {# Any CSS that should be included before </head> #}

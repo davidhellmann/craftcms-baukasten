@@ -139,3 +139,8 @@ input:focus {
 table {
   width: 100%;
 }
+
+/* Hide Lazyload Content if JS disabled */
+.no-js .lazyload {
+  display: none;
+}
