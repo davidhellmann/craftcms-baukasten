@@ -43,6 +43,7 @@ html {
 body {
   min-height: 100vh;
   width: 100%;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   background-color: var(--c-white);
@@ -50,7 +51,7 @@ body {
   @include ms(0);
   line-height: var(--lh-base);
   @include wf('body');
-  font-weight: 300;
+  font-weight: 400;
 
   &.no-hover > * {
     pointer-events: none;
@@ -98,10 +99,16 @@ img[data-sizes='auto'] {
   opacity: 1;
 }
 
+:focus:not(:focus-visible) {
+  outline: 0;
+  box-shadow: none;
+}
+
 .user-is-tabbing {
-  *:focus {
-    outline: 2px solid var(--c-gray-500) !important;
-    outline: 5px auto -webkit-focus-ring-color !important;
+  /* Show focus styles on keyboard focus. */
+  :focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 3px #dc143f;
   }
 }
 

@@ -23,15 +23,15 @@
 {% if props.snippet %}
   <div {{ module.settings(props) }} data-status="{{ props.open ? 'open' : 'closed' }}">
     <div class="{{ props.cn ~ '__wrapper' }}">
-      {% apply spaceless %}
         <pre class="line-numbers  language-{{ props.language }}  {{ props.cn ~ '__codeWrapper' }}">
           <code class="{{ props.cn ~ '__code' }}">{{- props.snippet | e -}}</code>
         </pre>
-      {% endapply %}
     </div>
 
     <div class="{{ props.cn ~ '__buttons' }}">
-      <span class="{{ props.cn ~ '__button' }}  {{ props.cn ~ '__button--copy' }}  js-codeCopy c-tooltip c-tooltip--no-hover c-tooltip--n" aria-label="{{ props.textCopied }}">
+      <span
+        class="{{ props.cn ~ '__button' }}  {{ props.cn ~ '__button--copy' }}  js-codeCopy c-tooltip c-tooltip--no-hover c-tooltip--n"
+        aria-label="{{ props.textCopied }}">
         {{ props.textCopy }}
       </span>
 

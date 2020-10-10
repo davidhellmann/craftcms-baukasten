@@ -1,22 +1,20 @@
 {#
-  Set Active Class
-  ------------------------------------------------------------
+Set Active Class
+------------------------------------------------------------
 
-  {% import '_macros/_macro-isActive.twig' as macroIsActive  %}
-  {{ macroIsActive.isActive('news', -1, 'cn') }}
+{%- import '_macros/_macro-isActive.twig' as macroIsActive  -%}
+{{- macroIsActive.isActive('news', -1, 'cn') -}}
 #}
 
-{% macro isActive(segments, position, prefix, cn) %}
-  {% apply spaceless %}
-    {% set segments = segments | default(null) %}
-    {% set position = position | default(-1) %}
-    {% set prefix = prefix | default(null) %}
-    {% set cn = cn | default('is-active') %}
+{%- macro isActive(segments, position, prefix, cn) -%}
+  {%- set segments = segments | default(null) -%}
+  {%- set position = position | default(-1) -%}
+  {%- set prefix = prefix | default(null) -%}
+  {%- set cn = cn | default('is-active') -%}
 
-    {% if segments is iterable and craft.app.request.getSegment(position) in segments %}
-      {{ prefix ? prefix ~ cn : cn }}
-    {% elseif craft.app.request.getSegment(position) == segments %}
-      {{ prefix ? prefix ~ cn : cn }}
-    {% endif %}
-  {% endapply %}
-{% endmacro %}
+  {%- if segments is iterable and craft.app.request.getSegment(position) in segments -%}
+    {{- prefix ? prefix ~ cn : cn -}}
+  {%- elseif craft.app.request.getSegment(position) == segments -%}
+    {{- prefix ? prefix ~ cn : cn -}}
+  {%- endif -%}
+{%- endmacro -%}
