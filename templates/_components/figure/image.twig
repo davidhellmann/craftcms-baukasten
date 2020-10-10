@@ -32,7 +32,7 @@
 {% if props.image %}
   <figure {{ module.settings(props) }}>
     {# image #}
-    {% include '_components/image/picture.twig' with {
+    {% include '_components/image/image.twig' with {
       props: {
         image: props.image ??? null,
         transform: props.transform ??? null
