@@ -45,7 +45,7 @@ Image Helper
       {% set isTransformable = _self.isTransformable(image) and not simpleMarkup %}
       {%- set imageUrl = image.getUrl() -%}
       {%- if isTransformable -%}
-        {%- set srcset = _self.getSrcset(image, transform) -%}
+        {%- set srcset = _self.getSrcset(image, transform, 'webp') -%}
       {%- endif -%}
 
       <img class="{{ lazy ? 'lazyload' : '' }}"
