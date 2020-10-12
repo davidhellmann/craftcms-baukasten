@@ -26,7 +26,8 @@ return [
             'mozjpeg',
             'optipng',
             'gifsicle',
-        ]
+        ],
+        'fallbackImage' => getenv('FALLBACK_IMAGE') ?: null,
     ],
     // Live Env
     'live' => [
@@ -41,7 +42,6 @@ return [
     'local' => [
         'cwebpPath' => '/usr/local/bin/cwebp', // Webp disabled
         'optimizers' => null,
-        'fallbackImage' => getenv('FALLBACK_IMAGE') ?: null,
         'mockImage' => getenv('MOCK_IMAGE') ?: null,
     ],
 ];

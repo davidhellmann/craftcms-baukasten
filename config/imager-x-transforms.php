@@ -1,63 +1,71 @@
 <?php
 
+$defaultTransforms = [
+    ['width' => 200],
+    ['width' => 400],
+    ['width' => 800],
+    ['width' => 1600],
+];
+
+$thumbnailTransforms = [
+    ['width' => 100],
+    ['width' => 200],
+    ['width' => 400],
+];
+
 return [
     'auto' => [
-        'transforms' => [
-            ['width' => 200],
-            ['width' => 400],
-            ['width' => 800],
-            ['width' => 1600],
+        'transforms' => $defaultTransforms,
+    ],
+    'autoWebp' => [
+        'transforms' => $defaultTransforms,
+        'defaults' => [
+            'format' => 'webp'
         ],
     ],
     'square' => [
-        'transforms' => [
-            ['width' => 200],
-            ['width' => 400],
-            ['width' => 800],
-            ['width' => 1600],
-        ],
-        'defaults' => [
-            'ratio' => 1/1,
-        ],
-    ],
-    'landscape' => [
-        'transforms' => [
-            ['width' => 200],
-            ['width' => 400],
-            ['width' => 800],
-            ['width' => 1600],
-        ],
-        'defaults' => [
-            'ratio' => 3/2,
-        ],
-    ],
-    'portrait' => [
-        'transforms' => [
-            ['width' => 200],
-            ['width' => 400],
-            ['width' => 800],
-            ['width' => 1600],
-        ],
-        'defaults' => [
-            'ratio' => 2/3,
-        ],
-    ],
-    'thumbnail' => [
-        'transforms' => [
-            ['width' => 200],
-            ['width' => 400],
-        ],
+        'transforms' => $defaultTransforms,
         'defaults' => [
             'ratio' => 1,
         ],
     ],
-    'cover' => [
-        'transforms' => [
-            ['width' => 200],
-            ['width' => 400],
-            ['width' => 800],
-            ['width' => 1600],
-            ['width' => 2400],
+    'squareWebp' => [
+        'transforms' => $defaultTransforms,
+        'defaults' => [
+            'ratio' => 1,
+            'format' => 'webp'
+        ],
+    ],
+    'landscape' => [
+        'transforms' => $defaultTransforms,
+        'defaults' => [
+            'ratio' => 3 / 2,
+        ],
+    ],
+    'landscapeWebp' => [
+        'transforms' => $defaultTransforms,
+        'defaults' => [
+            'ratio' => 3 / 2,
+            'format' => 'webp'
+        ],
+    ],
+    'portrait' => [
+        'transforms' => $defaultTransforms,
+        'defaults' => [
+            'ratio' => 2 / 3,
+        ],
+    ],
+    'portraitWebp' => [
+        'transforms' => $defaultTransforms,
+        'defaults' => [
+            'ratio' => 2 / 3,
+            'format' => 'webp'
+        ],
+    ],
+    'thumbnail' => [
+        'transforms' => $thumbnailTransforms,
+        'defaults' => [
+            'ratio' => 1,
         ],
     ],
     'dominantColor' => [

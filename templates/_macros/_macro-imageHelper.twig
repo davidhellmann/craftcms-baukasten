@@ -45,10 +45,11 @@ Image Helper
       {% set isTransformable = _self.isTransformable(image) and not simpleMarkup %}
       {%- set imageUrl = image.getUrl() -%}
       {%- if isTransformable -%}
+        {%- set srcsetLegacy = _self.getSrcset(image, transform) -%}
         {%- set srcset = _self.getSrcset(image, transform, 'webp') -%}
       {%- endif -%}
 
-      <img class="{{ lazy ? 'lazyload' : '' }}"
+      <img data-type="{{ image.extension | lower }}" class="{{ lazy ? 'lazyload' : '' }}"
         {%- if objectFit -%}
           style="object-fit: {{ objectFit }}; object-position: {{ focalpoint | default('50% 50%') }}"
         {%- endif -%}
@@ -78,12 +79,12 @@ Image Helper
 
 
   {# Render SourceElement #}
-  {%- macro renderSourceElement(srcSet, lazy, mediaQuery, type) -%}
+  {%- macro renderSourceElement(srcSet, lazy, mediaQuery, type, extension) -%}
     {%- if srcSet -%}
-        <source {% if lazy %} data-sizes="auto" data-srcset="{{- srcSet -}}"
-                {% else %}sizes="100vw" srcset="{{- srcSet -}}"{% endif %}
-          {% if mediaQuery %}media="{{- mediaQuery -}}"{% endif %}
-          {% if type %}type="{{- type -}}"{% endif %}/>
+      <source data-type="{{ extension | lower }}"  {% if lazy %} data-sizes="auto" data-srcset="{{- srcSet -}}"
+      {% else %}sizes="100vw" srcset="{{- srcSet -}}"{% endif %}
+        {% if mediaQuery %}media="{{- mediaQuery -}}"{% endif %}
+        {% if type %}type="{{- type -}}"{% endif %}/>
     {%- endif -%}
   {%- endmacro -%}
 
@@ -94,14 +95,9 @@ Image Helper
     {% set lazy = lazy | default(true) %}
     {% set transform = transform | default('landscape') %}
 
-    {# Handle WebP Image #}
-    {%- if craft.imager.serverSupportsWebp() and image -%}
-      {{- _self.renderSourceElement(_self.getSrcset(image, transform, 'webp'), lazy, mediaQuery, 'image/webp') -}}
-    {%- endif -%}
-
-    {# Handle normal Image #}
+    {# Handle Image #}
     {%- if image -%}
-      {{- _self.renderSourceElement(_self.getSrcset(image, transform), lazy, mediaQuery) -}}
+      {{- _self.renderSourceElement(_self.getSrcset(image, transform, 'webp'), lazy, mediaQuery, 'image/webp', image.extension) -}}
     {%- endif -%}
   {%- endmacro -%}
 
@@ -110,7 +106,11 @@ Image Helper
   {# Get srcSet #}
   {%- macro getSrcset(image, transform, format) -%}
     {%- if image and _self.isTransformable(image) -%}
-      {{- craft.imager.srcset(craft.imager.transformImage(image, transform | default('landscape'), { format: format | default(null) })) | trim -}}
+      {{- craft.imager.srcset(
+        craft.imager.transformImage(
+          image, transform | default('landscape'), { format: format | default(null) }
+        )
+      ) | trim -}}
     {%- else -%}
       {{- image.url -}}
     {%- endif -%}
@@ -125,7 +125,7 @@ Image Helper
     {%- if craft.app.config.general.custom.dominantColor -%}
       {%- set dominantColor = craft.app.config.general.custom.dominantColor -%}
     {%- endif -%}
-    {% if calcDominantColor and not craft.app.config.general.custom.localDevPerformance and not image.extension | lower == 'png' and _self.isTransformable(image) %}
+    {% if calcDominantColor and not craft.app.config.general.custom.localDevPerformance and image.extension | lower == 'jpg' and _self.isTransformable(image) %}
       {# Create Mini Image for Dominant Color #}
       {%- set image = craft.imager.transformImage(image, 'dominantColor')|first -%}
       {%- set dominantColor = craft.imager.getDominantColor(image) -%}

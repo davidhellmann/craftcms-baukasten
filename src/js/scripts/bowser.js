@@ -43,6 +43,38 @@ const browserDetect = {
     }
   },
 
+  replaceWebPWithFileType() {
+    const images = [...document.querySelectorAll('img, source')];
+
+    if (images) {
+      images.forEach(image => {
+        const imageType = image.getAttribute('data-type');
+        const dataSrcset = image.getAttribute('data-srcset');
+        const srcset = image.getAttribute('srcset');
+        const type = image.getAttribute('type');
+
+        if (type) {
+          image.setAttribute(
+            'type',
+            type.replaceAll('webp', imageType.replaceAll('jpg', 'jpeg')),
+          );
+        }
+        if (dataSrcset) {
+          image.setAttribute(
+            'data-srcset',
+            dataSrcset.replaceAll('.webp', `.${imageType}`),
+          );
+        }
+        if (srcset) {
+          image.setAttribute(
+            'srcset',
+            dataSrcset.replaceAll('.webp', `.${imageType}`),
+          );
+        }
+      });
+    }
+  },
+
   /**
    *
    */
@@ -57,6 +89,9 @@ const browserDetect = {
             `browser-edge-${this.cfg.version}`,
             `device-${this.cfg.platform}`,
           );
+          if (this.cfg.version < 18) {
+            this.replaceWebPWithFileType();
+          }
           break;
 
         case 'Internet Explorer':
@@ -66,6 +101,7 @@ const browserDetect = {
             `device-${this.cfg.platform}`,
           );
           this.useImagesWithoutSrcSet();
+          this.replaceWebPWithFileType();
           break;
 
         case 'Firefox':
@@ -82,6 +118,7 @@ const browserDetect = {
             `browser-safari-${this.cfg.version}`,
             `device-${this.cfg.platform}`,
           );
+          this.replaceWebPWithFileType();
           break;
 
         case 'Chrome':
