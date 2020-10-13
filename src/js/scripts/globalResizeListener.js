@@ -5,18 +5,18 @@ import _throttle from 'lodash/throttle';
 
 const globalResizeListener = {
   cfg: {
-    body: document.body,
+    documentElement: document.documentElement,
     timer: null,
   },
 
   isDoneResizing() {
-    this.cfg.body.classList.remove('is-resizing');
-    this.cfg.body.classList.add('is-resized');
+    this.cfg.documentElement.classList.remove('is-resizing');
+    this.cfg.documentElement.classList.add('is-resized');
   },
 
   isResizing() {
-    this.cfg.body.classList.add('is-resizing');
-    this.cfg.body.classList.remove('is-resized');
+    this.cfg.documentElement.classList.add('is-resizing');
+    this.cfg.documentElement.classList.remove('is-resized');
   },
 
   saveViewPortWidthsToLocalStorage() {

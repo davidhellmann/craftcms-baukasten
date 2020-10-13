@@ -5,10 +5,12 @@
   {% if criticalCss == 'loaded' %}
     {{ craft.twigpack.includeCssModule("styles.css", false) }}
   {% else %}
-    {% do cookies.set('critical-css', 'loaded', now | date_modify('+7 days').timestamp) %}
-    {% block inlineCriticalCss %}
-      {{ craft.twigpack.includeCriticalCssTags() }}
-    {% endblock %}
+    {% do cookies.set('critical-css', 'loaded', now | date_modify("+7 days").timestamp ) %}
+    {% if craft.app.config.general.custom.craftEnv == 'live' %}
+      {% block inlineCriticalCss %}
+        {{ craft.twigpack.includeCriticalCssTags() }}
+      {% endblock %}
+    {% endif %}
     {{ craft.twigpack.includeCssModule("styles.css", true) }}
   {% endif %}
 {% endif %}

@@ -1,0 +1,62 @@
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'c-switcherLanguage',
+  modifiers: [],
+  customClasses: [],
+  data: {},
+} %}
+
+{# Merge Default with Options #}
+{% set props = props is defined ? defaults|merge(props) : defaults %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+<div {{ module.settings(props) }}>
+  {# v2 #}
+  {# http://craftsnippets.com/articles/universal-language-switcher-for-craft-cms #}
+
+  {# logic #}
+  {% set currentElement = craft.app.urlManager.matchedElement %}
+  {% set sites = craft.app.getSites().getGroupById(currentSite.groupId).getSites() %}
+  {% set switcherLinks = [] %}
+
+  {{ d() }}
+
+  {% for site in sites if site.baseUrl is not empty %}
+
+    {% set title = craft.app.i18n.getLocaleById(site.language).displayName %}
+    {% set url = site.getBaseUrl() %}
+    {% if currentElement %}
+      {% set otherLocaleElement = craft.app.getElements().getElementById(currentElement.id, currentElement.className(), site.id) %}
+      {% if otherLocaleElement and otherLocaleElement.enabledForSite %}
+        {% set url = otherLocaleElement.url %}
+      {% endif %}
+    {% endif %}
+
+    {% set switcherLinks = switcherLinks|merge([{
+      url: url,
+      title: title,
+      countryCode: site.language|split('-')|last,
+      current: site.id == currentSite.id ? true : false,
+      language: site.language,
+    }]) %}
+
+  {% endfor %}
+
+  {# outputting html #}
+  {% if switcherLinks|length > 0 %}
+    <nav aria-label="{{'Switch language'|t}}" aria-role="navigation">
+      <ul>
+        {% for switcherLink in switcherLinks %}
+          <li class="{{switcherLink.current ? 'is-active'}}">
+            <a href="{{switcherLink.url}}" hreflang="{{switcherLink.language}}" lang="{{switcherLink.language}}">
+              <span>{{ switcherLink.countryCode }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+</div>
+

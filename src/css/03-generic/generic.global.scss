@@ -38,6 +38,17 @@ html {
   @include media('>=max') {
     font-size: $bk-spacingMax;
   }
+
+  .no-hover > * {
+    pointer-events: none;
+  }
+
+  .is-resizing * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 body {
@@ -53,18 +64,7 @@ body {
   @include wf('body');
   font-weight: 300;
 
-  &.no-hover > * {
-    pointer-events: none;
-  }
-
-  &.is-resizing * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  &.body-blocked {
+  .body-blocked & {
     height: 100vh;
     overflow: hidden;
   }
