@@ -330,10 +330,6 @@ module.exports = [
         path: path.resolve(__dirname, settings.paths.dist.base),
         filename: path.join('./css', '[name].[chunkhash].css'),
       }),
-      new MiniCssExtractPlugin({
-        path: path.resolve(__dirname, settings.paths.dist.base),
-        filename: path.join('./css', '[name].css'),
-      }),
       new webpack.BannerPlugin(configureBanner()),
       new HtmlWebpackPlugin(configureHtml()),
       new WebappWebpackPlugin(configureWebapp()),
