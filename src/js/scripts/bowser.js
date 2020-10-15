@@ -52,23 +52,22 @@ const browserDetect = {
         const dataSrcset = image.getAttribute('data-srcset');
         const srcset = image.getAttribute('srcset');
         const type = image.getAttribute('type');
+        const searchRegExp = new RegExp('\\.webp', 'g');
+        const replaceWith = '-';
 
         if (type) {
-          image.setAttribute(
-            'type',
-            type.replaceAll('webp', imageType.replaceAll('jpg', 'jpeg')),
-          );
+          image.removeAttribute('type');
         }
         if (dataSrcset) {
           image.setAttribute(
             'data-srcset',
-            dataSrcset.replaceAll('.webp', `.${imageType}`),
+            dataSrcset.replace(searchRegExp, `.${imageType}`),
           );
         }
         if (srcset) {
           image.setAttribute(
             'srcset',
-            dataSrcset.replaceAll('.webp', `.${imageType}`),
+            dataSrcset.replace(searchRegExp, `.${imageType}`),
           );
         }
       });
