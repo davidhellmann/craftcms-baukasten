@@ -47,9 +47,13 @@ Image Helper
       {%- if isTransformable -%}
         {%- set srcsetLegacy = _self.getSrcset(image, transform) -%}
         {%- set srcset = _self.getSrcset(image, transform, 'webp') -%}
+        {% set transformedRootImage = craft.imager.transformImage(image, transform)|last %}
       {%- endif -%}
 
-      <img data-type="{{ image.extension | lower }}" class="{{ lazy ? 'lazyload' : '' }}"
+
+
+      <img class="{{ lazy ? 'lazyload' : '' }}"
+           data-type="{{- _self.getSourceFileExtension(image) -}}"
         {%- if objectFit -%}
           style="object-fit: {{ objectFit }}; object-position: {{ focalpoint | default('50% 50%') }}"
         {%- endif -%}
@@ -62,7 +66,7 @@ Image Helper
           sizes="100vw"
         {%- endif -%}
         {%- if craft.app.config.general.custom.ieSupport and isTransformable -%}
-          data-rootimage="{{- craft.imager.transformImage(image, transform)|last.url -}}"
+          data-rootimage="{{- transformedRootImage.url -}}"
         {%- endif -%}
            alt="{{ imageTitle }}"/>
     {%- endif -%}
@@ -79,9 +83,9 @@ Image Helper
 
 
   {# Render SourceElement #}
-  {%- macro renderSourceElement(srcSet, lazy, mediaQuery, type, extension) -%}
+  {%- macro renderSourceElement(srcSet, lazy, mediaQuery, type, image) -%}
     {%- if srcSet -%}
-      <source data-type="{{ extension | lower }}"  {% if lazy %} data-sizes="auto" data-srcset="{{- srcSet -}}"
+      <source data-type="{{- _self.getSourceFileExtension(image) -}}" {% if lazy %} data-sizes="auto" data-srcset="{{- srcSet -}}"
       {% else %}sizes="100vw" srcset="{{- srcSet -}}"{% endif %}
         {% if mediaQuery %}media="{{- mediaQuery -}}"{% endif %}
         {% if type %}type="{{- type -}}"{% endif %}/>
@@ -97,7 +101,19 @@ Image Helper
 
     {# Handle Image #}
     {%- if image -%}
-      {{- _self.renderSourceElement(_self.getSrcset(image, transform, 'webp'), lazy, mediaQuery, 'image/webp', image.extension) -}}
+      {{- _self.renderSourceElement(_self.getSrcset(image, transform, 'webp'), lazy, mediaQuery, 'image/webp', image) -}}
+    {%- endif -%}
+  {%- endmacro -%}
+
+
+
+  {# Get Source File Extension #}
+  {%- macro getSourceFileExtension(image) -%}
+    {%- if image and _self.isTransformable(image) -%}
+      {%- set transformedImage = craft.imager.transformImage(image, 'dominantColor') -%}
+      {{- transformedImage[0].source.extension | lower  -}}
+    {%- else -%}
+      {{- image.extension | lower  -}}
     {%- endif -%}
   {%- endmacro -%}
 

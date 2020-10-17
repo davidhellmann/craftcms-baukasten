@@ -9,41 +9,37 @@
   position: relative;
   @include row();
 
-  &__slider {
-    [swiper-pagination="true"] & {
+  .no-touchevents & {
+    &[swiper-pagination="true"] #{$root}__slider {
       padding-bottom: 40px;
     }
 
-    [swiper-progressbar="true"] & {
+    &[swiper-progressbar="true"] #{$root}__slider {
       padding-bottom: 12px;
     }
+  }
+
+  .has-touchevents & .swiper-wrapper {
+    padding-bottom: 8px;
   }
 
   &__slide.swiper-slide {
     @include col(5, 6);
     @include col-padding();
     height: auto;
-
-    &:last-child {
-      margin-right: 0;
-    }
+    margin: 0;
 
     .is-resizing &,
     .is-resizing & > a {
       transition: none;
     }
 
-    &.swiper-slide-active,
-    &.swiper-slide-active ~ #{$root}__slide {
-      opacity: 1;
-    }
-
     @include media('>=m') {
-      @include col(9, 12);
+      @include col(5, 12);
     }
 
     @include media('>=l') {
-      @include col(18, 24);
+      @include col(7, 24);
     }
   }
 }

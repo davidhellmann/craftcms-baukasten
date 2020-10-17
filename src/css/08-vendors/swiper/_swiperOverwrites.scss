@@ -115,4 +115,19 @@
   pointer-events: all;
   opacity: 0.2;
 }
+
+
+
+// Touch Device Overwrites
+.has-touchevents  {
+  .swiper-wrapper {
+    overflow-x: auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next,
+  .swiper-pagination {
+    display: none;
+  }
+}
 /* stylelint-enable */

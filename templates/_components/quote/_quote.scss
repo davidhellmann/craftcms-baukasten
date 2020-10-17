@@ -9,8 +9,8 @@
   &__blockquote {
     p {
       line-height: var(--lh-base-headings);
-      max-width: 20ch;
-      @include wf('roboto');
+      font-family: var(--ff-mono);
+      max-inline-size: 20ch;
       @include ms(6);
       font-weight: 700;
     }

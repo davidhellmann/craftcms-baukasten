@@ -10,8 +10,11 @@ const imageGallery = {
     slider: '.js-sliderImages',
     sliderOptions: {
       init: false,
-      grabCursor: true,
+      grabCursor: false,
       slidesPerView: 'auto',
+      simulateTouch: false,
+      watchSlidesProgress: true,
+      watchSlidesVisibility: true,
 
       // Buttons
       navigation: {
@@ -32,6 +35,7 @@ const imageGallery = {
     sliders.forEach(slider => {
       const swiperSlider = new Swiper(slider, this.cfg.sliderOptions);
       swiperSlider.init();
+      console.log(swiperSlider.support.touch);
     });
   },
 

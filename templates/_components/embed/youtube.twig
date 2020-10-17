@@ -23,29 +23,12 @@
 {% import '_macros/_macro-settings.twig' as module %}
 {% import '_macros/_macro-cookies.twig' as cookies %}
 
-{# GDPR Ready Youtube Embeds#}
-{% set orejime = cookies.get('orejime') %}
-{% set craftEnv = craft.app.config.env != 'live' ? true : false %}
-{% if orejime.youtube ??? craftEnv ??? null %}
-  {% if props.videoId %}
-    <div {{ module.settings(props) }}>
-      <iframe class="lazyload"
-              data-src="https://www.youtube-nocookie.com/embed/{{ props.videoId }}?rel=0&loop={{ props.loop }}&showinfo={{ props.showinfo }}&autoplay={{ props.autoplay }}"
-              frameborder="0">
-      </iframe>
-
-
-      {# TODO: GDPR Solution #}
-      {#<div class="{{ props.cn ~ '__notAllowed' }}">
-        <span onclick="window.orejime.show()">{{ 'gdrp.label.manageSettings' | t }}</span>
-      </div>
-      {% if not orejime.youtube ??? null %}
-        #}{# cookieClue #}{#
-        {% include '_atoms/cookieClue/_template.twig' with {
-          props: {}
-        } only %}
-      {% endif %}#}
-    </div>
-  {% endif %}
+{% if props.videoId %}
+  <div {{ module.settings(props) }}>
+    <iframe class="lazyload"
+            data-src="https://www.youtube-nocookie.com/embed/{{ props.videoId }}?rel=0&loop={{ props.loop }}&showinfo={{ props.showinfo }}&autoplay={{ props.autoplay }}"
+            frameborder="0">
+    </iframe>
+  </div>
 {% endif %}
 

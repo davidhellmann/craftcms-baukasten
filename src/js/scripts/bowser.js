@@ -53,7 +53,6 @@ const browserDetect = {
         const srcset = image.getAttribute('srcset');
         const type = image.getAttribute('type');
         const searchRegExp = new RegExp('\\.webp', 'g');
-        const replaceWith = '-';
 
         if (type) {
           image.removeAttribute('type');
@@ -62,6 +61,7 @@ const browserDetect = {
           image.setAttribute(
             'data-srcset',
             dataSrcset.replace(searchRegExp, `.${imageType}`),
+            console.log(dataSrcset.replace(searchRegExp, `.${imageType}`)),
           );
         }
         if (srcset) {

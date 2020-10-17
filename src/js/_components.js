@@ -8,7 +8,10 @@ if (document.querySelectorAll('.js-imageGallery').length) {
 }
 
 // sliderImages
-if (document.querySelectorAll('.js-sliderImages').length) {
+if (
+  document.querySelectorAll('.js-sliderImages').length &&
+  document.documentElement.classList.contains('no-touchevents')
+) {
   import(
     /* webpackChunkName: "imageSlider" */ '../../templates/_components/slider/images.js'
   )

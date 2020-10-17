@@ -62,42 +62,6 @@ module.exports = {
       from: './src/js/workbox-catch-handler.js',
       to: 'js/[name].[ext]',
     },
-    // copy orejime js file from node_modules
-    {
-      from: './node_modules/orejime/dist/orejime.js',
-      to: 'js/[name].[ext]',
-      transform(content) {
-        return content;
-      },
-    },
-    // copy orejime scss file from node_modules
-    {
-      from: './src/css/06-components/components.orejime.scss',
-      to: 'css/[name].css',
-      transform(content) {
-        return Postcss([Cssnano])
-          .process(content.toString())
-          .then(result => {
-            return result.css;
-          });
-      },
-    },
-    // copy fontfaceobsever from node modules
-    {
-      from: './node_modules/fontfaceobserver/fontfaceobserver.js',
-      to: 'js/[name].[ext]',
-      transform(content) {
-        return content;
-      },
-    },
-    // copy and minify inlineJs
-    {
-      from: './src/inlineJs/load-fonts.js',
-      to: 'js/[name].[ext]',
-      transform(content) {
-        return Terser.minify(content.toString()).code;
-      },
-    },
     // copy and minify inlineJs
     {
       from: './src/inlineJs/tab-handler.js',
@@ -114,28 +78,16 @@ module.exports = {
         return Terser.minify(content.toString()).code;
       },
     },
-    // copy and minify webfonts css
-    {
-      from: './src/css/03-generic/generic.webfonts.scss',
-      to: 'css/[name].css',
-      transform(content) {
-        return Postcss([Cssnano])
-          .process(content.toString())
-          .then(result => {
-            return result.css;
-          });
-      },
-    },
   ],
   criticalCssConfig: {
     base: './web/dist/criticalcss/',
     suffix: '_critical.min.css',
-    criticalHeight: 1680,
-    criticalWidth: 1200,
+    criticalWidth: 1920,
+    criticalHeight: 1440,
     ampPrefix: 'amp_',
-    ampCriticalHeight: 19200,
     ampCriticalWidth: 600,
-    criticalIgnore: ['@font-face'],
+    ampCriticalHeight: 19200,
+    criticalIgnore: [],
     pages: [
       {
         url: '',

@@ -23,15 +23,5 @@ if (document.querySelectorAll('.lazyload').length) {
     document.addEventListener('DOMContentLoaded', () => {
       LazySizes.init();
     });
-
-    // Remove Dominant Color from Background
-    // document.addEventListener('lazyloaded', e => {
-    //   const target = e.target.parentNode;
-    //   if (target && target.style.backgroundColor) {
-    //     setTimeout(() => {
-    //       target.style.backgroundColor = 'transparent';
-    //     }, 1000);
-    //   }
-    // });
   }
 }
