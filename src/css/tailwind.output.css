@@ -5603,6 +5603,42 @@
   width: 2.5rem
 }
 
+.auto-cols-auto{
+  grid-auto-columns: auto
+}
+
+.auto-cols-min{
+  grid-auto-columns: -webkit-min-content;
+  grid-auto-columns: min-content
+}
+
+.auto-cols-max{
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content
+}
+
+.auto-cols-fr{
+  grid-auto-columns: minmax(0, 1fr)
+}
+
+.auto-rows-auto{
+  grid-auto-rows: auto
+}
+
+.auto-rows-min{
+  grid-auto-rows: -webkit-min-content;
+  grid-auto-rows: min-content
+}
+
+.auto-rows-max{
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content
+}
+
+.auto-rows-fr{
+  grid-auto-rows: minmax(0, 1fr)
+}
+
 .transform{
   --transform-translate-x: 0;
   --transform-translate-y: 0;
@@ -11340,6 +11376,42 @@
     width: 2.5rem
   }
 
+  .min\:auto-cols-auto{
+    grid-auto-columns: auto
+  }
+
+  .min\:auto-cols-min{
+    grid-auto-columns: -webkit-min-content;
+    grid-auto-columns: min-content
+  }
+
+  .min\:auto-cols-max{
+    grid-auto-columns: -webkit-max-content;
+    grid-auto-columns: max-content
+  }
+
+  .min\:auto-cols-fr{
+    grid-auto-columns: minmax(0, 1fr)
+  }
+
+  .min\:auto-rows-auto{
+    grid-auto-rows: auto
+  }
+
+  .min\:auto-rows-min{
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content
+  }
+
+  .min\:auto-rows-max{
+    grid-auto-rows: -webkit-max-content;
+    grid-auto-rows: max-content
+  }
+
+  .min\:auto-rows-fr{
+    grid-auto-rows: minmax(0, 1fr)
+  }
+
   .min\:transform{
     --transform-translate-x: 0;
     --transform-translate-y: 0;
@@ -17002,6 +17074,42 @@
 
   .s\:w-2\.5{
     width: 2.5rem
+  }
+
+  .s\:auto-cols-auto{
+    grid-auto-columns: auto
+  }
+
+  .s\:auto-cols-min{
+    grid-auto-columns: -webkit-min-content;
+    grid-auto-columns: min-content
+  }
+
+  .s\:auto-cols-max{
+    grid-auto-columns: -webkit-max-content;
+    grid-auto-columns: max-content
+  }
+
+  .s\:auto-cols-fr{
+    grid-auto-columns: minmax(0, 1fr)
+  }
+
+  .s\:auto-rows-auto{
+    grid-auto-rows: auto
+  }
+
+  .s\:auto-rows-min{
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content
+  }
+
+  .s\:auto-rows-max{
+    grid-auto-rows: -webkit-max-content;
+    grid-auto-rows: max-content
+  }
+
+  .s\:auto-rows-fr{
+    grid-auto-rows: minmax(0, 1fr)
   }
 
   .s\:transform{
@@ -22668,6 +22776,42 @@
     width: 2.5rem
   }
 
+  .m\:auto-cols-auto{
+    grid-auto-columns: auto
+  }
+
+  .m\:auto-cols-min{
+    grid-auto-columns: -webkit-min-content;
+    grid-auto-columns: min-content
+  }
+
+  .m\:auto-cols-max{
+    grid-auto-columns: -webkit-max-content;
+    grid-auto-columns: max-content
+  }
+
+  .m\:auto-cols-fr{
+    grid-auto-columns: minmax(0, 1fr)
+  }
+
+  .m\:auto-rows-auto{
+    grid-auto-rows: auto
+  }
+
+  .m\:auto-rows-min{
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content
+  }
+
+  .m\:auto-rows-max{
+    grid-auto-rows: -webkit-max-content;
+    grid-auto-rows: max-content
+  }
+
+  .m\:auto-rows-fr{
+    grid-auto-rows: minmax(0, 1fr)
+  }
+
   .m\:transform{
     --transform-translate-x: 0;
     --transform-translate-y: 0;
@@ -28332,6 +28476,42 @@
     width: 2.5rem
   }
 
+  .l\:auto-cols-auto{
+    grid-auto-columns: auto
+  }
+
+  .l\:auto-cols-min{
+    grid-auto-columns: -webkit-min-content;
+    grid-auto-columns: min-content
+  }
+
+  .l\:auto-cols-max{
+    grid-auto-columns: -webkit-max-content;
+    grid-auto-columns: max-content
+  }
+
+  .l\:auto-cols-fr{
+    grid-auto-columns: minmax(0, 1fr)
+  }
+
+  .l\:auto-rows-auto{
+    grid-auto-rows: auto
+  }
+
+  .l\:auto-rows-min{
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content
+  }
+
+  .l\:auto-rows-max{
+    grid-auto-rows: -webkit-max-content;
+    grid-auto-rows: max-content
+  }
+
+  .l\:auto-rows-fr{
+    grid-auto-rows: minmax(0, 1fr)
+  }
+
   .l\:transform{
     --transform-translate-x: 0;
     --transform-translate-y: 0;
@@ -33994,6 +34174,42 @@
 
   .max\:w-2\.5{
     width: 2.5rem
+  }
+
+  .max\:auto-cols-auto{
+    grid-auto-columns: auto
+  }
+
+  .max\:auto-cols-min{
+    grid-auto-columns: -webkit-min-content;
+    grid-auto-columns: min-content
+  }
+
+  .max\:auto-cols-max{
+    grid-auto-columns: -webkit-max-content;
+    grid-auto-columns: max-content
+  }
+
+  .max\:auto-cols-fr{
+    grid-auto-columns: minmax(0, 1fr)
+  }
+
+  .max\:auto-rows-auto{
+    grid-auto-rows: auto
+  }
+
+  .max\:auto-rows-min{
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content
+  }
+
+  .max\:auto-rows-max{
+    grid-auto-rows: -webkit-max-content;
+    grid-auto-rows: max-content
+  }
+
+  .max\:auto-rows-fr{
+    grid-auto-rows: minmax(0, 1fr)
   }
 
   .max\:transform{

@@ -17,7 +17,6 @@
 
 html {
   /* Min Multiplicator */
-  font-size: $bk-spacingMin;
   height: 100%;
   line-height: var(--lh-base);
   text-rendering: optimizeLegibility;
@@ -28,15 +27,6 @@ html {
   -webkit-overflow-scrolling: touch;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Fluid Multiplicator */
-  @include media('>=min') {
-    font-size: calc(#{$bk-spacingMin} + #{strip-unit($bk-spacingMin)} * ((100vw - #{map_get($breakpoints, min)}) / #{strip-unit(map_get($breakpoints, max))}));
-  }
-
-  /* Max Multiplicator */
-  @include media('>=max') {
-    font-size: $bk-spacingMax;
-  }
 
   .no-hover > * {
     pointer-events: none;

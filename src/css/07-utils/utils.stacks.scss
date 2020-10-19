@@ -6,10 +6,10 @@
 
 @for $i from 0 through 5 {
   .u-stack-#{$i} > * + * {
-    margin-top: #{$i}rem;
+    @include s(margin-top, $i);
   }
 
   .u-stack-#{$i}\.5 > * + * {
-    margin-top: #{$i + 0.5}rem;
+    @include s(margin-top, $i + 0.5);
   }
 }

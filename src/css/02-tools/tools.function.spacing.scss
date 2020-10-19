@@ -1,0 +1,48 @@
+/*
+ |--------------------------------------------------------------------------
+ |  Font Size
+ |--------------------------------------------------------------------------
+ */
+
+@import '../01-settings/settings.breakpoints';
+
+/*stylelint-disable*/
+@mixin space($properties: padding, $factor: 1, $important: null) {
+  $multi: 1;
+  @if type-of($factor) == number {
+    @if $factor < 0 {
+      $factor: $factor * -1;
+      $multi: -1;
+    }
+
+    // Set Vars
+    $minValue: (1rem / 2) * $factor;
+    $maxValue: (2rem / 2) * $factor;
+    $min: map-get($breakpoints, min);
+    $max: map-get($breakpoints, max);
+    $slope: ($maxValue - $minValue) / ($max - $min);
+    $yAxisIntersection: -$min * $slope + $minValue;
+
+    @if $important == '!' {
+      $important: !important;
+    } @else {
+      $important: null;
+    }
+
+    @if type-of($properties) == list or type-of($properties) == string {
+      @each $property in $properties {
+        #{$property}: calc(clamp(#{$minValue}, calc(#{$yAxisIntersection} + #{$slope * 100}vw), #{$maxValue}) * #{$multi});
+      }
+    } @else {
+      @error "$properties is not passed in correct. Must be a list!";
+    }
+  } @else {
+    @error "$factor  is not passed in correct. Must be a number!";
+  }
+}
+
+/*stylelint-enable*/
+
+@mixin s($args...) {
+  @include space($args...);
+}

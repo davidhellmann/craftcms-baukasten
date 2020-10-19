@@ -1,0 +1,16 @@
+/*
+ |--------------------------------------------------------------------------
+ |  Font Size
+ |--------------------------------------------------------------------------
+ */
+
+@import 'tools.function.pow';
+
+@mixin fontsize($factor) {
+  font-size: 4;
+}
+
+// Shorthand Version
+@mixin fs($args...) {
+  @include fontsize($args...);
+}
