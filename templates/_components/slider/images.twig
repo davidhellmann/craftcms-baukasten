@@ -32,7 +32,7 @@
         {% for image in props.images %}
           <div class="swiper-slide  {{ props.cn ~ '__slide' }}">
             <div class="{{ props.cn ~ '__inner' }}">
-              {% include '_components/image/picture.twig' with {
+              {% include '_components/image/image.twig' with {
                 props: {
                   image: image ??? null,
                   transform: props.transform ??? null,
