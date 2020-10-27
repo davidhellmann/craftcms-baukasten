@@ -5,170 +5,191 @@ Image Helper
 {% import '_macros/_macro-imageHelper.twig' as image  %}
 #}
 
-{% apply spaceless %}
-  {# Get Image Extension #}
-  {%- macro getImageExtension(image) -%}
-    {%- if image ??? null -%}
-      {%- if image is iterable -%}
-        {{- image.extension | lower -}}
-      {%- else -%}
-        {{- image | split('.') | last | lower -}}
-      {%- endif -%}
+{# Get Image Extension #}
+{%- macro getImageExtension(image) -%}
+  {%- if image ??? null -%}
+    {%- if image is iterable -%}
+      {{- image.extension | lower -}}
+    {%- else -%}
+      {{- image | split('.') | last | lower -}}
     {%- endif -%}
-  {%- endmacro -%}
+  {%- endif -%}
+{%- endmacro -%}
 
 
 
-  {# Get Image Extension #}
-  {%- macro isTransformable(image) -%}
-    {%- set skipTransformsForThisExtensions = ['gif', 'tiff', 'svg'] -%}
-    {%- set extension = _self.getImageExtension(image) -%}
-    {%- if extension not in skipTransformsForThisExtensions -%}
+{# Check if transformable #}
+{%- macro isTransformable(image) -%}
+  {%- if image ??? null -%}
+    {%- set allowedExtensions = ['png', 'jpg', 'webp'] -%}
+    {%- if _self.getImageExtension(image) in allowedExtensions -%}
       {{- true -}}
     {%- else -%}
       {{- false -}}
     {%- endif -%}
-  {%- endmacro -%}
+  {%- endif -%}
+{%- endmacro -%}
 
 
 
-  {# Render Image #}
-  {%- macro renderImage(image, transform, lazy, objectFit = null, calcDominantColor, simpleMarkup) -%}
-    {% set lazy = lazy | default(true) %}
-    {% set calcDominantColor = calcDominantColor | default(false) %}
-    {% set simpleMarkup = simpleMarkup | default(false) %}
-
-    {%- if image ??? null -%}
-      {%- set placeholder = _self.getPlaceHolder(image, transform | default('landscape'), calcDominantColor) -%}
-      {%- set focalpoint = image.getFocalpoint('asCss') -%}
-      {%- set imageTitle = image.title -%}
-      {% set isTransformable = _self.isTransformable(image) and not simpleMarkup %}
+{# Render Image #}
+{%- macro renderImage(image, transform = 'landscape', lazy = true, objectFit = null, calcDominantColor = false, simpleMarkup = false) -%}
+  {# If Image exists render it #}
+  {%- if image ??? null -%}
+    {%- if lazy -%}
+      {# Create Placeholder for Lazy Loading to prevent Layout Shift #}
+      {%- set placeholder = _self.getPlaceHolder(image, transform, calcDominantColor) -%}
+    {%- endif -%}
+    {# Set the focalpoint from the image #}
+    {%- set focalpoint = image.getFocalpoint('asCss') ??? '50% 50%' -%}
+    {# Set image title for alt text #}
+    {%- set imageTitle = image.title -%}
+    {# Set transformable status #}
+    {% set isTransformable = _self.isTransformable(image) and not simpleMarkup %}
+    {%- if isTransformable -%}
+      {# Create non webp image transforms as fallback to can switch the file extensions via JS #}
+      {%- set srcsetLegacy = _self.getSrcset(image, transform) -%}
+      {# Create webp image transforms #}
+      {%- set srcset = _self.getSrcset(image, transform, 'webp') -%}
+      {# Set a root image URL and switch the src for every image when srcset is not supported (IE) #}
+      {% set transformedRootImage = craft.imager.transformImage(image, transform)|last %}
+    {%- endif -%}
+    {%- if not isTransformable -%}
+      {# Set image url #}
       {%- set imageUrl = image.getUrl() -%}
-      {%- if isTransformable -%}
-        {%- set srcsetLegacy = _self.getSrcset(image, transform) -%}
-        {%- set srcset = _self.getSrcset(image, transform, 'webp') -%}
-        {% set transformedRootImage = craft.imager.transformImage(image, transform)|last %}
+    {%- endif -%}
+
+    <img class="{{ lazy ? 'lazyload' : '' }}"
+      {# Get Image Extension from the transformed source #}
+         data-type="{{- _self.getSourceFileExtension(image) -}}" o
+      {%- if objectFit -%}
+        {# Set objectfit properties #}
+        style="object-fit: {{ objectFit }}; object-position: {{ focalpoint }}"
       {%- endif -%}
+      {%- if lazy -%}
+        {# Set placeholder if lazy true #}
+        src="{{- placeholder -}}"
+        {# Set data-srcset / data-src depending if image is transformable #}
+        {%- if isTransformable -%}data-srcset="{{- srcset -}}"{%- else -%}data-src="{{- imageUrl -}}"{%- endif -%}
+        data-sizes="auto"
+      {%- else -%}
+        {# Set srcset / src depending if image is transformable #}
+        {%- if isTransformable -%}srcset="{{- srcset -}}"{%- else -%}src="{{- imageUrl -}}"{%- endif -%}
+        sizes="100vw"
+      {%- endif -%}
+      {%- if craft.app.config.general.custom.ieSupport and isTransformable -%}
+        {# set root image as IE fallback <3 #}
+        data-rootimage="{{- transformedRootImage.url -}}"
+      {%- endif -%}
+      {# Set image title #}
+         alt="{{ imageTitle }}"/>
+  {%- endif -%}
+{%- endmacro -%}
 
 
 
-      <img class="{{ lazy ? 'lazyload' : '' }}"
-           data-type="{{- _self.getSourceFileExtension(image) -}}"
-        {%- if objectFit -%}
-          style="object-fit: {{ objectFit }}; object-position: {{ focalpoint | default('50% 50%') }}"
-        {%- endif -%}
-        {%- if lazy -%}
-          src="{{- placeholder -}}"
-          {%- if isTransformable -%}data-srcset="{{- srcset -}}"{%- else -%}data-src="{{- imageUrl -}}"{%- endif -%}
-          data-sizes="auto"
-        {%- else -%}
-          {%- if isTransformable -%}srcset="{{- srcset -}}"{%- else -%}src="{{- imageUrl -}}"{%- endif -%}
-          sizes="100vw"
-        {%- endif -%}
-        {%- if craft.app.config.general.custom.ieSupport and isTransformable -%}
-          data-rootimage="{{- transformedRootImage.url -}}"
-        {%- endif -%}
-           alt="{{ imageTitle }}"/>
-    {%- endif -%}
-  {%- endmacro -%}
+{# Render NoScript to send the root image to google #}
+{%- macro renderNoScript(image) -%}
+  {%- if image ??? null -%}
+    <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}"/></noscript>
+  {%- endif -%}
+{%- endmacro -%}
+
+
+{# Render SourceElement #}
+{%- macro renderSourceElement(srcSet, lazy = true, mediaQuery = null, type = 'image/webp', image) -%}
+  {%- if srcSet ??? null -%}
+    <source
+      {% if image ??? null %}
+        data-type="{{- _self.getSourceFileExtension(image) -}}"
+      {% endif %}
+      {% if lazy %}
+        data-sizes="auto" data-srcset="{{- srcSet -}}"
+      {% else %}
+        sizes="100vw" srcset="{{- srcSet -}}"
+      {% endif %}
+      {% if mediaQuery %}
+        media="{{- mediaQuery -}}"
+      {% endif %}
+      {% if type %}
+      type="{{- type -}}"
+      {% endif %}/>
+  {%- endif -%}
+{%- endmacro -%}
 
 
 
-  {# Render NoScript #}
-  {%- macro renderNoScript(image) -%}
-    {%- if image ??? null -%}
-      <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}"/></noscript>
-    {%- endif -%}
-  {%- endmacro -%}
-
-
-  {# Render SourceElement #}
-  {%- macro renderSourceElement(srcSet, lazy, mediaQuery, type, image) -%}
-    {%- if srcSet -%}
-      <source data-type="{{- _self.getSourceFileExtension(image) -}}" {% if lazy %} data-sizes="auto" data-srcset="{{- srcSet -}}"
-      {% else %}sizes="100vw" srcset="{{- srcSet -}}"{% endif %}
-        {% if mediaQuery %}media="{{- mediaQuery -}}"{% endif %}
-        {% if type %}type="{{- type -}}"{% endif %}/>
-    {%- endif -%}
-  {%- endmacro -%}
+{# Render Source #}
+{%- macro renderSource(image, transform = 'landscape', lazy = true, mediaQuery = null) -%}
+  {# Handle Image #}
+  {%- if image ?? null -%}
+    {{- _self.renderSourceElement(_self.getSrcset(image, transform, 'webp'), lazy, mediaQuery, 'image/webp', image) -}}
+  {%- endif -%}
+{%- endmacro -%}
 
 
 
-  {# Render Source #}
-  {%- macro renderSource(image, transform, lazy, mediaQuery = null) -%}
-    {% set lazy = lazy | default(true) %}
-    {% set transform = transform | default('landscape') %}
-
-    {# Handle Image #}
-    {%- if image -%}
-      {{- _self.renderSourceElement(_self.getSrcset(image, transform, 'webp'), lazy, mediaQuery, 'image/webp', image) -}}
-    {%- endif -%}
-  {%- endmacro -%}
-
-
-
-  {# Get Source File Extension #}
-  {%- macro getSourceFileExtension(image) -%}
-    {%- if image and _self.isTransformable(image) -%}
-      {%- set transformedImage = craft.imager.transformImage(image, 'dominantColor') -%}
-      {{- transformedImage[0].source.extension | lower  -}}
-    {%- else -%}
-      {{- image.extension | lower  -}}
-    {%- endif -%}
-  {%- endmacro -%}
+{# Get Source File Extension #}
+{%- macro getSourceFileExtension(image) -%}
+  {%- if image and _self.isTransformable(image) -%}
+    {%- set transformedImage = craft.imager.transformImage(image, 'dominantColor') -%}
+    {{- transformedImage[0].source.extension | lower -}}
+  {%- else -%}
+    {{- image.extension | lower -}}
+  {%- endif -%}
+{%- endmacro -%}
 
 
 
-  {# Get srcSet #}
-  {%- macro getSrcset(image, transform, format) -%}
-    {%- if image and _self.isTransformable(image) -%}
-      {{- craft.imager.srcset(
-        craft.imager.transformImage(
-          image, transform | default('landscape'), { format: format | default(null) }
-        )
-      ) | trim -}}
-    {%- else -%}
-      {{- image.url -}}
-    {%- endif -%}
-  {%- endmacro -%}
+{# Get srcSet #}
+{%- macro getSrcset(image, transform = 'landscape', format = null) -%}
+  {%- if image and _self.isTransformable(image) -%}
+    {{- craft.imager.srcset(
+      craft.imager.transformImage(
+        image, transform, { format: format }
+      )
+    ) | trim -}}
+  {%- else -%}
+    {{- image.url -}}
+  {%- endif -%}
+{%- endmacro -%}
 
 
 
-  {# Get Dominant Color #}
-  {%- macro getDominantColor(image, calcDominantColor) -%}
-    {% set calcDominantColor = calcDominantColor | default(false) %}
-    {%- set dominantColor = 'transparent' -%}
-    {%- if craft.app.config.general.custom.dominantColor -%}
-      {%- set dominantColor = craft.app.config.general.custom.dominantColor -%}
-    {%- endif -%}
+{# Get Dominant Color #}
+{%- macro getDominantColor(image, calcDominantColor = false) -%}
+  {%- set dominantColor = 'transparent' -%}
+  {%- if craft.app.config.general.custom.dominantColor -%}
+    {%- set dominantColor = craft.app.config.general.custom.dominantColor -%}
+  {%- endif -%}
+  {% if image ??? null %}
     {% if calcDominantColor and not craft.app.config.general.custom.localDevPerformance and image.extension | lower == 'jpg' and _self.isTransformable(image) %}
       {# Create Mini Image for Dominant Color #}
       {%- set image = craft.imager.transformImage(image, 'dominantColor')|first -%}
       {%- set dominantColor = craft.imager.getDominantColor(image) -%}
     {% endif %}
-    {{- dominantColor -}}
-  {%- endmacro -%}
+  {% endif %}
+  {{- dominantColor -}}
+{%- endmacro -%}
 
 
 
-  {# Get Placeholder #}
-  {%- macro getPlaceHolder(image, transform, calcDominantColor) -%}
-    {% set calcDominantColor = calcDominantColor | default(false) %}
-    {%- if image -%}
-      {%- if _self.isTransformable(image) -%}
-        {%- set transformedImage = craft.imager.transformImage(image, transform | default('landscape'))|first -%}
-        {{- craft.imager.placeholder({
-          color: _self.getDominantColor(transformedImage, calcDominantColor),
-          width: transformedImage.width,
-          height: transformedImage.height
-        }) -}}
-      {%- else -%}
-        {{- craft.imager.placeholder({
-          color: 'transparent',
-          width: image.width,
-          height: image.height,
-        }) -}}
-      {%- endif -%}
+{# Get Placeholder #}
+{%- macro getPlaceHolder(image, transform = 'landscape', calcDominantColor = false) -%}
+  {%- if image ??? null -%}
+    {%- if _self.isTransformable(image) -%}
+      {%- set transformedImage = craft.imager.transformImage(image, transform)|first -%}
+      {{- craft.imager.placeholder({
+        color: _self.getDominantColor(transformedImage, calcDominantColor),
+        width: transformedImage.width,
+        height: transformedImage.height
+      }) -}}
+    {%- else -%}
+      {{- craft.imager.placeholder({
+        color: 'transparent',
+        width: image.width,
+        height: image.height,
+      }) -}}
     {%- endif -%}
-  {%- endmacro -%}
-{%- endapply -%}
+  {%- endif -%}
+{%- endmacro -%}

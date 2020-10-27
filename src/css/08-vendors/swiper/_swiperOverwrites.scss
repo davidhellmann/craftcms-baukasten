@@ -83,7 +83,7 @@
 }
 
 .swiper-button-prev {
-  @include s(left, 1);
+  @include clamp(left, 1);
 
   > span {
     display: block;
@@ -97,7 +97,7 @@
 }
 
 .swiper-button-next {
-  @include s(right, 1);
+  @include clamp(right, 1);
 
   > span {
     display: block;

@@ -72,7 +72,7 @@
   width: 44px !important;
   height: 44px !important;
   top: 28px !important;
-  @include s(left, 2, '!');
+  @include clamp(left, 2, '!');
 }
 
 .pswp__button--arrow--right:before {
@@ -84,7 +84,7 @@
   width: 44px !important;
   height: 44px !important;
   top: 28px !important;
-  @include s(right, 2, '!');
+  @include clamp(right, 2, '!');
 }
 
 .pswp__button--close {
@@ -325,8 +325,8 @@ a.pswp__share--download:hover {
   margin: 0 auto;
   @include ms(-2);
   background-color: var(--c-white);
-  @include s(padding-top padding-bottom, 1);
-  @include s(padding-left padding-right, 2);
+  @include clamp(padding-top padding-bottom, 1);
+  @include clamp(padding-left padding-right, 2);
 }
 
 .pswp__caption--empty {

@@ -6,7 +6,7 @@
 
 
 .c-imageGridCalculated {
-  @include s(margin-top, -2);
+  @include clamp(margin-top, -2);
 
   &__inner {
     @include row();
