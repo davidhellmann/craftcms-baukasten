@@ -1,21 +1,15 @@
 <!--
-<%
-var splittedPath = modulePath.split('/');
-var simple = splittedPath[0] === splittedPath[1];
-var mn = simple ? moduleName : splittedPath[0] + moduleName.charAt(0).toUpperCase() + moduleName.slice(1);
-mn = mn.replace('-', '_');
-var cn = pathOptions.key.charAt(0) + '-' + mn;
-%>
+
 -->
 <template>
   <div :class="rootClass">
-    <%= mn %>
+    fooDavid
   </div>
 </template>
 
 <script>
 export default {
-  name: '<%= mn.charAt(0).toUpperCase() %><%= mn.slice(1) %>',
+  name: 'FooDavid',
   components: {},
   props: {
     modifiers: {
@@ -25,7 +19,7 @@ export default {
   },
   data() {
     return {
-      cn: '<%= cn %>',
+      cn: 'c-fooDavid',
     };
   },
   computed: {

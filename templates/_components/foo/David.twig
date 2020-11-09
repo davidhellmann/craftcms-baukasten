@@ -1,13 +1,7 @@
-{#<%
-var splittedPath = modulePath.split('/');
-var simple = splittedPath[0] === splittedPath[1];
-var mn = simple ? moduleName : splittedPath[0] + moduleName.charAt(0).toUpperCase() + moduleName.slice(1);
-mn = mn.replace('-', '_');
-var cn = pathOptions.key.charAt(0) + '-' + mn;
-%>#}
+{##}
 {# Set Defaults #}
 {% set defaults = {
-  cn: '<%= cn %>',
+  cn: 'c-fooDavid',
   modifiers: [],
   customClasses: [],
   data: {},
@@ -22,7 +16,7 @@ var cn = pathOptions.key.charAt(0) + '-' + mn;
 
 {% if props.foo %}
   <div {{ module.settings(props) }}>
-    <%= mn %>
+    fooDavid
   </div>
 {% endif %}
 

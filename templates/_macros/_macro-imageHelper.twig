@@ -44,6 +44,13 @@ Image Helper
     {%- set focalpoint = image.getFocalpoint('asCss') ??? '50% 50%' -%}
     {# Set image title for alt text #}
     {%- set imageTitle = image.title -%}
+    {% if image.assetTitle %}
+      {%- set imageTitle = image.assetTitle -%}
+    {% endif %}
+    {% if image.assetTitle and image.assetCaption %}
+      {%- set imageTitle = image.assetTitle ~ ' ' ~ image.assetCaption -%}
+    {% endif %}
+
     {# Set transformable status #}
     {% set isTransformable = _self.isTransformable(image) and not simpleMarkup %}
     {%- if isTransformable -%}
@@ -80,7 +87,8 @@ Image Helper
         data-rootimage="{{- transformedRootImage.url -}}"
       {%- endif -%}
       {# Set image title #}
-         alt="{{ imageTitle }}"/>
+         alt="{{ imageTitle }}"
+         title="{{ imageTitle }}"/>
   {%- endif -%}
 {%- endmacro -%}
 

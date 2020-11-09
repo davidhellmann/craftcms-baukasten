@@ -1,9 +1,16 @@
+/*<%
+var splittedPath = modulePath.split('/');
+var simple = splittedPath[0] === splittedPath[1];
+var mn = simple ? moduleName : splittedPath[0] + moduleName.charAt(0).toUpperCase() + moduleName.slice(1);
+mn = mn.replace('-', '_');
+var cn = pathOptions.key.charAt(0) + '-' + mn;
+%>*/
 /*
  |--------------------------------------------------------------------------
- | .c-<%= moduleName.replace('-', '_') %>
+ | .<%= cn %>
  |--------------------------------------------------------------------------
  */
 
-.c-<%= moduleName.replace('-', '_') %> {
+.<%= cn %> {
   /*Put your styles here*/
 }

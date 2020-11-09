@@ -1,3 +1,10 @@
+/*<%
+var splittedPath = modulePath.split('/');
+var simple = splittedPath[0] === splittedPath[1];
+var mn = simple ? moduleName : splittedPath[0] + moduleName.charAt(0).toUpperCase() + moduleName.slice(1);
+mn = mn.replace('-', '_');
+var cn = pathOptions.key.charAt(0) + '-' + mn;
+%>*/
 /*
  * @package  <%= projectName %>
  * @author <%= author.name %> [<%= author.email %>]
@@ -5,11 +12,11 @@
  * <%= moduleName.replace('-', '_') %>
  */
 
-const <%= moduleName.replace('-', '_') %> = {
+const <%= mn %> = {
     cfg:  {
-        name: '<%= moduleName.replace('-', '_') %>',
+        name: '<%= mn %>',
         selectors: {
-            <%= moduleName.replace('-', '_') %>: 'c-<%= moduleName.replace('-', '_') %>',
+            <%= mn %>: '<%= cn %>',
         },
         classes: {
             active: 'is-active',
@@ -18,15 +25,15 @@ const <%= moduleName.replace('-', '_') %> = {
             visible: 'is-visible'
         },
         el: {
-            $<%= moduleName.replace('-', '_') %>: undefined
+            $<%= mn %>: undefined
         },
         els: {
-            $<%= moduleName.replace('-', '_') %>: undefined
+            $<%= mn %>: undefined
         }
     },
 
     setElements() {
-        this.cfg.el.$<%= moduleName.replace('-', '_') %> = document.querySelector(this.cfg.selectors.<%= moduleName.replace('-', '_') %>);
+        this.cfg.el.$<%= mn %> = document.querySelector(this.cfg.selectors.<%= mn %>);
     },
 
     init() {
@@ -35,4 +42,4 @@ const <%= moduleName.replace('-', '_') %> = {
     },
 };
 
-export default <%= moduleName.replace('-', '_') %>;
+export default <%= mn %>;
