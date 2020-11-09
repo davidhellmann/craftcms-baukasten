@@ -2,12 +2,11 @@
   "require": {
     "barrelstrength/sprout-encode-email": "2.0.7",
     "cavellblood/craft-string-base64": "1.0.1",
-    "craftcms/cms": "3.5.14",
-    "craftcms/feed-me": "4.2.4",
+    "craftcms/cms": "3.5.15.1",
+    "craftcms/feed-me": "4.3.0",
     "craftcms/mailgun": "1.4.3",
     "craftcms/redactor": "2.8.3",
     "doublesecretagency/craft-cpcss": "2.2.1",
-    "fruitstudios/linkit": "1.1.11",
     "luwes/craft3-codemirror": "1.0.2",
     "marionnewlevant/twig-perversion": "2.1.0",
     "mmikkel/cp-clearcache": "1.0.7",
@@ -24,15 +23,18 @@
     "nystudio107/dotenvy": "^1.1.0",
     "ostark/craft-async-queue": "2.1.1",
     "putyourlightson/craft-blitz-recommendations": "1.1.0",
-    "putyourlightson/craft-elements-panel": "1.1.0",
+    "putyourlightson/craft-elements-panel": "1.1.1",
+    "sebastianlenz/linkfield": "^2.0-beta",
     "spacecatninja/imager-x": "v3.2.4",
     "studioespresso/craft-dumper": "2.0.0",
-    "verbb/formie": "1.2.24",
+    "verbb/formie": "1.2.25",
+    "verbb/navigation": "1.4.2",
     "verbb/super-table": "2.6.3",
     "vlucas/phpdotenv": "^3.4.0",
     "yiisoft/yii2-redis": "^2.0.6"
   },
   "require-dev": {
+    "roave/security-advisories": "dev-latest",
     "yiisoft/yii2-shell": "^2.0.3"
   },
   "autoload": {
@@ -69,5 +71,8 @@
     "pre-install-cmd": "@create-folders",
     "post-update-cmd": "@craft-update",
     "post-install-cmd": "@craft-update"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
   }
 }

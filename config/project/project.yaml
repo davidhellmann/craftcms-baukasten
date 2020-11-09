@@ -1,4 +1,4 @@
-dateModified: 1602850816
+dateModified: 1604929707
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -50,10 +50,11 @@ plugins:
   feed-me:
     edition: standard
     enabled: true
-    schemaVersion: 2.1.2
+    schemaVersion: 4.3.0
   formie:
     edition: standard
     enabled: true
+    licenseKey: $PLUGIN_FORMIE
     schemaVersion: 1.0.13
   imager-x:
     edition: pro
@@ -73,6 +74,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  navigation:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.21
   redactor:
     edition: standard
     enabled: true
@@ -115,6 +120,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  typedlinkfield:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
   webperf:
     edition: standard
     enabled: true
