@@ -3,7 +3,7 @@
     "barrelstrength/sprout-encode-email": "2.0.7",
     "cavellblood/craft-string-base64": "1.0.1",
     "craftcms/cms": "3.5.15.1",
-    "craftcms/feed-me": "4.3.0",
+    "craftcms/feed-me": "4.3.1",
     "craftcms/mailgun": "1.4.3",
     "craftcms/redactor": "2.8.3",
     "doublesecretagency/craft-cpcss": "2.2.1",
@@ -27,15 +27,15 @@
     "sebastianlenz/linkfield": "^2.0-beta",
     "spacecatninja/imager-x": "v3.2.4",
     "studioespresso/craft-dumper": "2.0.0",
-    "verbb/formie": "1.2.25",
+    "verbb/formie": "1.2.26",
     "verbb/navigation": "1.4.2",
     "verbb/super-table": "2.6.3",
     "vlucas/phpdotenv": "^3.4.0",
-    "yiisoft/yii2-redis": "^2.0.6"
+    "yiisoft/yii2-redis": "^2.0.6",
+    "yiisoft/yii2-shell": "^2.0"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest",
-    "yiisoft/yii2-shell": "^2.0.3"
+    "roave/security-advisories": "dev-latest"
   },
   "autoload": {
     "psr-4": {
@@ -71,8 +71,5 @@
     "pre-install-cmd": "@create-folders",
     "post-update-cmd": "@craft-update",
     "post-install-cmd": "@craft-update"
-  },
-  "require-dev": {
-    "roave/security-advisories": "dev-latest"
   }
 }
