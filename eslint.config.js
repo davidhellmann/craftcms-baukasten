@@ -11,12 +11,9 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:vue/recommended',
-    'prettier'
-  ],
-  plugins: [
     'prettier',
-    'vue'
   ],
+  plugins: ['prettier', 'vue'],
   settings: {
     'import/resolver': {
       // check
@@ -43,17 +40,23 @@ module.exports = {
     indent: ['error', 2],
     'no-new': 'off',
     'prettier/prettier': 'error',
-    'vue/html-closing-bracket-newline': ['error', {
-      'singleline': 'never',
-      'multiline': 'never',
-    }],
+    'vue/html-closing-bracket-newline': [
+      'error',
+      {
+        singleline: 'never',
+        multiline: 'never',
+      },
+    ],
 
-    'max-len': ['error', {
-      'comments': 160,
-      'ignoreTemplateLiterals': true,
-      'ignoreStrings': true,
-      'ignorePattern': 'd=\".*\"', // ignore long svg path descriptions
-    }],
+    'max-len': [
+      'error',
+      {
+        comments: 160,
+        ignoreTemplateLiterals: true,
+        ignoreStrings: true,
+        ignorePattern: 'd=".*"', // ignore long svg path descriptions
+      },
+    ],
 
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
   },
@@ -62,7 +65,7 @@ module.exports = {
       files: ['*.vue'],
       rules: {
         indent: 'off',
-        'vue/script-indent': ['error', 2, {baseIndent: 0}],
+        'vue/script-indent': ['error', 2, { baseIndent: 0 }],
         'vue/no-use-v-if-with-v-for': [
           'warn',
           {
