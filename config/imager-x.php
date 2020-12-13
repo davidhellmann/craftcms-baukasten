@@ -28,6 +28,7 @@ return [
             'gifsicle',
         ],
         'fallbackImage' => getenv('FALLBACK_IMAGE') ?: null,
+        'hideClearCachesForUserGroups' => [],
     ],
     // Live Env
     'live' => [
