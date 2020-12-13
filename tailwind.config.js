@@ -8,15 +8,20 @@ module.exports = {
   purge: {
     enabled: process.env.NODE_ENV === 'production',
     content: [
-      './templates/**/*.twig',
-      './templates/**/*.html',
-      './templates/**/*.vue',
-      './templates/**/*.js',
-      './templates/**/*.ts',
-      './src/vue/**/*.vue',
-      './src/vue/**/*.js',
-      './src/vue/**/*.ts',
+      './templates/**/*.{twig,html,vue,js,ts}',
+      './src/vue/**/*.{vue,js,ts}',
     ],
+    layers: [
+      'base',
+      'components',
+      'utilities',
+    ],
+    mode: 'layers',
+    options: {
+      whitelist: [
+        './src/css/components/**/*.{css}',
+      ],
+    }
   },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
