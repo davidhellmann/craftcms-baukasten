@@ -10,16 +10,22 @@ document.documentElement.classList.add('js-loaded');
 // App main
 const main = async () => {
   // Import Vendors
-  // await import(/* webpackChunkName: "vendors" */ './_vendors.ts');
+  await import(/* webpackChunkName: "vendors" */ './_vendors')
+    .then(vendors => vendors.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
 
   // Import Scripts
-  // await import(/* webpackChunkName: "scripts" */ './_scripts.ts');
+  await import(/* webpackChunkName: "scripts" */ './_scripts')
+    .then(scripts => scripts.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
 
   // Import Components
-  // await import(/* webpackChunkName: "components" */ './_components.ts');
+  await import(/* webpackChunkName: "components" */ './_components')
+    .then(components => components.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
 
   // Import Vue Components
-  // await import(/* webpackChunkName: "vueComponents" */ './_vue-components.ts');
+  // await import(/* webpackChunkName: "vueComponents" */ './_vue-components');
 
   // Async load the Vue 3 APIs we need from the Vue ESM
   // Create our vue instance
