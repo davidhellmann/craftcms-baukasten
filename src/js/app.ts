@@ -24,9 +24,6 @@ const main = async () => {
     .then(components => components.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 
-  // Import Vue Components
-  // await import(/* webpackChunkName: "vueComponents" */ './_vue-components');
-
   // Async load the Vue 3 APIs we need from the Vue ESM
   // Create our vue instance
   const app = createApp(App);
