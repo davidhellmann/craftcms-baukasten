@@ -1,16 +1,14 @@
-{# Critical CSS #}
-{% import '_macros/_macro-cookies.twig' as cookies %}
-{% if craft.app.config.general.custom.craftEnv != 'local' %}
-  {% set criticalCss = cookies.get('critical-css') %}
-  {% if criticalCss == 'loaded' %}
-    {{ craft.twigpack.includeCssModule("styles.css", false) }}
-  {% else %}
-    {% do cookies.set('critical-css', 'loaded', now | date_modify("+7 days").timestamp ) %}
-    {% if craft.app.config.general.custom.craftEnv == 'live' %}
-      {% block inlineCriticalCss %}
-        {{ craft.twigpack.includeCriticalCssTags() }}
-      {% endblock %}
-    {% endif %}
-    {{ craft.twigpack.includeCssModule("styles.css", true) }}
-  {% endif %}
-{% endif %}
+{# -- Critical CSS -- #}
+{% set cssHash = craft.twigpack.getModuleHash("styles.css", "legacy") %}
+
+<!--# if expr="$HTTP_COOKIE=/critical\-css\={{ cssHash }}/" -->
+{{ craft.twigpack.includeCssModule("styles.css", false) }}
+<!--# else -->
+<script>
+  Cookie.set("critical-css", "{{ cssHash }}", { expires: "7D", secure: true });
+</script>
+
+{{ craft.twigpack.includeCriticalCssTags() }}
+
+{{ craft.twigpack.includeCssModule("styles.css", true) }}
+<!--# endif -->

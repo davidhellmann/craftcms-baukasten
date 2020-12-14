@@ -1,44 +1,63 @@
-{# Layout template for HTML pages #}
-{% extends '_boilerplate/_layouts/base-html-layout.twig' %}
+{# -- Layout template for HTML pages -- #}
+{#
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                                                         │ │
+│ │                                                                         │ │
+│ │                                                                         │ │
+│ │                                 content                                 │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                                                         │ │
+│ │                                                                         │ │
+│ │                                                                         │ │
+│ │                               subContent                                │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│                                  bodyHtml                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+#}
+{% extends "_boilerplate/_layouts/base-html-layout.twig" %}
 
-{# Any <meta> tags that should be included in the <head> #}
+{# -- Any <meta> tags that should be included in the <head> #}
 {% block headMeta %}
 {% endblock headMeta %}
 
-{# Any <link> tags that should be included in the <head> #}
+{# -- Any <link> tags that should be included in the <head> #}
 {% block headLinks %}
   {% include '_boilerplate/_partials/preload-fonts.twig' %}
 {% endblock headLinks %}
 
-{# Any CSS that should be included before </head> #}
+{# -- Any CSS that should be included before </head> -- #}
 {% block headCss %}
+  {% include "_inline-css/site-fonts.css" %}
 {% endblock headCss %}
 
-{# Page body #}
+{# -- Page body -- #}
 {% block bodyHtml %}
-  {# Vue Confetti Instance #}
-  <div id="confetti">
-    <confetti></confetti>
+  <div id="page-container" class="overflow-hidden">
+    {# Vue Confetti #}
+    <div id="component-container"></div>
+
+    {# appHeader #}
+    {% include '_components/appHeader/appHeader.twig' only %}
+
+    <div id="content-container">
+      <main>
+        {# -- Primary content block -- #}
+        {% block content %}
+        {% endblock %}
+      </main>
+    </div>
+
+    {# -- Content that appears below the primary content block -- #}
+    {% block subcontent %}
+    {% endblock %}
+
+    {# appFooter #}
+    {% include '_components/appFooter/appFooter.twig' only %}
+
+    {# -- HTML Footer -- #}
+    {% include '_partials/global-footer.twig' %}
   </div>
-
-  {# appHeader #}
-  {% include '_components/appHeader/appHeader.twig' with {
-    props: {}
-  } only %}
-
-  {# Primary content block #}
-  {% block content %}
-  {% endblock %}
-
-  {# Content that appears below the primary content block #}
-  {% block subcontent %}
-  {% endblock %}
-
-  {# appFooter #}
-  {% include '_components/appFooter/appFooter.twig' with {
-    props: {}
-  } only %}
-
-  {# HTML Footer #}
-  {% include '_partials/global-footer.twig' %}
 {% endblock bodyHtml %}
