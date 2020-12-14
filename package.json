@@ -153,7 +153,8 @@
     "lint": "tsc --noEmit && eslint '../../src/**/*.{js,ts,vue}' --fix",
     "preinstall": "$npm_execpath --silent run checknpm",
     "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "twc": "npx tailwindcss build src/css/app-base.pcss -o src/css/tailwind.app-base.css -c tailwind.config.js && npx tailwindcss build src/css/app-components.pcss -o src/css/tailwind.app-components.css -c tailwind.config.js && npx tailwindcss build src/css/app-utilities.pcss -o src/css/tailwind.app-utilities.css -c tailwind.config.js"
   },
   "version": "1.1.3"
 }
