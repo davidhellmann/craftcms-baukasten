@@ -1,43 +1,42 @@
-{# Layout template for error pages #}
+{# -- Layout template for error pages -- #}
 {#
- ┌─────────────────────────────────────────────────────────────────────────────┐
- │ ┌─────────────────────────────────────────────────────────────────────────┐ │
- │ │                                                                         │ │
- │ │                                                                         │ │
- │ │                                                                         │ │
- │ │                                 content                                 │ │
- │ └─────────────────────────────────────────────────────────────────────────┘ │
- │ ┌─────────────────────────────────────────────────────────────────────────┐ │
- │ │                                                                         │ │
- │ │                                                                         │ │
- │ │                                                                         │ │
- │ │                               subContent                                │ │
- │ └─────────────────────────────────────────────────────────────────────────┘ │
- │                                                                             │
- │                                  bodyHtml                                   │
- └─────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                                                         │ │
+│ │                                                                         │ │
+│ │                                                                         │ │
+│ │                                 content                                 │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                                                         │ │
+│ │                                                                         │ │
+│ │                                                                         │ │
+│ │                               subContent                                │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│                                  bodyHtml                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
 #}
-{% extends '_layouts/generic-page-layout.twig' %}
+{% extends "_layouts/generic-page-layout.twig" %}
 
 {% block content %}
 {% endblock %}
 
 {% block subcontent %}
-    <section>
-        <div class="l-container mx-auto py-8">
-            <div class="text-center p-8 mb-8">
-                <h1 class="font-mono italic font-bold text-5xl pt-4">
-                    {{ entry.errorHeadline ?? 'Error' }}
-                </h1>
-                <p class="font-sans text-xl pt-4">
-                    {{ (entry.errorText ?? 'An error has occurred.') |nl2br }}
-                </p>
-            </div>
-        </div>
-    </section>
-
+  <section>
+    <div class="container mx-auto py-8">
+      <div class="text-center p-8 mb-8">
+        <h1 class="font-mono italic font-bold text-5xl pt-4">
+          {{ entry.errorHeadline ?? 'Error' }}
+        </h1>
+        <p class="font-sans text-xl pt-4">
+          {{ (entry.errorText ?? 'An error has occurred.') |nl2br }}
+        </p>
+      </div>
+    </div>
+  </section>
 {% endblock %}
 
-{# Any JavaScript that should be included before </body> #}
+{# -- Any JavaScript that should be included before </body> -- #}
 {% block bodyJs %}
 {% endblock bodyJs %}

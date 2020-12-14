@@ -1,30 +1,61 @@
-{# Base web layout template that all web requests inherit from #}
+{# -- Base web layout template that all web requests inherit from -- #}
+{#
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                 htmlTag                                 │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                 headTag                                 │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                                                         │ │
+│ │                                                                         │ │
+│ │                                                                         │ │
+│ │                               headContent                               │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                 bodyTag                                 │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │                                                                         │ │
+│ │                                                                         │ │
+│ │                                                                         │ │
+│ │                               bodyContent                               │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                             │
+│                                  htmlPage                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+#}
 {% extends "_layouts/global-variables.twig" %}
 
 {%- block htmlPage -%}
 <!DOCTYPE html>
   {% block htmlTag %}
     <html class="no-js" lang="{{ craft.app.language | slice(0,2) }}">
-  {% endblock htmlTag %}
-  <head>
-    {% include "_boilerplate/_partials/js-enabled-check.twig" %}
-    {% include "_boilerplate/_partials/js-touch-device-check.twig" %}
-    {% include "_boilerplate/_partials/head-meta.twig" %}
-    {% include "_boilerplate/_partials/rss-feeds.twig" %}
-    {# Page content that should be included in the <head> #}
-    {% block headContent %}
-    {% endblock headContent %}
-  </head>
+    {% endblock htmlTag %}
+    {% block headTag %}
+      <head>
+    {% endblock headTag %}
+        {% include "_boilerplate/_partials/js-enabled-check.twig" %}
+        {% include "_boilerplate/_partials/js-touch-device-check.twig" %}
+        {% include "_boilerplate/_partials/head-meta.twig" %}
+        {% include "_boilerplate/_partials/rss-feeds.twig" %}
+        {# Page content that should be included in the <head> #}
+        {% block headContent %}
+        {% endblock headContent %}
+      </head>
 
-  <body>
-  {# Page content that should be included in the <body> #}
-  {% block bodyContent %}
-  {% endblock bodyContent %}
+    {% block bodyTag %}
+      <body>
+    {% endblock bodyTag %}
+        {# Page content that should be included in the <body> #}
+        {% block bodyContent %}
+        {% endblock bodyContent %}
 
-  {% if craft.app.config.general.custom.craftEnv != 'live' %}
-    {# gridOverlay #}
-    {% include '_components/gridOverlay/gridOverlay.twig' only %}
-  {% endif %}
-  </body>
+        {% if craft.app.config.general.custom.craftEnv != 'live' %}
+          {# gridOverlay #}
+          {% include '_components/gridOverlay/gridOverlay.twig' only %}
+        {% endif %}
+      </body>
   </html>
 {%- endblock htmlPage -%}
