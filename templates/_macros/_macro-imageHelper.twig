@@ -82,10 +82,6 @@ Image Helper
         {%- if isTransformable -%}srcset="{{- srcset -}}"{%- else -%}src="{{- imageUrl -}}"{%- endif -%}
         sizes="100vw"
       {%- endif -%}
-      {%- if craft.app.config.general.custom.ieSupport and isTransformable -%}
-        {# set root image as IE fallback <3 #}
-        data-rootimage="{{- transformedRootImage.url -}}"
-      {%- endif -%}
       {# Set image title #}
          alt="{{ imageTitle }}"
          title="{{ imageTitle }}"/>

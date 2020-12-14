@@ -1,4 +1,4 @@
-<template></template>
+<template />
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue';

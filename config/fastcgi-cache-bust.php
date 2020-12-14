@@ -8,6 +8,8 @@
  * @copyright Copyright (c) 2017 nystudio107
  */
 
+use craft\helpers\App;
+
 /**
  * FastCGI Cache Bust config.php
  *
@@ -24,5 +26,5 @@
 
 return [
     // Enter the full absolute path to the FastCGI Cache directory.
-    'cachePath' => getenv('FAST_CGI_CACHE_PATH'),
+    'cachePath' => App::env('FAST_CGI_CACHE_PATH'),
 ];
