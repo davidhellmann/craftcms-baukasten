@@ -5,11 +5,11 @@ require('dotenv').config();
 
 // settings
 module.exports = {
-    copy: [
-        {
-            from: '../src/js/example-file.js',
-            to: 'js/[name].[ext]',
-            noErrorOnMissing: true,
-        }
-    ],
+  copy: [
+    {
+      from: './src/js/example-file.js',
+      to: 'js/[name].[ext]',
+      noErrorOnMissing: true,
+    },
+  ],
 };
