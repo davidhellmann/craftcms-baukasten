@@ -9,6 +9,8 @@
  * @copyright Copyright (c) 2018 nystudio107
  */
 
+use craft\helpers\App;
+
 /**
  * Twigpack config.php
  *
@@ -25,7 +27,7 @@
 
 return [
     // If `devMode` is on, use webpack-dev-server to all for HMR (hot module reloading)
-    'useDevServer' => getenv('DEV_MODE'),
+    'useDevServer' => App::env('DEV_MODE'),
     // The JavaScript entry from the manifest.json to inject on Twig error pages
     'errorEntry' => 'app.js',
     // Manifest file names
@@ -40,8 +42,8 @@ return [
     ],
     // webpack-dev-server config
     'devServer' => [
-        'manifestPath' => getenv('TWIGPACK_DEV_SERVER_MANIFEST_PATH'),
-        'publicPath' => getenv('TWIGPACK_DEV_SERVER_PUBLIC_PATH'),
+        'manifestPath' => App::env('TWIGPACK_DEV_SERVER_MANIFEST_PATH'),
+        'publicPath' => App::env('TWIGPACK_DEV_SERVER_PUBLIC_PATH'),
     ],
     // Local files config
     'localFiles' => [

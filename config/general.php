@@ -8,33 +8,35 @@
  * @see \craft\config\GeneralConfig
  */
 
+use craft\helpers\App;
+
 return [
     // Craft config settings from .env variables
     'aliases' => [
-        '@assetsUrl' => getenv('ASSETS_URL'),
-        '@cloudfrontUrl' => getenv('CLOUDFRONT_URL'),
-        '@web' => getenv('SITE_URL'),
-        '@webroot' => getenv('WEB_ROOT_PATH'),
+        '@assetsUrl' => App::env('ASSETS_URL'),
+        '@cloudfrontUrl' => App::env('CLOUDFRONT_URL'),
+        '@web' => App::env('SITE_URL'),
+        '@webroot' => App::env('WEB_ROOT_PATH'),
     ],
     'custom' => [
-        'craftEnv' => getenv('ENVIRONMENT') ?: 'local',
-        'localDevPerformance' => (bool)getenv('LOCAL_DEV_PERFORMANCE') ?: null,
-        'ieSupport' => (bool)getenv('IE_SUPPORT') ?: null,
+        'craftEnv' => App::env('ENVIRONMENT') ?: 'local',
+        'localDevPerformance' => (bool)App::env('LOCAL_DEV_PERFORMANCE') ?: null,
         'dominantColor' => '#e8e8e8',
     ],
-    'allowedFileExtensions' => ['jpg','png','jpeg','gif','svg','mp4','wov','mp3','wav','pdf','zip','csv','rar'],
-    'allowUpdates' => (bool)getenv('ALLOW_UPDATES'),
-    'allowAdminChanges' => (bool)getenv('ALLOW_ADMIN_CHANGES'),
-    'backupOnUpdate' => (bool)getenv('BACKUP_ON_UPDATE'),
-    'devMode' => (bool)getenv('DEV_MODE'),
-    'enableTemplateCaching' => (bool)getenv('ENABLE_TEMPLATE_CACHING'),
-    'isSystemLive' => (bool)getenv('IS_SYSTEM_LIVE'),
-    'resourceBasePath' => getenv('WEB_ROOT_PATH').'/cpresources',
-    'runQueueAutomatically' => (bool)getenv('RUN_QUEUE_AUTOMATICALLY'),
-    'securityKey' => getenv('SECURITY_KEY'),
-    'maxRevisions' => 5,
-    'testToEmailAddress' => getenv('TEST_EMAIL_ADDRESS') ?: null,
+    'allowedFileExtensions' => ['jpg', 'png', 'jpeg', 'gif', 'svg', 'mp4', 'wov', 'mp3', 'wav', 'pdf', 'zip', 'csv', 'rar'],
+    'allowUpdates' => (bool)App::env('ALLOW_UPDATES'),
+    'allowAdminChanges' => (bool)App::env('ALLOW_ADMIN_CHANGES'),
+    'backupOnUpdate' => (bool)App::env('BACKUP_ON_UPDATE'),
+    'devMode' => (bool)App::env('DEV_MODE'),
+    'enableTemplateCaching' => (bool)App::env('ENABLE_TEMPLATE_CACHING'),
+    'isSystemLive' => (bool)App::env('IS_SYSTEM_LIVE'),
+    'resourceBasePath' => App::env('WEB_ROOT_PATH') . '/cpresources',
+    'runQueueAutomatically' => (bool)App::env('RUN_QUEUE_AUTOMATICALLY'),
+    'securityKey' => App::env('SECURITY_KEY'),
+    'testToEmailAddress' => App::env('TEST_EMAIL_ADDRESS') ?: null,
+    'enableGraphQlCaching' => (bool)App::env('ENABLE_GQL_CACHING'),
     // Craft config settings from constants
+    'maxRevisions' => 50,
     'cacheDuration' => false,
     'defaultSearchTermOptions' => [
         'subLeft' => true,
@@ -50,5 +52,4 @@ return [
     'omitScriptNameInUrls' => true,
     'useEmailAsUsername' => true,
     'usePathInfo' => true,
-    'enableGraphQlCaching' => (bool)getenv('ENABLE_GQL_CACHING'),
 ];
