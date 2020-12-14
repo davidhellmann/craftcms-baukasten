@@ -5,10 +5,10 @@ require('dotenv').config();
 
 // settings
 module.exports = {
-    symlinks: [
-        {
-            origin: 'img/favicons/favicon.ico',
-            symlink: '../favicon.ico'
-        },
-    ],
+  symlinks: [
+    {
+      origin: 'img/favicons/favicon.ico',
+      symlink: './favicon.ico',
+    },
+  ],
 };

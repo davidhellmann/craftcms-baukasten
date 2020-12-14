@@ -5,8 +5,8 @@ require('dotenv').config();
 
 // settings
 module.exports = {
-    favicons: {
-        logo: '../src/img/favicon-src.png',
-        prefix: 'img/favicons/',
-    },
+  favicons: {
+    logo: './src/img/favicon-src.png',
+    prefix: 'img/favicons/',
+  },
 };
