@@ -2,7 +2,7 @@
  * Opatciy Map for Colors
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
-const colors = require('tailwindcss/colors');
+import colors from 'tailwindcss/colors';
 
 module.exports = {
   purge: {
