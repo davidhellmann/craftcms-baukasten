@@ -6,8 +6,7 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'c-imageGrid',
-  modifiers: [],
-  customClasses: [],
+  js: true,
   data: {},
   images: null,
   caption: null,
@@ -19,7 +18,7 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {% if props.calculated %}
-  {% set props = props | merge({  customClasses: props.customClasses | merge(['js-imageGridCalculated'])}) %}
+  {% set props = props | merge({  js: true}) %}
 {% endif %}
 
 {# Macros #}

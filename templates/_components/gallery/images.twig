@@ -1,8 +1,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'c-imageGallery',
-  modifiers: [],
-  customClasses: [],
   data: {},
   js: true,
   images: null,
@@ -13,7 +11,6 @@
 
 {# Merge Default with Options #}
 {% set props = props is defined ? defaults|merge(props) : defaults %}
-{% set props= props| merge({  customClasses: props.customClasses | merge(['js-imageGallery'])}) %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}

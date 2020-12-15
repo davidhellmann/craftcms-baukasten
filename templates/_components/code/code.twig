@@ -1,10 +1,9 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'c-code',
-  modifiers: [],
-  customClasses: [],
   data: {},
   open: false,
+  js: true,
   textShow: 'translate.component.code.show' | t,
   textHide: 'translate.component.code.hide' | t,
   textCopy: 'translate.component.code.copy' | t,
@@ -15,7 +14,6 @@
 
 {# Merge Default with Options #}
 {% set props = props is defined ? defaults|merge(props) : defaults %}
-{% set props= props| merge({ customClasses: props.customClasses | merge(['js-code'])}) %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}

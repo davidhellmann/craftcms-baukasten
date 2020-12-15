@@ -1,11 +1,10 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'c-logo',
-  modifiers: [],
-  customClasses: [],
+
   data: {},
   js: null,
-  url: null,
+  url: siteUrl,
   name: 'logo'
 } %}
 
@@ -18,10 +17,11 @@
 {% if props.name %}
   <div {{ module.settings(props) }}>
     {% if props.url %}
-    <a class="{{ props.cn ~ '__link' }}" href="{{ props.url }}">
+    <a href="{{ props.url }}">
       {% endif %}
 
-      {{ svg('@webroot/dist/img/svg/' ~ props.name ~ '.svg') }}
+      {{ svg('@webroot/dist/img/svg/' ~ props.name ~ '.svg')
+      | attr({ class: 'w-20 h-20' }) }}
 
       {% if props.url %}
     </a>

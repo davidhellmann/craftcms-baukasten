@@ -5,7 +5,7 @@
 {% set cat03Image = craft.assets.title('Cat 03').volume('templateImages').one() %}
 {% set cat04Image = craft.assets.title('Cat 04').volume('templateImages').one() %}
 <div id="home"></div>
-<div class="l-container">
+<div class="container">
   <h3>Layout Elements</h3>
 </div>
 
@@ -15,12 +15,12 @@
 {#      SEPERATOR                                                 #}
 {#                                                                #}
 {# ============================================================== #}
-<div class="l-container">
+<div class="container">
   <pre class="mt-4 mb-2" id="section">_components/_layout/section</pre>
 </div>
 
-<div class="l-section l-section--lightgray l-section--visible mt-1"></div>
-<div class="l-section l-section--visible mt-1"></div>
+{#<div class="l-section l-section--lightgray l-section--visible mt-1"></div>#}
+{#<div class="l-section l-section--visible mt-1"></div>#}
 
 
 {# ============================================================== #}
@@ -28,14 +28,14 @@
 {#      SEPERATOR                                                 #}
 {#                                                                #}
 {# ============================================================== #}
-<div class="l-container">
-  <pre class="mt-4 mb-2" id="container">_components/_layout/container</pre>
-</div>
-<div class="l-container l-container--fluid l-container--visible mt-1"></div>
-<div class="l-container l-container--max l-container--visible mt-1"></div>
-<div class="l-container l-container--l l-container--visible mt-1"></div>
-<div class="l-container l-container--m l-container--visible mt-1"></div>
-<div class="l-container l-container--s l-container--visible mt-1"></div>
+{#<div class="container">#}
+{#  <pre class="mt-4 mb-2" id="container">_components/_layout/container</pre>#}
+{#</div>#}
+{#<div class="container container--fluid container--visible mt-1"></div>#}
+{#<div class="container container--max container--visible mt-1"></div>#}
+{#<div class="container container--l container--visible mt-1"></div>#}
+{#<div class="container container--m container--visible mt-1"></div>#}
+{#<div class="container container--s container--visible mt-1"></div>#}
 
 
 {# ============================================================== #}
@@ -43,829 +43,829 @@
 {#      SEPERATOR                                                 #}
 {#                                                                #}
 {# ============================================================== #}
-<div class="l-container">
-  <pre class="mt-4 mb-2" id="row">_components/_layout/row</pre>
-</div>
-<div class="l-container">
-  <div class="l-row l-row--visible mt-1"></div>
-</div>
-
-
-<div class="l-container">
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="spacer">_components/_layout/spacer</pre>
-  {# spacer #}
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      customClasses: ['mt-1'],
-      modifiers: ['2', 'visible']
-    }
-  } only %}
-
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      customClasses: ['mt-1'],
-      modifiers: ['4', 'visible']
-    }
-  } only %}
-
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      customClasses: ['mt-1'],
-      modifiers: ['6', 'visible']
-    }
-  } only %}
-
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      customClasses: ['mt-1'],
-      modifiers: ['8', 'visible']
-    }
-  } only %}
-
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      customClasses: ['mt-1'],
-      modifiers: ['10', 'visible']
-    }
-  } only %}
-
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      customClasses: ['mt-1'],
-      modifiers: ['12', 'visible']
-    }
-  } only %}
-
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      customClasses: ['mt-1'],
-      modifiers: ['14', 'visible']
-    }
-  } only %}
-
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      customClasses: ['mt-1'],
-      modifiers: ['16', 'visible']
-    }
-  } only %}
-
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      customClasses: ['mt-1'],
-      modifiers: ['18', 'visible']
-    }
-  } only %}
-
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      customClasses: ['mt-1'],
-      modifiers: ['20', 'visible']
-    }
-  } only %}
-</div>
-
-
-
-<div class="l-container">
-  <h3 class="mt-4">Elements</h3>
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="divider">_components/divider</pre>
-  {# divider #}
-  <div class="l-container">
-    {% include '_components/divider/divider.twig' only %}
-    {% include '_components/divider/divider.twig' with {
-      props: {
-        modifiers: ['medium']
-      }
-    } only %}
-    {% include '_components/divider/divider.twig' with {
-      props: {
-        modifiers: ['narrow']
-      }
-    } only %}
-  </div>
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="image/picture">_components/image/picture</pre>
-  {# picture #}
-  {% include '_components/image/picture.twig' with {
-    props: {
-      image: placeholderImage ??? null,
-      transform: 'landscape'
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="image/image">_components/image/image</pre>
-  {# imageRaw #}
-  {% include '_components/image/image.twig' with {
-    props: {
-      image: placeholderImage ??? null,
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="link/link">_components/link/link</pre>
-  {# link #}
-  {% include '_components/link/link.twig' with {
-    props: {
-      modifiers: ['primary'],
-      url: 'https://davidhellmann.com',
-      text: 'Primary Link'
-    }
-  } only %}
-
-  {# link #}
-  {% include '_components/link/link.twig' with {
-    props: {
-      modifiers: ['secondary'],
-      customClasses: ['ml-1'],
-      url: 'https://davidhellmann.com',
-      text: 'Secondary Link'
-    }
-  } only %}
-
-  {# link #}
-  {% include '_components/link/link.twig' with {
-    props: {
-      modifiers: ['ghost'],
-      customClasses: ['ml-1'],
-      url: 'https://davidhellmann.com',
-      text: 'Ghost Link'
-    }
-  } only %}
-
-  {# link #}
-  {% include '_components/link/link.twig' with {
-    props: {
-      modifiers: ['outlined'],
-      customClasses: ['ml-1'],
-      url: 'https://davidhellmann.com',
-      text: 'Outlined Link'
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="link/linkIcon">_components/link/linkIcon</pre>
-  {# linkIcon #}
-  {% include '_components/link/linkIcon.twig' with {
-    props: {
-      modifiers: ['primary'],
-      url: 'https://davidhellmann.com',
-      text: 'Primary Link',
-      icon: 'icons/outline/cloud-download'
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="logo">_components/logo</pre>
-  {# logo #}
-  {% include '_components/logo/logo.twig' with {
-    props: {}
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="spinner">_components/spinner</pre>
-  {# spinner #}
-  <div style="position:relative; width: 100%; height: 48px; background-color: black;">
-    {% include '_components/spinner/spinner.twig' with {
-      props: {}
-    } only %}
-  </div>
-
-  <div style="position:relative; width: 100%; height: 48px;">
-    {% include '_components/spinner/spinner.twig' with {
-      props: {
-        modifiers: ['dark']
-      }
-    } only %}
-  </div>
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="icon">_components/icon</pre>
-  {# spinner #}
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/outline/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['24'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/outline/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['32'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/outline/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['48'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/outline/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['64'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/outline/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['128'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/outline/cube'
-    }
-  } only %}
-
-  <br>
-  {# spinner #}
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/filled/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['24'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/filled/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['32'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/filled/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['48'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/filled/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['64'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/filled/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['128'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/filled/cube'
-    }
-  } only %}
-
-  <br>
-
-  {# spinner #}
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/sharp/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['24'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/sharp/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['32'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/sharp/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['48'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/sharp/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['64'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/sharp/cube'
-    }
-  } only %}
-
-  {% include '_components/icon/icon.twig' with {
-    props: {
-      modifiers: ['128'],
-      customClasses: ['mr-1 mt-1'],
-      icon: 'icons/sharp/cube'
-    }
-  } only %}
-</div>
-
-
-<div class="l-container">
-  <h3 class="mt-4">Components</h3>
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="accordion">_components/accordion</pre>
-  {# accordion #}
-  {% include '_components/accordion/accordion.twig' with {
-    props: {
-      trigger: 'Accordion Trigger 1',
-      content: '<p>Lorem ipsum dolor sit amet</p>'
-    }
-  } only %}
-  {# accordion #}
-  {% include '_components/accordion/accordion.twig' with {
-    props: {
-      trigger: 'Accordion Trigger 2',
-      content: '<p>Lorem ipsum dolor sit amet</p>'
-    }
-  } only %}
-
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      modifiers: ['4']
-    }
-  } only %}
-
-  {# accordion #}
-  {% include '_components/accordion/accordion.twig' with {
-    props: {
-      modifiers: ['narrow'],
-      trigger: 'Accordion Trigger 3',
-      content: '<p>Lorem ipsum dolor sit amet</p>'
-    }
-  } only %}
-  {# accordion #}
-  {% include '_components/accordion/accordion.twig' with {
-    props: {
-      modifiers: ['narrow'],
-      trigger: 'Accordion Trigger 4',
-      content: '<p>Lorem ipsum dolor sit amet</p>'
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="caption">_components/caption</pre>
-  {# caption #}
-  {% include '_components/caption/caption.twig' with {
-    props: {
-      headline: 'The quick brown fox jumps over the lazy dogs',
-      text: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in',
-      source: 'Baukasten',
-      sourceUrl: siteUrl,
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="card/image">_components/card/image</pre>
-  {# card #}
-  <div style="max-width: 400px;">
-    {% include '_components/card/image.twig' with {
-      props: {
-        image: placeholderImage ??? null,
-        transform: 'landscape',
-        headline: 'The quick brown fox jumps over the lazy dogs',
-        copy: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo.',
-        linkUrl: siteUrl,
-        linkText: null
-      }
-    } only %}
-  </div>
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="code">_components/code</pre>
-  {# code #}
-  {% include '_components/code/code.twig' with {
-    props: {
-      snippet: "/*
- |--------------------------------------------------------------------------
- | .l-container
- |--------------------------------------------------------------------------
- */
-
-.l-container {
-  @include center();
-  width: 100%;
-  max-width: map_get($breakpoints, 'max');
-  padding-left: 2rem;
-  padding-right: 2rem;
-
-  .l-container {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-",
-      language: 'scss'
-    }
-  } only %}
-
-  {# code #}
-  {% include '_components/code/code.twig' with {
-    props: {
-      customClasses: ['mt-2'],
-      snippet: "npm i baukasten-grid",
-      language: 'bash'
-    }
-  } only %}
-
-
-  {# code #}
-  {% include '_components/code/code.twig' with {
-    props: {
-      customClasses: ['mt-2'],
-      snippet: "/**
- * code
- */
-
-import ClipboardJS from 'clipboard';
-
-const code = {
-  cfg: {
-    codeBlocks: [...document.querySelectorAll('.js-code')],
-  },
-
-  copyToClipboard() {
-    new ClipboardJS('.js-codeCopy', {
-      target: function(trigger) {
-        return trigger.nextElementSibling;
-      },
-    });
-  },
-
-  toggleCodeBlock(els) {
-    els.forEach(el => {
-      const toggle = el.querySelector('.js-codeToggle');
-      let status = el.getAttribute('data-status');
-      const showText = toggle.getAttribute('data-show');
-      const hideText = toggle.getAttribute('data-hide');
-
-      toggle.addEventListener('click', () => {
-        if (status === 'open') {
-          status = 'closed';
-          toggle.innerHTML = showText;
-          toggle.setAttribute('data-status', 'closed');
-          toggle.parentElement.parentElement.setAttribute(
-            'data-status',
-            'closed',
-          );
-        } else {
-          status = 'open';
-          toggle.innerHTML = hideText;
-          toggle.setAttribute('data-status', 'open');
-          toggle.parentElement.parentElement.setAttribute(
-            'data-status',
-            'open',
-          );
-        }
-      });
-    });
-  },
-
-  init() {
-    if (!this.cfg.codeBlocks) return;
-    this.toggleCodeBlock(this.cfg.codeBlocks);
-    this.copyToClipboard();
-  },
-};
-
-export default code;
-
-",
-      language: 'javascript'
-    }
-  } only %}
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="definitionList">_components/definitionList</pre>
-  {# definitionList #}
-  {% include '_components/definitionList/definitionList.twig' with {
-    props: {
-      image: placeholderImage ??? null,
-      items: [
-        { term: 'Definition Term', description: 'The quick brown fox jumps over the lazy dogs'},
-        { term: 'John Wayne', description: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in?'},
-        { term: 'Lorem Ipsum ', description: 'Quick brown fox jumps over the lazy dogs'},
-        { term: 'Definition Term', description: 'The quick brown fox jumps over the lazy dogs'},
-        { term: 'John Wayne', description: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in?'},
-      ]
-    }
-  } only %}
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="figure/image">_components/figure/image</pre>
-  {# figure #}
-  {% include '_components/figure/image.twig' with {
-    props: {
-      image: placeholderImage ??? null,
-      caption: true,
-      captionHeadline: 'The quick brown fox jumps over the lazy dogs',
-      captionText: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in.',
-      captionSource: 'Baukasten',
-      captionSourceUrl: siteUrl,
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="cover/image">_components/cover/image</pre>
-  {# image #}
-  {% include '_components/cover/image.twig' with {
-    props: {
-      image: placeholderImage ??? null,
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="gallery/images">_components/gallery/images</pre>
-  {# galleryImage #}
-  {% include '_components/gallery/images.twig' with {
-    props: {
-      images: [placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null]
-    }
-  } only %}
-
-  {# galleryImage #}
-  {% include '_components/gallery/images.twig' with {
-    props: {
-      customClasses: ['mt-2'],
-      images: [placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null],
-      cutAfter: 4,
-      caption: true,
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="grid/images">_components/grid/images</pre>
-  {# grid/image #}
-  {% include '_components/grid/images.twig' with {
-    props: {
-      images: [placeholderImage ??? null],
-      transform: 'landscape'
-    }
-  } only %}
-
-  {# Spacer #}
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      modifiers: ['2']
-    }
-  } only %}
-
-  {% include '_components/grid/images.twig' with {
-    props: {
-      modifiers: ['2'],
-      images: [placeholderImage ??? null, cat03Image ??? null],
-      transform: 'portrait'
-    }
-  } only %}
-
-  {# Spacer #}
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      modifiers: ['2']
-    }
-  } only %}
-
-  {% include '_components/grid/images.twig' with {
-    props: {
-      modifiers: ['3'],
-      images: [placeholderImage ??? null, cat01Image ??? null, cat03Image ??? null],
-      transform: 'portrait'
-    }
-  } only %}
-
-  {# Spacer #}
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      modifiers: ['2']
-    }
-  } only %}
-
-  {% include '_components/grid/imagesCalculated.twig' with {
-    props: {
-      images: [placeholderImage ??? null, cat01Image ??? null],
-    }
-  } only %}
-
-  {# Spacer #}
-  {% include '_components/_layout/spacer/spacer.twig' with {
-    props: {
-      modifiers: ['2']
-    }
-  } only %}
-
-  {% include '_components/grid/imagesCalculated.twig' with {
-    props: {
-      images: [placeholderImage ??? null, cat01Image ??? null, cat03Image ??? null],
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="plainText">_components/plainText</pre>
-  {# plainText #}
-  {% set plainText %}
-    An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, falli doming vix no? No pri causae petentium! Id vocibus volutpat deterruisset usu, vocibus verterem sed ne, usu ne similique temporibus!
-
-    Ex vix dicat discere partiendo, at ignota corpora mei, posse percipitur mea ut. At doming commodo deseruisse sit, eu diceret fabulas eligendi vix, sea nostrum scriptorem ad! Quo cu eius tollit instructior.
-  {% endset %}
-
-  {% include '_components/plainText/plainText.twig' with {
-    props: {
-      text: plainText ??? null
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="quote">_components/quote</pre>
-  {# quote #}
-  {% include '_components/quote/quote.twig' with {
-    props: {
-      quote: 'The quick brown fox jumps over the lazy dogs',
-      source: 'John Wayne',
-      sourceSubline: 'Createtor of nichts',
-      sourceUrl: siteUrl ??? null
-    }
-  } only %}
-
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="slider/images">_components/slider/images</pre>
-  {# slider #}
-  {% include '_components/slider/images.twig' with {
-    props: {
-      images: [
-        placeholderImage ??? null,
-        cat01Image ??? null,
-        placeholderImage ??? null,
-        cat03Image ??? null,
-        placeholderImage ??? null,
-        cat02Image ??? null,
-        cat04Image ??? null,
-        placeholderImage ??? null
-      ],
-    }
-  } only %}
-
-
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
-  <pre class="mt-4 mb-2" id="embed/youtube">_components/embed/youtube</pre>
-  {# youtube #}
-  {% include '_components/embed/youtube.twig' with {
-    props: {
-      videoId: 'bd4_PIxfMmQ'
-    }
-  } only %}
-</div>
+{#<div class="container">#}
+{#  <pre class="mt-4 mb-2" id="row">_components/_layout/row</pre>#}
+{#</div>#}
+{#<div class="container">#}
+{#  <div class="l-row l-row--visible mt-1"></div>#}
+{#</div>#}
+
+
+{#<div class="container">#}
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="spacer">_components/_layout/spacer</pre>#}
+{#  #}{# spacer #}
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-1'],#}
+{#      modifiers: ['2', 'visible']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-1'],#}
+{#      modifiers: ['4', 'visible']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-1'],#}
+{#      modifiers: ['6', 'visible']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-1'],#}
+{#      modifiers: ['8', 'visible']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-1'],#}
+{#      modifiers: ['10', 'visible']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-1'],#}
+{#      modifiers: ['12', 'visible']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-1'],#}
+{#      modifiers: ['14', 'visible']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-1'],#}
+{#      modifiers: ['16', 'visible']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-1'],#}
+{#      modifiers: ['18', 'visible']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-1'],#}
+{#      modifiers: ['20', 'visible']#}
+{#    }#}
+{#  } only %}#}
+{#</div>#}
+
+
+
+{#<div class="container">#}
+{#  <h3 class="mt-4">Elements</h3>#}
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="divider">_components/divider</pre>#}
+{#  #}{# divider #}
+{#  <div class="container">#}
+{#    {% include '_components/divider/divider.twig' only %}#}
+{#    {% include '_components/divider/divider.twig' with {#}
+{#      props: {#}
+{#        modifiers: ['medium']#}
+{#      }#}
+{#    } only %}#}
+{#    {% include '_components/divider/divider.twig' with {#}
+{#      props: {#}
+{#        modifiers: ['narrow']#}
+{#      }#}
+{#    } only %}#}
+{#  </div>#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="image/picture">_components/image/picture</pre>#}
+{#  #}{# picture #}
+{#  {% include '_components/image/picture.twig' with {#}
+{#    props: {#}
+{#      image: placeholderImage ??? null,#}
+{#      transform: 'landscape'#}
+{#    }#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="image/image">_components/image/image</pre>#}
+{#  #}{# imageRaw #}
+{#  {% include '_components/image/image.twig' with {#}
+{#    props: {#}
+{#      image: placeholderImage ??? null,#}
+{#    }#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="link/link">_components/link/link</pre>#}
+{#  #}{# link #}
+{#  {% include '_components/link/link.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['primary'],#}
+{#      url: 'https://davidhellmann.com',#}
+{#      text: 'Primary Link'#}
+{#    }#}
+{#  } only %}#}
+
+{#  #}{# link #}
+{#  {% include '_components/link/link.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['secondary'],#}
+{#      customClasses: ['ml-1'],#}
+{#      url: 'https://davidhellmann.com',#}
+{#      text: 'Secondary Link'#}
+{#    }#}
+{#  } only %}#}
+
+{#  #}{# link #}
+{#  {% include '_components/link/link.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['ghost'],#}
+{#      customClasses: ['ml-1'],#}
+{#      url: 'https://davidhellmann.com',#}
+{#      text: 'Ghost Link'#}
+{#    }#}
+{#  } only %}#}
+
+{#  #}{# link #}
+{#  {% include '_components/link/link.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['outlined'],#}
+{#      customClasses: ['ml-1'],#}
+{#      url: 'https://davidhellmann.com',#}
+{#      text: 'Outlined Link'#}
+{#    }#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="link/linkIcon">_components/link/linkIcon</pre>#}
+{#  #}{# linkIcon #}
+{#  {% include '_components/link/linkIcon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['primary'],#}
+{#      url: 'https://davidhellmann.com',#}
+{#      text: 'Primary Link',#}
+{#      icon: 'icons/outline/cloud-download'#}
+{#    }#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="logo">_components/logo</pre>#}
+{#  #}{# logo #}
+{#  {% include '_components/logo/logo.twig' with {#}
+{#    props: {}#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="spinner">_components/spinner</pre>#}
+{#  #}{# spinner #}
+{#  <div style="position:relative; width: 100%; height: 48px; background-color: black;">#}
+{#    {% include '_components/spinner/spinner.twig' with {#}
+{#      props: {}#}
+{#    } only %}#}
+{#  </div>#}
+
+{#  <div style="position:relative; width: 100%; height: 48px;">#}
+{#    {% include '_components/spinner/spinner.twig' with {#}
+{#      props: {#}
+{#        modifiers: ['dark']#}
+{#      }#}
+{#    } only %}#}
+{#  </div>#}
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="icon">_components/icon</pre>#}
+{#  #}{# spinner #}
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/outline/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['24'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/outline/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['32'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/outline/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['48'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/outline/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['64'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/outline/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['128'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/outline/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  <br>#}
+{#  #}{# spinner #}
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/filled/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['24'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/filled/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['32'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/filled/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['48'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/filled/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['64'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/filled/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['128'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/filled/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  <br>#}
+
+{#  #}{# spinner #}
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/sharp/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['24'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/sharp/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['32'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/sharp/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['48'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/sharp/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['64'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/sharp/cube'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/icon/icon.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['128'],#}
+{#      customClasses: ['mr-1 mt-1'],#}
+{#      icon: 'icons/sharp/cube'#}
+{#    }#}
+{#  } only %}#}
+{#</div>#}
+
+
+{#<div class="container">#}
+{#  <h3 class="mt-4">Components</h3>#}
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="accordion">_components/accordion</pre>#}
+{#  #}{# accordion #}
+{#  {% include '_components/accordion/accordion.twig' with {#}
+{#    props: {#}
+{#      trigger: 'Accordion Trigger 1',#}
+{#      content: '<p>Lorem ipsum dolor sit amet</p>'#}
+{#    }#}
+{#  } only %}#}
+{#  #}{# accordion #}
+{#  {% include '_components/accordion/accordion.twig' with {#}
+{#    props: {#}
+{#      trigger: 'Accordion Trigger 2',#}
+{#      content: '<p>Lorem ipsum dolor sit amet</p>'#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['4']#}
+{#    }#}
+{#  } only %}#}
+
+{#  #}{# accordion #}
+{#  {% include '_components/accordion/accordion.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['narrow'],#}
+{#      trigger: 'Accordion Trigger 3',#}
+{#      content: '<p>Lorem ipsum dolor sit amet</p>'#}
+{#    }#}
+{#  } only %}#}
+{#  #}{# accordion #}
+{#  {% include '_components/accordion/accordion.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['narrow'],#}
+{#      trigger: 'Accordion Trigger 4',#}
+{#      content: '<p>Lorem ipsum dolor sit amet</p>'#}
+{#    }#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="caption">_components/caption</pre>#}
+{#  #}{# caption #}
+{#  {% include '_components/caption/caption.twig' with {#}
+{#    props: {#}
+{#      headline: 'The quick brown fox jumps over the lazy dogs',#}
+{#      text: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in',#}
+{#      source: 'Baukasten',#}
+{#      sourceUrl: siteUrl,#}
+{#    }#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="card/image">_components/card/image</pre>#}
+{#  #}{# card #}
+{#  <div style="max-width: 400px;">#}
+{#    {% include '_components/card/image.twig' with {#}
+{#      props: {#}
+{#        image: placeholderImage ??? null,#}
+{#        transform: 'landscape',#}
+{#        headline: 'The quick brown fox jumps over the lazy dogs',#}
+{#        copy: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo.',#}
+{#        linkUrl: siteUrl,#}
+{#        linkText: null#}
+{#      }#}
+{#    } only %}#}
+{#  </div>#}
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="code">_components/code</pre>#}
+{#  #}{# code #}
+{#  {% include '_components/code/code.twig' with {#}
+{#    props: {#}
+{#      snippet: "/*#}
+{# |--------------------------------------------------------------------------#}
+{# | .container#}
+{# |--------------------------------------------------------------------------#}
+{# */#}
+
+{#.container {#}
+{#  @include center();#}
+{#  width: 100%;#}
+{#  max-width: map_get($breakpoints, 'max');#}
+{#  padding-left: 2rem;#}
+{#  padding-right: 2rem;#}
+
+{#  .container {#}
+{#    padding-left: 0;#}
+{#    padding-right: 0;#}
+{#  }#}
+{#}#}
+{#",#}
+{#      language: 'scss'#}
+{#    }#}
+{#  } only %}#}
+
+{#  #}{# code #}
+{#  {% include '_components/code/code.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-2'],#}
+{#      snippet: "npm i baukasten-grid",#}
+{#      language: 'bash'#}
+{#    }#}
+{#  } only %}#}
+
+
+{#  #}{# code #}
+{#  {% include '_components/code/code.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-2'],#}
+{#      snippet: "/**#}
+{# * code#}
+{# */#}
+
+{#import ClipboardJS from 'clipboard';#}
+
+{#const code = {#}
+{#  cfg: {#}
+{#    codeBlocks: [...document.querySelectorAll('.js-code')],#}
+{#  },#}
+
+{#  copyToClipboard() {#}
+{#    new ClipboardJS('.js-codeCopy', {#}
+{#      target: function(trigger) {#}
+{#        return trigger.nextElementSibling;#}
+{#      },#}
+{#    });#}
+{#  },#}
+
+{#  toggleCodeBlock(els) {#}
+{#    els.forEach(el => {#}
+{#      const toggle = el.querySelector('.js-codeToggle');#}
+{#      let status = el.getAttribute('data-status');#}
+{#      const showText = toggle.getAttribute('data-show');#}
+{#      const hideText = toggle.getAttribute('data-hide');#}
+
+{#      toggle.addEventListener('click', () => {#}
+{#        if (status === 'open') {#}
+{#          status = 'closed';#}
+{#          toggle.innerHTML = showText;#}
+{#          toggle.setAttribute('data-status', 'closed');#}
+{#          toggle.parentElement.parentElement.setAttribute(#}
+{#            'data-status',#}
+{#            'closed',#}
+{#          );#}
+{#        } else {#}
+{#          status = 'open';#}
+{#          toggle.innerHTML = hideText;#}
+{#          toggle.setAttribute('data-status', 'open');#}
+{#          toggle.parentElement.parentElement.setAttribute(#}
+{#            'data-status',#}
+{#            'open',#}
+{#          );#}
+{#        }#}
+{#      });#}
+{#    });#}
+{#  },#}
+
+{#  init() {#}
+{#    if (!this.cfg.codeBlocks) return;#}
+{#    this.toggleCodeBlock(this.cfg.codeBlocks);#}
+{#    this.copyToClipboard();#}
+{#  },#}
+{#};#}
+
+{#export default code;#}
+
+{#",#}
+{#      language: 'javascript'#}
+{#    }#}
+{#  } only %}#}
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="definitionList">_components/definitionList</pre>#}
+{#  #}{# definitionList #}
+{#  {% include '_components/definitionList/definitionList.twig' with {#}
+{#    props: {#}
+{#      image: placeholderImage ??? null,#}
+{#      items: [#}
+{#        { term: 'Definition Term', description: 'The quick brown fox jumps over the lazy dogs'},#}
+{#        { term: 'John Wayne', description: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in?'},#}
+{#        { term: 'Lorem Ipsum ', description: 'Quick brown fox jumps over the lazy dogs'},#}
+{#        { term: 'Definition Term', description: 'The quick brown fox jumps over the lazy dogs'},#}
+{#        { term: 'John Wayne', description: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in?'},#}
+{#      ]#}
+{#    }#}
+{#  } only %}#}
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="figure/image">_components/figure/image</pre>#}
+{#  #}{# figure #}
+{#  {% include '_components/figure/image.twig' with {#}
+{#    props: {#}
+{#      image: placeholderImage ??? null,#}
+{#      caption: true,#}
+{#      captionHeadline: 'The quick brown fox jumps over the lazy dogs',#}
+{#      captionText: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in.',#}
+{#      captionSource: 'Baukasten',#}
+{#      captionSourceUrl: siteUrl,#}
+{#    }#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="cover/image">_components/cover/image</pre>#}
+{#  #}{# image #}
+{#  {% include '_components/cover/image.twig' with {#}
+{#    props: {#}
+{#      image: placeholderImage ??? null,#}
+{#    }#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="gallery/images">_components/gallery/images</pre>#}
+{#  #}{# galleryImage #}
+{#  {% include '_components/gallery/images.twig' with {#}
+{#    props: {#}
+{#      images: [placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null]#}
+{#    }#}
+{#  } only %}#}
+
+{#  #}{# galleryImage #}
+{#  {% include '_components/gallery/images.twig' with {#}
+{#    props: {#}
+{#      customClasses: ['mt-2'],#}
+{#      images: [placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null, placeholderImage ??? null,placeholderImage ??? null],#}
+{#      cutAfter: 4,#}
+{#      caption: true,#}
+{#    }#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="grid/images">_components/grid/images</pre>#}
+{#  #}{# grid/image #}
+{#  {% include '_components/grid/images.twig' with {#}
+{#    props: {#}
+{#      images: [placeholderImage ??? null],#}
+{#      transform: 'landscape'#}
+{#    }#}
+{#  } only %}#}
+
+{#  #}{# Spacer #}
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['2']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/grid/images.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['2'],#}
+{#      images: [placeholderImage ??? null, cat03Image ??? null],#}
+{#      transform: 'portrait'#}
+{#    }#}
+{#  } only %}#}
+
+{#  #}{# Spacer #}
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['2']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/grid/images.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['3'],#}
+{#      images: [placeholderImage ??? null, cat01Image ??? null, cat03Image ??? null],#}
+{#      transform: 'portrait'#}
+{#    }#}
+{#  } only %}#}
+
+{#  #}{# Spacer #}
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['2']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/grid/imagesCalculated.twig' with {#}
+{#    props: {#}
+{#      images: [placeholderImage ??? null, cat01Image ??? null],#}
+{#    }#}
+{#  } only %}#}
+
+{#  #}{# Spacer #}
+{#  {% include '_components/_layout/spacer/spacer.twig' with {#}
+{#    props: {#}
+{#      modifiers: ['2']#}
+{#    }#}
+{#  } only %}#}
+
+{#  {% include '_components/grid/imagesCalculated.twig' with {#}
+{#    props: {#}
+{#      images: [placeholderImage ??? null, cat01Image ??? null, cat03Image ??? null],#}
+{#    }#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="plainText">_components/plainText</pre>#}
+{#  #}{# plainText #}
+{#  {% set plainText %}#}
+{#    An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, falli doming vix no? No pri causae petentium! Id vocibus volutpat deterruisset usu, vocibus verterem sed ne, usu ne similique temporibus!#}
+
+{#    Ex vix dicat discere partiendo, at ignota corpora mei, posse percipitur mea ut. At doming commodo deseruisse sit, eu diceret fabulas eligendi vix, sea nostrum scriptorem ad! Quo cu eius tollit instructior.#}
+{#  {% endset %}#}
+
+{#  {% include '_components/plainText/plainText.twig' with {#}
+{#    props: {#}
+{#      text: plainText ??? null#}
+{#    }#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="quote">_components/quote</pre>#}
+{#  #}{# quote #}
+{#  {% include '_components/quote/quote.twig' with {#}
+{#    props: {#}
+{#      quote: 'The quick brown fox jumps over the lazy dogs',#}
+{#      source: 'John Wayne',#}
+{#      sourceSubline: 'Createtor of nichts',#}
+{#      sourceUrl: siteUrl ??? null#}
+{#    }#}
+{#  } only %}#}
+
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="slider/images">_components/slider/images</pre>#}
+{#  #}{# slider #}
+{#  {% include '_components/slider/images.twig' with {#}
+{#    props: {#}
+{#      images: [#}
+{#        placeholderImage ??? null,#}
+{#        cat01Image ??? null,#}
+{#        placeholderImage ??? null,#}
+{#        cat03Image ??? null,#}
+{#        placeholderImage ??? null,#}
+{#        cat02Image ??? null,#}
+{#        cat04Image ??? null,#}
+{#        placeholderImage ??? null#}
+{#      ],#}
+{#    }#}
+{#  } only %}#}
+
+
+{#  #}{# ============================================================== #}
+{#  #}{#                                                                #}
+{#  #}{#      SEPERATOR                                                 #}
+{#  #}{#                                                                #}
+{#  #}{# ============================================================== #}
+{#  <pre class="mt-4 mb-2" id="embed/youtube">_components/embed/youtube</pre>#}
+{#  #}{# youtube #}
+{#  {% include '_components/embed/youtube.twig' with {#}
+{#    props: {#}
+{#      videoId: 'bd4_PIxfMmQ'#}
+{#    }#}
+{#  } only %}#}
+{#</div>#}
 
 
 {# ============================================================== #}
