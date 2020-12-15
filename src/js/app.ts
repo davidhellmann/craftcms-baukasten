@@ -29,7 +29,7 @@ const main = async () => {
   const app = createApp(App);
 
   // Mount the app
-  const root = app.mount('#component-container');
+  const root = app.mount('#component-containers');
 
   return root;
 };
