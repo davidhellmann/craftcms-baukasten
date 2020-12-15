@@ -1,8 +1,7 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'a-youtube-basic',
-  modifiers: [],
-  customClasses: [],
+
   data: {},
   videoId: null,
   autoplay: 0,
@@ -12,19 +11,12 @@
 
 {# Merge Default with Options #}
 {% set props = props is defined ? defaults|merge(props) : defaults %}
-{% set props= props| merge({
-  customClasses: props.customClasses | merge([
-    'o-ratio',
-    'o-ratio--16-9',
-  ])
-}) %}
 
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
-{% import '_macros/_macro-cookies.twig' as cookies %}
 
 {% if props.videoId %}
-  <div {{ module.settings(props) }}>
+  <div class="aspect-w-16 aspect-h-9" {{ module.settings(props) }}>
     <iframe class="lazyload"
             data-src="https://www.youtube-nocookie.com/embed/{{ props.videoId }}?rel=0&loop={{ props.loop }}&showinfo={{ props.showinfo }}&autoplay={{ props.autoplay }}"
             frameborder="0">

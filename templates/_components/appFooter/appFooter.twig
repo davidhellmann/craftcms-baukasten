@@ -1,8 +1,7 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'c-appFooter',
-  modifiers: [],
-  customClasses: [],
+
   data: {}
 } %}
 
@@ -12,8 +11,8 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-<footer {{ module.settings(props) }}>
-  <div class="l-container {{ props.cn ~ '__content' }}">
+<footer class="bg-gray-100" {{ module.settings(props) }}>
+  <div class="container py-4 text-sm">
     Baukasten &copy;2014 &mdash; {{ "now"|date("Y") }}
   </div>
 </footer>

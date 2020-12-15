@@ -1,8 +1,7 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'c-appHeader',
-  modifiers: [],
-  customClasses: [],
+
   data: {}
 } %}
 
@@ -12,11 +11,12 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-<header {{ module.settings(props) }}>
-  <div class="l-container {{ props.cn ~ '__content' }}">
-    {# logo #}
-    {% include '_components/logo/logo.twig' only %}
-    <h1 class="{{ props.cn ~ '__headline' }}">Baukasten</h1>
+<header class="bg-gray-100" {{ module.settings(props) }}>
+  <div class="container py-8 grid grid-cols-12 gap-8 items-center">
+    <div class="col-span-1">
+      {% include '_components/logo/logo.twig' only %}
+    </div>
+    <h1 class="text-2xl font-bold col-span-11">Baukasten</h1>
   </div>
 </header>
 

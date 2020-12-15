@@ -46,6 +46,8 @@ module.exports = {
         '.container': {
           paddingLeft: '1rem',
           paddingRight: '1rem',
+          marginLeft: 'auto',
+          marginRight: 'auto',
           '@screen md': {
             paddingLeft: '2rem',
             paddingRight: '2rem',
