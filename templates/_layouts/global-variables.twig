@@ -15,7 +15,7 @@
     alias("@assetsUrl"),
   ] %}
   {# -- General global variables -- #}
-  {% set baseUrl = alias('@assetsUrl') ~ '/' %}
+  {% set baseUrl = alias('@web') ~ '/' %}
   {% set gaTrackingId = getenv('GA_TRACKING_ID') %}
 
   {# -- Twig output from the render; this must be in a block -- #}
