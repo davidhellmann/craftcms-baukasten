@@ -1,8 +1,10 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'c-spacer',
-
   data: {},
+  customClasses: '',
+  size: 2,
+  visible: 0,
 } %}
 
 {# Merge Default with Options #}
@@ -11,5 +13,5 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-<hr {{ module.settings(props) }}>
+<hr class="border-0 h-{{ props.size }} {{ props.visible ? 'bg-blue-50' }} {{ props.customClasses }}" {{ module.settings(props) }}>
 
