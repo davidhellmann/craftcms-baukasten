@@ -11,5 +11,15 @@ module.exports = {
       to: 'js/[name].[ext]',
       noErrorOnMissing: true,
     },
+    {
+      context: './src/img/svg/',
+      from: '**/*',
+      to: 'img/svg',
+    },
+    {
+      context: './src/img/bitmap/',
+      from: '**/*',
+      to: 'img/bitmap',
+    },
   ],
 };
