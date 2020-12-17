@@ -15,9 +15,10 @@
 {% block content %}
   {# Redirect to home if on a live env #}
   {% if craft.app.config.general.custom.craftEnv == 'live' %}
-    {% redirect siteUrl %}
+    {#{% redirect siteUrl %}#}
   {% endif %}
 
+  {{ d(baseUrl) }}
   <section class="py-8 bg-black text-white text-2xl text-center font-bold">
     <div class="container">
       <h1>Component Library</h1>
