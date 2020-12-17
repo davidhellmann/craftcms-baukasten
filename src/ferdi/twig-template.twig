@@ -8,8 +8,8 @@ var cn = pathOptions.key.charAt(0) + '-' + mn;
 {# Set Defaults #}
 {% set defaults = {
   cn: '<%= cn %>',
-
   data: {},
+  customClasses: '',
   foo: null
 } %}
 
@@ -20,7 +20,7 @@ var cn = pathOptions.key.charAt(0) + '-' + mn;
 {% import '_macros/_macro-settings.twig' as module %}
 
 {% if props.foo %}
-  <div {{ module.settings(props) }}>
+  <div class="{{ props.customClasses }}" {{ module.settings(props) }}>
     <%= mn %>
   </div>
 {% endif %}

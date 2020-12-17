@@ -65,8 +65,9 @@ Image Helper
     {%- endif -%}
 
     <img class="{{ lazy ? 'lazyload' : '' }}"
+         {% if lazy %}loading="lazy"{% endif %}
       {# Get Image Extension from the transformed source #}
-         data-type="{{- _self.getSourceFileExtension(image) -}}" o
+         data-type="{{- _self.getSourceFileExtension(image) -}}"
       {%- if objectFit -%}
         {# Set objectfit properties #}
         style="object-fit: {{ objectFit }}; object-position: {{ focalpoint }}"

@@ -1,13 +1,20 @@
 {#
-  a-divider
-  ------------------------------------------------------------
+a-divider
+------------------------------------------------------------
 #}
 
 {# Set Defaults #}
 {% set defaults = {
   cn: 'c-divider',
-
-  data: {}
+  data: {},
+  customClasses: '',
+  bgColor: 'bg-red-100',
+  marginTop: 'mt-16',
+  marginBottom: 'mb-16',
+  height: 'h-1',
+  gap: 'gap-x-4 md:gap-x-8',
+  gridCols: 'grid-cols-12',
+  colSpan: 'col-span-full'
 } %}
 
 {# Merge Default with Options #}
@@ -16,4 +23,8 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-<hr {{ module.settings(props) }}>
+<div class="{{ props.marginTop }} {{ props.marginBottom }}
+            grid {{ props.gridCols }} {{ props.gap }}
+            {{ props.customClasses }}" {{ module.settings(props) }}>
+  <hr class="border-0 {{ props.height }} {{ props.bgColor }} {{ props.colSpan }}">
+</div>
