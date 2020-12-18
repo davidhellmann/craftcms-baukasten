@@ -1,9 +1,14 @@
 <?php
-return [
-    // Components
-    // Code
-    'translate.component.code.show' => 'Zeigen',
-    'translate.component.code.hide' => 'Verbergen',
-    'translate.component.code.copy' => 'Kopieren',
-    'translate.component.code.copied' => '✅ Kopiert!',
-];
+$translateComponentCode = include __DIR__ . '/../../templates/_components/code/translate.de.component.code.php';
+$translateComponentLink = include __DIR__ . '/../../templates/_components/link/translate.de.component.link.php';
+$translateComponentLinkIcon = include __DIR__ . '/../../templates/_components/link/translate.de.component.linkIcon.php';
+
+$defaults = [];
+
+return array_merge(
+    $defaults,
+    $translateComponentCode,
+    $translateComponentLink,
+    $translateComponentLinkIcon
+);
+
