@@ -9,10 +9,10 @@ module.exports = {
   copyright: 'David Hellmann',
   entry: {
     app: [
-      './src/js/app.ts',
-      './src/css/app-base.pcss',
-      './src/css/app-components.pcss',
-      './src/css/app-utilities.pcss',
+      '../src/js/app.ts',
+      '../src/css/app-base.pcss',
+      '../src/css/app-components.pcss',
+      '../src/css/app-utilities.pcss',
       './node_modules/typeface-merriweather/files/merriweather-latin-900.woff2',
       './node_modules/typeface-merriweather/files/merriweather-latin-900.woff',
       './node_modules/typeface-merriweather/files/merriweather-latin-900italic.woff2',
@@ -26,7 +26,7 @@ module.exports = {
       './node_modules/typeface-roboto-mono/files/roboto-mono-latin-700.woff2',
       './node_modules/typeface-roboto-mono/files/roboto-mono-latin-700.woff',
     ],
-    'lazysizes-wrapper': ['./src/js/utils/lazysizes-wrapper.ts'],
+    'lazysizes-wrapper': ['../src/js/utils/lazysizes-wrapper.ts'],
   },
   extensions: ['.ts', '.js', '.vue', '.json'],
   name: 'craftcms-baukasten',

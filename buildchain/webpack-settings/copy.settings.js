@@ -7,17 +7,17 @@ require('dotenv').config();
 module.exports = {
   copy: [
     {
-      from: './src/js/example-file.js',
+      from: '../src/js/example-file.js',
       to: 'js/[name].[ext]',
       noErrorOnMissing: true,
     },
     {
-      context: './src/img/svg/',
+      context: '../src/img/svg/',
       from: '**/*',
       to: 'img/svg',
     },
     {
-      context: './src/img/bitmap/',
+      context: '../src/img/bitmap/',
       from: '**/*',
       to: 'img/bitmap',
     },
