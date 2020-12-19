@@ -3,7 +3,9 @@ if ('loading' in HTMLImageElement.prototype) {
   // Replace the img.src with what is in the data-src property
   const images = document.querySelectorAll('img[loading="lazy"]');
   images.forEach(img => {
+    img.src = img.dataset.src || img.src;
     img.srcset = img.dataset.srcset;
+    img.sizes = `${img.getBoundingClientRect().width}px`;
   });
   // Replace the source.srcset with what is in the data-srcset property
   const sources = document.querySelectorAll('source[data-srcset]');
