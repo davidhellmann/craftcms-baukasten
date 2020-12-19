@@ -19,14 +19,30 @@ module.exports = {
   },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
-    extend: {
-      colors: {
-        gray: colors.coolGray,
-        red: colors.red,
-        blue: colors.lightBlue,
-        yellow: colors.amber,
-        green: colors.emerald,
+    colors: {
+      current: 'currentColor',
+      transparent: 'transparent',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.coolGray,
+      indigo: colors.indigo,
+      red: {
+        100: colors.red['100'],
+        500: colors.red['500'],
+        900: colors.red['900'],
       },
+      yellow: {
+        100: colors.yellow['100'],
+        500: colors.yellow['500'],
+        900: colors.yellow['900'],
+      },
+      green: {
+        100: colors.green['100'],
+        500: colors.green['500'],
+        900: colors.green['900'],
+      },
+    },
+    extend: {
       spacing: {
         '50vh': '50vh',
       },
