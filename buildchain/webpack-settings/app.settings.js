@@ -31,7 +31,7 @@ module.exports = {
   extensions: ['.ts', '.js', '.vue', '.json'],
   name: 'craftcms-baukasten',
   paths: {
-    dist: '../web/dist/',
+    dist: '../../web/dist/',
   },
   urls: {
     criticalCss: 'http://craftcms-baukasten.test/',
