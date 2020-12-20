@@ -6,6 +6,9 @@
 - MySQL 8 / MariaDB
 - Redis `brew install redis`
 
-## Start 
+## Configs
+- Edit the `.env.example` File
+
+## Development 
 - RUN redis server `redis-server --daemonize yes`
 - RUN dev server `yarn dev` or `npm run dev`
