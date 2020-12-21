@@ -5,4 +5,3 @@ return [
     'translate.component.code.copy' => 'Copy',
     'translate.component.code.copied' => '✅ Copied!',
 ];
-?>
