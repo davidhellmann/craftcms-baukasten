@@ -19,5 +19,3 @@ if ('loading' in HTMLImageElement.prototype) {
     '{{ craft.twigpack.getModuleUri("lazysizes-wrapper.js", "legacy") }}';
   document.body.appendChild(script);
 }
-
-console.log('loading' in HTMLImageElement.prototype);
