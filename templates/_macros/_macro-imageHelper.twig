@@ -123,16 +123,16 @@ Image Helper
 {%- macro renderSource(image = null, transform = 'landscape', lazy = true, mediaQuery = null, type = 'image/webp') -%}
   {# Handle Image #}
   {%- if image ??? null -%}
-    {%- set srcSet = _self.getSrcset(image, transform) -%}
-    {%- if srcSet ??? null -%}
+    {%- set srcset = _self.getSrcset(image, transform) -%}
+    {%- if srcset ??? null -%}
       <source
         {% if image ??? null %}
           data-type="{{- _self.getSourceFileExtension(image) -}}"
         {% endif %}
         {% if lazy %}
-          data-sizes="auto" data-srcset="{{- srcSet -}}"
+          data-sizes="auto" data-srcset="{{- srcset -}}"
         {% else %}
-          sizes="100vw" srcset="{{- srcSet -}}"
+          sizes="100vw" srcset="{{- srcset -}}"
         {% endif %}
         {% if mediaQuery %}
           media="{{- mediaQuery -}}"
