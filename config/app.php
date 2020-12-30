@@ -20,46 +20,47 @@
 use craft\helpers\App;
 
 return [
-    '*' => [
-        'id' => App::env('APP_ID') ?: 'CraftCMS',
-        'modules' => [
-            'site-module' => [
-                'class' => \modules\sitemodule\SiteModule::class,
-            ],
-        ],
-        'bootstrap' => ['site-module'],
-        'components' => [
-            'db' => function () {
-                $config = craft\helpers\App::dbConfig();
-                $config['enableSchemaCache'] = true;
-                $config['schemaCacheDuration'] = 60 * 60 * 24; // 1 day
-                return Craft::createObject($config);
-            },
-            'deprecator' => [
-                'throwExceptions' => App::env('DEV_MODE'),
-            ],
-            'queue' => [
-                'class' => craft\queue\Queue::class,
-                'ttr' => 10 * 60,
-            ],
-            'cache' => [
-                'class' => yii\redis\Cache::class,
-                'keyPrefix' => App::env('APP_ID') ?: 'CraftCMS',
-                'redis' => [
-                    'hostname' => App::env('REDIS_HOSTNAME'),
-                    'port' => App::env('REDIS_PORT'),
-                    'database' => App::env('REDIS_CRAFT_DB'),
-                ],
-            ],
-            'redis' => [
-                'class' => yii\redis\Connection::class,
-                'hostname' => App::env('REDIS_HOSTNAME'),
-                'port' => App::env('REDIS_PORT'),
-                'database' => App::env('REDIS_DEFAULT_DB'),
-            ],
-        ],
+  '*' => [
+    'id' => App::env('APP_ID') ?: 'CraftCMS',
+    'modules' => [
+      'site-module' => [
+        'class' => \modules\sitemodule\SiteModule::class,
+      ],
     ],
-    'live' => [],
-    'staging' => [],
-    'local' => [],
+    'bootstrap' => ['site-module'],
+    'components' => [
+      'db' => function () {
+        $config = craft\helpers\App::dbConfig();
+        $config['enableSchemaCache'] = true;
+        $config['schemaCacheDuration'] = 60 * 60 * 24; // 1 day
+        return Craft::createObject($config);
+      },
+      'deprecator' => [
+        'throwExceptions' => App::env('DEV_MODE'),
+      ],
+      'queue' => [
+        'class' => craft\queue\Queue::class,
+        'ttr' => 10 * 60,
+      ],
+      'cache' => [
+        'class' => yii\redis\Cache::class,
+        'keyPrefix' => App::env('APP_ID') ?: 'CraftCMS',
+        'defaultDuration' => 86400,
+        'redis' => [
+          'hostname' => App::env('REDIS_HOSTNAME'),
+          'port' => App::env('REDIS_PORT'),
+          'database' => App::env('REDIS_CRAFT_DB'),
+        ],
+      ],
+      'redis' => [
+        'class' => yii\redis\Connection::class,
+        'hostname' => App::env('REDIS_HOSTNAME'),
+        'port' => App::env('REDIS_PORT'),
+        'database' => App::env('REDIS_DEFAULT_DB'),
+      ],
+    ],
+  ],
+  'live' => [],
+  'staging' => [],
+  'local' => [],
 ];
