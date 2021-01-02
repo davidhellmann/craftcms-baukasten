@@ -51,15 +51,6 @@ const components = {
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
-    // Grid overlay
-    if (document.querySelectorAll('[data-component="gridOverlay"]').length) {
-      import(
-        /* webpackChunkName: "gridOverlay" */ '../../templates/_components/gridOverlay/gridOverlay'
-      )
-        .then(gridOverlay => gridOverlay.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
-    }
-
     // Freeform
     if (document.querySelectorAll('.c-freeform').length) {
       import(

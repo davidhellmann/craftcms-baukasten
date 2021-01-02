@@ -1,14 +1,14 @@
 {#
-  gridOverlay
-  ------------------------------------------------------------
+gridOverlay
+------------------------------------------------------------
 #}
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'gridOverlay',
-
+  cn: 'c-gridOverlay',
+  js: true,
   data: {},
-  cols: 24
+  cols: 12
 } %}
 
 {# Merge Default with Options #}
@@ -17,21 +17,28 @@
 {# Macros #}
 {% import '_macros/_macro-settings.twig' as module %}
 
-
-
-
-
 {# Modul #}
 {% if props.cols %}
-  <div class="js-toggleGrid">Grid</div>
-  <div {{ module.settings(props) }}>
-    <div class="l-section">
-      <div class="l-container">
-        <div class="l-row">
+  <div
+    x-data="{ open: localStorage.getItem('gridOverlay') || false }"
+    x-init="$watch('open', (val) => localStorage.setItem('gridOverlay', val))"
+  >
+    <div class="
+  fixed left-4 bottom-4 z-1000
+  bg-gray-900 text-xs text-white
+  py-1 px-2 rounded-lg
+  cursor-pointer select-none"
+         data-component-js="js-gridOverlay--toggle"
+         @click="open = ! open">Grid
+    </div>
+    <div class="
+  fixed z-10000 top-0 w-screen h-screen pointer-events-none
+  "
+         :class="{ 'hidden': open === false }" {{ module.settings(props) }}>
+      <div class="container h-screen grid gap-x-4 md:gap-x-8 grid-cols-6  md:grid-cols-12">
           {% for i in 1..props.cols %}
-            <div class="l-col"></div>
+            <div class="h-screen"></div>
           {% endfor %}
-        </div>
       </div>
     </div>
   </div>
