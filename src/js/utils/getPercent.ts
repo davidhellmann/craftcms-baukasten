@@ -2,7 +2,7 @@
  * getPercent
  */
 
-const getPercent = (a, b) => {
+const getPercent = (a: number, b: number): number => {
   return a / b;
 };
 

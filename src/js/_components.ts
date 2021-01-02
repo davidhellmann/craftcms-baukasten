@@ -52,7 +52,7 @@ const components = {
     }
 
     // Grid overlay
-    if (document.querySelectorAll('.gridOverlay').length) {
+    if (document.querySelectorAll('[data-component="gridOverlay"]').length) {
       import(
         /* webpackChunkName: "gridOverlay" */ '../../templates/_components/gridOverlay/gridOverlay'
       )
