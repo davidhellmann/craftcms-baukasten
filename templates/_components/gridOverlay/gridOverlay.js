@@ -6,8 +6,11 @@
  * gridOverlay
  */
 
+import initComponent from '../../../src/js/utils/initComponent'
+
 const gridOverlay = {
   cfg: {
+    name: 'GridOverlay',
     selectors: {
       toggleGrid: '.js-toggleGrid',
       gridOverlay: '.gridOverlay',
@@ -44,6 +47,7 @@ const gridOverlay = {
 
   init() {
     setTimeout(() => {
+      initComponent(this.cfg.name);
       this.setElements();
 
       // Show grid when in true in local storage
