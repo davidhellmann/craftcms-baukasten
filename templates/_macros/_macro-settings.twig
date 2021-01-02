@@ -9,7 +9,7 @@
   {% if props.cn %}data-component="{{ props.cn }}"
     {# JS Class#}
     {% if props.js ??? null %}
-      data-component-js="{{ props.cn|replace({ (props.cn | slice(0,2)) : ' js-' }) }}"
+      data-component-js="{{ props.cn|replace({ (props.cn | slice(0,2)) : 'js-' }) }}"
     {% endif %}
   {% endif %}
 
