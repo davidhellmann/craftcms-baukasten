@@ -1,5 +1,5 @@
 <template>
-  <confetti />
+  <SubComp />
 </template>
 
 <script lang="ts">
@@ -8,11 +8,10 @@ import { defineAsyncComponent, defineComponent } from 'vue';
 
 export default defineComponent({
   components: {
-    confetti: defineAsyncComponent(
-      () => import(/* webpackChunkName: "confetti" */ './Confetti.vue'),
+    SubComp: defineAsyncComponent(
+      () => import(/* webpackChunkName: "subComp" */ './DummySubComp.vue'),
     ),
   },
-  data: () => ({}),
   mounted() {},
   methods: {},
 });

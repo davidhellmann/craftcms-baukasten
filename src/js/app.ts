@@ -1,9 +1,7 @@
-import App from '../vue/App.vue';
-import { createApp } from 'vue';
+import 'alpinejs'
 import 'typeface-lato';
 import 'typeface-merriweather';
 import 'typeface-roboto-mono';
-import 'alpinejs'
 
 // Add JS Loaded class to the body
 document.documentElement.classList.add('js-loaded');
@@ -25,19 +23,17 @@ const main = async () => {
     .then(components => components.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 
-  // Async load the Vue 3 APIs we need from the Vue ESM
-  // Create our vue instance
-  const app = createApp(App);
-
-  // Mount the app
-  const root = app.mount('#component-containers');
-
-  return root;
+  // Import Vue Components
+  await import(/* webpackChunkName: "vueComponents" */ './_vue-components')
+    .then(vueComponents => vueComponents.default.init())
+    .catch(e => console.error(`${e.name} : ${e.message}`));
 };
 
 // Execute async function
 // eslint-disable-next-line
-main().then(root => {});
+main().then(() => {
+  console.log('App Initialized')
+});
 
 // Accept HMR as per: https://webpack.js.org/api/hot-module-replacement#accept
 if (module.hot) {

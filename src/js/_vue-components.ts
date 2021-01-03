@@ -1,18 +1,19 @@
-const vueComps = async () => {
-  // Each Vue Component is decoupled instance
-  // confetti
-  // if (document.querySelector('#confetti')) {
-  //   // Import Vue Components
-  //   const { default: Vue } = await import(/* webpackChunkName: "vue" */ 'vue');
-  //   new Vue({
-  //     el: '#confetti',
-  //     components: {
-  //       confetti: () =>
-  //         import(/* webpackChunkName: "confetti" */ '../vue/Confetti.vue'),
-  //     },
-  //   });
-  // }
+const vueComps = {
+  async init() {
+    console.log('Init Vue Comps')
+    // Each Vue Component is decoupled instance
+    // Dummy Comp
+    if (document.querySelector('#dummyComp')) {
+      // Import Vue Components
+      const { createApp } = await import(/* webpackChunkName: "vue" */ 'vue');
+      const { default: DummyComp } = await import(/* webpackChunkName: "dummyComp" */ '../vue/DummyComp.vue');
+
+      // Create our vue instance
+      const dummyComp = createApp(DummyComp);
+      // Mount the app
+      dummyComp.mount('#dummyComp');
+    }
+  },
 };
 
-// Start Vue Comps
-vueComps();
+export default vueComps;
