@@ -1,3 +1,5 @@
+![Image CraftCMS Baukasten](CraftCMS-Baukasten.png)
+
 # CraftCMS Baukasten
 
 ## What's recommended
