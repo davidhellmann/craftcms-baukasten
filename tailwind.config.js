@@ -1,0 +1,1 @@
+./buildchain/tailwind.config.js

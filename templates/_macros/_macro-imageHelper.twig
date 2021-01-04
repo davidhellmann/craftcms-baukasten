@@ -83,6 +83,8 @@ Image Helper
         {%- if isTransformable -%}srcset="{{- srcset -}}"{%- else -%}src="{{- imageUrl -}}"{%- endif -%}
         sizes="100vw"
       {%- endif -%}
+      {# Image Decoding Aysnc #}
+         decoding="async"
       {# Set image title #}
          alt="{{ imageTitle }}"
          title="{{ imageTitle }}"/>
