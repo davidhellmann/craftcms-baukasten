@@ -10,7 +10,7 @@ import { ref, defineComponent } from 'vue';
 
 export default defineComponent({
   setup(props) {
-    const message = ref('Dummy Text')
+    const message = ref('')
     return {
       message
     }
