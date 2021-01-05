@@ -47,10 +47,10 @@ module.exports = {
         '50vh': '50vh',
       },
       zIndex: {
-        '1000': '1000',
-        '10000': '10000',
-        '100000': '100000',
-      }
+        1000: '1000',
+        10000: '10000',
+        100000: '100000',
+      },
     },
   },
   variants: {},
@@ -65,6 +65,7 @@ module.exports = {
     function ({ addComponents }) {
       addComponents({
         '.container': {
+          width: '100%',
           paddingLeft: '1rem',
           paddingRight: '1rem',
           marginLeft: 'auto',
