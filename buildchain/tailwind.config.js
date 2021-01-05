@@ -3,6 +3,8 @@
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
 const colors = require('tailwindcss/colors');
+const fontBase = 1.125; // REM
+const fontFactor = 1.2; // minor-third
 
 module.exports = {
   purge: {
@@ -23,6 +25,20 @@ module.exports = {
       sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
       serif: ['Merriweather', 'Georgia', 'Times New Roman', 'Times', 'serif'],
       mono: ['JetBrains Mono', 'Courier New', 'Courier', 'monospace'],
+    },
+    fontSize: {
+      sm: [`${fontBase * Math.pow(fontFactor, -1)}rem`, '1.5'],
+      base: [`${fontBase}rem`, '1.5'],
+      lg: [`${fontBase * Math.pow(fontFactor, 1)}rem`, '1.5'],
+      xl: [`${fontBase * Math.pow(fontFactor, 2)}rem`, '1.4'],
+      '2xl': [`${fontBase * Math.pow(fontFactor, 3)}rem`, '1.3'],
+      '3xl': [`${fontBase * Math.pow(fontFactor, 4)}rem`, '1.2'],
+      '4xl': [`${fontBase * Math.pow(fontFactor, 5)}rem`, '1.1'],
+      '5xl': [`${fontBase * Math.pow(fontFactor, 6)}rem`, '1'],
+      '6xl': [`${fontBase * Math.pow(fontFactor, 7)}rem`, '1'],
+      '7xl': [`${fontBase * Math.pow(fontFactor, 8)}rem`, '1'],
+      '8xl': [`${fontBase * Math.pow(fontFactor, 9)}rem`, '1'],
+      '9xl': [`${fontBase * Math.pow(fontFactor, 10)}rem`, '1'],
     },
     colors: {
       current: 'currentColor',
