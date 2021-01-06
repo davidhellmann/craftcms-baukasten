@@ -3,7 +3,7 @@
  */
 
 const settings = require('./tailwind.settings');
-const settingsColors = require('./tailwind.settings.colors')
+const settingsColors = require('./tailwind.settings.colors');
 
 const colorMap = {
   colorDefault: settingsColors.colors.gray['700'],
@@ -14,9 +14,9 @@ const colorMap = {
   colorFigCaption: settingsColors.colors.gray['500'],
   colorPre: settingsColors.colors.gray['200'],
   colorPreBg: settingsColors.colors.gray['800'],
-}
+};
 
-const round = (num) =>
+const round = num =>
   num
     .toFixed(7)
     .replace(/(\.[0-9]+?)0+$/, '$1')
@@ -123,7 +123,7 @@ module.exports = theme => {
             fontWeight: '400',
             color: 'inherit',
             fontSize: 'inherit',
-            fontFamily: 'inherit',
+            fontFamily: theme('fontFamily.mono').join(', '),
             lineHeight: 'inherit',
           },
           'pre code::before': {
@@ -527,7 +527,7 @@ module.exports = theme => {
         },
       ],
     },
-  }
+  };
 
-  return output
-}
+  return output;
+};

@@ -28,8 +28,9 @@ module.exports = {
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ['SofiaPro-Regular', 'Helvetica', 'Arial', 'sans-serif'],
-      'sans-bold': ['SofiaPro-Bold', 'Helvetica', 'Arial', 'sans-serif'],
+      sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
+      serif: ['Merriweather', 'Georgia', 'Times New Roman', 'Times', 'serif'],
+      mono: ['"JetBrains Mono"', '"Courier New"', 'Courier', 'monospace'],
     },
     fontSize: settingsFontSizes.fontSize,
     colors: settingsColors.colors,
@@ -50,11 +51,7 @@ module.exports = {
       typography: theme => settingsProse(theme),
     },
   },
-  variants: {
-    extend: {
-      borderOpacity: ['active'],
-    },
-  },
+  variants: {},
   corePlugins: {
     float: false,
     container: false,
