@@ -5,13 +5,6 @@
   {{ parent() }}
 {% endblock headLinks %}
 
-{# Critical CSS #}
-{% block inlineCriticalCss %}
-  <style>
-    {{ craft.twigpack.includeFile('@webroot/dist/criticalcss/' ~ _self ~  '_critical.min.css') }}
-  </style>
-{% endblock %}
-
 {% block content %}
   {# Page Builder #}
   {% include '_builders/_pageBuilder.twig' with {
