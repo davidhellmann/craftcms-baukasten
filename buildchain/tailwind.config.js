@@ -84,6 +84,9 @@ module.exports = {
         10000: '10000',
         100000: '100000',
       },
+      gridTemplateColumns: {
+        24: 'repeat(24, minmax(0, 1fr))',
+      },
       // Typography Plugin
       typography: theme => ({
         DEFAULT: {

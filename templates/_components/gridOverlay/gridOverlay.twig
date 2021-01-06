@@ -8,7 +8,7 @@ gridOverlay
   cn: 'c-gridOverlay',
   js: true,
   data: {},
-  cols: 12
+  cols: 24
 } %}
 
 {# Merge Default with Options #}
@@ -37,7 +37,7 @@ gridOverlay
          style="display: none"
          x-show="open === 'true'"
       {{ module.settings(props) }}>
-      <div class="container h-screen grid gap-x-4 md:gap-x-8 grid-cols-6  md:grid-cols-12">
+      <div class="container h-screen grid gap-x-4 md:gap-x-8 grid-cols-6  md:grid-cols-{{ props.cols }}">
         {% for i in 1..props.cols %}
           <div class="h-screen"></div>
         {% endfor %}
