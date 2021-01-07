@@ -27,6 +27,13 @@ module.exports = {
   },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     fontFamily: {
       sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
       serif: ['Merriweather', 'Georgia', 'Times New Roman', 'Times', 'serif'],
