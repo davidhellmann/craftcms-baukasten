@@ -8,24 +8,26 @@ const pagination = {
       ...document.querySelectorAll(this.cfg.selector),
     ];
 
-    paginationElements.forEach(paginationElement => {
-      const links = [...paginationElement.querySelectorAll('a')];
+    if (paginationElements) {
+      paginationElements.forEach(paginationElement => {
+        const links = [...paginationElement.querySelectorAll('a')];
 
-      links.forEach(link => {
-        link.addEventListener('click', evt => {
-          const atag = evt.currentTarget;
-          const base64url = atag.dataset.link;
-          const url = atob(base64url);
-          const { search } = atag.dataset;
+        links.forEach(link => {
+          link.addEventListener('click', evt => {
+            const atag = evt.currentTarget;
+            const base64url = atag.dataset.link;
+            const url = atob(base64url);
+            const { search } = atag.dataset;
 
-          if (search) {
-            window.location = url + search;
-          } else {
-            window.location = url;
-          }
+            if (search) {
+              window.location = url + search;
+            } else {
+              window.location = url;
+            }
+          });
         });
       });
-    });
+    }
   },
 
   init() {
