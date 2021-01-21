@@ -43,23 +43,29 @@
 }
 
 
-/* -- Roboto Mono */
+/* -- JetBrains Mono */
 @font-face {
-  font-family: 'Roboto Mono';
+  font-family: "JetBrains Mono";
   font-style: normal;
-  font-display: swap;
   font-weight: 400;
-  src: local('Roboto Mono Regular'), local('Roboto Mono-Regular'),
-  url('{{ baseUrl }}dist/fonts/roboto-mono-latin-400.woff2') format('woff2'),
-  url('{{ baseUrl }}dist/fonts/roboto-mono-latin-400.woff') format('woff');
+  font-feature-settings: "calt" 1, "zero" 1;
+  font-display: swap;
+  src: local("JetBrains Mono Regular"), local("JetBrainsMono-Regular"),
+  url("{{ baseUrl }}dist/fonts/JetBrainsMono-Regular.woff2")
+  format("woff2"),
+  url("{{ baseUrl }}dist/fonts/JetBrainsMono-Regular.woff")
+  format("woff");
 }
 
 @font-face {
-  font-family: 'Roboto Mono';
+  font-family: "JetBrains Mono";
   font-style: normal;
-  font-display: swap;
   font-weight: 700;
-  src: local('Roboto Mono Regular'), local('Roboto Mono-Regular'),
-  url('{{ baseUrl }}dist/fonts/roboto-mono-latin-700.woff2') format('woff2'),
-  url('{{ baseUrl }}dist/fonts/roboto-mono-latin-700.woff') format('woff');
+  font-feature-settings: "calt" 1, "zero" 1;
+  font-display: swap;
+  src: local("JetBrains Mono Bold"), local("JetBrainsMono-Bold"),
+  url("{{ baseUrl }}dist/fonts/JetBrainsMono-Bold.woff2")
+  format("woff2"),
+  url("{{ baseUrl }}dist/fonts/JetBrainsMono-Bold.woff")
+  format("woff");
 }

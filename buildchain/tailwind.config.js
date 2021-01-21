@@ -2,7 +2,15 @@
  * Opatciy Map for Colors
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
-const colors = require('tailwindcss/colors');
+
+// Settings
+const settingsGrid = require('./tailwind.settings.grid');
+const settingsFontSizes = require('./tailwind.settings.fontSizes');
+const settingsColors = require('./tailwind.settings.colors');
+const settingsProse = require('./tailwind.settings.prose');
+
+// Plugins
+const pluginAddComponents = require('./tailwind.plugins.addComponents');
 
 module.exports = {
   purge: {
@@ -19,38 +27,35 @@ module.exports = {
   },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
-    colors: {
-      current: 'currentColor',
-      transparent: 'transparent',
-      black: colors.black,
-      white: colors.white,
-      gray: colors.coolGray,
-      indigo: colors.indigo,
-      red: {
-        100: colors.red['100'],
-        500: colors.red['500'],
-        900: colors.red['900'],
-      },
-      yellow: {
-        100: colors.yellow['100'],
-        500: colors.yellow['500'],
-        900: colors.yellow['900'],
-      },
-      green: {
-        100: colors.green['100'],
-        500: colors.green['500'],
-        900: colors.green['900'],
-      },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
     },
+    fontFamily: {
+      sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
+      serif: ['Merriweather', 'Georgia', 'Times New Roman', 'Times', 'serif'],
+      mono: ['"JetBrains Mono"', '"Courier New"', 'Courier', 'monospace'],
+    },
+    fontSize: settingsFontSizes.fontSize,
+    colors: settingsColors.colors,
     extend: {
       spacing: {
         '50vh': '50vh',
       },
       zIndex: {
-        '1000': '1000',
-        '10000': '10000',
-        '100000': '100000',
-      }
+        1000: '1000',
+        10000: '10000',
+        100000: '100000',
+      },
+      gridTemplateColumns: { ...settingsGrid.gridTemplateColumns },
+      gridColumn: { ...settingsGrid.gridColumn },
+      gridRowStart: { ...settingsGrid.gridRowStart },
+      gridRowEnd: { ...settingsGrid.gridRowEnd },
+      // Typography Plugin
+      typography: theme => settingsProse(theme),
     },
   },
   variants: {},
@@ -60,29 +65,12 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/typography'),
+    require('@tailwindcss/typography')({
+      modifiers: ['md'],
+    }),
     require('tailwindcss-question-mark'),
     function ({ addComponents }) {
-      addComponents({
-        '.container': {
-          paddingLeft: '1rem',
-          paddingRight: '1rem',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          '@screen md': {
-            paddingLeft: '2rem',
-            paddingRight: '2rem',
-          },
-          '@screen xl': {
-            maxWidth: 'calc(theme(screens.xl) + 4rem)',
-          },
-          '@screen 2xl': {
-            maxWidth: 'calc(theme(screens.2xl) + 8rem)',
-            paddingLeft: '4rem',
-            paddingRight: '4rem',
-          },
-        },
-      });
+      addComponents(pluginAddComponents);
     },
   ],
 };

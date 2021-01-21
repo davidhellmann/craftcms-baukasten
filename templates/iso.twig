@@ -4,16 +4,9 @@
   {{ parent() }}
 {% endblock headLinks %}
 
-{# Critical CSS #}
-{% block inlineCriticalCss %}
-  <style>
-    {{ craft.twigpack.includeFile('@webroot/dist/criticalcss/' ~ _self ~  '_critical.min.css') }}
-  </style>
-{% endblock %}
-
 {% block content %}
   <section class="l-section">
-    <div class="l-container" style="padding: 10vh 0;">
+    <div class="container" style="padding: 10vh 0;">
       <style>
         .els {
           display: flex;

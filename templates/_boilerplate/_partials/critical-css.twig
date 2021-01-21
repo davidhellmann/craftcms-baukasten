@@ -8,7 +8,9 @@
   Cookie.set("critical-css", "{{ cssHash }}", { expires: "7D", secure: true });
 </script>
 
-{{ craft.twigpack.includeCriticalCssTags() }}
+{% if craft.app.config.general.custom.craftEnv == 'live' %}
+  {{ craft.twigpack.includeCriticalCssTags() }}
+{% endif %}
 
 {{ craft.twigpack.includeCssModule("styles.css", true) }}
 <!--# endif -->

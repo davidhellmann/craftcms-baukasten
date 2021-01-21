@@ -4,16 +4,14 @@
   {{ parent() }}
 {% endblock headLinks %}
 
-{# Critical CSS #}
-{% block inlineCriticalCss %}
-  <style>
-    {{ craft.twigpack.includeFile('@webroot/dist/criticalcss/' ~ _self ~  '_critical.min.css') }}
-  </style>
-{% endblock %}
-
 {% block content %}
+  <div class="container py-10">
+    {# Vue Example Comp #}
+    <div id="dummyComp"></div>
+  </div>
+
   <section class="bg-black text-white py-2">
-    <div class="l-container">
+    <div class="container">
       <h1>Block Content</h1>
     </div>
   </section>
@@ -21,7 +19,7 @@
 
 {% block subcontent %}
   <section class="bg-gray-100 text-gray-900 py-2">
-    <div class="l-container">
+    <div class="container">
       <h2>Block Subcontent</h2>
       {# link #}
       {% include '_components/link/link.twig' with {
