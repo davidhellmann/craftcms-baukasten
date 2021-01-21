@@ -77,7 +77,7 @@ Image Helper
         src="{{- placeholder -}}"
         {# Set data-srcset / data-src depending if image is transformable #}
         {%- if isTransformable -%}data-srcset="{{- srcset -}}"{%- else -%}data-src="{{- imageUrl -}}"{%- endif -%}
-        data-sizes="auto"
+        data-sizes="auto" sizes="100vw"
       {%- else -%}
         {# Set srcset / src depending if image is transformable #}
         {%- if isTransformable -%}srcset="{{- srcset -}}"{%- else -%}src="{{- imageUrl -}}"{%- endif -%}
@@ -85,9 +85,12 @@ Image Helper
       {%- endif -%}
       {# Image Decoding Aysnc #}
          decoding="async"
+      {# Image Dimensions #}
+         width="{{ image.width }}"
+         height="{{ image.height }}"
       {# Set image title #}
          alt="{{ imageTitle }}"
-         title="{{ imageTitle }}"/>
+         title="{{ imageTitle }}" />
   {%- endif -%}
 {%- endmacro -%}
 
@@ -96,7 +99,7 @@ Image Helper
 {# Render NoScript to send the root image to google #}
 {%- macro renderNoScript(image = null) -%}
   {%- if image ??? null -%}
-    <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}"/></noscript>
+    <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}" /></noscript>
   {%- endif -%}
 {%- endmacro -%}
 
