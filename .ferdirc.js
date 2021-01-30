@@ -6,6 +6,7 @@ module.exports = {
     scss: true,
     twig: true,
     js: false,
+    ts: false,
     vue: false,
   },
   fileHeader: {
@@ -29,6 +30,12 @@ module.exports = {
       name: '',
       postfix: '',
       extension: 'js',
+      // path: 'templates/_components/',
+    },
+    ts: {
+      name: '',
+      postfix: '',
+      extension: 'ts',
       // path: 'templates/_components/',
     },
     vue: {
