@@ -11,7 +11,7 @@ const imageGallery = {
   creatGallery(gallerySelector) {
     // parse slide data (url, title, size ...) from DOM elements
     // (children of gallerySelector)
-    const parseThumbnailElements = function(el) {
+    const parseThumbnailElements = function (el) {
       const thumbElements = el.childNodes;
       const numNodes = thumbElements.length;
       let items = [];
@@ -62,7 +62,7 @@ const imageGallery = {
     };
 
     // triggers when user clicks on thumbnail
-    var onThumbnailsClick = function(e) {
+    var onThumbnailsClick = function (e) {
       e = e || window.event;
       e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
@@ -75,7 +75,7 @@ const imageGallery = {
       }
 
       // find root element of slide
-      var clickedListItem = closest(eTarget, function(el) {
+      var clickedListItem = closest(eTarget, function (el) {
         return el.tagName && el.tagName.toUpperCase() === 'FIGURE';
       });
 
@@ -111,7 +111,7 @@ const imageGallery = {
     };
 
     // parse picture index and gallery index from URL (#&pid=1&gid=2)
-    var photoswipeParseHash = function() {
+    var photoswipeParseHash = function () {
       var hash = window.location.hash.substring(1),
         params = {};
 
@@ -138,7 +138,7 @@ const imageGallery = {
       return params;
     };
 
-    var openPhotoSwipe = function(
+    var openPhotoSwipe = function (
       index,
       galleryElement,
       disableAnimation,
@@ -161,13 +161,14 @@ const imageGallery = {
         counterEl: true,
         arrowEl: true,
         preloaderEl: true,
+        focus: false,
 
         showHideOpacity: true,
 
         // define gallery index (for URL)
-        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+        galleryUID: galleryElement.parentElement.getAttribute('data-pswp-uid'),
 
-        getThumbBoundsFn: function(index) {
+        getThumbBoundsFn: function (index) {
           // See Options -> getThumbBoundsFn section of documentation for more info
           var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
             pageYScroll =
