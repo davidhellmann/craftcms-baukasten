@@ -18,20 +18,23 @@
 use craft\helpers\App;
 
 return [
-  'components' => [
-    'session' => static function () {
-      // Get the default component config
-      $config = App::sessionConfig();
-      // Override the class to use Redis' session class and our config settings
-      $config['class'] = yii\redis\Session::class;
-      $config['keyPrefix'] = App::env('APP_ID') ?: 'CraftCMS';
-      $config['redis'] = [
-        'hostname' => App::env('REDIS_HOSTNAME'),
-        'port' => App::env('REDIS_PORT'),
-        'database' => App::env('REDIS_DEFAULT_DB'),
-      ];
-      // Instantiate and return it
-      return Craft::createObject($config);
-    },
-  ],
+    'components' => [
+        'session' => static function () {
+            // Get the default component config
+            $config = App::sessionConfig();
+            // Override the class to use Redis' session class and our config settings
+            $config['class'] = yii\redis\Session::class;
+            $config['keyPrefix'] = '_' . App::env('APP_ID') . '_SESSION_' ?: 'CraftCMS';
+            $config['redis'] = [
+                'hostname' => App::env('REDIS_HOSTNAME'),
+                'port' => App::env('REDIS_PORT'),
+                'database' => App::env('REDIS_CRAFT_DB'),
+            ];
+            $config['as session'] = [
+                'class' => \craft\behaviors\SessionBehavior::class,
+            ];
+            // Instantiate and return it
+            return Craft::createObject($config);
+        },
+    ],
 ];
