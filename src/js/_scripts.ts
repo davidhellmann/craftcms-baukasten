@@ -34,6 +34,15 @@ const scripts = {
         .then(scrollObserver => scrollObserver.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
+
+    // Lazy Images
+    if (document.querySelectorAll('img[loading="lazy"], source[data-srcset]').length) {
+      import(
+        /* webpackChunkName: "lazy" */ './scripts/lazy'
+        )
+        .then(lazy => lazy.initLazyloading('img[loading="lazy"], source[data-srcset]'))
+        .catch(e => console.error(`${e.name} : ${e.message}`));
+    }
   },
 };
 
