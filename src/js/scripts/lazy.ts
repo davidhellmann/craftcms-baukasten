@@ -3,7 +3,7 @@ export const initLazyloading = (selector: string): void => {
 
   if ('IntersectionObserver' in window) {
     // Create new observer object
-    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+    let lazyImageObserver = new IntersectionObserver((entries, observer) => {
       // Loop through IntersectionObserverEntry objects
       entries.forEach((entry) => {
         // Do these if the target intersects with the root
