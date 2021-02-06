@@ -36,7 +36,7 @@ const scripts = {
     }
 
     // Lazy Images
-    if (document.querySelectorAll('img[loading="lazy"], source[data-srcset]').length) {
+    if (document.querySelectorAll('img[loading="lazy"], source[data-srcset]').length && 'loading' in HTMLImageElement.prototype) {
       import(
         /* webpackChunkName: "lazy" */ './scripts/lazy'
         )

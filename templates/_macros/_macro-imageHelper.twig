@@ -36,6 +36,7 @@ Image Helper
 {%- macro renderImage(image = null, transform = 'landscape', lazy = true, objectFit = null, calcDominantColor = false, simpleMarkup = false) -%}
   {# If Image exists render it #}
   {%- if image ??? null -%}
+    {%- set imageUrl = image.getUrl() -%}
     {%- if lazy -%}
       {# Create Placeholder for Lazy Loading to prevent Layout Shift #}
       {%- set placeholder = _self.getPlaceHolder(image, transform, calcDominantColor) -%}
@@ -52,16 +53,12 @@ Image Helper
     {% endif %}
 
     {# Set transformable status #}
-    {% set isTransformable = _self.isTransformable(image) and not simpleMarkup %}
+    {% set isTransformable = _self.isTransformable(image) %}
     {%- if isTransformable -%}
       {# Create webp image transforms #}
       {%- set srcset = _self.getSrcset(image, transform) -%}
       {# Set a root image URL and switch the src for every image when srcset is not supported (IE) #}
       {% set transformedRootImage = craft.imager.transformImage(image, transform)|last %}
-    {%- endif -%}
-    {%- if not isTransformable -%}
-      {# Set image url #}
-      {%- set imageUrl = image.getUrl() -%}
     {%- endif -%}
 
     <img class="{{ lazy ? 'lazyload' : '' }}"
@@ -76,11 +73,21 @@ Image Helper
         {# Set placeholder if lazy true #}
         src="{{- placeholder -}}"
         {# Set data-srcset / data-src depending if image is transformable #}
-        {%- if isTransformable -%}data-srcset="{{- srcset -}}"{%- else -%}data-src="{{- imageUrl -}}"{%- endif -%}
-        data-sizes="auto" sizes="100vw"
+        {% if not simpleMarkup %}
+          {%- if isTransformable -%}
+            data-srcset="{{- srcset -}}"
+          {%- else -%}
+            data-src="{{- imageUrl -}}"
+          {%- endif -%}
+        {% endif %}
+        data-sizes="auto"
+        sizes="100vw"
       {%- else -%}
-        {# Set srcset / src depending if image is transformable #}
-        {%- if isTransformable -%}srcset="{{- srcset -}}"{%- else -%}src="{{- imageUrl -}}"{%- endif -%}
+        src="{{- imageUrl -}}"
+        {% if not simpleMarkup and isTransformable %}
+          {# Set srcset / src depending if image is transformable #}
+          srcset="{{- srcset -}}"
+        {% endif %}
         sizes="100vw"
       {%- endif -%}
       {# Image Decoding Aysnc #}

@@ -7,6 +7,7 @@
   transform: 'landscape',
   objectFit: null,
   lazy: true,
+  showDominantColor: true,
   calcDominantColor: false,
   noscript: true
 } %}
@@ -20,8 +21,10 @@
 
 {# Image #}
 {% if props.image ??? null %}
-  {{- imageHelper.renderImage(props.image, props.transform, props.lazy, props.objectFit, props.calcDominantColor) -}}
-  {% if props.noscript %}
-    {{- imageHelper.renderNoScript(props.image) -}}
-  {% endif %}
+  <figure class="block" {{ module.settings(props) }}  {% if props.showDominantColor %}style="background-color: {{- imageHelper.getDominantColor(props.image, props.calcDominantColor) -}}; "{% endif %}>
+    {{- imageHelper.renderImage(props.image, props.transform, props.lazy, props.objectFit, props.calcDominantColor) -}}
+    {% if props.noscript %}
+      {{- imageHelper.renderNoScript(props.image) -}}
+    {% endif %}
+  </figure>
 {% endif %}

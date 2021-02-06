@@ -7,6 +7,7 @@
 const settingsGrid = require('./tailwind.settings.grid');
 const settingsFontSizes = require('./tailwind.settings.fontSizes');
 const settingsColors = require('./tailwind.settings.colors');
+const settingsScreens = require('./tailwind.settings.screens');
 const settingsProse = require('./tailwind.settings.prose');
 
 // Plugins
@@ -27,13 +28,6 @@ module.exports = {
   },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
-    screens: {
-      sm: '640px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1280px',
-      '2xl': '1536px',
-    },
     fontFamily: {
       sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
       serif: ['Merriweather', 'Georgia', 'Times New Roman', 'Times', 'serif'],
@@ -41,6 +35,7 @@ module.exports = {
     },
     fontSize: settingsFontSizes.fontSize,
     colors: settingsColors.colors,
+    screens: settingsScreens.screens,
     extend: {
       spacing: {
         '50vh': '50vh',
