@@ -1,7 +1,4 @@
 import 'alpinejs';
-import 'typeface-lato';
-import 'typeface-merriweather';
-import 'typeface-jetbrains-mono';
 
 // Add JS Loaded class to the body
 document.documentElement.classList.add('js-loaded');
