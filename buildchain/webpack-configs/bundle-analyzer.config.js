@@ -2,14 +2,13 @@
 // returns a webpack config object for generating file banners
 
 // webpack plugins
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 // return a webpack config
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 module.exports = (type = 'modern', settings) => {
   // common config
-  const common = filename => ({
+  const common = (filename) => ({
     plugins: [
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',

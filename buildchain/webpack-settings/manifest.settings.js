@@ -5,5 +5,5 @@ require('dotenv').config();
 
 // settings
 module.exports = {
-    basePath: '',
+  basePath: '',
 };

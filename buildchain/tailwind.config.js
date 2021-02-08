@@ -8,6 +8,7 @@ const settingsGrid = require('./tailwind.settings.grid');
 const settingsFontSizes = require('./tailwind.settings.fontSizes');
 const settingsColors = require('./tailwind.settings.colors');
 const settingsScreens = require('./tailwind.settings.screens');
+const settingsfontMetrics = require('./tailwind.settings.fontMetrics');
 const settingsProse = require('./tailwind.settings.prose');
 
 // Plugins
@@ -34,6 +35,7 @@ module.exports = {
       mono: ['"JetBrains Mono"', '"Courier New"', 'Courier', 'monospace'],
     },
     fontSize: settingsFontSizes.fontSize,
+    fontMetrics: settingsfontMetrics.fontMetrics,
     colors: settingsColors.colors,
     screens: settingsScreens.screens,
     extend: {
@@ -64,6 +66,7 @@ module.exports = {
       modifiers: ['md'],
     }),
     require('tailwindcss-question-mark'),
+    require('tailwindcss-capsize'),
     function ({ addComponents }) {
       addComponents(pluginAddComponents);
     },

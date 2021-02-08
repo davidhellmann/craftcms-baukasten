@@ -21,10 +21,10 @@ module.exports = {
       from: '**/*',
       to: 'img/bitmap',
     },
-    {
-      context: '../src/fonts/',
-      from: '**/*',
-      to: 'fonts',
-    },
+    // {
+    //   context: '../src/fonts/',
+    //   from: '**/*',
+    //   to: 'fonts',
+    // },
   ],
 };
