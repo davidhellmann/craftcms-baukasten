@@ -557,6 +557,39 @@ video {
   height: auto;
 }
 
+html {
+  font-size: 16px;
+  --root-font-size-px: 16;
+  line-height: 1.5;
+  --line-height-unitless: 1.5;
+  --line-gap-unitless: 0.5;
+}
+
+@media (min-width: 600px) {
+  html {
+  }
+}
+
+@media (min-width: 1000px) {
+  html {
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+  }
+}
+
+@media (min-width: 1440px) {
+  html {
+  }
+}
+
+@media (min-width: 1680px) {
+  html {
+  }
+}
+
 /**
  * Here we add custom base styles, applied after the tailwind-base
  * classes

@@ -3,6 +3,7 @@ import 'alpinejs';
 // Add JS Loaded class to the body
 document.documentElement.classList.add('js-loaded');
 
+
 // App main
 const main = async () => {
   // Import Vendors
