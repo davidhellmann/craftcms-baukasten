@@ -23,6 +23,9 @@ return [
         'localDevPerformance' => (bool)App::env('LOCAL_DEV_PERFORMANCE') ?: null,
         'dominantColor' => '#e8e8e8',
     ],
+    'disabledPlugins' => App::env('ENVIRONMENT') === 'live'
+        ? ['twig-profiler', 'dumper', 'elements-panel', 'blitz-recommendations', 'cp-field-inspect']
+        : [],
     'allowedFileExtensions' => ['jpg', 'png', 'jpeg', 'gif', 'svg', 'mp4', 'wov', 'mp3', 'wav', 'pdf', 'zip', 'csv', 'rar'],
     'allowUpdates' => (bool)App::env('ALLOW_UPDATES'),
     'allowAdminChanges' => (bool)App::env('ALLOW_ADMIN_CHANGES'),

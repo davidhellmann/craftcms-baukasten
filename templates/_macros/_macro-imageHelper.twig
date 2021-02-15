@@ -6,7 +6,7 @@ Image Helper
 #}
 
 {# Get Image Extension #}
-{%- macro getImageExtension(image = null) -%}
+{%- macro getImageExtension(image) -%}
   {%- if image ??? null -%}
     {%- if image is iterable -%}
       {{- image.extension | lower -}}
@@ -19,7 +19,7 @@ Image Helper
 
 
 {# Check if transformable #}
-{%- macro isTransformable(image = null) -%}
+{%- macro isTransformable(image) -%}
   {%- if image ??? null -%}
     {%- set allowedExtensions = ['png', 'jpg', 'webp'] -%}
     {%- if _self.getImageExtension(image) in allowedExtensions -%}
@@ -57,8 +57,6 @@ Image Helper
     {%- if isTransformable -%}
       {# Create webp image transforms #}
       {%- set srcset = _self.getSrcset(image, transform) -%}
-      {# Set a root image URL and switch the src for every image when srcset is not supported (IE) #}
-      {% set transformedRootImage = craft.imager.transformImage(image, transform)|last %}
     {%- endif -%}
 
     <img class="{{ lazy ? 'lazyload' : '' }}"
@@ -67,7 +65,7 @@ Image Helper
          data-type="{{- _self.getSourceFileExtension(image) -}}"
       {%- if objectFit -%}
         {# Set objectfit properties #}
-        style="object-fit: {{ objectFit }}; object-position: {{ focalpoint }}"
+        style="object-fit: {{ objectFit }}; object-position: {{ focalpoint }}; height: 100%; width: 100%;"
       {%- endif -%}
       {%- if lazy -%}
         {# Set placeholder if lazy true #}
@@ -97,16 +95,16 @@ Image Helper
          height="{{ image.height }}"
       {# Set image title #}
          alt="{{ imageTitle }}"
-         title="{{ imageTitle }}" />
+         title="{{ imageTitle }}"/>
   {%- endif -%}
 {%- endmacro -%}
 
 
 
 {# Render NoScript to send the root image to google #}
-{%- macro renderNoScript(image = null) -%}
+{%- macro renderNoScript(image) -%}
   {%- if image ??? null -%}
-    <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}" /></noscript>
+    <noscript><img src="{{ image.getUrl() }}" alt="{{ image.title }}"/></noscript>
   {%- endif -%}
 {%- endmacro -%}
 
@@ -190,19 +188,11 @@ Image Helper
 {# Get Placeholder #}
 {%- macro getPlaceHolder(image, transform = 'landscape', calcDominantColor = false) -%}
   {%- if image ??? null -%}
-    {%- if _self.isTransformable(image) -%}
-      {%- set transformedImage = craft.imager.transformImage(image, transform)|first -%}
-      {{- craft.imager.placeholder({
-        color: _self.getDominantColor(transformedImage, calcDominantColor),
-        width: transformedImage.width,
-        height: transformedImage.height
-      }) -}}
-    {%- else -%}
-      {{- craft.imager.placeholder({
-        color: 'transparent',
-        width: image.width,
-        height: image.height,
-      }) -}}
-    {%- endif -%}
+    {%- set transformedImage = craft.imager.transformImage(image, transform)|first -%}
+    {{- craft.imager.placeholder({
+      color: _self.getDominantColor(transformedImage, calcDominantColor),
+      width: transformedImage.width,
+      height: transformedImage.height
+    }) -}}
   {%- endif -%}
 {%- endmacro -%}
