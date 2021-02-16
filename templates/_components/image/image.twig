@@ -4,12 +4,14 @@
   data: {},
   js: null,
   image: null,
+  customClasses: null,
   transform: 'landscape',
   objectFit: null,
   lazy: true,
   showDominantColor: true,
   calcDominantColor: false,
-  noscript: true
+  noscript: true,
+  sources: null
 } %}
 
 {# Merge Default with Options #}
@@ -21,10 +23,138 @@
 
 {# Image #}
 {% if props.image ??? null %}
-  <figure class="block" {{ module.settings(props) }}  {% if props.showDominantColor %}style="background-color: {{- imageHelper.getDominantColor(props.image, props.calcDominantColor) -}}; "{% endif %}>
-    {{- imageHelper.renderImage(props.image, props.transform, props.lazy, props.objectFit, props.calcDominantColor) -}}
-    {% if props.noscript %}
-      {{- imageHelper.renderNoScript(props.image) -}}
-    {% endif %}
-  </figure>
+
+  {% set imageSettings = {
+    allowedExtensions: ['png', 'jpg', 'webp'],
+    format: 'webp'
+  } %}
+
+  {# Image Data Object #}
+  {% set imageData = {
+    extension: null,
+    filetype: null,
+    transformable: null,
+    focalpoint: null,
+    title: null,
+    width: props.image.width,
+    height: props.image.height,
+    url: null,
+    noscript: null,
+    transforms: null,
+    srcset: null,
+    dominantColor: null,
+    placeholder: null,
+    sources: null
+  } %}
+
+  {# Image Extension #}
+  {% if props.image is iterable %}
+    {% set imageData = imageData|merge({ 'extension': props.image.extension | lower }) %}
+  {% else %}
+    {% set imageData = imageData|merge({ 'extension': props.image | split('.') | last | lower }) %}
+  {% endif %}
+
+  {# If Transformable #}
+  {% if imageData.extension in imageSettings.allowedExtensions %}
+    {% set imageData = imageData|merge({ 'transformable': true }) %}
+  {% endif %}
+
+  {# Focalpoint #}
+  {% set imageData = imageData|merge({ 'focalpoint': props.image.getFocalpoint('asCss') ??? '50% 50%' }) %}
+
+  {# Image Title #}
+  {% set title = props.image.title %}
+  {% if props.image.assetTitle %}
+    {% set title = props.image.assetTitle %}
+  {% endif %}
+  {% if props.image.assetTitle and props.image.assetCaption %}
+    {% set title = props.image.assetTitle ~ ' ' ~ props.image.assetCaption %}
+  {% endif %}
+  {% set imageData = imageData|merge({ 'title': title }) %}
+
+  {# Image Url #}
+  {% set imageData = imageData|merge({ 'url': props.image.getUrl() }) %}
+
+  {# No Script #}
+  {% set imageData = imageData|merge({ 'noscript': "<noscript><img src='#{imageData.url}' alt='#{imageData.title}'/></noscript>" }) %}
+
+  {# SRCSET #}
+  {% set srcset = imageData.url %}
+  {% set transforms = null %}
+  {% if imageData.transformable %}
+    {% set srcsetLegacy = craft.imager.srcset(craft.imager.transformImage(props.image, props.transform)) | trim %}
+    {% set transforms = craft.imager.transformImage(props.image, props.transform, { format: imageSettings.format }) %}
+    {% set srcset = craft.imager.srcset(transforms) | trim %}
+  {% endif %}
+  {% set imageData = imageData|merge({ 'transforms': transforms }) %}
+  {% set imageData = imageData|merge({ 'srcset': srcset }) %}
+
+  {# Source Extension #}
+  {% set filetype = imageData.extension %}
+  {% if imageData.transformable %}
+    {% set filetype = imageData.transforms[0].source.extension | lower %}
+  {% endif %}
+  {% set imageData = imageData|merge({ 'filetype': filetype }) %}
+
+  {# Dominant Color #}
+  {% set dominantColor = craft.app.config.general.custom.dominantColor ??? 'transparent' %}
+  {% if props.calcDominantColor
+    and not craft.app.config.general.custom.localDevPerformance
+    and imageData.transformable
+    and imageData.extension != 'png' %}
+    {% set dominantColor = craft.imager.getDominantColor(imageData.transforms[0]) %}
+  {% endif %}
+  {% set imageData = imageData|merge({ 'dominantColor': dominantColor }) %}
+
+  {# Placeholder #}
+  {% set imageData = imageData|merge({ 'placeholder': craft.imager.placeholder({
+    color: imageData.dominantColor,
+    width: imageData.transforms[0].width,
+    height: imageData.transforms[0].height
+  }) }) %}
+
+  {# Sources #}
+  {% if props.sources | length > 1 %}
+    {% for source in props.sources %}
+      {% if imageData.transformable %}
+        {% set srcsetLegacy = craft.imager.srcset(craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape')) | trim %}
+        {% set transforms = craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape', { format: imageSettings.format }) %}
+        {% set srcset = craft.imager.srcset(transforms) | trim %}
+
+        {% set imageData = imageData|merge({ 'sources': [[
+          imageData.filetype ??? null,
+          srcset ??? null,
+          source[1] ??? 'landscape',
+          source[2] ??? true,
+          source[3] ??? null
+        ]] }) %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+
+  {% if not props.sources ??? null %}
+    <figure class="block {{ props.customClasses }}" {{ module.settings(props) }}
+      {% if props.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
+      {{- imageHelper.renderImage(imageData, props.transform, props.lazy, props.objectFit) -}}
+      {% if props.noscript %}
+        {{- imageData.noscript | raw -}}
+      {% endif %}
+    </figure>
+  {% endif %}
+
+  {# Art Direction #}
+  {% if props.sources ??? null %}
+    <picture class="block {{ props.customClasses }}" {{ module.settings(props) }}
+      {% if props.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
+      {% for source in imageData.sources %}
+        {{- imageHelper.renderSource(source[0], source[1], source[2], source[3], source[4]) -}}
+      {% endfor %}
+
+      {{- imageHelper.renderImage(imageData, props.transform, props.lazy, props.objectFit) -}}
+      {% if props.noscript %}
+        {{- imageData.noscript | raw -}}
+      {% endif %}
+    </picture>
+  {% endif %}
 {% endif %}
