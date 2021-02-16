@@ -82,7 +82,7 @@
   {% set srcset = imageData.url %}
   {% set transforms = null %}
   {% if imageData.transformable %}
-    {% set srcsetLegacy = craft.imager.srcset(craft.imager.transformImage(props.image, props.transform)) | trim %}
+    {% set srcsetLegacy = craft.imager.transformImage(props.image, props.transform) %}
     {% set transforms = craft.imager.transformImage(props.image, props.transform, { format: imageSettings.format }) %}
     {% set srcset = craft.imager.srcset(transforms) | trim %}
   {% endif %}
@@ -117,7 +117,7 @@
   {% if props.sources | length > 1 %}
     {% for source in props.sources %}
       {% if imageData.transformable %}
-        {% set srcsetLegacy = craft.imager.srcset(craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape')) | trim %}
+        {% set srcsetLegacy = craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape') %}
         {% set transforms = craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape', { format: imageSettings.format }) %}
         {% set srcset = craft.imager.srcset(transforms) | trim %}
 
