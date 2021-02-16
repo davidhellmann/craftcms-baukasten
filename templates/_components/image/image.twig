@@ -11,7 +11,8 @@
   showDominantColor: true,
   calcDominantColor: false,
   noscript: true,
-  sources: null
+  sources: null,
+  caption: null
 } %}
 
 {# Merge Default with Options #}
@@ -23,7 +24,6 @@
 
 {# Image #}
 {% if props.image ??? null %}
-
   {% set imageSettings = {
     allowedExtensions: ['png', 'jpg', 'webp'],
     format: 'webp'
@@ -44,7 +44,8 @@
     srcset: null,
     dominantColor: null,
     placeholder: null,
-    sources: null
+    sources: null,
+    caption: null,
   } %}
 
   {# Image Extension #}
@@ -132,11 +133,33 @@
     {% endfor %}
   {% endif %}
 
+  {# Caption #}
+  {% if props.caption %}
+    {% set imageData = imageData|merge({ 'caption': {
+      'title': props.image.assetTitle ??? null,
+      'text': props.image.assetCaption ??? null,
+      'source': props.image.assetSource ??? null,
+      'sourceUrl': props.image.assetSourceUrl ??? null,
+    } }) %}
+  {% endif %}
 
   {% if not props.sources ??? null %}
     <figure class="block {{ props.customClasses }}" {{ module.settings(props) }}
       {% if props.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
       {{- imageHelper.renderImage(imageData, props.transform, props.lazy, props.objectFit) -}}
+
+      {% if props.caption %}
+        {# caption #}
+        {% include '_components/caption/caption.twig' with {
+          props: {
+            headline: imageData.caption.headline ??? null,
+            text: imageData.caption.text ??? null,
+            source: imageData.caption.source ??? null,
+            sourceUrl: imageData.caption.sourceUrl ??? null
+          }
+        } only %}
+      {% endif %}
+
       {% if props.noscript %}
         {{- imageData.noscript | raw -}}
       {% endif %}
@@ -145,16 +168,47 @@
 
   {# Art Direction #}
   {% if props.sources ??? null %}
-    <picture class="block {{ props.customClasses }}" {{ module.settings(props) }}
-      {% if props.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
-      {% for source in imageData.sources %}
-        {{- imageHelper.renderSource(source[0], source[1], source[2], source[3], source[4]) -}}
-      {% endfor %}
+    {% if props.caption %}
+      <figure class="block {{ props.customClasses }}" {{ module.settings(props) }}
+        {% if props.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
+        <picture>
+          {% for source in imageData.sources %}
+            {{- imageHelper.renderSource(source[0], source[1], source[2], source[3], source[4]) -}}
+          {% endfor %}
 
-      {{- imageHelper.renderImage(imageData, props.transform, props.lazy, props.objectFit) -}}
-      {% if props.noscript %}
-        {{- imageData.noscript | raw -}}
-      {% endif %}
-    </picture>
+          {{- imageHelper.renderImage(imageData, props.transform, props.lazy, props.objectFit) -}}
+
+          {% if props.caption %}
+            {# caption #}
+            {% include '_components/caption/caption.twig' with {
+              props: {
+                headline: imageData.caption.headline ??? null,
+                text: imageData.caption.text ??? null,
+                source: imageData.caption.source ??? null,
+                sourceUrl: imageData.caption.sourceUrl ??? null
+              }
+            } only %}
+          {% endif %}
+
+          {% if props.noscript %}
+            {{- imageData.noscript | raw -}}
+          {% endif %}
+        </picture>
+      </figure>
+    {% endif %}
+
+    {% if not props.caption %}
+      <picture class="block {{ props.customClasses }}" {{ module.settings(props) }}
+        {% if props.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
+        {% for source in imageData.sources %}
+          {{- imageHelper.renderSource(source[0], source[1], source[2], source[3], source[4]) -}}
+        {% endfor %}
+
+        {{- imageHelper.renderImage(imageData, props.transform, props.lazy, props.objectFit) -}}
+        {% if props.noscript %}
+          {{- imageData.noscript | raw -}}
+        {% endif %}
+      </picture>
+    {% endif %}
   {% endif %}
 {% endif %}
