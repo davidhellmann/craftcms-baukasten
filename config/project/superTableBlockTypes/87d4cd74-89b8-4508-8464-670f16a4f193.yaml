@@ -26,192 +26,19 @@ fieldLayouts:
         sortOrder: 1
 fields:
   4afe7728-65d2-48c1-80f7-aeafcf978ff6:
-    contentColumnType: text
+    contentColumnType: string
     fieldGroup: null
     handle: button
     instructions: ''
     name: Button
     searchable: true
     settings:
-      allowCustomText: '1'
-      allowTarget: '1'
-      defaultText: ''
-      selectLinkText: ''
-      types:
-        __assoc__:
-          -
-            - fruitstudios\linkit\models\Email
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - '1'
-                -
-                  - customLabel
-                  - ''
-                -
-                  - customPlaceholder
-                  - ''
-          -
-            - fruitstudios\linkit\models\Phone
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - ''
-                -
-                  - customLabel
-                  - ''
-                -
-                  - customPlaceholder
-                  - ''
-          -
-            - fruitstudios\linkit\models\Url
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - '1'
-                -
-                  - customLabel
-                  - ''
-                -
-                  - customPlaceholder
-                  - ''
-                -
-                  - allowAlias
-                  - ''
-                -
-                  - allowMailto
-                  - ''
-                -
-                  - allowHash
-                  - '1'
-                -
-                  - allowPaths
-                  - ''
-          -
-            - fruitstudios\linkit\models\Twitter
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - ''
-                -
-                  - customLabel
-                  - ''
-                -
-                  - customPlaceholder
-                  - ''
-          -
-            - fruitstudios\linkit\models\Facebook
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - ''
-                -
-                  - customLabel
-                  - ''
-                -
-                  - customPlaceholder
-                  - ''
-          -
-            - fruitstudios\linkit\models\Instagram
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - ''
-                -
-                  - customLabel
-                  - ''
-                -
-                  - customPlaceholder
-                  - ''
-          -
-            - fruitstudios\linkit\models\LinkedIn
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - ''
-                -
-                  - customLabel
-                  - ''
-                -
-                  - customPlaceholder
-                  - ''
-          -
-            - fruitstudios\linkit\models\Entry
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - '1'
-                -
-                  - customLabel
-                  - ''
-                -
-                  - sources
-                  - '*'
-                -
-                  - customSelectionLabel
-                  - ''
-          -
-            - fruitstudios\linkit\models\Category
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - '1'
-                -
-                  - customLabel
-                  - ''
-                -
-                  - sources
-                  - '*'
-                -
-                  - customSelectionLabel
-                  - ''
-          -
-            - fruitstudios\linkit\models\Asset
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - ''
-                -
-                  - customLabel
-                  - ''
-                -
-                  - sources
-                  - '*'
-                -
-                  - customSelectionLabel
-                  - ''
-          -
-            - fruitstudios\linkit\models\User
-            -
-              __assoc__:
-                -
-                  - enabled
-                  - ''
-                -
-                  - customLabel
-                  - ''
-                -
-                  - sources
-                  - '*'
-                -
-                  - customSelectionLabel
-                  - ''
-                -
-                  - userPath
-                  - ''
+      errorMessage: 'Unable to find component class ''fruitstudios\linkit\fields\LinkitField''.'
+      expectedType: fruitstudios\linkit\fields\LinkitField
+      settings: '{"allowCustomText":"1","allowTarget":"1","defaultText":"","selectLinkText":"","types":{"fruitstudios\\linkit\\models\\Email":{"enabled":"1","customLabel":"","customPlaceholder":""},"fruitstudios\\linkit\\models\\Phone":{"enabled":"","customLabel":"","customPlaceholder":""},"fruitstudios\\linkit\\models\\Url":{"enabled":"1","customLabel":"","customPlaceholder":"","allowAlias":"","allowMailto":"","allowHash":"1","allowPaths":""},"fruitstudios\\linkit\\models\\Twitter":{"enabled":"","customLabel":"","customPlaceholder":""},"fruitstudios\\linkit\\models\\Facebook":{"enabled":"","customLabel":"","customPlaceholder":""},"fruitstudios\\linkit\\models\\Instagram":{"enabled":"","customLabel":"","customPlaceholder":""},"fruitstudios\\linkit\\models\\LinkedIn":{"enabled":"","customLabel":"","customPlaceholder":""},"fruitstudios\\linkit\\models\\Entry":{"enabled":"1","customLabel":"","sources":"*","customSelectionLabel":""},"fruitstudios\\linkit\\models\\Category":{"enabled":"1","customLabel":"","sources":"*","customSelectionLabel":""},"fruitstudios\\linkit\\models\\Asset":{"enabled":"","customLabel":"","sources":"*","customSelectionLabel":""},"fruitstudios\\linkit\\models\\User":{"enabled":"","customLabel":"","sources":"*","customSelectionLabel":"","userPath":""}}}'
     translationKeyFormat: null
     translationMethod: none
-    type: fruitstudios\linkit\fields\LinkitField
+    type: craft\fields\MissingField
   85fef928-9fd5-4b9b-a7c5-73976952425b:
     contentColumnType: string
     fieldGroup: null

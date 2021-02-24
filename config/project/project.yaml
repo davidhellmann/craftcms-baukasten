@@ -1,4 +1,4 @@
-dateModified: 1613470908
+dateModified: 1614152300
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -8,10 +8,6 @@ email:
     command: ''
   transportType: craft\mail\transportadapters\Sendmail
 plugins:
-  async-queue:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   blitz-recommendations:
     edition: standard
     enabled: true
@@ -61,11 +57,6 @@ plugins:
     enabled: true
     licenseKey: $PLUGIN_IMAGERX
     schemaVersion: 3.0.0
-  linkit:
-    edition: standard
-    enabled: true
-    licenseKey: $PLUGIN_LINKIT
-    schemaVersion: 1.0.8
   mailgun:
     edition: standard
     enabled: true
