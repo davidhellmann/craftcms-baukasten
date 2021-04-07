@@ -33,9 +33,9 @@ module.exports = {
       serif: ['Merriweather', 'Georgia', 'Times New Roman', 'Times', 'serif'],
       mono: ['"JetBrains Mono"', '"Courier New"', 'Courier', 'monospace'],
     },
-    fontSize: settingsFontSizes.fontSize,
-    colors: settingsColors.colors,
-    screens: settingsScreens.screens,
+    fontSize: settingsFontSizes,
+    colors: settingsColors,
+    screens: settingsScreens,
     extend: {
       spacing: {
         '50vh': '50vh',

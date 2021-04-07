@@ -6,14 +6,14 @@ const settings = require('./tailwind.settings');
 const settingsColors = require('./tailwind.settings.colors');
 
 const colorMap = {
-  colorDefault: settingsColors.colors.gray['700'],
-  colorLead: settingsColors.colors.gray['600'],
-  colorLink: settingsColors.colors.gray['900'],
-  colorLiBullet: settingsColors.colors.gray['300'],
-  colorBorder: settingsColors.colors.gray['200'],
-  colorFigCaption: settingsColors.colors.gray['500'],
-  colorPre: settingsColors.colors.gray['200'],
-  colorPreBg: settingsColors.colors.gray['800'],
+  colorDefault: settingsColors.gray['700'],
+  colorLead: settingsColors.gray['600'],
+  colorLink: settingsColors.gray['900'],
+  colorLiBullet: settingsColors.gray['300'],
+  colorBorder: settingsColors.gray['200'],
+  colorFigCaption: settingsColors.gray['500'],
+  colorPre: settingsColors.gray['200'],
+  colorPreBg: settingsColors.gray['800'],
 };
 
 const round = num =>
