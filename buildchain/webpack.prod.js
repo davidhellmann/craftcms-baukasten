@@ -38,7 +38,7 @@ module.exports = [
     'banner',
     'compression',
     'bundle-analyzer',
-    'workbox',
+    // 'workbox',
   ),
   buildWebpackConfigs(
     'build',

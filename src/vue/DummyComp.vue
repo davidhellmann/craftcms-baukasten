@@ -9,7 +9,7 @@ import { defineAsyncComponent, defineComponent } from 'vue';
 export default defineComponent({
   components: {
     SubComp: defineAsyncComponent(
-      () => import(/* webpackChunkName: "subComp" */ './DummySubComp.vue'),
+      () => import(/* webpackChunkName: "subComp" */ '@/vue/DummySubComp.vue'),
     ),
   },
   mounted() {},

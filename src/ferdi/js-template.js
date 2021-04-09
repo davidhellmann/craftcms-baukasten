@@ -13,30 +13,30 @@ var cn = pathOptions.key.charAt(0) + '-' + mn;
  */
 
 const <%= mn %> = {
-cfg:  {
-  name: '<%= mn %>',
-    selectors: {
-    <%= mn %>: '[data-component-js="js-<%= mn %>"]',
-  },
-  classes: {
+  cfg:  {
+    name: '<%= mn %>',
+      selectors: {
+      <%= mn %>: '[data-component-js="js-<%= mn %>"]',
+    },
+    classes: {
       active: 'is-active',
     },
-  el: {
+    el: {
       $<%= mn %>: undefined
     },
-  els: {
+    els: {
       $<%= mn %>: undefined
     }
   },
 
   setElements() {
-  this.cfg.el.$<%= mn %> = document.querySelector(this.cfg.selectors.<%= mn %>);
+    this.cfg.el.$<%= mn %> = document.querySelector(this.cfg.selectors.<%= mn %>);
   },
 
   init() {
-  console.debug(`Init: ${this.cfg.name}`);
-  this.setElements();
+    console.debug(`Init: ${this.cfg.name}`);
+    this.setElements();
   },
-  };
+};
 
-  export default <%= mn %>;
+export default <%= mn %>;

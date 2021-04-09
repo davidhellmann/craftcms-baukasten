@@ -61,41 +61,6 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  171fade2-74bd-4677-b8af-53699003dc44:
-    contentColumnType: string
-    fieldGroup: null
-    handle: buttons
-    instructions: ''
-    name: Buttons
-    searchable: true
-    settings:
-      columns:
-        __assoc__:
-          -
-            - 4afe7728-65d2-48c1-80f7-aeafcf978ff6
-            -
-              __assoc__:
-                -
-                  - width
-                  - ''
-          -
-            - 85fef928-9fd5-4b9b-a7c5-73976952425b
-            -
-              __assoc__:
-                -
-                  - width
-                  - ''
-      contentTable: '{{%stc_14_buttons}}'
-      fieldLayout: table
-      maxRows: '3'
-      minRows: ''
-      placeholderKey: null
-      propagationMethod: all
-      selectionLabel: 'Add Button'
-      staticField: ''
-    translationKeyFormat: null
-    translationMethod: site
-    type: verbb\supertable\fields\SuperTableField
   1cda9a64-a02b-4aa7-ae5c-0444b3ec7088:
     contentColumnType: text
     fieldGroup: null
@@ -162,6 +127,41 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
+  171fade2-74bd-4677-b8af-53699003dc44:
+    contentColumnType: string
+    fieldGroup: null
+    handle: buttons
+    instructions: ''
+    name: Buttons
+    searchable: true
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 4afe7728-65d2-48c1-80f7-aeafcf978ff6
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 85fef928-9fd5-4b9b-a7c5-73976952425b
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_14_buttons}}'
+      fieldLayout: table
+      maxRows: '3'
+      minRows: ''
+      placeholderKey: null
+      propagationMethod: all
+      selectionLabel: 'Add Button'
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
   d2feff78-0e41-4e04-995f-c4157f7ef946:
     contentColumnType: string
     fieldGroup: null

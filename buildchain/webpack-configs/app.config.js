@@ -19,7 +19,9 @@ module.exports = (type = 'modern', settings) => {
     resolve: {
       alias: settings.alias,
       extensions: settings.extensions,
-      modules: [path.resolve(__dirname, '../node_modules')],
+            modules: [
+                path.resolve(__dirname, '../node_modules'),
+            ],
     },
     stats: {
       colors: true,
@@ -30,7 +32,8 @@ module.exports = (type = 'modern', settings) => {
     // development configs
     development: {
       // legacy development config
-      legacy: {},
+            legacy: {
+            },
       // modern development config
       modern: {
         ...common(),
@@ -45,9 +48,9 @@ module.exports = (type = 'modern', settings) => {
       // modern production config
       modern: {
         ...common(),
+        }
       },
-    },
   };
 
   return configs[process.env.NODE_ENV][type];
-};
+}

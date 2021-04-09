@@ -2,17 +2,18 @@
 
 // node modules
 require('dotenv').config();
+const path = require('path');
 
 // settings
 module.exports = {
-  alias: {},
+  alias: {
+    '@': path.resolve('../src'),
+  },
   copyright: 'David Hellmann',
   entry: {
     app: [
       '../src/js/app.ts',
-      '../src/css/app-base.pcss',
-      '../src/css/app-components.pcss',
-      '../src/css/app-utilities.pcss',
+      '../src/css/app.pcss',
       './node_modules/typeface-merriweather/files/merriweather-latin-900.woff2',
       './node_modules/typeface-merriweather/files/merriweather-latin-900.woff',
       './node_modules/typeface-merriweather/files/merriweather-latin-900italic.woff2',
@@ -31,7 +32,7 @@ module.exports = {
   extensions: ['.ts', '.js', '.vue', '.json'],
   name: 'craftcms-baukasten',
   paths: {
-    dist: '../../web/dist/',
+    dist: path.resolve('../web/dist/'),
   },
   urls: {
     criticalCss: 'http://craftcms-baukasten.test/',

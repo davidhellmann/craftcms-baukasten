@@ -8,7 +8,6 @@ const pagination = {
       ...document.querySelectorAll(this.cfg.selector),
     ];
 
-    if (paginationElements) {
       paginationElements.forEach(paginationElement => {
         const links = [...paginationElement.querySelectorAll('a')];
 
@@ -27,7 +26,6 @@ const pagination = {
           });
         });
       });
-    }
   },
 
   init() {

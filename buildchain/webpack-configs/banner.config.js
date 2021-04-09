@@ -20,15 +20,12 @@ module.exports = (type = 'modern', settings) => {
           ' * @name           ' + '[base]',
           ' * @author         ' + pkg.author.name,
           ' * @build          ' + timestamp.toString(),
-          ' * @copyright      Copyright (c) ' +
-            timestamp.getFullYear() +
-            ' ' +
-            settings.copyright,
+                    ' * @copyright      Copyright (c) ' + timestamp.getFullYear() + ' ' + settings.copyright,
           ' *',
           ' */',
-          '',
+                    ''
         ].join('\n'),
-        raw: true,
+                raw: true
       }),
     ],
   });
@@ -37,7 +34,8 @@ module.exports = (type = 'modern', settings) => {
     // development configs
     development: {
       // legacy development config
-      legacy: {},
+            legacy: {
+            },
       // modern development config
       modern: {
         ...common(),
@@ -53,8 +51,8 @@ module.exports = (type = 'modern', settings) => {
       modern: {
         ...common(),
       },
-    },
+        }
   };
 
   return configs[process.env.NODE_ENV][type];
-};
+}

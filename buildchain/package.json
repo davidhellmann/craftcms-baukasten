@@ -37,17 +37,18 @@
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/typography": "^0.3.1",
     "alpinejs": "^2.8.0",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "bowser": "^2.11.0",
     "clipboard": "^2.0.6",
     "core-js": "^3.0.0",
     "ferdi": "0.0.21",
     "gsap": "^3.5.1",
     "lazysizes": "^5.2.2",
+    "lightgallery.js": "^1.4.0",
     "photoswipe": "^4.1.3",
     "regenerator-runtime": "^0.13.2",
     "swiper": "^6.3.3",
-    "tailwindcss": "^2.0.2",
+    "tailwindcss": "^2.1.0",
     "tailwindcss-question-mark": "^0.1.0",
     "typeface-jetbrains-mono": "^2.0.0",
     "typeface-lato": "0.0.75",
@@ -127,10 +128,10 @@
     "typescript": "latest",
     "typings-for-css-modules-loader": "^1.7.0",
     "vue-loader": "^16.1.0",
-    "webpack": "^5.10.3",
+    "webpack": "^5.13.0",
     "webpack-bundle-analyzer": "^4.3.0",
-    "webpack-cli": "^4.1.0",
-    "webpack-dev-server": "^v4.0.0-beta.0",
+    "webpack-cli": "^4.3.0",
+    "webpack-dev-server": "^4.0.0-beta.2",
     "webpack-manifest-plugin": "^3.0.0",
     "webpack-merge": "^5.7.2",
     "workbox-webpack-plugin": "^6.0.0"
@@ -162,7 +163,7 @@
     "tcv": "tailwind-config-viewer -o",
     "tcc": "tailwind-config-viewer export ../_tailwind",
     "cy:run": "cypress run",
-    "twc": "npx tailwindcss build ../src/css/app-base.pcss -o ../src/css/tailwind.app-base.css -c tailwind.config.js && npx tailwindcss build ../src/css/app-components.pcss -o ../src/css/tailwind.app-components.css -c tailwind.config.js && npx tailwindcss build ../src/css/app-utilities.pcss -o ../src/css/tailwind.app-utilities.css -c tailwind.config.js"
+    "twc": "npx tailwindcss build ../src/css/app.pcss -o ../src/css/tailwind.app.css -c tailwind.config.js"
   },
   "version": "1.1.3"
 }

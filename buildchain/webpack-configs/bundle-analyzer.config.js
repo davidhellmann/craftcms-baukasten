@@ -22,7 +22,8 @@ module.exports = (type = 'modern', settings) => {
     // development configs
     development: {
       // legacy development config
-      legacy: {},
+            legacy: {
+            },
       // modern development config
       modern: {
         ...common('report-modern.html'),
@@ -38,8 +39,8 @@ module.exports = (type = 'modern', settings) => {
       modern: {
         ...common('report-modern.html'),
       },
-    },
+        }
   };
 
   return configs[process.env.NODE_ENV][type];
-};
+}

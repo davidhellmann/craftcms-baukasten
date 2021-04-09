@@ -17,7 +17,7 @@ module.exports = (type = 'modern', settings) => {
         inject: false,
         excludeChunks: ['app'],
         filename: 'webapp.html',
-        templateContent: ({ htmlWebpackPlugin }) => `
+                templateContent: ({htmlWebpackPlugin}) => `
                     ${htmlWebpackPlugin.tags.headTags}
                 `,
       }),
@@ -32,7 +32,7 @@ module.exports = (type = 'modern', settings) => {
           developerName: pkg.author.name,
           developerURL: pkg.author.url,
           path: settings.favicons.publicPath,
-        },
+                }
       }),
     ],
   });
@@ -41,7 +41,8 @@ module.exports = (type = 'modern', settings) => {
     // development configs
     development: {
       // legacy development config
-      legacy: {},
+            legacy: {
+            },
       // modern development config
       modern: {
         ...common(),
@@ -56,9 +57,9 @@ module.exports = (type = 'modern', settings) => {
       // modern production config
       modern: {
         ...common(),
+        }
       },
-    },
   };
 
   return configs[process.env.NODE_ENV][type];
-};
+}

@@ -17,10 +17,10 @@
 
 return [
     '*' => [
-        'siteType'                     => 'Organization',
+        'siteType'                     => 'Person',
         'siteSubType'                  => '',
         'siteSpecificType'             => '',
-        'computedType'                 => 'Organization',
+        'computedType'                 => 'Person',
         'genericName'                  => 'David Hellmann',
         'genericAlternateName'         => 'davidhellmann',
         'genericDescription'           => 'David is a self-taught Digital Designer &amp; Developer with over nine years work experience. Currently he is working @fredmansky',

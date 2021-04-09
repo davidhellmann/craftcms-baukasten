@@ -7,7 +7,7 @@ const pkg = require('../package.json');
 // return a webpack config
 module.exports = (type = 'modern', settings) => {
   // common config
-  const common = browserList => ({
+    const common = (browserList) => ({
     module: {
       rules: [
         {
@@ -19,26 +19,24 @@ module.exports = (type = 'modern', settings) => {
               cacheDirectory: true,
               presets: [
                 [
-                  '@babel/preset-env',
-                  {
+                                    '@babel/preset-env', {
                     modules: type === 'legacy' ? 'auto' : false,
                     corejs: {
                       version: 3,
-                      proposals: true,
+                                        proposals: true
                     },
                     debug: false,
                     useBuiltIns: 'usage',
                     targets: {
                       browsers: browserList,
                     },
-                  },
+                                }
                 ],
                 [
-                  '@babel/preset-typescript',
-                  {
-                    allExtensions: true,
-                    isTSX: false,
-                  },
+                                    '@babel/preset-typescript', {
+                                    'allExtensions': true,
+                                    'isTSX': false,
+                                }
                 ],
               ],
               plugins: [
@@ -61,7 +59,8 @@ module.exports = (type = 'modern', settings) => {
     // development config
     development: {
       // legacy development config
-      legacy: {},
+            legacy: {
+            },
       // modern development config
       modern: {
         ...common(pkg.browserslist.modernBrowsers),
@@ -77,8 +76,8 @@ module.exports = (type = 'modern', settings) => {
       modern: {
         ...common(pkg.browserslist.modernBrowsers),
       },
-    },
+        }
   };
 
   return configs[process.env.NODE_ENV][type];
-};
+}

@@ -13,6 +13,7 @@ module.exports = (type = 'modern', settings) => {
   const common = () => ({
     devServer: {
       client: {
+                overlay: true,
         progress: false,
       },
       dev: {
@@ -20,12 +21,11 @@ module.exports = (type = 'modern', settings) => {
       },
       firewall: false,
       headers: {
-        'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': '*'
       },
       host: settings.host(),
       hot: true,
       https: !!parseInt(settings.https()),
-      overlay: true,
       port: settings.port(),
       public: settings.public(),
       static: {
@@ -41,8 +41,8 @@ module.exports = (type = 'modern', settings) => {
     mode: 'development',
     optimization: {
       runtimeChunk: {
-        name: 'runtime',
-      },
+                name: 'runtime'
+            }
     },
     output: {
       filename: path.join('./js', '[name].js'),
@@ -50,7 +50,6 @@ module.exports = (type = 'modern', settings) => {
       publicPath: settings.public() + '/',
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin(),
       new webpack.EvalSourceMapDevToolPlugin({
         test: /\.(m?js|ts)($|\?)/i,
         exclude: /\.(pcss|css)($|\?)/i,
@@ -65,7 +64,8 @@ module.exports = (type = 'modern', settings) => {
     // development config
     development: {
       // legacy development config
-      legacy: {},
+            legacy: {
+            },
       // modern development config
       modern: {
         ...common(),
@@ -81,8 +81,8 @@ module.exports = (type = 'modern', settings) => {
       modern: {
         ...common(),
       },
-    },
+        }
   };
 
   return configs[process.env.NODE_ENV][type];
-};
+}

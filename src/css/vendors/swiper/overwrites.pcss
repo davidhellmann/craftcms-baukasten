@@ -1,0 +1,65 @@
+.swiper-container {
+  @apply overflow-visible;
+}
+
+.swiper-wrapper {
+  @apply box-border;
+}
+
+.swiper-pagination,
+.swiper-pagination-bullets,
+.swiper-pagination-progressbar {
+  @apply bottom-0 h-10 text-sm flex items-center justify-center text-gray-500;
+}
+
+.swiper-pagination-progressbar {
+  @apply top-auto rounded-full h-1 bg-gray-200 overflow-hidden;
+}
+
+.swiper-pagination-progressbar-fill {
+  @apply rounded-full bg-green-500;
+}
+
+.swiper-pagination-bullet {
+  @apply rounded-full w-2 h-2 bg-blue-800 transition-all duration-300 ease-out;
+}
+
+.swiper-pagination-bullet-active {
+  @apply w-8;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply opacity-100 transition-all duration-300 ease-out w-12 h-12 top-1/2 m-0 transform -translate-y-1/2 rounded-full overflow-hidden;
+
+  > span {
+    @apply bg-blue-800;
+  }
+
+  &::after {
+    @apply hidden;
+  }
+
+  &::before {
+    content: '';
+    @apply bg-white absolute inset-0 transition-colors duration-700 ease-out;
+  }
+
+  &:not(.swiper-button-disabled):hover {
+    &::before {
+      @apply bg-white;
+    }
+  }
+}
+
+.swiper-button-prev {
+  @apply left-4;
+
+  > span {
+    @apply block w-full h-full;
+    mask-image: url('/dist/img/svg/icons/sharp/albums.svg');
+    mask-position: center center;
+    mask-repeat: no-repeat;
+    mask-size: 24px 24px;
+  }
+}

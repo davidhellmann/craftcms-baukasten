@@ -1,8 +1,7 @@
-import 'alpinejs';
+import 'alpinejs'
 
 // Add JS Loaded class to the body
 document.documentElement.classList.add('js-loaded');
-
 
 // App main
 const main = async () => {
@@ -30,7 +29,7 @@ const main = async () => {
 // Execute async function
 // eslint-disable-next-line
 main().then(() => {
-  console.log('App Initialized');
+  console.log('App Initialized')
 });
 
 // Accept HMR as per: https://webpack.js.org/api/hot-module-replacement#accept
