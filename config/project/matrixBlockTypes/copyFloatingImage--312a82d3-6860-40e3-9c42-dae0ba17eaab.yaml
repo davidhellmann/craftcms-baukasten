@@ -1,11 +1,11 @@
-field: d3a65ce7-395f-4a98-bbf8-24dd3bca3dab
+field: d3a65ce7-395f-4a98-bbf8-24dd3bca3dab # Content Builder
 fieldLayouts:
   130c31d6-4d95-4629-8648-c7e6d8af6217:
     tabs:
       -
         elements:
           -
-            fieldUid: 101a48dc-da89-49d0-aedf-31a81f20c28d
+            fieldUid: 101a48dc-da89-49d0-aedf-31a81f20c28d # Copy
             instructions: null
             label: null
             required: true
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: a4cfd0cd-cd11-4f2c-ac41-0d33caf17b3b
+            fieldUid: a4cfd0cd-cd11-4f2c-ac41-0d33caf17b3b # Image
             instructions: null
             label: null
             required: true
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: ca3874b1-fdc9-4ca6-86aa-e0d68307f24c
+            fieldUid: ca3874b1-fdc9-4ca6-86aa-e0d68307f24c # Ratio
             instructions: null
             label: null
             required: false
@@ -32,7 +32,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 17aacf71-13da-4916-8a0e-ffbfee21d215
+            fieldUid: 17aacf71-13da-4916-8a0e-ffbfee21d215 # Float
             instructions: null
             label: null
             required: false
@@ -43,7 +43,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  17aacf71-13da-4916-8a0e-ffbfee21d215:
+  17aacf71-13da-4916-8a0e-ffbfee21d215: # Float
     contentColumnType: string
     fieldGroup: null
     handle: float
@@ -78,7 +78,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  101a48dc-da89-49d0-aedf-31a81f20c28d:
+  101a48dc-da89-49d0-aedf-31a81f20c28d: # Copy
     contentColumnType: text
     fieldGroup: null
     handle: copy
@@ -106,7 +106,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
-  a4cfd0cd-cd11-4f2c-ac41-0d33caf17b3b:
+  a4cfd0cd-cd11-4f2c-ac41-0d33caf17b3b: # Image
     contentColumnType: string
     fieldGroup: null
     handle: image
@@ -118,7 +118,7 @@ fields:
       allowUploads: true
       allowedKinds:
         - image
-      defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211' # Images
       defaultUploadLocationSubpath: ''
       limit: '1'
       localizeRelations: false
@@ -128,7 +128,7 @@ fields:
       showSiteMenu: true
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211' # Images
       singleUploadLocationSubpath: ''
       source: null
       sources: '*'
@@ -139,7 +139,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  ca3874b1-fdc9-4ca6-86aa-e0d68307f24c:
+  ca3874b1-fdc9-4ca6-86aa-e0d68307f24c: # Ratio
     contentColumnType: string
     fieldGroup: null
     handle: ratio
