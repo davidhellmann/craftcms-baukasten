@@ -4,14 +4,14 @@
  * */
 
 // Settings
-const settingsGrid = require('./tailwind.settings.grid')
-const settingsFontSizes = require('./tailwind.settings.fontSizes')
-const settingsColors = require('./tailwind.settings.colors')
-const settingsScreens = require('./tailwind.settings.screens')
-const settingsProse = require('./tailwind.settings.prose')
+const settingsScreens = require('./tailwind.settings.screens');
+const settingsGrid = require('./tailwind.settings.grid');
+const settingsFontSizes = require('./tailwind.settings.fontSizes');
+const settingsColors = require('./tailwind.settings.colors');
+// const settingsProse = require('./tailwind.settings.prose')
 
 // Plugins
-const pluginAddComponents = require('./tailwind.plugins.addComponents')
+const pluginAddComponents = require('./tailwind.plugins.addComponents');
 
 module.exports = {
   mode: 'jit',
@@ -46,12 +46,12 @@ module.exports = {
         10000: '10000',
         100000: '100000',
       },
-      gridTemplateColumns: {...settingsGrid.gridTemplateColumns},
-      gridColumn: {...settingsGrid.gridColumn},
-      gridRowStart: {...settingsGrid.gridRowStart},
-      gridRowEnd: {...settingsGrid.gridRowEnd},
+      gridTemplateColumns: { ...settingsGrid.gridTemplateColumns },
+      gridColumn: { ...settingsGrid.gridColumn },
+      gridRowStart: { ...settingsGrid.gridRowStart },
+      gridRowEnd: { ...settingsGrid.gridRowEnd },
       // Typography Plugin
-      typography: theme => (settingsProse(theme))
+      // typography: theme => (settingsProse(theme))
     },
   },
   variants: {},
@@ -61,11 +61,11 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/typography')({
-      modifiers: ['md'],
-    }),
+    // require('@tailwindcss/typography')({
+    //   modifiers: ['md'],
+    // }),
     require('tailwindcss-question-mark'),
-    function ({addComponents}) {
+    function ({ addComponents }) {
       addComponents(pluginAddComponents);
     },
   ],

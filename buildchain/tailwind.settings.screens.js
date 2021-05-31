@@ -2,19 +2,16 @@
  * Tailwind Screens Settings
  */
 
+const settings = require('./tailwind.settings');
+
+const remToPx = rem => {
+  return `${rem * 16}px`;
+};
+
 module.exports = {
-  sm: '600px',
-  // => @media (min-width: 600px) { ... }
-
-  md: '1000px',
-  // => @media (min-width: 1000px) { ... }
-
-  lg: '1280px',
-  // => @media (min-width: 1280px) { ... }
-
-  xl: '1440px',
-  // => @media (min-width: 1440px) { ... }
-
-  '2xl': '1680px',
-  // => @media (min-width: 1680px) { ... }
+  sm: remToPx(settings.screensRem.sm),
+  md: remToPx(settings.screensRem.md),
+  lg: remToPx(settings.screensRem.lg),
+  xl: remToPx(settings.screensRem.xl),
+  '2xl': remToPx(settings.screensRem['2xl']),
 };

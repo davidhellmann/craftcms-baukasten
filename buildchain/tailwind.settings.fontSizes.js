@@ -3,28 +3,42 @@
  */
 
 const settings = require('./tailwind.settings');
-const createFontSize = (multi = 0, lineHeightModifier = 0) => {
-  return [
-    `${
-      settings.typography.fontSize *
-      Math.pow(settings.typography.msFactor, multi)
-    }rem`,
-    settings.typography.lineHeight + lineHeightModifier,
-  ];
+const fsMin = settings.typography.fontSizeMin;
+const fsMax = settings.typography.fontSizeMax;
+const msFactorMin = settings.typography.msFactorMin;
+const msFactorMax = settings.typography.msFactorMax;
+const screenMin = settings.screensRem.min;
+const screenMax = settings.screensRem['2xl'];
+
+// Calc Min and Max Fontsize
+const calcMulti = (multiMin = 0, multiMax = null) => {
+  return {
+    fsMin: fsMin * Math.pow(msFactorMin, multiMin),
+    fsMax: fsMax * Math.pow(msFactorMax, multiMax || multiMin),
+  };
+};
+
+// build the clamp property
+const clamp = (multiMin = 0, multiMax = null) => {
+  const _calcMulti = calcMulti(multiMin, multiMax || multiMin);
+  const _fsMin = _calcMulti.fsMin;
+  const _fsMax = _calcMulti.fsMax;
+  return `clamp(${_fsMin}rem, calc(${_fsMin}rem + (${_fsMax} - ${_fsMin}) * ((100vw - ${screenMin}rem) / (${screenMax} - ${screenMin}))), ${_fsMax}rem)`;
 };
 
 module.exports = {
-  xs: createFontSize(-2),
-  sm: createFontSize(-1),
-  base: createFontSize(0),
-  lg: createFontSize(1),
-  xl: createFontSize(2, -0.1),
-  '2xl': createFontSize(3, -0.2),
-  '3xl': createFontSize(4, -0.3),
-  '4xl': createFontSize(5, -0.4),
-  '5xl': createFontSize(6, -0.5),
-  '6xl': createFontSize(7, -0.5),
-  '7xl': createFontSize(8, -0.5),
-  '8xl': createFontSize(9, -0.5),
-  '9xl': createFontSize(10, -0.5),
+  uiBase: '1rem',
+  xs: clamp(-2),
+  sm: clamp(-1),
+  base: clamp(0),
+  lg: clamp(1),
+  xl: clamp(2),
+  '2xl': clamp(3),
+  '3xl': clamp(4),
+  '4xl': clamp(5),
+  '5xl': clamp(6),
+  '6xl': clamp(7),
+  '7xl': clamp(8),
+  '8xl': clamp(9),
+  '9xl': clamp(10),
 };
