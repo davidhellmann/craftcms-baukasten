@@ -37,7 +37,7 @@ return [
     'runQueueAutomatically' => (bool)App::env('RUN_QUEUE_AUTOMATICALLY'),
     'securityKey' => App::env('SECURITY_KEY'),
     'testToEmailAddress' => App::env('TEST_EMAIL_ADDRESS') ?: null,
-    'enableGraphQlCaching' => (bool)App::env('ENABLE_GQL_CACHING'),
+    'enableGraphqlCaching' => (bool)App::env('ENABLE_GQL_CACHING'),
     // Craft config settings from constants
     'maxRevisions' => 50,
     'cacheDuration' => false,

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37ac18b267c5046c7400a314ebafee33",
+    "content-hash": "2cc6edf0e594ba5c760e938bf8ddda19",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -990,16 +990,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.6.15",
+            "version": "3.7.0-beta.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "7a0c70fd7c7d46cbeb993d345a4b47c968bdd82a"
+                "reference": "ad83ae1d13ea10a2ae83694ca6a6d08ddee0220b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/7a0c70fd7c7d46cbeb993d345a4b47c968bdd82a",
-                "reference": "7a0c70fd7c7d46cbeb993d345a4b47c968bdd82a",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/ad83ae1d13ea10a2ae83694ca6a6d08ddee0220b",
+                "reference": "ad83ae1d13ea10a2ae83694ca6a6d08ddee0220b",
                 "shasum": ""
             },
             "require": {
@@ -1074,6 +1074,12 @@
             "license": [
                 "proprietary"
             ],
+            "authors": [
+                {
+                    "name": "Pixel & Tonic",
+                    "homepage": "https://pixelandtonic.com/"
+                }
+            ],
             "description": "Craft CMS",
             "homepage": "https://craftcms.com",
             "keywords": [
@@ -1089,7 +1095,7 @@
                 "rss": "https://github.com/craftcms/cms/releases.atom",
                 "source": "https://github.com/craftcms/cms"
             },
-            "time": "2021-05-18T21:47:23+00:00"
+            "time": "2021-06-22T23:04:48+00:00"
         },
         {
             "name": "craftcms/feed-me",
@@ -13608,6 +13614,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "craftcms/cms": 10,
         "sebastianlenz/linkfield": 10,
         "roave/security-advisories": 20
     },
