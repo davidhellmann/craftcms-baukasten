@@ -40,7 +40,6 @@ module.exports = (type = 'modern', settings) => {
               extractComments: false,
             }),
             new CssMinimizerPlugin({
-              sourceMap: true,
             }),
           ],
           runtimeChunk: {
