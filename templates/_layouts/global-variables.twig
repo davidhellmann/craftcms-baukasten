@@ -29,7 +29,10 @@
 
   {# Make stuff global available #}
   <script>
-    window.siteUrl = '{{ siteUrl }}';
+    window.currentSite = {
+      'baseUrl': '{{ siteUrl }}',
+      'id': parseInt('{{ currentSite.id }}')
+    }
     window.Craft = {{ csrfToken|json_encode|raw }};
   </script>
 

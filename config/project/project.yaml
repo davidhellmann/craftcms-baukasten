@@ -1,4 +1,4 @@
-dateModified: 1624517069
+dateModified: 1627982646
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -37,6 +37,7 @@ meta:
     51fb96cf-4339-4982-8328-b94b7530848e: Width # Width
     66b60a7f-6d8d-4931-af03-e6878a97d4fe: Pages # Pages
     77aac30e-d20c-4034-ae0e-8833d1ca136c: Articles # Articles
+    78a039ba-dd56-496f-8a4f-68d64f33740d: Vorkasse # Vorkasse
     81a45ccf-55c5-4a9c-a6f8-2c4fc12046bf: 'Social Sharing' # Social Sharing
     82d28290-8230-40f4-900d-923d01ac2d9a: 'Navigation Main' # Navigation Main
     85fef928-9fd5-4b9b-a7c5-73976952425b: Variant # Variant
@@ -57,12 +58,15 @@ meta:
     620c6d25-40c2-46af-915c-d700f182745d: Default # Default
     630ace10-7ffc-4363-8a28-81d660b49f2c: 'Padding Vertical' # Padding Vertical
     0807cf36-9d29-4810-9a89-3ca325a0ec6d: 'Asset Caption' # Asset Caption
+    851ebdd4-a7fe-4b94-87a8-6c33b93b8491: Shop # Shop
     993e9d55-8cbd-4d37-95de-6a152b88a8ba: Style # Style
     2813eeee-9076-4471-b214-e4bebf477658: 'Image Grid' # Image Grid
     6183aec0-f270-4535-9fb9-d1b74f31cf0f: 'Public Schema' # Public Schema
     6413c545-e8d6-4f2c-aa78-148b3c3bf3ac: Default # Default
+    6472b8b8-3d3c-4a4f-b4b2-e4967b8965ca: Dummy # Dummy
     6475d0dc-d36f-464b-886b-0e49a2440722: Ratio # Ratio
     7306ad72-f109-4133-9033-1e46d7fc2f87: Forms # Forms
+    7405c565-6084-40f9-8c08-a31c20a62a4c: Clothing # Clothing
     8015ed9c-f053-44a1-a982-c8543fecb850: Source # Source
     8022c412-08db-4075-8549-b0aeb7093b15: 'Asset Title' # Asset Title
     75831d9f-5f4b-4d1f-8e79-62b4ddbd4654: Width # Width
@@ -85,11 +89,14 @@ meta:
     ad14a121-ce45-433b-9c77-79260f0543b0: Home # Home
     ae0c7b9f-1d05-4dcc-bff7-fc966ea24362: 'Youtube Video' # Youtube Video
     ae553cfa-0516-497a-903a-b1ebc1e1aec7: Autoplay # Autoplay
+    b6fe6e94-e790-4276-9f41-cf9260144947: Test # Test
     b512cbc9-6c77-4ffd-9963-9cca00e3307a: Ratio # Ratio
     b67022d3-1ed6-41e9-aa10-274c19acfc63: Ratio # Ratio
+    b2034624-b987-4407-828d-700fef161a67: Test # Test
     b4623113-f388-41e1-8610-19812a5433f0: Description # Description
     b8310612-27cd-4485-9500-f2d695b32bd6: Images # Images
     bade0eab-71dc-447a-aec7-9d2f70004472: Hero # Hero
+    bbe5f208-317c-46ea-aeec-c972cdb70db9: New # New
     be80d133-f849-4cdf-86c9-92a64b304fce: Headline # Headline
     c05d9115-1f9c-40b9-a27c-89d93925353c: Ratio # Ratio
     c8afcdef-5bca-4242-82cd-5714fc456f4c: Images # Images
@@ -112,6 +119,7 @@ meta:
     f4b93567-1a28-444d-8e1e-cc42606a33e4: Caption # Caption
     f10f3f3f-0dde-4a21-9489-e5579e814469: Size # Size
     f69d5808-5314-492c-a815-0b43bb0f01ad: 'Content Builder' # Content Builder
+    f961d0cf-2f8e-48b1-8f5d-9221774ca140: 'Product Image' # Product Image
     f18642d1-7028-4990-b411-92357c537720: Quote # Quote
     f56216a6-8623-42ab-b812-b10971f828e6: Term # Term
     fa670b93-6cac-4b55-926f-484b341a036c: Default # Default
@@ -125,6 +133,47 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  commerce:
+    edition: pro
+    enabled: true
+    licenseKey: INCKUPU5GS3DY1QH9UATN1OM
+    schemaVersion: 3.4.11
+    settings:
+      activeCartDuration: 3600
+      allowCheckoutWithoutPayment: false
+      allowEmptyCartOnCheckout: false
+      allowPartialPaymentOnCheckout: false
+      autoSetNewCartAddresses: true
+      cartVariable: cart
+      defaultView: commerce/orders
+      dimensionUnits: mm
+      emailSenderAddress: ''
+      emailSenderAddressPlaceholder: null
+      emailSenderName: ''
+      emailSenderNamePlaceholder: null
+      freeOrderPaymentStrategy: process
+      gatewayPostRedirectTemplate: ''
+      loadCartRedirectUrl: null
+      minimumTotalPriceStrategy: shipping
+      orderPdfFilenameFormat: 'Order-{number}'
+      orderPdfPath: shop/special/receipt
+      orderReferenceFormat: '{{number[:7]}}'
+      paymentCurrency: null
+      pdfAllowRemoteImages: false
+      pdfPaperOrientation: portrait
+      pdfPaperSize: letter
+      purgeInactiveCarts: true
+      purgeInactiveCartsDuration: 7776000
+      requireBillingAddressAtCheckout: false
+      requireShippingAddressAtCheckout: false
+      requireShippingMethodSelectionAtCheckout: false
+      showCustomerInfoTab: true
+      updateBillingDetailsUrl: ''
+      updateCartSearchIndexes: true
+      useBillingAddressForTax: false
+      validateBusinessTaxIdAsVatId: false
+      validateCartCustomFieldsOnSubmission: false
+      weightUnits: g
   cp-clearcache:
     edition: standard
     enabled: true
@@ -221,62 +270,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
-  webperf:
-    edition: standard
-    enabled: true
-    licenseKey: $PLUGIN_WEBPERF
-    schemaVersion: 1.0.1
-    settings:
-      automaticallyTrimDataSamples: true
-      automaticallyTrimErrorSamples: true
-      connectThreshold: 0.5
-      craftDbMsThreshold: !!float 2
-      craftOtherMsThreshold: !!float 2
-      craftTotalMsThreshold: !!float 2
-      craftTwigMsThreshold: !!float 2
-      dashboardAverageColor: '#ffff00'
-      dashboardFastColor: '#00c800'
-      dashboardSlowColor: '#c80000'
-      dataSamplesStoredLimit: 100000
-      displaySidebar: true
-      dnsThreshold: 0.5
-      domInteractiveThreshold: !!float 5
-      errorSamplesStoredLimit: 1000
-      excludePatterns:
-        -
-          __assoc__:
-            -
-              - pattern
-              - '/webperf/.*'
-        -
-          __assoc__:
-            -
-              - pattern
-              - '/cpresources/.*'
-        -
-          __assoc__:
-            -
-              - pattern
-              - '/retour/.*'
-        -
-          __assoc__:
-            -
-              - pattern
-              - '/seomatic/.*'
-      filterBotUserAgents: true
-      firstByteThreshold: !!float 2
-      firstContentfulPaintThreshold: !!float 5
-      firstPaintThreshold: !!float 5
-      includeBeacon: true
-      includeCraftProfiling: true
-      includeCraftWarnings: true
-      pageLoadThreshold: !!float 10
-      pluginName: Webperf
-      rateLimitMs: 500
-      samplesRateLimitMs: '3600000'
-      staticCachedSite: false
-      trimOutlierDataSamples: true
-      webpageTestApiKey: ''
 system:
   edition: pro
   live: true

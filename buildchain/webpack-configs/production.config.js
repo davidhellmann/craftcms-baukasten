@@ -5,7 +5,7 @@
 const path = require('path');
 
 // webpack plugins
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+// const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -39,8 +39,7 @@ module.exports = (type = 'modern', settings) => {
             new TerserPlugin({
               extractComments: false,
             }),
-            new CssMinimizerPlugin({
-            }),
+            // new CssMinimizerPlugin({}),
           ],
           runtimeChunk: {
             name: 'runtime',
