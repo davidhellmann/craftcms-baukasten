@@ -18,11 +18,11 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
 {% if props.quote %}
-  <div {{ module.settings(props) }} xmlns="http://www.w3.org/1999/html">
+  <div {{ macroComponentSettings.componentSettings(props) }} xmlns="http://www.w3.org/1999/html">
     <blockquote class="{{ props.cn ~ '__blockquote' }} u-stack-2">
       <p>
         {{ props.quote | nl2br | raw }}

@@ -16,11 +16,11 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
 {% if props.text %}
-  <div {{ module.settings(props) }}>
+  <div {{ macroComponentSettings.componentSettings(props) }}>
     {{ props.text | raw }}
   </div>
 {% endif %}

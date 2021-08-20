@@ -15,10 +15,10 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {% if props.icon %}
-  <span {{ module.settings(props) }}>
+  <span {{ macroComponentSettings.componentSettings(props) }}>
     {{ svg('@webroot/dist/img/svg/' ~ props.icon ~ '.svg') }}
   </span>
 {% endif %}

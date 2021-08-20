@@ -30,9 +30,6 @@ return [
                 'port' => App::env('REDIS_PORT'),
                 'database' => App::env('REDIS_CRAFT_DB'),
             ];
-            $config['as session'] = [
-                'class' => \craft\behaviors\SessionBehavior::class,
-            ];
             // Instantiate and return it
             return Craft::createObject($config);
         },

@@ -13,10 +13,10 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {% if props.videoId %}
-  <div class="aspect-w-16 aspect-h-9" {{ module.settings(props) }}>
+  <div class="aspect-w-16 aspect-h-9" {{ macroComponentSettings.componentSettings(props) }}>
     <iframe class="lazyload"
             data-src="https://www.youtube-nocookie.com/embed/{{ props.videoId }}?rel=0&loop={{ props.loop }}&showinfo={{ props.showinfo }}&autoplay={{ props.autoplay }}"
             frameborder="0">

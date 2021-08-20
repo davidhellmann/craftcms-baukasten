@@ -11,8 +11,8 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 <hr class="border-0 {{ props.size }} {{ props.visible ? 'bg-indigo-50' }} {{ props.customClasses }}"
-    {{ module.settings(props) }}>
+    {{ macroComponentSettings.componentSettings(props) }}>
 

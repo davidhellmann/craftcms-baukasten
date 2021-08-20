@@ -1,0 +1,18 @@
+{#
+  {% import '_macros/_macro-componentSettings.html' as macroComponentSettings  %}
+  {{ macroComponentSettings.componentSettings(props) }}
+#}
+{% macro componentSettings(props) %}
+  {# Component Name #}
+  {% if props.cn %}data-component="{{ props.cn }}"
+    {# JS Class #}
+    {% if props.js ??? null %}
+      data-component-js="{{ props.cn|replace({ (props.cn | slice(0,2)) : 'js-' }) }}"
+    {% endif %}
+  {% endif %}
+
+  {# Set data attributes #}
+  {% if props.data ??? null %}
+    {% for key, value in props.data %}  {{ key }}="{{ value }}" {% endfor %}
+  {% endif %}
+{% endmacro %}

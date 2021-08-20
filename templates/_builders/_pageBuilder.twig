@@ -15,10 +15,10 @@ Page Builder
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {% if props.blocks %}
-<div {{ module.settings(props) }}>
+<div {{ macroComponentSettings.componentSettings(props) }}>
   {% if props.blocks|length %}
     {% for content in props.blocks %}
 

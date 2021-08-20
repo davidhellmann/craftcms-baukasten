@@ -19,11 +19,11 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
 {% if props.images %}
-  <div {{ module.settings(props) }} swiper-pagination="{{ props.pagination ? 'true' : 'false' }}"
+  <div {{ macroComponentSettings.componentSettings(props) }} swiper-pagination="{{ props.pagination ? 'true' : 'false' }}"
                                     swiper-progressbar="{{ props.progressbar ? 'true' : 'false' }}">
     <!-- Slides -->
     <div class="{{ props.cn ~ '__slider' }} js-sliderImages swiper-container">

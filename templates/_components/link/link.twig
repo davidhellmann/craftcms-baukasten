@@ -17,11 +17,11 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {% if props.text and props.url %}
-  <a {{ module.settings(props) }}
-    href="{{ props.url }}" {{ props.url starts with '#' ? 'data-scroll' : '' }}  {{ module.settings(props) }} {{ props.targetBlank ? 'target="_blank"' }}>
+  <a {{ macroComponentSettings.componentSettings(props) }}
+    href="{{ props.url }}" {{ props.url starts with '#' ? 'data-scroll' : '' }}  {{ macroComponentSettings.componentSettings(props) }} {{ props.targetBlank ? 'target="_blank"' }}>
     {{ props.text }}
   </a>
 {% endif %}

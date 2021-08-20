@@ -21,10 +21,10 @@ a-divider
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 <div class="{{ props.marginTop }} {{ props.marginBottom }}
             grid {{ props.gridCols }} {{ props.gap }}
-            {{ props.customClasses }}" {{ module.settings(props) }}>
+            {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}>
   <hr class="border-0 {{ props.height }} {{ props.bgColor }} {{ props.colSpan }}">
 </div>

@@ -14,9 +14,9 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
-<div {{ module.settings(props) }} data-form-handle="{{ props.form.handle }}">
+<div {{ macroComponentSettings.componentSettings(props) }} data-form-handle="{{ props.form.handle }}">
 
   {% set form = props.form %}
 

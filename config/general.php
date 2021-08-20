@@ -14,7 +14,6 @@ return [
     // Craft config settings from .env variables
     'aliases' => [
         '@assetsUrl' => App::env('ASSETS_URL'),
-        '@cloudfrontUrl' => App::env('CLOUDFRONT_URL'),
         '@web' => App::env('SITE_URL'),
         '@webroot' => App::env('WEB_ROOT_PATH'),
     ],
@@ -45,6 +44,7 @@ return [
         'subLeft' => true,
         'subRight' => true,
     ],
+    'defaultWeekStartDay' => 1,
     'defaultTokenDuration' => 'P2W',
     'enableCsrfProtection' => true,
     'errorTemplatePrefix' => 'errors/',

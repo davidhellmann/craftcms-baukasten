@@ -1,7 +1,7 @@
 /**
  * globalScrollListener
  */
-import _throttle from 'lodash/throttle';
+import _throttle from 'lodash-es/throttle';
 
 const globalScrollListener = {
   cfg: {

@@ -1,9 +1,9 @@
 {#
-  Pagination Simple
-  =================
+  {% import '_macros/_macro-paginationSimple.html' as macroPaginationSimple  %}
+  {{ macroPaginationSimple.paginationSimple(pageInfo, {}) }}
 #}
 
-{% macro paginationSimple(pages,craft,props) %}
+{% macro paginationSimple(pages,props) %}
   {% set defaults = {
     cn: 'c-paginationSimple',
     searchquery: false,

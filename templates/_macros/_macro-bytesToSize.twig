@@ -1,9 +1,6 @@
 {#
-Set Active Class
-------------------------------------------------------------
-
-{%- import '_macros/_macro-bytesToSize.twig' as macroBytesToSize  -%}
-{{- macroBytesToSize.bytesToSize(bytes) -}}
+{% import '_macros/_macro-bytesToSize.twig' as macroBytesToSize %}
+{{ macroBytesToSize.bytesToSize(bytes) }}
 #}
 {%- macro bytesToSize(bytes) -%}
   {%- set kilobyte = 1024 -%}

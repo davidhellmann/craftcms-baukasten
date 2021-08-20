@@ -11,14 +11,13 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {% if props.name %}
-  <div {{ module.settings(props) }}>
+  <div {{ macroComponentSettings.componentSettings(props) }}>
     {% if props.url %}
     <a href="{{ props.url }}">
       {% endif %}
-
       {{ svg('@webroot/dist/img/svg/' ~ props.name ~ '.svg')
       | attr({ class: 'w-20 h-20' }) }}
 

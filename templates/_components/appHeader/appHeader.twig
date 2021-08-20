@@ -1,7 +1,6 @@
 {# Set Defaults #}
 {% set defaults = {
   cn: 'c-appHeader',
-
   data: {}
 } %}
 
@@ -9,9 +8,9 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
-<header class="bg-gray-100" {{ module.settings(props) }}>
+<header class="bg-gray-100" {{ macroComponentSettings.componentSettings(props) }}>
   <div class="container py-8 grid grid-cols-12 gap-8 items-center">
     <div class="col-span-1">
       {% include '_components/logo/logo.twig' only %}

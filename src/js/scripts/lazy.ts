@@ -5,7 +5,7 @@ export const initLazyloading = (selector: string): void => {
     // Create new observer object
     let lazyImageObserver = new IntersectionObserver((entries, observer) => {
       // Loop through IntersectionObserverEntry objects
-      entries.forEach((entry) => {
+      entries.forEach(entry => {
         // Do these if the target intersects with the root
         if (entry.isIntersecting) {
           let lazyImage: any = entry.target;
@@ -28,7 +28,7 @@ export const initLazyloading = (selector: string): void => {
     });
 
     // Loop through and observe each image
-    images.forEach(function(lazyImage) {
+    images.forEach(function (lazyImage) {
       lazyImageObserver.observe(lazyImage);
     });
   }

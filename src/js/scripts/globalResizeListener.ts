@@ -1,7 +1,8 @@
 /**
  * globalResizeListener
  */
-import _throttle from 'lodash/throttle';
+
+import _throttle from 'lodash-es/throttle';
 
 const globalResizeListener = {
   cfg: {

@@ -14,10 +14,10 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {% if props.headline or props.text %}
-  <{{ props.element }} class="bg-white {{ props.customClasses }}" {{ module.settings(props) }}>
+  <{{ props.element }} class="bg-white {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}>
   {# Headline --#}
   {% if props.headline ?? null %}
     <strong>{{- props.headline ~ ' ' -}}</strong>

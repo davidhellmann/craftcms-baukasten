@@ -20,11 +20,11 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
 {% if props.image and props.headline and props.linkUrl %}
-  <article {{ module.settings(props) }}>
+  <article {{ macroComponentSettings.componentSettings(props) }}>
     <a class="{{ props.cn ~ '__link' }}" href="{{ props.linkUrl }}">
       <div class="{{ props.cn ~ '__header' }}">
         {% include '_components/image/picture.twig' with {

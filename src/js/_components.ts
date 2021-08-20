@@ -2,9 +2,7 @@ const components = {
   init() {
     // Gallery
     if (document.querySelectorAll('.js-imageGallery').length) {
-      import(
-        /* webpackChunkName: "imageGallery" */ '../../templates/_components/gallery/images'
-      )
+      import('/src/templates/_components/gallery/images')
         .then(imageGallery => imageGallery.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
@@ -14,48 +12,38 @@ const components = {
       document.querySelectorAll('.js-sliderImages').length &&
       document.documentElement.classList.contains('no-touchevents')
     ) {
-      import(
-        /* webpackChunkName: "imageSlider" */ '../../templates/_components/slider/images'
-      )
+      import('/src/templates/_components/slider/images')
         .then(imageSlider => imageSlider.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
     // Image Grid Calculated
     if (document.querySelectorAll('.js-imageGridCalculated').length) {
-      import(
-        /* webpackChunkName: "imagesCalculated" */ '../../templates/_components/grid/imagesCalculated'
-      )
+      import('/src/templates/_components/grid/imagesCalculated')
         .then(imagesCalculated => imagesCalculated.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
     // Code Snippets
     if (document.querySelectorAll('.js-code').length) {
-      import(/* webpackChunkName: "prism" */ './scripts/prism')
+      import('./scripts/prism')
         .then(prism => prism.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
-      import(
-        /* webpackChunkName: "code" */ '../../templates/_components/code/code'
-      )
+      import('/src/templates/_components/code/code')
         .then(code => code.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
     // Accordion
     if (document.querySelectorAll('.js-accordionTrigger').length) {
-      import(
-        /* webpackChunkName: "accordion" */ '../../templates/_components/accordion/accordion'
-      )
+      import('/src/templates/_components/accordion/accordion')
         .then(accordion => accordion.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
     // Freeform
     if (document.querySelectorAll('.c-freeform').length) {
-      import(
-        /* webpackChunkName: "freeform" */ '../../templates/_components/freeform/freeform'
-      )
+      import('/src/templates/_components/freeform/freeform')
         .then(freeform => freeform.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
@@ -64,14 +52,14 @@ const components = {
     if (
       document.querySelectorAll('.c-pagination, .c-paginationSimple').length
     ) {
-      import(/* webpackChunkName: "pagination" */ './components/pagination')
+      import('./components/pagination')
         .then(pagination => pagination.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
     // Navigation
     if (document.querySelectorAll('.js-navigation').length) {
-      import(/* webpackChunkName: "navigation" */ './components/navigation')
+      import('./components/navigation')
         .then(navigation => navigation.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }

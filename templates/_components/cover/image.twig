@@ -16,12 +16,12 @@ c-imageCover
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 {% import '_macros/_macro-imageHelper.twig' as imageHelper %}
 
 {# Modul #}
 {% if props.image %}
-  <div {{ module.settings(props) }}>
+  <div {{ macroComponentSettings.componentSettings(props) }}>
     <picture style="background-color: {{- imageHelper.getDominantColor(props.image, true) -}}; ">
       {{- imageHelper.renderSource(props.image, 'portrait', true, '(orientation: portrait)') -}}
       {{- imageHelper.renderSource(props.image, 'landscape', true,  '(orientation: landscape)') -}}

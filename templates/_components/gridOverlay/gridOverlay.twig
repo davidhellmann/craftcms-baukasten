@@ -15,7 +15,7 @@ gridOverlay
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
 {% if props.cols %}
@@ -36,7 +36,7 @@ gridOverlay
   "
          style="display: none"
          x-show="open === 'true'"
-      {{ module.settings(props) }}>
+      {{ macroComponentSettings.componentSettings(props) }}>
       <div class="container h-screen grid gap-x-4 md:gap-x-8 grid-cols-6  md:grid-cols-{{ props.cols }}">
         {% for i in 1..props.cols %}
           <div class="h-screen"></div>

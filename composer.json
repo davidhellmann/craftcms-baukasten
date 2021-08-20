@@ -8,17 +8,17 @@
     "craftcms/mailgun": "1.4.3",
     "craftcms/redactor": "2.8.8",
     "doublesecretagency/craft-cpcss": "2.3.0",
-    "luwes/craft3-codemirror": "1.0.2",
     "marionnewlevant/twig-perversion": "2.2.0",
     "mmikkel/cp-clearcache": "1.1.0",
     "mmikkel/cp-field-inspect": "1.2.5",
+    "nystudio107/craft-autocomplete": "^1.0",
     "nystudio107/craft-emptycoalesce": "^1.0.6",
     "nystudio107/craft-minify": "^1.2.5",
     "nystudio107/craft-retour": "3.1.57",
     "nystudio107/craft-scripts": "^1.2.4",
     "nystudio107/craft-seomatic": "3.3.46",
-    "nystudio107/craft-twigpack": "1.2.15",
     "nystudio107/craft-twigprofiler": "^1.0.0",
+    "nystudio107/craft-vite": "^1.0.9",
     "nystudio107/dotenvy": "^1.1.0",
     "putyourlightson/craft-blitz-recommendations": "1.2.0",
     "putyourlightson/craft-elements-panel": "1.1.1",
@@ -29,11 +29,11 @@
     "verbb/navigation": "1.4.20",
     "verbb/super-table": "2.6.8",
     "vlucas/phpdotenv": "^3.4.0",
-    "yiisoft/yii2-redis": "^2.0.6",
-    "yiisoft/yii2-shell": "^2.0"
+    "yiisoft/yii2-redis": "^2.0.6"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "yiisoft/yii2-shell": "^2.0.3"
   },
   "autoload": {
     "psr-4": {
@@ -62,18 +62,15 @@
       "@create-folders"
     ],
     "post-craft-update": [
-      "@php craft install/check && php craft migrate/all --no-content || exit 0",
-      "@php craft install/check && php craft project-config/apply --force || exit 0",
-      "@php craft install/check && php craft migrate --track=content || exit 0",
       "@php craft install/check && php craft clear-caches/compiled-templates || exit 0",
       "@php craft install/check && php craft clear-caches/data || exit 0",
-      "@php craft install/check && php craft clear-caches/temp-files || exit 0"
+      "@php craft install/check && php craft clear-caches/temp-files || exit 0",
+      "@php craft install/check && php craft migrate/all --no-content || exit 0",
+      "@php craft install/check && php craft project-config/apply --force || exit 0",
+      "@php craft install/check && php craft migrate --track=content || exit 0"
     ],
     "post-root-package-install": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-    ],
-    "post-create-project-cmd": [
-      "@php craft setup/welcome"
     ],
     "pre-update-cmd": "@pre-craft-update",
     "pre-install-cmd": "@pre-craft-update",

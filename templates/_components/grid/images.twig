@@ -22,11 +22,11 @@
 {% endif %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
 {% if props.images %}
-  <div {{ module.settings(props) }}>
+  <div {{ macroComponentSettings.componentSettings(props) }}>
     <div class="{{ props.cn ~ '__inner' }}">
       {% for image in props.images if image %}
         <div class="{{ props.cn ~ '__item' }}">

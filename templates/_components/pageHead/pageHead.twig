@@ -18,7 +18,7 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 
 
@@ -34,7 +34,7 @@
     {% set headline = props.object.title %}
   {% endif %}
 
-  <{{ props.size }} {{ module.settings(props) }}>
+  <{{ props.size }} {{ macroComponentSettings.componentSettings(props) }}>
   <div class="{{ props.cn ~ '__wrapper' }}">
     <div class="{{ props.cn ~ '__inner' }}">
       {% if props.link %}

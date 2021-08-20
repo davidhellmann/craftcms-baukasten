@@ -1,12 +1,9 @@
 {#
-  Set Active Class
-  ------------------------------------------------------------
-
   {% import '_macros/_macro-mergedPosts.html' as macroMergedPosts  %}
-  {{ macroMergedPosts.mergedPosts('news', -1, 'cn') }}
+  {{ macroMergedPosts.mergedPosts(relatedProducts, 'products', 'postDate ASC', 10, entry) }}
 #}
 
-{% macro mergedPosts(field, channel, channelOrder, maxPostCount, entry) %}
+{% macro mergedPosts(field, channel, channelOrder, maxPostCount, currentItem) %}
 
   {# Set Default Variables #}
   {% set field = field | default(null) %}
@@ -26,8 +23,8 @@
     {% set entriesFromField = field.all() %}
     {% set excludePostsIds = field.ids() %}
 
-    {% if entry ??? null %}
-      {% set excludePostsIds = excludePostsIds | merge([entry.id]) %}
+    {% if currentItem ??? null %}
+      {% set excludePostsIds = excludePostsIds | merge([currentItem.id]) %}
     {% endif %}
     {% set excludePosts = excludePostsIds | join(', not ') %}
   {% endif %}

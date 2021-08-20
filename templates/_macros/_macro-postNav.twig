@@ -1,8 +1,6 @@
 {#
-  Prev / Next Link
-  ------------------------------------------------------------
-
-  {{ macroPostNav.postNav(entry, 'work', 'postDate', 'prev work', 'next work' ) }}
+{% import '_macros/_macro-postNav.html' as macroPostNav  %}
+{{ macroPostNav.postNav(entry, {}) }}
 #}
 
 {% macro postNav(entry, props) %}

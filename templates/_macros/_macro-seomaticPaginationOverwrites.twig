@@ -1,12 +1,8 @@
-{# @var craft \craft\web\twig\variables\CraftVariable #}
-{# @var entry \craft\elements\Entry #}Ω
 {#
-  seomaticPaginationOverwrites
-  ============================
-
   {% import '_macros/_macro-seomaticPaginationOverwrites.twig' as macroSeomaticPaginationOverwrites  %}
   {{ macroSeomaticPaginationOverwrites.seomaticPaginationOverwrites(pageInfo) }}
 #}
+
 {% macro seomaticPaginationOverwrites(pageInfo) %}
   {% if pageInfo.currentPage > 1 %}
     {% do seomatic.tag.get('robots').content('noindex, follow') %}

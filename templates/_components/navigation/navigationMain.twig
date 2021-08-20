@@ -11,11 +11,11 @@
 {% set props = props is defined ? defaults|merge(props) : defaults %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 {% import '_macros/_macro-navigation.twig' as macroNavigation  %}
 
 {% if props.nodes %}
-  <nav {{ module.settings(props) }}>
+  <nav {{ macroComponentSettings.componentSettings(props) }}>
     {% set navigationMainOptions = {
       cn: props.cn,
       nodes: props.nodes,
