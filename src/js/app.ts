@@ -1,4 +1,6 @@
-import 'alpinejs';
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start();
 
 // Add JS Loaded class to the body
 document.documentElement.classList.add('js-loaded');

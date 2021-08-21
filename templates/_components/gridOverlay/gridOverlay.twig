@@ -7,8 +7,13 @@ gridOverlay
 {% set defaults = {
   cn: 'c-gridOverlay',
   js: true,
-  data: {},
-  cols: 24
+  maxCols: 24,
+  baseStyles: 'fixed z-10000 top-0 w-screen h-screen pointer-events-none',
+  gridWrapperStyles: 'container h-screen grid gap-x-4 md:gap-x-8',
+  buttonStyles: 'fixed left-4 bottom-4 z-1000 bg-[#333] rounded-full w-8 h-8 cursor-pointer select-none relative',
+  gridClasses: 'gap-x-5 md:gap-x-10 grid-cols-6 sm:grid-cols-12 xl:grid-cols-24',
+  outlineColor: 'rgba(216, 27, 96, 0.25)',
+  backgroundColor: 'rgba(216, 27, 96, 0.05)',
 } %}
 
 {# Merge Default with Options #}
@@ -18,31 +23,27 @@ gridOverlay
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
-{% if props.cols %}
-  <div
-    x-data="{ open: localStorage.getItem('gridOverlay') || 'false' }"
-    x-init="$watch('open', (val) => localStorage.setItem('gridOverlay', val))"
-  >
-    <div class="
-  fixed left-4 bottom-4 z-1000
-  bg-gray-900 text-xs text-white
-  py-1 px-2 rounded-lg
-  cursor-pointer select-none"
-         data-component-js="js-gridOverlay--toggle"
-         @click="open = open === 'true' ? 'false' : 'true'">Grid
+  <div x-data="{ open: localStorage.getItem('gridOverlay') || 'false' }"
+       x-init="$watch('open', (val) => localStorage.setItem('gridOverlay', val))">
+
+    {# Button #}
+    <div class="{{ props.buttonStyles }}"
+         @click="open = open === 'true' ? 'false' : 'true'">
+      <span class="w-0.5 h-3 bg-white absolute" style="left: calc(50% - 6px); top: 50%; transform: translate(-50%, -50%)"></span>
+      <span class="w-1 h-3 bg-white absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%)"></span>
+      <span class="w-0.5 h-3 bg-white absolute" style="left: calc(50% + 6px); top: 50%; transform: translate(-50%, -50%)"></span>
     </div>
-    <div class="
-  fixed z-10000 top-0 w-screen h-screen pointer-events-none
-  "
-         style="display: none"
+
+    {# Grid #}
+    <div class="{{ props.baseStyles }}"
+         style="display: none; outline: 1px solid {{ props.outlineColor }}"
          x-show="open === 'true'"
       {{ macroComponentSettings.componentSettings(props) }}>
-      <div class="container h-screen grid gap-x-4 md:gap-x-8 grid-cols-6  md:grid-cols-{{ props.cols }}">
-        {% for i in 1..props.cols %}
-          <div class="h-screen"></div>
+      <div class="{{ props.gridWrapperStyles }} {{ props.gridClasses }}" >
+        {% for i in 1..props.maxCols %}
+          <div class="h-screen" style="background-color: {{ props.backgroundColor }}; box-shadow: 1px 0px 0px 0px {{ props.outlineColor }}, -1px 0px 0px 0px {{ props.outlineColor }};"></div>
         {% endfor %}
       </div>
     </div>
   </div>
-{% endif %}
 
