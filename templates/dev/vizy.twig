@@ -1,0 +1,23 @@
+{% extends "_layouts/generic-page-layout.twig" %}
+
+{% block headLinks %}
+  {{ parent() }}
+{% endblock headLinks %}
+
+{% block content %}
+  {% set entry = craft.entries().id(2).one() %}
+  {{ d(entry.vizy) }}
+  {% for i in entry.vizy.all() %}
+    {{ d(i.type) }}
+  {% endfor %}
+  {{ entry.vizy | raw }}
+
+  <section class="container py-10">
+    Hey
+  </section>
+{% endblock %}
+
+{# Any JavaScript that should be included before </body> #}
+{% block bodyJs %}
+  {{ parent() }}
+{% endblock bodyJs %}

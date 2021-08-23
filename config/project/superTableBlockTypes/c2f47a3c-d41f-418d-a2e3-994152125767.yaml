@@ -1,0 +1,187 @@
+field: 97e382ff-495d-448a-842b-d4e74e2509bf # Vizy Block Fancy
+fieldLayouts:
+  798a7c72-9dfc-4928-8e50-75d4cc4fe42f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 7074ed07-0282-465c-847a-0cd7804c6e3e # Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 25d23745-7283-42b9-9e4d-57e893e77056 # Vizy Builder
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  25d23745-7283-42b9-9e4d-57e893e77056: # Vizy Builder
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: vizyBuilder
+    instructions: ''
+    name: 'Vizy Builder'
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      fieldData:
+        -
+          __assoc__:
+            -
+              - id
+              - group-e5N3ZnEEgN
+            -
+              - name
+              - Test
+            -
+              - blockTypes
+              -
+                -
+                  __assoc__:
+                    0:
+                      - id
+                      - type-1hd1wfY357
+                    1:
+                      - name
+                      - Test
+                    2:
+                      - handle
+                      - test
+                    3:
+                      - icon
+                      -
+                        __assoc__:
+                          -
+                            - label
+                            - 'Acquisitions Incorporated'
+                          -
+                            - value
+                            - acquisitions-incorporated-brands
+                    5:
+                      - enabled
+                      - true
+                    6:
+                      - layoutUid
+                      - f94b150d-7394-4d7d-bdae-50137ed75011
+                    7:
+                      - layoutConfig
+                      -
+                        __assoc__:
+                          -
+                            - tabs
+                            -
+                              -
+                                __assoc__:
+                                  -
+                                    - name
+                                    - Content
+                                  -
+                                    - sortOrder
+                                    - 1
+                                  -
+                                    - elements
+                                    -
+                                      - { __assoc__: { 0: [type, craft\fieldlayoutelements\CustomField], 5: [required, false], 6: [width, 100], 7: [fieldUid, 0807cf36-9d29-4810-9a89-3ca325a0ec6d] } } # Asset Caption
+                -
+                  __assoc__:
+                    0:
+                      - id
+                      - type-3q9rj3DI5t
+                    1:
+                      - name
+                      - 'Test 2'
+                    2:
+                      - handle
+                      - test2
+                    3:
+                      - icon
+                      -
+                        __assoc__:
+                          -
+                            - label
+                            - Apple
+                          -
+                            - value
+                            - apple-brands
+                    5:
+                      - enabled
+                      - true
+                    6:
+                      - layoutUid
+                      - 4eaf51f1-be55-4858-894e-1658e97a439d
+                    7:
+                      - layoutConfig
+                      -
+                        __assoc__:
+                          -
+                            - tabs
+                            -
+                              -
+                                __assoc__:
+                                  -
+                                    - name
+                                    - Content
+                                  -
+                                    - sortOrder
+                                    - 1
+                                  -
+                                    - elements
+                                    -
+                                      - { __assoc__: { 0: [type, craft\fieldlayoutelements\CustomField], 5: [required, false], 6: [width, 100], 7: [fieldUid, e9f13c1d-0525-4ecc-bf67-f927e561a2c8] } } # Asset Source
+      manualConfig: ''
+      showUnpermittedFiles: ''
+      showUnpermittedVolumes: ''
+      trimEmptyParagraphs: '1'
+      vizyConfig: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: verbb\vizy\fields\VizyField
+  7074ed07-0282-465c-847a-0cd7804c6e3e: # Image
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Image
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211' # Images
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: true
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:3f1e1a84-bf8f-4543-b3a8-4c210f0d244a' # Files
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets

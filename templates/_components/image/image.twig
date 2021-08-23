@@ -1,3 +1,45 @@
+{#
+  HOW TO USE
+  ==================================================
+
+  Simple Image
+  {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
+
+  {% include '_components/image/image.twig' with {
+    props: {
+      image: cat01Image ??? null,
+      transform: 'landscape',
+      renderPlainImage: true,
+    }
+  } only %}
+
+  Figure Image
+  {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
+
+  {% include '_components/image/image.twig' with {
+    props: {
+      image: cat01Image ??? null,
+      transform: 'landscape',
+    }
+  } only %}
+
+  Art Direction
+  {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
+  {% set cat02Image = craft.assets.title('Cat 02').volume('templateImages').one() %}
+  {% set cat03Image = craft.assets.title('Cat 03').volume('templateImages').one() %}
+
+  {% include '_components/image/image.twig' with {
+    props: {
+      image: cat01Image ??? null,
+      transform: 'landscape',
+      sources: [
+        [cat02Image, 'portrait', true, '(min-width: 430px)'],
+        [cat03Image, 'square', true, '(min-width: 330px)'],
+      ]
+    }
+  } only %}
+#}
+
 {# Set Defaults #}
 {% set defaults = {
   cn: 'c-image',
@@ -5,6 +47,7 @@
   js: null,
   image: null,
   customClasses: null,
+  baseStyles: 'block',
   transform: 'landscape',
   objectFit: null,
   lazy: true,
@@ -12,7 +55,8 @@
   calcDominantColor: false,
   noscript: true,
   sources: null,
-  caption: null
+  caption: null,
+  renderPlainImage: false
 } %}
 
 {# Merge Default with Options #}
@@ -117,22 +161,24 @@
 
   {# Sources #}
   {% if props.sources | length > 1 %}
+    {% set finaleSources = [] %}
     {% for source in props.sources %}
       {% if imageData.transformable %}
         {% set srcsetLegacy = craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape') %}
         {% set transforms = craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape', { format: imageSettings.format }) %}
         {% set srcset = craft.imager.srcset(transforms) | trim %}
 
+        {% set finaleSources = finaleSources|merge([[
+          imageData.filetype ??? null,
+          srcset ??? null,
+          source[1] ??? 'landscape',
+          source[2] ??? true,
+          source[3] ??? null
+        ]]) %}
+
+
         {% set imageData = imageData|merge({
-          'sources': [
-            [
-              imageData.filetype ??? null,
-              srcset ??? null,
-              source[1] ??? 'landscape',
-              source[2] ??? true,
-              source[3] ??? null
-            ]
-          ]
+          'sources': finaleSources
         }) %}
       {% endif %}
     {% endfor %}
@@ -148,9 +194,17 @@
     } }) %}
   {% endif %}
 
-  {# Image #}
-  {% if not props.sources ??? null %}
-    <figure class="block {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}
+
+  {% if props.renderPlainImage and not props.sources %}
+    {# Render Plain Image #}
+    {{- imageHelper.renderImage(imageData, props.transform, props.lazy, props.objectFit, props.baseStyles ~ ' ' ~ props.customClasses) -}}
+
+    {% if props.noscript %}
+      {{- imageData.noscript | raw -}}
+    {% endif %}
+  {% elseif not props.renderPlainImage and not props.sources %}
+    {# Render Figure Element #}
+    <figure class="{{ props.baseStyles }}  {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}
       {% if props.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
       {{- imageHelper.renderImage(imageData, props.transform, props.lazy, props.objectFit) -}}
 
@@ -170,12 +224,10 @@
         {{- imageData.noscript | raw -}}
       {% endif %}
     </figure>
-  {% endif %}
-
-  {# Picture #}
-  {% if props.sources ??? null %}
+  {% elseif not props.renderPlainImage and props.sources  %}
+    {# Render Figure in Picutre #}
     {% if props.caption %}
-      <figure class="block {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}
+      <figure class="{{ props.baseStyles }}  {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}
         {% if props.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
         <picture>
           {% for source in imageData.sources %}
@@ -201,10 +253,8 @@
           {% endif %}
         </picture>
       </figure>
-    {% endif %}
-
-    {% if not props.caption %}
-      <picture class="block {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}
+    {% else %}
+      <picture class="{{ props.baseStyles }}  {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}
         {% if props.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
         {% for source in imageData.sources %}
           {{- imageHelper.renderSource(source[0], source[1], source[2], source[3], source[4]) -}}

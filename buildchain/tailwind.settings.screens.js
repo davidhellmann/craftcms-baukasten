@@ -14,4 +14,5 @@ module.exports = {
   lg: remToPx(settings.screensRem.lg),
   xl: remToPx(settings.screensRem.xl),
   '2xl': remToPx(settings.screensRem['2xl']),
+  nthover: { raw: '(hover: hover)' },
 };

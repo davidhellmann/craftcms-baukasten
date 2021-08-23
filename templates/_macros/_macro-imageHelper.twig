@@ -7,7 +7,7 @@ Image Helper
 
 
 {# Render Image #}
-{%- macro renderImage(imageData = null, transform = 'landscape', lazy = true, objectFit = null) -%}
+{%- macro renderImage(imageData = null, transform = 'landscape', lazy = true, objectFit = null, customClasses = '') -%}
   {# If Image exists render it #}
   {%- if imageData ??? null -%}
     <img data-type="{{- imageData.filetype -}}"
@@ -21,7 +21,7 @@ Image Helper
         style="object-fit: {{ objectFit }}; object-position: {{ imageData.focalpoint }}; height: 100%; width: 100%;"
       {%- endif -%}
       {% if lazy %}
-        class="lazyload"
+        class="lazyload {{ customClasses }}"
         loading="lazy"
         src="{{- imageData.placeholder -}}"
         {%- if imageData.transformable -%}
