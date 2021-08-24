@@ -38,7 +38,7 @@ return [
     'testToEmailAddress' => App::env('TEST_EMAIL_ADDRESS') ?: null,
     'enableGraphqlCaching' => (bool)App::env('ENABLE_GQL_CACHING'),
     // Craft config settings from constants
-    'maxRevisions' => 50,
+    'maxRevisions' => 5,
     'cacheDuration' => false,
     'defaultSearchTermOptions' => [
         'subLeft' => true,
