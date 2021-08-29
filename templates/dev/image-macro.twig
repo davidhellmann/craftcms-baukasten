@@ -1,16 +1,10 @@
-{% extends "_layouts/generic-page-layout.twig" %}
-{% set appClass = 'p-home' %}
+{% extends "_layouts/layout-default.twig" %}
 
-{% block headLinks %}
-  {{ parent() }}
-{% endblock headLinks %}
-
-{% block content %}
+{% block blockAppContent %}
   {# Redirect to home if on a live env #}
   {% if craft.app.config.general.custom.craftEnv == 'live' %}
     {% redirect siteUrl %}
   {% endif %}
-
 
   {# Macros #}
   {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
@@ -28,9 +22,3 @@
     }
   } only %}
 {% endblock %}
-
-{# Any JavaScript that should be included before </body> #}
-{% block bodyJs %}
-  {{ parent() }}
-{% endblock bodyJs %}
-

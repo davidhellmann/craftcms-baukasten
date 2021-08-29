@@ -1,0 +1,59 @@
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-button',
+  },
+  data: {
+    variant: 'primary',
+    icon: null,
+    text: null,
+    url: null,
+    reverse: false,
+    target: null,
+  },
+  classes: {
+    root: 'rounded-full  px-6  pt-2 pb-3  font-sans-medium  text-center  items-center gap-4  grid-flow-col justify-center whitespace-nowrap',
+    custom: '',
+    display: 'inline-grid',
+    position: 'relative',
+  },
+  variants: {
+    mega: 'bg-primary  hover:bg-primary  text-white  border-2 border-primary hover:border-primary  shadow-button  pt-3 pb-4  hover:shadow-base transition',
+    primary: 'bg-primary  hover:bg-primary  text-white  border-2 border-primary hover:border-primary  hover:shadow-button transition',
+    secondary: 'bg-white  hover:bg-white  text-primary  border-2 border-primary  hover:border-primary hover:shadow-button transition',
+    tertiary: 'bg-gray  hover:bg-gray  text-white  border-2 border-gray  hover:border-gray hover:shadow-button transition',
+    quaternary: 'bg-white  hover:bg-white  text-gray  border-2 border-white  hover:border-white hover:shadow-button transition',
+    quinternary: 'bg-white  hover:bg-white  group-hover:bg-white  text-gray hover:text-primary group-hover:text-primary border-2 border-gray  hover:border-primary group-hover:border-primary hover:shadow-button group-hover:shadow-button transition',
+  }
+} %}
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{# Macros #}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+
+{% if props.data.text %}
+  {% set tag = props.data.url ? 'a' : 'button' %}
+  {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
+
+  <{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }}
+  class="{{ props.classes.root }} {{ props.classes.position }} {{ props.classes.display }} {{ props.variants[props.data.variant] ??? '' }} {{ props.classes.custom }}"
+  {{ macroComponentSettings.componentSettings(props.settings) }}>
+  {% if props.data.icon %}
+    {# -- Icon -- #}
+    {% include '_components/icon/icon.twig' with {
+      props: {
+        customClasses: (props.data.reverse ? 'col-start-2') ~ ' transform translate-y-px',
+        icon: props.data.icon ??? null
+      }
+    } only %}
+  {% endif %}
+  {{ props.data.text }}
+  </{{ tag }}>
+{% endif %}

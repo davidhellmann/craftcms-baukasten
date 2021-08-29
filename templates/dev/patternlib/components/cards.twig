@@ -1,0 +1,42 @@
+{% extends "_layouts/patternlib-page-layout.twig" %}
+{% set pageTitleSuffix = _self | split('/') | last | capitalize %}
+
+{% block content %}
+  {% cache using key craft.app.request.pathInfo %}
+  <div class="{{ config.styles.compItem }}">
+    <label class="{{ config.styles.compLabel }}">Card Page Intro Image Video</label>
+    <div class="{{ config.styles.compItemVariant }} h-60 relative">
+      {# -- counter -- #}
+      {% include '_components/card/pageIntroImageVideo.twig' with {
+        props: {
+          text: 'Welcome to BRP-Rotax — the largest producer of gasonline aircraft in the world.
+Engines',
+          image: craft.assets().kind('image').orderBy('RAND()').one() ??? null,
+          linkText: 'Click here',
+          linkUrl: '#',
+        }
+      } only %}
+    </div>
+  </div>
+  <div class="{{ config.styles.compItem }}">
+    <label class="{{ config.styles.compLabel }}">Card Page Intro Image Video Distributor</label>
+    <div class="{{ config.styles.compItemVariant }} h-60 relative">
+      {# -- counter -- #}
+      {% include '_components/card/pageIntroImageVideoDistributor.twig' with {
+        props: {
+          title: 'The quick brown fox jumps over the lazy dogs',
+          image: craft.assets().kind('image').orderBy('RAND()').one() ??? null,
+          eMail: 'mail@test.com',
+          phone: '+49 42352 24524524',
+          street: 'John Doe Way 14',
+          zipCode: '23534',
+          city:  'Lorem Ipsum',
+          country:  'Austria',
+        }
+      } only %}
+    </div>
+  </div>
+  {% endcache %}
+{% endblock %}
+
+

@@ -1,0 +1,53 @@
+{% extends "_layouts/patternlib-page-layout.twig" %}
+{% set pageTitleSuffix = _self | split('/') | last | capitalize %}
+
+{% block content %}
+  {% cache using key craft.app.request.pathInfo %}
+    <div class="{{ config.styles.compItem }}">
+      <label class="{{ config.styles.compLabel }}">Stack Page Teaser Slider</label>
+      <div class="{{ config.styles.compItemVariant }}">
+        {% include '_components/stacks/pageTeaserSlider.twig' with {
+          props: {
+            headline: 'The quick brown fox jumps over the lazy dogs' ??? null,
+            text: 'An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, falli doming vix no? No pri causae petentium! Id vocibus volutpat deterruisset usu, vocibus verterem sed ne, usu ne similique temporibus! Ex vix dicat discere partiendo, at ignota corpora mei, posse percipitur mea ut. At doming commodo deseruisse sit, eu diceret fabulas eligendi vix, sea nostrum scriptorem ad! Quo cu eius tollit instructior.' ??? null,
+            items: [
+              {
+                url: '#' ??? null,
+                title: 'Franz Aircraft' ??? null,
+                entryImage: craft.assets().kind('image').orderBy('RAND()').one() ??? null
+              },
+              {
+                url: '#' ??? null,
+                title: 'Engines' ??? null,
+                entryImage: craft.assets().kind('image').orderBy('RAND()').one() ??? null
+              },
+              {
+                url: '#' ??? null,
+                title: 'Jobs' ??? null,
+                entryImage: craft.assets().kind('image').orderBy('RAND()').one() ??? null
+              },
+              {
+                url: '#' ??? null,
+                title: 'Lorem Ipsum dolor sit' ??? null,
+                entryImage: craft.assets().kind('image').orderBy('RAND()').one() ??? null
+              },
+              {
+                url: '#' ??? null,
+                title: 'Other Page' ??? null,
+                entryImage: craft.assets().kind('image').orderBy('RAND()').one() ??? null
+              },
+            ]
+          }
+        } only %}
+      </div>
+    </div>
+    <div class="{{ config.styles.compItem }}">
+      <label class="{{ config.styles.compLabel }}">Stack Counters</label>
+      <div class="{{ config.styles.compItemVariant }}">
+        {% include '_components/stacks/counter.twig' only %}
+      </div>
+    </div>
+  {% endcache %}
+{% endblock %}
+
+

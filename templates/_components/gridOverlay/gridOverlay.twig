@@ -1,23 +1,29 @@
-{#
-gridOverlay
-------------------------------------------------------------
-#}
-
-{# Set Defaults #}
-{% set defaults = {
-  cn: 'c-gridOverlay',
-  js: true,
-  maxCols: 24,
-  baseStyles: 'fixed z-10000 top-0 w-screen h-screen pointer-events-none',
-  gridWrapperStyles: 'container h-screen grid gap-x-4 md:gap-x-8',
-  buttonStyles: 'fixed left-4 bottom-4 z-1000 bg-[#333] rounded-full w-8 h-8 cursor-pointer select-none relative',
-  gridClasses: 'gap-x-5 md:gap-x-10 grid-cols-6 sm:grid-cols-12 xl:grid-cols-24',
-  outlineColor: 'rgba(216, 27, 96, 0.25)',
-  backgroundColor: 'rgba(216, 27, 96, 0.05)',
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-gridOverlay',
+    js: true,
+  },
+  data: {
+    maxCols: 24,
+    outlineColor: 'rgba(216, 27, 96, 0.25)',
+    backgroundColor: 'rgba(216, 27, 96, 0.05)',
+  },
+  classes: {
+    root: 'fixed z-10000 top-0 w-screen h-screen pointer-events-none',
+    custom: '',
+    gridWrapper: 'container h-screen grid gap-x-4 md:gap-x-8',
+    button: 'fixed left-4 bottom-4 z-1000 bg-[#333] rounded-full w-8 h-8 cursor-pointer select-none',
+    gridCol: 'gap-x-5 md:gap-x-10 grid-cols-6 sm:grid-cols-12 xl:grid-cols-24',
+  }
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
@@ -27,7 +33,7 @@ gridOverlay
        x-init="$watch('open', (val) => localStorage.setItem('gridOverlay', val))">
 
     {# Button #}
-    <div class="{{ props.buttonStyles }}"
+    <div class="{{ props.classes.button }}"
          @click="open = open === 'true' ? 'false' : 'true'">
       <span class="w-0.5 h-3 bg-white absolute" style="left: calc(50% - 6px); top: 50%; transform: translate(-50%, -50%)"></span>
       <span class="w-1 h-3 bg-white absolute" style="left: 50%; top: 50%; transform: translate(-50%, -50%)"></span>
@@ -35,13 +41,13 @@ gridOverlay
     </div>
 
     {# Grid #}
-    <div class="{{ props.baseStyles }}"
-         style="display: none; outline: 1px solid {{ props.outlineColor }}"
+    <div class="{{ props.classes.root }} {{ props.classes.custom }}"
+         style="display: none; outline: 1px solid {{ props.data.outlineColor }}"
          x-show="open === 'true'"
-      {{ macroComponentSettings.componentSettings(props) }}>
-      <div class="{{ props.gridWrapperStyles }} {{ props.gridClasses }}" >
-        {% for i in 1..props.maxCols %}
-          <div class="h-screen" style="background-color: {{ props.backgroundColor }}; box-shadow: 1px 0px 0px 0px {{ props.outlineColor }}, -1px 0px 0px 0px {{ props.outlineColor }};"></div>
+      {{ macroComponentSettings.componentSettings(props.settings) }}>
+      <div class="{{ props.classes.gridWrapper }} {{ props.classes.gridCol }}" >
+        {% for i in 1..props.data.maxCols %}
+          <div class="h-screen" style="background-color: {{ props.data.backgroundColor }}; box-shadow: 1px 0px 0px 0px {{ props.data.outlineColor }}, -1px 0px 0px 0px {{ props.data.outlineColor }};"></div>
         {% endfor %}
       </div>
     </div>

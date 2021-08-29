@@ -33,7 +33,7 @@ export const initLazyloading = (selector: string): void => {
     });
 
     // Save for Sprig
-    window.lazyImageSelector = selector;
-    window.lazyImageObserver = lazyImageObserver;
+    window._LazyImageSelector = selector;
+    window._LazyImageObserver = lazyImageObserver;
   }
 };

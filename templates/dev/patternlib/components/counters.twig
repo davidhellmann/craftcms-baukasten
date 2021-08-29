@@ -1,0 +1,43 @@
+{% extends "_layouts/patternlib-page-layout.twig" %}
+{% set pageTitleSuffix = _self | split('/') | last | capitalize %}
+
+{% block content %}
+  {% cache using key craft.app.request.pathInfo %}
+  <div class="{{ config.styles.compItem }}">
+    <label class="{{ config.styles.compLabel }}">Counter Hours</label>
+    <div class="{{ config.styles.compItemVariant }}">
+      {# -- counter -- #}
+      {% include '_components/counter/counter.twig' with {
+        props: {
+          start: 78877860,
+          steps: 10,
+          duration: 60,
+          text: 'Flight duration of the Rotax 4-stroke fleet',
+          graphic: 'icons/statistics-duration',
+          unit: 'Hours',
+          name: 'hours',
+        }
+      } only %}
+    </div>
+  </div>
+  <div class="{{ config.styles.compItem }}">
+    <label class="{{ config.styles.compLabel }}">Counter Kgs</label>
+    <div class="{{ config.styles.compItemVariant }}">
+      {# -- counter -- #}
+      {% include '_components/counter/counter.twig' with {
+        props: {
+          start: 54640461,
+          steps: 7,
+          duration: 60,
+          text: 'Total Savings CO2 of Rotax 4-stroke fleet compared to competive engines',
+          graphic: 'icons/statistics-co2',
+          unit: 'Kgs',
+          name: 'co2',
+        }
+      } only %}
+    </div>
+  </div>
+  {% endcache %}
+{% endblock %}
+
+

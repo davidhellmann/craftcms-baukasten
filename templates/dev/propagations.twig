@@ -1,0 +1,125 @@
+{% if not currentUser %}
+  {% redirect siteUrl %}
+  {% if currentUser %}
+    {% if not currentUser.admin %}
+      {% redirect siteUrl %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% cache %}
+
+  {% set sections = craft.app.sections.getAllSections() %}
+  {% set sites = craft.app.sites.getAllSites() %}
+
+  {% set allSections %}
+    {% for section in sections %}
+      <div class="item">
+        <div>
+          <div>
+            <strong>{{ section.name }}</strong> ({{ section.handle }})
+          </div>
+          propagationMethod: {{ section.propagationMethod }} | propagateEntries {{ section.propagateEntries }}
+        </div>
+      </div>
+    {% endfor %}
+  {% endset %}
+
+
+  <div class="table">
+    <div class="row">
+      <div class="item"></div>
+      {{ allSections }}
+    </div>
+    {% for site in sites %}
+      <div class="row">
+        <div class="item">
+          {{ site.name }}<br>
+          {{ site.handle }}
+        </div>
+        {% for i in 1..sections|length %}
+          <div class="item">
+            {% set enabled = sections[loop.index0].siteSettings[site.id] ??? null %}
+            {{  enabled ? '✅' : '❌' }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+{% endcache %}
+
+<style>
+  .table {
+    margin: 2rem;
+    font-family: "Courier New", monospace;
+    word-break: keep-all;
+    white-space: nowrap;
+    width: fit-content;
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .row:first-child {
+    height: 600px;
+  }
+
+  .row:not(:first-child):hover .item {
+    background-color: #FFFBE9 !important;
+  }
+
+  .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 80px;
+    width: 80px;
+    border: 1px solid #f2f2f2;
+  }
+
+  .row .item:first-child {
+    padding: 1rem;
+  }
+
+
+  .row + .row {
+    margin-top: -1px;
+  }
+
+  .row:first-child .item {
+    position: relative;
+    border: 1px solid transparent;
+  }
+
+  .row:first-child .item > div {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 80px;
+    width: calc(600px - 2rem);
+    padding: 0 1rem;
+    transform-origin: bottom left;
+    transform: rotate(75deg) translate(-84px, 139px);
+    background-color: #fff;
+    border: 1px solid #f2f2f2;
+    border-right: 0;
+  }
+
+  .row:first-child .item:nth-child(even) > div {
+    background-color: #f8f8f8;
+  }
+
+  .row .item:first-child {
+    flex: 0 0 400px;
+    justify-content: flex-start;
+  }
+
+  .row:not(:first-child) .item:not(:first-child):nth-child(even) {
+    background-color: #f8f8f8;
+  }
+</style>

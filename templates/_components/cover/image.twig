@@ -5,15 +5,17 @@ c-imageCover
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-coverImage',
-
-  data: {},
+  name: 'c-coverImage',
   image: null,
   objectFit: null
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
@@ -21,7 +23,7 @@ c-imageCover
 
 {# Modul #}
 {% if props.image %}
-  <div {{ macroComponentSettings.componentSettings(props) }}>
+  <div {{ macroComponentSettings.componentSettings(props.settings) }}>
     <picture style="background-color: {{- imageHelper.getDominantColor(props.image, true) -}}; ">
       {{- imageHelper.renderSource(props.image, 'portrait', true, '(orientation: portrait)') -}}
       {{- imageHelper.renderSource(props.image, 'landscape', true,  '(orientation: landscape)') -}}

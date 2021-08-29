@@ -1,0 +1,39 @@
+{% extends "_boilerplate/_layouts/layout-base.twig" %}
+
+{# >>> Render block head fonts #}
+{% block blockHeadFonts %}
+  {% include '_layouts/_partials/fonts/fonts-default-preloading.twig' %}
+{% endblock blockHeadFonts %}
+
+{# >>> Render block app body #}
+{% block blockAppBody %}
+  <div id="appWrapper" class="overflow-hidden">
+
+    {# >>> Render app header #}
+    {% include '_components/appHeader/appHeader.twig' only %}
+
+    <main id="appContent">
+      {# >>> Render block app content #}
+      {% block blockAppContent %}
+        <section>
+          <div class="container mx-auto py-8">
+            <div class="text-center p-8 mb-8">
+              <h1 class="font-mono italic font-bold text-5xl pt-4">
+                {{ entry.errorHeadline ?? 'Error' }}
+              </h1>
+              <p class="font-sans font-light text-xl pt-4">
+                {{ (entry.errorText ?? 'An error has occurred.') |nl2br }}
+              </p>
+            </div>
+          </div>
+        </section>
+      {% endblock %}
+    </main>
+
+    {# >>> Render app fooeter #}
+    {% include '_components/appFooter/appFooter.twig' only %}
+
+    {# >>> Render footer global #}
+    {% include '_layouts/_partials/footer-global.twig' %}
+  </div>
+{% endblock blockAppBody %}

@@ -1,0 +1,13 @@
+{% extends "_layouts/generic-page-layout.twig" %}
+
+{% block blockAppContent %}
+  {% cache %}
+    {% minify %}
+      {% include '_builders/_contentBuilder.twig' with {
+        props: {
+          blocks: entry.contentBuilder ??? null
+        }
+      } only %}
+    {% endminify %}
+  {% endcache %}
+{% endblock %}

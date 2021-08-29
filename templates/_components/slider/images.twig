@@ -5,9 +5,7 @@
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-sliderImages',
-
-  data: {},
+  name: 'c-sliderImages',
   images: null,
   transform: 'landscape',
   buttons: true,
@@ -15,15 +13,19 @@
   progressbar: false,
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
 {% if props.images %}
-  <div {{ macroComponentSettings.componentSettings(props) }} swiper-pagination="{{ props.pagination ? 'true' : 'false' }}"
+  <div {{ macroComponentSettings.componentSettings(props.settings) }} swiper-pagination="{{ props.pagination ? 'true' : 'false' }}"
                                     swiper-progressbar="{{ props.progressbar ? 'true' : 'false' }}">
     <!-- Slides -->
     <div class="{{ props.cn ~ '__slider' }} js-sliderImages swiper-container">

@@ -5,17 +5,19 @@
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'm-pageHead',
-
-  data: {},
+  name: 'm-pageHead',
   object: entry ??? null,
   text: null,
   size: 'h1',
   link: null
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
@@ -34,7 +36,7 @@
     {% set headline = props.object.title %}
   {% endif %}
 
-  <{{ props.size }} {{ macroComponentSettings.componentSettings(props) }}>
+  <{{ props.size }} {{ macroComponentSettings.componentSettings(props.settings) }}>
   <div class="{{ props.cn ~ '__wrapper' }}">
     <div class="{{ props.cn ~ '__inner' }}">
       {% if props.link %}

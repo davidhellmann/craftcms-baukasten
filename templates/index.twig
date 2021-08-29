@@ -1,32 +1,25 @@
-{% extends "_layouts/generic-page-layout.twig" %}
+{% extends "_layouts/layout-default.twig" %}
 
-{% block headLinks %}
-  {{ parent() }}
-{% endblock headLinks %}
+{% block blockAppContent %}
+  {% cache %}
+    {% minify %}
+      <div class="container py-10">
+        {# Vue Example Comp #}button
+        <div id="dummyComp"></div>
+      </div>
 
-{% block content %}
-  <div class="container py-10">
-    {# Vue Example Comp #}
-    <div id="dummyComp"></div>
-  </div>
-
-  <section class="bg-black text-white py-2">
-    <div class="container">
-      <h1>Block Content</h1>
-      {# link #}
-      {% include '_components/link/link.twig' with {
-        props: {
-          modifiers: ['primary'],
-          customClasses: ['mt-1'],
-          url: '/dev/component-library',
-          text: 'Component Library'
-        }
-      } only %}
-    </div>
-  </section>
+      <section class="bg-black text-white py-2">
+        <div class="container">
+          <h1>Block App Content</h1>
+          {# link #}
+          {% include '_components/button/button.twig' with {
+            data: {
+              url: '/dev/patternlib',
+              text: 'Component Library'
+            },
+          } only %}
+        </div>
+      </section>
+    {% endminify %}
+  {% endcache %}
 {% endblock %}
-
-{# Any JavaScript that should be included before </body> #}
-{% block bodyJs %}
-  {{ parent() }}
-{% endblock bodyJs %}

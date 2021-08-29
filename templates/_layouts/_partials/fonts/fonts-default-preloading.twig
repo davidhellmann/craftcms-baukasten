@@ -1,0 +1,108 @@
+<link rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      href="{{ baseUrl }}dist/fonts/merriweather-latin-900.woff2">
+
+<link rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      href="{{ baseUrl }}dist/fonts/merriweather-latin-900italic.woff2">
+
+<link rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      href="{{ baseUrl }}dist/fonts/lato-latin-300.woff2">
+
+<link rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      href="{{ baseUrl }}dist/fonts/lato-latin-700.woff2">
+
+<link rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      href="{{ baseUrl }}dist/fonts/JetBrainsMono-Regular.woff2">
+
+<link rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      href="{{ baseUrl }}dist/fonts/JetBrainsMono-Bold.woff2">
+
+
+<style>
+  @font-face {
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 900;
+    src: local('Merriweather Black'), local('Merriweather-Black'),
+    url('{{ baseUrl }}dist/fonts/merriweather-latin-900.woff2') format('woff2'),
+    url('{{ baseUrl }}dist/fonts/merriweather-latin-900.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Merriweather';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 900;
+    src: local('Merriweather Black italic'), local('Merriweather-Blackitalic'),
+    url('{{ baseUrl }}dist/fonts/merriweather-latin-900italic.woff2') format('woff2'),
+    url('{{ baseUrl }}dist/fonts/merriweather-latin-900italic.woff') format('woff');
+  }
+
+  /* -- Lato */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+    src: local('Lato Regular'), local('Lato-Regular'),
+    url('{{ baseUrl }}dist/fonts/lato-latin-300.woff2') format('woff2'),
+    url('{{ baseUrl }}dist/fonts/lato-latin-300.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+    src: local('Lato Bold'), local('Lato-Bold'),
+    url('{{ baseUrl }}dist/fonts/lato-latin-700.woff2') format('woff2'),
+    url('{{ baseUrl }}dist/fonts/lato-latin-700.woff') format('woff');
+  }
+
+
+  /* -- JetBrains Mono */
+  @font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-feature-settings: "calt" 1, "zero" 1;
+    font-display: swap;
+    src: local("JetBrains Mono Regular"), local("JetBrainsMono-Regular"),
+    url("{{ baseUrl }}dist/fonts/JetBrainsMono-Regular.woff2")
+    format("woff2"),
+    url("{{ baseUrl }}dist/fonts/JetBrainsMono-Regular.woff")
+    format("woff");
+  }
+
+  @font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 700;
+    font-feature-settings: "calt" 1, "zero" 1;
+    font-display: swap;
+    src: local("JetBrains Mono Bold"), local("JetBrainsMono-Bold"),
+    url("{{ baseUrl }}dist/fonts/JetBrainsMono-Bold.woff2")
+    format("woff2"),
+    url("{{ baseUrl }}dist/fonts/JetBrainsMono-Bold.woff")
+    format("woff");
+  }
+
+</style>

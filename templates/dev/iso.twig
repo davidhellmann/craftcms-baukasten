@@ -1,10 +1,6 @@
-{% extends "_layouts/generic-page-layout.twig" %}
+{% extends "_layouts/layout-default.twig" %}
 
-{% block headLinks %}
-  {{ parent() }}
-{% endblock headLinks %}
-
-{% block content %}
+{% block blockAppContent %}
   <section class="l-section">
     <div class="container" style="padding: 10vh 0;">
       <style>
@@ -96,7 +92,3 @@
   </section>
 {% endblock %}
 
-{# Any JavaScript that should be included before </body> #}
-{% block bodyJs %}
-  {{ parent() }}
-{% endblock bodyJs %}

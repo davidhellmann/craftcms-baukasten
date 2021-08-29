@@ -1,16 +1,19 @@
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-switcherLanguage',
-  data: {},
+  name: 'c-switcherLanguage',
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
-<div {{ macroComponentSettings.componentSettings(props) }}>
+<div {{ macroComponentSettings.componentSettings(props.settings) }}>
   {# v2 #}
   {# http://craftsnippets.com/articles/universal-language-switcher-for-craft-cms #}
 
@@ -19,7 +22,6 @@
   {% set sites = craft.app.getSites().getGroupById(currentSite.groupId).getSites() %}
   {% set switcherLinks = [] %}
 
-  {{ d() }}
 
   {% for site in sites if site.baseUrl is not empty %}
 

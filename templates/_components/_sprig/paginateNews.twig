@@ -1,0 +1,34 @@
+{# Sets a default value if not defined by `s-val:*` on the clicked element #}
+{% set page = page ??? 1 %}
+{% set distributor = distributor ??? 0 %}
+
+{% cache using key craft.app.request.pathInfo ~ 'overviewNews-' ~ section ~ '-' ~ page %}
+  {% minify %}
+    {% set entryQuery = craft.entries
+      .section(section)
+      .with(['entryImage'])
+      .limit(limit)
+      .orderBy('postDate DESC') %}
+
+    {# Paginates the entry query given the current page #}
+    {% set pageInfo = sprig.paginate(entryQuery, page) %}
+    {% set entries = pageInfo.pageResults %}
+
+    <div class="container">
+      {% include '_components/pageIntros/image.twig' with {
+        props: {
+          headline: entryCustomTitleOverwrite ??? headline ??? null,
+        }
+      } only %}
+
+      {% include '_components/stacks/news.twig' with {
+        props: {
+          items: entries ??? null,
+          overview: true,
+        }
+      } only %}
+
+      {% include '_components/pagination/pagination.twig' %}
+    </div>
+  {% endminify %}
+{% endcache %}

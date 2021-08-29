@@ -34,29 +34,6 @@ const components = {
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
-    // Accordion
-    if (document.querySelectorAll('.js-accordionTrigger').length) {
-      import('/src/templates/_components/accordion/accordion')
-        .then(accordion => accordion.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
-    }
-
-    // Freeform
-    if (document.querySelectorAll('.c-freeform').length) {
-      import('/src/templates/_components/freeform/freeform')
-        .then(freeform => freeform.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
-    }
-
-    // Pagination
-    if (
-      document.querySelectorAll('.c-pagination, .c-paginationSimple').length
-    ) {
-      import('./components/pagination')
-        .then(pagination => pagination.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
-    }
-
     // Navigation
     if (document.querySelectorAll('.js-navigation').length) {
       import('./components/navigation')

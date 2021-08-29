@@ -5,24 +5,26 @@
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-quote',
-
-  data: {},
+  name: 'c-quote',
   quote: null,
   source: null,
   sourceSubline: null,
   sourceUrl: null
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
 {% if props.quote %}
-  <div {{ macroComponentSettings.componentSettings(props) }} xmlns="http://www.w3.org/1999/html">
+  <div {{ macroComponentSettings.componentSettings(props.settings) }} xmlns="http://www.w3.org/1999/html">
     <blockquote class="{{ props.cn ~ '__blockquote' }} u-stack-2">
       <p>
         {{ props.quote | nl2br | raw }}

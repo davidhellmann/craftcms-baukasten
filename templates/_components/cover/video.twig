@@ -5,23 +5,25 @@
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-coverVideo',
-
-  data: {},
+  name: 'c-coverVideo',
   image: null,
   transform: null,
   objectFit: null
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
 {% if props.image %}
-  <div {{ macroComponentSettings.componentSettings(props) }}>
+  <div {{ macroComponentSettings.componentSettings(props.settings) }}>
     {% include '_components/image/picture.twig' with {
       props: {
         image: props.image ??? null,

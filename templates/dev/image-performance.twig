@@ -1,27 +1,17 @@
-{% extends "_layouts/generic-page-layout.twig" %}
-{% set appClass = 'p-home' %}
+{% extends "_layouts/layout-default.twig" %}
 
-{% block headLinks %}
-  {{ parent() }}
-{% endblock headLinks %}
-
-{% block content %}
+{% block blockAppContent %}
   {# Redirect to home if on a live env #}
   {% if craft.app.config.general.custom.craftEnv == 'live' %}
     {% redirect siteUrl %}
   {% endif %}
 
-  {# ============================================================== #}
-  {#                                                                #}
-  {#      SEPERATOR                                                 #}
-  {#                                                                #}
-  {# ============================================================== #}
   <pre class="mt-4 mb-2" id="image/imageRaw">_components/image/imageRaw</pre>
 
   {% cache %}
-    {% for i in 0..10 %}
+    {% for i in 0..50 %}
       {# imageRaw #}
-      {% include '_components/image/picture.twig' with {
+      {% include '_components/image/image.twig' with {
         props: {
           image: craft.assets.title('Cat 02').volume('templateImages').one() ??? null,
         }
@@ -29,9 +19,3 @@
     {% endfor %}
   {% endcache %}
 {% endblock %}
-
-{# Any JavaScript that should be included before </body> #}
-{% block bodyJs %}
-  {{ parent() }}
-{% endblock bodyJs %}
-

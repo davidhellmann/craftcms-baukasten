@@ -1,20 +1,13 @@
-{% extends "_layouts/generic-page-layout.twig" %}
-{% set bodyClass = 'p-pages p-contentBuilder' %}
+{% extends "_layouts/layout-default.twig" %}
 
-{% block headLinks %}
-  {{ parent() }}
-{% endblock headLinks %}
-
-{% block content %}
-  {# Content Builder #}
-  {% include '_builders/_contentBuilder.twig' with {
-    props: {
-      blocks: entry.contentBuilder ??? null
-    }
-  } only %}
+{% block blockAppContent %}
+  {% cache %}
+    {% minify %}
+      {% include '_builders/_contentBuilder.twig' with {
+        props: {
+          blocks: entry.contentBuilder ??? null
+        }
+      } only %}
+    {% endminify %}
+  {% endcache %}
 {% endblock %}
-
-{# Any JavaScript that should be included before </body> #}
-{% block bodyJs %}
-  {{ parent() }}
-{% endblock bodyJs %}

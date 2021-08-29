@@ -42,9 +42,7 @@
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-image',
-  data: {},
-  js: null,
+  name: 'c-image',
   image: null,
   customClasses: null,
   baseStyles: 'block',
@@ -59,8 +57,12 @@
   renderPlainImage: false
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
@@ -202,7 +204,7 @@
     {% endif %}
   {% elseif not props.renderPlainImage and not props.sources %}
     {# Render Figure Element #}
-    <figure class="{{ props.baseStyles }}  {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}
+    <figure class="{{ props.baseStyles }}  {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props.settings) }}
       {% if props.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
       {{- imageHelper.renderImage(imageData, props.transform, props.lazy, props.objectFit) -}}
 
@@ -225,7 +227,7 @@
   {% elseif not props.renderPlainImage and props.sources  %}
     {# Render Figure in Picutre #}
     {% if props.caption %}
-      <figure class="{{ props.baseStyles }}  {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}
+      <figure class="{{ props.baseStyles }}  {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props.settings) }}
         {% if props.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
         <picture>
           {% for source in imageData.sources %}
@@ -252,7 +254,7 @@
         </picture>
       </figure>
     {% else %}
-      <picture class="{{ props.baseStyles }}  {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}
+      <picture class="{{ props.baseStyles }}  {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props.settings) }}
         {% if props.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
         {% for source in imageData.sources %}
           {{- imageHelper.renderSource(source[0], source[1], source[2], source[3], source[4]) -}}

@@ -1,27 +1,38 @@
-{# Set Defaults #}
-{% set defaults = {
-  cn: 'c-logo',
-  data: {},
-  js: null,
-  url: siteUrl,
-  name: 'logo'
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-logo',
+  },
+  data: {
+    url: siteUrl,
+    svgName: 'logo'
+  },
+  classes: {
+    root: '',
+    custom: ''
+  }
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
 
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
-{% if props.name %}
-  <div {{ macroComponentSettings.componentSettings(props) }}>
-    {% if props.url %}
-    <a href="{{ props.url }}">
+{% if props.data.svgName %}
+  <div class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+    {% if props.data.url ??? null %}
+    <a href="{{ props.data.url }}">
       {% endif %}
-      {{ svg('@webroot/dist/img/svg/' ~ props.name ~ '.svg')
-      | attr({ class: 'w-20 h-20' }) }}
+      {{ svg('@webroot/dist/img/svg/' ~ props.data.svgName ~ '.svg')
+      | attr({ class: 'w-16 h-16' }) }}
 
-      {% if props.url %}
+      {% if props.data.url %}
     </a>
     {% endif %}
   </div>

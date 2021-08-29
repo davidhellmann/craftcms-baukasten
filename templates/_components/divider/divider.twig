@@ -5,8 +5,7 @@ a-divider
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-divider',
-  data: {},
+  name: 'c-divider',
   customClasses: '',
   bgColor: 'bg-gray-200',
   marginTop: 'mt-16',
@@ -17,14 +16,18 @@ a-divider
   colSpan: 'col-span-full'
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 <div class="{{ props.marginTop }} {{ props.marginBottom }}
             grid {{ props.gridCols }} {{ props.gap }}
-            {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}>
+            {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
   <hr class="border-0 {{ props.height }} {{ props.bgColor }} {{ props.colSpan }}">
 </div>

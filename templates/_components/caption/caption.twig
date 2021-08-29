@@ -1,7 +1,6 @@
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-caption',
-  data: {},
+  name: 'c-caption',
   customClasses: null,
   element: 'figcaption',
   headline: null,
@@ -10,14 +9,20 @@
   sourceUrl: null
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {% if props.headline or props.text %}
-  <{{ props.element }} class="bg-white {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props) }}>
+  <{{ props.element }} class="bg-white {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
   {# Headline --#}
   {% if props.headline ?? null %}
     <strong>{{- props.headline ~ ' ' -}}</strong>

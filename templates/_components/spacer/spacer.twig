@@ -1,0 +1,21 @@
+{# Set Defaults #}
+{% set defaults = {
+  name: 'c-spacer',
+  customClasses: '',
+  size: 'h-2',
+  visible: 0,
+} %}
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Macros #}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+
+<hr class="border-0 {{ props.size }} {{ props.visible ? 'bg-indigo-50' }} {{ props.customClasses }}"
+    {{ macroComponentSettings.componentSettings(props.settings) }}>
+

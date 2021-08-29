@@ -5,17 +5,19 @@ o-imageGrid
 
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-imageGridCalculated',
-
-  data: {},
+  name: 'c-imageGridCalculated',
   images: null,
   caption: null,
   ratio: null,
   calculated: null
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 {% set props = props | merge({  js: true}) %}
 
 {# Macros #}
@@ -23,7 +25,7 @@ o-imageGrid
 
 {# Modul #}
 {% if props.images %}
-  <div {{ macroComponentSettings.componentSettings(props) }}>
+  <div {{ macroComponentSettings.componentSettings(props.settings) }}>
     <div class="{{ props.cn ~ '__inner' }}">
       {% for image in props.images if image %}
         <div class="{{ props.cn ~ '__item' }}">

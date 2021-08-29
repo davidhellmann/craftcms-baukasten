@@ -1,0 +1,23 @@
+{% if config.navigation ??? null %}
+  <div class="twc-bg-gray-50">
+    <div class="container twc-py-12">
+      {% for element in config.navigation %}
+        {% if element.title %}
+          <h2 class="twc-mb-4  twc-mt-8">{{ element.title }}</h2>
+        {% endif %}
+
+        {% if element.childs %}
+          <nav class="twc-border-b  twc-border-gray-200  twc-border-dashed">
+            <ul class="twc-flex twc-flex-col  sm:twc-flex-row  twc-flex-wrap">
+              {% for child in element.childs %}
+                <li class="twc-w-full sm:twc-w-1/3">
+                  <a class="twc-text-gray-800 twc-py-2 twc-block twc-underline hover:twc-no-underline {{ '/' ~ craft.app.request.pathInfo == config.path ~ child.url ? 'twc-font-bold' : '' }}" href="{{ config.path ~ child.url }}">{{ child.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

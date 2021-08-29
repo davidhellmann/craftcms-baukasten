@@ -1,4 +1,4 @@
-dateModified: 1630242321
+dateModified: 1630266360
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -44,7 +44,7 @@ meta:
     57d146c5-f3f6-4b1e-a598-cca8b7e18537: 'Asset Alt Text' # Asset Alt Text
     62f00bfb-35a8-42be-84b5-a96ef30ffd38: 'Vizy Block Settings Text Image Ratio' # Vizy Block Settings Text Image Ratio
     66b60a7f-6d8d-4931-af03-e6878a97d4fe: Pages # Pages
-    77aac30e-d20c-4034-ae0e-8833d1ca136c: Articles # Articles
+    77aac30e-d20c-4034-ae0e-8833d1ca136c: News # News
     78a039ba-dd56-496f-8a4f-68d64f33740d: Vorkasse # Vorkasse
     80b9ad6b-21bd-4fd7-b3d9-81e657ade919: 'Vizy Field Author Attribution' # Vizy Field Author Attribution
     81a45ccf-55c5-4a9c-a6f8-2c4fc12046bf: 'Social Sharing' # Social Sharing
@@ -55,7 +55,6 @@ meta:
     96e667df-51a4-4667-84b3-43e52090f6e6: Image # Image
     97e382ff-495d-448a-842b-d4e74e2509bf: 'Vizy Block Fancy' # Vizy Block Fancy
     101a48dc-da89-49d0-aedf-31a81f20c28d: Copy # Copy
-    103ef35d-2b42-4c0b-9db2-8d15eee1af78: 'Page Builder' # Page Builder
     146c9d47-3182-413b-80c0-095882d7efa3: Image # Image
     0170a444-b2ac-4ff6-b81f-fd8712ecdfb7: 'Page Builder' # Page Builder
     171fade2-74bd-4677-b8af-53699003dc44: Buttons # Buttons
@@ -74,7 +73,7 @@ meta:
     993e9d55-8cbd-4d37-95de-6a152b88a8ba: Style # Style
     2813eeee-9076-4471-b214-e4bebf477658: 'Image Grid' # Image Grid
     6183aec0-f270-4535-9fb9-d1b74f31cf0f: 'Public Schema' # Public Schema
-    6413c545-e8d6-4f2c-aa78-148b3c3bf3ac: Default # Default
+    6413c545-e8d6-4f2c-aa78-148b3c3bf3ac: Error # Error
     6472b8b8-3d3c-4a4f-b4b2-e4967b8965ca: Dummy # Dummy
     6475d0dc-d36f-464b-886b-0e49a2440722: Ratio # Ratio
     7074ed07-0282-465c-847a-0cd7804c6e3e: Image # Image
@@ -89,7 +88,7 @@ meta:
     076109bc-eab5-403a-8345-67d598c23cad: Image # Image
     94449ef9-35f7-4398-a87b-19a0f3999520: Variant # Variant
     97498a4a-9094-4cb3-862f-c701f617b710: Copy # Copy
-    334806f0-0a93-4ed3-b648-f94b3b926783: 'Article Overview' # Article Overview
+    334806f0-0a93-4ed3-b648-f94b3b926783: 'Overview News' # Overview News
     809503a3-d23b-4aa9-8a44-b288c7193461: New # New
     868835d4-14ae-4c80-bd52-9454f51e8e97: 'Vizy Block Settings Text Image Position' # Vizy Block Settings Text Image Position
     1970830a-521b-4720-947f-fd5d62ef4af1: Headline # Headline
@@ -127,7 +126,6 @@ meta:
     df558051-c14a-48af-b089-c5abc1bf066b: Variant # Variant
     e9f13c1d-0525-4ecc-bf67-f927e561a2c8: 'Asset Source' # Asset Source
     e112cf13-2c4f-4604-89f8-48dd867dbba6: Caption # Caption
-    e967ccf1-04c6-4a4a-88ac-c955b722c42f: 'Page Builder' # Page Builder
     ea614e90-2973-463a-908d-392af9342184: 'Vizy Field Minimal' # Vizy Field Minimal
     ed1709dc-baa4-4bcf-9fb9-b33dced5c497: Quote # Quote
     ed60975b-9722-4982-918e-c0d25ce225d5: 'Image Slider' # Image Slider
@@ -216,24 +214,11 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  feed-me:
-    edition: standard
-    enabled: true
-    schemaVersion: 4.3.0
-  formie:
-    edition: standard
-    enabled: true
-    licenseKey: MR18PSGHA8970RGNBM3166DX
-    schemaVersion: 1.1.11
   imager-x:
     edition: pro
     enabled: true
     licenseKey: X7RBBWQMEWVJPFK9O9AB043Q
     schemaVersion: 3.0.0
-  mailgun:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   minify:
     edition: standard
     enabled: true
@@ -247,24 +232,15 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
-  retour:
-    edition: standard
-    enabled: true
-    licenseKey: LBS2UEF2FVRWFIIQY9JI2IH8
-    schemaVersion: 3.0.10
   seomatic:
     edition: standard
     enabled: true
     licenseKey: CF97LPFZODZJQOZE07I99UJS
-    schemaVersion: 3.0.10
-  sprout-encode-email:
+    schemaVersion: 3.0.11
+  sprig:
     edition: standard
     enabled: true
-    schemaVersion: 2.0.0
-  string-base64:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: 1.0.1
   super-table:
     edition: standard
     enabled: true
