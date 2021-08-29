@@ -25,7 +25,7 @@ const main = async () => {
     .catch(e => console.error(`${e.name} : ${e.message}`));
 
   // Import Vue Components
-  await import(/* webpackChunkName: "vueComponents" */ './_vue-components')
+  await import('./_vue-components')
     .then(vueComponents => vueComponents.default.init())
     .catch(e => console.error(`${e.name} : ${e.message}`));
 };

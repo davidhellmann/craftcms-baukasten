@@ -32,14 +32,21 @@ const scripts = {
     // Lazy Images
     if (
       document.querySelectorAll('img[loading="lazy"], source[data-srcset]')
-        .length &&
-      'loading' in HTMLImageElement.prototype
+        .length
     ) {
-      import('./scripts/lazy')
-        .then(lazy =>
-          lazy.initLazyloading('img[loading="lazy"], source[data-srcset]'),
-        )
-        .catch(e => console.error(`${e.name} : ${e.message}`));
+      if ('loading' in HTMLImageElement.prototype) {
+        console.log('Using native lazyloading');
+        import('./scripts/lazy')
+          .then(lazy =>
+            lazy.initLazyloading('img[loading="lazy"], source[data-srcset]'),
+          )
+          .catch(e => console.error(`${e.name} : ${e.message}`));
+      } else {
+        console.log('Using Lazysizes');
+        import('lazysizes')
+          .then(LazySizes => LazySizes.init())
+          .catch(e => console.error(`${e.name} : ${e.message}`));
+      }
     }
   },
 };
