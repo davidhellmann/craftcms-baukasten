@@ -1,0 +1,15 @@
+{# Init: Sprig #}
+{{ sprig.script }}
+
+{# -- Tiny Cookie JavaScript -- #}
+<script>
+  // Sprig stuff
+  if ('loading' in HTMLImageElement.prototype) {
+    htmx.on('htmx:afterOnLoad', function (e) {
+      // Trigger Lazyloading Again.
+      document.querySelectorAll(window.lazyImageSelector).forEach(function (lazyImage) {
+        window.lazyImageObserver.observe(lazyImage);
+      });
+    });
+  }
+</script>
