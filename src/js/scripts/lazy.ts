@@ -31,5 +31,9 @@ export const initLazyloading = (selector: string): void => {
     images.forEach(function (lazyImage) {
       lazyImageObserver.observe(lazyImage);
     });
+
+    // Save for Sprig
+    window.lazyImageSelector = selector;
+    window.lazyImageObserver = lazyImageObserver;
   }
 };

@@ -109,12 +109,10 @@
   {% if props.image.assetTitle %}
     {% set title = props.image.assetTitle %}
   {% endif %}
-  {% if props.image.assetTitle and props.image.assetCaption %}
-    {% set title = props.image.assetTitle ~ ' ' ~ props.image.assetCaption %}
-  {% endif %}
   {% set imageData = imageData|merge({
     'focalpoint': props.image.getFocalpoint('asCss') ??? '50% 50%',
     'title': title,
+    'alt': props.image.assetAltText ??? title,
     'url': props.image.getUrl()
   }) %}
 
