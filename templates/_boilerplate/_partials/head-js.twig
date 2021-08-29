@@ -4,11 +4,6 @@
 {# Handle tabs gracefully as per https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2 #}
 {#{% include "_boilerplate/_partials/js-sprig.twig" %}#}
 {% include "_boilerplate/_partials/js-tab-handler.twig" %}
+{% include "_boilerplate/_partials/js-tiny-cookie.twig" %}
 {% include "_boilerplate/_partials/js-enabled-check.twig" %}
 {% include "_boilerplate/_partials/js-touch-device-check.twig" %}
-
-{# -- Tiny Cookie JavaScript -- #}
-<script>
-  {{ source("_inline-js/tiny-cookie.min.js") }}
-</script>
-
