@@ -8,9 +8,9 @@
 
 {# >>> Merge settings / data / classes #}
 {% set props = {
-  settings: settings is defined ? compDefaults.settings | merge(settings) : compDefaults.settings,
-  data: data is defined ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
 {# Macros #}

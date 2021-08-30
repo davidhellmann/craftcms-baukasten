@@ -44,10 +44,11 @@
   {% block blockAppBody %}
   {% endblock blockAppBody %}
 
-  {# >>> Render grid overlay #}
-  {% if craft.app.config.general.custom.craftEnv != 'live' %}
-    {% include '_components/gridOverlay/gridOverlay.twig' only %}
-  {% endif %}
+
+  {# >>> Render block app footer #}
+  {% include "_boilerplate/_partials/footer-global.twig" %}
+  {% block blockAppFooter %}
+  {% endblock blockAppFooter %}
   </body>
   </html>
 {% endblock blockApp %}
