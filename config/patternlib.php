@@ -3,48 +3,29 @@
  * Patternlib
  */
 
+
+$components = new DirectoryIterator(__DIR__ . "/../templates/dev/patternlib/components");
+
+$compList = [];
+foreach ($components as $comp) {
+    if ($comp->isDot()) continue;
+
+    $compList[pathinfo($comp)['filename']] = [
+            'title' => pathinfo($comp)['filename'],
+            'url' => 'components/' . pathinfo($comp)['filename'],
+        ];
+}
+
+// Sort Array
+ksort($compList);
+
 return [
     'pageTitle' => 'Pattern Library',
-    'navHeadline' => 'Components',
     'path' => '/dev/patternlib/',
     'navigation' => [
         'components' => [
             'title' => 'Components',
-            'childs' => [
-                'buttons' => [
-                    'url' => 'components/buttons',
-                    'title' => 'Buttons'
-                ],
-                'images' => [
-                    'url' => 'components/images',
-                    'title' => 'Images'
-                ],
-                'galleries' => [
-                    'url' => 'components/galleries',
-                    'title' => 'Galleries'
-                ],
-                'spacers' => [
-                    'url' => 'components/spacers',
-                    'title' => 'Spacers'
-                ],
-                'stacks' => [
-                    'url' => 'components/stacks',
-                    'title' => 'Stacks'
-                ],
-            ]
-        ],
-        'views' => [
-            'title' => 'Views',
-            'childs' => [
-                'buttons' => [
-                    'url' => 'components/buttons',
-                    'title' => 'Buttons'
-                ],
-                'images' => [
-                    'url' => 'components/images',
-                    'title' => 'Images'
-                ],
-            ]
+            'childs' => $compList,
         ],
     ],
 ];

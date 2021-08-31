@@ -17,6 +17,7 @@
   {% set segments = '/' ~ craft.app.request.segments | join('/') %}
   {% set segments = segments | replace({(path): ''}) | split('/') %}
 
+
   <div id="appWrapper" class="overflow-hidden">
     {# >>> Render app header #}
     {% include '_components/appHeader/appHeader.twig' only %}

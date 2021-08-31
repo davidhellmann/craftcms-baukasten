@@ -41,17 +41,38 @@
     }
   }
 
+  @media (min-width: 1200px) {
+    .pl_nav ul {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .pl_nav ul {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
   .pl_nav a {
     display: block;
     background-color: #f8f8f8;
-    padding: 0.5rem 1rem;
-    font-weight: 500;
+    padding: 1rem 1.5rem 0.9rem 1.5rem;
+    font-weight: 700;
+    font-size: 13px;
     transition: all 200ms;
+    letter-spacing: 1px;
+    color: #666;
+    border-radius: 5px;
+    text-transform: uppercase;
   }
 
   .pl_nav a:hover {
     display: block;
     background-color: #e8e8e8;
+  }
+
+  .pl_active {
+    background-color: #e8e8e8 !important;
   }
 
   .pl_embedComp {
