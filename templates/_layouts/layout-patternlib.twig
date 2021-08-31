@@ -1,0 +1,50 @@
+{% extends "_boilerplate/_layouts/layout-base.twig" %}
+
+{# >>> Render block head fonts #}
+{% block blockHeadFonts %}
+  {% include '_layouts/_partials/fonts/fonts-default-preloading.twig' %}
+{% endblock blockHeadFonts %}
+
+
+{% block blockHeadCss %}
+  {% include 'dev/patternlib/_partials/_styles.twig' %}
+{% endblock blockHeadCss %}
+
+{# >>> Render block app body #}
+{% block blockAppBody %}
+  {% set config = craft.app.config.getConfigFromFile('patternlib') ??? null %}
+  {% set path = config.path ??? null %}
+  {% set segments = '/' ~ craft.app.request.segments | join('/') %}
+  {% set segments = segments | replace({(path): ''}) | split('/') %}
+
+  <div id="appWrapper" class="overflow-hidden">
+    {# >>> Render app header #}
+    {% include '_components/appHeader/appHeader.twig' only %}
+
+    <main id="appContent">
+      <div class="pl_root">
+        <div class="pl_path">
+          <a href="{{ config.path ? config.path : '#' }}">
+            {{ config.pageTitle ??? 'Pattern Library' }}
+            {% if not patternLibRoot is defined %}
+              {% for seg in segments %}
+                {{ '/' }} {{ seg | capitalize }}
+              {% endfor %}
+            {% endif %}
+          </a>
+        </div>
+
+        {# -- Primary content block -- #}
+        {% if craft.app.request.fullPath | replace({'/': ''}) != config.path | replace({'/': ''}) %}
+          {% block blockAppContent %}
+          {% endblock %}
+        {% endif %}
+
+        {% include '/dev/patternlib/navigation.twig' %}
+      </div>
+    </main>
+
+    {# >>> Render app fooeter #}
+    {% include '_components/appFooter/appFooter.twig' only %}
+  </div>
+{% endblock blockAppBody %}

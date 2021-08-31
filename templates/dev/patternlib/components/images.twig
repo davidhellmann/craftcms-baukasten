@@ -1,63 +1,78 @@
-{% extends "_layouts/patternlib-page-layout.twig" %}
-{% set placeholderImage = craft.assets().kind('image').orderBy('RAND()').one() %}
+{% extends "_layouts/layout-patternlib.twig" %}
 
-{% block content %}
+{% block blockAppContent %}
+  {# Images #}
+  {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
+  {% set cat02Image = craft.assets.title('Cat 02').volume('templateImages').one() %}
+  {% set cat03Image = craft.assets.title('Cat 03').volume('templateImages').one() %}
+
   {% cache using key craft.app.request.pathInfo %}
-  <div class="{{ config.styles.compItem }}">
-    <label class="{{ config.styles.compLabel }}">Image Landscape</label>
 
-    <div class="{{ config.styles.compItemVariant }}">
-      {# imageRaw #}
-      {% include '_components/image/image.twig' with {
-        props: {
-          customClasses: 'w-full',
-          image: placeholderImage ??? null,
-        }
-      } only %}
-    </div>
-  </div>
+    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Transform: Landscape{% endblock %}
+      {% block content %}
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: cat01Image ??? null,
+            transform: 'landscape',
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
 
-  <div class="{{ config.styles.compItem }}">
-    <label class="{{ config.styles.compLabel }}">Image Square</label>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# imageRaw #}
-      {% include '_components/image/image.twig' with {
-        props: {
-          customClasses: 'w-full',
-          image: placeholderImage ??? null,
-          transform: 'square',
-        }
-      } only %}
-    </div>
-  </div>
+    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Transform: Square{% endblock %}
+      {% block content %}
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: cat02Image ??? null,
+            transform: 'square',
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
 
-  <div class="{{ config.styles.compItem }}">
-    <label class="{{ config.styles.compLabel }}">Image Portrait</label>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# imageRaw #}
-      {% include '_components/image/image.twig' with {
-        props: {
-          customClasses: 'w-full',
-          image: placeholderImage ??? null,
-          transform: 'portrait',
-        }
-      } only %}
-    </div>
+    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Transform: Portrait{% endblock %}
+      {% block content %}
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: cat03Image ??? null,
+            transform: 'portrait',
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
 
-    <div class="{{ config.styles.compItem }}">
-      <label class="{{ config.styles.compLabel }}">Image Auto</label>
-      {# imageRaw #}
-      {% include '_components/image/image.twig' with {
-        props: {
-          customClasses: 'w-full',
-          image: placeholderImage ??? null,
-          transform: 'auto',
-        }
-      } only %}
-    </div>
-  </div>
+    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Transform: Auto{% endblock %}
+      {% block content %}
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: cat01Image ??? null,
+            transform: 'auto',
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Art Direction{% endblock %}
+      {% block content %}
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: cat01Image ??? null,
+            transform: 'portrait',
+            sources: [
+              [cat02Image, 'landscape', true, '(min-width: 1000px)'],
+              [cat03Image, 'square', true, '(min-width: 600px)'],
+            ]
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
   {% endcache %}
 {% endblock %}
-
 
 

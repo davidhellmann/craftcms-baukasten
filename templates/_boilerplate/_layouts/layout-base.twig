@@ -21,13 +21,12 @@
     {% endblock blockHeadFonts %}
 
     {# >>> Render block head css #}
+    {% block blockHeadCss %}
+    {% endblock blockHeadCss %}
     <style>
       [v-cloak] {
         display: none !important;
       }
-
-      {% block blockHeadCss %}
-      {% endblock blockHeadCss %}
     </style>
     {% include "_boilerplate/_partials/head-critical-css.twig" %}
 

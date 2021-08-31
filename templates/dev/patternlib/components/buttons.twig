@@ -1,260 +1,45 @@
-{% extends "_layouts/patternlib-page-layout.twig" %}
-{% set pageTitleSuffix = _self | split('/') | last | capitalize %}
+{% extends "_layouts/layout-patternlib.twig" %}
 
-{% block content %}
+{% block blockAppContent %}
   {% cache using key craft.app.request.pathInfo %}
-  <div class="{{ config.styles.compItem }}">
-    <label class="{{ config.styles.compLabel }}">Button Mega</label>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Mega Button',
-          url: '#',
-          style: 'mega',
-          editable: true,
-        }
-      } only %}
-    </div>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Mega Button',
-          url: '#',
-          style: 'mega',
-          icon: 'arrow-right',
-          editable: true,
-        }
-      } only %}
-    </div>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Mega Button',
-          url: '#',
-          style: 'mega',
-          icon: 'arrow-right',
-          reverse: true,
-          editable: true,
-        }
-      } only %}
-    </div>
-  </div>
-  <div class="{{ config.styles.compItem }}">
-    <label class="{{ config.styles.compLabel }}">Button Primary</label>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Primary Button',
-          url: '#',
-          style: 'primary',
-          editable: true,
-        }
-      } only %}
-    </div>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Primary Button',
-          url: '#',
-          style: 'primary',
-          icon: 'arrow-right',
-          editable: true,
-        }
-      } only %}
-    </div>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Primary Button',
-          url: '#',
-          style: 'primary',
-          icon: 'arrow-right',
-          reverse: true,
-          editable: true,
-        }
-      } only %}
-    </div>
-  </div>
-  <div class="{{ config.styles.compItem }}">
-    <label class="{{ config.styles.compLabel }}">Button Secondary</label>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Secondary Button',
-          url: '#',
-          style: 'secondary',
-          editable: true,
-        }
-      } only %}
-    </div>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Secondary Button',
-          url: '#',
-          style: 'secondary',
-          icon: 'arrow-right',
-          editable: true,
-        }
-      } only %}
-    </div>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Secondary Button',
-          url: '#',
-          style: 'secondary',
-          icon: 'arrow-right',
-          reverse: true,
-          editable: true,
-        }
-      } only %}
-    </div>
-  </div>
-  <div class="{{ config.styles.compItem }}">
-    <label class="{{ config.styles.compLabel }}">Button Tertiary</label>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Tertiary Button',
-          url: '#',
-          style: 'tertiary',
-          editable: true,
-        }
-      } only %}
-    </div>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Tertiary Button',
-          url: '#',
-          style: 'tertiary',
-          icon: 'arrow-right',
-          editable: true,
-        }
-      } only %}
-    </div>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Tertiary Button',
-          url: '#',
-          style: 'tertiary',
-          icon: 'arrow-right',
-          reverse: true,
-          editable: true,
-        }
-      } only %}
-    </div>
-  </div>
-  <div class="{{ config.styles.compItem }} bg-gray px-10">
-    <label class="{{ config.styles.compLabel }}">Button Quaternary</label>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Quaternary Button',
-          url: '#',
-          style: 'quaternary',
-          editable: true,
-        }
-      } only %}
-    </div>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Quaternary Button',
-          url: '#',
-          style: 'quaternary',
-          icon: 'arrow-right',
-          editable: true,
-        }
-      } only %}
-    </div>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Quaternary Button',
-          url: '#',
-          style: 'quaternary',
-          icon: 'arrow-right',
-          reverse: true,
-          editable: true,
-        }
-      } only %}
-    </div>
-  </div>
-  <div class="{{ config.styles.compItem }}">
-    <label class="{{ config.styles.compLabel }}">Button Quaternary</label>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Quinternary Button',
-          url: '#',
-          style: 'quinternary',
-          editable: true,
-        }
-      } only %}
-    </div>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Quinternary Button',
-          url: '#',
-          style: 'quinternary',
-          icon: 'arrow-right',
-          editable: true,
-        }
-      } only %}
-    </div>
-    <div class="{{ config.styles.compItemVariant }}">
-      {# -- button -- #}
-      {% include '_components/button/button.twig' with {
-        props: {
-          js: true,
-          text: 'Quinternary Button',
-          url: '#',
-          style: 'quinternary',
-          icon: 'arrow-right',
-          reverse: true,
-          editable: true,
-        }
-      } only %}
-    </div>
-  </div>
+    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary{% endblock %}
+      {% block content %}
+          {% include '_components/button/button.twig' with {
+            data: {
+              url: '/dev/patternlib',
+              text: 'Button',
+              variant: 'primary',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary Outlined{% endblock %}
+      {% block content %}
+          {% include '_components/button/button.twig' with {
+            data: {
+              url: '/dev/patternlib',
+              text: 'Button',
+              variant: 'primaryOutlined',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Secondary{% endblock %}
+      {% block content %}
+          {% include '_components/button/button.twig' with {
+            data: {
+              url: '/dev/patternlib',
+              text: 'Button',
+              variant: 'secondary',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
   {% endcache %}
 {% endblock %}
 
