@@ -4,11 +4,10 @@
  * */
 
 // Settings
-const settingsScreens = require('./tailwind.settings.screens');
-const settingsGrid = require('./tailwind.settings.grid');
-const settingsFontSizes = require('./tailwind.settings.fontSizes');
-const settingsColors = require('./tailwind.settings.colors');
-// const settingsProse = require('./tailwind.settings.prose')
+const settingsScreens = require('./tailwind/tailwind.settings.screens');
+const settingsGrid = require('./tailwind/tailwind.settings.grid');
+const settingsFontSizes = require('./tailwind/tailwind.settings.fontSizes');
+const settingsColors = require('./tailwind/tailwind.settings.colors');
 
 // Plugins
 const pluginAddComponents = require('./tailwind.plugins.addComponents');
