@@ -6,11 +6,11 @@
 - Laravel Valet (https://laravel.com/docs/8.x/valet)
 - PHP 7.4
 - MySQL 8 / MariaDB
-- Redis `brew install redis`
+- optional: Redis `brew install redis`
 
 ## Configs
-- Edit the `.env.example` File
+- Duplicate the `.env.example` file as `.env` and do your settings
 
 ## Development 
-- RUN redis server `redis-server --daemonize yes`
+- optional: RUN redis server `redis-server --daemonize yes`
 - RUN dev server `yarn dev` or `npm run dev`
