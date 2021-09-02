@@ -1,4 +1,4 @@
-dateModified: 1630605042
+dateModified: 1630605343
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -59,7 +59,6 @@ meta:
     620c6d25-40c2-46af-915c-d700f182745d: Default # Default
     630ace10-7ffc-4363-8a28-81d660b49f2c: 'Padding Vertical' # Padding Vertical
     0807cf36-9d29-4810-9a89-3ca325a0ec6d: 'Asset Caption' # Asset Caption
-    851ebdd4-a7fe-4b94-87a8-6c33b93b8491: Shop # Shop
     993e9d55-8cbd-4d37-95de-6a152b88a8ba: Style # Style
     2813eeee-9076-4471-b214-e4bebf477658: 'Image Grid' # Image Grid
     6183aec0-f270-4535-9fb9-d1b74f31cf0f: 'Public Schema' # Public Schema
@@ -120,7 +119,6 @@ meta:
     f10f3f3f-0dde-4a21-9489-e5579e814469: Size # Size
     f69d5808-5314-492c-a815-0b43bb0f01ad: 'Content Builder' # Content Builder
     f541cbdf-068b-4159-b956-db6056d52ba4: 'Text Col 2' # Text Col 2
-    f961d0cf-2f8e-48b1-8f5d-9221774ca140: 'Product Image' # Product Image
     f18642d1-7028-4990-b411-92357c537720: Quote # Quote
     f56216a6-8623-42ab-b812-b10971f828e6: Term # Term
     fbb1e95c-8edc-45da-9885-235796cc10cc: Subline # Subline
@@ -129,47 +127,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  commerce:
-    edition: pro
-    enabled: true
-    licenseKey: WEKZW5K0TYUDPZM7SEELGQ06
-    schemaVersion: 3.4.11
-    settings:
-      activeCartDuration: 3600
-      allowCheckoutWithoutPayment: false
-      allowEmptyCartOnCheckout: false
-      allowPartialPaymentOnCheckout: false
-      autoSetNewCartAddresses: true
-      cartVariable: cart
-      defaultView: commerce/orders
-      dimensionUnits: mm
-      emailSenderAddress: ''
-      emailSenderAddressPlaceholder: null
-      emailSenderName: ''
-      emailSenderNamePlaceholder: null
-      freeOrderPaymentStrategy: process
-      gatewayPostRedirectTemplate: ''
-      loadCartRedirectUrl: null
-      minimumTotalPriceStrategy: shipping
-      orderPdfFilenameFormat: 'Order-{number}'
-      orderPdfPath: shop/special/receipt
-      orderReferenceFormat: '{{number[:7]}}'
-      paymentCurrency: null
-      pdfAllowRemoteImages: false
-      pdfPaperOrientation: portrait
-      pdfPaperSize: letter
-      purgeInactiveCarts: true
-      purgeInactiveCartsDuration: 7776000
-      requireBillingAddressAtCheckout: false
-      requireShippingAddressAtCheckout: false
-      requireShippingMethodSelectionAtCheckout: false
-      showCustomerInfoTab: true
-      updateBillingDetailsUrl: ''
-      updateCartSearchIndexes: true
-      useBillingAddressForTax: false
-      validateBusinessTaxIdAsVatId: false
-      validateCartCustomFieldsOnSubmission: false
-      weightUnits: g
   cp-clearcache:
     edition: standard
     enabled: true
