@@ -26,18 +26,22 @@ fieldLayouts:
         sortOrder: 1
 fields:
   3e915132-407a-4154-ba2d-9dbf4f869a8d: # Snippet
-    contentColumnType: text
+    columnSuffix: null
+    contentColumnType: string
     fieldGroup: null
     handle: snippet
     instructions: ''
     name: Snippet
     searchable: true
     settings:
-      mode: gfm
+      errorMessage: 'Unable to find component class ''luwes\codemirror\fields\CodeMirrorField''.'
+      expectedType: luwes\codemirror\fields\CodeMirrorField
+      settings: '{"mode":"gfm"}'
     translationKeyFormat: null
     translationMethod: none
-    type: luwes\codemirror\fields\CodeMirrorField
+    type: craft\fields\MissingField
   5c305a98-30bb-466c-bf84-bdae3fdf804d: # Snippet Language
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: snippetLanguage

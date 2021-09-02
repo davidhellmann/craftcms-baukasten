@@ -17,6 +17,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   0b3ac2de-d0c7-49a5-af9c-0704a584918f: # Forms
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: forms
@@ -24,19 +25,12 @@ fields:
     name: Forms
     searchable: false
     settings:
-      allowSelfRelations: false
-      limit: '1'
-      localizeRelations: false
-      selectionLabel: ''
-      showSiteMenu: true
-      source: null
-      sources: '*'
-      targetSiteId: null
-      validateRelatedElements: true
-      viewMode: null
+      errorMessage: 'Unable to find component class ''verbb\formie\fields\Forms''.'
+      expectedType: verbb\formie\fields\Forms
+      settings: '{"allowSelfRelations":false,"limit":"1","localizeRelations":false,"selectionLabel":"","showSiteMenu":true,"source":null,"sources":"*","targetSiteId":null,"validateRelatedElements":true,"viewMode":null}'
     translationKeyFormat: null
-    translationMethod: site
-    type: verbb\formie\fields\Forms
+    translationMethod: none
+    type: craft\fields\MissingField
 handle: forms
 name: Forms
 sortOrder: 14
