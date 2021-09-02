@@ -1,28 +1,30 @@
-{#<%
-var splittedPath = modulePath.split('/');
-var simple = splittedPath[0] === splittedPath[1];
-var mn = simple ? moduleName : splittedPath[0] + moduleName.charAt(0).toUpperCase() + moduleName.slice(1);
-mn = mn.replace('-', '_');
-var cn = pathOptions.key.charAt(0) + '-' + mn;
-%>#}
-{# Set Defaults #}
-{% set defaults = {
-  cn: '<%= cn %>',
-  data: {},
-  js: false,
-  customClasses: '',
-  foo: null
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    cn: '<%= cn %>',
+  },
+  data: {
+    sample: true,
+  },
+  classes: {
+    root: '',
+    custom: '',
+  }
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
-{% if props.foo %}
-  <div class="{{ props.customClasses }}" {{ module.settings(props) }}>
-    <%= mn %>
+{% if props.data.sample %}
+  <div class="{{ props.classes.root }} {{ props.classes.custom }}" {{ module.settings(props) }}>
+    <%= mn %> finally rendered
   </div>
 {% endif %}
 
