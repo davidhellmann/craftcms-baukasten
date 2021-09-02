@@ -15,7 +15,7 @@ export default ({ command }) => ({
     outDir: '../web/dist',
     rollupOptions: {
       input: {
-        app: '/src/js/app.ts',
+        app: './src/js/app.ts',
       },
       output: {
         sourcemap: true,
@@ -45,7 +45,7 @@ export default ({ command }) => ({
       moduleDirectories: [path.resolve('./node_modules')],
     }),
     ViteRestart({
-      reload: ['../src/templates/**/*'],
+      reload: ['./src/templates/**/*'],
     }),
     vue(),
     // Static Asset Fixer, see: https://github.com/vitejs/vite/issues/2394
@@ -64,10 +64,10 @@ export default ({ command }) => ({
       },
     },
   ],
-  publicDir: '../src/public',
+  publicDir: './src/public',
   resolve: {
     alias: {
-      '@': '/src',
+      '@': path.resolve(__dirname, './src'),
       '@NPM': '/node_modules',
     },
   },

@@ -42,7 +42,7 @@
     "vite-plugin-restart": "0.0.2"
   },
   "scripts": {
-    "dev": "tcc && vite",
+    "dev": "yarn tcc && vite",
     "build": "vite build",
     "upgrade-interactive": "npm-check --update",
     "preinstall": "$npm_execpath --silent run checknpm",
