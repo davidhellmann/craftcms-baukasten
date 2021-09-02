@@ -4,7 +4,7 @@
  */
 
 
-$components = new DirectoryIterator(__DIR__ . "/../templates/dev/patternlib/components");
+$components = new DirectoryIterator(__DIR__ . "/../templates/hidden/patternlib/components");
 
 $compList = [];
 foreach ($components as $comp) {
@@ -21,7 +21,7 @@ ksort($compList);
 
 return [
     'pageTitle' => 'Pattern Library',
-    'path' => '/dev/patternlib/',
+    'path' => '/hidden/patternlib/',
     'navigation' => [
         'components' => [
             'title' => 'Components',

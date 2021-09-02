@@ -2,12 +2,12 @@
 
 {% block blockAppContent %}
   {% cache using key craft.app.request.pathInfo %}
-    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Primary{% endblock %}
       {% block content %}
           {% include '_components/button/button.twig' with {
             data: {
-              url: '/dev/patternlib',
+              url: '/hidden/patternlib',
               text: 'Button',
               variant: 'primary',
             },
@@ -15,12 +15,12 @@
       {% endblock %}
     {% endembed %}
 
-    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Primary Outlined{% endblock %}
       {% block content %}
           {% include '_components/button/button.twig' with {
             data: {
-              url: '/dev/patternlib',
+              url: '/hidden/patternlib',
               text: 'Button',
               variant: 'primaryOutlined',
             },
@@ -28,12 +28,12 @@
       {% endblock %}
     {% endembed %}
 
-    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Secondary{% endblock %}
       {% block content %}
           {% include '_components/button/button.twig' with {
             data: {
-              url: '/dev/patternlib',
+              url: '/hidden/patternlib',
               text: 'Button',
               variant: 'secondary',
             },

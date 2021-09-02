@@ -7,7 +7,7 @@
 
 
 {% block blockHeadCss %}
-  {% include 'dev/patternlib/_partials/_styles.twig' %}
+  {% include 'hidden/patternlib/_partials/_styles.twig' %}
 {% endblock blockHeadCss %}
 
 {# >>> Render block app body #}
@@ -41,7 +41,7 @@
           {% endblock %}
         {% endif %}
 
-        {% include '/dev/patternlib/navigation.twig' %}
+        {% include '/hidden/patternlib/navigation.twig' %}
       </div>
     </main>
 

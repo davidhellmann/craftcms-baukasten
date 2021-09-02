@@ -8,7 +8,7 @@
 
   {% cache using key craft.app.request.pathInfo %}
 
-    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Transform: Landscape{% endblock %}
       {% block content %}
         {% include '_components/image/image.twig' with {
@@ -20,7 +20,7 @@
       {% endblock %}
     {% endembed %}
 
-    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Transform: Square{% endblock %}
       {% block content %}
         {% include '_components/image/image.twig' with {
@@ -32,7 +32,7 @@
       {% endblock %}
     {% endembed %}
 
-    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Transform: Portrait{% endblock %}
       {% block content %}
         {% include '_components/image/image.twig' with {
@@ -44,7 +44,7 @@
       {% endblock %}
     {% endembed %}
 
-    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Transform: Auto{% endblock %}
       {% block content %}
         {% include '_components/image/image.twig' with {
@@ -56,7 +56,7 @@
       {% endblock %}
     {% endembed %}
 
-    {% embed 'dev/patternlib/_partials/_embedComp.twig' %}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Art Direction{% endblock %}
       {% block content %}
         {% include '_components/image/image.twig' with {
