@@ -1,11 +1,11 @@
-field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7 # Page Builder
 fieldLayouts:
   37e695da-df19-4255-85fe-6b83ec641b29:
     tabs:
       -
         elements:
           -
-            fieldUid: 96e667df-51a4-4667-84b3-43e52090f6e6
+            fieldUid: 96e667df-51a4-4667-84b3-43e52090f6e6 # Image
             instructions: null
             label: null
             required: true
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: f4b93567-1a28-444d-8e1e-cc42606a33e4
+            fieldUid: f4b93567-1a28-444d-8e1e-cc42606a33e4 # Caption
             instructions: null
             label: null
             required: false
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 6475d0dc-d36f-464b-886b-0e49a2440722
+            fieldUid: 6475d0dc-d36f-464b-886b-0e49a2440722 # Ratio
             instructions: null
             label: null
             required: false
@@ -32,7 +32,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: df558051-c14a-48af-b089-c5abc1bf066b
+            fieldUid: df558051-c14a-48af-b089-c5abc1bf066b # Variant
             instructions: null
             label: null
             required: false
@@ -41,7 +41,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 51fb96cf-4339-4982-8328-b94b7530848e
+            fieldUid: 51fb96cf-4339-4982-8328-b94b7530848e # Width
             instructions: null
             label: null
             required: false
@@ -52,7 +52,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  51fb96cf-4339-4982-8328-b94b7530848e:
+  51fb96cf-4339-4982-8328-b94b7530848e: # Width
     contentColumnType: string
     fieldGroup: null
     handle: width
@@ -98,7 +98,40 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  6475d0dc-d36f-464b-886b-0e49a2440722:
+  96e667df-51a4-4667-84b3-43e52090f6e6: # Image
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Image
+    searchable: true
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  6475d0dc-d36f-464b-886b-0e49a2440722: # Ratio
     contentColumnType: string
     fieldGroup: null
     handle: ratio
@@ -155,38 +188,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  96e667df-51a4-4667-84b3-43e52090f6e6:
-    contentColumnType: string
-    fieldGroup: null
-    handle: image
-    instructions: ''
-    name: Image
-    searchable: true
-    settings:
-      allowSelfRelations: false
-      allowedKinds:
-        - image
-      defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
-      defaultUploadLocationSubpath: ''
-      limit: '1'
-      localizeRelations: false
-      restrictFiles: '1'
-      selectionLabel: ''
-      showSiteMenu: true
-      showUnpermittedFiles: false
-      showUnpermittedVolumes: true
-      singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
-      singleUploadLocationSubpath: ''
-      source: null
-      sources: '*'
-      targetSiteId: null
-      useSingleFolder: true
-      validateRelatedElements: false
-      viewMode: large
-    translationKeyFormat: null
-    translationMethod: site
-    type: craft\fields\Assets
-  df558051-c14a-48af-b089-c5abc1bf066b:
+  df558051-c14a-48af-b089-c5abc1bf066b: # Variant
     contentColumnType: string
     fieldGroup: null
     handle: variant
@@ -221,7 +223,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  f4b93567-1a28-444d-8e1e-cc42606a33e4:
+  f4b93567-1a28-444d-8e1e-cc42606a33e4: # Caption
     contentColumnType: boolean
     fieldGroup: null
     handle: caption

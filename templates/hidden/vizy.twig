@@ -1,0 +1,14 @@
+{% extends "_layouts/layout-default.twig" %}
+
+{% block blockAppContent %}
+  {% set entry = craft.entries().id(2).one() %}
+  {{ d(entry.vizyBuilder) }}
+  {% for i in entry.vizyBuilder.all() %}
+    {{ d(i.type) }}
+  {% endfor %}
+  {{ entry.vizyBuilder | raw }}
+
+  <section class="container py-10">
+    Hey
+  </section>
+{% endblock %}

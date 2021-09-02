@@ -1,7 +1,8 @@
 /**
  * globalResizeListener
  */
-import _throttle from 'lodash/throttle';
+
+import _throttle from 'lodash-es/throttle';
 
 const globalResizeListener = {
   cfg: {
@@ -21,15 +22,15 @@ const globalResizeListener = {
 
   saveViewPortWidthsToLocalStorage() {
     const vw = Math.max(
-      document.documentElement.clientWidth,
+      document.documentElement.clientWidth || 0,
       window.innerWidth || 0,
     );
     const vh = Math.max(
-      document.documentElement.clientHeight,
+      document.documentElement.clientHeight || 0,
       window.innerHeight || 0,
     );
     const sh = Math.max(
-      document.body.scrollHeight,
+      document.body.scrollHeight || 0,
       document.documentElement.scrollHeight || 0,
     );
 

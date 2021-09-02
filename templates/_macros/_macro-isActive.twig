@@ -1,9 +1,6 @@
 {#
-Set Active Class
-------------------------------------------------------------
-
-{%- import '_macros/_macro-isActive.twig' as macroIsActive  -%}
-{{- macroIsActive.isActive('news', -1, 'cn') -}}
+{% import '_macros/_macro-isActive.twig' as macroIsActive  %}
+{{ macroIsActive.isActive('news', -1, 'cn') }}
 #}
 
 {%- macro isActive(segments, position, prefix, cn) -%}

@@ -1,0 +1,13 @@
+{#
+{% import '_macros/_macro-arrayToOneLiner.twig' as macroArrayToOneLiner %}
+{{ macroArrayToOneLiner.arrayToOneLiner(items, '| ', ' & ') }}
+#}
+{% macro arrayToOneLiner(items, seperator = ', ', loopLastSeparator = ' & ') %}
+  {% if items ??? null  %}
+    {% for item in items %}
+      {{ not loop.first and not loop.last ? ', ' : '' }}
+      {{ loop.last ? ' & ' : '' }}
+      {{ item.title }}
+    {% endfor %}
+  {% endif %}
+{% endmacro %}

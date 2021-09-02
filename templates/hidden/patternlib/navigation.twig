@@ -1,0 +1,24 @@
+{% if config.navigation ??? null %}
+    <div class="pl_nav">
+      {% for element in config.navigation %}
+        {% if element.title %}
+          <h2>{{ element.title }}</h2>
+        {% endif %}
+
+        {% if element.childs %}
+          <nav>
+            <ul>
+              {% for child in element.childs %}
+                <li>
+                  <a class="{{ '/' ~ craft.app.request.pathInfo == config.path ~ child.url ? 'pl_active' : '' }}"
+                     href="{{ config.path ~ child.url }}">
+                    {{ child.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+      {% endfor %}
+    </div>
+{% endif %}

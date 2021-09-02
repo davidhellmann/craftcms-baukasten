@@ -1,0 +1,53 @@
+{% extends "_boilerplate/_layouts/layout-global-variables.twig" %}
+
+{# >>> Render block app #}
+{% block blockApp %}
+  <!DOCTYPE html>
+  <html class="no-js {{ htmlClass | default('') }}" lang="{{ craft.app.language | slice(0,2) }}">
+  <head>
+    {# >>> Render block head meta #}
+    {% include "_boilerplate/_partials/head-meta.twig" %}
+    {% include "_boilerplate/_partials/head-favicons.twig" %}
+    {% block blockHeadMeta %}
+    {% endblock blockHeadMeta %}
+
+    {# >>> Render block head js #}
+    {% include "_boilerplate/_partials/head-js.twig" %}
+    {% block blockHeadJs %}
+    {% endblock blockHeadJs %}
+
+    {# >>> Render block head fonts #}
+    {% block blockHeadFonts %}
+    {% endblock blockHeadFonts %}
+
+    {# >>> Render block head css #}
+    {% block blockHeadCss %}
+    {% endblock blockHeadCss %}
+    <style>
+      [v-cloak] {
+        display: none !important;
+      }
+    </style>
+    {% include "_boilerplate/_partials/head-critical-css.twig" %}
+
+    {# >>> Include RSS feeds #}
+    {% include "_boilerplate/_partials/head-rss-feeds.twig" %}
+
+    {# >>> Render block app head #}
+    {% block blockAppHead %}
+    {% endblock blockAppHead %}
+  </head>
+
+  <body>
+  {# >>> Render block app body #}
+  {% block blockAppBody %}
+  {% endblock blockAppBody %}
+
+
+  {# >>> Render block app footer #}
+  {% include "_boilerplate/_partials/footer-global.twig" %}
+  {% block blockAppFooter %}
+  {% endblock blockAppFooter %}
+  </body>
+  </html>
+{% endblock blockApp %}

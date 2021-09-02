@@ -1,9 +1,8 @@
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-code',
-  data: {},
+  name: 'c-code',
+  _js: true,
   open: false,
-  js: true,
   textShow: 'translate.component.code.show' | t,
   textHide: 'translate.component.code.hide' | t,
   textCopy: 'translate.component.code.copy' | t,
@@ -12,14 +11,18 @@
   language: null
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {% if props.snippet %}
-  <div {{ module.settings(props) }} data-status="{{ props.open ? 'open' : 'closed' }}">
+  <div {{ macroComponentSettings.componentSettings(props.settings) }} data-status="{{ props.open ? 'open' : 'closed' }}">
     <div class="{{ props.cn ~ '__wrapper' }}">
         <pre class="line-numbers  language-{{ props.language }}  {{ props.cn ~ '__codeWrapper' }}">
           <code class="{{ props.cn ~ '__code' }}">{{- props.snippet | e -}}</code>

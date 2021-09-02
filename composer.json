@@ -1,40 +1,38 @@
 {
   "require": {
-    "barrelstrength/sprout-encode-email": "2.0.7",
-    "cavellblood/craft-string-base64": "1.0.1",
-    "craftcms/cms": "3.5.17.1",
-    "craftcms/feed-me": "4.3.4",
+    "craftcms/cms": "3.7.11",
+    "craftcms/commerce": "3.4.2",
+    "craftcms/feed-me": "4.3.6",
     "craftcms/mailgun": "1.4.3",
-    "craftcms/redactor": "2.8.5",
-    "doublesecretagency/craft-cpcss": "2.3.0",
-    "luwes/craft3-codemirror": "1.0.2",
+    "craftcms/redactor": "2.8.8",
+    "doublesecretagency/craft-cpcss": "2.3.1",
     "marionnewlevant/twig-perversion": "2.2.0",
-    "mmikkel/cp-clearcache": "1.0.7",
-    "mmikkel/cp-field-inspect": "1.2.3",
+    "mmikkel/cp-clearcache": "1.1.0",
+    "mmikkel/cp-field-inspect": "1.2.5",
+    "nystudio107/craft-autocomplete": "^1.0",
     "nystudio107/craft-emptycoalesce": "^1.0.6",
     "nystudio107/craft-minify": "^1.2.5",
-    "nystudio107/craft-retour": "3.1.45",
     "nystudio107/craft-scripts": "^1.2.4",
-    "nystudio107/craft-seomatic": "3.3.29",
-    "nystudio107/craft-twigpack": "1.2.7",
+    "nystudio107/craft-seomatic": "3.4.6",
     "nystudio107/craft-twigprofiler": "^1.0.0",
-    "nystudio107/craft-webperf": "^1.0.0",
+    "nystudio107/craft-vite": "1.0.15",
     "nystudio107/dotenvy": "^1.1.0",
-    "ostark/craft-async-queue": "2.1.1",
     "putyourlightson/craft-blitz-recommendations": "1.2.0",
     "putyourlightson/craft-elements-panel": "1.1.1",
+    "putyourlightson/craft-sprig": "1.8.1",
     "sebastianlenz/linkfield": "^2.0-beta",
-    "spacecatninja/imager-x": "v3.2.6",
+    "spacecatninja/imager-x": "v3.5.2",
     "studioespresso/craft-dumper": "2.0.0",
-    "verbb/formie": "1.3.7",
-    "verbb/navigation": "1.4.10",
-    "verbb/super-table": "2.6.5",
+    "verbb/formie": "1.4.14",
+    "verbb/navigation": "1.4.21",
+    "verbb/super-table": "2.6.8",
+    "verbb/vizy": "1.0.6",
     "vlucas/phpdotenv": "^3.4.0",
-    "yiisoft/yii2-redis": "^2.0.6",
-    "yiisoft/yii2-shell": "^2.0"
+    "yiisoft/yii2-redis": "^2.0.6"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "yiisoft/yii2-shell": "^2.0.3"
   },
   "autoload": {
     "psr-4": {
@@ -49,26 +47,33 @@
     }
   },
   "scripts": {
+    "craft-update": [
+      "@pre-craft-update",
+      "@post-craft-update"
+    ],
     "create-folders": [
       "mkdir -p ./storage",
       "mkdir -p ./config/project",
       "mkdir -p ./web/cpresources",
       "mkdir -p ./web/assets"
     ],
-    "craft-update": [
-      "@php nys-setup update",
-      "@php craft migrate/all",
-      "@php craft project-config/apply",
-      "@php craft clear-caches/compiled-templates",
-      "@php craft clear-caches/data",
-      "@php craft clear-caches/temp-files",
-      "@php craft clear-caches/twigpack-manifest-cache"
+    "pre-craft-update": [
+      "@create-folders"
+    ],
+    "post-craft-update": [
+      "@php craft install/check && php craft clear-caches/compiled-templates || exit 0",
+      "@php craft install/check && php craft clear-caches/data || exit 0",
+      "@php craft install/check && php craft clear-caches/temp-files || exit 0",
+      "@php craft install/check && php craft migrate/all --no-content || exit 0",
+      "@php craft install/check && php craft project-config/apply --force || exit 0",
+      "@php craft install/check && php craft migrate --track=content || exit 0"
     ],
     "post-root-package-install": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ],
-    "pre-install-cmd": "@create-folders",
-    "post-update-cmd": "@craft-update",
-    "post-install-cmd": "@craft-update"
+    "pre-update-cmd": "@pre-craft-update",
+    "pre-install-cmd": "@pre-craft-update",
+    "post-update-cmd": "@post-craft-update",
+    "post-install-cmd": "@post-craft-update"
   }
 }

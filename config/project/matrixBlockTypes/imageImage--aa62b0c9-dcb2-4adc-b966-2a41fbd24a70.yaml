@@ -1,11 +1,11 @@
-field: d3a65ce7-395f-4a98-bbf8-24dd3bca3dab
+field: d3a65ce7-395f-4a98-bbf8-24dd3bca3dab # Content Builder
 fieldLayouts:
   409d7e43-197f-4c1a-b575-1bc10104083f:
     tabs:
       -
         elements:
           -
-            fieldUid: b8310612-27cd-4485-9500-f2d695b32bd6
+            fieldUid: b8310612-27cd-4485-9500-f2d695b32bd6 # Images
             instructions: null
             label: null
             required: true
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 7354821a-d150-4ef1-a15c-4a8db7b7425e
+            fieldUid: 7354821a-d150-4ef1-a15c-4a8db7b7425e # Ratio
             instructions: null
             label: null
             required: false
@@ -25,7 +25,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  7354821a-d150-4ef1-a15c-4a8db7b7425e:
+  7354821a-d150-4ef1-a15c-4a8db7b7425e: # Ratio
     contentColumnType: string
     fieldGroup: null
     handle: ratio
@@ -82,7 +82,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  b8310612-27cd-4485-9500-f2d695b32bd6:
+  b8310612-27cd-4485-9500-f2d695b32bd6: # Images
     contentColumnType: string
     fieldGroup: null
     handle: images
@@ -91,12 +91,14 @@ fields:
     searchable: false
     settings:
       allowSelfRelations: false
+      allowUploads: true
       allowedKinds:
         - image
       defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
       defaultUploadLocationSubpath: ''
       limit: '2'
       localizeRelations: false
+      previewMode: full
       restrictFiles: '1'
       selectionLabel: ''
       showSiteMenu: true

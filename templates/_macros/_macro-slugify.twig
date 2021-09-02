@@ -1,11 +1,6 @@
 {#
-# Slugify
-#
-# Macros for getting and setting cookies natively with Craft CMS 3.1.17 or later
-#
-# Usage:
-# {% import "_macros/_macro-slugify.twig" as slugify %}
-# {{ slugify.slugify(string, lang, ending) }}
+{% import "_macros/_macro-slugify.twig" as macroSlugify %}
+{{ macroSlugify.slugify(string, lang, ending) }}
 #}
 
 {%- macro slugify(string, lang = 'de') -%}

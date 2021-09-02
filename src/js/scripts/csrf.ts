@@ -5,7 +5,7 @@ const csrfToken = {
     ];
     if (csrfInputs) {
       csrfInputs.forEach(csrfInput => {
-        csrfInput.value = window.Craft.csrfTokenValue;
+        csrfInput.value = window._Craft.csrfTokenValue;
       });
     }
   },

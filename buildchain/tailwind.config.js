@@ -4,15 +4,16 @@
  * */
 
 // Settings
-const settingsGrid = require('./tailwind.settings.grid');
-const settingsFontSizes = require('./tailwind.settings.fontSizes');
-const settingsColors = require('./tailwind.settings.colors');
-const settingsProse = require('./tailwind.settings.prose');
+const settingsScreens = require('./tailwind/tailwind.settings.screens');
+const settingsGrid = require('./tailwind/tailwind.settings.grid');
+const settingsFontSizes = require('./tailwind/tailwind.settings.fontSizes');
+const settingsColors = require('./tailwind/tailwind.settings.colors');
 
 // Plugins
 const pluginAddComponents = require('./tailwind.plugins.addComponents');
 
 module.exports = {
+  mode: 'jit',
   purge: {
     enabled: process.env.NODE_ENV === 'production',
     content: [
@@ -27,20 +28,14 @@ module.exports = {
   },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
-    screens: {
-      sm: '640px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1280px',
-      '2xl': '1536px',
-    },
     fontFamily: {
       sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
       serif: ['Merriweather', 'Georgia', 'Times New Roman', 'Times', 'serif'],
       mono: ['"JetBrains Mono"', '"Courier New"', 'Courier', 'monospace'],
     },
-    fontSize: settingsFontSizes.fontSize,
-    colors: settingsColors.colors,
+    fontSize: settingsFontSizes,
+    colors: settingsColors,
+    screens: settingsScreens,
     extend: {
       spacing: {
         '50vh': '50vh',
@@ -55,7 +50,7 @@ module.exports = {
       gridRowStart: { ...settingsGrid.gridRowStart },
       gridRowEnd: { ...settingsGrid.gridRowEnd },
       // Typography Plugin
-      typography: theme => settingsProse(theme),
+      // typography: theme => (settingsProse(theme))
     },
   },
   variants: {},
@@ -65,9 +60,9 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/typography')({
-      modifiers: ['md'],
-    }),
+    // require('@tailwindcss/typography')({
+    //   modifiers: ['md'],
+    // }),
     require('tailwindcss-question-mark'),
     function ({ addComponents }) {
       addComponents(pluginAddComponents);

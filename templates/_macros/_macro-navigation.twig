@@ -1,22 +1,17 @@
 {#
-Navigation
-------------------------------------------------------------
-
 {% import '_macros/_macro-navigation.twig' as macroNavigation  %}
-
 {{ macroNavigation.navigation(props) }}
 #}
 
 {% macro navigation(props) %}
   {% set defaults = {
-    cn: 'c-navigation',
+    name: 'c-navigation',
     nodes: null,
     ulClass: '__list',
     liClass: '__listItem',
     spanClass: '__listHeading',
     linkClass: '__listLink',
     divClass: '__subItemsWrapper',
-    customTabIndex: 0,
   } %}
 
   {# Merge Default with Options #}
@@ -36,7 +31,6 @@ Navigation
           <a href="{{ node.url }}"
              class="{{ props.cn ~ props.linkClass }}  {{ props.cn ~ props.linkClass ~ '--level-' ~ level }}"
              {% if node.hasDescendants %}aria-haspopup="true" aria-expanded="false"{% endif %}
-             tabindex="{{ level == 1 ? ('0' + props.customTabIndex) : '-1' }}"
              {% if node.newWindow %} target="_blank" rel="noopener"{% endif %}
              {% for attribute in node.customAttributes %}{{ attribute.attribute }}="{{ attribute.value }}"{% endfor %}>
             {{- node.title -}}

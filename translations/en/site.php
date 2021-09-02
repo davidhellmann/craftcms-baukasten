@@ -1,16 +1,34 @@
 <?php
 // Vars
-$comp = '/../../templates/_components/';
 $page = '/../../templates/';
+$lang = 'en';
 
-// Globals
-$globals = [];
+// Global Translations
+$globalTranslations = [
+    'translate.global.days.monday' => 'Monday',
+    'translate.global.days.tuesday' => 'Tuesday',
+    'translate.global.days.wednesday' => 'Wednesday',
+    'translate.global.days.thursday' => 'Thursday',
+    'translate.global.days.friday' => 'Friday',
+    'translate.global.days.saturday' => 'Saturday',
+    'translate.global.days.sunday' => 'Sunday',
+];
 
-// Merge
-return array_merge(
-    $globals,
-    include __DIR__ . $comp . 'code/translate.en.component.code.php',
-    include __DIR__ . $comp . 'link/translate.en.component.link.php',
-    include __DIR__ . $comp . 'link/translate.en.component.linkIcon.php'
-);
+// Comp Translations
+$compTranslations = [];
 
+// Get all Files
+$translationFiles = glob(__DIR__ . $page . "**/*/translate." . $lang . "*.php");
+
+// Merge Files
+foreach ($translationFiles as $translationFile) {
+    $data = include $translationFile;
+    if (!is_array($data)) {
+        continue;
+    }
+    $compTranslations[] = $data;
+}
+
+
+// Return All Translations
+return array_merge(...$compTranslations, ...[$globalTranslations]);

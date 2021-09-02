@@ -1,23 +1,26 @@
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-imageGallery',
-  data: {},
-  js: true,
+  name: 'c-imageGallery',
+  _js: true,
   images: null,
   ratio: null,
   cutAfter: null,
   caption: null
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
 {% if props.images %}
-  <div {{ module.settings(props) }}>
+  <div {{ macroComponentSettings.componentSettings(props.settings) }}>
     <div class="{{ props.cn ~ '__inner' }}">
       {% for image in props.images %}
         {% set imageSrc = image.getUrl() %}

@@ -1,11 +1,12 @@
-const pkg = require('./package');
+const pkg = require('./buildchain/package');
 
 module.exports = {
   defaults: {
     config: false,
-    scss: true,
+    pcss: true,
     twig: true,
     js: false,
+    ts: false,
     vue: false,
   },
   fileHeader: {
@@ -19,16 +20,22 @@ module.exports = {
       extension: 'twig',
       // path: 'templates/_components/',
     },
-    scss: {
+    pcss: {
       name: '',
       postfix: '',
-      extension: 'scss',
+      extension: 'pcss',
       // path: 'templates/_components/',
     },
     js: {
       name: '',
       postfix: '',
       extension: 'js',
+      // path: 'templates/_components/',
+    },
+    ts: {
+      name: '',
+      postfix: '',
+      extension: 'ts',
       // path: 'templates/_components/',
     },
     vue: {

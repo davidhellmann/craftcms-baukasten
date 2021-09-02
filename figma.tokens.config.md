@@ -130,7 +130,7 @@
   },
   lineHeights: {
     heading: '120%',
-      body: '150%',
+      body: '160%',
   },
   fontWeights: {
     light: 'Light',

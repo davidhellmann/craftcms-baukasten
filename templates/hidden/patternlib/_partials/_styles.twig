@@ -1,0 +1,102 @@
+<style>
+  .pl_root {
+    padding: 1rem;
+  }
+
+  @media (min-width: 600px) {
+    .pl_root {
+      padding: 2rem;
+    }
+  }
+
+  .pl_path {
+    font-weight: 700;
+  }
+
+  .pl_nav {
+    margin-top: 4rem;
+    border-top: 1px dashed #ddd;
+  }
+
+  .pl_nav h2 {
+    margin-top: 2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .pl_nav ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2px;
+  }
+
+  @media (min-width: 600px) {
+    .pl_nav ul {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 800px) {
+    .pl_nav ul {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .pl_nav ul {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .pl_nav ul {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .pl_nav a {
+    display: block;
+    background-color: #f8f8f8;
+    padding: 1rem 1.5rem 0.9rem 1.5rem;
+    font-weight: 700;
+    font-size: 13px;
+    transition: all 200ms;
+    letter-spacing: 1px;
+    color: #666;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+
+  .pl_nav a:hover {
+    display: block;
+    background-color: #e8e8e8;
+  }
+
+  .pl_active {
+    background-color: #e8e8e8 !important;
+  }
+
+  .pl_embedComp {
+    margin-top: 2rem;
+  }
+
+  .pl_embedComp label {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #aaa;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px dashed #ddd;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .pl_embedComp label span {
+    background-color: #fff;
+    padding-left: 1rem;
+    position: relative;
+    bottom: -0.175rem;
+  }
+</style>

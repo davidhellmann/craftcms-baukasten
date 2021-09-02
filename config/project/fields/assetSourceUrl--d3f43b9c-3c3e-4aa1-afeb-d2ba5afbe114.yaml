@@ -1,5 +1,5 @@
 contentColumnType: string(255)
-fieldGroup: abd97710-319a-43e1-aa96-b717f022025c
+fieldGroup: abd97710-319a-43e1-aa96-b717f022025c # Assets
 handle: assetSourceUrl
 instructions: ''
 name: 'Asset Source Url'
@@ -7,6 +7,8 @@ searchable: true
 settings:
   maxLength: '255'
   placeholder: ''
+  types:
+    - url
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Url

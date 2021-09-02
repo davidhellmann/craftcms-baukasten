@@ -1,0 +1,53 @@
+{#
+a-richText
+------------------------------------------------------------
+#}
+
+{# Set Defaults #}
+{% set defaults = {
+  cn: 'c-richText',
+  customClasses: 'space-y-4',
+  baseStyles: null,
+  data: {},
+  text: null
+
+} %}
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-logo',
+  },
+  data: {
+    text: null,
+    variant: 'rich'
+  },
+  classes: {
+    root: '',
+    custom: '',
+    ySpacing: 'space-y-4'
+  }
+} %}
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Macros #}
+{% import '_macros/_macro-settings.twig' as module %}
+
+{# Modul #}
+{% if props.text %}
+  <div class="{{ props.classes.root }}
+    {{ props.data.variant == 'rich' ? props.classes.ySpacing : '' }}
+    {{ props.classes.custom }}"
+    {{ module.settings(props) }}>
+    {% if props.data.variant == 'rich' %}
+      {{ props.text | raw }}
+    {% else %}
+      {{ props.text | nl2br | raw }}
+    {% endif %}
+  </div>
+{% endif %}

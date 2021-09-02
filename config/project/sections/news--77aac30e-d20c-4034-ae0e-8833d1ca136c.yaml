@@ -1,0 +1,24 @@
+defaultPlacement: end
+enableVersioning: false
+handle: news
+name: News
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  04677986-61a7-4935-a707-cae0601cc8d5: # Craft Baukasten Sample
+    enabledByDefault: true
+    hasUrls: true
+    template: _routerEntries
+    uriFormat: 'news/{slug}'
+type: channel

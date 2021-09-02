@@ -1,8 +1,7 @@
 {# Set Defaults #}
 {% set defaults = {
-  cn: 'c-caption',
-
-  data: {},
+  name: 'c-caption',
+  customClasses: null,
   element: 'figcaption',
   headline: null,
   text: null,
@@ -10,31 +9,37 @@
   sourceUrl: null
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {% if props.headline or props.text %}
-  <{{ props.element }} {{ module.settings(props) }}>
-      {# Headline --#}
-      {% if props.headline ?? null %}
-        <strong>{{- props.headline ~ ' ' -}}</strong>
-      {% endif %}
+  <{{ props.element }} class="bg-white {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+  {# Headline --#}
+  {% if props.headline ?? null %}
+    <strong>{{- props.headline ~ ' ' -}}</strong>
+  {% endif %}
 
-      {# Caption #}
-      <p>
-        {{ props.text | nl2br }}
+  {# Caption #}
+  <p>
+    {{ props.text | nl2br }}
 
-        {% if props.source and props.sourceUrl %}
-          &mdash;&nbsp;
-          <a href="{{ props.sourceUrl }}">{{ props.source }}</a>
-        {% elseif props.source ?? null %}
-          &mdash;&nbsp;
-          {{ props.source }}
-        {% endif %}
-      </p>
+    {% if props.source and props.sourceUrl %}
+      &mdash;&nbsp;
+      <a href="{{ props.sourceUrl }}">{{ props.source }}</a>
+    {% elseif props.source ?? null %}
+      &mdash;&nbsp;
+      {{ props.source }}
+    {% endif %}
+  </p>
   </{{ props.element }}>
 {% endif %}
 

@@ -23,11 +23,11 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\TitleField
+            type: craft\fieldlayoutelements\AssetTitleField
             warning: null
             width: 100
           -
-            fieldUid: 8022c412-08db-4075-8549-b0aeb7093b15
+            fieldUid: 8022c412-08db-4075-8549-b0aeb7093b15 # Asset Title
             instructions: null
             label: null
             required: '0'
@@ -36,7 +36,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 0807cf36-9d29-4810-9a89-3ca325a0ec6d
+            fieldUid: 0807cf36-9d29-4810-9a89-3ca325a0ec6d # Asset Caption
             instructions: null
             label: null
             required: '0'
@@ -52,5 +52,7 @@ name: Files
 settings:
   path: '@webroot/assets/files/'
 sortOrder: 1
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
 type: craft\volumes\Local
 url: '@assetsUrl/files/'

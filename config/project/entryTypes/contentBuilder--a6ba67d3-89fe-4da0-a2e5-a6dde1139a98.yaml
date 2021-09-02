@@ -26,8 +26,21 @@ fieldLayouts:
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
-        name: Content
+        name: Entry
         sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: d3a65ce7-395f-4a98-bbf8-24dd3bca3dab # Content Builder
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 2
 handle: contentBuilder
 hasTitleField: true
 name: 'Content Builder'

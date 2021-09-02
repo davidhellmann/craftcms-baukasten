@@ -1,0 +1,78 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {# Images #}
+  {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
+  {% set cat02Image = craft.assets.title('Cat 02').volume('templateImages').one() %}
+  {% set cat03Image = craft.assets.title('Cat 03').volume('templateImages').one() %}
+
+  {% cache using key craft.app.request.pathInfo %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Transform: Landscape{% endblock %}
+      {% block content %}
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: cat01Image ??? null,
+            transform: 'landscape',
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Transform: Square{% endblock %}
+      {% block content %}
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: cat02Image ??? null,
+            transform: 'square',
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Transform: Portrait{% endblock %}
+      {% block content %}
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: cat03Image ??? null,
+            transform: 'portrait',
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Transform: Auto{% endblock %}
+      {% block content %}
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: cat01Image ??? null,
+            transform: 'auto',
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Art Direction{% endblock %}
+      {% block content %}
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: cat01Image ??? null,
+            transform: 'portrait',
+            sources: [
+              [cat02Image, 'landscape', true, '(min-width: 1000px)'],
+              [cat03Image, 'square', true, '(min-width: 600px)'],
+            ]
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+

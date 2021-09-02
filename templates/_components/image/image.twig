@@ -1,27 +1,276 @@
+{#
+  HOW TO USE
+  ==================================================
+
+  Simple Image
+  {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
+
+  {% include '_components/image/image.twig' with {
+    data: {
+      image: cat01Image ??? null,
+      transform: 'landscape',
+      renderPlainImage: true,
+    }
+  } only %}
+
+  Figure Image
+  {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
+
+  {% include '_components/image/image.twig' with {
+    data: {
+      image: cat01Image ??? null,
+      transform: 'landscape',
+    }
+  } only %}
+
+  Art Direction
+  {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
+  {% set cat02Image = craft.assets.title('Cat 02').volume('templateImages').one() %}
+  {% set cat03Image = craft.assets.title('Cat 03').volume('templateImages').one() %}
+
+  {% include '_components/image/image.twig' with {
+    data: {
+      image: cat01Image ??? null,
+      transform: 'landscape',
+      sources: [
+        [cat02Image, 'portrait', true, '(min-width: 430px)'],
+        [cat03Image, 'square', true, '(min-width: 330px)'],
+      ]
+    }
+  } only %}
+#}
+
 {# Set Defaults #}
-{% set defaults = {
-  cn: 'c-image',
-  data: {},
-  js: null,
-  image: null,
-  transform: 'landscape',
-  objectFit: null,
-  lazy: true,
-  calcDominantColor: false,
-  noscript: true
+{% set compDefaults = {
+  settings: {
+    name: 'c-image',
+  },
+  data: {
+    image: null,
+    transform: 'landscape',
+    objectFit: null,
+    lazy: true,
+    showDominantColor: true,
+    calcDominantColor: false,
+    noscript: true,
+    sources: null,
+    caption: null,
+    renderPlainImage: false,
+  },
+  classes: {
+    base: 'block',
+    custom: ''
+  }
 } %}
 
-{# Merge Default with Options #}
-{% set props = props is defined ? defaults|merge(props) : defaults %}
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
 
 {# Macros #}
-{% import '_macros/_macro-settings.twig' as module %}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 {% import '_macros/_macro-imageHelper.twig' as imageHelper %}
 
 {# Image #}
-{% if props.image ??? null %}
-  {{- imageHelper.renderImage(props.image, props.transform, props.lazy, props.objectFit, props.calcDominantColor) -}}
-  {% if props.noscript %}
-    {{- imageHelper.renderNoScript(props.image) -}}
+{% if props.data.image ??? null %}
+  {% set imageSettings = {
+    allowedExtensions: ['png', 'jpg', 'webp'],
+    format: 'webp'
+  } %}
+
+  {# Image Data Object #}
+  {% set imageData = {
+    extension: null,
+    transformable: null,
+    focalpoint: null,
+    title: null,
+    width: props.data.image.width,
+    height: props.data.image.height,
+    url: null,
+    noscript: null,
+    transforms: null,
+    srcset: null,
+    filetype: null,
+    dominantColor: null,
+    placeholder: null,
+    sources: null,
+    caption: null,
+  } %}
+
+  {# Image Extension #}
+  {% set imageData = imageData|merge({
+    'extension': props.data.image is iterable ? props.data.image.extension | lower : props.data.image | split('.') | last | lower
+  }) %}
+
+  {# If Transformable #}
+  {% if imageData.extension in imageSettings.allowedExtensions %}
+    {% set imageData = imageData|merge({
+      'transformable': true
+    }) %}
+  {% endif %}
+
+  {# Focal Point / Title / URL  #}
+  {% set title = props.data.image.title %}
+  {% if props.data.image.assetTitle %}
+    {% set title = props.data.image.assetTitle %}
+  {% endif %}
+  {% set imageData = imageData|merge({
+    'focalpoint': props.data.image.getFocalpoint('asCss') ??? '50% 50%',
+    'title': title,
+    'alt': props.data.image.assetAltText ??? title,
+    'url': props.data.image.getUrl()
+  }) %}
+
+
+  {# No Script #}
+  {% set imageData = imageData|merge({
+    'noscript': "<noscript><img src='#{imageData.url}' alt='#{imageData.title}'/></noscript>"
+  }) %}
+
+  {# Transforms / Srcset #}
+  {% set srcset = imageData.url %}
+  {% set transforms = null %}
+  {% if imageData.transformable %}
+    {% set srcsetLegacy = craft.imager.transformImage(props.data.image, props.data.transform) %}
+    {% set transforms = craft.imager.transformImage(props.data.image, props.data.transform, { format: imageSettings.format }) %}
+    {% set srcset = craft.imager.srcset(transforms) | trim %}
+  {% endif %}
+  {% set imageData = imageData|merge({
+    'transforms': transforms,
+    'srcset': srcset
+  }) %}
+
+  {# Source Extension #}
+  {% set imageData = imageData|merge({
+    'filetype': imageData.transformable ? imageData.transforms[0].source.extension | lower : imageData.extension
+  }) %}
+
+  {# Dominant Color / Placeholder #}
+  {% set dominantColor = craft.app.config.general.custom.dominantColor ??? 'transparent' %}
+  {% if props.data.calcDominantColor
+    and not craft.app.config.general.custom.localDevPerformance
+    and imageData.transformable
+    and imageData.extension != 'png' %}
+    {% set dominantColor = craft.imager.getDominantColor(imageData.transforms[0]) %}
+  {% endif %}
+  {% set imageData = imageData|merge({
+    'dominantColor': dominantColor,
+    'placeholder': craft.imager.placeholder({
+      color: imageData.dominantColor,
+      width: imageData.transforms[0].width,
+      height: imageData.transforms[0].height
+    })
+  }) %}
+
+  {# Sources #}
+  {% if props.data.sources | length > 1 %}
+    {% set finaleSources = [] %}
+    {% for source in props.data.sources %}
+      {% if imageData.transformable %}
+        {% set srcsetLegacy = craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape') %}
+        {% set transforms = craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape', { format: imageSettings.format }) %}
+        {% set srcset = craft.imager.srcset(transforms) | trim %}
+
+        {% set finaleSources = finaleSources|merge([[
+          imageData.filetype ??? null,
+          srcset ??? null,
+          source[1] ??? 'landscape',
+          source[2] ??? true,
+          source[3] ??? null
+        ]]) %}
+
+
+        {% set imageData = imageData|merge({
+          'sources': finaleSources
+        }) %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {# Caption #}
+  {% if props.data.caption %}
+    {% set imageData = imageData|merge({ 'caption': {
+      'title': props.data.image.assetTitle ??? null,
+      'text': props.data.image.assetCaption ??? null,
+      'source': props.data.image.assetSource ??? null,
+      'sourceUrl': props.data.image.assetSourceUrl ??? null,
+    } }) %}
+  {% endif %}
+
+
+  {% if props.data.renderPlainImage and not props.data.sources %}
+    {# Render Plain Image #}
+    {{- imageHelper.renderImage(imageData, props.data.transform, props.data.lazy, props.data.objectFit, props.classes.base ~ ' ' ~ props.classes.custom) -}}
+
+    {% if props.data.noscript %}
+      {{- imageData.noscript | raw -}}
+    {% endif %}
+  {% elseif not props.data.renderPlainImage and not props.data.sources %}
+    {# Render Figure Element #}
+    <figure class="{{ props.classes.base }}  {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}
+      {% if props.data.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
+      {{- imageHelper.renderImage(imageData, props.data.transform, props.data.lazy, props.data.objectFit) -}}
+
+      {% if props.data.caption %}
+        {# caption #}
+        {% include '_components/caption/caption.twig' with {
+          data: {
+            headline: imageData.caption.headline ??? null,
+            text: imageData.caption.text ??? null,
+            source: imageData.caption.source ??? null,
+            sourceUrl: imageData.caption.sourceUrl ??? null
+          }
+        } only %}
+      {% endif %}
+
+      {% if props.data.noscript %}
+        {{- imageData.noscript | raw -}}
+      {% endif %}
+    </figure>
+  {% elseif not props.data.renderPlainImage and props.data.sources  %}
+    {# Render Figure in Picutre #}
+    {% if props.data.caption %}
+      <figure class="{{ props.classes.base }}  {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}
+        {% if props.data.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
+        <picture>
+          {% for source in imageData.sources %}
+            {{- imageHelper.renderSource(source[0], source[1], source[2], source[3], source[4]) -}}
+          {% endfor %}
+
+          {{- imageHelper.renderImage(imageData, props.data.transform, props.data.lazy, props.data.objectFit) -}}
+
+          {% if props.data.caption %}
+            {# caption #}
+            {% include '_components/caption/caption.twig' with {
+              data: {
+                headline: imageData.caption.headline ??? null,
+                text: imageData.caption.text ??? null,
+                source: imageData.caption.source ??? null,
+                sourceUrl: imageData.caption.sourceUrl ??? null
+              }
+            } only %}
+          {% endif %}
+
+          {% if props.data.noscript %}
+            {{- imageData.noscript | raw -}}
+          {% endif %}
+        </picture>
+      </figure>
+    {% else %}
+      <picture class="{{ props.classes.base }}  {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}
+        {% if props.data.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
+        {% for source in imageData.sources %}
+          {{- imageHelper.renderSource(source[0], source[1], source[2], source[3], source[4]) -}}
+        {% endfor %}
+
+        {{- imageHelper.renderImage(imageData, props.data.transform, props.data.lazy, props.data.objectFit) -}}
+        {% if props.data.noscript %}
+          {{- imageData.noscript | raw -}}
+        {% endif %}
+      </picture>
+    {% endif %}
   {% endif %}
 {% endif %}

@@ -1,0 +1,37 @@
+@layer components {
+  [waypoint-target] {
+    @apply transition duration-200 ease-out
+  }
+
+  [waypoint-target].is-fadeInUp {
+    @apply opacity-0 transform-gpu translate-y-12
+  }
+
+  [waypoint-target].is-fadeInUp.is-animated {
+    @apply opacity-100 translate-y-0
+  }
+
+  [waypoint-target].is-fadeInDown {
+    @apply opacity-0 transform-gpu -translate-y-12
+  }
+
+  [waypoint-target].is-fadeInDown.is-animated {
+    @apply opacity-100 translate-y-0
+  }
+
+  [waypoint-target].is-fadeInLeft {
+    @apply opacity-0 transform-gpu translate-x-12
+  }
+
+  [waypoint-target].is-fadeInLeft.is-animated {
+    @apply opacity-100 translate-x-0
+  }
+
+  [waypoint-target].is-fadeInRight {
+    @apply opacity-0 transform-gpu -translate-x-12
+  }
+
+  [waypoint-target].is-fadeInRight.is-animated {
+    @apply opacity-100 translate-x-0
+  }
+}

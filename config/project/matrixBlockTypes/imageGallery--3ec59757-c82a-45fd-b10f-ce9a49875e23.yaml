@@ -1,11 +1,11 @@
-field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7 # Page Builder
 fieldLayouts:
   913c40b7-d2b3-4cea-ac62-77ec2091aef2:
     tabs:
       -
         elements:
           -
-            fieldUid: 8a0dc31d-c3e6-4205-ae27-67c8e3b3d256
+            fieldUid: 8a0dc31d-c3e6-4205-ae27-67c8e3b3d256 # Images
             instructions: null
             label: null
             required: true
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: b512cbc9-6c77-4ffd-9963-9cca00e3307a
+            fieldUid: b512cbc9-6c77-4ffd-9963-9cca00e3307a # Ratio
             instructions: null
             label: null
             required: false
@@ -25,7 +25,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  8a0dc31d-c3e6-4205-ae27-67c8e3b3d256:
+  8a0dc31d-c3e6-4205-ae27-67c8e3b3d256: # Images
     contentColumnType: string
     fieldGroup: null
     handle: images
@@ -34,12 +34,14 @@ fields:
     searchable: true
     settings:
       allowSelfRelations: false
+      allowUploads: true
       allowedKinds:
         - image
       defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211'
       defaultUploadLocationSubpath: ''
       limit: ''
       localizeRelations: false
+      previewMode: full
       restrictFiles: '1'
       selectionLabel: ''
       showSiteMenu: true
@@ -56,7 +58,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  b512cbc9-6c77-4ffd-9963-9cca00e3307a:
+  b512cbc9-6c77-4ffd-9963-9cca00e3307a: # Ratio
     contentColumnType: string
     fieldGroup: null
     handle: ratio

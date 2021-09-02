@@ -14,7 +14,6 @@ return [
     // Craft config settings from .env variables
     'aliases' => [
         '@assetsUrl' => App::env('ASSETS_URL'),
-        '@cloudfrontUrl' => App::env('CLOUDFRONT_URL'),
         '@web' => App::env('SITE_URL'),
         '@webroot' => App::env('WEB_ROOT_PATH'),
     ],
@@ -23,6 +22,9 @@ return [
         'localDevPerformance' => (bool)App::env('LOCAL_DEV_PERFORMANCE') ?: null,
         'dominantColor' => '#e8e8e8',
     ],
+    'disabledPlugins' => App::env('ENVIRONMENT') === 'live'
+        ? ['twig-profiler', 'dumper', 'elements-panel', 'blitz-recommendations', 'cp-field-inspect']
+        : [],
     'allowedFileExtensions' => ['jpg', 'png', 'jpeg', 'gif', 'svg', 'mp4', 'wov', 'mp3', 'wav', 'pdf', 'zip', 'csv', 'rar'],
     'allowUpdates' => (bool)App::env('ALLOW_UPDATES'),
     'allowAdminChanges' => (bool)App::env('ALLOW_ADMIN_CHANGES'),
@@ -34,14 +36,15 @@ return [
     'runQueueAutomatically' => (bool)App::env('RUN_QUEUE_AUTOMATICALLY'),
     'securityKey' => App::env('SECURITY_KEY'),
     'testToEmailAddress' => App::env('TEST_EMAIL_ADDRESS') ?: null,
-    'enableGraphQlCaching' => (bool)App::env('ENABLE_GQL_CACHING'),
+    'enableGraphqlCaching' => (bool)App::env('ENABLE_GQL_CACHING'),
     // Craft config settings from constants
-    'maxRevisions' => 50,
+    'maxRevisions' => 5,
     'cacheDuration' => false,
     'defaultSearchTermOptions' => [
         'subLeft' => true,
         'subRight' => true,
     ],
+    'defaultWeekStartDay' => 1,
     'defaultTokenDuration' => 'P2W',
     'enableCsrfProtection' => true,
     'errorTemplatePrefix' => 'errors/',
@@ -52,4 +55,5 @@ return [
     'omitScriptNameInUrls' => true,
     'useEmailAsUsername' => true,
     'usePathInfo' => true,
+    'useProjectConfigFile' => true,
 ];

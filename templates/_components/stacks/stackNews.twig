@@ -1,0 +1,66 @@
+{# Set Defaults #}
+{% set defaults = {
+  name: 'c-stackNews',
+  customClasses: '',
+  baseStyles: 'grid grid-cols-1 lg:grid-cols-3 lg:gap-12',
+  items: null,
+  headline: null,
+  overview: false,
+} %}
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Macros #}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+
+{# Modul #}
+{% if props.items %}
+  <div class="{{ props.baseStyles }}  {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+    {% if not props.overview %}
+      <div class="col-span-1">
+        <h2 class="text-4xl leading-none uppercase" style="hyphens: auto;">
+          {{ props.headline }}
+        </h2>
+
+        <div class="mt-5 hidden lg:block">
+          {% include '_components/button/button.twig' with {
+            props: {
+              text: 'translate.component.stacks.news.button' | t,
+              url: '/news',
+              target: '_blank',
+              style: 'secondary',
+            }
+          } only %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="grid lg:gap-x-10 {{ props.overview ? 'lg:gap-y-20  lg:grid-cols-3 lg:col-span-3' : 'lg:grid-cols-2 lg:col-span-2' }}">
+      {% for item in props.items %}
+        {% include '_components/card/news.twig' with {
+          props: {
+            image: item.entryImage[0] ??? null,
+            date: item.postDate|date("M Y") ??? null,
+            title: item.entryCustomTitleOverwrite ??? item.title ??? null,
+            url: item.url ??? null,
+          }
+        } only %}
+      {% endfor %}
+
+      <div class="block lg:hidden {{ props.overview ? 'hidden' : '' }}">
+        {% include '_components/button/button.twig' with {
+          props: {
+            text: 'translate.component.stacks.news.button' | t,
+            url: '/news',
+            style: 'secondary',
+          }
+        } only %}
+      </div>
+    </div>
+  </div>
+{% endif %}

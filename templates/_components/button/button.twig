@@ -1,0 +1,56 @@
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-button',
+  },
+  data: {
+    variant: 'primary',
+    icon: null,
+    text: null,
+    url: null,
+    reverse: false,
+    target: null,
+  },
+  classes: {
+    root: 'transition rounded-md px-6 pt-2 pb-3 font-sans font-bold text-center items-center gap-4 grid-flow-col justify-center whitespace-nowrap',
+    custom: '',
+    display: 'inline-grid',
+    position: 'relative',
+  },
+  variants: {
+    primary: 'bg-primary-800 hover:bg-primary-700 text-white border-2 border-primary-800 hover:border-primary-700',
+    primaryOutlined: 'bg-transparent text-primary-800 hover:text-primary-700 border-2 border-primary-800 hover:border-primary-700',
+    secondary: 'bg-secondary-300 hover:bg-secondary-400 text-secondary-800 border-2 border-secondary-300 hover:border-secondary-400',
+  }
+} %}
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{# Macros #}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+
+{% if props.data.text %}
+  {% set tag = props.data.url ? 'a' : 'button' %}
+  {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
+
+  <{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }}
+  class="{{ props.classes.root }} {{ props.classes.position }} {{ props.classes.display }} {{ props.variants[props.data.variant] ??? '' }} {{ props.classes.custom }}"
+  {{ macroComponentSettings.componentSettings(props.settings) }}>
+  {% if props.data.icon %}
+    {# -- Icon -- #}
+    {% include '_components/icon/icon.twig' with {
+      props: {
+        customClasses: (props.data.reverse ? 'col-start-2') ~ ' transform translate-y-px',
+        icon: props.data.icon ??? null
+      }
+    } only %}
+  {% endif %}
+  {{ props.data.text }}
+  </{{ tag }}>
+{% endif %}

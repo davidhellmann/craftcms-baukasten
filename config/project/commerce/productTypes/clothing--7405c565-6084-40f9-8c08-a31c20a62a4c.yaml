@@ -1,0 +1,54 @@
+descriptionFormat: ''
+handle: clothing
+hasDimensions: false
+hasProductTitleField: true
+hasVariantTitleField: false
+hasVariants: false
+name: Clothing
+productFieldLayouts:
+  db10ee4e-ce60-41c3-b6d5-81c1adbe42bb:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\commerce\fieldlayoutelements\ProductTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: f961d0cf-2f8e-48b1-8f5d-9221774ca140 # Product Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+productTitleFormat: ''
+siteSettings:
+  04677986-61a7-4935-a707-cae0601cc8d5: # Craft Baukasten Sample
+    hasUrls: true
+    template: shop/_product
+    uriFormat: 'shop/{slug}'
+skuFormat: ''
+titleFormat: '{product.title}'

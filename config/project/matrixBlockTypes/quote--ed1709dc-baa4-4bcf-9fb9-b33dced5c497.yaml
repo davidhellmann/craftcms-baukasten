@@ -1,11 +1,11 @@
-field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7 # Page Builder
 fieldLayouts:
   de564934-874a-4504-b99d-3ba8f0aa0684:
     tabs:
       -
         elements:
           -
-            fieldUid: f18642d1-7028-4990-b411-92357c537720
+            fieldUid: f18642d1-7028-4990-b411-92357c537720 # Quote
             instructions: null
             label: null
             required: true
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 8015ed9c-f053-44a1-a982-c8543fecb850
+            fieldUid: 8015ed9c-f053-44a1-a982-c8543fecb850 # Source
             instructions: null
             label: null
             required: false
@@ -23,7 +23,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 432cc329-7587-408d-8b61-a70b7bfd7520
+            fieldUid: 432cc329-7587-408d-8b61-a70b7bfd7520 # Source Url
             instructions: null
             label: null
             required: false
@@ -34,7 +34,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  432cc329-7587-408d-8b61-a70b7bfd7520:
+  432cc329-7587-408d-8b61-a70b7bfd7520: # Source Url
     contentColumnType: string(255)
     fieldGroup: null
     handle: sourceUrl
@@ -44,10 +44,12 @@ fields:
     settings:
       maxLength: '255'
       placeholder: ''
+      types:
+        - url
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Url
-  8015ed9c-f053-44a1-a982-c8543fecb850:
+  8015ed9c-f053-44a1-a982-c8543fecb850: # Source
     contentColumnType: text
     fieldGroup: null
     handle: source
@@ -66,7 +68,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  f18642d1-7028-4990-b411-92357c537720:
+  f18642d1-7028-4990-b411-92357c537720: # Quote
     contentColumnType: text
     fieldGroup: null
     handle: quote
