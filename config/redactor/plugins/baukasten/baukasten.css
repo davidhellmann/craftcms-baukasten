@@ -1,0 +1,167 @@
+/*
+ |--------------------------------------------------------------------------
+ |  Redactor Styles
+ |--------------------------------------------------------------------------
+ */
+/* Buttons */
+:root:root .redactor-in .c-link--primary,
+:root:root .redactor-in .c-link--secondary,
+:root:root .redactor-in .c-link--outlined,
+:root:root .redactor-dropdown-item-primary span,
+:root:root .redactor-dropdown-item-secondary span,
+:root:root .redactor-dropdown-item-outlined span {
+  padding: 8px 13px;
+  border-radius: 5px;
+  font-size: 14px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: transparent;
+}
+
+:root:root .redactor-in .c-link--primary,
+:root:root .redactor-dropdown-item-primary span {
+  color: #f5f5f5;
+  background-color: #212121;
+}
+
+:root:root .redactor-in .c-link--primary:hover {
+  background-color: #000;
+  text-decoration: none;
+}
+
+:root:root .redactor-in .c-link--secondary,
+:root:root .redactor-dropdown-item-secondary span {
+  color: #757575;
+  background-color: #eee;
+}
+
+:root:root .redactor-in .c-link--secondary:hover {
+  background-color: #f5f5f5;
+  text-decoration: none;
+}
+
+:root:root .redactor-in .c-link--outlined,
+:root:root .redactor-dropdown-item-outlined span {
+  color: #212121;
+  background-color: transparent;
+  border-color: #616161;
+}
+
+:root:root .redactor-in .c-link--outlined:hover {
+  border-color: #212121;
+  text-decoration: none;
+}
+
+/* OTHER STYLES*/
+:root:root .redactor-in .rd-del,
+:root:root .redactor-dropdown-item-deleted span {
+  text-decoration: line-through
+}
+
+
+:root:root .redactor-in .rd-mark {
+  font-family: inherit;
+  font-size: 1em !important;
+  background-color: #fdffad
+}
+
+:root:root .redactor-dropdown-item-marked span {
+  background-color: #fdffad;
+  color: #000;
+  text-decoration: none
+}
+
+
+:root:root .redactor-dropdown-item-subscript span,
+:root:root .redactor-dropdown-item-superscript span,
+:root:root .redactor-in sub,
+:root:root .redactor-in sup {
+  font-size: .8em
+}
+
+
+:root:root .redactor-dropdown-item-smallPrint span,
+:root:root .redactor-in small {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+  font-size: .7em !important
+}
+
+
+:root:root .redactor-dropdown-item-shortcut span,
+:root:root .redactor-dropdown-item-variable span,
+:root:root .redactor-in kbd,
+:root:root .redactor-in var {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+  font-size: .9em
+}
+
+:root:root .redactor-dropdown-item-variable span,
+:root:root .redactor-in var {
+  padding: .25em;
+  font-style: italic;
+  color: #111;
+  background-color: rgba(0, 0, 0, .1)
+}
+
+
+:root:root .redactor-dropdown-item-shortcut span {
+  padding: .25em;
+  border: 1px solid #e5e7e9;
+  white-space: nowrap
+}
+
+
+:root:root .redactor-dropdown-item-favorite span,
+:root:root .redactor-in span.favorite {
+  border-radius: 2px;
+  padding: .125em .25em;
+  background-color: #ffebeb
+}
+
+
+:root:root .redactor-dropdown-format .redactor-dropdown-item-bigger-text span,
+:root:root .redactor-styles .ms-1 {
+  font-size: 20px;
+}
+
+
+:root:root .redactor-dropdown-format .redactor-dropdown-item-h6 span,
+:root:root .redactor-dropdown-item-lookslikeh6 span,
+:root:root .redactor-styles .c-headline--h6 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #7b8793;
+}
+
+
+:root:root .redactor-dropdown-format .redactor-dropdown-item-h5 span,
+:root:root .redactor-dropdown-item-lookslikeh5 span,
+:root:root .redactor-styles .c-headline--h5 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+:root:root .redactor-dropdown-format .redactor-dropdown-item-h4 span,
+:root:root .redactor-dropdown-item-lookslikeh4 span,
+:root:root .redactor-styles .c-headline--h4 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+:root:root .redactor-dropdown-format .redactor-dropdown-item-h3 span,
+:root:root .redactor-dropdown-item-lookslikeh3 span,
+:root:root .redactor-styles .c-headline--h3 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+:root:root .redactor-dropdown-format .redactor-dropdown-item-h2 span,
+:root:root .redactor-dropdown-item-lookslikeh2 span,
+:root:root .redactor-styles .c-headline--h2 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+:root:root .redactor-styles > * {
+  line-height: 1.5;
+}
