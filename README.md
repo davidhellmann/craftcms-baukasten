@@ -11,6 +11,8 @@
 ## Configs
 - Duplicate the `.env.example` file as `.env` and do your settings
 
+## Database
+
 ## Development 
 - optional: RUN redis server `redis-server --daemonize yes`
 - RUN dev server `yarn dev` or `npm run dev`

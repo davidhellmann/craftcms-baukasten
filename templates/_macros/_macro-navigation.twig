@@ -1,9 +1,40 @@
 {#
 {% import '_macros/_macro-navigation.twig' as macroNavigation  %}
-{{ macroNavigation.navigation(props) }}
+{{ macroNavigation.navigation(nodes) }}
 #}
 
-{% macro navigation(props) %}
+{% macro navigation(nodes, name = 'c-navigation') %}
+  {# >>> Comp Settings #}
+  {% set compDefaults = {
+    settings: {
+      name: name,
+      ulClass: name ~ '__list',
+      liClass: name ~ '__listItem',
+      spanClass: name ~ '__listHeading',
+      linkClass: name ~ '__listLink',
+      subItemsWrapperClass: name ~ '__subItemsWrapper',
+    },
+    data: {
+      nodes: nodes ??? null,
+    },
+    classes: {
+      root: '',
+      custom: '',
+    }
+  } %}
+
+  {# >>> Merge settings / data / classes #}
+  {% set props = {
+    settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+    data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+    classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  } %}
+
+
+  {# Macros #}
+  {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+
+
   {% set defaults = {
     name: 'c-navigation',
     nodes: null,
@@ -11,47 +42,77 @@
     liClass: '__listItem',
     spanClass: '__listHeading',
     linkClass: '__listLink',
-    divClass: '__subItemsWrapper',
+    subItemsWrapperClass: '__subItemsWrapper',
   } %}
 
   {# Merge Default with Options #}
   {% set props = props is defined ? defaults|merge(props) : defaults %}
 
-  <ul class="{{ props.cn ~ props.ulClass }}  {{ props.cn ~ props.ulClass ~ '--level-1' }}">
-    {% nav node in props.nodes %}
-      {% set level = node.level %}
+  <div
+    class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+    <ul class="{{ props.ulClass }}  {{ props.ulClass ~ '--level-1' }}">
+      {% nav node in props.nodes %}
+        {% set level = node.level %}
 
-      <li class="{{ props.cn ~ props.liClass }}  {{ props.cn ~ props.liClass ~'--level-' ~ level }}  {% if node.classes | length %}{{ node.classes }}{% endif %}">
-        {% if not node.url %}
-          <span class="{{ props.cn ~ props.spanClass }}  {{ props.cn ~ props.spanClass ~ '--level-' ~ level }}" {% for attribute in node.customAttributes %}{{ attribute.attribute }}="{{ attribute.value }}"{% endfor %}
-          {% if node.hasDescendants %}aria-haspopup="true" aria-expanded="false"{% endif %}>
-            {{- node.title -}}
-          </span>
-        {% else %}
-          <a href="{{ node.url }}"
-             class="{{ props.cn ~ props.linkClass }}  {{ props.cn ~ props.linkClass ~ '--level-' ~ level }}"
-             {% if node.hasDescendants %}aria-haspopup="true" aria-expanded="false"{% endif %}
-             {% if node.newWindow %} target="_blank" rel="noopener"{% endif %}
-             {% for attribute in node.customAttributes %}{{ attribute.attribute }}="{{ attribute.value }}"{% endfor %}>
-            {{- node.title -}}
-          </a>
-        {% endif %}
+        <li
+          class="{{ props.liClass }}  {{ props.liClass ~'--level-' ~ level }} {{ node.classes ??? ''}}">
+          {% if not node.url %}
+            <span class="{{ props.spanClass }}  {{ props.spanClass ~ '--level-' ~ level }}"
 
-        {# Subitems #}
-        {% if node.hasDescendants %}
-        <div class="{{ props.cn ~ props.divClass }} {{ props.cn ~ props.divClass ~ '--level-' ~ (level + 1) }}">
+              {# >>> Render custom attributes #}
+              {% for attribute in node.customAttributes %}
+                {{ attribute.attribute }}="{{ attribute.value }}"
+              {% endfor %}
+
+              {# >>> Render aria #}
+              {% if node.hasDescendants %}
+                aria-haspopup="true"
+                aria-expanded="false"
+              {% endif %}>
+              {{- node.title -}}
+            </span>
+          {% else %}
+            <a href="{{ node.url }}"
+               class="{{ props.linkClass }}" data-current-level="{{ level }}"
+
+               {# >>> Render aria #}
+               {% if node.hasDescendants %}
+                 aria-haspopup="true"
+                 aria-expanded="false"
+               {% endif %}
+
+               {# >>> Render link target #}
+               {% if node.newWindow %}
+                 target="_blank"
+                 rel="noopener"
+               {% endif %}
+
+               {# >>> Render custom attributes #}
+               {% for attribute in node.customAttributes %}
+                 {{ attribute.attribute }}="{{ attribute.value }}"
+               {% endfor %}>
+              {{- node.title -}}
+            </a>
           {% endif %}
-          {% ifchildren %}
-            {% set level = node.level + 1 %}
 
-            <ul class="{{ props.cn ~ '__list' }}  {{ props.cn ~ '__list--level-' ~ level }}">
-              {% children %}
-            </ul>
-          {% endifchildren %}
+          {# >>> Render subitems #}
           {% if node.hasDescendants %}
-        </div>
-        {% endif %}
-      </li>
-    {% endnav %}
-  </ul>
+          <div class="{{ props.subItemsWrapperClass }}"
+               data-current-level="{{ level + 1 }}">
+          {% endif %}
+            {% ifchildren %}
+              {% set level = node.level + 1 %}
+
+              <ul class="{{ props.ulClass }}"
+                  data-current-level="{{ level }}">
+                {% children %}
+              </ul>
+            {% endifchildren %}
+          {% if node.hasDescendants %}
+          </div>
+          {% endif %}
+        </li>
+      {% endnav %}
+    </ul>
+  </div>
 {% endmacro %}
