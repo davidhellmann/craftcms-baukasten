@@ -26,8 +26,48 @@ fieldLayouts:
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
+          -
+            fieldUid: 1e3491e2-8a0f-4d8b-8b46-5c74b532ecf1 # Entry: Custom Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ac138d5e-1ae0-406f-b36c-940468639b8c # Entry: Short Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 927f48f1-8c9a-40ae-a2d4-114d6cfa3ac9 # Entry: Image
+            instructions: ''
+            label: ''
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Entry
         sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 9162c090-a191-4bca-bc4e-b29a63b94bd0 # Entry: SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: SEO
+        sortOrder: 2
 handle: error
 hasTitleField: true
 name: Error
