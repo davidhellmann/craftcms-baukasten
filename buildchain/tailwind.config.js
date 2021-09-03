@@ -10,7 +10,7 @@ const settingsFontSizes = require('./tailwind/tailwind.settings.fontSizes');
 const settingsColors = require('./tailwind/tailwind.settings.colors');
 
 // Plugins
-const pluginAddComponents = require('./tailwind.plugins.addComponents');
+const pluginAddComponents = require('./tailwind/tailwind.plugins.addComponents');
 
 module.exports = {
   mode: 'jit',

@@ -27,7 +27,6 @@ const clamp = (multiMin = 0, multiMax = null) => {
 };
 
 module.exports = {
-  uiBase: '1rem',
   xs: clamp(-2),
   sm: clamp(-1),
   base: clamp(0),

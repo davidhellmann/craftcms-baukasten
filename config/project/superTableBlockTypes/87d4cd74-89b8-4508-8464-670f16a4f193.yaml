@@ -1,4 +1,4 @@
-field: 171fade2-74bd-4677-b8af-53699003dc44 # Buttons
+field: 171fade2-74bd-4677-b8af-53699003dc44 # Button
 fieldLayouts:
   b9bb2ac2-02e3-48c8-bde1-682fb8d46a45:
     tabs:
@@ -26,6 +26,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   4afe7728-65d2-48c1-80f7-aeafcf978ff6: # Button
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: button
@@ -33,13 +34,62 @@ fields:
     name: Button
     searchable: true
     settings:
-      errorMessage: 'Unable to find component class ''fruitstudios\linkit\fields\LinkitField''.'
-      expectedType: fruitstudios\linkit\fields\LinkitField
-      settings: '{"allowCustomText":"1","allowTarget":"1","defaultText":"","selectLinkText":"","types":{"fruitstudios\\linkit\\models\\Email":{"enabled":"1","customLabel":"","customPlaceholder":""},"fruitstudios\\linkit\\models\\Phone":{"enabled":"","customLabel":"","customPlaceholder":""},"fruitstudios\\linkit\\models\\Url":{"enabled":"1","customLabel":"","customPlaceholder":"","allowAlias":"","allowMailto":"","allowHash":"1","allowPaths":""},"fruitstudios\\linkit\\models\\Twitter":{"enabled":"","customLabel":"","customPlaceholder":""},"fruitstudios\\linkit\\models\\Facebook":{"enabled":"","customLabel":"","customPlaceholder":""},"fruitstudios\\linkit\\models\\Instagram":{"enabled":"","customLabel":"","customPlaceholder":""},"fruitstudios\\linkit\\models\\LinkedIn":{"enabled":"","customLabel":"","customPlaceholder":""},"fruitstudios\\linkit\\models\\Entry":{"enabled":"1","customLabel":"","sources":"*","customSelectionLabel":""},"fruitstudios\\linkit\\models\\Category":{"enabled":"1","customLabel":"","sources":"*","customSelectionLabel":""},"fruitstudios\\linkit\\models\\Asset":{"enabled":"","customLabel":"","sources":"*","customSelectionLabel":""},"fruitstudios\\linkit\\models\\User":{"enabled":"","customLabel":"","sources":"*","customSelectionLabel":"","userPath":""}}}'
+      allowCustomText: true
+      allowTarget: false
+      autoNoReferrer: false
+      customTextMaxLength: 0
+      customTextRequired: false
+      defaultLinkName: asset
+      defaultText: ''
+      enableAllLinkTypes: true
+      enableAriaLabel: false
+      enableElementCache: false
+      enableTitle: false
+      typeSettings:
+        asset:
+          allowCrossSiteLink: false
+          allowCustomQuery: false
+          enabled: false
+          sources: '*'
+        category:
+          allowCrossSiteLink: false
+          allowCustomQuery: false
+          enabled: false
+          sources: '*'
+        custom:
+          allowAliases: false
+          disableValidation: false
+          enabled: false
+        email:
+          allowAliases: false
+          disableValidation: false
+          enabled: false
+        entry:
+          allowCrossSiteLink: false
+          allowCustomQuery: false
+          enabled: false
+          sources: '*'
+        site:
+          enabled: false
+          sites: '*'
+        tel:
+          allowAliases: false
+          disableValidation: false
+          enabled: false
+        url:
+          allowAliases: false
+          disableValidation: false
+          enabled: false
+        user:
+          allowCrossSiteLink: false
+          allowCustomQuery: false
+          enabled: false
+          sources: '*'
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\MissingField
+    type: lenz\linkfield\fields\LinkField
   85fef928-9fd5-4b9b-a7c5-73976952425b: # Variant
+    columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: variant

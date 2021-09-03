@@ -42,8 +42,9 @@
   <{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }}
   class="{{ props.classes.root }} {{ props.classes.position }} {{ props.classes.display }} {{ props.variants[props.data.variant] ??? '' }} {{ props.classes.custom }}"
   {{ macroComponentSettings.componentSettings(props.settings) }}>
+
+  {# >>> If icon exists #}
   {% if props.data.icon %}
-    {# -- Icon -- #}
     {% include '_components/icon/icon.twig' with {
       props: {
         customClasses: (props.data.reverse ? 'col-start-2') ~ ' transform translate-y-px',

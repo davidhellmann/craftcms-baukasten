@@ -1,0 +1,91 @@
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7 # Builder: Content
+fieldLayouts:
+  2d1a2077-0f3e-4574-996a-7694d2d4dd5f:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 75831d9f-5f4b-4d1f-8e79-62b4ddbd4654 # Section Width
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 374c97da-fa09-458e-bf13-c75c7cebeafd # Section Background Color
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Content
+        sortOrder: 1
+fields:
+  374c97da-fa09-458e-bf13-c75c7cebeafd: # Section Background Color
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: sectionBackgroundColor
+    instructions: ''
+    name: 'Section Background Color'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Transparent
+            -
+              - value
+              - transparent
+            -
+              - default
+              - '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  75831d9f-5f4b-4d1f-8e79-62b4ddbd4654: # Section Width
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: sectionWidth
+    instructions: ''
+    name: 'Section Width'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Content
+            -
+              - value
+              - content
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Full
+            -
+              - value
+              - full
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: bSection
+name: Section
+sortOrder: 1

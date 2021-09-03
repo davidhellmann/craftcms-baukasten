@@ -5,8 +5,7 @@ Image Helper
 {% import '_macros/_macro-imageHelper.twig' as image  %}
 #}
 
-
-{# Render Image #}
+{# >>> Render image #}
 {%- macro renderImage(imageData = null, transform = 'landscape', lazy = true, objectFit = null, customClasses = '') -%}
   {# If Image exists render it #}
   {%- if imageData ??? null -%}
@@ -17,9 +16,13 @@ Image Helper
          alt="{{- imageData.alt -}}"
          title="{{- imageData.title -}}"
          sizes="100vw"
+
+      {# >>> check if objectFit #}
       {%- if objectFit -%}
         style="object-fit: {{ objectFit }}; object-position: {{ imageData.focalpoint }}; height: 100%; width: 100%;"
       {%- endif -%}
+
+      {# >>> check if lazy #}
       {% if lazy %}
         class="lazyload {{ customClasses }}"
         loading="lazy"
@@ -41,14 +44,25 @@ Image Helper
 {%- endmacro -%}
 
 
-{# Render Source #}
+{# >>> Render source #}
 {%- macro renderSource(filetype = null, srcset = null, transform = 'landscape', lazy = true, mediaQuery = null, type = 'image/webp') -%}
   {# Handle Image #}
   {%- if srcset and filetype -%}
     <source  data-type="{{- filetype -}}"
              type="{{- type -}}"
-             {% if lazy %}data-sizes="auto" data-srcset="{{- srcset -}}"{% endif %}
-      {% if not lazy %}sizes="100vw" srcset="{{- srcset -}}"{% endif %}
-      {% if mediaQuery %}media="{{- mediaQuery -}}"{% endif %}/>
+
+             {# >>> check if lazy #}
+             {% if lazy %}
+               data-sizes="auto"
+               data-srcset="{{- srcset -}}"
+             {% else %}
+               sizes="100vw"
+               srcset="{{- srcset -}}"
+             {% endif %}
+
+             {# >>> check if media query #}
+             {% if mediaQuery %}
+               media="{{- mediaQuery -}}"
+             {% endif %}/>
   {%- endif -%}
 {%- endmacro -%}
