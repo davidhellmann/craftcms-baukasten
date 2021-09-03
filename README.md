@@ -91,3 +91,12 @@ Go to `./` and do this: `valet link craftcms-baukasten` to create a domain like 
 - `Super Table (free)`: Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.
 - `Typed link field (free)`: A Craft field type for selecting links
 - `Vite (free)`: Allows the use of the Vite.js next generation frontend tooling with Craft CMS
+
+---
+
+### Have to say thank you
+- [nystudio107](https://github.com/nystudio107/)
+- [craftcms](https://craftcms.com/)
+- [webdevs](https://webdevs.xyz/)
+- [putyourlightson](https://github.com/putyourlightson/)
+- [verbb](https://github.com/verbb/)
