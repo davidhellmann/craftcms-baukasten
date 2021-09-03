@@ -1,5 +1,5 @@
 <template>
-  <SubComp />
+  <SampleSubComp />
 </template>
 
 <script lang="ts">
@@ -8,8 +8,8 @@ import { defineAsyncComponent, defineComponent } from 'vue';
 
 export default defineComponent({
   components: {
-    SubComp: defineAsyncComponent(
-      () => import(/* webpackChunkName: "subComp" */ '@/vue/DummySubComp.vue'),
+    SampleSubComp: defineAsyncComponent(
+      () => import(/* webpackChunkName: "sampleSubComp" */ '@/vue/SampleSubComp.vue'),
     ),
   },
   mounted() {},
