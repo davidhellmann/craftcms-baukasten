@@ -1,11 +1,11 @@
-field: d3a65ce7-395f-4a98-bbf8-24dd3bca3dab # Content Builder
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7 # Builder: Content
 fieldLayouts:
-  409d7e43-197f-4c1a-b575-1bc10104083f:
+  441f24a0-9da9-4bab-8b4d-9120085a06bc:
     tabs:
       -
         elements:
           -
-            fieldUid: b8310612-27cd-4485-9500-f2d695b32bd6 # Images
+            fieldUid: 0874e231-9cb3-4e41-a637-e9c7bd453b9c # Images
             instructions: null
             label: null
             required: true
@@ -14,7 +14,16 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 7354821a-d150-4ef1-a15c-4a8db7b7425e # Ratio
+            fieldUid: 19b81a5c-df1a-47ce-96d8-eb6f06c2c442 # Image Columns
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 130712c6-6ae4-4ddd-991c-39f51eb115f4 # Show Image Caption
             instructions: null
             label: null
             required: false
@@ -25,13 +34,13 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  7354821a-d150-4ef1-a15c-4a8db7b7425e: # Ratio
-    columnSuffix: null
+  19b81a5c-df1a-47ce-96d8-eb6f06c2c442: # Image Columns
+    columnSuffix: eqvhcqia
     contentColumnType: string
     fieldGroup: null
-    handle: ratio
+    handle: imageColumns
     instructions: ''
-    name: Ratio
+    name: 'Image Columns'
     searchable: false
     settings:
       optgroups: true
@@ -40,10 +49,10 @@ fields:
           __assoc__:
             -
               - label
-              - Auto
+              - '2'
             -
               - value
-              - auto
+              - '2'
             -
               - default
               - '1'
@@ -51,39 +60,17 @@ fields:
           __assoc__:
             -
               - label
-              - Landscape
+              - '3'
             -
               - value
-              - landscape
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Portrait
-            -
-              - value
-              - portrait
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Square
-            -
-              - value
-              - square
+              - '3'
             -
               - default
               - ''
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  b8310612-27cd-4485-9500-f2d695b32bd6: # Images
+  0874e231-9cb3-4e41-a637-e9c7bd453b9c: # Images
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
@@ -98,18 +85,19 @@ fields:
         - image
       defaultUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211' # Images
       defaultUploadLocationSubpath: ''
-      limit: '2'
+      limit: ''
       localizeRelations: false
       previewMode: full
       restrictFiles: '1'
       selectionLabel: ''
-      showSiteMenu: true
-      showUnpermittedFiles: false
-      showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211' # Images
+      showSiteMenu: false
+      showUnpermittedFiles: true
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:3f1e1a84-bf8f-4543-b3a8-4c210f0d244a' # Files
       singleUploadLocationSubpath: ''
       source: null
-      sources: '*'
+      sources:
+        - 'volume:1b735f91-a5f7-488b-9746-93d65fb4f211' # Images
       targetSiteId: null
       useSingleFolder: false
       validateRelatedElements: true
@@ -117,6 +105,21 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-handle: imageImage
-name: 'Image : Image'
-sortOrder: 5
+  130712c6-6ae4-4ddd-991c-39f51eb115f4: # Show Image Caption
+    columnSuffix: mvhxakdr
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: showImageCaption
+    instructions: ''
+    name: 'Show Image Caption'
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+handle: imageGridCalculated
+name: 'Image Grid Calculated'
+sortOrder: 7

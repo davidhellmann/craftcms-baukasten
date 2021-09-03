@@ -1,0 +1,90 @@
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7 # Builder: Content
+fieldLayouts:
+  7c166a73-78f0-4f23-a960-65ae795220f1:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: fa2125b0-ed7b-4828-b964-7837e48d3d58 # Spacer Size
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  fa2125b0-ed7b-4828-b964-7837e48d3d58: # Spacer Size
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: spacerSize
+    instructions: ''
+    name: 'Spacer Size'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - SM
+            -
+              - value
+              - sm
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - MD
+            -
+              - value
+              - md
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - LG
+            -
+              - value
+              - lg
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - XL
+            -
+              - value
+              - xl
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 2XL
+            -
+              - value
+              - 2xl
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: bSpacer
+name: Spacer
+sortOrder: 11

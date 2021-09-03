@@ -1,4 +1,4 @@
-field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7 # Page Builder
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7 # Builder: Content
 fieldLayouts:
   37e695da-df19-4255-85fe-6b83ec641b29:
     tabs:
@@ -12,54 +12,45 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
           -
-            fieldUid: f4b93567-1a28-444d-8e1e-cc42606a33e4 # Caption
+            fieldUid: 6475d0dc-d36f-464b-886b-0e49a2440722 # Image Transform
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 51fb96cf-4339-4982-8328-b94b7530848e # Image Width
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
           -
-            fieldUid: 6475d0dc-d36f-464b-886b-0e49a2440722 # Ratio
+            fieldUid: f4b93567-1a28-444d-8e1e-cc42606a33e4 # Show Image Caption
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
-          -
-            fieldUid: df558051-c14a-48af-b089-c5abc1bf066b # Variant
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 51fb96cf-4339-4982-8328-b94b7530848e # Width
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
+            width: 50
         name: Content
         sortOrder: 1
 fields:
-  51fb96cf-4339-4982-8328-b94b7530848e: # Width
+  51fb96cf-4339-4982-8328-b94b7530848e: # Image Width
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
-    handle: width
+    handle: imageWidth
     instructions: 'Has no effect if variant cover is selected'
-    name: Width
-    searchable: true
+    name: 'Image Width'
+    searchable: false
     settings:
       optgroups: true
       options:
@@ -70,21 +61,10 @@ fields:
               - Wide
             -
               - value
-              - w-wide
+              - wide
             -
               - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Medium
-            -
-              - value
-              - w-medium
-            -
-              - default
-              - ''
+              - '1'
         -
           __assoc__:
             -
@@ -92,7 +72,29 @@ fields:
               - Narrow
             -
               - value
-              - w-narrow
+              - narrow
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Cover
+            -
+              - value
+              - cover
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Graphic
+            -
+              - value
+              - graphic
             -
               - default
               - ''
@@ -106,7 +108,7 @@ fields:
     handle: image
     instructions: ''
     name: Image
-    searchable: true
+    searchable: false
     settings:
       allowSelfRelations: false
       allowUploads: true
@@ -133,14 +135,14 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  6475d0dc-d36f-464b-886b-0e49a2440722: # Ratio
+  6475d0dc-d36f-464b-886b-0e49a2440722: # Image Transform
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
-    handle: ratio
+    handle: imageTransform
     instructions: ''
-    name: Ratio
-    searchable: true
+    name: 'Image Transform'
+    searchable: false
     settings:
       optgroups: true
       options:
@@ -191,50 +193,14 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  df558051-c14a-48af-b089-c5abc1bf066b: # Variant
-    columnSuffix: null
-    contentColumnType: string
-    fieldGroup: null
-    handle: variant
-    instructions: ''
-    name: Variant
-    searchable: true
-    settings:
-      optgroups: true
-      options:
-        -
-          __assoc__:
-            -
-              - label
-              - Basic
-            -
-              - value
-              - basic
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Cover
-            -
-              - value
-              - cover
-            -
-              - default
-              - ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Dropdown
-  f4b93567-1a28-444d-8e1e-cc42606a33e4: # Caption
+  f4b93567-1a28-444d-8e1e-cc42606a33e4: # Show Image Caption
     columnSuffix: null
     contentColumnType: boolean
     fieldGroup: null
-    handle: caption
+    handle: showImageCaption
     instructions: ''
-    name: Caption
-    searchable: true
+    name: 'Show Image Caption'
+    searchable: false
     settings:
       default: false
       offLabel: null
@@ -242,6 +208,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
-handle: image
+handle: bImage
 name: Image
-sortOrder: 7
+sortOrder: 5

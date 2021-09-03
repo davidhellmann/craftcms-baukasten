@@ -1,4 +1,4 @@
-field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7 # Page Builder
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7 # Builder: Content
 fieldLayouts:
   1ba1f2b9-3953-4131-89da-28c4ab8fb9a2:
     tabs:
@@ -12,45 +12,45 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
           -
-            fieldUid: e112cf13-2c4f-4604-89f8-48dd867dbba6 # Caption
+            fieldUid: 5dcb3824-f538-4f5c-81c6-2fcd6b6bd38c # Image Transform
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 5f0bc252-87f4-4239-9928-86063fd664a3 # Image Columns
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: e112cf13-2c4f-4604-89f8-48dd867dbba6 # Show Image Caption
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
-          -
-            fieldUid: 5f0bc252-87f4-4239-9928-86063fd664a3 # Columns
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 5dcb3824-f538-4f5c-81c6-2fcd6b6bd38c # Ratio
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
+            width: 50
         name: Content
         sortOrder: 1
 fields:
-  5dcb3824-f538-4f5c-81c6-2fcd6b6bd38c: # Ratio
+  5dcb3824-f538-4f5c-81c6-2fcd6b6bd38c: # Image Transform
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
-    handle: ratio
+    handle: imageTransform
     instructions: ''
-    name: Ratio
-    searchable: true
+    name: 'Image Transform'
+    searchable: false
     settings:
       optgroups: true
       options:
@@ -58,10 +58,10 @@ fields:
           __assoc__:
             -
               - label
-              - Portrait
+              - Auto
             -
               - value
-              - portrait
+              - auto
             -
               - default
               - '1'
@@ -91,24 +91,24 @@ fields:
           __assoc__:
             -
               - label
-              - Auto
+              - Portrait
             -
               - value
-              - auto
+              - portrait
             -
               - default
               - ''
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  5f0bc252-87f4-4239-9928-86063fd664a3: # Columns
+  5f0bc252-87f4-4239-9928-86063fd664a3: # Image Columns
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
-    handle: columns
+    handle: imageColumns
     instructions: ''
-    name: Columns
-    searchable: true
+    name: 'Image Columns'
+    searchable: false
     settings:
       optgroups: true
       options:
@@ -119,7 +119,7 @@ fields:
               - '2'
             -
               - value
-              - c-2
+              - '2'
             -
               - default
               - '1'
@@ -130,7 +130,7 @@ fields:
               - '3'
             -
               - value
-              - c-3
+              - '3'
             -
               - default
               - ''
@@ -144,7 +144,7 @@ fields:
     handle: images
     instructions: ''
     name: Images
-    searchable: true
+    searchable: false
     settings:
       allowSelfRelations: false
       allowUploads: true
@@ -171,14 +171,14 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  e112cf13-2c4f-4604-89f8-48dd867dbba6: # Caption
+  e112cf13-2c4f-4604-89f8-48dd867dbba6: # Show Image Caption
     columnSuffix: null
     contentColumnType: boolean
     fieldGroup: null
-    handle: caption
+    handle: showImageCaption
     instructions: ''
-    name: Caption
-    searchable: true
+    name: 'Show Image Caption'
+    searchable: false
     settings:
       default: false
       offLabel: null
@@ -186,6 +186,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
-handle: imageGrid
+handle: bImageGrid
 name: 'Image Grid'
-sortOrder: 8
+sortOrder: 6

@@ -1,11 +1,11 @@
-field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7 # Page Builder
+field: 0170a444-b2ac-4ff6-b81f-fd8712ecdfb7 # Builder: Content
 fieldLayouts:
-  de564934-874a-4504-b99d-3ba8f0aa0684:
+  4716487a-dd77-4c80-ae4c-e1d6a4b12f20:
     tabs:
       -
         elements:
           -
-            fieldUid: f18642d1-7028-4990-b411-92357c537720 # Quote
+            fieldUid: cec3f3ec-7aeb-4c61-ba7c-c70bb53ba989 # Video ID
             instructions: null
             label: null
             required: true
@@ -14,50 +14,49 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 8015ed9c-f053-44a1-a982-c8543fecb850 # Source
+            fieldUid: ae553cfa-0516-497a-903a-b1ebc1e1aec7 # Autoplay
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
           -
-            fieldUid: 432cc329-7587-408d-8b61-a70b7bfd7520 # Source Url
+            fieldUid: f0f50d91-0322-4b0c-9d12-c88c8dd152fa # Loop
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
         name: Content
         sortOrder: 1
 fields:
-  432cc329-7587-408d-8b61-a70b7bfd7520: # Source Url
+  ae553cfa-0516-497a-903a-b1ebc1e1aec7: # Autoplay
     columnSuffix: null
-    contentColumnType: string(255)
+    contentColumnType: boolean
     fieldGroup: null
-    handle: sourceUrl
+    handle: autoplay
     instructions: ''
-    name: 'Source Url'
-    searchable: true
+    name: Autoplay
+    searchable: false
     settings:
-      maxLength: '255'
-      placeholder: ''
-      types:
-        - url
+      default: false
+      offLabel: null
+      onLabel: null
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\Url
-  8015ed9c-f053-44a1-a982-c8543fecb850: # Source
+    type: craft\fields\Lightswitch
+  cec3f3ec-7aeb-4c61-ba7c-c70bb53ba989: # Video ID
     columnSuffix: null
     contentColumnType: text
     fieldGroup: null
-    handle: source
+    handle: videoId
     instructions: ''
-    name: Source
-    searchable: true
+    name: 'Video ID'
+    searchable: false
     settings:
       byteLimit: null
       charLimit: null
@@ -70,26 +69,21 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-  f18642d1-7028-4990-b411-92357c537720: # Quote
+  f0f50d91-0322-4b0c-9d12-c88c8dd152fa: # Loop
     columnSuffix: null
-    contentColumnType: text
+    contentColumnType: boolean
     fieldGroup: null
-    handle: quote
+    handle: loop
     instructions: ''
-    name: Quote
-    searchable: true
+    name: Loop
+    searchable: false
     settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: text
-      initialRows: '4'
-      multiline: '1'
-      placeholder: null
-      uiMode: normal
+      default: false
+      offLabel: null
+      onLabel: null
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\PlainText
-handle: quote
-name: Quote
-sortOrder: 5
+    type: craft\fields\Lightswitch
+handle: bYoutubeVideo
+name: 'Youtube Video'
+sortOrder: 9
