@@ -35,7 +35,7 @@ return [
     'resourceBasePath' => App::env('WEB_ROOT_PATH') . '/cpresources',
     'runQueueAutomatically' => (bool)App::env('RUN_QUEUE_AUTOMATICALLY'),
     'securityKey' => App::env('SECURITY_KEY'),
-    'testToEmailAddress' => App::env('TEST_EMAIL_ADDRESS') ?: null,
+    'testToEmailAddress' => App::env('TEST_MAIL') ?: null,
     'enableGraphqlCaching' => (bool)App::env('ENABLE_GQL_CACHING'),
     // Craft config settings from constants
     'maxRevisions' => 5,
@@ -53,7 +53,7 @@ return [
     'maxCachedCloudImageSize' => 3000,
     'maxUploadFileSize' => '100M',
     'omitScriptNameInUrls' => true,
-    'useEmailAsUsername' => true,
+    'useEmailAsUsername' => false,
     'usePathInfo' => true,
     'useProjectConfigFile' => true,
 ];
