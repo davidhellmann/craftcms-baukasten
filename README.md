@@ -14,9 +14,16 @@
 ## Database
 Use the `seed_db.gz` as starting point. Create a new database with the settings from your `.env` file and import the `seed_db.gz` into it. The login credentials are: `superuser:superuser`
 
+## Before you start
+Go to `./` and do this: `valet link craftcms-baukasten` to create a domain like `craftcms-baukasten.test` (Info: Use the domain you used also in the `.env file`)
+
 ## Development
-- optional: RUN redis server `redis-server --daemonize yes`
-- RUN dev server `yarn dev` or `npm run dev`
+- `redis-server --daemonize yes` it's totally optional
+- `npm run dev` start local dev server
+- `npm run upgrade-interactive` To get an interactive GUI to update NPM Packages
+- `npm run tcv` serve the tailwind config viewer on localhost:3333
+- `npm run tcc` create a new tailwind config viewer export
+- `npm run twc` creates a `tailwind.app.css` file in `./src/css/`
 
 
 ## Whats inside?

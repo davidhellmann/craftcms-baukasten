@@ -42,12 +42,12 @@
     "vite-plugin-restart": "0.0.2"
   },
   "scripts": {
-    "dev": "yarn tcc && vite",
+    "dev": "vite",
     "build": "vite build",
     "upgrade-interactive": "npm-check --update",
     "preinstall": "$npm_execpath --silent run checknpm",
     "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)",
-    "tcv": "tailwind-config-viewer -o",
+    "tcv": "npm run tcc && tailwind-config-viewer -o -p 3333",
     "tcc": "tailwind-config-viewer export ../_tailwind",
     "twc": "npx tailwindcss build ../src/css/app.pcss -o ../src/css/tailwind.app.css -c tailwind.config.js"
   },
