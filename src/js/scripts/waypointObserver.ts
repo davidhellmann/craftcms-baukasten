@@ -2,7 +2,7 @@
  * ScrollMonitor
  */
 
-const scrollObserver = {
+const waypointObserver = {
   cfg: {
     selectors: {
       waypoint: '[waypoint]',
@@ -137,4 +137,4 @@ const scrollObserver = {
   },
 };
 
-export default scrollObserver;
+export default waypointObserver;

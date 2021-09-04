@@ -2,8 +2,10 @@
 
 {% block blockAppContent %}
   {% cache using key craft.app.request.pathInfo %}
+
+    {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Primary{% endblock %}
+      {% block label %}Primary / Medium{% endblock %}
       {% block content %}
           {% include '_components/button/button.twig' with {
             data: {
@@ -15,8 +17,142 @@
       {% endblock %}
     {% endembed %}
 
+    {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Primary Outlined{% endblock %}
+      {% block label %}Primary / Medium / Icon{% endblock %}
+      {% block content %}
+          {% include '_components/button/button.twig' with {
+            data: {
+              url: '/hidden/patternlib',
+              text: 'Button',
+              icon: 'icons/sharp/add-circle',
+              iconSize: 'md',
+              variant: 'primary',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary / Medium / Icon Right{% endblock %}
+      {% block content %}
+          {% include '_components/button/button.twig' with {
+            data: {
+              url: '/hidden/patternlib',
+              text: 'Button',
+              icon: 'icons/sharp/add-circle',
+              iconSize: 'md',
+              variant: 'primary',
+              reverse: true,
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary / Large{% endblock %}
+      {% block content %}
+          {% include '_components/button/button.twig' with {
+            data: {
+              url: '/hidden/patternlib',
+              text: 'Button',
+              variant: 'primary',
+              variantSize: 'lg'
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary / Large / Icon{% endblock %}
+      {% block content %}
+          {% include '_components/button/button.twig' with {
+            data: {
+              url: '/hidden/patternlib',
+              text: 'Button',
+              icon: 'icons/sharp/add-circle',
+              iconSize: 'md',
+              variant: 'primary',
+              variantSize: 'lg'
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary / Large / Icon Right{% endblock %}
+      {% block content %}
+          {% include '_components/button/button.twig' with {
+            data: {
+              url: '/hidden/patternlib',
+              text: 'Button',
+              icon: 'icons/sharp/add-circle',
+              iconSize: 'md',
+              variant: 'primary',
+              variantSize: 'lg',
+              reverse: true,
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary / Small{% endblock %}
+      {% block content %}
+          {% include '_components/button/button.twig' with {
+            data: {
+              url: '/hidden/patternlib',
+              text: 'Button',
+              variant: 'primary',
+              variantSize: 'sm'
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary / Small / Icon{% endblock %}
+      {% block content %}
+          {% include '_components/button/button.twig' with {
+            data: {
+              url: '/hidden/patternlib',
+              text: 'Button',
+              icon: 'icons/sharp/add-circle',
+              iconSize: 'sm',
+              variant: 'primary',
+              variantSize: 'sm'
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary / Small / Icon Right{% endblock %}
+      {% block content %}
+          {% include '_components/button/button.twig' with {
+            data: {
+              url: '/hidden/patternlib',
+              text: 'Button',
+              icon: 'icons/sharp/add-circle',
+              iconSize: 'sm',
+              variant: 'primary',
+              variantSize: 'sm',
+              reverse: true,
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary Outlined / Medium{% endblock %}
       {% block content %}
           {% include '_components/button/button.twig' with {
             data: {
@@ -28,8 +164,143 @@
       {% endblock %}
     {% endembed %}
 
+
+    {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Secondary{% endblock %}
+      {% block label %}Primary Outlined / Medium / Icon{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            icon: 'icons/sharp/add-circle',
+            iconSize: 'md',
+            variant: 'primaryOutlined',
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary Outlined / Medium / Icon Right{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            icon: 'icons/sharp/add-circle',
+            iconSize: 'md',
+            variant: 'primaryOutlined',
+            reverse: true,
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary Outlined / Large{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            variant: 'primaryOutlined',
+            variantSize: 'lg'
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary Outlined / Large / Icon{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            icon: 'icons/sharp/add-circle',
+            iconSize: 'md',
+            variant: 'primaryOutlined',
+            variantSize: 'lg'
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary Outlined / Large / Icon Right{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            icon: 'icons/sharp/add-circle',
+            iconSize: 'md',
+            variant: 'primaryOutlined',
+            variantSize: 'lg',
+            reverse: true,
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary Outlined / Small{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            variant: 'primaryOutlined',
+            variantSize: 'sm'
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary Outlined / Small / Icon{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            icon: 'icons/sharp/add-circle',
+            iconSize: 'sm',
+            variant: 'primaryOutlined',
+            variantSize: 'sm'
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Primary Outlined / Small / Icon Right{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            icon: 'icons/sharp/add-circle',
+            iconSize: 'sm',
+            variant: 'primaryOutlined',
+            variantSize: 'sm',
+            reverse: true,
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Secondary / Medium{% endblock %}
       {% block content %}
           {% include '_components/button/button.twig' with {
             data: {
@@ -38,6 +309,139 @@
               variant: 'secondary',
             },
           } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Secondary / Medium / Icon{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            icon: 'icons/sharp/add-circle',
+            iconSize: 'md',
+            variant: 'secondary',
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Secondary / Medium / Icon Right{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            icon: 'icons/sharp/add-circle',
+            iconSize: 'md',
+            variant: 'secondary',
+            reverse: true,
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Secondary / Large{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            variant: 'secondary',
+            variantSize: 'lg'
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Secondary / Large / Icon{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            icon: 'icons/sharp/add-circle',
+            iconSize: 'md',
+            variant: 'secondary',
+            variantSize: 'lg'
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Secondary / Large / Icon Right{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            icon: 'icons/sharp/add-circle',
+            iconSize: 'md',
+            variant: 'secondary',
+            variantSize: 'lg',
+            reverse: true,
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Secondary / Small{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            variant: 'secondary',
+            variantSize: 'sm'
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Secondary / Small / Icon{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            icon: 'icons/sharp/add-circle',
+            iconSize: 'sm',
+            variant: 'secondary',
+            variantSize: 'sm'
+          },
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Secondary / Small / Icon Right{% endblock %}
+      {% block content %}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Button',
+            icon: 'icons/sharp/add-circle',
+            iconSize: 'sm',
+            variant: 'secondary',
+            variantSize: 'sm',
+            reverse: true,
+          },
+        } only %}
       {% endblock %}
     {% endembed %}
   {% endcache %}

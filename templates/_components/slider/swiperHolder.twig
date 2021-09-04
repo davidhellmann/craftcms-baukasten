@@ -1,0 +1,89 @@
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-sliderHolder',
+    js: true,
+  },
+  data: {
+    slides: null,
+    swiperConfig: {
+      init: false,
+      freeMode: {
+        sticky: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
+        hide: true,
+      },
+      spaceBetween: 16,
+      breakpoints: {
+        768: {
+          spaceBetween: 32
+        }
+      },
+      grabCursor: true,
+      simulateTouch: true,
+      watchSlidesProgress: true,
+      watchSlidesVisibility: true,
+      slidesPerView: 'auto'
+    }
+  },
+  classes: {
+    root: '',
+    custom: '',
+  },
+  variants: {}
+} %}
+
+{# >>> Merge settings / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: variants is defined and variants is iterable ? compDefaults.variants | merge(variants) : compDefaults.variants,
+} %}
+
+
+{# Macros #}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+
+{# Component #}
+<div class="swiper {{ props.classes.root }} {{ props.classes.custom }}"
+     data-swiper-config="{{ props.data.swiperConfig | json_encode }}"
+  {{ macroComponentSettings.componentSettings(props.settings) }}>
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    {% block swiperSlides %}{% endblock %}
+  </div>
+
+  {% if props.data.swiperConfig.navigation %}
+    <div class="swiper-button-prev">
+      {# >>> Render icon #}
+      {% include '_components/icon/icon.twig' with {
+        data: {
+          icon: 'swiper-left',
+          variant: 'md',
+        }
+      } only %}
+    </div>
+    <div class="swiper-button-next">
+      {# >>> Render icon #}
+      {% include '_components/icon/icon.twig' with {
+        data: {
+          icon: 'swiper-right',
+          variant: 'md',
+        }
+      } only %}
+    </div>
+  {% endif %}
+
+  {% if props.data.swiperConfig.scrollbar %}
+    <div class="swiper-scrollbar"></div>
+  {% endif %}
+</div>
+

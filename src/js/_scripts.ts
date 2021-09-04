@@ -22,10 +22,10 @@ const scripts = {
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
-    // scrollObserver
+    // waypointObserver
     if (document.querySelectorAll('[waypoint]').length) {
-      import('./scripts/scrollObserver')
-        .then(scrollObserver => scrollObserver.default.init())
+      import('./scripts/waypointObserver')
+        .then(waypointObserver => waypointObserver.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
