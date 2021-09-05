@@ -1,0 +1,41 @@
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-headline',
+  },
+  data: {
+    text: null,
+    variant: 'h2',
+    tag: 'h2',
+  },
+  classes: {
+    root: 'font-bold',
+    custom: '',
+  },
+  variants: {
+    mega: 'text-9xl leading-none',
+    h1: 'text-4xl leading-tight',
+    h2: 'text-3xl leading-tight',
+    h3: 'text-2xl leading-tight',
+    h4: 'text-xl leading-tight',
+    h5: 'text-lg leading-tight',
+    h6: 'text-base leading-tight',
+  }
+} %}
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{# Macros #}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+
+{% if props.data.text %}
+  <{{ props.data.tag }} class="{{ props.classes.root }} {{ props.variants[props.data.variant] }}  {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+  {{ props.data.text }}
+  </{{ props.data.tag }}>
+{% endif %}
