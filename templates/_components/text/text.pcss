@@ -1,54 +1,72 @@
 @layer components {
   [data-component="c-text"] {
-    /*.text-lg {
-      @apply text-lg
+    :first-child {
+      @apply mt-0 pt-0;
+    }
+
+    .text-lg {
+      @apply text-lg;
     }
 
     a {
-      @apply text-primary;
+      @apply transition text-primary-600 underline font-bold;
 
       &:hover {
-        @apply underline;
+        @apply no-underline text-primary-500;
       }
+    }
+
+    h2, h3, h4, h5, h6 {
+      @apply pt-2 md:pt-4 font-bold;
+      @apply -mb-3 md:-mb-6 !important;
+    }
+
+    h2 {
+      @apply text-xl;
     }
 
     h3 {
-      @apply text-xl uppercase pt-4;
+      @apply text-lg;
     }
 
-    h4 {
-      @apply text-lg pt-2;
-      @apply -mb-2 !important;
+    h4, h5, h6 {
+      @apply text-base;
     }
 
-    ul li {
-      @apply pl-3 relative;
+    ul li,
+    ol li {
+      @apply pl-3 md:pl-6 relative ;
+    }
 
-      &::before {
-        content: '';
-        @apply w-1 h-1 bg-current absolute left-0 top-3 rounded;
-      }
+    ul li::before {
+      content: '';
+      @apply w-1 h-1 bg-current absolute left-0 top-3 rounded;
+    }
+
+    ol {
+      @apply list-inside list-decimal;
+    }
+
+    ul li ul,
+    ol li ol {
+      @apply mt-1  md:mt-2;
     }
 
     .link {
-      @apply inline-grid  relative  rounded-full  px-6  pt-2 pb-3  font-sans-medium  text-center  items-center gap-4  grid-flow-col justify-center whitespace-nowrap mr-4;
-      @apply mt-4  !important;
+      @apply inline-flex transition rounded-md font-sans font-bold text-center items-center grid-flow-col justify-center whitespace-nowrap px-4 py-1.5 gap-2 text-base no-underline mr-4;
+      @apply mt-4 md:mt-8 !important;
     }
 
     .link + .link {
-      @apply mt-4 !important;
-    }
-
-    p .link:last-child {
-      @apply mb-10 !important;
+      @apply mt-4 md:mt-8 !important;
     }
 
     .link--primary {
-      @apply bg-primary  hover:bg-primary  text-white  border-2 border-primary hover:border-primary
+      @apply bg-primary-800 hover:bg-primary-700 text-white hover:text-white border-2 border-primary-800 hover:border-primary-700;
     }
 
     .link--secondary {
-      @apply bg-white  hover:bg-white  text-primary  border-2 border-primary  hover:border-primary
-    } */
+      @apply bg-secondary-300 hover:bg-secondary-400 text-secondary-800 hover:text-secondary-800 border-2 border-secondary-300 hover:border-secondary-400;
+    }
   }
 }
