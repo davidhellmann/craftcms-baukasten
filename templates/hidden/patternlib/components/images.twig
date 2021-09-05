@@ -9,8 +9,6 @@
   {% cache using key craft.app.request.pathInfo %}
 
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-
-      {# >>> Render variant #}
       {% block label %}Transform: Landscape{% endblock %}
       {% block content %}
         {% include '_components/image/image.twig' with {
