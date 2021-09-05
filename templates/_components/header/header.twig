@@ -13,7 +13,7 @@
     custom: '',
     container: 'container py-8 flex items-center',
     homeLink: 'flex items-center',
-    h1Class: 'text-xl font-bold ml-8'
+    h1: 'text-xl font-bold ml-8'
   }
 } %}
 
@@ -35,7 +35,7 @@
           variant: props.data.logoSize ??? 'md'
         },
       } only %}
-      <h1 class="{{ props.classes.h1Class }}">{{ props.data.name }}</h1>
+      <h1 class="{{ props.classes.h1 }}">{{ props.data.name }}</h1>
     </a>
   </div>
 </header>
