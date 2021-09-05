@@ -31,14 +31,17 @@ const scripts = {
 
     // Lazy Images
     if (
-      document.querySelectorAll('img[loading="lazy"], source[data-srcset]')
-        .length
+      document.querySelectorAll(
+        'img[loading="lazy"], iframe[loading="lazy"], source[data-srcset]',
+      ).length
     ) {
       if ('loading' in HTMLImageElement.prototype) {
         console.log('Using native lazyloading');
         import('./scripts/lazy')
           .then(lazy =>
-            lazy.initLazyloading('img[loading="lazy"], source[data-srcset]'),
+            lazy.initLazyloading(
+              'img[loading="lazy"], iframe[loading="lazy"], source[data-srcset]',
+            ),
           )
           .catch(e => console.error(`${e.name} : ${e.message}`));
       } else {

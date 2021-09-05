@@ -1,17 +1,18 @@
 {# >>> Comp Settings #}
 {% set compDefaults = {
   settings: {
-    name: 'c-footer',
+    name: 'c-videoYoutube',
   },
   data: {
-    url: siteUrl,
-    svgName: 'logo'
+    videoId: null,
+    autoplay: 0,
+    loop: 0,
+    showinfo: 0,
   },
   classes: {
-    root: 'bg-gray-100  mt-auto',
+    root: 'aspect-w-16 aspect-h-9',
     custom: '',
-    container: 'container py-4 text-sm'
-  }
+  },
 } %}
 
 {# >>> Merge settings / data / classes #}
@@ -24,8 +25,12 @@
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
-<footer class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
-  <div class="{{ props.classes.container }}">
-    Baukasten &copy;2014 &mdash; {{ "now"|date("Y") }}
+{% if props.data.videoId %}
+  <div class="{{ props.classes.root }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+    <iframe class="lazyload" loading="lazy"
+            data-src="https://www.youtube-nocookie.com/embed/{{ props.data.videoId }}?rel=0&loop={{ props.data.loop }}&showinfo={{ props.data.showinfo }}&autoplay={{ props.data.autoplay }}"
+            frameborder="0">
+    </iframe>
   </div>
-</footer>
+{% endif %}
+
