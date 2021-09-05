@@ -1,0 +1,45 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Header / Logo Small{% endblock %}
+      {% block content %}
+        {% include '_components/header/header.twig' with {
+          data: {
+            logoSize: 'sm'
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Header / Logo Medium{% endblock %}
+      {% block content %}
+        {% include '_components/header/header.twig' with {
+          data: {
+            logoSize: 'md'
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Header / Logo Large{% endblock %}
+      {% block content %}
+        {% include '_components/header/header.twig' with {
+          data: {
+            logoSize: 'lg'
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+

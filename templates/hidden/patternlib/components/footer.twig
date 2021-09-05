@@ -1,19 +1,13 @@
 {% extends "_layouts/layout-patternlib.twig" %}
 
 {% block blockAppContent %}
-
   {% cache using key craft.app.request.pathInfo %}
-
 
     {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Transform: Square{% endblock %}
+      {% block label %}Footer{% endblock %}
       {% block content %}
-        {% include '_components/video/youtube.twig' with {
-          data: {
-            videoId: 'KiF6D9E1ya8',
-          }
-        } only %}
+        {% include '_components/footer/footer.twig' only %}
       {% endblock %}
     {% endembed %}
   {% endcache %}

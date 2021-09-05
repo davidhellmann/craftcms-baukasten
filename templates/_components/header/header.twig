@@ -3,8 +3,18 @@
   settings: {
     name: 'c-header',
   },
-  data: {},
-  classes: {}
+  data: {
+    url: siteUrl,
+    logoSize: 'md',
+    name: getenv('SITE_NAME'),
+  },
+  classes: {
+    root: '',
+    custom: '',
+    container: 'container py-8 flex items-center',
+    homeLink: 'flex items-center',
+    h1Class: 'text-xl font-bold ml-8'
+  }
 } %}
 
 {# >>> Merge settings / data / classes #}
@@ -18,16 +28,15 @@
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 <header class="bg-gray-100" {{ macroComponentSettings.componentSettings(props.settings) }}>
-  <div class="container py-8 flex items-center">
-    {% include '_components/logo/logo.twig' with {
-      data: {
-        test: 'test'
-      },
-      classes: {
-        class: 'class'
-      }
-    } only %}
-    <h1 class="text-xl font-bold ml-8">Baukasten</h1>
+  <div class="{{ props.classes.container }}">
+    <a href="{{ props.data.url }}" class="{{ props.classes.homeLink }}">
+      {% include '_components/logo/logo.twig' with {
+        data: {
+          variant: props.data.logoSize ??? 'md'
+        },
+      } only %}
+      <h1 class="{{ props.classes.h1Class }}">{{ props.data.name }}</h1>
+    </a>
   </div>
 </header>
 

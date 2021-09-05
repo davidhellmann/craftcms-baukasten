@@ -5,12 +5,12 @@
   },
   data: {
     url: siteUrl,
-    svgName: 'logo'
   },
   classes: {
     root: 'bg-gray-100  mt-auto',
     custom: '',
-    container: 'container py-4 text-sm'
+    container: 'container py-4 text-sm',
+    footerLink: 'underline hover:no-underline font-bold'
   }
 } %}
 
@@ -26,6 +26,6 @@
 
 <footer class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
   <div class="{{ props.classes.container }}">
-    Baukasten &copy;2014 &mdash; {{ "now"|date("Y") }}
+    <a class="{{ props.classes.footerLink }}" href="{{ props.data.url }}">Baukasten</a> &copy;2014 &mdash; {{ "now"|date("Y") }}
   </div>
 </footer>
