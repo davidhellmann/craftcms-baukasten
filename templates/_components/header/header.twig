@@ -1,14 +1,10 @@
-{#
-  c-coverVideo
-  ------------------------------------------------------------
-#}
-
 {# Set Defaults #}
-{% set defaults = {
-  name: 'c-coverVideo',
-  image: null,
-  transform: null,
-  objectFit: null
+{% set compDefaults = {
+  settings: {
+    name: 'c-header',
+  },
+  data: {},
+  classes: {}
 } %}
 
 {# >>> Merge settings / data / classes #}
@@ -21,15 +17,17 @@
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
-{# Modul #}
-{% if props.image %}
-  <div {{ macroComponentSettings.componentSettings(props.settings) }}>
-    {% include '_components/image/picture.twig' with {
-      props: {
-        image: props.image ??? null,
-        transform: props.transform ??? null,
-        objectFit: props.objectFit ??? 'cover'
+<header class="bg-gray-100" {{ macroComponentSettings.componentSettings(props.settings) }}>
+  <div class="container py-8 flex items-center">
+    {% include '_components/logo/logo.twig' with {
+      data: {
+        test: 'test'
+      },
+      classes: {
+        class: 'class'
       }
     } only %}
+    <h1 class="text-xl font-bold ml-8">Baukasten</h1>
   </div>
-{% endif %}
+</header>
+

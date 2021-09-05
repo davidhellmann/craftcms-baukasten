@@ -20,7 +20,7 @@
 
   <div id="appWrapper" class="overflow-hidden">
     {# >>> Render app header #}
-    {% include '_components/appHeader/appHeader.twig' only %}
+    {% include '_components/header/header.twig' only %}
 
     <main id="appContent">
       <div class="pl_root">
@@ -46,6 +46,6 @@
     </main>
 
     {# >>> Render app fooeter #}
-    {% include '_components/appFooter/appFooter.twig' only %}
+    {% include '_components/footer/footer.twig' only %}
   </div>
 {% endblock blockAppBody %}
