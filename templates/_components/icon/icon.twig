@@ -10,8 +10,8 @@
   },
   classes: {
     root: 'inline-flex',
+    color: 'text-current',
     custom: '',
-    svg: '',
   },
   variants: {
     sm: 'w-4 h-4',
@@ -29,13 +29,12 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,variants: compDefaults.variants,
 } %}
 
-
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+{# >>> No macroComponentSettings here cause simplify the icon (noWrapper) #}
 
 {% if props.data.icon %}
-  <span class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
     {{ svg('@webroot/dist/img/svg/' ~ props.data.icon ~ '.svg')
-    | attr({ class: props.variants[props.data.variant] ~ ' ' ~ props.classes.svg }) }}
-  </span>
+    | attr({
+      class: props.classes.root ~ ' ' ~ props.classes.color ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom,
+      'data-component': props.settings.name
+    }) }}
 {% endif %}
