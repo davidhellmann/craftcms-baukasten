@@ -1,0 +1,24 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Default{% endblock %}
+      {% block content %}
+        {% include '_components/quote/quote.twig' with {
+          data: {
+            quote: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in?',
+            source: 'Max Mustermann',
+            sourceSubline: 'Hausmeister',
+            sourceUrl: 'https://google.com'
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+

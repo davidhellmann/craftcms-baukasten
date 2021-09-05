@@ -1,15 +1,20 @@
-{#
-  c-quote
-  ------------------------------------------------------------
-#}
-
 {# Set Defaults #}
-{% set defaults = {
-  name: 'c-quote',
-  quote: null,
-  source: null,
-  sourceSubline: null,
-  sourceUrl: null
+{% set compDefaults = {
+  settings: {
+    name: 'c-quote',
+  },
+  data: {
+    quote: null,
+    source: null,
+    sourceSubline: null,
+    sourceUrl: null
+  },
+  classes: {
+    root: 'space-y-4 md:space-y-8',
+    custom: '',
+    before: 'relative pl-20 before:inline-flex before:absolute before:top-[14px] before:left-0 before:w-16 before:h-px before:bg-primary-500',
+    p: 'font-serif text-5xl italic leading-tight'
+  }
 } %}
 
 {# >>> Merge settings / data / classes #}
@@ -23,24 +28,22 @@
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
-{% if props.quote %}
-  <div {{ macroComponentSettings.componentSettings(props.settings) }} xmlns="http://www.w3.org/1999/html">
-    <blockquote class="{{ props.cn ~ '__blockquote' }} u-stack-2">
-      <p>
-        {{ props.quote | nl2br | raw }}
-      </p>
-      {% if props.source %}
-        <footer class="u-stack-1">
-          {% if props.sourceUrl %}
-            <a href="{{ props.sourceUrl }}"><strong>{{ props.source }}</strong></a>
-          {% else %}
-            <strong>{{ props.source }}</strong>
-          {% endif %}
-          {% if props.sourceSubline %}
-            <br>{{ props.sourceSubline }}
-          {% endif %}
-        </footer>
-      {% endif %}
-    </blockquote>
-  </div>
+{% if props.data.quote %}
+  <blockquote class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+    <p class="{{ props.classes.p }}">
+      {{ props.data.quote | nl2br | raw }}
+    </p>
+    {% if props.data.source %}
+      <footer class="{{ props.classes.before }}">
+        {% if props.data.sourceUrl %}
+          <a href="{{ props.data.sourceUrl }}"><strong>{{ props.data.source }}</strong></a>
+        {% else %}
+          <strong>{{ props.data.source }}</strong>
+        {% endif %}
+        {% if props.data.sourceSubline %}
+          / {{ props.data.sourceSubline }}
+        {% endif %}
+      </footer>
+    {% endif %}
+  </blockquote>
 {% endif %}
