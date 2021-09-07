@@ -61,7 +61,6 @@ const browserDetect = {
           image.setAttribute(
             'data-srcset',
             dataSrcset.replace(searchRegExp, `.${imageType}`),
-            console.log(dataSrcset.replace(searchRegExp, `.${imageType}`)),
           );
         }
         if (srcset) {

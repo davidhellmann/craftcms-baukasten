@@ -1,6 +1,5 @@
 const vueComps = {
   async init() {
-    console.log('Init Vue Comps');
     // Each Vue Component is decoupled instance
     // Dummy Comp
     if (document.querySelector('#sampleComp')) {
