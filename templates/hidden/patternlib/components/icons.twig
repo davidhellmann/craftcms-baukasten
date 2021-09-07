@@ -68,6 +68,38 @@
       {% endblock %}
     {% endembed %}
 
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Icon 2XL / Primary{% endblock %}
+      {% block content %}
+          {% include '_components/icon/icon.twig' with {
+            data: {
+              icon: 'brand/html5',
+              variant: '2xl',
+            },
+            classes: {
+              color: 'text-primary-800'
+            }
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Icon 2XL / Secondary{% endblock %}
+      {% block content %}
+          {% include '_components/icon/icon.twig' with {
+            data: {
+              icon: 'brand/html5',
+              variant: '2xl',
+            },
+            classes: {
+              color: 'text-secondary-800'
+            }
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
   {% endcache %}
 {% endblock %}
 
