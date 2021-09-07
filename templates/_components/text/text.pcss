@@ -1,10 +1,10 @@
 @layer components {
   [data-component="c-text"] {
-    :first-child {
+    &:first-child {
       @apply mt-0 pt-0;
     }
 
-    .text-lg {
+    .text-large {
       @apply text-lg;
     }
 
@@ -35,7 +35,7 @@
 
     ul li,
     ol li {
-      @apply pl-3 md:pl-6 relative ;
+      @apply pl-3 md:pl-6 relative;
     }
 
     ul li::before {

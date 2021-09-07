@@ -3,21 +3,23 @@
  * Patternlib
  */
 
+$dir = __DIR__ . "/../templates/hidden/patternlib/components";
+$components = new RecursiveDirectoryIterator($dir);
 
-$components = new DirectoryIterator(__DIR__ . "/../templates/hidden/patternlib/components");
+$componentList = [];
 
-$compList = [];
-foreach ($components as $comp) {
-    if ($comp->isDot()) continue;
-
-    $compList[pathinfo($comp)['filename']] = [
-            'title' => pathinfo($comp)['filename'],
-            'url' => 'components/' . pathinfo($comp)['filename'],
+foreach (new RecursiveIteratorIterator($components) as $file) {
+    if ($file->getExtension() === 'twig') {
+        $componentList[pathinfo($file)['filename']] = [
+            'title' => pathinfo($file)['filename'],
+            'url' => 'components/' . pathinfo($file)['filename'],
         ];
+    }
 }
 
+
 // Sort Array
-ksort($compList);
+ksort($componentList);
 
 return [
     'pageTitle' => 'Pattern Library',
@@ -25,7 +27,7 @@ return [
     'navigation' => [
         'components' => [
             'title' => 'Components',
-            'childs' => $compList,
+            'childs' => $componentList,
         ],
     ],
 ];
