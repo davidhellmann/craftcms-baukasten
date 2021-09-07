@@ -1,0 +1,46 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+    {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Card / Column{% endblock %}
+      {% block content %}
+        {% include '_components/card/entry.twig' with {
+          data: {
+            variant: 'col',
+            image: cat01Image ??? null,
+            transform: 'landscape',
+            title: 'The quick brown fox jumps',
+            text: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos.',
+            linkUrl: 'https://google.com',
+            linkText: 'read more'
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Card / Row{% endblock %}
+      {% block content %}
+        {% include '_components/card/entry.twig' with {
+          data: {
+            variant: 'row',
+            image: cat01Image ??? null,
+            transform: 'landscape',
+            title: 'The quick brown fox jumps',
+            text: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos.',
+            linkUrl: 'https://google.com',
+            linkText: 'read more'
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+
