@@ -1,12 +1,20 @@
-{# Set Defaults #}
-{% set defaults = {
-  name: 'c-caption',
-  customClasses: null,
-  element: 'figcaption',
-  headline: null,
-  text: null,
-  source: null,
-  sourceUrl: null
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-caption',
+  },
+  data: {
+    element: 'figcaption',
+    title: null,
+    text: null,
+    source: null,
+    sourceUrl: null
+  },
+  classes: {
+    root: '',
+    custom: '',
+    link: 'underline hover:no-underline'
+  }
 } %}
 
 {# >>> Merge settings / data / classes #}
@@ -19,26 +27,24 @@
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
-{% if props.headline or props.text %}
-  <{{ props.element }} class="bg-white {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+{% if props.data.title or props.data.text %}
+  <{{ props.data.element }} class="{{ props.classes.root }}  {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
   {# Headline --#}
-  {% if props.headline ?? null %}
-    <strong>{{- props.headline ~ ' ' -}}</strong>
+  {% if props.data.title ?? null %}
+    <strong>{{- props.data.title ~ ' ' -}}</strong>
   {% endif %}
 
   {# Caption #}
   <p>
-    {{ props.text | nl2br }}
+    {{ props.data.text | nl2br }}
 
-    {% if props.source and props.sourceUrl %}
-      &mdash;&nbsp;
-      <a href="{{ props.sourceUrl }}">{{ props.source }}</a>
-    {% elseif props.source ?? null %}
-      &mdash;&nbsp;
-      {{ props.source }}
+    {% if props.data.source and props.data.sourceUrl %}
+      &mdash;&nbsp;<a class="{{ props.classes.link }}" href="{{ props.data.sourceUrl }}">{{ props.data.source }}</a>
+    {% elseif props.data.source ?? null %}
+      &mdash;&nbsp;{{ props.data.source }}
     {% endif %}
   </p>
-  </{{ props.element }}>
+  </{{ props.data.element }}>
 {% endif %}
 
 
