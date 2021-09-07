@@ -23,7 +23,7 @@ module.exports = {
     layers: ['base', 'components', 'utilities'],
     mode: 'layers',
     options: {
-      whitelist: ['../src/css/components/**/*.{pcss,css}'],
+      safelist: ['../src/css/components/**/*.{pcss,css,js,ts}'],
     },
   },
   darkMode: 'media', // or 'media' or 'class'
