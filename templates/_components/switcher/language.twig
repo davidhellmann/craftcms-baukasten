@@ -1,0 +1,92 @@
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-switcherLanguage',
+  },
+  classes: {}
+} %}
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Macros #}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+
+<div {{ macroComponentSettings.componentSettings(props.settings) }}>
+  {# http://craftsnippets.com/articles/universal-language-switcher-for-craft-cms #}
+
+  {# logic #}
+  {% set currentElement = craft.app.urlManager.matchedElement %}
+  {% set sites = craft.app.getSites().getGroupById(currentSite.groupId).getSites() %}
+  {% set switcherLinks = [] %}
+
+
+  {% for site in sites if site.baseUrl is not empty %}
+
+    {% set title = craft.app.i18n.getLocaleById(site.language).displayName %}
+    {% set url = site.getBaseUrl() %}
+    {% if currentElement %}
+      {% set otherLocaleElement = craft.app.getElements().getElementById(currentElement.id, currentElement.className(), site.id) %}
+      {% if otherLocaleElement and otherLocaleElement.enabledForSite %}
+        {% set url = otherLocaleElement.url %}
+      {% endif %}
+    {% endif %}
+
+    {% set switcherLinks = switcherLinks|merge([{
+      url: url,
+      title: title,
+      countryCode: site.language|split('-')|last,
+      current: site.id == currentSite.id ? true : false,
+      language: site.language,
+    }]) %}
+
+  {% endfor %}
+
+  {# outputting html #}
+  {% if switcherLinks|length > 0 %}
+    <nav aria-label="{{ 'Switch language' | t }}" aria-role="navigation" data-component-js="js-languageSwitcher" class="js-languageSwitcherTrigger flex items-end cursor-pointer relative">
+      {% for switcherLink in switcherLinks %}
+        {% if switcherLink.current %}
+          <span class="mr-8 text-gray-3 opacity-50">{{ switcherLink.title }}</span>
+
+          {% include '_components/icon/icon.twig' with {
+            props: {
+              customClasses: 'js-languageSwitcherTriggerIcon absolute bottom-[-2px] right-0 transition-all text-gray-3 opacity-50',
+              icon: 'arrow-down',
+              size: 'w-5 h-5',
+            }
+          } only %}
+        {% endif %}
+      {% endfor %}
+
+      <div class="js-languageSwitcherMenu hidden absolute bottom-8 right-0 w-[144px] h-[192px] overflow-x-auto bg-white rounded text-gray text-base">
+        {% for switcherLink in switcherLinks %}
+          <a href="{{ switcherLink.url }}" hreflang="{{ switcherLink.language }}" lang="{{ switcherLink.language }}" class="hover:bg-primary hover:text-white">
+            <div class="px-6 py-1 hover:bg-primary hover:text-white {{ switcherLink.current ? 'bg-primary text-white' }} ">
+              <span>{{ switcherLink.title }}</span>
+            </div>
+          </a>
+          <a href="{{ switcherLink.url }}" hreflang="{{ switcherLink.language }}" lang="{{ switcherLink.language }}" class="hover:bg-primary hover:text-white">
+            <div class="px-6 py-1 hover:bg-primary hover:text-white {{ switcherLink.current ? 'bg-primary text-white' }} ">
+              <span>{{ switcherLink.title }}</span>
+            </div>
+          </a>
+          <a href="{{ switcherLink.url }}" hreflang="{{ switcherLink.language }}" lang="{{ switcherLink.language }}" class="hover:bg-primary hover:text-white">
+            <div class="px-6 py-1 hover:bg-primary hover:text-white {{ switcherLink.current ? 'bg-primary text-white' }} ">
+              <span>{{ switcherLink.title }}</span>
+            </div>
+          </a>
+          <a href="{{ switcherLink.url }}" hreflang="{{ switcherLink.language }}" lang="{{ switcherLink.language }}" class="hover:bg-primary hover:text-white">
+            <div class="px-6 py-1 hover:bg-primary hover:text-white {{ switcherLink.current ? 'bg-primary text-white' }} ">
+              <span>{{ switcherLink.title }}</span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </nav>
+  {% endif %}
+</div>
+

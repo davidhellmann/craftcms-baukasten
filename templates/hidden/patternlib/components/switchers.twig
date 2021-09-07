@@ -1,0 +1,17 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Language{% endblock %}
+      {% block content %}
+        {% include '_components/switcher/language.twig' only %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+
