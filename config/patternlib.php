@@ -3,10 +3,9 @@
  * Patternlib
  */
 
+$componentList = [];
 $dir = __DIR__ . "/../templates/hidden/patternlib/components";
 $components = new RecursiveDirectoryIterator($dir);
-
-$componentList = [];
 
 foreach (new RecursiveIteratorIterator($components) as $file) {
     if ($file->getExtension() === 'twig') {
@@ -16,7 +15,6 @@ foreach (new RecursiveIteratorIterator($components) as $file) {
         ];
     }
 }
-
 
 // Sort Array
 ksort($componentList);
