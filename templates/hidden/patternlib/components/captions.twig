@@ -1,0 +1,37 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Caption / With source{% endblock %}
+      {% block content %}
+        {% include '_components/caption/caption.twig' with {
+          data: {
+            title: 'Caption Title',
+            text: 'The quick brown fox jumps over the lazy dogs',
+            source: 'Max Mustermann',
+            sourceUrl: 'https://google.com'
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Caption / Without source{% endblock %}
+      {% block content %}
+        {% include '_components/caption/caption.twig' with {
+          data: {
+            title: 'Caption Title',
+            text: 'The quick brown fox jumps over the lazy dogs',
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+
