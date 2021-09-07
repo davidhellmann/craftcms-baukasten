@@ -36,6 +36,6 @@
 
 {% if props.data.text %}
   <{{ props.data.tag }} class="{{ props.classes.root }} {{ props.variants[props.data.variant] }}  {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
-  {{ props.data.text }}
+  {{ props.data.text | nl2br | raw }}
   </{{ props.data.tag }}>
 {% endif %}
