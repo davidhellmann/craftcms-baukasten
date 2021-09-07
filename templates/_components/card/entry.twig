@@ -1,0 +1,92 @@
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-cardEntry',
+  },
+  data: {
+    variant: 'col',
+    image: null,
+    transform: 'landscape',
+    title: null,
+    text: null,
+    linkUrl: null,
+    linkText: null
+  },
+  classes: {
+    root: 'rounded-lg overflow-hidden shadow group hover:shadow-lg transition-all transform hover:-translate-y-px',
+    custom: '',
+  },
+  variants: {
+    col: {
+      root: 'flex flex-col',
+      image: '',
+      body: 'px-4 md:px-8 py-4 md:py-8',
+      button: 'mt-4 md:mt-8',
+    },
+    row: {
+      root: 'flex flex-col md:grid md:grid-cols-3',
+      image: 'md:h-full md:col-span-1',
+      body: 'px-4 md:px-8 py-4 md:py-8 md:col-span-2',
+      button: 'mt-4 md:mt-8',
+    }
+  }
+} %}
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{# Macros #}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+
+{# Modul #}
+{% if props.data.image and props.data.title and props.data.linkUrl %}
+  <a href="{{ props.data.linkUrl }}"
+     class="{{ props.classes.root }} {{ props.variants[props.data.variant].root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+    <div class="{{ props.variants[props.data.variant].image }}">
+      {% include '_components/image/image.twig' with {
+        data: {
+          image: props.data.image ??? null,
+          transform: props.data.transform ??? null,
+          objectFit: 'cover',
+          renderPlainImage: true,
+        }
+      } only %}
+    </div>
+    <div class="{{ props.variants[props.data.variant].body }}">
+      {# >>> Render headline #}
+      {% include '_components/text/headline.twig' with {
+        data: {
+          text: props.data.title ??? null,
+        }
+      } only %}
+      {# >>> Render text #}
+      {% if props.data.text ??? null %}
+        <p>
+          {% include '_components/text/text.twig' with {
+            data: {
+              richText: false,
+              text: props.data.text ??? null,
+            }
+          } only %}
+        </p>
+        {# >>> Render button #}
+        {% include '_components/button/button.twig' with {
+          data: {
+            variant: 'primary',
+            variantSize: 'md',
+            iconSize: 'sm',
+            text: 'Read more',
+          },
+          classes: {
+            custom: props.variants[props.data.variant].button
+          }
+        } only %}
+      {% endif %}
+    </div>
+  </a>
+{% endif %}
