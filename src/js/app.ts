@@ -32,6 +32,4 @@ const main = async () => {
 
 // Execute async function
 // eslint-disable-next-line
-main().then(() => {
-  console.log('App Initialized');
-});
+main().then(() => {});

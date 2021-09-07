@@ -36,7 +36,6 @@ const scripts = {
       ).length
     ) {
       if ('loading' in HTMLImageElement.prototype) {
-        console.log('Using native lazyloading');
         import('./scripts/lazy')
           .then(lazy =>
             lazy.initLazyloading(
@@ -45,7 +44,6 @@ const scripts = {
           )
           .catch(e => console.error(`${e.name} : ${e.message}`));
       } else {
-        console.log('Using Lazysizes');
         import('lazysizes')
           .then(LazySizes => LazySizes.init())
           .catch(e => console.error(`${e.name} : ${e.message}`));
