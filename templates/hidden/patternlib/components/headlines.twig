@@ -1,0 +1,107 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Headline Mega{% endblock %}
+      {% block content %}
+          {% include '_components/text/headline.twig' with {
+            data: {
+              text: 'The quick brown fox jumps over the lazy dogs',
+              variant: 'mega',
+              tag: 'h1',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Headline H1{% endblock %}
+      {% block content %}
+          {% include '_components/text/headline.twig' with {
+            data: {
+              text: 'The quick brown fox jumps over the lazy dogs',
+              variant: 'h1',
+              tag: 'h1',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Headline H2{% endblock %}
+      {% block content %}
+          {% include '_components/text/headline.twig' with {
+            data: {
+              text: 'The quick brown fox jumps over the lazy dogs',
+              variant: 'h2',
+              tag: 'h2',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Headline H3{% endblock %}
+      {% block content %}
+          {% include '_components/text/headline.twig' with {
+            data: {
+              text: 'The quick brown fox jumps over the lazy dogs',
+              variant: 'h3',
+              tag: 'h3',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Headline H4{% endblock %}
+      {% block content %}
+          {% include '_components/text/headline.twig' with {
+            data: {
+              text: 'The quick brown fox jumps over the lazy dogs',
+              variant: 'h4',
+              tag: 'h4',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Headline H5{% endblock %}
+      {% block content %}
+          {% include '_components/text/headline.twig' with {
+            data: {
+              text: 'The quick brown fox jumps over the lazy dogs',
+              variant: 'h5',
+              tag: 'h5',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Headline H6{% endblock %}
+      {% block content %}
+          {% include '_components/text/headline.twig' with {
+            data: {
+              text: 'The quick brown fox jumps over the lazy dogs',
+              variant: 'h6',
+              tag: 'h6',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+

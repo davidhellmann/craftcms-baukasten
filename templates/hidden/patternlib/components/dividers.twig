@@ -1,0 +1,69 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Small{% endblock %}
+      {% block content %}
+          {% include '_components/divider/divider.twig' with {
+            data: {
+              variant: 'sm',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Medium{% endblock %}
+      {% block content %}
+          {% include '_components/divider/divider.twig' with {
+            data: {
+              variant: 'md',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Large{% endblock %}
+      {% block content %}
+          {% include '_components/divider/divider.twig' with {
+            data: {
+              variant: 'lg',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}XLarge{% endblock %}
+      {% block content %}
+          {% include '_components/divider/divider.twig' with {
+            data: {
+              variant: 'xl',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}2XLarge{% endblock %}
+      {% block content %}
+          {% include '_components/divider/divider.twig' with {
+            data: {
+              variant: '2xl',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+

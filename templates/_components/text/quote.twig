@@ -1,0 +1,49 @@
+{# Set Defaults #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-quote',
+  },
+  data: {
+    quote: null,
+    source: null,
+    sourceSubline: null,
+    sourceUrl: null
+  },
+  classes: {
+    root: 'space-y-4 md:space-y-8',
+    custom: '',
+    before: 'relative pl-20 before:inline-flex before:absolute before:top-[14px] before:left-0 before:w-16 before:h-px before:bg-primary-500',
+    p: 'font-serif text-5xl italic leading-tight'
+  }
+} %}
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Macros #}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+
+{# Modul #}
+{% if props.data.quote %}
+  <blockquote class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+    <p class="{{ props.classes.p }}">
+      {{ props.data.quote | nl2br | raw }}
+    </p>
+    {% if props.data.source %}
+      <footer class="{{ props.classes.before }}">
+        {% if props.data.sourceUrl %}
+          <a href="{{ props.data.sourceUrl }}"><strong>{{ props.data.source }}</strong></a>
+        {% else %}
+          <strong>{{ props.data.source }}</strong>
+        {% endif %}
+        {% if props.data.sourceSubline %}
+          / {{ props.data.sourceSubline }}
+        {% endif %}
+      </footer>
+    {% endif %}
+  </blockquote>
+{% endif %}

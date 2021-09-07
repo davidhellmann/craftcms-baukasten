@@ -7,18 +7,18 @@
     "url": "https://davidhellmann.com"
   },
   "dependencies": {
-    "@splidejs/splide": "^2.4.21",
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "@vueuse/core": "^6.0.0",
     "alpinejs": "^3.2.4",
     "axios": "^0.21.1",
     "bowser": "^2.11.0",
-    "clipboard": "^2.0.8",
     "ferdi": "0.0.21",
+    "focus-trap": "^6.6.1",
     "lazysizes": "^5.3.2",
     "lightgallery": "^2.2.0",
     "lodash-es": "^4.17.21",
     "tailwindcss-question-mark": "^0.1.1",
+    "swiper": "^7.0.2",
     "typeface-jetbrains-mono": "^2.0.0",
     "typeface-lato": "^1.1.13",
     "typeface-merriweather": "^1.1.13",
@@ -43,13 +43,13 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run twc && vite build",
     "upgrade-interactive": "npm-check --update",
     "preinstall": "$npm_execpath --silent run checknpm",
     "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)",
     "tcv": "npm run tcc && tailwind-config-viewer -o -p 3333",
     "tcc": "tailwind-config-viewer export ../_tailwind",
-    "twc": "npx tailwindcss build ../src/css/app.pcss -o ../src/css/tailwind.app.css -c tailwind.config.js"
+    "twc": "npx tailwindcss build ../src/css/app.pcss -o ../src/public/css/tailwind.app.css -c tailwind.config.js"
   },
   "version": "1.1.3"
 }

@@ -1,0 +1,74 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Icon SM{% endblock %}
+      {% block content %}
+          {% include '_components/icon/icon.twig' with {
+            data: {
+              icon: 'brand/html5',
+              variant: 'sm',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Icon MD{% endblock %}
+      {% block content %}
+          {% include '_components/icon/icon.twig' with {
+            data: {
+              icon: 'brand/html5',
+              variant: 'md',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Icon LG{% endblock %}
+      {% block content %}
+          {% include '_components/icon/icon.twig' with {
+            data: {
+              icon: 'brand/html5',
+              variant: 'lg',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Icon XL{% endblock %}
+      {% block content %}
+          {% include '_components/icon/icon.twig' with {
+            data: {
+              icon: 'brand/html5',
+              variant: 'xl',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Icon 2XL{% endblock %}
+      {% block content %}
+          {% include '_components/icon/icon.twig' with {
+            data: {
+              icon: 'brand/html5',
+              variant: '2xl',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+

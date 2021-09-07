@@ -4,12 +4,17 @@
     name: 'c-logo',
   },
   data: {
-    url: siteUrl,
-    svgName: 'logo'
+    svgName: 'logo',
+    variant: 'md',
   },
   classes: {
     root: '',
     custom: ''
+  },
+  variants: {
+    sm: 'w-8 h-8',
+    md: 'w-16 h-16',
+    lg: 'w-24 h-24',
   }
 } %}
 
@@ -18,6 +23,7 @@
   settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
 } %}
 
 
@@ -26,15 +32,8 @@
 
 {% if props.data.svgName %}
   <div class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
-    {% if props.data.url ??? null %}
-    <a href="{{ props.data.url }}">
-      {% endif %}
       {{ svg('@webroot/dist/img/svg/' ~ props.data.svgName ~ '.svg')
-      | attr({ class: 'w-16 h-16' }) }}
-
-      {% if props.data.url %}
-    </a>
-    {% endif %}
+      | attr({ class: props.variants[props.data.variant] }) }}
   </div>
 {% endif %}
 

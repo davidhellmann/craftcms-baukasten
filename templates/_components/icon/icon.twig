@@ -1,12 +1,25 @@
-{#
-  a-icon
-  ------------------------------------------------------------
-#}
-
-{# Set Defaults #}
-{% set defaults = {
-  name: 'c-icon',
-  icon: null
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-icon',
+  },
+  data: {
+    icon: null,
+    variant: 'sm',
+    size: 'sm',
+  },
+  classes: {
+    root: 'inline-flex',
+    color: 'text-current',
+    custom: '',
+  },
+  variants: {
+    sm: 'w-4 h-4',
+    md: 'w-6 h-6',
+    lg: 'w-8 h-8',
+    xl: 'w-12 h-12',
+    '2xl': 'w-16 h-16',
+  }
 } %}
 
 {# >>> Merge settings / data / classes #}
@@ -14,13 +27,15 @@
   settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+{# >>> No macroComponentSettings here cause simplify the icon (noWrapper) #}
 
-{% if props.icon %}
-  <span {{ macroComponentSettings.componentSettings(props.settings) }}>
-    {{ svg('@webroot/dist/img/svg/' ~ props.icon ~ '.svg') }}
-  </span>
+{% if props.data.icon %}
+    {{ svg('@webroot/dist/img/svg/' ~ props.data.icon ~ '.svg')
+    | attr({
+      class: props.classes.root ~ ' ' ~ props.classes.color ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom,
+      'data-component': props.settings.name
+    }) }}
 {% endif %}

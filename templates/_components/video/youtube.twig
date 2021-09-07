@@ -1,0 +1,36 @@
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-videoYoutube',
+  },
+  data: {
+    videoId: null,
+    autoplay: 0,
+    loop: 0,
+    showinfo: 0,
+  },
+  classes: {
+    root: 'aspect-w-16 aspect-h-9',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Macros #}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+
+{% if props.data.videoId %}
+  <div class="{{ props.classes.root }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+    <iframe class="lazyload" loading="lazy"
+            data-src="https://www.youtube-nocookie.com/embed/{{ props.data.videoId }}?rel=0&loop={{ props.data.loop }}&showinfo={{ props.data.showinfo }}&autoplay={{ props.data.autoplay }}"
+            frameborder="0">
+    </iframe>
+  </div>
+{% endif %}
+

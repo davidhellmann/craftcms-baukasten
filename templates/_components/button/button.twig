@@ -5,14 +5,16 @@
   },
   data: {
     variant: 'primary',
+    variantSize: 'md',
     icon: null,
+    iconSize: 'sm',
     text: null,
     url: null,
     reverse: false,
     target: null,
   },
   classes: {
-    root: 'transition rounded-md px-6 pt-2 pb-3 font-sans font-bold text-center items-center gap-4 grid-flow-col justify-center whitespace-nowrap',
+    root: 'transition rounded-md font-sans font-bold text-center items-center grid-flow-col justify-center whitespace-nowrap',
     custom: '',
     display: 'inline-grid',
     position: 'relative',
@@ -21,6 +23,9 @@
     primary: 'bg-primary-800 hover:bg-primary-700 text-white border-2 border-primary-800 hover:border-primary-700',
     primaryOutlined: 'bg-transparent text-primary-800 hover:text-primary-700 border-2 border-primary-800 hover:border-primary-700',
     secondary: 'bg-secondary-300 hover:bg-secondary-400 text-secondary-800 border-2 border-secondary-300 hover:border-secondary-400',
+    sm: 'px-2 py-1 gap-1 text-sm',
+    md: 'px-4 py-1.5 gap-2 text-base',
+    lg: 'px-6 py-3 gap-2 text-lg'
   }
 } %}
 
@@ -40,15 +45,19 @@
   {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
 
   <{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }}
-  class="{{ props.classes.root }} {{ props.classes.position }} {{ props.classes.display }} {{ props.variants[props.data.variant] ??? '' }} {{ props.classes.custom }}"
+  class="{{ props.classes.root }} {{ props.classes.position }} {{ props.classes.display }} {{ props.variants[props.data.variant] }}  {{ props.variants[props.data.variantSize] }} {{ props.classes.custom }}"
   {{ macroComponentSettings.componentSettings(props.settings) }}>
 
   {# >>> If icon exists #}
   {% if props.data.icon %}
+    {# >>> Render icon  #}
     {% include '_components/icon/icon.twig' with {
-      props: {
-        customClasses: (props.data.reverse ? 'col-start-2') ~ ' transform translate-y-px',
-        icon: props.data.icon ??? null
+      data: {
+        icon: props.data.icon ??? null,
+        variant: props.data.iconSize
+      },
+      classes: {
+        custom: (props.data.reverse ? 'col-start-2')
       }
     } only %}
   {% endif %}

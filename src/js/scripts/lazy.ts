@@ -3,37 +3,41 @@ export const initLazyloading = (selector: string): void => {
 
   if ('IntersectionObserver' in window) {
     // Create new observer object
-    let lazyImageObserver = new IntersectionObserver((entries, observer) => {
+    let lazyItemObserver = new IntersectionObserver((entries, observer) => {
       // Loop through IntersectionObserverEntry objects
       entries.forEach(entry => {
         // Do these if the target intersects with the root
         if (entry.isIntersecting) {
-          let lazyImage: any = entry.target;
+          let lazyItem: any = entry.target;
 
-          if (lazyImage.nodeName === 'IMG') {
-            lazyImage.src = lazyImage.dataset.src || lazyImage.src;
-            lazyImage.srcset = lazyImage.dataset.srcset;
-            lazyImage.sizes = `${lazyImage.getBoundingClientRect().width}px`;
+          if (lazyItem.nodeName === 'IMG') {
+            lazyItem.src = lazyItem.dataset.src || lazyItem.src;
+            lazyItem.srcset = lazyItem.dataset.srcset;
+            lazyItem.sizes = `${lazyItem.getBoundingClientRect().width}px`;
           }
 
-          if (lazyImage.nodeName === 'SOURCE') {
-            lazyImage.srcset = lazyImage.dataset.srcset;
+          if (lazyItem.nodeName === 'SOURCE') {
+            lazyItem.srcset = lazyItem.dataset.srcset;
           }
 
-          lazyImage.classList.remove('lazyload');
-          lazyImage.classList.add('lazyloaded');
-          lazyImageObserver.unobserve(lazyImage);
+          if (lazyItem.nodeName === 'IFRAME') {
+            lazyItem.src = lazyItem.dataset.src;
+          }
+
+          lazyItem.classList.remove('lazyload');
+          lazyItem.classList.add('lazyloaded');
+          lazyItemObserver.unobserve(lazyItem);
         }
       });
     });
 
     // Loop through and observe each image
-    images.forEach(function (lazyImage) {
-      lazyImageObserver.observe(lazyImage);
+    images.forEach(function (lazyItem) {
+      lazyItemObserver.observe(lazyItem);
     });
 
     // Save for Sprig
     window._LazyImageSelector = selector;
-    window._LazyImageObserver = lazyImageObserver;
+    window._LazyImageObserver = lazyItemObserver;
   }
 };

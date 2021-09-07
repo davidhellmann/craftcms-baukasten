@@ -1,0 +1,51 @@
+/* Smooth on load */
+.swiper {
+  @apply transition duration-500 opacity-0;
+  @apply !pb-[5px];
+}
+
+.swiper-slide:not(:first-child) {
+  @apply hidden;
+}
+
+.swiper.swiper-is-ready {
+  @apply opacity-100;
+}
+
+.swiper-is-ready .swiper-slide:not(:first-child) {
+  @apply block;
+}
+
+/* Scrollbar 100% width */
+.swiper-scrollbar {
+  @apply w-full inset-x-0 bottom-0 !important;
+  @apply bg-gray-100 !important;;
+}
+
+.swiper-scrollbar-drag {
+  @apply bg-primary-500 !important;
+}
+
+/* Custom prev / next */
+.swiper-button-prev,
+.swiper-button-next {
+  @apply hidden !important;
+}
+
+@screen md {
+  .swiper-button-prev,
+  .swiper-button-next {
+    @apply flex !important;
+  }
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply hidden;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply bg-white w-12 h-12 rounded-full bg-no-repeat text-primary-500 !important;
+}
+

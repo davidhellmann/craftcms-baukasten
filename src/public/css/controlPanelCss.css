@@ -1,0 +1,14 @@
+/*
+ |--------------------------------------------------------------------------
+ |  Content Builder Stuff
+ |--------------------------------------------------------------------------
+ */
+
+.blocks .matrixblock[data-type="bSection"] {
+  margin-top: 50px;
+}
+
+.blocks .matrixblock[data-type="bSection"] ~ .matrixblock:not([data-type="bSection"]) {
+  width: calc(97% - 30px);
+  margin-left: 3%;
+}

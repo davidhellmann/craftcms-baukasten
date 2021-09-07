@@ -1,9 +1,24 @@
-{# Set Defaults #}
-{% set defaults = {
-  name: 'c-spacer',
-  customClasses: '',
-  size: 'h-2',
-  visible: 0,
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-spacer',
+  },
+  data: {
+    variant: 'sm',
+    visible: false
+  },
+  classes: {
+    root: 'border-0',
+    custom: '',
+    visible: 'bg-primary-50',
+  },
+  variants: {
+    sm: 'h-2 md:h-4',
+    md: 'h-4 md:h-8',
+    lg: 'h-8 md:h-16',
+    xl: 'h-16 md:h-32',
+    '2xl': 'h-32 md:h-64',
+  }
 } %}
 
 {# >>> Merge settings / data / classes #}
@@ -11,11 +26,12 @@
   settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
 } %}
 
 {# Macros #}
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
-<hr class="border-0 {{ props.size }} {{ props.visible ? 'bg-indigo-50' }} {{ props.customClasses }}"
+<hr class="{{ props.classes.root }}  {{ props.variants[props.data.variant] }}  {{ props.data.visible ? props.classes.visible : '' }} {{ props.classes.custom }}"
     {{ macroComponentSettings.componentSettings(props.settings) }}>
 

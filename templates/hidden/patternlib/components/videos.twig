@@ -1,0 +1,34 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Youtube{% endblock %}
+      {% block content %}
+        {% include '_components/video/youtube.twig' with {
+          data: {
+            videoId: 'KiF6D9E1ya8',
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Youtube / Autoplay{% endblock %}
+      {% block content %}
+        {% include '_components/video/youtube.twig' with {
+          data: {
+            videoId: 'KiF6D9E1ya8',
+            autoplay: 1
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+

@@ -1,0 +1,31 @@
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-footer',
+  },
+  data: {
+    url: siteUrl,
+  },
+  classes: {
+    root: 'bg-gray-100  mt-auto',
+    custom: '',
+    container: 'container py-4 text-sm',
+    footerLink: 'underline hover:no-underline font-bold'
+  }
+} %}
+
+{# >>> Merge settings / data / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Macros #}
+{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+
+<footer class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+  <div class="{{ props.classes.container }}">
+    <a class="{{ props.classes.footerLink }}" href="{{ props.data.url }}">Baukasten</a> &copy;2014 &mdash; {{ "now"|date("Y") }}
+  </div>
+</footer>

@@ -1,7 +1,7 @@
 /* eslint-disable no-var,object-shorthand,func-names,no-undef,no-param-reassign */
-(function($R) {
+(function ($R) {
   $R.add('plugin', 'baukasten', {
-    init: function(app) {
+    init: function (app) {
       this.app = app;
       this.toolbar = app.toolbar;
       this.selection = app.selection;
@@ -80,7 +80,7 @@
       };
     },
 
-    start: function() {
+    start: function () {
       var dropdownData = {
         primary: {
           title: 'Link Primary',
@@ -136,46 +136,46 @@
       $button.setDropdown(dropdownData);
     },
 
-    togglePrimary: function() {
+    togglePrimary: function () {
       this.toggleLinkStyles('c-link  c-link--primary', 'a');
     },
 
-    toggleSecondary: function() {
+    toggleSecondary: function () {
       this.toggleLinkStyles('c-link  c-link--secondary', 'a');
     },
 
-    toggleOutlined: function() {
+    toggleOutlined: function () {
       this.toggleLinkStyles('c-link  c-link--outlined', 'a');
     },
 
-    toogleHeadingsh2: function() {
+    toogleHeadingsh2: function () {
       this.toggleHeadingStyles('c-headline  c-headline--h2', this.headings);
     },
 
-    toogleHeadingsh3: function() {
+    toogleHeadingsh3: function () {
       this.toggleHeadingStyles('c-headline  c-headline--h3', this.headings);
     },
 
-    toogleHeadingsh4: function() {
+    toogleHeadingsh4: function () {
       this.toggleHeadingStyles('c-headline  c-headline--h4', this.headings);
     },
 
-    toogleHeadingsh5: function() {
+    toogleHeadingsh5: function () {
       this.toggleHeadingStyles('c-headline  c-headline--h5', this.headings);
     },
 
-    toogleHeadingsh6: function() {
+    toogleHeadingsh6: function () {
       this.toggleHeadingStyles('c-headline  c-headline--h6', this.headings);
     },
 
     // Heading Styles
-    toggleHeadingStyles: function(classToToggle, els) {
+    toggleHeadingStyles: function (classToToggle, els) {
       var selectedHeadings = this.selection.getBlocks({
         first: true,
         tags: els,
       });
 
-      selectedHeadings.forEach(function(heading) {
+      selectedHeadings.forEach(function (heading) {
         if (heading.classList.contains(classToToggle)) {
           heading.classList.remove(classToToggle);
         } else {
@@ -185,13 +185,13 @@
     },
 
     // Link Styles
-    toggleLinkStyles: function(classToToggle, element) {
+    toggleLinkStyles: function (classToToggle, element) {
       var selectedLinks = this.selection.getInlines({
         all: true,
         tags: [element],
       });
 
-      selectedLinks.forEach(function(element) {
+      selectedLinks.forEach(function (element) {
         // Cross-browser toggle class
         if (element.classList) {
           if (element.classList.contains(classToToggle)) {

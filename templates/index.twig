@@ -3,13 +3,7 @@
 {% block blockAppContent %}
   {% cache %}
     {% minify %}
-      <div class="container py-10">
-        {# >>> Render vue dummyComp #}
-        <div id="dummyComp"></div>
-      </div>
-
-      <section class="bg-black text-white py-2">
-        <div class="container">
+        <div class="container py-16">
           <h1>Block App Content</h1>
           {# link #}
           {% include '_components/button/button.twig' with {
@@ -17,9 +11,11 @@
               url: '/hidden/patternlib',
               text: 'Component Library'
             },
+            classes: {
+              custom: 'mt-4'
+            }
           } only %}
         </div>
-      </section>
     {% endminify %}
   {% endcache %}
 {% endblock %}

@@ -20,6 +20,7 @@
       {% endblock %}
     {% endembed %}
 
+    {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Transform: Square{% endblock %}
       {% block content %}
@@ -32,6 +33,7 @@
       {% endblock %}
     {% endembed %}
 
+    {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Transform: Portrait{% endblock %}
       {% block content %}
@@ -44,6 +46,7 @@
       {% endblock %}
     {% endembed %}
 
+    {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Transform: Auto{% endblock %}
       {% block content %}
@@ -56,6 +59,35 @@
       {% endblock %}
     {% endembed %}
 
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Decorative Image (no alt text){% endblock %}
+      {% block content %}
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: cat01Image ??? null,
+            transform: 'landscape',
+            decorativeImage: true
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Render plain image (img tag only){% endblock %}
+      {% block content %}
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: cat03Image ??? null,
+            transform: 'landscape',
+            renderPlainImage: true
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Art Direction{% endblock %}
       {% block content %}

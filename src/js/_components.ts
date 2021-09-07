@@ -7,13 +7,14 @@ const components = {
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
-    // sliderImages
+    // sliderHolder
     if (
-      document.querySelectorAll('.js-sliderImages').length &&
+      document.querySelectorAll('[data-component-js="js-sliderHolder"]')
+        .length &&
       document.documentElement.classList.contains('no-touchevents')
     ) {
-      import('/src/templates/_components/slider/images')
-        .then(imageSlider => imageSlider.default.init())
+      import('/src/templates/_components/slider/swiperHolder')
+        .then(swiperHolder => swiperHolder.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
@@ -21,16 +22,6 @@ const components = {
     if (document.querySelectorAll('.js-imageGridCalculated').length) {
       import('/src/templates/_components/grid/imagesCalculated')
         .then(imagesCalculated => imagesCalculated.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
-    }
-
-    // Code Snippets
-    if (document.querySelectorAll('.js-code').length) {
-      import('./scripts/prism')
-        .then(prism => prism.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
-      import('/src/templates/_components/code/code')
-        .then(code => code.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
