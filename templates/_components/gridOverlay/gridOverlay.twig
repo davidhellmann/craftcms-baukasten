@@ -29,7 +29,7 @@
 {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
-  <div x-data="{ open: localStorage.getItem('gridOverlay') || 'false' }"
+  <div alpinejs x-data="{ open: localStorage.getItem('gridOverlay') || 'false' }"
        x-init="$watch('open', (val) => localStorage.setItem('gridOverlay', val))">
 
     {# Button #}
