@@ -1,0 +1,46 @@
+field: 74eb36ae-7a26-4e7d-b454-990ec52617f0 # Builder: Content
+fieldLayouts:
+  4423c5be-938a-4871-bd99-52e14a8de079:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f084e099-613d-4405-b600-f4be12d3509b # Divider Style
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  f084e099-613d-4405-b600-f4be12d3509b: # Divider Style
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: dividerStyle
+    instructions: ''
+    name: 'Divider Style'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Default
+            -
+              - value
+              - default
+            -
+              - default
+              - '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: bDivider
+name: Divider
+sortOrder: 10

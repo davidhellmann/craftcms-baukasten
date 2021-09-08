@@ -1,0 +1,203 @@
+field: 74eb36ae-7a26-4e7d-b454-990ec52617f0 # Builder: Content
+fieldLayouts:
+  58ddc97d-9694-4104-a136-b6344987e1b6:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 35b67fb3-4bdb-470f-a686-3d46c5cd5f96 # Image
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Image Transform
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 231200a9-ef7d-4002-8155-54fcaf4f6e6c # Image Width
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 9b73b533-898f-4f77-a500-37ea0be0afc7 # Show Image Caption
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Content
+        sortOrder: 1
+fields:
+  9b73b533-898f-4f77-a500-37ea0be0afc7: # Show Image Caption
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: showImageCaption
+    instructions: ''
+    name: 'Show Image Caption'
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  35b67fb3-4bdb-470f-a686-3d46c5cd5f96: # Image
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: image
+    instructions: ''
+    name: Image
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: true
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: true
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  70bc887b-faf2-45c7-b4bc-4299acd343da: # Image Transform
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: imageTransform
+    instructions: ''
+    name: 'Image Transform'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Landscape
+            -
+              - value
+              - landscape
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Square
+            -
+              - value
+              - square
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Portrait
+            -
+              - value
+              - portrait
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Auto
+            -
+              - value
+              - auto
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  231200a9-ef7d-4002-8155-54fcaf4f6e6c: # Image Width
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: imageWidth
+    instructions: ''
+    name: 'Image Width'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Wide
+            -
+              - value
+              - wide
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Narrow
+            -
+              - value
+              - narrow
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Graphic
+            -
+              - value
+              - graphic
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: bImage
+name: Image
+sortOrder: 5
