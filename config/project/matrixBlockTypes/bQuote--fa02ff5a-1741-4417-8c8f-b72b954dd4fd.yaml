@@ -1,0 +1,95 @@
+field: 74eb36ae-7a26-4e7d-b454-990ec52617f0 # Builder: Content
+fieldLayouts:
+  e22d570c-156e-4591-a91a-2af67c7ed22b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 53f0660a-f06b-4b2d-b342-1869c5c65538 # Quote
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c40b8b5e-0ccb-4d0d-9eee-bd24ac9209b0 # Source
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: e11e03f7-19c1-45c3-935e-1994a7ce7d26 # Source Url
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Content
+        sortOrder: 1
+fields:
+  53f0660a-f06b-4b2d-b342-1869c5c65538: # Quote
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: quote
+    instructions: ''
+    name: Quote
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: '1'
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  c40b8b5e-0ccb-4d0d-9eee-bd24ac9209b0: # Source
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: source
+    instructions: ''
+    name: Source
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e11e03f7-19c1-45c3-935e-1994a7ce7d26: # Source Url
+    columnSuffix: null
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: sourceUrl
+    instructions: ''
+    name: 'Source Url'
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: null
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+handle: bQuote
+name: Quote
+sortOrder: 4

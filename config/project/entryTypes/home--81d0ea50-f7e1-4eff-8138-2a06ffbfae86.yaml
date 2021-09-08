@@ -1,0 +1,91 @@
+fieldLayouts:
+  be62de4f-cc21-4603-aab3-8623d43b46ad:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 55a8f195-17f6-41b9-983f-06bb0d4b973e # Entry: Custom Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 45510f13-91d2-479f-9ff2-68dd09ab6643 # Entry: Short Description
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0dc851b0-a289-4c50-be8d-0c055b270ee8 # Entry: Image
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Entry
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 74eb36ae-7a26-4e7d-b454-990ec52617f0 # Builder: Content
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: d29e8520-ab62-4c8f-bda2-61868797c1ca # Entry: SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: SEO
+        sortOrder: 3
+handle: home
+hasTitleField: false
+name: Home
+section: 5d0f7961-203c-4008-a55a-6a7d35e7a37a # Home
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
