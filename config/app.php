@@ -44,7 +44,7 @@ return [
             ],
             'cache' => [
                 'class' => yii\redis\Cache::class,
-                'keyPrefix' => '_' . App::env('APP_ID') . '_CACHE_' ?: 'CraftCMS',
+                'keyPrefix' => '_' . App::env('APP_ID') . '_CACHE_' ?: 'CraftCMS_CACHE_',
                 'defaultDuration' => 86400,
                 'redis' => [
                     'hostname' => App::env('REDIS_HOSTNAME'),
