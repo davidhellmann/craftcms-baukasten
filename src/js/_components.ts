@@ -2,7 +2,7 @@ const components = {
   init() {
     // Gallery
     if (document.querySelectorAll('.js-imageGallery').length) {
-      import('/src/templates/_components/gallery/images')
+      import('../../templates/_components/gallery/images')
         .then(imageGallery => imageGallery.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
@@ -11,14 +11,14 @@ const components = {
     if (
       document.querySelectorAll('[data-component-js="js-sliderHolder"]').length
     ) {
-      import('/src/templates/_components/slider/swiperHolder')
+      import('../../templates/_components/slider/swiperHolder')
         .then(swiperHolder => swiperHolder.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
 
     // Image Grid Calculated
     if (document.querySelectorAll('.js-imageGridCalculated').length) {
-      import('/src/templates/_components/grid/imagesCalculated')
+      import('../../templates/_components/grid/imagesCalculated')
         .then(imagesCalculated => imagesCalculated.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }

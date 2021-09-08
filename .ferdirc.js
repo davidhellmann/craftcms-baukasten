@@ -1,4 +1,4 @@
-const pkg = require('./buildchain/package');
+const pkg = require('./package');
 
 module.exports = {
   defaults: {
