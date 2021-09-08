@@ -2,17 +2,17 @@ const vueComps = {
   async init() {
     // Each Vue Component is decoupled instance
     // Dummy Comp
-    if (document.querySelector('#sampleComp')) {
-      // Import Vue Components
+    if (document.querySelector('#sample')) {
+      // Import Vue onents
       const { createApp } = await import(/* webpackChunkName: "vue" */ 'vue');
-      const { default: SampleComp } = await import(
-        /* webpackChunkName: "sampleComp" */ '../vue/SampleComp.vue'
+      const { default: Sample } = await import(
+        /* webpackChunkName: "sample" */ '../vue/Sample.vue'
       );
 
       // Create our vue instance
-      const sampleComp = createApp(SampleComp);
+      const sample = createApp(Sample);
       // Mount the app
-      sampleComp.mount('#sampleComp');
+      sample.mount('#sample');
     }
   },
 };

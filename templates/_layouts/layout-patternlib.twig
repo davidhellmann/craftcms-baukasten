@@ -19,12 +19,16 @@
 
 
   <div id="appWrapper" class="overflow-hidden">
-    {# >>> Render app header #}
-    {% include '_components/header/header.twig' only %}
-
     <main id="appContent">
       <div class="pl_root">
         <div class="pl_path">
+          <a href="{{ siteUrl }}" class="pl_logo">
+              {% include '_components/logo/logo.twig' with {
+                data: {
+                  variant: props.data.logoSize ??? 'sm'
+                },
+              } only %}
+          </a>
           <a href="{{ config.path ? config.path : '#' }}">
             {{ config.pageTitle ??? 'Pattern Library' }}
             {% if not patternLibRoot is defined %}
@@ -44,8 +48,5 @@
         {% include '/hidden/patternlib/navigation.twig' %}
       </div>
     </main>
-
-    {# >>> Render app fooeter #}
-    {% include '_components/footer/footer.twig' only %}
   </div>
 {% endblock blockAppBody %}

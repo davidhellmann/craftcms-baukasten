@@ -3,23 +3,18 @@
 {% block blockAppContent %}
   {% cache %}
     {% minify %}
-        <div class="container py-16">
-          <h1>Oh, hey!</h1>
-          {# link #}
-          {% include '_components/button/button.twig' with {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Pattern Library'
-            },
-            classes: {
-              custom: 'mt-4'
-            }
-          } only %}
-        </div>
-
-      <div class="container">
-        <h1>Vue sample, freakin awesome!</h1>
-        <div id="sampleComp"></div>
+      <div class="container py-16">
+        <h1>Oh, hey!</h1>
+        {# link #}
+        {% include '_components/button/button.twig' with {
+          data: {
+            url: '/hidden/patternlib',
+            text: 'Pattern Library'
+          },
+          classes: {
+            custom: 'mt-4'
+          }
+        } only %}
       </div>
     {% endminify %}
   {% endcache %}
