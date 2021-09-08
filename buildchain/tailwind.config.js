@@ -49,8 +49,6 @@ module.exports = {
       gridColumn: { ...settingsGrid.gridColumn },
       gridRowStart: { ...settingsGrid.gridRowStart },
       gridRowEnd: { ...settingsGrid.gridRowEnd },
-      // Typography Plugin
-      // typography: theme => (settingsProse(theme))
     },
   },
   variants: {},
@@ -60,9 +58,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
-    // require('@tailwindcss/typography')({
-    //   modifiers: ['md'],
-    // }),
     require('tailwindcss-question-mark'),
     function ({ addComponents }) {
       addComponents(pluginAddComponents);

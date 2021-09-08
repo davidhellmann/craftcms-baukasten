@@ -27,10 +27,10 @@ module.exports = {
   typography: {
     fontSizeMin: 1.125,
     fontSizeMax: 1.2,
-    msFactorMin: modularScales['major-second'],
-    msFactorMax: modularScales['minor-third'],
-    lineHeight: 1.6,
+    ratioMin: modularScales['major-second'],
+    ratioMax: modularScales['minor-third'],
   },
+
   screensRem: {
     min: 20,
     sm: 40,
