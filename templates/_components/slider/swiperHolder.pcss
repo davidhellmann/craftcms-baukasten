@@ -1,7 +1,11 @@
 /* Smooth on load */
 .swiper {
   @apply transition duration-500 opacity-0;
-  @apply !pb-[5px];
+  @apply !pb-2;
+}
+
+.swiper-wrapper {
+  height: auto !important;
 }
 
 .swiper-slide:not(:first-child) {

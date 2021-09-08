@@ -9,9 +9,7 @@ const components = {
 
     // sliderHolder
     if (
-      document.querySelectorAll('[data-component-js="js-sliderHolder"]')
-        .length &&
-      document.documentElement.classList.contains('no-touchevents')
+      document.querySelectorAll('[data-component-js="js-sliderHolder"]').length
     ) {
       import('/src/templates/_components/slider/swiperHolder')
         .then(swiperHolder => swiperHolder.default.init())
