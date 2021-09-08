@@ -73,7 +73,12 @@ return [
     /**
      * @var bool Whether the react-refresh-shim should be included
      */
-    'includeReactRefreshShim' => true,
+    'includeReactRefreshShim' => false,
+
+    /**
+     * @var bool Whether the modulepreload-polyfill shim should be included
+     */
+    'includeModulePreloadShim' => true,
 
     /**
      * @var string File system path (or URL) to where the Critical CSS files are stored

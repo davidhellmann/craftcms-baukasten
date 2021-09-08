@@ -12,7 +12,7 @@ export default ({ command }) => ({
   build: {
     emptyOutDir: true,
     manifest: true,
-    outDir: '../web/dist',
+    outDir: './web/dist',
     rollupOptions: {
       input: {
         app: './src/js/app.ts',
@@ -25,7 +25,7 @@ export default ({ command }) => ({
   plugins: [
     critical({
       criticalUrl: 'http://craftcms-baukasten.test/',
-      criticalBase: '../web/dist/criticalcss/',
+      criticalBase: './web/dist/criticalcss/',
       criticalPages: [{ uri: '', template: 'index' }],
       criticalConfig: {},
     }),
@@ -45,7 +45,15 @@ export default ({ command }) => ({
       moduleDirectories: [path.resolve('./node_modules')],
     }),
     ViteRestart({
-      reload: ['./src/templates/**/*'],
+      reload: [
+        './translations/**/*',
+        './templates/**/*'
+      ],
+      restart: [
+        './tailwind.config.js',
+        './postcss.config.js',
+        './tailwind/**/*',
+      ]
     }),
     vue(),
     // Static Asset Fixer, see: https://github.com/vitejs/vite/issues/2394
