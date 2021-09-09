@@ -19,12 +19,6 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
-
-
-
 
 {# Modul #}
 {% if props.object or props.text %}
@@ -36,7 +30,7 @@
     {% set headline = props.object.title %}
   {% endif %}
 
-  <{{ props.size }} {{ macroComponentSettings.componentSettings(props.settings) }}>
+  <{{ props.size }}>
   <div class="{{ props.cn ~ '__wrapper' }}">
     <div class="{{ props.cn ~ '__inner' }}">
       {% if props.link %}

@@ -1,7 +1,7 @@
 {# >>> Comp Settings #}
 {% set compDefaults = {
   settings: {
-    cn: '<%= cn %>',
+    name: '<%= cn %>',
   },
   data: {
     sample: true,
@@ -19,11 +19,8 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
 {% if props.data.sample %}
-  <div class="{{ props.classes.root }} {{ props.classes.custom }}" {{ module.settings(props) }}>
+  <div class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }}" >
     <%= mn %> finally rendered
   </div>
 {% endif %}

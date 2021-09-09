@@ -15,12 +15,9 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
 {# Modul #}
 {% if props.images %}
-  <div {{ macroComponentSettings.componentSettings(props.settings) }}>
+  <div>
     <div class="{{ props.cn ~ '__inner' }}">
       {% for image in props.images %}
         {% set imageSrc = image.getUrl() %}

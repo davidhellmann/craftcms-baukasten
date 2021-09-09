@@ -31,11 +31,8 @@
   variants: compDefaults.variants,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
 {% if props.data.text %}
-  <{{ props.data.tag }} class="{{ props.classes.root }} {{ props.variants[props.data.variant] }}  {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+  <{{ props.data.tag }} class="{{ props.settings.name }} {{ props.classes.root }} {{ props.variants[props.data.variant] }}  {{ props.classes.custom }}">
   {{ props.data.text | nl2br | raw }}
   </{{ props.data.tag }}>
 {% endif %}

@@ -15,12 +15,9 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
 {# Modul #}
 {% if props.items %}
-  <div class="{{ props.baseStyles }}  {{ props.customClasses }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+  <div class="{{ props.settings.name }} {{ props.baseStyles }}  {{ props.customClasses }}">
     {% if not props.overview %}
       <div class="col-span-1">
         <h2 class="text-4xl leading-none uppercase" style="hyphens: auto;">

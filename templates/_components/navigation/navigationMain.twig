@@ -12,13 +12,10 @@
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
-
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 {% import '_macros/_macro-navigation.twig' as macroNavigation  %}
 
 {% if props.nodes %}
-  <nav {{ macroComponentSettings.componentSettings(props.settings) }}>
+  <nav>
     {% set navigationMainOptions = {
       name: props.cn,
       nodes: props.nodes,

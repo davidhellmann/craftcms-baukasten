@@ -49,7 +49,7 @@
   {% set props = props is defined ? defaults|merge(props) : defaults %}
 
   <div
-    class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+    class="{{ props.classes.root }} {{ props.classes.custom }}">
     <ul class="{{ props.ulClass }}  {{ props.ulClass ~ '--level-1' }}">
       {% nav node in props.nodes %}
         {% set level = node.level %}

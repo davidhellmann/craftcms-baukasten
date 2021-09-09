@@ -12,10 +12,7 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
-<div {{ macroComponentSettings.componentSettings(props.settings) }}>
+<div>
   {# http://craftsnippets.com/articles/universal-language-switcher-for-craft-cms #}
 
   {# logic #}
@@ -47,7 +44,7 @@
 
   {# outputting html #}
   {% if switcherLinks|length > 0 %}
-    <nav aria-label="{{ 'Switch language' | t }}" aria-role="navigation" data-component-js="js-languageSwitcher" class="js-languageSwitcherTrigger flex items-end cursor-pointer relative">
+    <nav aria-label="{{ 'Switch language' | t }}" aria-role="navigation" class="js-languageSwitcher js-languageSwitcherTrigger flex items-end cursor-pointer relative">
       {% for switcherLink in switcherLinks %}
         {% if switcherLink.current %}
           <span class="mr-8 text-gray-3 opacity-50">{{ switcherLink.title }}</span>

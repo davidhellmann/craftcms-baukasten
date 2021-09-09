@@ -24,12 +24,9 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
 {# Modul #}
 {% if props.data.quote %}
-  <blockquote class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+  <blockquote class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }}">
     <p class="{{ props.classes.p }}">
       {{ props.data.quote | nl2br | raw }}
     </p>

@@ -18,14 +18,11 @@ o-imageGrid
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
-{% set props = props | merge({  js: true}) %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 
 {# Modul #}
 {% if props.images %}
-  <div {{ macroComponentSettings.componentSettings(props.settings) }}>
+  <div class="{{ props.settings.name }} js-imageGridCalculated">
     <div class="{{ props.cn ~ '__inner' }}">
       {% for image in props.images if image %}
         <div class="{{ props.cn ~ '__item' }}">

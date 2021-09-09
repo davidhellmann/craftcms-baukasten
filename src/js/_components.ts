@@ -9,7 +9,7 @@ const components = {
 
     // sliderHolder
     if (
-      document.querySelectorAll('[data-component-js="js-sliderHolder"]').length
+      document.querySelectorAll('.js-sliderHolder').length
     ) {
       import('../../templates/_components/slider/swiperHolder')
         .then(swiperHolder => swiperHolder.default.init())
