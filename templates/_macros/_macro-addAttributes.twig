@@ -1,0 +1,10 @@
+{#
+  {% import '_macros/_macro-addAttributes.html' as macroAddAttributes  %}
+  {{ macroAddAttributes.addAttributes(props.settings) }}
+#}
+{% macro addAttributes(props) %}
+  {# Set data attributes #}
+  {% if props.data ??? null %}
+    {% for key, value in props.data %}  {{ key }}="{{ value }}" {% endfor %}
+  {% endif %}
+{% endmacro %}
