@@ -25,8 +25,6 @@ Go to `./` and do this: `valet link craftcms-baukasten` to create a domain like 
 - `redis-server --daemonize yes` it's totally optional
 - `npm run dev` start local dev server
 - `npm run upgrade-interactive` To get an interactive GUI to update NPM Packages
-- `npm run tcv` serve the tailwind config viewer on localhost:3333
-- `npm run tcc` create a new tailwind config viewer export
 - `npm run twc` creates a `tailwind.app.css` file in `./src/css/`
 
 
