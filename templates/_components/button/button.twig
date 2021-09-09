@@ -37,16 +37,12 @@
   variants: compDefaults.variants,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
 {% if props.data.text %}
   {% set tag = props.data.url ? 'a' : 'button' %}
   {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
 
   <{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }}
-  class="{{ props.classes.root }} {{ props.classes.position }} {{ props.classes.display }} {{ props.variants[props.data.variant] }}  {{ props.variants[props.data.variantSize] }} {{ props.classes.custom }}"
-  {{ macroComponentSettings.componentSettings(props.settings) }}>
+  class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.position }} {{ props.classes.display }} {{ props.variants[props.data.variant] }}  {{ props.variants[props.data.variantSize] }} {{ props.classes.custom }}">
 
   {# >>> If icon exists #}
   {% if props.data.icon %}

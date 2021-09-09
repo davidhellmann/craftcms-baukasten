@@ -1,7 +1,16 @@
-{% set defaults = {
-  name: 'c-contentBuilder',
-  blocks: null,
-  object: entry ??? null,
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-contentBuilder',
+  },
+  data: {
+    blocks: null,
+    object: entry ??? null,
+  },
+  classes: {
+    root: '',
+    custom: '',
+  },
 } %}
 
 {# >>> Merge settings / data / classes #}
@@ -11,13 +20,9 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
-{% if props.blocks %}
-<div {{ macroComponentSettings.componentSettings(props.settings) }}>
-  {% if props.blocks|length %}
-    {% for content in props.blocks %}
+{% if props.data.blocks %}
+<div class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+    {% for content in props.data.blocks %}
 
       {# Create Section if first block is not a section #}
       {% if loop.first and content.type.handle != 'cbSection' %}
@@ -48,6 +53,5 @@
     {# Close Last Section #}
     </div>
     </div>
-  {% endif %}
   </div>
 {% endif %}
