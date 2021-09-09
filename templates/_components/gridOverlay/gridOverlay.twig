@@ -25,9 +25,6 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
 {# Modul #}
   <div alpinejs x-data="{ open: localStorage.getItem('gridOverlay') || 'false' }"
        x-init="$watch('open', (val) => localStorage.setItem('gridOverlay', val))">
@@ -44,7 +41,7 @@
     <div class="{{ props.classes.root }} {{ props.classes.custom }}"
          style="display: none; outline: 1px solid {{ props.data.outlineColor }}"
          x-show="open === 'true'"
-      {{ macroComponentSettings.componentSettings(props.settings) }}>
+     >
       <div class="{{ props.classes.gridWrapper }} {{ props.classes.gridCol }}" >
         {% for i in 1..props.data.maxCols %}
           <div class="h-screen" style="background-color: {{ props.data.backgroundColor }}; box-shadow: 1px 0px 0px 0px {{ props.data.outlineColor }}, -1px 0px 0px 0px {{ props.data.outlineColor }};"></div>

@@ -29,9 +29,5 @@
   variants: compDefaults.variants,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
-<hr class="{{ props.classes.root }}  {{ props.variants[props.data.variant] }}  {{ props.data.visible ? props.classes.visible : '' }} {{ props.classes.custom }}"
-    {{ macroComponentSettings.componentSettings(props.settings) }}>
+<hr class="{{ props.settings.name }} {{ props.classes.root }}  {{ props.variants[props.data.variant] }}  {{ props.data.visible ? props.classes.visible : '' }} {{ props.classes.custom }}">
 

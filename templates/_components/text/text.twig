@@ -20,14 +20,9 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
 {# Modul #}
 {% if props.data.text %}
-  <div class="{{ props.classes.root }}
-    {{ props.classes.custom }}"
-    {{ macroComponentSettings.componentSettings(props.settings) }}>
+  <div class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }}">
     {% if props.data.richText %}
       {{ props.data.text | raw }}
     {% else %}

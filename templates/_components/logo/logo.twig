@@ -26,15 +26,11 @@
   variants: compDefaults.variants,
 } %}
 
-
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
 {% if props.data.svgName %}
-  <div class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
-      {{ svg('@webroot/dist/img/svg/' ~ props.data.svgName ~ '.svg')
-      | attr({ class: props.variants[props.data.variant] }) }}
-  </div>
+  {{ svg('@webroot/dist/img/svg/' ~ props.data.svgName ~ '.svg')
+  | attr({
+    class: props.settings.name ~ ' ' ~ props.classes.root ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom
+  }) }}
 {% endif %}
 
 

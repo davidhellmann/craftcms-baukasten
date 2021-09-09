@@ -16,7 +16,7 @@ const <%= mn %> = {
   cfg:  {
     name: '<%= mn %>',
       selectors: {
-      <%= mn %>: '[data-component-js="js-<%= mn %>"]',
+      <%= mn %>: '.js-<%= mn %>',
     },
     classes: {
       active: 'is-active',

@@ -40,13 +40,10 @@
   variants: compDefaults.variants,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
 {# Modul #}
 {% if props.data.image and props.data.title and props.data.linkUrl %}
   <a href="{{ props.data.linkUrl }}"
-     class="{{ props.classes.root }} {{ props.variants[props.data.variant].root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+     class="{{ props.settings.name }} {{ props.classes.root }} {{ props.variants[props.data.variant].root }} {{ props.classes.custom }}">
     <div class="{{ props.variants[props.data.variant].image }}">
       {% include '_components/image/image.twig' with {
         data: {

@@ -22,14 +22,10 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
 {% if props.data.videoId %}
-  <div class="{{ props.classes.root }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+  <div class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }}">
     <iframe class="lazyload" loading="lazy"
-            data-src="https://www.youtube-nocookie.com/embed/{{ props.data.videoId }}?rel=0&loop={{ props.data.loop }}&showinfo={{ props.data.showinfo }}&autoplay={{ props.data.autoplay }}"
-            frameborder="0">
+            data-src="https://www.youtube-nocookie.com/embed/{{ props.data.videoId }}?rel=0&loop={{ props.data.loop }}&showinfo={{ props.data.showinfo }}&autoplay={{ props.data.autoplay }}">
     </iframe>
   </div>
 {% endif %}

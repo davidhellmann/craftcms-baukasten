@@ -21,10 +21,7 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
-<footer class="{{ props.classes.root }} {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}>
+<footer class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }}">
   <div class="{{ props.classes.container }}">
     <a class="{{ props.classes.footerLink }}" href="{{ props.data.url }}">Baukasten</a> &copy;2014 &mdash; {{ "now"|date("Y") }}
   </div>
