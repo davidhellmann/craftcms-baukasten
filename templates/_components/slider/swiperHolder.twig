@@ -2,7 +2,6 @@
 {% set compDefaults = {
   settings: {
     name: 'c-sliderHolder',
-    js: true,
   },
   data: {
     slides: null,
@@ -49,13 +48,10 @@
 } %}
 
 
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
 {# Component #}
-<div class="swiper {{ props.classes.root }} {{ props.classes.custom }}"
+<div class="swiper {{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }} js-sliderHolder"
      data-swiper-config="{{ props.data.swiperConfig | json_encode }}"
-  {{ macroComponentSettings.componentSettings(props.settings) }}>
+ >
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     {% block swiperSlides %}{% endblock %}

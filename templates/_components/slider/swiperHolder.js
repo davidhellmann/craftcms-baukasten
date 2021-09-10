@@ -19,7 +19,7 @@ import './swiperHolder.pcss';
 
 const swiperHolder = {
   cfg: {
-    slider: '[data-component-js="js-sliderHolder"]',
+    slider: '.js-sliderHolder',
   },
 
   initSliders(sliders) {

@@ -59,7 +59,7 @@
     decorativeImage: false
   },
   classes: {
-    base: 'block',
+    root: 'block',
     custom: ''
   }
 } %}
@@ -70,9 +70,6 @@
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
-
-{# Macros #}
-{% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
 {% import '_macros/_macro-imageHelper.twig' as imageHelper %}
 
 {# Image #}
@@ -204,14 +201,14 @@
 
   {% if props.data.renderPlainImage and not props.data.sources %}
     {# Render Plain Image #}
-    {{- imageHelper.renderImage(imageData, props.data.transform, props.data.lazy, props.data.objectFit, props.classes.base ~ ' ' ~ props.classes.custom) -}}
+    {{- imageHelper.renderImage(imageData, props.data.transform, props.data.lazy, props.data.objectFit, props.classes.root ~ ' ' ~ props.classes.custom) -}}
 
     {% if props.data.noscript %}
       {{- imageData.noscript | raw -}}
     {% endif %}
   {% elseif not props.data.renderPlainImage and not props.data.sources %}
     {# Render Figure Element #}
-    <figure class="{{ props.classes.base }}  {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}
+    <figure class="{{ props.settings.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
       {% if props.data.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
       {{- imageHelper.renderImage(imageData, props.data.transform, props.data.lazy, props.data.objectFit) -}}
 
@@ -234,7 +231,7 @@
   {% elseif not props.data.renderPlainImage and props.data.sources  %}
     {# Render Figure in Picutre #}
     {% if props.data.caption %}
-      <figure class="{{ props.classes.base }}  {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}
+      <figure class="{{ props.settings.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
         {% if props.data.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
         <picture>
           {% for source in imageData.sources %}
@@ -261,7 +258,7 @@
         </picture>
       </figure>
     {% else %}
-      <picture class="{{ props.classes.base }}  {{ props.classes.custom }}" {{ macroComponentSettings.componentSettings(props.settings) }}
+      <picture class="{{ props.settings.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
         {% if props.data.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
         {% for source in imageData.sources %}
           {{- imageHelper.renderSource(source[0], source[1], source[2], source[3], source[4]) -}}

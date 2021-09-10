@@ -35,7 +35,6 @@
 {% if props.data.icon %}
     {{ svg('@webroot/dist/img/svg/' ~ props.data.icon ~ '.svg')
     | attr({
-      class: props.classes.root ~ ' ' ~ props.classes.color ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom,
-      'data-component': props.settings.name
+      class: props.settings.name ~ ' ' ~ props.classes.root ~ ' ' ~ props.classes.color ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom
     }) }}
 {% endif %}
