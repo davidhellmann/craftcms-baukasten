@@ -4,9 +4,7 @@
  * */
 
 // Settings
-const settingsScreens = require('./tailwind/tailwind.settings.screens');
 const settingsGrid = require('./tailwind/tailwind.settings.grid');
-const settingsFontSizes = require('./tailwind/tailwind.settings.fontSizes');
 const settingsColors = require('./tailwind/tailwind.settings.colors');
 
 // Plugins
@@ -33,32 +31,28 @@ module.exports = {
       serif: ['Merriweather', 'Georgia', 'Times New Roman', 'Times', 'serif'],
       mono: ['"JetBrains Mono"', '"Courier New"', 'Courier', 'monospace'],
     },
-    fontSize: settingsFontSizes,
+    // fontSize: settingsFontSizes,
     colors: settingsColors,
-    screens: settingsScreens,
     extend: {
-      spacing: {
-        '50vh': '50vh',
-      },
-      zIndex: {
-        1000: '1000',
-        10000: '10000',
-        100000: '100000',
-      },
       gridTemplateColumns: { ...settingsGrid.gridTemplateColumns },
       gridColumn: { ...settingsGrid.gridColumn },
       gridRowStart: { ...settingsGrid.gridRowStart },
       gridRowEnd: { ...settingsGrid.gridRowEnd },
+      screens: {
+        nthover: { raw: '(hover: hover)' },
+      }
     },
   },
   variants: {},
   corePlugins: {
     float: false,
+    fontSize: false,
     container: false,
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('tailwindcss-question-mark'),
+    require('tailwindcss-fluid-type'),
     function ({ addComponents }) {
       addComponents(pluginAddComponents);
     },
