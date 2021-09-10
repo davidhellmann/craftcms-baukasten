@@ -14,18 +14,21 @@
     target: null,
   },
   classes: {
-    root: 'transition rounded-md font-sans font-bold text-center items-center grid-flow-col justify-center whitespace-nowrap',
+    root: 'items-center border border-transparent font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600',
     custom: '',
-    display: 'inline-grid',
-    position: 'relative',
+    display: 'inline-flex',
+    rounded: 'rounded-md'
   },
   variants: {
-    primary: 'bg-primary-800 hover:bg-primary-700 group-hover:bg-primary-700 text-white border-2 border-primary-800 hover:border-primary-700 group-hover:border-primary-700',
-    primaryOutlined: 'bg-transparent text-primary-800 hover:text-primary-700 group-hover:text-primary-700 border-2 border-primary-800 hover:border-primary-700 group-hover:border-primary-700',
-    secondary: 'bg-secondary-300 hover:bg-secondary-400 group-hover:bg-secondary-400 text-secondary-800 border-2 border-secondary-300 hover:border-secondary-400 group-hover:border-secondary-400',
-    sm: 'px-2 py-1 gap-1 text-sm',
-    md: 'px-4 py-1.5 gap-2 text-base',
-    lg: 'px-6 py-3 gap-2 text-lg'
+    primary: 'text-white bg-primary-700 hover:bg-primary-800 group-hover:bg-primary-800',
+    secondary: 'text-secondary-900 bg-secondary-300 hover:bg-secondary-400 group-hover:bg-secondary-400',
+    outlined: 'text-gray-900 border-gray-200 bg-white hover:bg-gray-50 group-hover:bg-gray-50',
+    sm: 'px-2.5 py-1.5 gap-2 text-xs',
+    md: 'px-4 py-2 gap-3 text-base',
+    lg: 'px-6 py-3 gap-4 text-base',
+    smIcon: 'p-1.5',
+    mdIcon: 'p-2',
+    lgIcon: 'p-3',
   }
 } %}
 
@@ -37,12 +40,12 @@
   variants: compDefaults.variants,
 } %}
 
-{% if props.data.text %}
+{% if props.data.text or props.data.icon %}
   {% set tag = props.data.url ? 'a' : 'button' %}
   {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
 
   <{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }}
-  class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.position }} {{ props.classes.display }} {{ props.variants[props.data.variant] }}  {{ props.variants[props.data.variantSize] }} {{ props.classes.custom }}">
+  class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants[props.data.variant] }}  {{ props.variants[props.data.variantSize] }} {{ props.classes.custom }}">
 
   {# >>> If icon exists #}
   {% if props.data.icon %}
@@ -53,10 +56,10 @@
         variant: props.data.iconSize
       },
       classes: {
-        custom: (props.data.reverse ? 'col-start-2')
+        custom: (props.data.reverse ? 'order-2')
       }
     } only %}
   {% endif %}
-  {{ props.data.text }}
+    {{ props.data.text ??? null }}
   </{{ tag }}>
 {% endif %}
