@@ -5,9 +5,12 @@
   },
   data: {
     variant: 'sm',
+    label: null
   },
   classes: {
-    root: 'border-0 bg-gray-200 h-px',
+    root: 'flex items-center relative',
+    hr: 'border-0 bg-gray-200 h-px w-full absolute top-1/2',
+    label: 'text-xs bg-white relative z-10 pr-4 text-gray-700',
     custom: '',
   },
   variants: {
@@ -27,4 +30,12 @@
   variants: compDefaults.variants,
 } %}
 
-<hr class="{{ props.settings.name }} {{ props.classes.root }} {{ props.variants[props.data.variant] }} {{ props.classes.custom }}">
+<div
+  class="{{ props.settings.name }} {{ props.classes.root }} {{ props.variants[props.data.variant] }} {{ props.classes.custom }}">
+  <hr class="{{ props.classes.hr }}"/>
+  {% if props.data.label %}
+    <span class="{{ props.classes.label }}">
+      {{ props.data.label }}
+    </span>
+  {% endif %}
+</div>
