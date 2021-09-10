@@ -5,7 +5,7 @@
 
     {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Small{% endblock %}
+      {% block label %}SM{% endblock %}
       {% block content %}
           {% include '_components/divider/divider.twig' with {
             data: {
@@ -17,7 +17,7 @@
 
     {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Medium{% endblock %}
+      {% block label %}MD{% endblock %}
       {% block content %}
           {% include '_components/divider/divider.twig' with {
             data: {
@@ -29,7 +29,7 @@
 
     {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Large{% endblock %}
+      {% block label %}LG{% endblock %}
       {% block content %}
           {% include '_components/divider/divider.twig' with {
             data: {
@@ -41,7 +41,7 @@
 
     {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}XLarge{% endblock %}
+      {% block label %}XL{% endblock %}
       {% block content %}
           {% include '_components/divider/divider.twig' with {
             data: {
@@ -53,11 +53,24 @@
 
     {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}2XLarge{% endblock %}
+      {% block label %}2XL{% endblock %}
       {% block content %}
           {% include '_components/divider/divider.twig' with {
             data: {
               variant: '2xl',
+            },
+          } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}MD with label{% endblock %}
+      {% block content %}
+          {% include '_components/divider/divider.twig' with {
+            data: {
+              label: 'Label text',
+              variant: 'md',
             },
           } only %}
       {% endblock %}
