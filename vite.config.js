@@ -24,9 +24,11 @@ export default ({ command }) => ({
   },
   plugins: [
     critical({
-      criticalUrl: 'http://craftcms-baukasten.test/',
+      criticalUrl: 'https://stage.baukasten.io/',
       criticalBase: './web/dist/criticalcss/',
-      criticalPages: [{ uri: '', template: 'index' }],
+      criticalPages: [
+        { uri: '', template: 'index' }
+      ],
       criticalConfig: {},
     }),
     // ViteFaviconsPlugin({

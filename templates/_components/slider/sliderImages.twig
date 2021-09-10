@@ -28,11 +28,8 @@
     variants: compDefaults.variants,
   } %}
 
-  {# Macros #}
-  {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
-
   {# Component #}
-<div class="{{ props.settings.name }} {{ props.classes.root }} {{ props.data.variant }}  {{ props.classes.custom }}">
+<div class="{{ props.settings.name }} {{ props.classes.root }} {{ props.data.variant }} {{ props.classes.custom }}">
   {# >>> Embed Swiper Holder #}
   {% embed "_components/slider/swiperHolder.twig" with {
     data: {
