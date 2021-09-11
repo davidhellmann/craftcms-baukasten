@@ -31,7 +31,6 @@ module.exports = {
       serif: ['Merriweather', 'Georgia', 'Times New Roman', 'Times', 'serif'],
       mono: ['"JetBrains Mono"', '"Courier New"', 'Courier', 'monospace'],
     },
-    // fontSize: settingsFontSizes,
     colors: settingsColors,
     extend: {
       gridTemplateColumns: { ...settingsGrid.gridTemplateColumns },
