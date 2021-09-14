@@ -1,4 +1,10 @@
-/*! tailwindcss v2.2.14 | MIT License | https://tailwindcss.com */
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ */
+
+/*! tailwindcss v2.2.15 | MIT License | https://tailwindcss.com
+ */
 
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
@@ -609,7 +615,31 @@ video {
   --tw-ring-offset-shadow: 0 0 #0000;
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
+  --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
 }
+
+/**
+ * Here we add custom base styles, applied after the tailwind-base
+ * classes
+ *
+ */
+
+@import './base/global.pcss';
+
+@import './base/lazy.pcss';
+
+@import './base/typography.pcss';
+
+/**
+ * This injects any component classes registered by plugins.
+ *
+ */
 
 .aspect-w-1,
 .aspect-w-2,
@@ -664,6 +694,76 @@ video {
   --tw-aspect-h: 9;
 }
 
+.text-xs {
+  font-size: clamp(0.8888888888888888rem,
+                calc(0.8888888888888888rem + (0.8680555555555557 - 0.8888888888888888) * ((100vw - 20rem) / (96 - 20))),
+                0.8680555555555557rem);
+  line-height: 1.6;
+}
+
+.text-sm {
+  font-size: clamp(1rem,
+                calc(1rem + (1.0416666666666667 - 1) * ((100vw - 20rem) / (96 - 20))),
+                1.0416666666666667rem);
+  line-height: 1.6;
+}
+
+.text-base {
+  font-size: clamp(1.125rem,
+                calc(1.125rem + (1.25 - 1.125) * ((100vw - 20rem) / (96 - 20))),
+                1.25rem);
+  line-height: 1.6;
+}
+
+.text-lg {
+  font-size: clamp(1.265625rem,
+                calc(1.265625rem + (1.5 - 1.265625) * ((100vw - 20rem) / (96 - 20))),
+                1.5rem);
+  line-height: 1.6;
+}
+
+.text-xl {
+  font-size: clamp(1.423828125rem,
+                calc(1.423828125rem + (1.7999999999999998 - 1.423828125) * ((100vw - 20rem) / (96 - 20))),
+                1.7999999999999998rem);
+  line-height: 1.2;
+}
+
+.text-2xl {
+  font-size: clamp(1.601806640625rem,
+                calc(1.601806640625rem + (2.1599999999999997 - 1.601806640625) * ((100vw - 20rem) / (96 - 20))),
+                2.1599999999999997rem);
+  line-height: 1.2;
+}
+
+.text-3xl {
+  font-size: clamp(1.802032470703125rem,
+                calc(1.802032470703125rem + (2.5919999999999996 - 1.802032470703125) * ((100vw - 20rem) / (96 - 20))),
+                2.5919999999999996rem);
+  line-height: 1.2;
+}
+
+.text-4xl {
+  font-size: clamp(2.0272865295410156rem,
+                calc(2.0272865295410156rem + (3.1103999999999994 - 2.0272865295410156) * ((100vw - 20rem) / (96 - 20))),
+                3.1103999999999994rem);
+  line-height: 1.1;
+}
+
+.text-5xl {
+  font-size: clamp(2.2806973457336426rem,
+                calc(2.2806973457336426rem + (3.732479999999999 - 2.2806973457336426) * ((100vw - 20rem) / (96 - 20))),
+                3.732479999999999rem);
+  line-height: 1.1;
+}
+
+.text-9xl {
+  font-size: clamp(3.65323615365196rem,
+                calc(3.65323615365196rem + (7.739670527999997 - 3.65323615365196) * ((100vw - 20rem) / (96 - 20))),
+                7.739670527999997rem);
+  line-height: 1;
+}
+
 .container {
   width: 100%;
   padding-left: 1rem;
@@ -693,6 +793,32 @@ video {
   }
 }
 
+/**
+ * Here we add custom component classes; stuff we want loaded
+ * *before* the utilities so that the utilities can still
+ * override them.
+ *
+ */
+
+@import './components/transitions.pcss';
+
+@import '../../templates/_components/icon/icon.pcss';
+
+@import '../../templates/_components/text/text.pcss';
+
+/**
+ * Include styles for individual pages
+ *
+ */
+
+@import './pages/homepage.pcss';
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ */
+
 .pointer-events-none {
   pointer-events: none;
 }
@@ -715,6 +841,10 @@ video {
 
 .sticky {
   position: sticky;
+}
+
+.top-1\/2 {
+  top: 50%;
 }
 
 .top-0 {
@@ -741,20 +871,16 @@ video {
   bottom: 2rem;
 }
 
-.z-10000 {
-  z-index: 10000;
+.z-10 {
+  z-index: 10;
 }
 
-.z-1000 {
-  z-index: 1000;
+.order-2 {
+  order: 2;
 }
 
 .col-span-1 {
   grid-column: span 1 / span 1;
-}
-
-.col-start-2 {
-  grid-column-start: 2;
 }
 
 .mx-auto {
@@ -806,8 +932,8 @@ video {
   margin-top: auto;
 }
 
-.ml-8 {
-  margin-left: 2rem;
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .mt-5 {
@@ -844,10 +970,6 @@ video {
 
 .grid {
   display: grid;
-}
-
-.inline-grid {
-  display: inline-grid;
 }
 
 .hidden {
@@ -908,6 +1030,10 @@ video {
 
 .h-\[192px\] {
   height: 192px;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .w-screen {
@@ -989,10 +1115,6 @@ video {
   resize: both;
 }
 
-.grid-flow-col {
-  grid-auto-flow: column;
-}
-
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
@@ -1017,12 +1139,16 @@ video {
   justify-content: center;
 }
 
-.gap-1 {
-  gap: 0.25rem;
-}
-
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .gap-x-4 {
@@ -1049,8 +1175,8 @@ video {
   overflow-x: auto;
 }
 
-.whitespace-nowrap {
-  white-space: nowrap;
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .rounded-md {
@@ -1065,34 +1191,25 @@ video {
   border-radius: 9999px;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .border {
   border-width: 1px;
-}
-
-.border-2 {
-  border-width: 2px;
 }
 
 .border-0 {
   border-width: 0px;
 }
 
-.border-primary-800 {
-  --tw-border-opacity: 1;
-  border-color: rgba(6, 95, 70, var(--tw-border-opacity));
-}
-
-.border-secondary-300 {
-  --tw-border-opacity: 1;
-  border-color: rgba(253, 224, 71, var(--tw-border-opacity));
+.border-2 {
+  border-width: 2px;
 }
 
 .border-transparent {
   border-color: transparent;
+}
+
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgba(231, 229, 228, var(--tw-border-opacity));
 }
 
 .border-black {
@@ -1100,18 +1217,19 @@ video {
   border-color: rgba(0, 0, 0, var(--tw-border-opacity));
 }
 
-.bg-primary-800 {
+.bg-primary-700 {
   --tw-bg-opacity: 1;
-  background-color: rgba(6, 95, 70, var(--tw-bg-opacity));
-}
-
-.bg-transparent {
-  background-color: transparent;
+  background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
 }
 
 .bg-secondary-300 {
   --tw-bg-opacity: 1;
   background-color: rgba(253, 224, 71, var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
 
 .bg-gray-200 {
@@ -1129,11 +1247,6 @@ video {
   background-color: rgba(51, 51, 51, var(--tw-bg-opacity));
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-}
-
 .bg-primary-50 {
   --tw-bg-opacity: 1;
   background-color: rgba(236, 253, 245, var(--tw-bg-opacity));
@@ -1141,6 +1254,22 @@ video {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-1\.5 {
+  padding: 0.375rem;
+}
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .py-16 {
@@ -1158,6 +1287,16 @@ video {
   padding-bottom: 2.5rem;
 }
 
+.px-2\.5 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+
+.py-1\.5 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1173,9 +1312,9 @@ video {
   padding-right: 1rem;
 }
 
-.py-1\.5 {
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .px-6 {
@@ -1193,13 +1332,12 @@ video {
   padding-bottom: 1rem;
 }
 
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pr-4 {
+  padding-right: 1rem;
 }
 
 .pl-20 {
@@ -1222,78 +1360,6 @@ video {
   font-family: Merriweather, Georgia, Times New Roman, Times, serif;
 }
 
-.text-5xl {
-  font-size: clamp(
-    2.2806973457336426rem,
-    calc(2.2806973457336426rem + (3.583180799999999 - 2.2806973457336426) * ((100vw - 20rem) / (96 - 20))),
-    3.583180799999999rem
-  );
-}
-
-.text-xl {
-  font-size: clamp(
-    1.423828125rem,
-    calc(1.423828125rem + (1.728 - 1.423828125) * ((100vw - 20rem) / (96 - 20))),
-    1.728rem
-  );
-}
-
-.text-sm {
-  font-size: clamp(
-    1rem,
-    calc(1rem + (1 - 1) * ((100vw - 20rem) / (96 - 20))),
-    1rem
-  );
-}
-
-.text-base {
-  font-size: clamp(
-    1.125rem,
-    calc(1.125rem + (1.2 - 1.125) * ((100vw - 20rem) / (96 - 20))),
-    1.2rem
-  );
-}
-
-.text-lg {
-  font-size: clamp(
-    1.265625rem,
-    calc(1.265625rem + (1.44 - 1.265625) * ((100vw - 20rem) / (96 - 20))),
-    1.44rem
-  );
-}
-
-.text-4xl {
-  font-size: clamp(
-    2.0272865295410156rem,
-    calc(2.0272865295410156rem + (2.9859839999999993 - 2.0272865295410156) * ((100vw - 20rem) / (96 - 20))),
-    2.9859839999999993rem
-  );
-}
-
-.text-9xl {
-  font-size: clamp(
-    3.65323615365196rem,
-    calc(3.65323615365196rem + (7.430083706879996 - 3.65323615365196) * ((100vw - 20rem) / (96 - 20))),
-    7.430083706879996rem
-  );
-}
-
-.text-3xl {
-  font-size: clamp(
-    1.802032470703125rem,
-    calc(1.802032470703125rem + (2.48832 - 1.802032470703125) * ((100vw - 20rem) / (96 - 20))),
-    2.48832rem
-  );
-}
-
-.text-2xl {
-  font-size: clamp(
-    1.601806640625rem,
-    calc(1.601806640625rem + (2.0735999999999994 - 1.601806640625) * ((100vw - 20rem) / (96 - 20))),
-    2.0735999999999994rem
-  );
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -1314,31 +1380,24 @@ video {
   font-style: italic;
 }
 
-.leading-7 {
-  line-height: 1.75rem;
-}
-
-.leading-none {
-  line-height: 1;
-}
-
-.leading-tight {
-  line-height: 1.25;
-}
-
 .text-white {
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
-.text-primary-800 {
+.text-secondary-900 {
   --tw-text-opacity: 1;
-  color: rgba(6, 95, 70, var(--tw-text-opacity));
+  color: rgba(113, 63, 18, var(--tw-text-opacity));
 }
 
-.text-secondary-800 {
+.text-gray-900 {
   --tw-text-opacity: 1;
-  color: rgba(133, 77, 14, var(--tw-text-opacity));
+  color: rgba(28, 25, 23, var(--tw-text-opacity));
+}
+
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgba(68, 64, 60, var(--tw-text-opacity));
 }
 
 .text-current {
@@ -1368,16 +1427,16 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.transition {
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+.transition-all {
+  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-.transition-all {
-  transition-property: all;
+.transition {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1406,6 +1465,17 @@ video {
     box-shadow: inset 8px 8px rgb(236, 15, 170), inset -8px -8px rgb(236, 15, 170);
   }
 }
+
+/**
+ * Here we add custom utility classes, applied after the tailwind-utilitie
+ * classes
+ *
+ */
+
+/**
+ * Include vendor css.
+ *
+ */
 
 .before\:absolute::before {
   content: "";
@@ -1448,19 +1518,9 @@ video {
   transform: var(--tw-transform);
 }
 
-.hover\:border-primary-700:hover {
-  --tw-border-opacity: 1;
-  border-color: rgba(4, 120, 87, var(--tw-border-opacity));
-}
-
-.hover\:border-secondary-400:hover {
-  --tw-border-opacity: 1;
-  border-color: rgba(250, 204, 21, var(--tw-border-opacity));
-}
-
-.hover\:bg-primary-700:hover {
+.hover\:bg-primary-800:hover {
   --tw-bg-opacity: 1;
-  background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
+  background-color: rgba(6, 95, 70, var(--tw-bg-opacity));
 }
 
 .hover\:bg-secondary-400:hover {
@@ -1468,9 +1528,9 @@ video {
   background-color: rgba(250, 204, 21, var(--tw-bg-opacity));
 }
 
-.hover\:text-primary-700:hover {
-  --tw-text-opacity: 1;
-  color: rgba(4, 120, 87, var(--tw-text-opacity));
+.hover\:bg-gray-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(250, 250, 249, var(--tw-bg-opacity));
 }
 
 .hover\:text-white:hover {
@@ -1487,19 +1547,29 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.group:hover .group-hover\:border-primary-700 {
-  --tw-border-opacity: 1;
-  border-color: rgba(4, 120, 87, var(--tw-border-opacity));
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
-.group:hover .group-hover\:border-secondary-400 {
-  --tw-border-opacity: 1;
-  border-color: rgba(250, 204, 21, var(--tw-border-opacity));
+.focus\:ring-2:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-.group:hover .group-hover\:bg-primary-700 {
+.focus\:ring-primary-600:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgba(5, 150, 105, var(--tw-ring-opacity));
+}
+
+.focus\:ring-offset-2:focus {
+  --tw-ring-offset-width: 2px;
+}
+
+.group:hover .group-hover\:bg-primary-800 {
   --tw-bg-opacity: 1;
-  background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
+  background-color: rgba(6, 95, 70, var(--tw-bg-opacity));
 }
 
 .group:hover .group-hover\:bg-secondary-400 {
@@ -1507,9 +1577,9 @@ video {
   background-color: rgba(250, 204, 21, var(--tw-bg-opacity));
 }
 
-.group:hover .group-hover\:text-primary-700 {
-  --tw-text-opacity: 1;
-  color: rgba(4, 120, 87, var(--tw-text-opacity));
+.group:hover .group-hover\:bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(250, 250, 249, var(--tw-bg-opacity));
 }
 
 @media (min-width: 640px) {
