@@ -39,13 +39,13 @@
           {% for i in 1..pageInfo.totalPages %}
             {% if i == page %}
               <span
-                class="inline-block bg-white border-2 border-primary w-9 h-9 leading-7 text-primary font-sans-medium text-center rounded-full">
+                class="inline-block bg-white border-2 border-primary w-9 h-9 text-primary font-sans-medium text-center rounded-full">
                 {{ i }}
               </span>
             {% else %}
               {# Refreshes the component and pushes the new value into the URL #}
               <a
-                class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 leading-7 text-primary text-center rounded-full"
+                class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
                 sprig s-val:page="{{ i }}"
                 s-push-url="?page={{ i }}">
                 {{ i }}
