@@ -41,6 +41,11 @@ module.exports = {
         nthover: { raw: '(hover: hover)' },
       }
     },
+    // Plugin Stuff
+    debugScreens: {
+      ignore: ['nthover'],
+      position: ['bottom', 'right'],
+    },
   },
   variants: {},
   corePlugins: {
@@ -49,6 +54,7 @@ module.exports = {
     container: false,
   },
   plugins: [
+    require('tailwindcss-debug-screens'),
     require('@tailwindcss/aspect-ratio'),
     require('tailwindcss-question-mark'),
     require('tailwindcss-fluid-type'),
