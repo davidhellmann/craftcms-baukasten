@@ -50,7 +50,6 @@ module.exports = {
   variants: {},
   corePlugins: {
     float: false,
-    fontSize: false,
     container: false,
   },
   plugins: [
