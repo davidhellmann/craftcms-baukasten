@@ -126,14 +126,12 @@ const waypointObserver = {
   },
 
   init() {
-    window.addEventListener('load', () => {
-      // Set Elements
-      this.setElements();
+    // Set Elements
+    this.setElements();
 
-      // Handle Waypoints
-      if (!this.cfg.els.$waypoints) return;
-      this.startObserving(this.cfg.els.$waypoints);
-    });
+    // Handle Waypoints
+    if (!this.cfg.els.$waypoints) return;
+    this.startObserving(this.cfg.els.$waypoints);
   },
 };
 
