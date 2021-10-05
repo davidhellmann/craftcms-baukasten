@@ -158,8 +158,8 @@
     'dominantColor': dominantColor,
     'placeholder': craft.imager.placeholder({
       color: imageData.dominantColor,
-      width: imageData.transforms[0].width,
-      height: imageData.transforms[0].height
+      width: imageData.transformable ? imageData.transforms[0].width : props.data.image.width,
+      height: imageData.transformable ? imageData.transforms[0].height : props.data.image.height,
     })
   }) %}
 
