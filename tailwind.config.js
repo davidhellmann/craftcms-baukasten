@@ -24,7 +24,7 @@ module.exports = {
       safelist: ['./src/css/components/**/*.{pcss,css,js,ts}'],
     },
   },
-  darkMode: 'media', // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: {
       sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
