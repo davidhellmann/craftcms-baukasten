@@ -9,7 +9,7 @@
     name: getenv('SITE_NAME'),
   },
   classes: {
-    root: '',
+    root: 'bg-gray-100',
     custom: '',
     container: 'container py-8 flex items-center',
     homeLink: 'flex items-center',
@@ -24,8 +24,8 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-<header class="bg-gray-100">
-  <div class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.container }} {{ props.classes.custom }}">
+<header class="{{ props.settings.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+  <div class=" {{ props.classes.container }}">
     <a href="{{ props.data.url }}" class="{{ props.classes.homeLink }}">
       {% include '_components/logo/logo.twig' with {
         data: {
