@@ -1,6 +1,7 @@
 ![Image CraftCMS Baukasten](CraftCMS-Baukasten.png)
 
 # CraftCMS Baukasten
+Heavily opinionated starter kit for CraftCMS Projects.
 
 ## What's recommended
 - Laravel Valet (https://laravel.com/docs/8.x/valet)
@@ -89,6 +90,12 @@ Go to `./` and do this: `valet link craftcms-baukasten` to create a domain like 
 - `Super Table (free)`: Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.
 - `Typed link field (free)`: A Craft field type for selecting links
 - `Vite (free)`: Allows the use of the Vite.js next generation frontend tooling with Craft CMS
+
+
+### Why
+I have developed several CraftCMS projects the last few years. For me, the setup and certain basics are what tend to take time away from me at the beginning of the project. 
+
+For this reason there is the "Baukasten" to get started faster in new projects. It's a collection of good practices I have learned and adopted from past projects and from other people. It's heavily opinionated, but feel free to fork and modify it for your own needs.
 
 ---
 
