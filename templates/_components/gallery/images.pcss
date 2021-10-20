@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'lg';
+  src: url("/dist/fonts/lg.woff") format("woff"), url("/dist/fonts/lg.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.lg-next,
+.lg-prev {
+  @apply text-gray bg-white;
+}
+
+.lg-next:hover:not(.disabled),
+.lg-prev:hover:not(.disabled) {
+  @apply text-primary
+}
+
+.lg-toolbar .lg-icon {
+  @apply text-gray;
+}
+
+.lg-toolbar .lg-icon:hover {
+  @apply text-primary;
+}
+
+.lg-sub-html {
+  @apply text-gray text-xs leading-tight;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.lg-error-msg {
+  @apply text-gray;
+}
+
+.lg-counter {
+  @apply text-gray;
+}
+
+.lg-backdrop {
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+
+/* Thumb */
+.lg-outer .lg-thumb-outer {
+  @apply bg-white;
+}
+
+.lg-outer .lg-thumb-item.active, .lg-outer .lg-thumb-item:hover {
+  @apply border-primary;
+}
+

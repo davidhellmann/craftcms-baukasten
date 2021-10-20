@@ -1,0 +1,70 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {# Images #}
+  {% set images = craft.assets().volume('templateImages') %}
+
+  {% cache using key craft.app.request.pathInfo %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Grid: Images 2 Cols{% endblock %}
+      {% block content %}
+        {% include '_components/grid/images.twig' with {
+          data: {
+            images: images.limit(2).all() ??? null,
+            variant: 2
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Grid: Images 3 Cols{% endblock %}
+      {% block content %}
+        {% include '_components/grid/images.twig' with {
+          data: {
+            images: images.limit(3).all() ??? null,
+            transform: 'portrait',
+            variant: 3
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Grid: Images 3 Cols{% endblock %}
+      {% block content %}
+        {% include '_components/grid/imagesCalculated.twig' with {
+          data: {
+            images: images.limit(2).all() ??? null,
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Grid: Images 3 Cols{% endblock %}
+      {% block content %}
+        {% include '_components/grid/imagesCalculated.twig' with {
+          data: {
+            images: images.limit(3).all() ??? null,
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Grid: Images 3 Cols{% endblock %}
+      {% block content %}
+        {% include '_components/grid/imagesCalculated.twig' with {
+          data: {
+            images: images.limit(4).all() ??? null,
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+

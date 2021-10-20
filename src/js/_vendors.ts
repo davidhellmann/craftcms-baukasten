@@ -1,12 +1,11 @@
-const vendors = {
-  init() {
-    // waypointObserver
-    if (document.querySelectorAll('[alpinejs]').length) {
-      import('./vendors/alpinejs')
-        .then(alpinejs => alpinejs.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
+export default async () => {
+  try {
+    const alpinejsEls = document.querySelectorAll('[alpinejs]');
+    if (alpinejsEls) {
+      const {default: alpinejs} = await import('./vendors/alpinejs')
+      alpinejs.init();
     }
-  },
-};
-
-export default vendors;
+  } catch (e) {
+    console.error(e)
+  }
+}

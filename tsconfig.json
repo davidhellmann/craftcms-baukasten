@@ -12,7 +12,8 @@
     "noEmit": true,
     "lib": [
       "es2015",
-      "dom"
+      "dom",
+      "dom.Iterable"
     ],
     "noImplicitAny": true,
     "outDir": "./dist",
@@ -35,7 +36,9 @@
   },
   "include": [
     "./src/**/*.ts",
-    "./src/**/*.vue"
+    "./src/**/*.vue",
+    "./templates/**/*.ts",
+    "./templates/**/*.vue"
   ],
   "exclude": [
     "./node_modules"

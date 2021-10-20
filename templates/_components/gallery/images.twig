@@ -1,11 +1,22 @@
-{# Set Defaults #}
-{% set defaults = {
-  name: 'c-imageGallery',
-  _js: true,
-  images: null,
-  ratio: null,
-  cutAfter: null,
-  caption: null
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-imageGallery',
+  },
+  data: {
+    images: null,
+    transform: 'landscape',
+    cutAfter: 3,
+    caption: null
+  },
+  classes: {
+    root: 'relative group grid grid-cols-2 md:grid-cols-3 grid-rows-3 md:grid-rows-2 w-full gap-1',
+    custom: '',
+    image1: 'col-span-1 md:col-span-2 row-span-1 md:row-span-2',
+    image2: 'col-span-1 row-span-1',
+    image3: 'col-span-2 md:col-span-1 row-span-2 md:row-span-1',
+    button: 'absolute pointer-events-none  bottom-10 right-1/2 md:right-10  translate-x-1/2  md:translate-x-0'
+  }
 } %}
 
 {# >>> Merge settings / data / classes #}
@@ -15,50 +26,47 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
+
 {# Modul #}
-{% if props.images %}
-  <div>
-    <div class="{{ props.cn ~ '__inner' }}">
-      {% for image in props.images %}
-        {% set imageSrc = image.getUrl() %}
-        {% set imageMaxWidth = image.getWidth() %}
-        {% set imageMaxHeight = image.getHeight() %}
+{% if props.data.images ??? null %}
+  {% set dynamicData = [] %}
+  {% for image in props.data.images %}
+    {% set title = image.assetTitle ??? '' %}
+    {% set caption = '' %}
+    {% if image.assetCaption %}
+      {% set caption = image.assetCaption %}
+    {% endif %}
+    {% set dynamicData = dynamicData|merge([{
+      "src": image.url,
+      "thumb": craft.imager.transformImage(image, 'thumbnail') | last.url ??? '',
+      "subHtml": (title ? "<strong>#{title}</strong>" : "")  ~ (caption ? "<br>#{caption}" : ""),
+    }]) %}
+  {% endfor %}
 
-        <figure
-          class="{{ props.cn ~ '__figure' }} {{ (loop.index >= (props.cutAfter + 2) and props.cutAfter) ? 'is-hidden' : null }}">
-          <a class="{{ props.cn ~ '__link' }}"
-             href="{{ imageSrc }}"
-             data-size="{{ imageMaxWidth }}x{{ imageMaxHeight }}">
-
-            {% if not (loop.index == (props.cutAfter + 1) and props.cutAfter) %}
-              {% include '_components/image/picture.twig' with {
-                props: {
-                  image: image ??? null,
-                  transform: 'thumbnail'
-                }
-              } only %}
-            {% endif %}
-          </a>
-
-          {% if props.caption %}
-            {% include '_components/caption/caption.twig' with {
-              props: {
-                headline: image.assetTitle ??? null,
-                text: image.assetCaption ??? null,
-                source: image.assetSource ??? null,
-                sourceUrl: image.assetSourceUrl ??? null,
-              }
-            } only %}
-          {% endif %}
-
-          {% if (loop.index == (props.cutAfter + 1) and props.cutAfter) %}
-            {# TODO: Multiline Todo and Translations #}
-            <div class="{{ props.cn ~ '__more' }} js-imageGallery--more c-tooltip c-tooltip--n" aria-label=" ;akosjd ;kasdipash jdpi asipdh asipodiaoh sdidash">
-              +{{ props.images | length - props.cutAfter }}
-            </div>
-          {% endif %}
-        </figure>
-      {% endfor %}
-    </div>
-  </div>
+  <button class="js-imageGallery  {{ props.classes.root }}  {{ props.classes.custom }}"
+          type="button"
+          data-dynamic-data='{{ dynamicData | json_encode }}'>
+    {% for image in props.data.images |slice(0, props.data.cutAfter) %}
+      <div class="{{ props.classes['image' ~ loop.index] }}">
+        {% include '_components/image/image.twig' with {
+          data: {
+            image: image ??? null,
+            transform: props.data.transform,
+            objectFit: 'cover',
+          }
+        } only %}
+      </div>
+    {% endfor %}
+    {% include '_components/button/button.twig' with {
+      data: {
+        url: '#',
+        text: 'translate.component.gallery.images.showAll' | t,
+        variant: 'primary',
+        variantSize: 'sm'
+      },
+      classes: {
+        custom: props.classes.button
+      }
+    } only %}
+  </button>
 {% endif %}

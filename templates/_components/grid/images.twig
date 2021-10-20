@@ -1,16 +1,22 @@
-{#
-  o-imageGrid
-  ------------------------------------------------------------
-#}
-
-{# Set Defaults #}
-{% set defaults = {
-  name: 'c-imageGrid',
-  _js: true,
-  images: null,
-  caption: null,
-  ratio: null,
-  calculated: null
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-imageGrid',
+  },
+  data: {
+    images: null,
+    caption: null,
+    transform: 'landscape',
+    variant: 2,
+  },
+  classes: {
+    root: 'grid grid-cols-1 gap-4 md:gap-8',
+    custom: '',
+  },
+  variants: {
+    2: 'md:grid-cols-2',
+    3: 'md:grid-cols-3'
+  }
 } %}
 
 {# >>> Merge settings / data / classes #}
@@ -18,31 +24,24 @@
   settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
 } %}
 
-{% if props.calculated %}
-  {% set props = props | merge({  js: true}) %}
-{% endif %}
 
 {# Modul #}
-{% if props.images %}
-  <div>
-    <div class="{{ props.cn ~ '__inner' }}">
-      {% for image in props.images if image %}
-        <div class="{{ props.cn ~ '__item' }}">
-          {% include '_components/figure/image.twig' with {
-            props: {
-              image: image ??? null,
-              ratio: props.ratio ??? null,
-              caption: props.caption ??? null,
-              captionHeadline: image.imageTitle ??? null,
-              captionText: image.imageCaption ??? null,
-              captionSource: image.imageSource ??? null,
-              captionSourceUrl: image.imageSourceUrl ??? null
-            }
-          } only %}
-        </div>
-      {% endfor %}
-    </div>
+{% if props.data.images ??? null %}
+  <div class="{{ props.classes.root }}  {{ props.variants[props.data.variant] }} {{ props.classes.custom }}">
+    {% for image in props.data.images %}
+      {% include '_components/image/image.twig' with {
+        data: {
+          image: image ??? null,
+          transform: props.data.transform ??? null,
+          caption: props.data.caption ??? null,
+        },
+        classes: {
+          custom: 'col-span-1'
+        }
+      } only %}
+    {% endfor %}
   </div>
 {% endif %}

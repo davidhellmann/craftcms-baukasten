@@ -3,29 +3,27 @@ document.documentElement.classList.add('js-loaded');
 
 // Import our CSS
 import '@/css/app.pcss';
+
 // App main
 const main = async () => {
-  // Import Vendors
-  await import('./_vendors')
-    .then(vendors => vendors.default.init())
-    .catch(e => console.error(`${e.name} : ${e.message}`));
+  try {
+    // Import Vendors
+    const {default: vendors} = await import('./_vendors');
+    await vendors();
 
-  // Import Scripts
-  await import('./_scripts')
-    .then(scripts => scripts.default.init())
-    .catch(e => console.error(`${e.name} : ${e.message}`));
+    // Import Scripts
+    const {default: scripts} = await import('./_scripts');
+    await scripts();
 
-  // Import Components
-  await import('./_components')
-    .then(components => components.default.init())
-    .catch(e => console.error(`${e.name} : ${e.message}`));
-
-  // Import Vue Components
-  await import('./_vue-components')
-    .then(vueComponents => vueComponents.default.init())
-    .catch(e => console.error(`${e.name} : ${e.message}`));
+    // Import Components
+    const {default: components} = await import('./_components');
+    await components();
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 // Execute async function
 // eslint-disable-next-line
-main().then(() => {});
+main().then(() => {
+});

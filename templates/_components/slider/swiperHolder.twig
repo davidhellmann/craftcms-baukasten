@@ -1,7 +1,7 @@
 {# >>> Comp Settings #}
 {% set compDefaults = {
   settings: {
-    name: 'c-sliderHolder',
+    name: 'c-swiperHolder',
   },
   data: {
     slides: null,
@@ -49,7 +49,7 @@
 
 
 {# Component #}
-<div class="swiper {{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }} js-sliderHolder"
+<div class="swiper {{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }} js-swiperHolder"
      data-swiper-config="{{ props.data.swiperConfig | json_encode }}"
  >
   <!-- Additional required wrapper -->

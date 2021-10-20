@@ -1,0 +1,24 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {# Images #}
+  {% set images = craft.assets().volume('templateImages').all() %}
+
+  {% cache using key craft.app.request.pathInfo %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Gallery: Images{% endblock %}
+      {% block content %}
+        {% include '_components/gallery/images.twig' with {
+          data: {
+            images: images ??? null,
+            transform: 'landscape',
+          }
+        } only %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+
