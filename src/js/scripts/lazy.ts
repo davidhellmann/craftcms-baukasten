@@ -1,6 +1,4 @@
-export const initLazyloading = (selector: string): void => {
-  let images = document.querySelectorAll(selector);
-
+export const init = (els: Array<HTMLElement>, selector: string): void => {
   if ('IntersectionObserver' in window) {
     // Create new observer object
     let lazyItemObserver = new IntersectionObserver((entries, observer) => {
@@ -32,12 +30,14 @@ export const initLazyloading = (selector: string): void => {
     });
 
     // Loop through and observe each image
-    images.forEach(function (lazyItem) {
+    els.forEach(function (lazyItem) {
       lazyItemObserver.observe(lazyItem);
     });
 
     // Save for Sprig
+    // @ts-ignore
     window._LazyImageSelector = selector;
+    // @ts-ignore
     window._LazyImageObserver = lazyItemObserver;
   }
 };

@@ -1,55 +1,44 @@
-const scripts = {
-  init() {
-    // Adds Browser Classes to the document
-    import('./scripts/bowser')
-      .then(browserDetect => browserDetect.default.init())
-      .catch(e => console.error(`${e.name} : ${e.message}`));
+export default async () => {
+  try {
+    // Bowser
+    const {default: browserDetect} = await import('./scripts/bowser')
+    browserDetect.init();
 
     // globalScrollListener
-    import('./scripts/globalScrollListener')
-      .then(globalScrollListener => globalScrollListener.default.init())
-      .catch(e => console.error(`${e.name} : ${e.message}`));
+    const {default: globalScrollListener} = await import('./scripts/globalScrollListener')
+    globalScrollListener.init();
 
-    // globalResizeListener
-    import('./scripts/globalResizeListener')
-      .then(globalResizeListener => globalResizeListener.default.init())
-      .catch(e => console.error(`${e.name} : ${e.message}`));
+    // globalScrollListener
+    const {default: globalResizeListener} = await import('./scripts/globalResizeListener')
+    globalResizeListener.init();
 
     // csrfToken
-    if (document.querySelectorAll('input[name="CRAFT_CSRF_TOKEN"]').length) {
-      import('./scripts/csrf')
-        .then(csrfToken => csrfToken.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
+    const csrfTokenEls = [...document.querySelectorAll<HTMLElement>('input[name="CRAFT_CSRF_TOKEN"]')];
+    if (csrfTokenEls) {
+      const {default: csrfToken} = await import('./scripts/csrf')
+      csrfToken.init(csrfTokenEls);
     }
 
     // waypointObserver
-    if (document.querySelectorAll('[waypoint]').length) {
-      import('./scripts/waypointObserver')
-        .then(waypointObserver => waypointObserver.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
+    const waypointEls = [...document.querySelectorAll<HTMLElement>('[waypoint]')];
+    if (waypointEls) {
+      const {default: waypointObserver} = await import('./scripts/waypointObserver')
+      waypointObserver.init(waypointEls);
     }
 
     // Lazy Images
-    if (
-      document.querySelectorAll(
-        'img[loading="lazy"], iframe[loading="lazy"], source[data-srcset]',
-      ).length
-    ) {
-      if ('loading' in HTMLImageElement.prototype) {
-        import('./scripts/lazy')
-          .then(lazy =>
-            lazy.initLazyloading(
-              'img[loading="lazy"], iframe[loading="lazy"], source[data-srcset]',
-            ),
-          )
-          .catch(e => console.error(`${e.name} : ${e.message}`));
-      } else {
-        import('lazysizes')
-          .then(LazySizes => LazySizes.init())
-          .catch(e => console.error(`${e.name} : ${e.message}`));
-      }
+    const selector: string = 'img[loading="lazy"], iframe[loading="lazy"], source[data-srcset]'
+    const lazyImageEls = [...document
+      .querySelectorAll<HTMLElement>(selector)];
+    if ('loading' in HTMLImageElement.prototype) {
+      const lazy = await import('./scripts/lazy')
+      lazy.init(lazyImageEls, selector);
+    } else {
+      import('lazysizes')
+        .then(LazySizes => LazySizes.init())
+        .catch(e => console.error(`${e.name} : ${e.message}`));
     }
-  },
-};
-
-export default scripts;
+  } catch (e) {
+    console.error(e)
+  }
+}

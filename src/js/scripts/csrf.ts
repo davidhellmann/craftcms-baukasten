@@ -1,13 +1,13 @@
-const csrfToken = {
-  init() {
-    const csrfInputs = [
-      ...document.querySelectorAll('input[name="CRAFT_CSRF_TOKEN"]'),
-    ];
-    if (csrfInputs) {
-      csrfInputs.forEach(csrfInput => {
-        csrfInput.value = window._Craft.csrfTokenValue;
-      });
-    }
+import {IComponent} from '../@types/IComponent'
+
+const csrfToken: IComponent = {
+  name: 'CSRF Token',
+
+  init(csrfTokenEls: Array<HTMLElement>) {
+    csrfTokenEls?.forEach(csrfInput => {
+      // @ts-ignore
+      csrfInput.value = window._Craft.csrfTokenValue;
+    });
   },
 };
 

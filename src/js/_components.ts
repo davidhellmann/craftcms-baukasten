@@ -1,26 +1,24 @@
-const components = {
-  init() {
+export default async () => {
+  try {
     // Gallery
-    if (document.querySelectorAll('.js-imageGallery').length) {
-      import('../../templates/_components/gallery/images')
-        .then(imageGallery => imageGallery.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
+    const imageGalleryEls = [...document.querySelectorAll<HTMLElement>('.js-imageGallery')];
+    if (imageGalleryEls) {
+      const {default: imageGallery} = await import('../../templates/_components/gallery/images')
+      imageGallery.init(imageGalleryEls)
     }
 
-    // sliderHolder
-    if (
-      document.querySelectorAll('.js-sliderHolder').length
-    ) {
-      import('../../templates/_components/slider/swiperHolder')
-        .then(swiperHolder => swiperHolder.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
+    // swiperHolder
+    const swiperHolderEls = [...document.querySelectorAll<HTMLElement>('.js-swiperHolder')];
+    if (swiperHolderEls) {
+      const {default: swiperHolder} = await import('../../templates/_components/slider/swiperHolder')
+      swiperHolder.init(swiperHolderEls)
     }
 
     // Image Grid Calculated
-    if (document.querySelectorAll('.js-imageGridCalculated').length) {
-      import('../../templates/_components/grid/imagesCalculated')
-        .then(imagesCalculated => imagesCalculated.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
+    const imageGridCalculatedEls = [...document.querySelectorAll<HTMLElement>('.js-imageGridCalculated')];
+    if (imageGridCalculatedEls) {
+      const {default: imagesCalculated} = await import('../../templates/_components/grid/imagesCalculated')
+      imagesCalculated.init(imageGridCalculatedEls)
     }
 
     // Navigation
@@ -29,7 +27,8 @@ const components = {
         .then(navigation => navigation.default.init())
         .catch(e => console.error(`${e.name} : ${e.message}`));
     }
-  },
+  } catch (e) {
+    console.error(e)
+  }
 };
 
-export default components;

@@ -1,6 +1,4 @@
-/**
- * Swiper Holder
- */
+import {IComponent} from '../../../src/js/@types/IComponent'
 
 import Swiper, {
   Navigation,
@@ -17,14 +15,11 @@ import 'swiper/css/keyboard';
 import 'swiper/css/navigation';
 import './swiperHolder.pcss';
 
-const swiperHolder = {
-  cfg: {
-    slider: '.js-sliderHolder',
-  },
-
-  initSliders(sliders) {
-    sliders.forEach(slider => {
-      const sliderConfig = JSON.parse(slider.dataset.swiperConfig) || {};
+const swiperHolder: IComponent = {
+  name: 'swiperHolder',
+  init(sliders: Array<HTMLElement>) {
+    sliders?.forEach(slider => {
+      const sliderConfig = JSON.parse(<string>slider.dataset.swiperConfig) || {};
 
       const swiper = new Swiper(slider, {
         modules: [Navigation, A11y, Scrollbar, FreeMode, Keyboard],
@@ -33,12 +28,6 @@ const swiperHolder = {
       slider.classList.add('swiper-is-ready');
       swiper.init();
     });
-  },
-
-  init() {
-    const sliders = [...document.querySelectorAll(this.cfg.slider)];
-    if (!sliders) return;
-    this.initSliders(sliders);
   },
 };
 
