@@ -43,7 +43,7 @@
     }]) %}
   {% endfor %}
 
-  <button class="js-imageGallery  {{ props.classes.root }}  {{ props.classes.custom }}"
+  <button class="js-imageGallery {{ props.settings.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
           type="button"
           data-dynamic-data='{{ dynamicData | json_encode }}'>
     {% for image in props.data.images |slice(0, props.data.cutAfter) %}

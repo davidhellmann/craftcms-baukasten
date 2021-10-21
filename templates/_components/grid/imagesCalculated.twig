@@ -25,7 +25,7 @@
 {# Modul #}
 {% if props.data.images ??? null %}
   <div
-    class="js-imageGridCalculated {{ props.classes.root }} {{ props.classes.custom }}">
+    class="js-imageGridCalculated {{ props.settings.name }}  {{ props.classes.root }} {{ props.classes.custom }}">
     {% for image in props.data.images %}
       {% include '_components/image/image.twig' with {
         data: {
@@ -35,7 +35,7 @@
           caption: props.data.caption ??? null,
         },
         classes: {
-          custom: 'h-auto w-full md:max-w-full md:w-auto h-[10px]'
+          custom: 'w-full md:max-w-full md:w-auto'
         }
       } only %}
     {% endfor %}

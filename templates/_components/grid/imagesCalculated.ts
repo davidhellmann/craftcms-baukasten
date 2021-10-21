@@ -2,6 +2,7 @@ import {IComponent} from '../../../src/js/@types/IComponent'
 
 // @ts-ignore
 import _debounce from 'lodash/debounce';
+import './imagesCalculated.pcss'
 
 interface ICompImagesCalculated extends IComponent {
   settings: {
@@ -41,9 +42,7 @@ const imagesCalculated: ICompImagesCalculated = {
       imagesWidthSum = imagesWidthSum + image.getBoundingClientRect().width;
     });
 
-
     let ratio = (imageHolderWidth - gap) / imagesWidthSum;
-    console.log({imageHolderWidth, gap, imagesWidthSum, ratio})
     this.setImageHeights(images, this.settings.height, ratio);
   },
 
