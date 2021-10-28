@@ -17,6 +17,7 @@
       li: name ~ '__listItem',
       span: name ~ '__listHeading',
       link: name ~ '__listLink',
+      button: name ~ '__listButton',
       subItemsHolder: name ~ '__subItemsWrapper',
     }
   } %}
@@ -29,70 +30,77 @@
   } %}
 
 
-  <ul x-data="{
+  <ul alpinejs
+      x-data="{
         activeId: {{ activeNode ? activeNode.id : 0 }},
         activeParentId: {{ activeNode.parent ? activeNode.parent.id : 0 }}
       }"
-      class="alpinejs {{ props.classes.ul }}  {{ props.classes.ul ~ '--level-1' }}">
-    {% nav node in props.data.nodes %}
-      {% set level = node.level %}
-      <li class="{{ props.classes.li }} {{ props.classes.li ~'--level-' ~ level }} {{ node.classes ??? '' }}">
-        {% if not node.url %}
-          <span class="{{ props.classes.span }}  {{ props.classes.span ~ '--level-' ~ level }}"
+      class="{{ props.classes.ul }}" data-level="1">
 
-            {# >>> Render custom attributes #}
-            {% for attribute in node.customAttributes %}
-              {{ attribute.attribute }}="{{ attribute.value }}"
-            {% endfor %}>
-            {{- node.title -}}
-          </span>
-        {% else %}
+    {% nav node in props.data.nodes %}
+      {# >>> Set vars #}
+      {% set level = node.level %}
+      {% set attributes = '' %}
+      {% if node.customAttributes %}
+        {% set attributes %}
+          {% for attribute in node.customAttributes %}
+            {{ attribute.attribute }}="{{ attribute.value }}"
+          {% endfor %}
+        {% endset %}
+      {% endif %}
+
+
+      <li class="{{ props.classes.li }} {{ node.classes ??? '' }}" data-level="{{ level }}"
+        {% if node.hasDescendants %}
+        x-data="{ flyoutMenuOpen: false }"
+        @click.away="flyoutMenuOpen = false"
+        @keydown.escape="flyoutMenuOpen = false"
+        {% endif %}>
+
+        {# >>> Render Link / Submenu Trigger #}
+        {% if node.url %}
           {% if node.hasDescendants %}
             <button :class="{'is-active': activeId === {{ node.id }} || activeParentId === {{ node.id }}}"
-                    @click="activeId = {{ node.id }}, activeParentId = {{ node.parent ? node.parent.id : 0 }};"
+                    class="{{ props.classes.button }}"
                     aria-haspopup="true"
-                    :aria-expanded="[activeId === {{ node.id }} ? 'true' : 'false']"
-            {% else %}
+                    @click="flyoutMenuOpen = !flyoutMenuOpen;
+                            activeId = {{ node.id }};
+                            activeParentId = {{ node.parent ? node.parent.id : 0 }};"
+                    :aria-expanded="flyoutMenuOpen"
+                    data-level="{{ level }}" {{ attributes }}>{{- node.title -}}</button>
+          {% else %}
             <a href="{{ node.url }}"
                :class="{'is-active': activeId === {{ node.id }}}"
                @click="activeId = {{ node.id }}, activeParentId = {{ node.parent ? node.parent.id : 0 }};"
+               class="{{ props.classes.link }}" data-level="{{ level }}"
+              {% if node.newWindow %}
+                target="_blank"
+                rel="noopener"
+              {% endif %} {{ attributes }}>{{- node.title -}}</a>
           {% endif %}
-             class="{{ props.classes.link }}" data-current-level="{{ level }}"
-
-             {# >>> Render aria #}
-             {% if node.hasDescendants %}
-               aria-haspopup="true"
-               aria-expanded="false"
-             {% endif %}
-
-             {# >>> Render link target #}
-             {% if node.newWindow %}
-               target="_blank"
-               rel="noopener"
-             {% endif %}
-
-             {# >>> Render custom attributes #}
-             {% for attribute in node.customAttributes %}
-               {{ attribute.attribute }}="{{ attribute.value }}"
-             {% endfor %}>
-            {{- node.title -}}
-          {% if node.hasDescendants %}
-            </button>
-            {% else %}
-            </a>
-          {% endif %}
+          {# >>> Render Heading / Label #}
+        {% else %}
+          <span class="{{ props.classes.span }}" data-level="{{ level }}" {{ attributes }}>
+          {{- node.title -}}
+          </span>
         {% endif %}
 
-        {# >>> Render subitems #}
+
         {% if node.hasDescendants %}
-        <div class="{{ props.classes.subItemsHolder }}"
-             data-current-level="{{ level + 1 }}">
+        <div class="{{ props.classes.subItemsHolder }}" x-cloak data-level="{{ level + 1 }}"
+             x-show="flyoutMenuOpen"
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 translate-y-1"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 translate-y-1">
           {% endif %}
+          {# >>> Render chidlren #}
           {% ifchildren %}
             {% set level = node.level + 1 %}
-
             <ul class="{{ props.classes.ul }}"
-                data-current-level="{{ level }}">
+                data-level="{{ level }}">
               {% children %}
             </ul>
           {% endifchildren %}
