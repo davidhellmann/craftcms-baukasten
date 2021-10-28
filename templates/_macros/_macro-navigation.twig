@@ -3,23 +3,21 @@
 {{ macroNavigation.navigation(nodes) }}
 #}
 
-{% macro navigation(nodes, name = 'c-navigation') %}
+{% macro navigation(nodes, name = 'c-navigation', activeNode = null) %}
   {# >>> Comp Settings #}
   {% set compDefaults = {
     settings: {
       name: name,
-      ulClass: name ~ '__list',
-      liClass: name ~ '__listItem',
-      spanClass: name ~ '__listHeading',
-      linkClass: name ~ '__listLink',
-      subItemsWrapperClass: name ~ '__subItemsWrapper',
     },
     data: {
       nodes: nodes ??? null,
     },
     classes: {
-      root: '',
-      custom: '',
+      ul: name ~ '__list',
+      li: name ~ '__listItem',
+      span: name ~ '__listHeading',
+      link: name ~ '__listLink',
+      subItemsHolder: name ~ '__subItemsWrapper',
     }
   } %}
 
@@ -31,88 +29,77 @@
   } %}
 
 
-  {# Macros #}
-  {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+  <ul x-data="{
+        activeId: {{ activeNode ? activeNode.id : 0 }},
+        activeParentId: {{ activeNode.parent ? activeNode.parent.id : 0 }}
+      }"
+      class="alpinejs {{ props.classes.ul }}  {{ props.classes.ul ~ '--level-1' }}">
+    {% nav node in props.data.nodes %}
+      {% set level = node.level %}
+      <li class="{{ props.classes.li }} {{ props.classes.li ~'--level-' ~ level }} {{ node.classes ??? '' }}">
+        {% if not node.url %}
+          <span class="{{ props.classes.span }}  {{ props.classes.span ~ '--level-' ~ level }}"
 
-
-  {% set defaults = {
-    name: 'c-navigation',
-    nodes: null,
-    ulClass: '__list',
-    liClass: '__listItem',
-    spanClass: '__listHeading',
-    linkClass: '__listLink',
-    subItemsWrapperClass: '__subItemsWrapper',
-  } %}
-
-  {# Merge Default with Options #}
-  {% set props = props is defined ? defaults|merge(props) : defaults %}
-
-  <div
-    class="{{ props.classes.root }} {{ props.classes.custom }}">
-    <ul class="{{ props.ulClass }}  {{ props.ulClass ~ '--level-1' }}">
-      {% nav node in props.nodes %}
-        {% set level = node.level %}
-
-        <li
-          class="{{ props.liClass }}  {{ props.liClass ~'--level-' ~ level }} {{ node.classes ??? ''}}">
-          {% if not node.url %}
-            <span class="{{ props.spanClass }}  {{ props.spanClass ~ '--level-' ~ level }}"
-
-              {# >>> Render custom attributes #}
-              {% for attribute in node.customAttributes %}
-                {{ attribute.attribute }}="{{ attribute.value }}"
-              {% endfor %}
-
-              {# >>> Render aria #}
-              {% if node.hasDescendants %}
-                aria-haspopup="true"
-                aria-expanded="false"
-              {% endif %}>
-              {{- node.title -}}
-            </span>
-          {% else %}
+            {# >>> Render custom attributes #}
+            {% for attribute in node.customAttributes %}
+              {{ attribute.attribute }}="{{ attribute.value }}"
+            {% endfor %}>
+            {{- node.title -}}
+          </span>
+        {% else %}
+          {% if node.hasDescendants %}
+            <button :class="{'is-active': activeId === {{ node.id }} || activeParentId === {{ node.id }}}"
+                    @click="activeId = {{ node.id }}, activeParentId = {{ node.parent ? node.parent.id : 0 }};"
+                    aria-haspopup="true"
+                    :aria-expanded="[activeId === {{ node.id }} ? 'true' : 'false']"
+            {% else %}
             <a href="{{ node.url }}"
-               class="{{ props.linkClass }}" data-current-level="{{ level }}"
+               :class="{'is-active': activeId === {{ node.id }}}"
+               @click="activeId = {{ node.id }}, activeParentId = {{ node.parent ? node.parent.id : 0 }};"
+          {% endif %}
+             class="{{ props.classes.link }}" data-current-level="{{ level }}"
 
-               {# >>> Render aria #}
-               {% if node.hasDescendants %}
-                 aria-haspopup="true"
-                 aria-expanded="false"
-               {% endif %}
+             {# >>> Render aria #}
+             {% if node.hasDescendants %}
+               aria-haspopup="true"
+               aria-expanded="false"
+             {% endif %}
 
-               {# >>> Render link target #}
-               {% if node.newWindow %}
-                 target="_blank"
-                 rel="noopener"
-               {% endif %}
+             {# >>> Render link target #}
+             {% if node.newWindow %}
+               target="_blank"
+               rel="noopener"
+             {% endif %}
 
-               {# >>> Render custom attributes #}
-               {% for attribute in node.customAttributes %}
-                 {{ attribute.attribute }}="{{ attribute.value }}"
-               {% endfor %}>
-              {{- node.title -}}
+             {# >>> Render custom attributes #}
+             {% for attribute in node.customAttributes %}
+               {{ attribute.attribute }}="{{ attribute.value }}"
+             {% endfor %}>
+            {{- node.title -}}
+          {% if node.hasDescendants %}
+            </button>
+            {% else %}
             </a>
           {% endif %}
+        {% endif %}
 
-          {# >>> Render subitems #}
-          {% if node.hasDescendants %}
-          <div class="{{ props.subItemsWrapperClass }}"
-               data-current-level="{{ level + 1 }}">
+        {# >>> Render subitems #}
+        {% if node.hasDescendants %}
+        <div class="{{ props.classes.subItemsHolder }}"
+             data-current-level="{{ level + 1 }}">
           {% endif %}
-            {% ifchildren %}
-              {% set level = node.level + 1 %}
+          {% ifchildren %}
+            {% set level = node.level + 1 %}
 
-              <ul class="{{ props.ulClass }}"
-                  data-current-level="{{ level }}">
-                {% children %}
-              </ul>
-            {% endifchildren %}
+            <ul class="{{ props.classes.ul }}"
+                data-current-level="{{ level }}">
+              {% children %}
+            </ul>
+          {% endifchildren %}
           {% if node.hasDescendants %}
-          </div>
-          {% endif %}
-        </li>
-      {% endnav %}
-    </ul>
-  </div>
+        </div>
+        {% endif %}
+      </li>
+    {% endnav %}
+  </ul>
 {% endmacro %}
