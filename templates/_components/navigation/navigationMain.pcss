@@ -1,0 +1,14 @@
+.c-navigationMain {
+  button.is-active,
+  a.is-active {
+    color: red;
+  }
+
+  .c-navigationMain__subItemsWrapper {
+    display: none;
+  }
+
+  button[aria-expanded="true"] + .c-navigationMain__subItemsWrapper {
+    display: block;
+  }
+}

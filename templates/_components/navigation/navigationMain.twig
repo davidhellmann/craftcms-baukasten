@@ -1,9 +1,15 @@
-{# Set Defaults #}
-{% set defaults = {
-  name: 'c-navigationMain',
-  modifiers: [],
-  customClasses: ['js-navigation'],
-  nodes: null
+{% set compDefaults = {
+  settings: {
+    name: 'c-navigationMain',
+  },
+  data: {
+    nodes: null,
+    activeNode: null
+  },
+  classes: {
+    root: '',
+    custom: '',
+  },
 } %}
 
 {# >>> Merge settings / data / classes #}
@@ -12,16 +18,12 @@
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
+
 {% import '_macros/_macro-navigation.twig' as macroNavigation  %}
 
-{% if props.nodes %}
-  <nav>
-    {% set navigationMainOptions = {
-      name: props.cn,
-      nodes: props.nodes,
-    } %}
-
-    {{ macroNavigation.navigation(navigationMainOptions) }}
+{% if props.data.nodes ??? null %}
+  <nav class="{{ props.settings.name }} {{ props.classes.root}}  {{ props.classes.custom }}">
+    {{ macroNavigation.navigation(props.data.nodes, props.settings.name, props.data.activeNode) }}
   </nav>
 {% endif %}
 
