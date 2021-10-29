@@ -39,7 +39,6 @@
 
     {% nav node in props.data.nodes %}
       {# >>> Set vars #}
-      {% set level = node.level %}
       {% set attributes = '' %}
       {% if node.customAttributes %}
         {% set attributes %}
@@ -50,7 +49,7 @@
       {% endif %}
 
 
-      <li class="{{ props.classes.li }} {{ node.classes ??? '' }}" data-level="{{ level }}"
+      <li class="{{ props.classes.li }} {{ node.classes ??? '' }}" data-level="{{ node.level }}"
         {% if node.hasDescendants %}
         x-data="{ flyoutMenuOpen: false }"
         @click.away="flyoutMenuOpen = false"
@@ -67,12 +66,12 @@
                             activeId = {{ node.id }};
                             activeParentId = {{ node.parent ? node.parent.id : 0 }};"
                     :aria-expanded="flyoutMenuOpen"
-                    data-level="{{ level }}" {{ attributes }}>{{- node.title -}}</button>
+                    data-level="{{ node.level }}" {{ attributes }}>{{- node.title -}}</button>
           {% else %}
             <a href="{{ node.url }}"
                :class="{'is-active': activeId === {{ node.id }}}"
                @click="activeId = {{ node.id }}, activeParentId = {{ node.parent ? node.parent.id : 0 }};"
-               class="{{ props.classes.link }}" data-level="{{ level }}"
+               class="{{ props.classes.link }}" data-level="{{ node.level }}"
               {% if node.newWindow %}
                 target="_blank"
                 rel="noopener"
@@ -80,27 +79,29 @@
           {% endif %}
           {# >>> Render Heading / Label #}
         {% else %}
-          <span class="{{ props.classes.span }}" data-level="{{ level }}" {{ attributes }}>
+          <span class="{{ props.classes.span }}" data-level="{{ node.level }}" {{ attributes }}>
           {{- node.title -}}
           </span>
         {% endif %}
 
-
         {% if node.hasDescendants %}
-        <div class="{{ props.classes.subItemsHolder }}" x-cloak data-level="{{ level + 1 }}"
-             x-show="flyoutMenuOpen"
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 translate-y-1"
-             x-transition:enter-end="opacity-100 translate-y-0"
-             x-transition:leave="transition ease-in duration-150"
-             x-transition:leave-start="opacity-100 translate-y-0"
-             x-transition:leave-end="opacity-0 translate-y-1">
+        {% set subItemUls = node.descendants | filter(a => not a.url and a.level == node.level + 1) | length ??? 1 %}
+        <div class="{{ props.classes.subItemsHolder }}" x-cloak data-level="{{ node.level }}" data-cols="{{ subItemUls }}"
+             {% if node.level <= 1 %}
+               x-show="flyoutMenuOpen"
+               x-transition:enter="transition ease-out duration-200"
+               x-transition:enter-start="opacity-0 translate-y-1"
+               x-transition:enter-end="opacity-100 translate-y-0"
+               x-transition:leave="transition ease-in duration-150"
+               x-transition:leave-start="opacity-100 translate-y-0"
+               x-transition:leave-end="opacity-0 translate-y-1"
+            {% endif %}>
           {% endif %}
           {# >>> Render chidlren #}
           {% ifchildren %}
-            {% set level = node.level + 1 %}
+            {% set subItemUls = node.descendants | filter(a => not a.url and a.level == node.level + 1) | length ??? 1 %}
             <ul class="{{ props.classes.ul }}"
-                data-level="{{ level }}">
+                data-level="{{ node.level + 1 }}" data-cols="{{ subItemUls }}">
               {% children %}
             </ul>
           {% endifchildren %}
