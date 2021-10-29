@@ -11,6 +11,7 @@ import './images.pcss'
 
 const imageGallery: IComponent = {
   name: 'imageGallery',
+
   init(imageGalleryEls: Array<HTMLElement>) {
     imageGalleryEls?.forEach(gal => {
       const dynamicData = gal.dataset.dynamicData || null

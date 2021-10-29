@@ -21,11 +21,11 @@ export default async () => {
       imagesCalculated.init(imageGridCalculatedEls)
     }
 
-    // Navigation
-    if (document.querySelectorAll('.js-navigation').length) {
-      import('./components/navigation')
-        .then(navigation => navigation.default.init())
-        .catch(e => console.error(`${e.name} : ${e.message}`));
+    // Navigation Main
+    const navigationMainEl = document.querySelector<HTMLElement>('.js-navigationMain');
+    if (navigationMainEl) {
+      const {default: imagesCalculated} = await import('../../templates/_components/navigation/navigationMain')
+      imagesCalculated.init(navigationMainEl)
     }
   } catch (e) {
     console.error(e)

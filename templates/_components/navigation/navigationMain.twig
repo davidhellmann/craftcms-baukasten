@@ -22,7 +22,7 @@
 {% import '_macros/_macro-navigation.twig' as macroNavigation  %}
 
 {% if props.data.nodes ??? null %}
-  <nav class="{{ props.settings.name }} {{ props.classes.root}}  {{ props.classes.custom }}">
+  <nav class="{{ props.settings.name }} {{ props.classes.root}}  {{ props.classes.custom }} js-navigationMain">
     {{ macroNavigation.navigation(props.data.nodes, props.settings.name, props.data.activeNode) }}
   </nav>
 {% endif %}
