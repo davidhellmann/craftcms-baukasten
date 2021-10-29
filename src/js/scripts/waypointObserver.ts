@@ -1,21 +1,31 @@
 import {IComponent} from '../@types/IComponent'
 
+interface Settings {
+  delay: number,
+  staggeringDelay: number,
+  endless: boolean,
+}
+
 interface ICompWaypointObserver extends IComponent {
   observerConfig: {
     [key: string]: string | Array<number>
   },
 
-  setElements(): void,
-  startObserving(el: HTMLElement | Array<HTMLElement>): void,
-  getSettings(el: HTMLElement): void,
-  getWaypointTargets(el: HTMLElement): void,
-  handleAnimateClasses(el: Array<HTMLElement>, settings: object): void,
+  settings: {
+    delay: number,
+    staggeringDelay: number,
+    endless: boolean,
+  },
+
+  startObserving(el: Array<HTMLElement>): void,
+  getSettings(el: Element): Settings,
+  getWaypointTargets(el: Element): Array<HTMLElement>|Array<any>,
+  handleAnimateClasses(el: Array<HTMLElement>, settings: Settings): void,
 }
 
 const waypointObserver: ICompWaypointObserver = {
   name: 'waypointObserver',
   selectors: {
-    waypoint: '[waypoint]',
     waypointTarget: '[waypoint-target]',
   },
   settings: {
@@ -31,16 +41,6 @@ const waypointObserver: ICompWaypointObserver = {
     isInViewport: 'is-inViewport',
     isAnimated: 'is-animated',
   },
-  els: {
-    $waypoints: null,
-    $waypointTargets: null,
-  },
-
-  setElements() {
-    this.els.$waypoints = [
-      ...document.querySelectorAll(this.selectors.waypoint),
-    ];
-  },
 
   startObserving(waypoints) {
     const observer = new IntersectionObserver(entries => {
@@ -55,14 +55,17 @@ const waypointObserver: ICompWaypointObserver = {
           }
 
           // Add in-view class for element
+          if (!this.classes) return;
           entry.target.classList.add(this.classes.isInViewport);
 
           // Animate Targets
+          if (!targets) return;
           this.handleAnimateClasses(targets, settings);
         } else {
           // Add in-view class for element
+          if (!this.classes) return;
           entry.target.classList.remove(this.classes.isInViewport);
-          targets.forEach(target => {
+          targets?.forEach(target => {
             if (target.classList.contains('is-animated')) {
               target.classList.remove('is-animated');
             }
@@ -77,19 +80,19 @@ const waypointObserver: ICompWaypointObserver = {
   },
 
   getSettings(waypoint) {
-    const settings = {
-      delay: this.settings.delay,
-      staggeringDelay: this.settings.staggeringDelay,
-      endless: this.settings.endless,
+    const settings : Settings = {
+      delay: this?.settings?.delay,
+      staggeringDelay: this?.settings?.staggeringDelay,
+      endless: this?.settings?.endless,
     };
 
     if (waypoint.hasAttribute('waypoint-delay')) {
-      settings.delay = parseInt(waypoint.getAttribute('waypoint-delay'), 10);
+      settings.delay = parseInt(<string>waypoint.getAttribute('waypoint-delay'), 10);
     }
 
     if (waypoint.hasAttribute('waypoint-staggering-delay')) {
       settings.staggeringDelay = parseInt(
-        waypoint.getAttribute('waypoint-staggering-delay'),
+        <string>waypoint.getAttribute('waypoint-staggering-delay'),
         10,
       );
     }
@@ -102,23 +105,12 @@ const waypointObserver: ICompWaypointObserver = {
   },
 
   getWaypointTargets(holder) {
-    let targets;
+    if (!this.selectors) return [];
+    let targets = [...holder.querySelectorAll<HTMLElement>(this.selectors.waypointTarget)];
 
-    // Get all targets
-    if (!this.els) return;
-    this.els.$waypointTargets = [
-      ...holder.querySelectorAll<HTMLElement>(this.selectors.waypointTarget),
-    ];
-
-    const length:number = this.els.$waypointTargets.length;
-    const threshold = this.observerConfig.threshold.length;
-
-    if (length > threshold) {
-      // Animate Targets if exits
-      targets = this.els.$waypointTargets;
-    } else if (holder.hasAttribute('waypoint-target')) {
+    if (targets.length <= this.observerConfig.threshold[0] && (holder.hasAttribute('waypoint-target'))) {
       // Animate the waypoint itself if no targets exists
-      targets = '[waypoint]';
+      targets = [holder as HTMLElement];
     }
 
     return targets;
@@ -126,6 +118,7 @@ const waypointObserver: ICompWaypointObserver = {
 
   handleAnimateClasses(targets, settings) {
     targets.forEach((target, index) => {
+      if (!settings.delay || !settings.staggeringDelay) return;
       const delay = settings.delay + settings.staggeringDelay * index;
 
       if (!target.classList.contains('is-animated')) {
@@ -137,13 +130,7 @@ const waypointObserver: ICompWaypointObserver = {
   },
 
   init(waypointEls:Array<HTMLElement>) {
-    // Set Elements
-    this.setElements();
-
-    // Handle Waypoints
-    if (!this.els) return;
-    this.els.$waypoints = waypointEls;
-    this.startObserving(this.els.$waypoints);
+    this.startObserving(waypointEls);
   },
 };
 
