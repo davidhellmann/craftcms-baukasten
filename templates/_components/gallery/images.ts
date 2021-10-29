@@ -1,12 +1,12 @@
 import {IComponent} from '../../../src/js/@types/IComponent'
 
 // Dependencies
-import lightGallery from '@NPM/lightgallery';
-import lgThumbnail from '@NPM/lightgallery/plugins/thumbnail'
-import lgZoom from '@NPM/lightgallery/plugins/zoom'
-import '@NPM/lightGallery/css/lightgallery.css'
-import '@NPM/lightGallery/css/lg-zoom.css'
-import '@NPM/lightGallery/css/lg-thumbnail.css'
+import lightGallery from 'lightgallery';
+import lgThumbnail from 'lightgallery/plugins/thumbnail'
+import lgZoom from 'lightgallery/plugins/zoom'
+import 'lightGallery/css/lightgallery.css'
+import 'lightGallery/css/lg-zoom.css'
+import 'lightGallery/css/lg-thumbnail.css'
 import './images.pcss'
 
 const imageGallery: IComponent = {
