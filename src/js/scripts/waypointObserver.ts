@@ -1,35 +1,44 @@
-/**
- * ScrollMonitor
- */
+import {IComponent} from '../@types/IComponent'
 
-const waypointObserver = {
-  cfg: {
-    selectors: {
-      waypoint: '[waypoint]',
-      waypointTarget: '[waypoint-target]',
-    },
-    settings: {
-      delay: 250,
-      staggeringDelay: 100,
-      endless: false,
-    },
-    observerConfig: {
-      threshold: [0],
-      rootMargin: '0px 0px -33% 0px',
-    },
-    classes: {
-      isInViewport: 'is-inViewport',
-      isAnimated: 'is-animated',
-    },
-    els: {
-      $waypoints: undefined,
-      $waypointTargets: undefined,
-    },
+interface ICompWaypointObserver extends IComponent {
+  observerConfig: {
+    [key: string]: string | Array<number>
+  },
+
+  setElements(): void,
+  startObserving(el: HTMLElement | Array<HTMLElement>): void,
+  getSettings(el: HTMLElement): void,
+  getWaypointTargets(el: HTMLElement): void,
+  handleAnimateClasses(el: Array<HTMLElement>, settings: object): void,
+}
+
+const waypointObserver: ICompWaypointObserver = {
+  name: 'waypointObserver',
+  selectors: {
+    waypoint: '[waypoint]',
+    waypointTarget: '[waypoint-target]',
+  },
+  settings: {
+    delay: 250,
+    staggeringDelay: 100,
+    endless: false,
+  },
+  observerConfig: {
+    threshold: [0],
+    rootMargin: '0px 0px -33% 0px',
+  },
+  classes: {
+    isInViewport: 'is-inViewport',
+    isAnimated: 'is-animated',
+  },
+  els: {
+    $waypoints: null,
+    $waypointTargets: null,
   },
 
   setElements() {
-    this.cfg.els.$waypoints = [
-      ...document.querySelectorAll(this.cfg.selectors.waypoint),
+    this.els.$waypoints = [
+      ...document.querySelectorAll(this.selectors.waypoint),
     ];
   },
 
@@ -46,13 +55,13 @@ const waypointObserver = {
           }
 
           // Add in-view class for element
-          entry.target.classList.add(this.cfg.classes.isInViewport);
+          entry.target.classList.add(this.classes.isInViewport);
 
           // Animate Targets
           this.handleAnimateClasses(targets, settings);
         } else {
           // Add in-view class for element
-          entry.target.classList.remove(this.cfg.classes.isInViewport);
+          entry.target.classList.remove(this.classes.isInViewport);
           targets.forEach(target => {
             if (target.classList.contains('is-animated')) {
               target.classList.remove('is-animated');
@@ -60,7 +69,7 @@ const waypointObserver = {
           });
         }
       });
-    }, this.cfg.observerConfig);
+    }, this.observerConfig);
 
     waypoints.forEach(waypoint => {
       observer.observe(waypoint);
@@ -69,9 +78,9 @@ const waypointObserver = {
 
   getSettings(waypoint) {
     const settings = {
-      delay: this.cfg.settings.delay,
-      staggeringDelay: this.cfg.settings.staggeringDelay,
-      endless: this.cfg.settings.endless,
+      delay: this.settings.delay,
+      staggeringDelay: this.settings.staggeringDelay,
+      endless: this.settings.endless,
     };
 
     if (waypoint.hasAttribute('waypoint-delay')) {
@@ -96,15 +105,17 @@ const waypointObserver = {
     let targets;
 
     // Get all targets
-    this.cfg.els.$waypointTargets = [
-      ...holder.querySelectorAll(this.cfg.selectors.waypointTarget),
+    if (!this.els) return;
+    this.els.$waypointTargets = [
+      ...holder.querySelectorAll<HTMLElement>(this.selectors.waypointTarget),
     ];
 
-    if (
-      this.cfg.els.$waypointTargets.length > this.cfg.observerConfig.threshold
-    ) {
+    const length:number = this.els.$waypointTargets.length;
+    const threshold = this.observerConfig.threshold.length;
+
+    if (length > threshold) {
       // Animate Targets if exits
-      targets = this.cfg.els.$waypointTargets;
+      targets = this.els.$waypointTargets;
     } else if (holder.hasAttribute('waypoint-target')) {
       // Animate the waypoint itself if no targets exists
       targets = '[waypoint]';
@@ -125,13 +136,14 @@ const waypointObserver = {
     });
   },
 
-  init() {
+  init(waypointEls:Array<HTMLElement>) {
     // Set Elements
     this.setElements();
 
     // Handle Waypoints
-    if (!this.cfg.els.$waypoints) return;
-    this.startObserving(this.cfg.els.$waypoints);
+    if (!this.els) return;
+    this.els.$waypoints = waypointEls;
+    this.startObserving(this.els.$waypoints);
   },
 };
 

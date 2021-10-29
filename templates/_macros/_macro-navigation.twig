@@ -3,23 +3,22 @@
 {{ macroNavigation.navigation(nodes) }}
 #}
 
-{% macro navigation(nodes, name = 'c-navigation') %}
+{% macro navigation(nodes, name = 'c-navigation', activeNode = null) %}
   {# >>> Comp Settings #}
   {% set compDefaults = {
     settings: {
       name: name,
-      ulClass: name ~ '__list',
-      liClass: name ~ '__listItem',
-      spanClass: name ~ '__listHeading',
-      linkClass: name ~ '__listLink',
-      subItemsWrapperClass: name ~ '__subItemsWrapper',
     },
     data: {
       nodes: nodes ??? null,
     },
     classes: {
-      root: '',
-      custom: '',
+      ul: name ~ '__list',
+      li: name ~ '__listItem',
+      span: name ~ '__listHeading',
+      link: name ~ '__listLink',
+      button: name ~ '__listButton',
+      subItemsHolder: name ~ '__subItemsWrapper',
     }
   } %}
 
@@ -31,88 +30,85 @@
   } %}
 
 
-  {# Macros #}
-  {% import '_macros/_macro-componentSettings.twig' as macroComponentSettings %}
+  <ul alpinejs
+      x-data="{
+        activeId: {{ activeNode ? activeNode.id : 0 }},
+        activeParentId: {{ activeNode.parent ? activeNode.parent.id : 0 }}
+      }"
+      class="{{ props.classes.ul }}" data-level="1">
+
+    {% nav node in props.data.nodes %}
+      {# >>> Set vars #}
+      {% set attributes = '' %}
+      {% if node.customAttributes %}
+        {% set attributes %}
+          {% for attribute in node.customAttributes %}
+            {{ attribute.attribute }}="{{ attribute.value }}"
+          {% endfor %}
+        {% endset %}
+      {% endif %}
 
 
-  {% set defaults = {
-    name: 'c-navigation',
-    nodes: null,
-    ulClass: '__list',
-    liClass: '__listItem',
-    spanClass: '__listHeading',
-    linkClass: '__listLink',
-    subItemsWrapperClass: '__subItemsWrapper',
-  } %}
+      <li class="{{ props.classes.li }} {{ node.classes ??? '' }}" data-level="{{ node.level }}"
+        {% if node.hasDescendants %}
+        x-data="{ flyoutMenuOpen: false }"
+        @click.away="flyoutMenuOpen = false"
+        @keydown.escape="flyoutMenuOpen = false"
+        {% endif %}>
 
-  {# Merge Default with Options #}
-  {% set props = props is defined ? defaults|merge(props) : defaults %}
-
-  <div
-    class="{{ props.classes.root }} {{ props.classes.custom }}">
-    <ul class="{{ props.ulClass }}  {{ props.ulClass ~ '--level-1' }}">
-      {% nav node in props.nodes %}
-        {% set level = node.level %}
-
-        <li
-          class="{{ props.liClass }}  {{ props.liClass ~'--level-' ~ level }} {{ node.classes ??? ''}}">
-          {% if not node.url %}
-            <span class="{{ props.spanClass }}  {{ props.spanClass ~ '--level-' ~ level }}"
-
-              {# >>> Render custom attributes #}
-              {% for attribute in node.customAttributes %}
-                {{ attribute.attribute }}="{{ attribute.value }}"
-              {% endfor %}
-
-              {# >>> Render aria #}
-              {% if node.hasDescendants %}
-                aria-haspopup="true"
-                aria-expanded="false"
-              {% endif %}>
-              {{- node.title -}}
-            </span>
+        {# >>> Render Link / Submenu Trigger #}
+        {% if node.url %}
+          {% if node.hasDescendants %}
+            <button :class="{'is-active': activeId === {{ node.id }} || activeParentId === {{ node.id }}}"
+                    class="{{ props.classes.button }}"
+                    aria-haspopup="true"
+                    @click="flyoutMenuOpen = !flyoutMenuOpen;
+                            activeId = {{ node.id }};
+                            activeParentId = {{ node.parent ? node.parent.id : 0 }};"
+                    :aria-expanded="flyoutMenuOpen"
+                    data-level="{{ node.level }}" {{ attributes }}>{{- node.title -}}</button>
           {% else %}
             <a href="{{ node.url }}"
-               class="{{ props.linkClass }}" data-current-level="{{ level }}"
-
-               {# >>> Render aria #}
-               {% if node.hasDescendants %}
-                 aria-haspopup="true"
-                 aria-expanded="false"
-               {% endif %}
-
-               {# >>> Render link target #}
-               {% if node.newWindow %}
-                 target="_blank"
-                 rel="noopener"
-               {% endif %}
-
-               {# >>> Render custom attributes #}
-               {% for attribute in node.customAttributes %}
-                 {{ attribute.attribute }}="{{ attribute.value }}"
-               {% endfor %}>
-              {{- node.title -}}
-            </a>
+               :class="{'is-active': activeId === {{ node.id }}}"
+               @click="activeId = {{ node.id }}, activeParentId = {{ node.parent ? node.parent.id : 0 }};"
+               class="{{ props.classes.link }}" data-level="{{ node.level }}"
+              {% if node.newWindow %}
+                target="_blank"
+                rel="noopener"
+              {% endif %} {{ attributes }}>{{- node.title -}}</a>
           {% endif %}
+          {# >>> Render Heading / Label #}
+        {% else %}
+          <span class="{{ props.classes.span }}" data-level="{{ node.level }}" {{ attributes }}>
+          {{- node.title -}}
+          </span>
+        {% endif %}
 
-          {# >>> Render subitems #}
+        {% if node.hasDescendants %}
+        {% set subItemUls = node.descendants | filter(a => not a.url and a.level == node.level + 1) | length ??? 1 %}
+        <div class="{{ props.classes.subItemsHolder }}" x-cloak data-level="{{ node.level }}" data-cols="{{ subItemUls }}"
+             {% if node.level <= 1 %}
+               x-show="flyoutMenuOpen"
+               x-transition:enter="transition ease-out duration-200"
+               x-transition:enter-start="opacity-0 translate-y-1"
+               x-transition:enter-end="opacity-100 translate-y-0"
+               x-transition:leave="transition ease-in duration-150"
+               x-transition:leave-start="opacity-100 translate-y-0"
+               x-transition:leave-end="opacity-0 translate-y-1"
+            {% endif %}>
+          {% endif %}
+          {# >>> Render chidlren #}
+          {% ifchildren %}
+            {% set subItemUls = node.descendants | filter(a => not a.url and a.level == node.level + 1) | length ??? 1 %}
+            <ul class="{{ props.classes.ul }}"
+                data-level="{{ node.level + 1 }}" data-cols="{{ subItemUls }}">
+              {% children %}
+            </ul>
+          {% endifchildren %}
           {% if node.hasDescendants %}
-          <div class="{{ props.subItemsWrapperClass }}"
-               data-current-level="{{ level + 1 }}">
-          {% endif %}
-            {% ifchildren %}
-              {% set level = node.level + 1 %}
-
-              <ul class="{{ props.ulClass }}"
-                  data-current-level="{{ level }}">
-                {% children %}
-              </ul>
-            {% endifchildren %}
-          {% if node.hasDescendants %}
-          </div>
-          {% endif %}
-        </li>
-      {% endnav %}
-    </ul>
-  </div>
+        </div>
+        {% endif %}
+      </li>
+    {% endnav %}
+  </ul>
 {% endmacro %}

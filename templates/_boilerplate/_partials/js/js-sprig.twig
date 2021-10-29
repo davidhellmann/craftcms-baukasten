@@ -1,30 +1,32 @@
 {# Init: Sprig #}
-{{ sprig.script }}
+{{ sprig.script({ defer: true }) }}
 
 <script>
-  // Sprig stuff
-  if ('loading' in HTMLImageElement.prototype) {
-    htmx.on('htmx:afterSwap', function (e) {
-      // Trigger Lazyloading Again.
-      document.querySelectorAll(window._LazyImageSelector).forEach(function (lazyImage) {
-        window._LazyImageObserver.observe(lazyImage);
+  document.addEventListener('DOMContentLoaded', function() {
+    // Sprig stuff
+    if ('loading' in HTMLImageElement.prototype) {
+      htmx.on('htmx:afterSwap', function (e) {
+        // Trigger Lazyloading Again.
+        document.querySelectorAll(window._LazyImageSelector).forEach(function (lazyImage) {
+          window._LazyImageObserver.observe(lazyImage);
+        });
       });
+    }
+
+    htmx.on('htmx:beforeSend', function (e) {
+      document.documentElement.classList.add('sprig-beforeSend')
+      document.documentElement.classList.remove('sprig-afterSwap')
+      document.documentElement.classList.remove('sprig-swapError')
     });
-  }
 
-  htmx.on('htmx:beforeSend', function (e) {
-    document.documentElement.classList.add('sprig-beforeSend')
-    document.documentElement.classList.remove('sprig-afterSwap')
-    document.documentElement.classList.remove('sprig-swapError')
-  });
+    htmx.on('htmx:afterSwap', function (e) {
+      document.documentElement.classList.add('sprig-afterSwap')
+    });
 
-  htmx.on('htmx:afterSwap', function (e) {
-    document.documentElement.classList.add('sprig-afterSwap')
-  });
-
-  htmx.on('htmx:swapError', function (e) {
-    document.documentElement.classList.add('sprig-swapError')
-    document.documentElement.classList.remove('sprig-beforeSend')
-    document.documentElement.classList.remove('sprig-afterSwap')
-  });
+    htmx.on('htmx:swapError', function (e) {
+      document.documentElement.classList.add('sprig-swapError')
+      document.documentElement.classList.remove('sprig-beforeSend')
+      document.documentElement.classList.remove('sprig-afterSwap')
+    });
+  })
 </script>

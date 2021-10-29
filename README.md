@@ -93,7 +93,7 @@ Go to `./` and do this: `valet link craftcms-baukasten` to create a domain like 
 
 
 ### Why
-I have developed several CraftCMS projects the last few years. For me, the setup and certain basics are what tend to take time away from me at the beginning of the project. 
+I have developed several CraftCMS projects the last few years. For me, the setup and certain basics are what tend to take time away from me at the beginning of the project.
 
 For this reason there is the "Baukasten" to get started faster in new projects. It's a collection of good practices I have learned and adopted from past projects and from other people. It's heavily opinionated, but feel free to fork and modify it for your own needs.
 

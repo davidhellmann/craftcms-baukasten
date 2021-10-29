@@ -1,15 +1,17 @@
-{#
-o-imageGrid
-------------------------------------------------------------
-#}
-
-{# Set Defaults #}
-{% set defaults = {
-  name: 'c-imageGridCalculated',
-  images: null,
-  caption: null,
-  ratio: null,
-  calculated: null
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-imageGridCalculated',
+  },
+  data: {
+    images: null,
+    caption: null,
+    transform: 'auto',
+  },
+  classes: {
+    root: 'flex flex-col md:flex-row flex-nowrap gap-4 md:gap-8',
+    custom: '',
+  },
 } %}
 
 {# >>> Merge settings / data / classes #}
@@ -21,24 +23,21 @@ o-imageGrid
 
 
 {# Modul #}
-{% if props.images %}
-  <div class="{{ props.settings.name }} js-imageGridCalculated">
-    <div class="{{ props.cn ~ '__inner' }}">
-      {% for image in props.images if image %}
-        <div class="{{ props.cn ~ '__item' }}">
-          {% include '_components/figure/image.twig' with {
-            props: {
-              image: image ??? null,
-              ratio: props.ratio ??? null,
-              caption: props.caption ??? null,
-              captionHeadline: image.imageTitle ??? null,
-              captionText: image.imageCaption ??? null,
-              captionSource: image.imageSource ??? null,
-              captionSourceUrl: image.imageSourceUrl ??? null
-            }
-          } only %}
-        </div>
-      {% endfor %}
-    </div>
+{% if props.data.images ??? null %}
+  <div
+    class="js-imageGridCalculated {{ props.settings.name }}  {{ props.classes.root }} {{ props.classes.custom }}">
+    {% for image in props.data.images %}
+      {% include '_components/image/image.twig' with {
+        data: {
+          image: image ??? null,
+          transform: props.data.transform ??? null,
+          renderPlainImage: true,
+          caption: props.data.caption ??? null,
+        },
+        classes: {
+          custom: 'w-full md:max-w-full md:w-auto'
+        }
+      } only %}
+    {% endfor %}
   </div>
 {% endif %}

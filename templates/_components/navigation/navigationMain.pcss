@@ -1,0 +1,50 @@
+.c-navigationMain {
+  @apply bg-gray-50 p-4;
+}
+
+.c-navigationMain__list {
+  &[data-level="1"] {
+    @apply flex flex-row;
+  }
+
+  &[data-level="2"] {
+    @apply grid grid-cols-2 gap-x-12;
+  }
+}
+
+.c-navigationMain__listHeading {
+  &:not([data-level="1"]) {
+    @apply text-gray-300 text-xs uppercase font-bold border-b block mb-2 pb-1;
+  }
+}
+
+.c-navigationMain__listItem {
+  @apply inline-block;
+
+  &[data-level="1"] {
+    @apply relative;
+  }
+}
+
+.c-navigationMain__listLink,
+.c-navigationMain__listButton {
+  @apply font-bold inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 cursor-pointer;
+
+  &[data-level="1"] {
+    @apply px-3 py-1 rounded-full mx-2 text-sm;
+
+    &.is-active {
+      @apply text-primary-600;
+    }
+  }
+}
+
+.c-navigationMain__subItemsWrapper {
+  &[data-level="1"] {
+    @apply absolute w-80 mt-4 p-12 left-1/2 transform -translate-x-1/2  bg-white shadow-2xl rounded-lg;
+  }
+  &[data-level="1"]&[data-cols="2"] {
+    @apply w-[40rem];
+  }
+}
+
