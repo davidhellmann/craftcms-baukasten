@@ -3,6 +3,7 @@ import legacy from '@vitejs/plugin-legacy';
 import ViteRestart from 'vite-plugin-restart';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import critical from 'rollup-plugin-critical';
+import eslintPlugin from 'vite-plugin-eslint';
 // import { ViteFaviconsPlugin } from 'vite-plugin-favicon';
 import path from 'path';
 
@@ -23,12 +24,16 @@ export default ({ command }) => ({
     },
   },
   plugins: [
+    eslintPlugin({
+      fix: true,
+      throwOnWarning: true,
+      throwOnError: true,
+      cache: false,
+    }),
     critical({
       criticalUrl: 'https://stage.baukasten.io/',
       criticalBase: './web/dist/criticalcss/',
-      criticalPages: [
-        { uri: '', template: 'index' }
-      ],
+      criticalPages: [{ uri: '', template: 'index' }],
       criticalConfig: {},
     }),
     // ViteFaviconsPlugin({
@@ -47,15 +52,8 @@ export default ({ command }) => ({
       moduleDirectories: [path.resolve('./node_modules')],
     }),
     ViteRestart({
-      reload: [
-        './translations/**/*',
-        './templates/**/*'
-      ],
-      restart: [
-        './tailwind.config.js',
-        './postcss.config.js',
-        './tailwind/**/*',
-      ]
+      reload: ['./translations/**/*', './templates/**/*'],
+      restart: ['./tailwind.config.js', './postcss.config.js', './tailwind/**/*'],
     }),
     vue(),
   ],
