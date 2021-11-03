@@ -10,10 +10,28 @@
 
   {% cache %}
     {% for i in 0..50 %}
-      {# imageRaw #}
       {% include '_components/image/image.twig' with {
-        props: {
+        data: {
+          image: craft.assets.title('Cat 01').volume('templateImages').one() ??? null,
+          transform: 'landscape',
+        }
+      } only %}
+      {% include '_components/image/image.twig' with {
+        data: {
           image: craft.assets.title('Cat 02').volume('templateImages').one() ??? null,
+          transform: 'landscape',
+        }
+      } only %}
+      {% include '_components/image/image.twig' with {
+        data: {
+          image: craft.assets.title('Cat 03').volume('templateImages').one() ??? null,
+          transform: 'landscape',
+        }
+      } only %}
+      {% include '_components/image/image.twig' with {
+        data: {
+          image: craft.assets.title('Cat 04').volume('templateImages').one() ??? null,
+          transform: 'landscape',
         }
       } only %}
     {% endfor %}
