@@ -1,12 +1,6 @@
-import {IComponent} from '../../../src/js/@types/IComponent'
+import Swiper, { Navigation, Scrollbar, A11y, FreeMode, Keyboard } from 'swiper';
+import { IComponent } from '../../../src/js/@types/IComponent';
 
-import Swiper, {
-  Navigation,
-  Scrollbar,
-  A11y,
-  FreeMode,
-  Keyboard,
-} from 'swiper';
 import 'swiper/css';
 import 'swiper/css/a11y';
 import 'swiper/css/free-mode';
@@ -18,7 +12,7 @@ import './swiperHolder.pcss';
 const swiperHolder: IComponent = {
   name: 'swiperHolder',
   init(sliders: Array<HTMLElement>) {
-    sliders?.forEach(slider => {
+    sliders?.forEach((slider) => {
       const sliderConfig = JSON.parse(<string>slider.dataset.swiperConfig) || {};
 
       const swiper = new Swiper(slider, {

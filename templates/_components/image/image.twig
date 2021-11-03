@@ -87,116 +87,106 @@
     title: null,
     width: props.data.image.width,
     height: props.data.image.height,
-    url: null,
+    url: props.data.image.getUrl(),
     noscript: null,
     transforms: null,
     srcset: null,
     filetype: null,
     dominantColor: null,
     placeholder: null,
-    sources: null,
     caption: null,
+    sources: null,
   } %}
 
-  {# Image Extension #}
-  {% set imageData = imageData|merge({
-    'extension': props.data.image is iterable ? props.data.image.extension | lower : props.data.image | split('.') | last | lower
-  }) %}
+  {# Extension #}
+  {% set extension = props.data.image is iterable ? props.data.image.extension | lower : props.data.image | split('.') | last | lower %}
+
 
   {# If Transformable #}
-  {% if imageData.extension in imageSettings.allowedExtensions %}
-    {% set imageData = imageData|merge({
-      'transformable': true
-    }) %}
-  {% endif %}
+  {% set isTranformable = extension in imageSettings.allowedExtensions %}
+
 
   {# Focal Point / Title / URL  #}
   {% set title = props.data.image.title %}
   {% if props.data.image.assetTitle %}
     {% set title = props.data.image.assetTitle %}
   {% endif %}
-  {% set imageData = imageData|merge({
-    'focalpoint': props.data.image.getFocalpoint('asCss') ??? '50% 50%',
-    'title': title,
-    'alt': props.data.decorativeImage ? '' : (props.data.image.assetAltText ??? title),
-    'url': props.data.image.getUrl()
-  }) %}
 
-
-  {# No Script #}
-  {% set imageData = imageData|merge({
-    'noscript': "<noscript><img src='#{imageData.url}' alt='#{imageData.title}'/></noscript>"
-  }) %}
 
   {# Transforms / Srcset #}
-  {% set srcset = imageData.url %}
-  {% set transforms = null %}
-  {% if imageData.transformable %}
+  {% if isTranformable %}
     {% set srcsetLegacy = craft.imager.transformImage(props.data.image, props.data.transform) %}
     {% set transforms = craft.imager.transformImage(props.data.image, props.data.transform, { format: imageSettings.format }) %}
     {% set srcset = craft.imager.srcset(transforms) | trim %}
   {% endif %}
-  {% set imageData = imageData|merge({
-    'transforms': transforms,
-    'srcset': srcset
-  }) %}
 
-  {# Source Extension #}
-  {% set imageData = imageData|merge({
-    'filetype': imageData.transformable ? imageData.transforms[0].source.extension | lower : imageData.extension
-  }) %}
 
   {# Dominant Color / Placeholder #}
   {% set dominantColor = craft.app.config.general.custom.dominantColor ??? 'transparent' %}
   {% if props.data.calcDominantColor
     and not craft.app.config.general.custom.localDevPerformance
-    and imageData.transformable
-    and imageData.extension != 'png' %}
-    {% set dominantColor = craft.imager.getDominantColor(imageData.transforms[0]) %}
+    and isTranformable
+    and transforms is defined
+    and extension != 'png' %}
+    {% set dominantColor = craft.imager.getDominantColor(transforms[0]) %}
   {% endif %}
-  {% set imageData = imageData|merge({
-    'dominantColor': dominantColor,
-    'placeholder': craft.imager.placeholder({
-      color: imageData.dominantColor,
-      width: imageData.transformable ? imageData.transforms[0].width : props.data.image.width,
-      height: imageData.transformable ? imageData.transforms[0].height : props.data.image.height,
-    })
-  }) %}
+
+
+  {# Caption #}
+  {% set caption = null %}
+  {% if props.data.caption %}
+    {% set caption = {
+      'title': props.data.image.assetTitle ??? null,
+      'text': props.data.image.assetCaption ??? null,
+      'source': props.data.image.assetSource ??? null,
+      'sourceUrl': props.data.image.assetSourceUrl ??? null,
+    }  %}
+  {% endif %}
+
+
 
   {# Sources #}
+  {% set finaleSources = [] %}
   {% if props.data.sources | length > 1 %}
-    {% set finaleSources = [] %}
     {% for source in props.data.sources %}
-      {% if imageData.transformable %}
+      {% if isTranformable %}
         {% set srcsetLegacy = craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape') %}
         {% set transforms = craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape', { format: imageSettings.format }) %}
         {% set srcset = craft.imager.srcset(transforms) | trim %}
 
         {% set finaleSources = finaleSources|merge([[
-          imageData.filetype ??? null,
+          isTranformable and transforms is defined ? transforms[0].source.extension | lower : extension ??? null,
           srcset ??? null,
           source[1] ??? 'landscape',
           source[2] ??? true,
           source[3] ??? null
         ]]) %}
-
-
-        {% set imageData = imageData|merge({
-          'sources': finaleSources
-        }) %}
       {% endif %}
     {% endfor %}
   {% endif %}
 
-  {# Caption #}
-  {% if props.data.caption %}
-    {% set imageData = imageData|merge({ 'caption': {
-      'title': props.data.image.assetTitle ??? null,
-      'text': props.data.image.assetCaption ??? null,
-      'source': props.data.image.assetSource ??? null,
-      'sourceUrl': props.data.image.assetSourceUrl ??? null,
-    } }) %}
-  {% endif %}
+
+  {# >>> Merge Settings #}
+  {% set imageData = imageData|merge({
+    'extension': extension,
+    'transformable': isTranformable,
+    'focalpoint': props.data.image.getFocalpoint('asCss') ??? '50% 50%',
+    'title': title,
+    'alt': props.data.decorativeImage ? '' : (props.data.image.assetAltText ??? title),
+    'noscript': "<noscript><img src='#{imageData.url}' alt='#{title}'/></noscript>",
+    'transforms': transforms ??? null,
+    'srcset': srcset ??? imageData.url,
+    'filetype': isTranformable and transforms is defined ? transforms[0].source.extension | lower : extension,
+    'dominantColor': dominantColor,
+    'placeholder': craft.imager.placeholder({
+      color: dominantColor,
+      width: isTranformable and transforms is defined ? transforms[0].width : imageData.width,
+      height: isTranformable and transforms is defined ? transforms[0].height : imageData.height,
+    }),
+    'caption': caption,
+    'sources': finaleSources
+  }) %}
+
 
 
   {% if props.data.renderPlainImage and not props.data.sources %}

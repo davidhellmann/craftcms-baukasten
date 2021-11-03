@@ -19,6 +19,7 @@ const main = async () => {
     const { default: components } = await import('./_components');
     await components();
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(e);
   }
 };

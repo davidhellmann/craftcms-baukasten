@@ -1,17 +1,18 @@
-import {IComponent} from '../../../src/js/@types/IComponent'
+// eslint-disable-next-line import/no-unresolved
+import _debounce from 'lodash-es/debounce';
+import { IComponent } from '../../../src/js/@types/IComponent';
 
 // @ts-ignore
-import _debounce from 'lodash/debounce';
-import './imagesCalculated.pcss'
+import './imagesCalculated.pcss';
 
 interface ICompImagesCalculated extends IComponent {
   settings: {
-    imageHolderWidth: number,
-    height: number,
-  },
-  setImageHeights(el: Array<HTMLElement>, height: number, ratio: number): void,
-  startImageGrid(el: HTMLElement | Array<HTMLElement>): void,
-  doCalculation(el: HTMLElement, width: number): void,
+    imageHolderWidth: number;
+    height: number;
+  };
+  setImageHeights(el: Array<HTMLElement>, height: number, ratio: number): void;
+  startImageGrid(el: HTMLElement | Array<HTMLElement>): void;
+  doCalculation(el: HTMLElement, width: number): void;
 }
 
 const imagesCalculated: ICompImagesCalculated = {
@@ -21,33 +22,30 @@ const imagesCalculated: ICompImagesCalculated = {
     height: 10,
   },
 
-
   setImageHeights(images, ratio, height) {
-    images?.forEach(image => {
+    images?.forEach((image) => {
       image.style.height = `${height * ratio}px`;
     });
   },
 
   doCalculation(imageHolder, imageHolderWidth) {
-    const images: Array<HTMLElement> = [
-      ...imageHolder.querySelectorAll<HTMLImageElement>('img'),
-    ];
+    const images: Array<HTMLElement> = [...imageHolder.querySelectorAll<HTMLImageElement>('img')];
     let imagesWidthSum: number = 0;
-    let imageCount: number = images?.length - 1 || 1;
-    let gap: number = imageCount * parseFloat(getComputedStyle(<HTMLElement>imageHolder).getPropertyValue('row-gap'))
+    const imageCount: number = images?.length - 1 || 1;
+    const gap: number = imageCount * parseFloat(getComputedStyle(<HTMLElement>imageHolder).getPropertyValue('row-gap'));
 
-    images?.forEach(image => {
+    images?.forEach((image) => {
       if (!this.settings) return;
       image.style.height = `${this.settings?.height}px`;
-      imagesWidthSum = imagesWidthSum + image.getBoundingClientRect().width;
+      imagesWidthSum += image.getBoundingClientRect().width;
     });
 
-    let ratio = (imageHolderWidth - gap) / imagesWidthSum;
+    const ratio = (imageHolderWidth - gap) / imagesWidthSum;
     this.setImageHeights(images, this.settings.height, ratio);
   },
 
   startImageGrid(imageGridCalculatedEls: Array<HTMLElement>) {
-    imageGridCalculatedEls?.forEach(imageHolder => {
+    imageGridCalculatedEls?.forEach((imageHolder) => {
       if (!this.settings) return;
       this.settings.imageHolderWidth = imageHolder.getBoundingClientRect().width;
       this.doCalculation(imageHolder, this.settings?.imageHolderWidth);

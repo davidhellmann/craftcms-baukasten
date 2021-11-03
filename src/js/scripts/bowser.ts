@@ -15,7 +15,7 @@ if (typeof platform === 'undefined') {
 }
 
 if (typeof browserVersion === 'undefined') {
-  browserVersion = null;
+  browserVersion = 'null';
 } else {
   browserVersion = browserVersion
     .toLowerCase()
@@ -36,9 +36,11 @@ const browserDetect = {
     const images = [...document.querySelectorAll('[data-rootimage]')];
 
     if (images) {
-      images.forEach(image => {
+      images.forEach((image) => {
         const rootImageUrl = image.getAttribute('data-rootimage');
-        image.setAttribute('src', rootImageUrl);
+        if (rootImageUrl) {
+          image.setAttribute('src', rootImageUrl);
+        }
       });
     }
   },
@@ -47,7 +49,7 @@ const browserDetect = {
     const images = [...document.querySelectorAll('img, source')];
 
     if (images) {
-      images.forEach(image => {
+      images.forEach((image) => {
         const imageType = image.getAttribute('data-type');
         const dataSrcset = image.getAttribute('data-srcset');
         const srcset = image.getAttribute('srcset');
@@ -58,16 +60,10 @@ const browserDetect = {
           image.removeAttribute('type');
         }
         if (dataSrcset) {
-          image.setAttribute(
-            'data-srcset',
-            dataSrcset.replace(searchRegExp, `.${imageType}`),
-          );
+          image.setAttribute('data-srcset', dataSrcset.replace(searchRegExp, `.${imageType}`));
         }
-        if (srcset) {
-          image.setAttribute(
-            'srcset',
-            dataSrcset.replace(searchRegExp, `.${imageType}`),
-          );
+        if (srcset && dataSrcset) {
+          image.setAttribute('srcset', dataSrcset.replace(searchRegExp, `.${imageType}`));
         }
       });
     }
@@ -87,7 +83,7 @@ const browserDetect = {
             `browser-edge-${this.cfg.version}`,
             `device-${this.cfg.platform}`,
           );
-          if (this.cfg.version < 18) {
+          if (this.cfg.version < '18') {
             this.replaceWebPWithFileType();
           }
           break;

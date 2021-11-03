@@ -1,50 +1,59 @@
 /**
  * globalScrollListener
  */
+// eslint-disable-next-line import/no-unresolved
 import _throttle from 'lodash-es/throttle';
+import { IComponent } from '../@types/IComponent';
 
-const globalScrollListener = {
-  cfg: {
-    documentElement: document.documentElement,
-    timer: '',
-    lastScrollTop: 0,
-  },
+interface ICompGlobalScrollListener extends IComponent {
+  documentElement: HTMLElement;
+  timer: null | ReturnType<typeof setTimeout>;
+  lastScrollTop: number;
+  setClasses(): void;
+}
+
+const globalScrollListener: ICompGlobalScrollListener = {
+  name: 'globalScrollListener',
+  documentElement: document.documentElement,
+  timer: null,
+  lastScrollTop: 0,
 
   setClasses() {
-    clearTimeout(this.cfg.timer);
-    if (!this.cfg.documentElement.classList.contains('no-hover')) {
-      this.cfg.documentElement.classList.add('no-hover');
+    if (this.timer) {
+      clearTimeout(this.timer);
     }
-    this.cfg.timer = setTimeout(() => {
-      this.cfg.documentElement.classList.remove('no-hover');
+    if (!this.documentElement.classList.contains('no-hover')) {
+      this.documentElement.classList.add('no-hover');
+    }
+    this.timer = setTimeout(() => {
+      this.documentElement.classList.remove('no-hover');
     }, 250);
 
-    const scrollOffsetTop =
-      window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollOffsetTop > this.cfg.lastScrollTop) {
+    const scrollOffsetTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollOffsetTop > this.lastScrollTop) {
       // downscroll code
-      this.cfg.documentElement.classList.remove('is-scrollingUp');
-      this.cfg.documentElement.classList.add('is-scrollingDown');
+      this.documentElement.classList.remove('is-scrollingUp');
+      this.documentElement.classList.add('is-scrollingDown');
 
       if (scrollOffsetTop > 100) {
-        this.cfg.documentElement.classList.add('is-scrollingDown--100');
+        this.documentElement.classList.add('is-scrollingDown--100');
       }
 
       if (scrollOffsetTop > 500) {
-        this.cfg.documentElement.classList.add('is-scrollingDown--500');
+        this.documentElement.classList.add('is-scrollingDown--500');
       }
     } else {
       // upscroll code
-      this.cfg.documentElement.classList.remove('is-scrollingDown');
-      this.cfg.documentElement.classList.add('is-scrollingUp');
+      this.documentElement.classList.remove('is-scrollingDown');
+      this.documentElement.classList.add('is-scrollingUp');
 
       if (scrollOffsetTop <= 100) {
-        this.cfg.documentElement.classList.remove('is-scrollingDown--100');
-        this.cfg.documentElement.classList.remove('is-scrollingDown--500');
+        this.documentElement.classList.remove('is-scrollingDown--100');
+        this.documentElement.classList.remove('is-scrollingDown--500');
       }
     }
     // For Mobile or negative scrolling
-    this.cfg.lastScrollTop = scrollOffsetTop <= 0 ? 0 : scrollOffsetTop;
+    this.lastScrollTop = scrollOffsetTop <= 0 ? 0 : scrollOffsetTop;
   },
 
   init() {

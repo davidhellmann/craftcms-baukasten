@@ -19,17 +19,27 @@ module.exports = {
   plugins: ['@typescript-eslint', 'vue'],
   rules: {
     // override/add rules settings here, such as:
-    // 'vue/no-unused-vars': 'error'
-    // 'import/prefer-default-export': 'off',
+    'vue/no-unused-vars': 'error',
+    'import/prefer-default-export': 'off',
     // removes wrong unused warning on enums
-    // 'no-unused-vars': 'off',
-    // '@typescript-eslint/no-unused-vars': 'error',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
   settings: {
     'import/resolver': {
       alias: {
         map: [['@', './src']],
-        extensions: ['.vue', '.js', '.ts', 'css'],
+        extensions: ['.vue', '.js', '.ts', '.css', '.pcss'],
       },
     },
   },
