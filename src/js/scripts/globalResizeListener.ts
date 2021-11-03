@@ -3,36 +3,45 @@
  */
 
 import _throttle from 'lodash-es/throttle';
+import { IComponent } from '../@types/IComponent';
 
-const globalResizeListener = {
-  cfg: {
-    documentElement: document.documentElement,
-    timer: null,
-  },
+interface ICompGlobalResizeListener extends IComponent {
+  documentElement: HTMLElement;
+  timer: null | ReturnType<typeof setTimeout>;
+  isDoneResizing(): void;
+  isResizing(): void;
+  saveViewPortWidthsToLocalStorage(): void;
+  init(): void;
+}
+
+const globalResizeListener: ICompGlobalResizeListener = {
+  name: 'globalResizeListener',
+  documentElement: document.documentElement,
+  timer: null,
 
   isDoneResizing() {
-    this.cfg.documentElement.classList.remove('is-resizing');
-    this.cfg.documentElement.classList.add('is-resized');
+    this.documentElement.classList.remove('is-resizing');
+    this.documentElement.classList.add('is-resized');
   },
 
   isResizing() {
-    this.cfg.documentElement.classList.add('is-resizing');
-    this.cfg.documentElement.classList.remove('is-resized');
+    this.documentElement.classList.add('is-resizing');
+    this.documentElement.classList.remove('is-resized');
   },
 
   saveViewPortWidthsToLocalStorage() {
     const vw = Math.max(
       document.documentElement.clientWidth || 0,
       window.innerWidth || 0,
-    );
+    ).toString();
     const vh = Math.max(
       document.documentElement.clientHeight || 0,
       window.innerHeight || 0,
-    );
+    ).toString();
     const sh = Math.max(
       document.body.scrollHeight || 0,
       document.documentElement.scrollHeight || 0,
-    );
+    ).toString();
 
     localStorage.setItem('vw', vw);
     localStorage.setItem('vh', vh);
@@ -44,8 +53,10 @@ const globalResizeListener = {
       this.saveViewPortWidthsToLocalStorage();
       this.isResizing();
 
-      clearTimeout(this.cfg.timer);
-      this.cfg.timer = setTimeout(() => {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      this.timer = setTimeout(() => {
         this.isDoneResizing();
       }, 250);
     }, 250);

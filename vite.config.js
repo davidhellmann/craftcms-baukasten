@@ -25,7 +25,6 @@ export default ({ command }) => ({
   },
   plugins: [
     eslintPlugin({
-      fix: true,
       cache: false,
       include: [
         'src/**/*.js',
@@ -59,17 +58,8 @@ export default ({ command }) => ({
       moduleDirectories: [path.resolve('./node_modules')],
     }),
     ViteRestart({
-      reload: [
-        './translations/**/*',
-        './templates/**/*',
-      ],
-      restart: [
-        './tailwind.config.js',
-        './postcss.config.js',
-        './tailwind/**/*',
-        './.eslintrc.js',
-        './.prettierrc.js',
-      ],
+      reload: ['./translations/**/*', './templates/**/*'],
+      restart: ['./tailwind.config.js', './postcss.config.js', './tailwind/**/*', './.eslintrc.js', './.prettierrc.js'],
     }),
     vue(),
   ],

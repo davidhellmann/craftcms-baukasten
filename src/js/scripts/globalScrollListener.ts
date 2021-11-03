@@ -1,7 +1,6 @@
 /**
  * globalScrollListener
  */
-// eslint-disable-next-line import/no-unresolved
 import _throttle from 'lodash-es/throttle';
 import { IComponent } from '../@types/IComponent';
 
@@ -10,6 +9,7 @@ interface ICompGlobalScrollListener extends IComponent {
   timer: null | ReturnType<typeof setTimeout>;
   lastScrollTop: number;
   setClasses(): void;
+  init(): void;
 }
 
 const globalScrollListener: ICompGlobalScrollListener = {

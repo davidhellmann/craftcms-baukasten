@@ -1,6 +1,4 @@
-import Swiper, {
-  A11y, FreeMode, Keyboard, Navigation, Scrollbar,
-} from 'swiper';
+import Swiper, { A11y, FreeMode, Keyboard, Navigation, Scrollbar } from 'swiper';
 import { IComponent } from '../../../src/js/@types/IComponent';
 
 import 'swiper/css';

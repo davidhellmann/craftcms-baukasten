@@ -33,7 +33,10 @@ const imagesCalculated: ICompImagesCalculated = {
     const images: Array<HTMLElement> = [...imageHolder.querySelectorAll<HTMLImageElement>('img')];
     let imagesWidthSum: number = 0;
     const imageCount: number = images?.length - 1 || 1;
-    const gap: number = imageCount * parseFloat(getComputedStyle(<HTMLElement>imageHolder).getPropertyValue('row-gap'));
+    const rowGap = parseFloat(
+      getComputedStyle(<HTMLElement>imageHolder).getPropertyValue('row-gap'),
+    );
+    const gap: number = imageCount * rowGap;
 
     images?.forEach((image) => {
       if (!this.settings) return;

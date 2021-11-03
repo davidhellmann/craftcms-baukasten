@@ -5,21 +5,16 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: [
-    'plugin:vue/vue3-recommended',
-    'airbnb-base',
-  ],
+  extends: ['plugin:vue/vue3-recommended', 'prettier', 'plugin:prettier/recommended', 'airbnb-base'],
   parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 2022,
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
   },
-  plugins: [
-    'vue',
-    '@typescript-eslint',
-  ],
+  plugins: ['vue', '@typescript-eslint'],
   rules: {
+    'object-curly-newline': 0,
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'import/prefer-default-export': 'off',
@@ -39,9 +34,7 @@ module.exports = {
         extensions: ['.js', '.ts', '.vue', '.css', '.pcss', '.d.ts'],
       },
       alias: {
-        map: [
-          ['@', 'src'],
-        ],
+        map: [['@', 'src']],
         extensions: ['.js', '.ts', '.vue', '.css', '.pcss', '.d.ts'],
       },
     },

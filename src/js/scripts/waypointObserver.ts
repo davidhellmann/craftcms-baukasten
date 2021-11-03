@@ -1,26 +1,26 @@
 import { IComponent } from '../@types/IComponent';
 
 interface Settings {
-  delay: number,
-  staggeringDelay: number,
-  endless: boolean,
+  delay: number;
+  staggeringDelay: number;
+  endless: boolean;
 }
 
 interface ICompWaypointObserver extends IComponent {
   observerConfig: {
-    [key: string]: string | Array<number>
-  },
+    [key: string]: string | Array<number>;
+  };
 
   settings: {
-    delay: number,
-    staggeringDelay: number,
-    endless: boolean,
-  },
+    delay: number;
+    staggeringDelay: number;
+    endless: boolean;
+  };
 
-  startObserving(el: Array<HTMLElement>): void,
-  getSettings(el: Element): Settings,
-  getWaypointTargets(el: Element): Array<HTMLElement>|Array<any>,
-  handleAnimateClasses(el: Array<HTMLElement>, settings: Settings): void,
+  startObserving(el: Array<HTMLElement>): void;
+  getSettings(el: Element): Settings;
+  getWaypointTargets(el: Element): Array<HTMLElement> | Array<any>;
+  handleAnimateClasses(el: Array<HTMLElement>, settings: Settings): void;
 }
 
 const waypointObserver: ICompWaypointObserver = {
@@ -80,7 +80,7 @@ const waypointObserver: ICompWaypointObserver = {
   },
 
   getSettings(waypoint) {
-    const settings : Settings = {
+    const settings: Settings = {
       delay: this?.settings?.delay,
       staggeringDelay: this?.settings?.staggeringDelay,
       endless: this?.settings?.endless,
@@ -107,8 +107,8 @@ const waypointObserver: ICompWaypointObserver = {
   getWaypointTargets(holder) {
     if (!this.selectors) return [];
     let targets = [...holder.querySelectorAll<HTMLElement>(this.selectors.waypointTarget)];
-
-    if (targets.length <= this.observerConfig.threshold[0] && (holder.hasAttribute('waypoint-target'))) {
+    const holderHasTargets = holder.hasAttribute('waypoint-target');
+    if (targets.length <= this.observerConfig.threshold[0] && holderHasTargets) {
       // Animate the waypoint itself if no targets exists
       targets = [holder as HTMLElement];
     }
@@ -129,7 +129,7 @@ const waypointObserver: ICompWaypointObserver = {
     });
   },
 
-  init(waypointEls:Array<HTMLElement>) {
+  init(waypointEls: Array<HTMLElement>) {
     this.startObserving(waypointEls);
   },
 };

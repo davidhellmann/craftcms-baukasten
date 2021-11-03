@@ -3,14 +3,14 @@ module.exports = {
   tabWidth: 2,
   semi: true,
   singleQuote: true,
-  printWidth: 120,
+  printWidth: 100,
   useTabs: false,
   overrides: [
     {
       files: '*.json',
       options: {
         printWidth: 240,
-      }
-    }
-  ]
+      },
+    },
+  ],
 };

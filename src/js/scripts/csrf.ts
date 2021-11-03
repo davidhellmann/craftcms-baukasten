@@ -3,7 +3,7 @@ import { IComponent } from '../@types/IComponent';
 declare global {
   // eslint-disable-next-line no-unused-vars
   interface Window {
-    Craft:any;
+    Craft: any;
   }
 }
 

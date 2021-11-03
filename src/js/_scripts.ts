@@ -13,7 +13,9 @@ export default async () => {
     globalResizeListener.init();
 
     // csrfToken
-    const csrfTokenEls = [...document.querySelectorAll<HTMLElement>('input[name="CRAFT_CSRF_TOKEN"]')];
+    const csrfTokenEls = [
+      ...document.querySelectorAll<HTMLElement>('input[name="CRAFT_CSRF_TOKEN"]'),
+    ];
     if (csrfTokenEls) {
       const { default: csrfToken } = await import('./scripts/csrf');
       csrfToken.init(csrfTokenEls);
@@ -34,7 +36,10 @@ export default async () => {
       lazy.init(lazyImageEls, selector);
     } else {
       // eslint-disable-next-line no-console
-      import('lazysizes').then((LazySizes) => LazySizes.init()).catch((e) => console.error(`${e.name} : ${e.message}`));
+      import('lazysizes')
+        .then((LazySizes) => LazySizes.init())
+        // eslint-disable-next-line no-console
+        .catch((e) => console.error(`${e.name} : ${e.message}`));
     }
   } catch (e) {
     // eslint-disable-next-line no-console
