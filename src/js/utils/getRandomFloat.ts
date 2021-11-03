@@ -2,8 +2,6 @@
  * getRandomFloat
  */
 
-const getRandomFloat = (min: number, max: number): number => {
-  return Math.random() * (max - min) + min;
-};
+const getRandomFloat = (min: number, max: number): number => Math.random() * (max - min) + min;
 
 export default getRandomFloat;

@@ -1,42 +1,46 @@
-/**
- * toggleContent
- */
+import { IComponent } from '../@types/IComponent';
 
-const toggleContent = {
-  cfg: {
-    name: 'toggleContent',
-    selectors: {
-      triggers: '.js-toggleContent--trigger',
-      content: '.js-toggleContent--content',
-    },
-    classes: {
-      isOpen: 'is-open',
-    },
-    els: {
-      $triggers: null,
-    },
+interface ICompToggleContent extends IComponent {
+  setElements(): void;
+  toggleContent(): void;
+}
+
+const toggleContent: ICompToggleContent = {
+  name: 'toggleContent',
+  selectors: {
+    triggers: '.js-toggleContent--trigger',
+    content: '.js-toggleContent--content',
+  },
+  classes: {
+    isOpen: 'is-open',
+  },
+  els: {
+    $triggers: null,
   },
 
   setElements() {
-    this.cfg.els.$triggers = [...document.querySelectorAll(this.cfg.selectors.triggers)];
+    if (this.selectors && this.els) {
+      this.els.$triggers = [...document.querySelectorAll<HTMLElement>(this.selectors.triggers)];
+    }
   },
 
   toggleContent() {
-    this.cfg.els.$triggers.forEach((el) => {
-      el.addEventListener('click', () => {
-        el.classList.toggle(this.cfg.classes.isOpen);
-        if (el.nextElementSibling.matches(this.cfg.selectors.content)) {
-          el.nextElementSibling.classList.toggle(this.cfg.classes.isOpen);
-        }
+    if (this.els && this.els.$triggers) {
+      this.els.$triggers.forEach((el) => {
+        el.addEventListener('click', () => {
+          if (this.classes && this.classes.isOpen && this.selectors && el.nextElementSibling) {
+            el.classList.toggle(this.classes.isOpen);
+            if (el.nextElementSibling.matches(this.selectors.content)) {
+              el.nextElementSibling.classList.toggle(this.classes.isOpen);
+            }
+          }
+        });
       });
-    });
+    }
   },
 
   init() {
-    console.debug(`Init: ${this.cfg.name}`);
     this.setElements();
-
-    if (!this.cfg.els.$triggers) return;
     this.toggleContent();
   },
 };
