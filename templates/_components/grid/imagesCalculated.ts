@@ -24,6 +24,7 @@ const imagesCalculated: ICompImagesCalculated = {
 
   setImageHeights(images, ratio, height) {
     images?.forEach((image) => {
+      // eslint-disable-next-line no-param-reassign
       image.style.height = `${height * ratio}px`;
     });
   },
@@ -36,6 +37,7 @@ const imagesCalculated: ICompImagesCalculated = {
 
     images?.forEach((image) => {
       if (!this.settings) return;
+      // eslint-disable-next-line no-param-reassign
       image.style.height = `${this.settings?.height}px`;
       imagesWidthSum += image.getBoundingClientRect().width;
     });

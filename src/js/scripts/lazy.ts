@@ -1,12 +1,12 @@
 export const init = (els: Array<HTMLElement>, selector: string): void => {
   if ('IntersectionObserver' in window) {
     // Create new observer object
-    let lazyItemObserver = new IntersectionObserver((entries, observer) => {
+    const lazyItemObserver = new IntersectionObserver((entries) => {
       // Loop through IntersectionObserverEntry objects
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         // Do these if the target intersects with the root
         if (entry.isIntersecting) {
-          let lazyItem: any = entry.target;
+          const lazyItem: any = entry.target;
 
           if (lazyItem.nodeName === 'IMG') {
             lazyItem.src = lazyItem.dataset.src || lazyItem.src;
@@ -30,14 +30,14 @@ export const init = (els: Array<HTMLElement>, selector: string): void => {
     });
 
     // Loop through and observe each image
-    els.forEach(function (lazyItem) {
+    els.forEach((lazyItem) => {
       lazyItemObserver.observe(lazyItem);
     });
 
     // Save for Sprig
     // @ts-ignore
-    window._LazyImageSelector = selector;
+    window.LazyImageSelector = selector;
     // @ts-ignore
-    window._LazyImageObserver = lazyItemObserver;
+    window.LazyImageObserver = lazyItemObserver;
   }
 };

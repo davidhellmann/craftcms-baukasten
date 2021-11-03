@@ -1,5 +1,5 @@
 // Import our CSS
-import '@/css/app.pcss';
+import '../css/app.pcss';
 
 // Add JS Loaded class to the body
 document.documentElement.classList.add('js-loaded');

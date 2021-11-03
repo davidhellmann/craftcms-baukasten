@@ -1,4 +1,4 @@
-import {IComponent} from '../@types/IComponent'
+import { IComponent } from '../@types/IComponent';
 
 interface Settings {
   delay: number,
@@ -43,8 +43,8 @@ const waypointObserver: ICompWaypointObserver = {
   },
 
   startObserving(waypoints) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         const settings = this.getSettings(entry.target);
         const targets = this.getWaypointTargets(entry.target);
 
@@ -65,7 +65,7 @@ const waypointObserver: ICompWaypointObserver = {
           // Add in-view class for element
           if (!this.classes) return;
           entry.target.classList.remove(this.classes.isInViewport);
-          targets?.forEach(target => {
+          targets?.forEach((target) => {
             if (target.classList.contains('is-animated')) {
               target.classList.remove('is-animated');
             }
@@ -74,7 +74,7 @@ const waypointObserver: ICompWaypointObserver = {
       });
     }, this.observerConfig);
 
-    waypoints.forEach(waypoint => {
+    waypoints.forEach((waypoint) => {
       observer.observe(waypoint);
     });
   },

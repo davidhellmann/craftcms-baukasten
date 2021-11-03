@@ -7,8 +7,8 @@
     if ('loading' in HTMLImageElement.prototype) {
       htmx.on('htmx:afterSwap', function (e) {
         // Trigger Lazyloading Again.
-        document.querySelectorAll(window._LazyImageSelector).forEach(function (lazyImage) {
-          window._LazyImageObserver.observe(lazyImage);
+        document.querySelectorAll(window.LazyImageSelector).forEach(function (lazyImage) {
+          window.LazyImageObserver.observe(lazyImage);
         });
       });
     }

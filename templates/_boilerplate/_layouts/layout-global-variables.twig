@@ -12,11 +12,11 @@
 
 {# >>> Glabal JS variables #}
 <script>
-  window._CurrentSite = {
+  window.CurrentSite = {
     'baseUrl': '{{ siteUrl }}',
     'id': parseInt('{{ currentSite.id }}')
   }
-  window._Craft = {{ CSRF_TOKEN|json_encode|raw }};
+  window.Craft = {{ CSRF_TOKEN|json_encode|raw }};
 </script>
 
 {# >>> Render block App #}
