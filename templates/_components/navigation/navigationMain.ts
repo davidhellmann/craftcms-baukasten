@@ -1,28 +1,34 @@
-import {IComponent} from '../../../src/js/@types/IComponent';
-import {createPopper} from '@popperjs/core';
+import { createPopper } from '@popperjs/core';
+import { IComponent } from '../../../src/js/@types/IComponent';
 
 interface ICompNavigationMain extends IComponent {
-  handleSecondLayer(el: HTMLElement): void,
+  handleSecondLayer(el: HTMLElement): void;
 }
 
 const navigationMain: ICompNavigationMain = {
   name: 'navigationMain',
 
   handleSecondLayer(navigationMainEl) {
-    const menuItemsWithSub = [...navigationMainEl.querySelectorAll<HTMLElement>('.c-navigationMain__listButton[data-level="1"]')]
+    const menuItemsWithSub = [
+      ...navigationMainEl.querySelectorAll<HTMLElement>(
+        '.c-navigationMain__listButton[data-level="1"]',
+      ),
+    ];
 
-    menuItemsWithSub?.forEach(item => {
-      const secondLayer = item?.parentElement?.querySelector<HTMLElement>('.c-navigationMain__subItemsWrapper[data-level="1"]');
+    menuItemsWithSub?.forEach((item) => {
+      const secondLayer = item?.parentElement?.querySelector<HTMLElement>(
+        '.c-navigationMain__subItemsWrapper[data-level="1"]',
+      );
 
       if (secondLayer) {
-        const popper =  createPopper(item, secondLayer, {
+        const popper = createPopper(item, secondLayer, {
           placement: 'bottom',
           modifiers: [
             {
               name: 'preventOverflow',
               options: {
-                boundary: navigationMainEl
-              }
+                boundary: navigationMainEl,
+              },
             },
             {
               name: 'offset',
@@ -32,13 +38,13 @@ const navigationMain: ICompNavigationMain = {
             },
           ],
         });
-        popper.update()
+        popper.update();
       }
-    })
+    });
   },
 
   init(navigationMainEl: HTMLElement) {
-    this.handleSecondLayer(navigationMainEl)
+    this.handleSecondLayer(navigationMainEl);
   },
 };
 
