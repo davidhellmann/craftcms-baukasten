@@ -34,6 +34,12 @@
           transform: 'landscape',
         }
       } only %}
+      {% include '_components/image/image.twig' with {
+        data: {
+          image: craft.assets.title('Placeholder').volume('templateImages').one() ??? null,
+          transform: 'landscape',
+        }
+      } only %}
     {% endfor %}
   {% endcache %}
 {% endblock %}
