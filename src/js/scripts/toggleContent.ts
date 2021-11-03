@@ -18,13 +18,11 @@ const toggleContent = {
   },
 
   setElements() {
-    this.cfg.els.$triggers = [
-      ...document.querySelectorAll(this.cfg.selectors.triggers),
-    ];
+    this.cfg.els.$triggers = [...document.querySelectorAll(this.cfg.selectors.triggers)];
   },
 
   toggleContent() {
-    this.cfg.els.$triggers.forEach(el => {
+    this.cfg.els.$triggers.forEach((el) => {
       el.addEventListener('click', () => {
         el.classList.toggle(this.cfg.classes.isOpen);
         if (el.nextElementSibling.matches(this.cfg.selectors.content)) {
