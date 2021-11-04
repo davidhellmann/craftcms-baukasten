@@ -13,7 +13,6 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-import './commands'
-import './disable-smooth-scroll'
-import 'cypress-audit/commands'
-
+import './commands';
+import './disable-smooth-scroll';
+import 'cypress-audit/commands';

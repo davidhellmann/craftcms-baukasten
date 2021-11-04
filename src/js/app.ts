@@ -18,6 +18,10 @@ const main = async () => {
     // Import Components
     const { default: components } = await import('./_components');
     await components();
+
+    // Import Components
+    const { default: vueComponents } = await import('./_vue-components');
+    await vueComponents();
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error(e);
@@ -26,5 +30,4 @@ const main = async () => {
 
 // Execute async function
 // eslint-disable-next-line
-main().then(() => {
-});
+main().then(() => {});

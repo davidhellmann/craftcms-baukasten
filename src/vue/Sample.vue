@@ -1,7 +1,7 @@
 <template>
-  <SampleSub/>
+  <SampleSub />
 </template>
 
 <script lang="ts" setup>
-import SampleSub from '@/vue/SampleSub.vue';
+import SampleSub from './SampleSub.vue';
 </script>

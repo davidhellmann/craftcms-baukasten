@@ -15,29 +15,30 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-const { lighthouse, pa11y, prepareAudit } = require("cypress-audit");
+const { lighthouse, pa11y, prepareAudit } = require('cypress-audit');
 
 module.exports = (on, config) => {
-    config.baseUrl = config.env.SITE_URL
+  // eslint-disable-next-line no-param-reassign
+  config.baseUrl = config.env.SITE_URL;
 
-    on('before:browser:launch', (browser = {}, launchOptions) => {
-        // `args` is an array of all the arguments that will
-        // be passed to browsers when it launches
-        prepareAudit(launchOptions);
+  on('before:browser:launch', (browser = {}, launchOptions) => {
+    // `args` is an array of all the arguments that will
+    // be passed to browsers when it launches
+    prepareAudit(launchOptions);
 
-        if (browser.family === 'chromium' && browser.name !== 'electron') {
-            // auto open devtools
-            launchOptions.args.push('--ignore-certificate-errors')
+    if (browser.family === 'chromium' && browser.name !== 'electron') {
+      // auto open devtools
+      launchOptions.args.push('--ignore-certificate-errors');
 
-            // whatever you return here becomes the launchOptions
-            return launchOptions
-        }
-    })
+      // whatever you return here becomes the launchOptions
+      return launchOptions;
+    }
+  });
 
-    on("task", {
-        lighthouse: lighthouse(), // calling the function is important
-        pa11y: pa11y(), // calling the function is important
-    });
+  on('task', {
+    lighthouse: lighthouse(), // calling the function is important
+    pa11y: pa11y(), // calling the function is important
+  });
 
-    return config
-}
+  return config;
+};

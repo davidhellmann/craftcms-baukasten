@@ -24,78 +24,74 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("cpVisit", (url, options) => {
-    cy.visit('/' + Cypress.env('CP_TRIGGER') + url, options)
-})
+Cypress.Commands.add('cpVisit', (url, options) => {
+  cy.visit('/' + Cypress.env('CP_TRIGGER') + url, options);
+});
 
-Cypress.Commands.add("cpLogin", (loginName, password) => {
-    if (!loginName) {
-        loginName = Cypress.env('CP_LOGIN')
-    }
+Cypress.Commands.add('cpLogin', (loginName, password) => {
+  if (!loginName) {
+    loginName = Cypress.env('CP_LOGIN');
+  }
 
-    if (!password) {
-        password = Cypress.env('CP_PASSWORD')
-    }
+  if (!password) {
+    password = Cypress.env('CP_PASSWORD');
+  }
 
-    cy.cpVisit('/')
+  cy.cpVisit('/');
 
-    cy.get('input[name=username]').type(loginName);
-    cy.get('input[name=password]').type(password);
-    cy.get('#login-form').submit();
-    cy.cpVisit('/dashboard')
-})
+  cy.get('input[name=username]').type(loginName);
+  cy.get('input[name=password]').type(password);
+  cy.get('#login-form').submit();
+  cy.wait(2000);
+  cy.cpVisit('/dashboard');
+});
 
-Cypress.Commands.add("login", (loginName, password) => {
-    if (!loginName) {
-        loginName = Cypress.env('CP_LOGIN')
-    }
+Cypress.Commands.add('login', (loginName, password) => {
+  if (!loginName) {
+    loginName = Cypress.env('CP_LOGIN');
+  }
 
-    if (!password) {
-        password = Cypress.env('CP_PASSWORD')
-    }
+  if (!password) {
+    password = Cypress.env('CP_PASSWORD');
+  }
 
-    cy.visit('/account/login')
+  cy.visit('/account/login');
 
-    cy.get('input[name=loginName]').type(loginName);
-    cy.get('input[name=password]').type(password);
-    cy.get('#login-form').submit();
-    cy.visit('/')
-})
+  cy.get('input[name=loginName]').type(loginName);
+  cy.get('input[name=password]').type(password);
+  cy.get('#login-form').submit();
+  cy.visit('/');
+});
 
-Cypress.Commands.add("runAudit", () => {
-    if(Cypress.env('ENABLE_LIGHTHOUSE')) {
-        cy.lighthouse(Cypress.env('LIGHTHOUSE_OPTIONS'))
-    }
+Cypress.Commands.add('runAudit', () => {
+  if (Cypress.env('ENABLE_LIGHTHOUSE')) {
+    cy.lighthouse(Cypress.env('LIGHTHOUSE_OPTIONS'), Cypress.env('LIGHTHOUSE_OPTIONS_DESKTOP'));
+  }
 
-    if(Cypress.env('ENABLE_PA11Y')) {
-        cy.pa11y(Cypress.env('PA11Y_OPTIONS'));
-    }
-})
+  if (Cypress.env('ENABLE_PA11Y')) {
+    cy.pa11y(Cypress.env('PA11Y_OPTIONS'));
+  }
+});
 
-Cypress.Commands.add("setViewportSize", (size) => {
-    if (Cypress._.isArray(size)) {
-        cy.viewport(size[0], size[1])
-    } else {
-        cy.viewport(size)
-    }
-})
+Cypress.Commands.add('setViewportSize', (size) => {
+  if (Cypress._.isArray(size)) {
+    cy.viewport(size[0], size[1]);
+  } else {
+    cy.viewport(size);
+  }
+});
 
-Cypress.Commands.add("addProductToCart", () => {
-    cy.visit('/bikes')
+Cypress.Commands.add('addProductToCart', () => {
+  cy.visit('/bikes');
 
-    // Add a product to the cart
-    cy.get('a.product-card').first()
-        .click()
+  // Add a product to the cart
+  cy.get('a.product-card').first().click();
 
-    cy.get('#buy input[type=submit]')
-        .click();
-})
+  cy.get('#buy input[type=submit]').click();
+});
 
-Cypress.Commands.add("navigateToCart", () => {
-    cy.get('button.cart-toggle')
-        .click();
+Cypress.Commands.add('navigateToCart', () => {
+  cy.get('button.cart-toggle').click();
 
-    cy.get('div.cart-menu a')
-        .contains('Cart')
-        .click();
-})
+  cy.get('div.cart-menu a').contains('Cart').click();
+});

@@ -38,6 +38,8 @@
     "@vitejs/plugin-vue": "^1.9.3",
     "@vue/compiler-sfc": "^3.2.21",
     "autoprefixer": "^10.3.7",
+    "cypress": "^8.7.0",
+    "cypress-audit": "^1.1.0",
     "eslint": "^8.1.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -60,6 +62,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run twc && vite build",
+    "cypress:open": "cypress open",
     "upgrade-interactive": "npm-check --update",
     "preinstall": "$npm_execpath --silent run checknpm",
     "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)",

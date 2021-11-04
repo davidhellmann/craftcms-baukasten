@@ -59,7 +59,13 @@ export default ({ command }) => ({
     }),
     ViteRestart({
       reload: ['./translations/**/*', './templates/**/*'],
-      restart: ['./tailwind.config.js', './postcss.config.js', './tailwind/**/*', './.eslintrc.js', './.prettierrc.js'],
+      restart: [
+        './tailwind.config.js',
+        './postcss.config.js',
+        './tailwind/**/*',
+        './.eslintrc.js',
+        './.prettierrc.js',
+      ],
     }),
     vue(),
   ],
