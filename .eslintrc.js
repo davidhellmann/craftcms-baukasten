@@ -5,7 +5,12 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['plugin:vue/vue3-recommended', 'prettier', 'plugin:prettier/recommended', 'airbnb-base'],
+  extends: [
+    'airbnb-base',
+    'plugin:vue/vue3-recommended',
+    'prettier',
+    'plugin:prettier/recommended',
+  ],
   parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 2022,
