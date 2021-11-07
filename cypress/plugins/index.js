@@ -18,6 +18,8 @@
 const { lighthouse, pa11y, prepareAudit } = require('cypress-audit');
 
 module.exports = (on, config) => {
+  config.ignoreTestFiles = '**/examples/**/*.spec.js';
+
   // eslint-disable-next-line no-param-reassign
   config.baseUrl = config.env.SITE_URL;
 
