@@ -1,0 +1,12 @@
+{# >>> Include macros #}
+{% import '_macros/_macro-imageHelper.twig' as imageHelper %}
+
+{{- imageHelper.renderImage(
+  imageData,
+  props.data.transform,
+  props.data.lazy,
+  props.data.objectFit,
+  props.classes.root ~ ' ' ~ props.classes.custom
+) -}}
+
+{{ include('_components/image/_partials/_nocript.twig', {}, withContext = true) }}

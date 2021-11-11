@@ -11,13 +11,13 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Transform: Landscape{% endblock %}
       {% block content %}
-        {% include '_components/image/image.twig' with {
+        {{ include('_components/image/image.twig', {
           data: {
             image: cat01Image ??? null,
             transform: 'landscape',
             lazy: false,
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -25,13 +25,13 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Transform: Square{% endblock %}
       {% block content %}
-        {% include '_components/image/image.twig' with {
+        {{ include('_components/image/image.twig', {
           data: {
             image: cat02Image ??? null,
             transform: 'square',
             lazy: false,
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -39,12 +39,12 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Transform: Portrait{% endblock %}
       {% block content %}
-        {% include '_components/image/image.twig' with {
+        {{ include('_components/image/image.twig', {
           data: {
             image: cat03Image ??? null,
             transform: 'portrait',
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -52,12 +52,12 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Transform: Auto{% endblock %}
       {% block content %}
-        {% include '_components/image/image.twig' with {
+        {{ include('_components/image/image.twig', {
           data: {
             image: cat01Image ??? null,
             transform: 'auto',
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -65,13 +65,13 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Decorative Image (no alt text){% endblock %}
       {% block content %}
-        {% include '_components/image/image.twig' with {
+        {{ include('_components/image/image.twig', {
           data: {
             image: cat01Image ??? null,
             transform: 'landscape',
             decorativeImage: true
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -79,13 +79,13 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Render plain image (img tag only){% endblock %}
       {% block content %}
-        {% include '_components/image/image.twig' with {
+        {{ include('_components/image/image.twig', {
           data: {
             image: cat03Image ??? null,
             transform: 'landscape',
             renderPlainImage: true
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -93,7 +93,7 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Art Direction{% endblock %}
       {% block content %}
-        {% include '_components/image/image.twig' with {
+        {{ include('_components/image/image.twig', {
           data: {
             image: cat01Image ??? null,
             transform: 'portrait',
@@ -102,7 +102,7 @@
               [cat03Image, 'square', true, '(min-width: 600px)'],
             ]
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
