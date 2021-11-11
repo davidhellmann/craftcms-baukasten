@@ -1,4 +1,4 @@
-dateModified: 1635499036
+dateModified: 1636671331
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -84,6 +84,69 @@ meta:
     fa02ff5a-1741-4417-8c8f-b72b954dd4fd: Quote # Quote
     fb701216-3e80-4e6d-99d4-2e5f70561e22: 'Content Builder' # Content Builder
 plugins:
+  blitz:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.10.0
+    settings:
+      apiKey: ''
+      cacheControlHeader: 'public, s-maxage=31536000, max-age=0'
+      cacheDuration: null
+      cacheElementQueries: true
+      cacheElements: true
+      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
+      cacheStorageSettings:
+        __assoc__:
+          -
+            - folderPath
+            - '@webroot/cache/blitz'
+          -
+            - createGzipFiles
+            - '1'
+          -
+            - createBrotliFiles
+            - ''
+      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
+      cacheWarmerSettings:
+        __assoc__:
+          -
+            - concurrency
+            - '5'
+      cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
+      cachingEnabled: '1'
+      clearCacheAutomatically: '1'
+      customSiteUris: ''
+      debug: false
+      deployerType: putyourlightson\blitz\drivers\deployers\DummyDeployer
+      driverJobPriority: 100
+      excludedQueryStringParams:
+        - gclid
+        - fbclid
+      excludedUriPatterns: ''
+      includedQueryStringParams:
+        - '.*'
+      includedUriPatterns:
+        -
+          __assoc__:
+            -
+              - uriPattern
+              - '.*'
+      injectScriptEvent: DOMContentLoaded
+      integrations:
+        - putyourlightson\blitz\drivers\integrations\FeedMeIntegration
+        - putyourlightson\blitz\drivers\integrations\SeomaticIntegration
+      maxRetryAttempts: 10
+      mutexTimeout: 1
+      outputComments: true
+      queryStringCaching: '1'
+      queueJobTtr: 300
+      refreshCacheAutomaticallyForGlobals: true
+      refreshCacheJobPriority: 10
+      refreshCacheWhenElementSavedNotLive: false
+      refreshCacheWhenElementSavedUnchanged: false
+      sendPoweredByHeader: true
+      warmCacheAutomatically: '1'
+      warmPagesWithQueryStringParams: true
   blitz-recommendations:
     edition: standard
     enabled: true
