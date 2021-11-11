@@ -7,12 +7,12 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Icon SM{% endblock %}
       {% block content %}
-          {% include '_components/icon/icon.twig' with {
-            data: {
-              icon: 'brand/html5',
-              variant: 'sm',
-            },
-          } only %}
+        {{ include('_components/icon/icon.twig', {
+          data: {
+            icon: 'brand/html5',
+            variant: 'sm',
+          },
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -20,12 +20,12 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Icon MD{% endblock %}
       {% block content %}
-          {% include '_components/icon/icon.twig' with {
-            data: {
-              icon: 'brand/html5',
-              variant: 'md',
-            },
-          } only %}
+        {{ include('_components/icon/icon.twig', {
+          data: {
+            icon: 'brand/html5',
+            variant: 'md',
+          },
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -33,12 +33,12 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Icon LG{% endblock %}
       {% block content %}
-          {% include '_components/icon/icon.twig' with {
-            data: {
-              icon: 'brand/html5',
-              variant: 'lg',
-            },
-          } only %}
+        {{ include('_components/icon/icon.twig', {
+          data: {
+            icon: 'brand/html5',
+            variant: 'lg',
+          },
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -46,12 +46,12 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Icon XL{% endblock %}
       {% block content %}
-          {% include '_components/icon/icon.twig' with {
-            data: {
-              icon: 'brand/html5',
-              variant: 'xl',
-            },
-          } only %}
+        {{ include('_components/icon/icon.twig', {
+          data: {
+            icon: 'brand/html5',
+            variant: 'xl',
+          },
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -59,12 +59,12 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Icon 2XL{% endblock %}
       {% block content %}
-          {% include '_components/icon/icon.twig' with {
-            data: {
-              icon: 'brand/html5',
-              variant: '2xl',
-            },
-          } only %}
+        {{ include('_components/icon/icon.twig', {
+          data: {
+            icon: 'brand/html5',
+            variant: '2xl',
+          },
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -72,15 +72,15 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Icon 2XL / Primary{% endblock %}
       {% block content %}
-          {% include '_components/icon/icon.twig' with {
-            data: {
-              icon: 'brand/html5',
-              variant: '2xl',
-            },
-            classes: {
-              color: 'text-primary-500'
-            }
-          } only %}
+        {{ include('_components/icon/icon.twig', {
+          data: {
+            icon: 'brand/html5',
+            variant: '2xl',
+          },
+          classes: {
+            color: 'text-primary-500'
+          }
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -88,15 +88,15 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Icon 2XL / Secondary{% endblock %}
       {% block content %}
-          {% include '_components/icon/icon.twig' with {
-            data: {
-              icon: 'brand/html5',
-              variant: '2xl',
-            },
-            classes: {
-              color: 'text-secondary-500'
-            }
-          } only %}
+        {{ include('_components/icon/icon.twig', {
+          data: {
+            icon: 'brand/html5',
+            variant: '2xl',
+          },
+          classes: {
+            color: 'text-secondary-500'
+          }
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 

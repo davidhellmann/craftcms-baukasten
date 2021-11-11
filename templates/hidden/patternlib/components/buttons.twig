@@ -8,30 +8,32 @@
       {% block label %}Primary buttons{% endblock %}
       {% block content %}
         <div class="pl-compsInRowCentered">
-          {% include '_components/button/button.twig' with {
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
               variant: 'primary',
               variantSize: 'sm'
             },
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
               variant: 'primary',
               variantSize: 'md'
             },
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
               variant: 'primary',
               variantSize: 'lg'
             },
-          } only %}
+          }, withContext = false) }}
         </div>
       {% endblock %}
     {% endembed %}
@@ -41,30 +43,32 @@
       {% block label %}Secondary buttons{% endblock %}
       {% block content %}
         <div class="pl-compsInRowCentered">
-          {% include '_components/button/button.twig' with {
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
               variant: 'secondary',
               variantSize: 'sm'
             },
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
               variant: 'secondary',
               variantSize: 'md'
             },
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
               variant: 'secondary',
               variantSize: 'lg'
             },
-          } only %}
+          }, withContext = false) }}
         </div>
       {% endblock %}
     {% endembed %}
@@ -74,30 +78,32 @@
       {% block label %}Outlined buttons{% endblock %}
       {% block content %}
         <div class="pl-compsInRowCentered">
-          {% include '_components/button/button.twig' with {
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
               variant: 'outlined',
               variantSize: 'sm'
             },
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
               variant: 'outlined',
               variantSize: 'md'
             },
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
               variant: 'outlined',
               variantSize: 'lg'
             },
-          } only %}
+          }, withContext = false) }}
         </div>
       {% endblock %}
     {% endembed %}
@@ -108,7 +114,7 @@
       {% block label %}Button with leading icon{% endblock %}
       {% block content %}
         <div class="pl-compsInRowCentered">
-          {% include '_components/button/button.twig' with {
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
@@ -117,8 +123,9 @@
               icon: 'icons/sharp/mail',
               iconSize: 'sm',
             },
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
@@ -127,8 +134,9 @@
               icon: 'icons/sharp/mail',
               iconSize: 'md',
             },
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
@@ -137,7 +145,7 @@
               icon: 'icons/sharp/mail',
               iconSize: 'md',
             },
-          } only %}
+          }, withContext = false) }}
         </div>
       {% endblock %}
     {% endembed %}
@@ -148,7 +156,7 @@
       {% block label %}Button with trailing icons{% endblock %}
       {% block content %}
         <div class="pl-compsInRowCentered">
-          {% include '_components/button/button.twig' with {
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
@@ -158,8 +166,9 @@
               iconSize: 'sm',
               reverse: true,
             },
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
@@ -169,8 +178,9 @@
               iconSize: 'md',
               reverse: true,
             },
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
@@ -180,7 +190,7 @@
               iconSize: 'md',
               reverse: true,
             },
-          } only %}
+          }, withContext = false) }}
         </div>
       {% endblock %}
     {% endembed %}
@@ -190,7 +200,7 @@
       {% block label %}Round buttons{% endblock %}
       {% block content %}
         <div class="pl-compsInRowCentered">
-          {% include '_components/button/button.twig' with {
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
@@ -200,8 +210,9 @@
             classes: {
               rounded: 'rounded-full'
             }
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
@@ -211,8 +222,9 @@
             classes: {
               rounded: 'rounded-full'
             }
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               url: '/hidden/patternlib',
               text: 'Button text',
@@ -222,7 +234,7 @@
             classes: {
               rounded: 'rounded-full'
             }
-          } only %}
+          }, withContext = false) }}
         </div>
       {% endblock %}
     {% endembed %}
@@ -232,7 +244,7 @@
       {% block label %}Round buttons{% endblock %}
       {% block content %}
         <div class="pl-compsInRowCentered">
-          {% include '_components/button/button.twig' with {
+          {{ include('_components/button/button.twig', {
             data: {
               variant: 'primary',
               variantSize: 'smIcon',
@@ -242,8 +254,9 @@
             classes: {
               rounded: 'rounded-full'
             }
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               variant: 'primary',
               variantSize: 'mdIcon',
@@ -253,8 +266,9 @@
             classes: {
               rounded: 'rounded-full'
             }
-          } only %}
-          {% include '_components/button/button.twig' with {
+          }, withContext = false) }}
+
+          {{ include('_components/button/button.twig', {
             data: {
               variant: 'primary',
               variantSize: 'lgIcon',
@@ -264,7 +278,7 @@
             classes: {
               rounded: 'rounded-full'
             }
-          } only %}
+          }, withContext = false) }}
         </div>
       {% endblock %}
     {% endembed %}

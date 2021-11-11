@@ -10,36 +10,40 @@
 
   {% cache %}
     {% for i in 0..50 %}
-      {% include '_components/image/image.twig' with {
+      {{ include('_components/image/image.twig', {
         data: {
           image: craft.assets.title('Cat 01').volume('templateImages').one() ??? null,
           transform: 'landscape',
         }
-      } only %}
-      {% include '_components/image/image.twig' with {
+      }, withContext = false) }}
+
+      {{ include('_components/image/image.twig', {
         data: {
           image: craft.assets.title('Cat 02').volume('templateImages').one() ??? null,
           transform: 'landscape',
         }
-      } only %}
-      {% include '_components/image/image.twig' with {
+      }, withContext = false) }}
+
+      {{ include('_components/image/image.twig', {
         data: {
           image: craft.assets.title('Cat 03').volume('templateImages').one() ??? null,
           transform: 'landscape',
         }
-      } only %}
-      {% include '_components/image/image.twig' with {
+      }, withContext = false) }}
+
+      {{ include('_components/image/image.twig', {
         data: {
           image: craft.assets.title('Cat 04').volume('templateImages').one() ??? null,
           transform: 'landscape',
         }
-      } only %}
-      {% include '_components/image/image.twig' with {
+      }, withContext = false) }}
+
+      {{ include('_components/image/image.twig', {
         data: {
           image: craft.assets.title('Placeholder').volume('templateImages').one() ??? null,
           transform: 'landscape',
         }
-      } only %}
+      }, withContext = false) }}
     {% endfor %}
   {% endcache %}
 {% endblock %}

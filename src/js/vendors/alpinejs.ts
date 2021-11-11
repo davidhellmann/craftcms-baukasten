@@ -3,6 +3,7 @@ import Alpine from 'alpinejs';
 
 const alpinejs = {
   init() {
+    // eslint-disable-next-line no-console
     console.log('AlpineJS is ready');
     // @ts-ignore
     window.Alpine = Alpine;

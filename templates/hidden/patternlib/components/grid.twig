@@ -9,58 +9,58 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Grid: Images 2 Cols{% endblock %}
       {% block content %}
-        {% include '_components/grid/images.twig' with {
+        {{ include('_components/grid/images.twig', {
           data: {
             images: images.limit(2).all() ??? null,
             variant: 2
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Grid: Images 3 Cols{% endblock %}
       {% block content %}
-        {% include '_components/grid/images.twig' with {
+        {{ include('_components/grid/images.twig', {
           data: {
             images: images.limit(3).all() ??? null,
             transform: 'portrait',
             variant: 3
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Grid: Images Calculated 2 Cols{% endblock %}
       {% block content %}
-        {% include '_components/grid/imagesCalculated.twig' with {
+        {{ include('_components/grid/images.twig', {
           data: {
             images: images.limit(2).all() ??? null,
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Grid: Images Calculated 3 Cols{% endblock %}
       {% block content %}
-        {% include '_components/grid/imagesCalculated.twig' with {
+        {{ include('_components/grid/images.twig', {
           data: {
             images: images.limit(3).all() ??? null,
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Grid: Images Calculated 4 Cols{% endblock %}
       {% block content %}
-        {% include '_components/grid/imagesCalculated.twig' with {
+        {{ include('_components/grid/images.twig', {
           data: {
             images: images.limit(4).all() ??? null,
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 

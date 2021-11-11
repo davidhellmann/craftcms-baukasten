@@ -7,11 +7,11 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Header / Logo Small{% endblock %}
       {% block content %}
-        {% include '_components/header/header.twig' with {
+        {{ include('_components/header/header.twig', {
           data: {
             logoSize: 'sm'
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -19,11 +19,11 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Header / Logo Medium{% endblock %}
       {% block content %}
-        {% include '_components/header/header.twig' with {
+        {{ include('_components/header/header.twig', {
           data: {
             logoSize: 'md'
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -31,11 +31,11 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Header / Logo Large{% endblock %}
       {% block content %}
-        {% include '_components/header/header.twig' with {
+        {{ include('_components/header/header.twig', {
           data: {
             logoSize: 'lg'
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 

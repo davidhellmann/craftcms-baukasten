@@ -8,7 +8,7 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Card / Column{% endblock %}
       {% block content %}
-        {% include '_components/card/entry.twig' with {
+        {{ include('_components/card/entry.twig', {
           data: {
             variant: 'col',
             image: cat01Image ??? null,
@@ -18,7 +18,7 @@
             linkUrl: 'https://google.com',
             linkText: 'read more'
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -26,7 +26,7 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Card / Row{% endblock %}
       {% block content %}
-        {% include '_components/card/entry.twig' with {
+        {{ include('_components/card/entry.twig', {
           data: {
             variant: 'row',
             image: cat01Image ??? null,
@@ -36,7 +36,7 @@
             linkUrl: 'https://google.com',
             linkText: 'read more'
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 

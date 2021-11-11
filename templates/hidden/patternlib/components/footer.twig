@@ -7,7 +7,7 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Footer{% endblock %}
       {% block content %}
-        {% include '_components/footer/footer.twig' only %}
+        {{ include('_components/footer/footer.twig', {}, withContext = false) }}
       {% endblock %}
     {% endembed %}
   {% endcache %}

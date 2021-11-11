@@ -7,14 +7,14 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Caption / With source{% endblock %}
       {% block content %}
-        {% include '_components/caption/caption.twig' with {
+        {{ include('_components/caption/caption.twig', {
           data: {
             title: 'Caption Title',
             text: 'The quick brown fox jumps over the lazy dogs',
             source: 'Max Mustermann',
             sourceUrl: 'https://google.com'
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -22,12 +22,12 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Caption / Without source{% endblock %}
       {% block content %}
-        {% include '_components/caption/caption.twig' with {
+        {{ include('_components/caption/caption.twig', {
           data: {
             title: 'Caption Title',
             text: 'The quick brown fox jumps over the lazy dogs',
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 

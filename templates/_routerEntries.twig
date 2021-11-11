@@ -1,10 +1,10 @@
 {# Entry Router #}
 {# ---------------------------------------------------------------------- #}
 
-{% include [
+{{ include([
   'entry/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
   'entry/' ~ entry.section.handle ~ '/default',
   'entry/' ~ entry.section.handle ~ '/router',
   'errors/404',
   'errors/offline',
-] %}
+], {}, withContext = true) }}

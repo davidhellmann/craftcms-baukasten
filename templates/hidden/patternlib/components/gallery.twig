@@ -9,12 +9,12 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Gallery: Images{% endblock %}
       {% block content %}
-        {% include '_components/gallery/images.twig' with {
+        {{ include('_components/gallery/images.twig', {
           data: {
             images: images ??? null,
             transform: 'landscape',
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
