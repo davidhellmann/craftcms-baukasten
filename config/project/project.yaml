@@ -1,4 +1,4 @@
-dateModified: 1636671331
+dateModified: 1636672749
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -87,6 +87,7 @@ plugins:
   blitz:
     edition: standard
     enabled: true
+    licenseKey: $PLUGIN_BLITZ
     schemaVersion: 3.10.0
     settings:
       apiKey: ''
@@ -181,7 +182,7 @@ plugins:
   imager-x:
     edition: lite
     enabled: true
-    licenseKey: IPED1QEO8CEXPAD0YP9JCRHR
+    licenseKey: $PLUGIN_IMAGERX
     schemaVersion: 3.0.0
   minify:
     edition: standard
@@ -190,7 +191,7 @@ plugins:
   navigation:
     edition: standard
     enabled: true
-    licenseKey: 9AXH9DEUF1OXQ84ZY3XLHSU5
+    licenseKey: $PLUGIN_NAVIGATION
     schemaVersion: 1.0.21
   redactor:
     edition: standard
@@ -199,7 +200,7 @@ plugins:
   seomatic:
     edition: standard
     enabled: true
-    licenseKey: 9XN3VDFEU8L3U3A0DW22VGPD
+    licenseKey: $PLUGIN_SEOMATIC
     schemaVersion: 3.0.11
     settings:
       addHrefLang: true
