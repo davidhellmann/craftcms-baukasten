@@ -76,7 +76,7 @@ export default ({ command }) => ({
     },
   },
   server: {
-    origin: 'http://localhost:3000/src/',
+    origin: 'http://localhost:3000/',
     host: '0.0.0.0',
   },
 });
