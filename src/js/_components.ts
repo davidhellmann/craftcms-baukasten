@@ -2,14 +2,14 @@ export default async () => {
   try {
     // Gallery
     const imageGalleryEls = [...document.querySelectorAll<HTMLElement>('.js-imageGallery')];
-    if (imageGalleryEls) {
+    if (imageGalleryEls.length > 0) {
       const { default: imageGallery } = await import('../../templates/_components/gallery/images');
       imageGallery.init(imageGalleryEls);
     }
 
     // swiperHolder
     const swiperHolderEls = [...document.querySelectorAll<HTMLElement>('.js-swiperHolder')];
-    if (swiperHolderEls) {
+    if (swiperHolderEls.length > 0) {
       const { default: swiperHolder } = await import(
         '../../templates/_components/slider/swiperHolder'
       );
@@ -20,7 +20,7 @@ export default async () => {
     const imageGridCalculatedEls = [
       ...document.querySelectorAll<HTMLElement>('.js-imageGridCalculated'),
     ];
-    if (imageGridCalculatedEls) {
+    if (imageGridCalculatedEls.length > 0) {
       const { default: imagesCalculated } = await import(
         '../../templates/_components/grid/imagesCalculated'
       );

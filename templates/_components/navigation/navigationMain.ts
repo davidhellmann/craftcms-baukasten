@@ -1,5 +1,6 @@
 import { createPopper } from '@popperjs/core';
 import { IComponent } from '../../../src/js/@types/IComponent';
+import './navigationMain.pcss';
 
 interface ICompNavigationMain extends IComponent {
   handleSecondLayer(el: HTMLElement): void;
