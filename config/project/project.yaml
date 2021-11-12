@@ -1,4 +1,4 @@
-dateModified: 1636709090
+dateModified: 1636717714
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -26,6 +26,7 @@ meta:
     6c5fc0dd-cf56-48d8-8af8-88abe763b970: Files # Files
     6d94dcc4-6ec1-45b4-8c86-e53cee842b11: 'Overview News' # Overview News
     7b3b13e0-e20d-4d51-b0ae-832300f45234: Text # Text
+    7e8fd607-0b56-4196-9e02-76ebba9ad7bd: New # New
     7eb1a718-0679-4fda-b656-9bfdf55a2025: 'Navigation Main' # Navigation Main
     8ced5be5-13b2-483f-8db9-aab9757aad21: Error # Error
     8dda1580-81a2-49f5-9dd2-ed1e2eb03fc6: Users # Users
@@ -45,6 +46,7 @@ meta:
     88f5b6a1-8725-4770-b8df-f5f3c0d257d3: 'Section Width' # Section Width
     98f7a455-6764-4b7d-8d19-405bdcc42228: 'Image Transform' # Image Transform
     210de09a-f6c8-42dd-b4d6-c1c00e7d0b82: 'Image Position' # Image Position
+    359d175b-2fe0-421b-959a-16ca87c71044: Contact # Contact
     419ebfbb-8723-48db-ae89-10adf52cdf11: 'Asset: Source' # Asset: Source
     1509cbec-547c-4338-bcc8-a5452ab8c801: Images # Images
     1516a801-6243-468d-b8e2-479085458faa: 'Asset: Title' # Asset: Title
@@ -91,7 +93,7 @@ plugins:
   blitz:
     edition: standard
     enabled: true
-    licenseKey: $PLUGIN_BLITZ
+    licenseKey: NUEHB6I8C9EYSHNQBCJOQ7KF
     schemaVersion: 3.10.0
     settings:
       apiKey: ''
@@ -183,10 +185,139 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  formie:
+    edition: standard
+    enabled: true
+    licenseKey: FIPM6E0ITC8PI0TV6TX3CX3T
+    schemaVersion: 1.1.11
+    settings:
+      ajaxTimeout: 10
+      captchas:
+        __assoc__:
+          -
+            - recaptcha
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Recaptcha
+                -
+                  - enabled
+                  - false
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - recaptcha
+                      -
+                        - secretKey
+                        - ''
+                      -
+                        - siteKey
+                        - ''
+                      -
+                        - type
+                        - v3
+                      -
+                        - size
+                        - normal
+                      -
+                        - theme
+                        - light
+                      -
+                        - badge
+                        - bottomright
+                      -
+                        - language
+                        - en
+                      -
+                        - minScore
+                        - '0.5'
+          -
+            - duplicate
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Duplicate
+                -
+                  - enabled
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - duplicate
+          -
+            - honeypot
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Honeypot
+                -
+                  - enabled
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - honeypot
+          -
+            - javascript
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Javascript
+                -
+                  - enabled
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - javascript
+                      -
+                        - minTime
+                        - '10'
+      defaultDateDisplayType: ''
+      defaultDateTime: ''
+      defaultDateValueOption: ''
+      defaultEmailTemplate: ''
+      defaultFileUploadVolume: ''
+      defaultFormTemplate: ''
+      defaultInstructionsPosition: below-input
+      defaultLabelPosition: above-input
+      defaultPage: forms
+      enableCsrfValidationForGuests: true
+      enableGatsbyCompatibility: false
+      enableUnloadWarning: true
+      maxIncompleteSubmissionAge: 30
+      maxSentNotificationsAge: 30
+      pluginName: Formie
+      saveSpam: true
+      sendEmailAlerts: false
+      sentNotifications: true
+      spamBehaviour: showSuccess
+      spamBehaviourMessage: ''
+      spamEmailNotifications: false
+      spamKeywords: ''
+      spamLimit: 1000
+      useQueueForIntegrations: true
+      useQueueForNotifications: true
   imager-x:
     edition: lite
     enabled: true
-    licenseKey: $PLUGIN_IMAGERX
+    licenseKey: KP2FQXZG5W9KPCNTYGSZQ8JE
     schemaVersion: 3.0.0
   minify:
     edition: standard
@@ -195,7 +326,7 @@ plugins:
   navigation:
     edition: standard
     enabled: true
-    licenseKey: $PLUGIN_NAVIGATION
+    licenseKey: OCO5DTVW9ZUVOQ5BQR2SF8IF
     schemaVersion: 1.0.21
   redactor:
     edition: standard
@@ -204,7 +335,7 @@ plugins:
   seomatic:
     edition: standard
     enabled: true
-    licenseKey: $PLUGIN_SEOMATIC
+    licenseKey: Y8GXJHLUAKXM41QPBWASQAJJ
     schemaVersion: 3.0.11
     settings:
       addHrefLang: true

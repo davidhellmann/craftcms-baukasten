@@ -1,0 +1,53 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Form: Contact{% endblock %}
+      {% block content %}
+        {% set form = craft.formie.forms.handle('contact').one() %}
+        {{ craft.formie.renderForm(form) }}
+
+        <script>
+          // Wait until the DOM is ready
+          document.addEventListener('DOMContentLoaded', (event) => {
+            // Fetch the form we want to deal with
+            let $form = document.querySelector('#{{ form.formId }}');
+
+            // Find the CSRF token hidden input, so we can replace it
+            let $csrfInput = $form.querySelector('input[name="CRAFT_CSRF_TOKEN"]');
+
+            // Fetch the new token for the form and replace the CSRF input with our new one
+            fetch('/actions/formie/forms/refresh-tokens?form={{ form.handle }}')
+              .then(result => { return result.json(); })
+              .then(result => {
+                $csrfInput.outerHTML = result.csrf.input;
+
+                // JavaScript captcha
+                let jsCaptcha = result.captchas.javascript;
+
+                // Find the JavaScript captcha hidden input, so we can update it
+                if (jsCaptcha) {
+                  $form.querySelector('input[name="' + jsCaptcha.sessionKey + '"]').value = jsCaptcha.value;
+                }
+
+                // Duplicate captcha
+                let duplicateCaptcha = result.captchas.duplicate;
+
+                // Find the Duplicate captcha hidden input, so we can update it
+                if (duplicateCaptcha) {
+                  $form.querySelector('input[name="' + duplicateCaptcha.sessionKey + '"]').value = duplicateCaptcha.value;
+                }
+              });
+          });
+        </script>
+
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b81b9ece5474b81f897b7490a4c63187",
+    "content-hash": "263241c8e0799ceeb54416e978fda502",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -195,6 +195,53 @@
                 "markdown-extra"
             ],
             "time": "2018-03-26T11:24:36+00:00"
+        },
+        {
+            "name": "commerceguys/addressing",
+            "version": "v1.2.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/commerceguys/addressing/zipball/fb98dfc72f8a3d12fac55f69ab2477a0fbfa9860",
+                "reference": "fb98dfc72f8a3d12fac55f69ab2477a0fbfa9860",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/collections": "~1.0",
+                "php": ">=7.1.3"
+            },
+            "suggest": {
+                "symfony/validator": "to validate addresses"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CommerceGuys\\Addressing\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bojan Zivanovic"
+                },
+                {
+                    "name": "Damien Tournoud"
+                }
+            ],
+            "description": "Addressing library powered by CLDR and Google's address data.",
+            "keywords": [
+                "address",
+                "internationalization",
+                "localization",
+                "postal"
+            ],
+            "time": "2021-10-30T12:33:41+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -914,6 +961,59 @@
             "time": "2021-04-09T23:57:26+00:00"
         },
         {
+            "name": "doctrine/collections",
+            "version": "1.6.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/1958a744696c6bb3bb0d28db2611dc11610e78af",
+                "reference": "1958a744696c6bb3bb0d28db2611dc11610e78af",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3 || ^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\Collections\\": "lib/Doctrine/Common/Collections"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "PHP Doctrine Collections library that adds additional functionality on top of PHP arrays.",
+            "homepage": "https://www.doctrine-project.org/projects/collections.html",
+            "keywords": [
+                "array",
+                "collections",
+                "iterators",
+                "php"
+            ],
+            "time": "2021-08-10T18:51:53+00:00"
+        },
+        {
             "name": "doctrine/lexer",
             "version": "1.2.1",
             "dist": {
@@ -1169,6 +1269,56 @@
             "time": "2020-06-29T00:56:53+00:00"
         },
         {
+            "name": "fakerphp/faker",
+            "version": "v1.16.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/271d384d216e5e5c468a6b28feedf95d49f83b35",
+                "reference": "271d384d216e5e5c468a6b28feedf95d49f83b35",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0",
+                "psr/container": "^1.0 || ^2.0",
+                "symfony/deprecation-contracts": "^2.2"
+            },
+            "conflict": {
+                "fzaninotto/faker": "*"
+            },
+            "suggest": {
+                "ext-curl": "Required by Faker\\Provider\\Image to download images.",
+                "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
+                "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
+                "ext-mbstring": "Required for multibyte Unicode string functionality."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "v1.16-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2021-09-06T14:53:37+00:00"
+        },
+        {
             "name": "firebase/php-jwt",
             "version": "v5.4.0",
             "source": {
@@ -1224,6 +1374,90 @@
                 "source": "https://github.com/firebase/php-jwt/tree/v5.4.0"
             },
             "time": "2021-06-23T19:00:23+00:00"
+        },
+        {
+            "name": "giggsey/libphonenumber-for-php",
+            "version": "8.12.37",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/4113157949337384c41b77bc1d5c0d46c1c3201b",
+                "reference": "4113157949337384c41b77bc1d5c0d46c1c3201b",
+                "shasum": ""
+            },
+            "require": {
+                "giggsey/locale": "^1.7|^2.0",
+                "php": ">=5.3.2",
+                "symfony/polyfill-mbstring": "^1.17"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "libphonenumber\\": "src/"
+                },
+                "exclude-from-classmap": [
+                    "/src/data/",
+                    "/src/carrier/data/",
+                    "/src/geocoding/data/",
+                    "/src/timezone/data/"
+                ]
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Joshua Gigg",
+                    "email": "giggsey@gmail.com",
+                    "homepage": "https://giggsey.com/"
+                }
+            ],
+            "description": "PHP Port of Google's libphonenumber",
+            "homepage": "https://github.com/giggsey/libphonenumber-for-php",
+            "keywords": [
+                "geocoding",
+                "geolocation",
+                "libphonenumber",
+                "mobile",
+                "phonenumber",
+                "validation"
+            ],
+            "time": "2021-11-11T16:06:11+00:00"
+        },
+        {
+            "name": "giggsey/locale",
+            "version": "2.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/giggsey/Locale/zipball/8d324583b5899e6280a875c43bf1fc9658bc6962",
+                "reference": "8d324583b5899e6280a875c43bf1fc9658bc6962",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Giggsey\\Locale\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joshua Gigg",
+                    "email": "giggsey@gmail.com",
+                    "homepage": "https://giggsey.com/"
+                }
+            ],
+            "description": "Locale functions required by libphonenumber-for-php",
+            "time": "2021-11-04T19:12:22+00:00"
         },
         {
             "name": "google/auth",
@@ -1539,6 +1773,48 @@
             "time": "2021-10-18T09:52:00+00:00"
         },
         {
+            "name": "guzzlehttp/oauth-subscriber",
+            "version": "0.4.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/oauth-subscriber/zipball/47b4b9cd0b31a6733a3cc500d4285a8363502485",
+                "reference": "47b4b9cd0b31a6733a3cc500d4285a8363502485",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Subscriber\\Oauth\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle OAuth 1.0 subscriber",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "Guzzle",
+                "oauth"
+            ],
+            "time": "2020-07-01T06:28:13+00:00"
+        },
+        {
             "name": "guzzlehttp/promises",
             "version": "1.5.1",
             "dist": {
@@ -1680,6 +1956,34 @@
                 "url"
             ],
             "time": "2021-10-06T17:43:30+00:00"
+        },
+        {
+            "name": "html2text/html2text",
+            "version": "4.3.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mtibben/html2text/zipball/61ad68e934066a6f8df29a3d23a6460536d0855c",
+                "reference": "61ad68e934066a6f8df29a3d23a6460536d0855c",
+                "shasum": ""
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance",
+                "symfony/polyfill-mbstring": "If you can't install ext-mbstring"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Html2Text\\": [
+                        "src/",
+                        "test/"
+                    ]
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Converts HTML to formatted plain text",
+            "time": "2020-04-16T23:44:31+00:00"
         },
         {
             "name": "imgix/imgix-php",
@@ -2210,6 +2514,59 @@
             "time": "2021-08-17T13:49:42+00:00"
         },
         {
+            "name": "league/html-to-markdown",
+            "version": "4.10.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/html-to-markdown/zipball/0868ae7a552e809e5cd8f93ba022071640408e88",
+                "reference": "0868ae7a552e809e5cd8f93ba022071640408e88",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-xml": "*",
+                "php": ">=5.3.3"
+            },
+            "bin": [
+                "bin/html-to-markdown"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.10-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\HTMLToMarkdown\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Colin O'Dell",
+                    "email": "colinodell@gmail.com",
+                    "homepage": "https://www.colinodell.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Nick Cernis",
+                    "email": "nick@cern.is",
+                    "homepage": "http://modernnerd.net",
+                    "role": "Original Author"
+                }
+            ],
+            "description": "An HTML-to-markdown conversion helper for PHP",
+            "homepage": "https://github.com/thephpleague/html-to-markdown",
+            "keywords": [
+                "html",
+                "markdown"
+            ],
+            "time": "2020-07-01T00:34:03+00:00"
+        },
+        {
             "name": "league/mime-type-detection",
             "version": "1.8.0",
             "dist": {
@@ -2239,6 +2596,65 @@
             ],
             "description": "Mime-type detection for Flysystem",
             "time": "2021-09-25T08:23:19+00:00"
+        },
+        {
+            "name": "league/oauth1-client",
+            "version": "v1.10.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth1-client/zipball/88dd16b0cff68eb9167bfc849707d2c40ad91ddc",
+                "reference": "88dd16b0cff68eb9167bfc849707d2c40ad91ddc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-openssl": "*",
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "guzzlehttp/psr7": "^1.7|^2.0",
+                "php": ">=7.1||>=8.0"
+            },
+            "suggest": {
+                "ext-simplexml": "For decoding XML-based responses."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev",
+                    "dev-develop": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth1\\Client\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Corlett",
+                    "email": "bencorlett@me.com",
+                    "homepage": "http://www.webcomm.com.au",
+                    "role": "Developer"
+                }
+            ],
+            "description": "OAuth 1.0 Client Library",
+            "keywords": [
+                "Authentication",
+                "SSO",
+                "authorization",
+                "bitbucket",
+                "identity",
+                "idp",
+                "oauth",
+                "oauth1",
+                "single sign on",
+                "trello",
+                "tumblr",
+                "twitter"
+            ],
+            "time": "2021-08-15T23:05:49+00:00"
         },
         {
             "name": "league/oauth2-client",
@@ -2293,6 +2709,45 @@
                 "single sign on"
             ],
             "time": "2020-10-28T02:03:40+00:00"
+        },
+        {
+            "name": "league/oauth2-google",
+            "version": "3.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-google/zipball/6b79441f244040760bed5fdcd092a2bda7cf34c6",
+                "reference": "6b79441f244040760bed5fdcd092a2bda7cf34c6",
+                "shasum": ""
+            },
+            "require": {
+                "league/oauth2-client": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Woody Gilk",
+                    "email": "woody.gilk@gmail.com",
+                    "homepage": "http://shadowhand.me"
+                }
+            ],
+            "description": "Google OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "Authentication",
+                "authorization",
+                "client",
+                "google",
+                "oauth",
+                "oauth2"
+            ],
+            "time": "2021-01-27T16:09:03+00:00"
         },
         {
             "name": "marcusschwarz/lesserphp",
@@ -4898,6 +5353,123 @@
             "time": "2021-10-18T15:26:12+00:00"
         },
         {
+            "name": "symfony/cache",
+            "version": "v5.3.10",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/2056f2123f47c9f63102a8b92974c362f4fba568",
+                "reference": "2056f2123f47c9f63102a8b92974c362f4fba568",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "psr/cache": "^1.0|^2.0",
+                "psr/log": "^1.1|^2|^3",
+                "symfony/cache-contracts": "^1.1.7|^2",
+                "symfony/deprecation-contracts": "^2.1",
+                "symfony/polyfill-php73": "^1.9",
+                "symfony/polyfill-php80": "^1.16",
+                "symfony/service-contracts": "^1.1|^2",
+                "symfony/var-exporter": "^4.4|^5.0"
+            },
+            "conflict": {
+                "doctrine/dbal": "<2.10",
+                "symfony/dependency-injection": "<4.4",
+                "symfony/http-kernel": "<4.4",
+                "symfony/var-dumper": "<4.4"
+            },
+            "provide": {
+                "psr/cache-implementation": "1.0|2.0",
+                "psr/simple-cache-implementation": "1.0",
+                "symfony/cache-implementation": "1.0|2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Cache\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides an extended PSR-6, PSR-16 (and tags) implementation",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "caching",
+                "psr6"
+            ],
+            "time": "2021-10-11T15:41:55+00:00"
+        },
+        {
+            "name": "symfony/cache-contracts",
+            "version": "v2.4.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/c0446463729b89dd4fa62e9aeecc80287323615d",
+                "reference": "c0446463729b89dd4fa62e9aeecc80287323615d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "psr/cache": "^1.0|^2.0|^3.0"
+            },
+            "suggest": {
+                "symfony/cache-implementation": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.4-dev"
+                },
+                "thanks": {
+                    "name": "symfony/contracts",
+                    "url": "https://github.com/symfony/contracts"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Contracts\\Cache\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Generic abstractions related to caching",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "abstractions",
+                "contracts",
+                "decoupling",
+                "interfaces",
+                "interoperability",
+                "standards"
+            ],
+            "time": "2021-03-23T23:28:01+00:00"
+        },
+        {
             "name": "symfony/console",
             "version": "v5.3.10",
             "dist": {
@@ -5115,6 +5687,46 @@
                 "standards"
             ],
             "time": "2021-03-23T23:28:01+00:00"
+        },
+        {
+            "name": "symfony/expression-language",
+            "version": "v5.3.7",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/fe696e2669cb47507e5635223ac4b64500339658",
+                "reference": "fe696e2669cb47507e5635223ac4b64500339658",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/cache": "^4.4|^5.0",
+                "symfony/service-contracts": "^1.1|^2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\ExpressionLanguage\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides an engine that can compile and evaluate expressions",
+            "homepage": "https://symfony.com",
+            "time": "2021-08-23T12:57:24+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -5955,6 +6567,53 @@
             "time": "2021-09-24T15:59:58+00:00"
         },
         {
+            "name": "symfony/var-exporter",
+            "version": "v5.3.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/a7604de14bcf472fe8e33f758e9e5b7bf07d3b91",
+                "reference": "a7604de14bcf472fe8e33f758e9e5b7bf07d3b91",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/polyfill-php80": "^1.16"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\VarExporter\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Allows exporting any serializable PHP data structure to plain PHP code",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "clone",
+                "construct",
+                "export",
+                "hydrate",
+                "instantiate",
+                "serialize"
+            ],
+            "time": "2021-08-31T12:49:16+00:00"
+        },
+        {
             "name": "symfony/yaml",
             "version": "v5.3.6",
             "dist": {
@@ -6214,11 +6873,11 @@
         },
         {
             "name": "verbb/base",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/verbb-base/zipball/006cc4979e2b7669234a90bb7347129fe0185eb8",
-                "reference": "006cc4979e2b7669234a90bb7347129fe0185eb8",
+                "url": "https://api.github.com/repos/verbb/verbb-base/zipball/71cee53e766100d5c50652feb675dfa004c8ace5",
+                "reference": "71cee53e766100d5c50652feb675dfa004c8ace5",
                 "shasum": ""
             },
             "require": {
@@ -6240,7 +6899,70 @@
                 }
             ],
             "description": "Common utilities and building-blocks for Verbb plugins for Craft CMS.",
-            "time": "2021-03-17T20:54:49+00:00"
+            "time": "2021-11-03T03:07:00+00:00"
+        },
+        {
+            "name": "verbb/formie",
+            "version": "1.4.24",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/d23d382aae96dacda807f906c4f5df76bdda974c",
+                "reference": "d23d382aae96dacda807f906c4f5df76bdda974c",
+                "shasum": ""
+            },
+            "require": {
+                "commerceguys/addressing": "^1.0",
+                "craftcms/cms": "^3.6.0",
+                "ext-json": "*",
+                "ezyang/htmlpurifier": "^4.13",
+                "fakerphp/faker": "^1.9.1",
+                "giggsey/libphonenumber-for-php": "^8.12",
+                "guzzlehttp/oauth-subscriber": "^0.3.0 || ^0.4.0",
+                "html2text/html2text": "^4.3",
+                "league/html-to-markdown": "^4.10",
+                "league/oauth1-client": "^1.7",
+                "league/oauth2-client": "^2.4.0",
+                "league/oauth2-google": "^3.0",
+                "symfony/expression-language": "^5.3.0",
+                "verbb/base": "^1.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Formie",
+                "handle": "formie",
+                "changelogUrl": "https://raw.githubusercontent.com/verbb/formie/craft-3/CHANGELOG.md",
+                "class": "verbb\\formie\\Formie"
+            },
+            "autoload": {
+                "psr-4": {
+                    "verbb\\formie\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Verbb",
+                    "homepage": "https://verbb.io"
+                }
+            ],
+            "description": "The most user-friendly forms plugin for Craft.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "formie"
+            ],
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/formie/issues?state=open",
+                "source": "https://github.com/verbb/formie",
+                "docs": "https://github.com/verbb/formie",
+                "rss": "https://github.com/verbb/formie/commits/v2.atom"
+            },
+            "time": "2021-11-06T02:16:10+00:00"
         },
         {
             "name": "verbb/navigation",
