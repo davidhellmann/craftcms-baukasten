@@ -45,34 +45,35 @@
   <a href="{{ props.data.linkUrl }}"
      class="{{ props.settings.name }} {{ props.classes.root }} {{ props.variants[props.data.variant].root }} {{ props.classes.custom }}">
     <div class="{{ props.variants[props.data.variant].image }}">
-      {% include '_components/image/image.twig' with {
+      {{ include('_components/image/image.twig', {
         data: {
           image: props.data.image ??? null,
           transform: props.data.transform ??? null,
           objectFit: 'cover',
           renderPlainImage: true,
         }
-      } only %}
+      }, withContext = false) }}
     </div>
     <div class="{{ props.variants[props.data.variant].body }}">
       {# >>> Render headline #}
-      {% include '_components/text/headline.twig' with {
+      {{ include('_components/text/headline.twig', {
         data: {
           text: props.data.title ??? null,
         }
-      } only %}
+      }, withContext = false) }}
+
       {# >>> Render text #}
       {% if props.data.text ??? null %}
         <p>
-          {% include '_components/text/text.twig' with {
+          {{ include('_components/text/text.twig', {
             data: {
               richText: false,
               text: props.data.text ??? null,
             }
-          } only %}
+          }, withContext = false) }}
         </p>
         {# >>> Render button #}
-        {% include '_components/button/button.twig' with {
+        {{ include('_components/button/button.twig', {
           data: {
             variant: 'primary',
             variantSize: 'md',
@@ -82,7 +83,7 @@
           classes: {
             custom: props.variants[props.data.variant].button
           }
-        } only %}
+        }, withContext = false) }}
       {% endif %}
     </div>
   </a>

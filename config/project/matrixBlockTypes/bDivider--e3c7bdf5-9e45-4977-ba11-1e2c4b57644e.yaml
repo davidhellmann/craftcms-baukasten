@@ -5,7 +5,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: f084e099-613d-4405-b600-f4be12d3509b # Divider Style
+            fieldUid: f084e099-613d-4405-b600-f4be12d3509b # Divider Variant
             instructions: null
             label: null
             required: true
@@ -16,13 +16,13 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  f084e099-613d-4405-b600-f4be12d3509b: # Divider Style
+  f084e099-613d-4405-b600-f4be12d3509b: # Divider Variant
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
-    handle: dividerStyle
+    handle: dividerVariant
     instructions: ''
-    name: 'Divider Style'
+    name: 'Divider Variant'
     searchable: false
     settings:
       optgroups: true
@@ -31,16 +31,60 @@ fields:
           __assoc__:
             -
               - label
-              - Default
+              - SM
             -
               - value
-              - default
+              - sm
             -
               - default
               - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - MD
+            -
+              - value
+              - md
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - LG
+            -
+              - value
+              - lg
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - XL
+            -
+              - value
+              - xl
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 2XL
+            -
+              - value
+              - 2xl
+            -
+              - default
+              - ''
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
 handle: bDivider
 name: Divider
-sortOrder: 10
+sortOrder: 11

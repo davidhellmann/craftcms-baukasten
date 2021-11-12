@@ -1,9 +1,5 @@
-{% include '_atoms/divider/_template.twig' with {
-  props: {
-    modifiers: [
-      builder,
-      data.settingsDivider.style ??? null,
-      data.settingsDivider.marginVertical ??? null
-    ]
-  }
-} only %}
+{{ include('_components/spacer/spacer.twig', {
+  data: {
+    variant: data.spacerVariant ??? 'sm',
+  },
+}, withContext = false) }}

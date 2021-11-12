@@ -3,11 +3,11 @@
 {% block blockAppContent %}
   {% cache %}
     {% minify %}
-      {% include '_builders/_contentBuilder.twig' with {
+      {{ include('_builders/_contentBuilder.twig', {
         props: {
           blocks: entry.contentBuilder ??? null
         }
-      } only %}
+      }, withContext = false) }}
     {% endminify %}
   {% endcache %}
 {% endblock %}

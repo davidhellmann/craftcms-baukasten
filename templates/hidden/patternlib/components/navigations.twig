@@ -9,12 +9,12 @@
       {% block content %}
         {% set navigationMain = craft.navigation.nodes('navigationMain').with(['descendants']).all() ??? null %}
         {% set activeNode = craft.navigation.getActiveNode({ handle: 'navigationMain' }) %}
-        {% include '_components/navigation/navigationMain.twig' with {
+        {{ include('_components/navigation/navigationMain.twig', {
           data: {
             nodes: navigationMain ??? null,
             activeNode: activeNode
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
   {% endcache %}

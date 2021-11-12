@@ -60,21 +60,21 @@
   {% if props.data.swiperConfig.navigation %}
     <div class="swiper-button-prev">
       {# >>> Render icon #}
-      {% include '_components/icon/icon.twig' with {
+      {{ include('_components/icon/icon.twig', {
         data: {
           icon: 'swiper-left',
           variant: 'md',
         }
-      } only %}
+      }, withContext = false) }}
     </div>
     <div class="swiper-button-next">
       {# >>> Render icon #}
-      {% include '_components/icon/icon.twig' with {
+      {{ include('_components/icon/icon.twig', {
         data: {
           icon: 'swiper-right',
           variant: 'md',
         }
-      } only %}
+      }, withContext = false) }}
     </div>
   {% endif %}
 

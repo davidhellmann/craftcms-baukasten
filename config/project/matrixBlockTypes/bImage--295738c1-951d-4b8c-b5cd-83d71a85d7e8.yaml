@@ -23,15 +23,6 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 231200a9-ef7d-4002-8155-54fcaf4f6e6c # Image Width
-            instructions: null
-            label: null
-            required: true
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 50
-          -
             fieldUid: 9b73b533-898f-4f77-a500-37ea0be0afc7 # Show Image Caption
             instructions: null
             label: null
@@ -145,53 +136,6 @@ fields:
             -
               - value
               - auto
-            -
-              - default
-              - ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Dropdown
-  231200a9-ef7d-4002-8155-54fcaf4f6e6c: # Image Width
-    columnSuffix: null
-    contentColumnType: string
-    fieldGroup: null
-    handle: imageWidth
-    instructions: ''
-    name: 'Image Width'
-    searchable: false
-    settings:
-      optgroups: true
-      options:
-        -
-          __assoc__:
-            -
-              - label
-              - Wide
-            -
-              - value
-              - wide
-            -
-              - default
-              - '1'
-        -
-          __assoc__:
-            -
-              - label
-              - Narrow
-            -
-              - value
-              - narrow
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Graphic
-            -
-              - value
-              - graphic
             -
               - default
               - ''

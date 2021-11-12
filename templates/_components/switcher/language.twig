@@ -48,14 +48,13 @@
       {% for switcherLink in switcherLinks %}
         {% if switcherLink.current %}
           <span class="mr-8 text-gray-3 opacity-50">{{ switcherLink.title }}</span>
-
-          {% include '_components/icon/icon.twig' with {
+          {{ include('_components/icon/icon.twig', {
             props: {
               customClasses: 'js-languageSwitcherTriggerIcon absolute bottom-[-2px] right-0 transition-all text-gray-3 opacity-50',
               icon: 'arrow-down',
               size: 'w-5 h-5',
             }
-          } only %}
+          }, withContext = false) }}
         {% endif %}
       {% endfor %}
 

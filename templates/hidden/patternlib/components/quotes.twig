@@ -7,14 +7,14 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Default{% endblock %}
       {% block content %}
-        {% include '_components/text/quote.twig' with {
+        {{ include('_components/text/quote.twig', {
           data: {
             quote: 'Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per placerat ocurreret te, eos diceret accumsan in?',
             source: 'Max Mustermann',
             sourceSubline: 'Hausmeister',
             sourceUrl: 'https://google.com'
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 

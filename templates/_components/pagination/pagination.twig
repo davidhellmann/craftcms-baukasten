@@ -26,12 +26,12 @@
           {# Decrements `page` by 1 and pushes the new value into the URL on click #}
           <button class="flex bg-primary text-white px-2 py-2 rounded-full" sprig
                   s-val:page="{{ page - 1 }}" s-push-url="?page={{ page - 1 }}">
-            {% include '_components/icon/icon.twig' with {
+            {{ include('_components/icon/icon.twig', {
               props: {
                 icon: props.prevIcon,
                 size: 'w-8 h-8',
               }
-            } only %}
+            }, withContext = false) }}
           </button>
         {% endif %}
 
@@ -58,12 +58,12 @@
           {# Increments `page` by 1 and pushes the new value into the URL on click #}
           <button class="flex bg-primary text-white px-2 py-2 rounded-full" sprig
                   s-val:page="{{ page + 1 }}" s-push-url="?page={{ page + 1 }}">
-            {% include '_components/icon/icon.twig' with {
+            {{ include('_components/icon/icon.twig', {
               props: {
                 icon: props.nextIcon,
                 size: 'w-8 h-8',
               }
-            } only %}
+            }, withContext = false) }}
           </button>
         {% endif %}
       {% endif %}

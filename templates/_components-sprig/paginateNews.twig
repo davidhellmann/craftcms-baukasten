@@ -15,20 +15,20 @@
     {% set entries = pageInfo.pageResults %}
 
     <div class="container">
-      {% include '_components/pageIntros/image.twig' with {
+      {{ include('_components/pageIntros/image.twig', {
         props: {
           headline: entryCustomTitleOverwrite ??? headline ??? null,
         }
-      } only %}
+      }, withContext = false) }}
 
-      {% include '_components/stacks/news.twig' with {
+      {{ include('_components/stacks/news.twig', {
         props: {
           items: entries ??? null,
           overview: true,
         }
-      } only %}
+      }, withContext = false) }}
 
-      {% include '_components/pagination/pagination.twig' %}
+      {{ include('_components/pagination/pagination.twig', {}, withContext = true) }}
     </div>
   {% endminify %}
 {% endcache %}

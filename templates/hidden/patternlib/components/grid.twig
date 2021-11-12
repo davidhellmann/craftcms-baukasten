@@ -34,7 +34,7 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Grid: Images Calculated 2 Cols{% endblock %}
       {% block content %}
-        {{ include('_components/grid/images.twig', {
+        {{ include('_components/grid/imagesCalculated.twig', {
           data: {
             images: images.limit(2).all() ??? null,
           }
@@ -45,7 +45,7 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Grid: Images Calculated 3 Cols{% endblock %}
       {% block content %}
-        {{ include('_components/grid/images.twig', {
+        {{ include('_components/grid/imagesCalculated.twig', {
           data: {
             images: images.limit(3).all() ??? null,
           }
@@ -56,7 +56,7 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Grid: Images Calculated 4 Cols{% endblock %}
       {% block content %}
-        {{ include('_components/grid/images.twig', {
+        {{ include('_components/grid/imagesCalculated.twig', {
           data: {
             images: images.limit(4).all() ??? null,
           }

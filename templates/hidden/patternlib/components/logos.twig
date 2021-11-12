@@ -7,11 +7,11 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Small{% endblock %}
       {% block content %}
-        {% include '_components/logo/logo.twig' with {
+        {{ include('_components/logo/logo.twig', {
           data: {
             variant: 'sm',
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -19,11 +19,11 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Medium{% endblock %}
       {% block content %}
-        {% include '_components/logo/logo.twig' with {
+        {{ include('_components/logo/logo.twig', {
           data: {
             variant: 'md',
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -31,11 +31,11 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Large{% endblock %}
       {% block content %}
-        {% include '_components/logo/logo.twig' with {
+        {{ include('_components/logo/logo.twig', {
           data: {
             variant: 'lg',
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 

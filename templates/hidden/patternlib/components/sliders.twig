@@ -8,12 +8,12 @@
       {% block label %}Slider Images Landscape{% endblock %}
       {% block content %}
         {% set images = craft.assets().limit(10).all() %}
-        {% include '_components/slider/sliderImages.twig' with {
+        {{ include('_components/slider/sliderImages.twig', {
           data: {
             slides: images ??? null,
             variant: 'landscape'
           },
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -22,12 +22,12 @@
       {% block label %}Slider Images Square{% endblock %}
       {% block content %}
         {% set images = craft.assets().limit(10).all() %}
-        {% include '_components/slider/sliderImages.twig' with {
+        {{ include('_components/slider/sliderImages.twig', {
           data: {
             slides: images ??? null,
             variant: 'square'
           },
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -36,12 +36,12 @@
       {% block label %}Slider Images Portrait{% endblock %}
       {% block content %}
         {% set images = craft.assets().limit(10).all() %}
-        {% include '_components/slider/sliderImages.twig' with {
+        {{ include('_components/slider/sliderImages.twig', {
           data: {
             slides: images ??? null,
             variant: 'portrait'
           },
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -50,12 +50,12 @@
       {% block label %}Slider Images Auto{% endblock %}
       {% block content %}
         {% set images = craft.assets().limit(10).all() %}
-        {% include '_components/slider/sliderImages.twig' with {
+        {{ include('_components/slider/sliderImages.twig', {
           data: {
             slides: images ??? null,
             variant: 'auto'
           },
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 

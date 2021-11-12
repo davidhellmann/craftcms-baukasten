@@ -1,9 +1,6 @@
-{% include '../_organisms/slider' with {
-  props: {
-    modifiers: [
-      builder,
-    ],
-    images: data.images.all() ??? null,
-    ratio: data.ratio ??? null,
-  }
-} only %}
+{{ include('_components/slider/sliderImages.twig', {
+  data: {
+    slides: data.images ??? null,
+    variant: data.imageTransform ??? 'landscape'
+  },
+}, withContext = false) }}

@@ -28,26 +28,26 @@
       {% if loop.first and content.type.handle != 'cbSection' %}
 
         {# Create Section #}
-        {% include '_builders/_includes/_cbCbSection.twig' with {
+        {{ include('_builders/_includes/_bSection.twig', {
           data: content,
           builder: 'contentBuilder',
           closeCurrentSection: 0
-        } only %}
+        }, withContext = false) }}
 
         {# Create First Block #}
-        {% include '_builders/_blocks.twig' with {
+        {{ include('_builders/_blocks.twig', {
           data: content,
           builder: 'contentBuilder',
           closeCurrentSection: 0
-        } only %}
+        }, withContext = false) }}
 
       {% else %}
         {# Create block elements and close section if it's loop.first #}
-        {% include '_builders/_blocks.twig' with {
+        {{ include('_builders/_blocks.twig', {
           data: content,
           builder: 'contentBuilder',
           closeCurrentSection: loop.first ? 0 : 1,
-        } only %}
+        }, withContext = false) }}
       {% endif %}
     {% endfor %}
     {# Close Last Section #}

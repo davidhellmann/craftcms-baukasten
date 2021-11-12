@@ -50,7 +50,7 @@
   {# >>> If icon exists #}
   {% if props.data.icon %}
     {# >>> Render icon  #}
-    {% include '_components/icon/icon.twig' with {
+    {{ include('_components/icon/icon.twig', {
       data: {
         icon: props.data.icon ??? null,
         variant: props.data.iconSize
@@ -58,7 +58,7 @@
       classes: {
         custom: (props.data.reverse ? 'order-2')
       }
-    } only %}
+    }, withContext = false) }}
   {% endif %}
     {{ props.data.text ??? null }}
   </{{ tag }}>

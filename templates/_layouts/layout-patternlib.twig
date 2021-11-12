@@ -2,12 +2,13 @@
 
 {# >>> Render block head fonts #}
 {% block blockHeadFonts %}
-  {% include '_layouts/_partials/fonts/fonts-default-preloading.twig' %}
+  {{ include('_layouts/_partials/fonts/fonts-default-preloading.twig', {}, withContext = true) }}
 {% endblock blockHeadFonts %}
 
 
 {% block blockHeadCss %}
-  {% include 'hidden/patternlib/_partials/_styles.twig' %}
+  {{ include('hidden/patternlib/_partials/_styles.twig', {}, withContext = true) }}
+
 {% endblock blockHeadCss %}
 
 {# >>> Render block app body #}
@@ -23,11 +24,11 @@
       <div class="pl_root">
         <div class="pl_path">
           <a href="{{ siteUrl }}" class="pl_logo">
-              {% include '_components/logo/logo.twig' with {
-                data: {
-                  variant: props.data.logoSize ??? 'sm'
-                },
-              } only %}
+            {{ include('_components/logo/logo.twig', {
+              data: {
+                variant: props.data.logoSize ??? 'sm'
+              },
+            }, withContext = false) }}
           </a>
           <a href="{{ config.path ? config.path : '#' }}">
             {{ config.pageTitle ??? 'Pattern Library' }}
@@ -45,7 +46,7 @@
           {% endblock %}
         {% endif %}
 
-        {% include '/hidden/patternlib/navigation.twig' %}
+        {{ include('/hidden/patternlib/navigation.twig', {}, withContext = true) }}
       </div>
     </main>
   </div>

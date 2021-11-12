@@ -1,9 +1,5 @@
-{% include '_organisms/imageGallery/_template.twig' with {
-  props: {
-    modifiers: [
-      builder
-    ],
-    images: data.images.all() ??? null,
-    ratio: data.ratio ??? null,
+{{ include('_components/gallery/images.twig', {
+  data: {
+    images: data.images ??? null,
   }
-} only %}
+}, withContext = false) }}

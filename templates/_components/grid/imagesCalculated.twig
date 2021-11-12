@@ -6,7 +6,6 @@
   data: {
     images: null,
     caption: null,
-    transform: 'auto',
   },
   classes: {
     root: 'flex flex-col md:flex-row flex-nowrap gap-4 md:gap-8',
@@ -27,17 +26,17 @@
   <div
     class="js-imageGridCalculated {{ props.settings.name }}  {{ props.classes.root }} {{ props.classes.custom }}">
     {% for image in props.data.images %}
-      {% include '_components/image/image.twig' with {
+      {{ include('_components/image/image.twig', {
         data: {
           image: image ??? null,
-          transform: props.data.transform ??? null,
+          transform: 'auto',
           renderPlainImage: true,
           caption: props.data.caption ??? null,
         },
         classes: {
           custom: 'w-full md:max-w-full md:w-auto'
         }
-      } only %}
+      }, withContext = false) }}
     {% endfor %}
   </div>
 {% endif %}

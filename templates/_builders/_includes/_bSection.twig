@@ -1,0 +1,13 @@
+{% set sectionWidth = data.sectionWidth ??? 'container' %}
+{% set spaceBetween = data.spaceBetween ??? 'space-y-16' %}
+{% set sectionPadding = data.sectionPadding ??? '' %}
+{% set sectionBackgroundColor = data.sectionBackgroundColor ??? '' %}
+
+{% if closeCurrentSection %}
+  </div>
+  </div>
+{% endif %}
+
+<div class="c-section {{ sectionWidth }} {{ sectionPadding }} {{ sectionBackgroundColor }}">
+  <div class="{{ sectionWidth != 'container' ? 'container' : '' }} {{ spaceBetween }}">
+

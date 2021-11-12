@@ -2,7 +2,7 @@
 
 {# >>> Render block head fonts #}
 {% block blockHeadFonts %}
-  {% include '_layouts/_partials/fonts/fonts-default-preloading.twig' %}
+  {{ include('_layouts/_partials/fonts/fonts-default-preloading.twig', {}, withContext = true) }}
 {% endblock blockHeadFonts %}
 
 {# >>> Render block app body #}
@@ -10,7 +10,7 @@
   <div id="appWrapper" class="overflow-hidden">
 
     {# >>> Render app header #}
-    {% include '_components/header/header.twig' only %}
+    {{ include('_components/header/header.twig', {}, withContext = false) }}
 
     <main id="appContent">
       {# >>> Render block app content #}
@@ -31,6 +31,6 @@
     </main>
 
     {# >>> Render app fooeter #}
-    {% include '_components/footer/footer.twig' only %}
+    {{ include('_components/footer/footer.twig', {}, withContext = false) }}
   </div>
 {% endblock blockAppBody %}

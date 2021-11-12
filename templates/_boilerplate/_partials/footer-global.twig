@@ -1,4 +1,4 @@
 {# >>> Render grid overlay #}
 {% if craft.app.config.general.custom.craftEnv != 'live' %}
-  {% include '_components/gridOverlay/gridOverlay.twig' only %}
+  {{ include('_components/gridOverlay/gridOverlay.twig', {}, withContext = false) }}
 {% endif %}

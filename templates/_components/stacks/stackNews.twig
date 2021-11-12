@@ -25,38 +25,38 @@
         </h2>
 
         <div class="mt-5 hidden lg:block">
-          {% include '_components/button/button.twig' with {
+          {{ include('_components/button/button.twig', {
             props: {
               text: 'translate.component.stacks.news.button' | t,
               url: '/news',
               target: '_blank',
               style: 'secondary',
             }
-          } only %}
+          }, withContext = false) }}
         </div>
       </div>
     {% endif %}
 
     <div class="grid lg:gap-x-10 {{ props.overview ? 'lg:gap-y-20  lg:grid-cols-3 lg:col-span-3' : 'lg:grid-cols-2 lg:col-span-2' }}">
       {% for item in props.items %}
-        {% include '_components/card/news.twig' with {
+        {{ include('_components/card/news.twig', {
           props: {
             image: item.entryImage[0] ??? null,
             date: item.postDate|date("M Y") ??? null,
             title: item.entryCustomTitleOverwrite ??? item.title ??? null,
             url: item.url ??? null,
           }
-        } only %}
+        }, withContext = false) }}
       {% endfor %}
 
       <div class="block lg:hidden {{ props.overview ? 'hidden' : '' }}">
-        {% include '_components/button/button.twig' with {
+        {{ include('_components/button/button.twig', {
           props: {
             text: 'translate.component.stacks.news.button' | t,
             url: '/news',
             style: 'secondary',
           }
-        } only %}
+        }, withContext = false) }}
       </div>
     </div>
   </div>

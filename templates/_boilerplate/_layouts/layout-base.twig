@@ -6,13 +6,13 @@
   <html class="no-js {{ htmlClass | default('') }}" lang="{{ craft.app.language | slice(0,2) }}">
   <head>
     {# >>> Render block head meta #}
-    {% include "_boilerplate/_partials/head-meta.twig" %}
-    {% include "_boilerplate/_partials/head-favicons.twig" %}
+    {{ include('_boilerplate/_partials/head-meta.twig', {}, withContext = true) }}
+    {{ include('_boilerplate/_partials/head-favicons.twig', {}, withContext = true) }}
     {% block blockHeadMeta %}
     {% endblock blockHeadMeta %}
 
     {# >>> Render block head js #}
-    {% include "_boilerplate/_partials/head-js.twig" %}
+    {{ include('_boilerplate/_partials/head-js.twig', {}, withContext = true) }}
     {% block blockHeadJs %}
     {% endblock blockHeadJs %}
 
@@ -29,10 +29,10 @@
         display: none !important;
       }
     </style>
-    {% include "_boilerplate/_partials/head-critical-css.twig" %}
+    {{ include('_boilerplate/_partials/head-critical-css.twig', {}, withContext = true) }}
 
     {# >>> Include RSS feeds #}
-    {% include "_boilerplate/_partials/head-rss-feeds.twig" %}
+    {{ include('_boilerplate/_partials/head-rss-feeds.twig', {}, withContext = true) }}
 
     {# >>> Render block app head #}
     {% block blockAppHead %}
@@ -46,7 +46,7 @@
 
 
   {# >>> Render block app footer #}
-  {% include "_boilerplate/_partials/footer-global.twig" %}
+  {{ include('_boilerplate/_partials/footer-global.twig', {}, withContext = true) }}
   {% block blockAppFooter %}
   {% endblock blockAppFooter %}
   </body>

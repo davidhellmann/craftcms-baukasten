@@ -45,13 +45,13 @@
     {% block swiperSlides %}
       {% for image in props.data.slides %}
         <div class="{{ props.classes.swiperSlide }} {{ props.variants[props.data.variant] }}">
-          {% include '_components/image/image.twig' with {
+          {{ include('_components/image/image.twig', {
             data: {
               image: image ??? null,
               transform: props.data.variant,
               renderPlainImage: true,
             }
-          } only %}
+          }, withContext = false) }}
         </div>
       {% endfor %}
     {% endblock %}

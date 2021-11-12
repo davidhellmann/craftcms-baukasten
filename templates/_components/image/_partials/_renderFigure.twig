@@ -7,14 +7,14 @@
 
   {% if props.data.caption %}
     {# caption #}
-    {% include '_components/caption/caption.twig' with {
+    {{ include('_components/caption/caption.twig', {
       data: {
         headline: imageData.caption.headline ??? null,
         text: imageData.caption.text ??? null,
         source: imageData.caption.source ??? null,
         sourceUrl: imageData.caption.sourceUrl ??? null
       }
-    } only %}
+    }, withContext = false) }}
   {% endif %}
 
   {{ include('_components/image/_partials/_nocript.twig', {}, withContext = true) }}

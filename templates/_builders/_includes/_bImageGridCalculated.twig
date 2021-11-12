@@ -1,0 +1,6 @@
+{{ include('_components/grid/imagesCalculated.twig', {
+  data: {
+    images: data.images ??? null,
+    caption: data.showImageCaption ??? null,
+  }
+}, withContext = false) }}

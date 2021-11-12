@@ -1,11 +1,9 @@
-{% include '_organisms/imageGrid/_template.twig' with {
-  props: {
-    modifiers: [
-      'builder,
-      data.columns ??? null
-    ],
-    images: data.images.all() ??? null,
-    ratio: data.ratio ??? null,
-    caption: data.caption ??? null,
+{{ include('_components/grid/images.twig', {
+  data: {
+    images: data.images ??? null,
+    variant: data.imageColumns ??? 2,
+    caption: data.showImageCaption ??? null,
+    transform: data.imageTransform ??? 'landscape',
   }
-} only %}
+}, withContext = false) }}
+

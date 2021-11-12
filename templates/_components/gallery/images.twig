@@ -48,16 +48,16 @@
           data-dynamic-data='{{ dynamicData | json_encode }}'>
     {% for image in props.data.images |slice(0, props.data.cutAfter) %}
       <div class="{{ props.classes['image' ~ loop.index] }}">
-        {% include '_components/image/image.twig' with {
+        {{ include('_components/image/image.twig', {
           data: {
             image: image ??? null,
             transform: props.data.transform,
             objectFit: 'cover',
           }
-        } only %}
+        }, withContext = false) }}
       </div>
     {% endfor %}
-    {% include '_components/button/button.twig' with {
+    {{ include('_components/button/button.twig', {
       data: {
         url: '#',
         text: 'translate.component.gallery.images.showAll' | t,
@@ -67,6 +67,6 @@
       classes: {
         custom: props.classes.button
       }
-    } only %}
+    }, withContext = false) }}
   </button>
 {% endif %}

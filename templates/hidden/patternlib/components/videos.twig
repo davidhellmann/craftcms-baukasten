@@ -7,11 +7,11 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Youtube{% endblock %}
       {% block content %}
-        {% include '_components/video/youtube.twig' with {
+        {{ include('_components/video/youtube.twig', {
           data: {
             videoId: 'KiF6D9E1ya8',
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 
@@ -19,12 +19,12 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Youtube / Autoplay{% endblock %}
       {% block content %}
-        {% include '_components/video/youtube.twig' with {
+        {{ include('_components/video/youtube.twig', {
           data: {
             videoId: 'KiF6D9E1ya8',
             autoplay: 1
           }
-        } only %}
+        }, withContext = false) }}
       {% endblock %}
     {% endembed %}
 

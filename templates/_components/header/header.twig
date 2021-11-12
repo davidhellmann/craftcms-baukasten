@@ -27,11 +27,11 @@
 <header class="{{ props.settings.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
   <div class=" {{ props.classes.container }}">
     <a href="{{ props.data.url }}" class="{{ props.classes.homeLink }}">
-      {% include '_components/logo/logo.twig' with {
+      {{ include('_components/logo/logo.twig', {
         data: {
           variant: props.data.logoSize ??? 'md'
         },
-      } only %}
+      }, withContext = false) }}
       <h1 class="{{ props.classes.h1 }}">{{ props.data.name }}</h1>
     </a>
   </div>

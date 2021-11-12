@@ -1,31 +1,31 @@
 field: 74eb36ae-7a26-4e7d-b454-990ec52617f0 # Builder: Content
 fieldLayouts:
-  76a7a664-77de-4dec-8abd-45b7b2ec462a:
+  2f43cd1f-4b91-4b38-aa35-4ae90d08f2db:
     tabs:
       -
         elements:
           -
-            fieldUid: 89272b00-6f81-47f7-9335-4367edcac941 # Images
+            fieldUid: 0a686d89-8754-4f00-a79e-fed75548909d # Images
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 100
           -
-            fieldUid: 0528527a-c400-4aeb-8d16-b5fea2a082f6 # Show Image Caption
+            fieldUid: 1a64748f-2870-4c18-a869-f2b050ede5ba # Image Transform
             instructions: null
             label: null
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 50
+            width: 100
         name: Content
         sortOrder: 1
 fields:
-  89272b00-6f81-47f7-9335-4367edcac941: # Images
+  0a686d89-8754-4f00-a79e-fed75548909d: # Images
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
@@ -45,7 +45,7 @@ fields:
       previewMode: full
       restrictFiles: '1'
       selectionLabel: ''
-      showSiteMenu: true
+      showSiteMenu: false
       showUnpermittedFiles: true
       showUnpermittedVolumes: true
       singleUploadLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
@@ -56,25 +56,68 @@ fields:
       targetSiteId: null
       useSingleFolder: false
       validateRelatedElements: true
-      viewMode: large
+      viewMode: list
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  0528527a-c400-4aeb-8d16-b5fea2a082f6: # Show Image Caption
-    columnSuffix: null
-    contentColumnType: boolean
+  1a64748f-2870-4c18-a869-f2b050ede5ba: # Image Transform
+    columnSuffix: brfqxffq
+    contentColumnType: string
     fieldGroup: null
-    handle: showImageCaption
+    handle: imageTransform
     instructions: ''
-    name: 'Show Image Caption'
+    name: 'Image Transform'
     searchable: false
     settings:
-      default: false
-      offLabel: null
-      onLabel: null
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Landscape
+            -
+              - value
+              - landscape
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Square
+            -
+              - value
+              - square
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Portrait
+            -
+              - value
+              - portrait
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Auto
+            -
+              - value
+              - auto
+            -
+              - default
+              - ''
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\Lightswitch
-handle: bImageGridCalculated
-name: 'Image Grid Calculated'
-sortOrder: 7
+    type: craft\fields\Dropdown
+handle: imageSlider
+name: 'Image Slider'
+sortOrder: 9

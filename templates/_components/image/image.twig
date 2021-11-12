@@ -5,30 +5,30 @@ HOW TO USE
 Simple Image
 {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
 
-{% include '_components/image/image.twig' with {
+{{ include('_components/image/image.twig', {
   data: {
     image: cat01Image ??? null,
     transform: 'landscape',
     renderPlainImage: true,
   }
-} only %}
+}, withContext = false }}
 
 Figure Image
 {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
 
-{% include '_components/image/image.twig' with {
+{{ include('_components/image/image.twig', {
   data: {
     image: cat01Image ??? null,
     transform: 'landscape',
   }
-} only %}
+}, withContext = false }}
 
 Art Direction
 {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
 {% set cat02Image = craft.assets.title('Cat 02').volume('templateImages').one() %}
 {% set cat03Image = craft.assets.title('Cat 03').volume('templateImages').one() %}
 
-{% include '_components/image/image.twig' with {
+{{ include('_components/image/image.twig', {
   data: {
     image: cat01Image ??? null,
     transform: 'landscape',
@@ -37,7 +37,7 @@ Art Direction
       [cat03Image, 'square', true, '(min-width: 330px)'],
     ]
   }
-} only %}
+}, withContext = false }}
 #}
 
 {# Set Defaults #}

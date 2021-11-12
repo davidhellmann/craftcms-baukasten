@@ -32,7 +32,7 @@
 {% if props.data.images ??? null %}
   <div class="{{ props.settings.name }}  {{ props.classes.root }}  {{ props.variants[props.data.variant] }} {{ props.classes.custom }}">
     {% for image in props.data.images %}
-      {% include '_components/image/image.twig' with {
+      {{ include('_components/image/image.twig', {
         data: {
           image: image ??? null,
           transform: props.data.transform ??? null,
@@ -41,7 +41,7 @@
         classes: {
           custom: 'col-span-1'
         }
-      } only %}
+      }, withContext = false) }}
     {% endfor %}
   </div>
 {% endif %}

@@ -1,5 +1,5 @@
-{% include ('_builders/_includes/_b' ~ data.type.handle | pascal ~ '.twig') with {
+{{ include('_builders/_includes/_b' ~ data.type.handle | pascal ~ '.twig', {
   data: data,
   builder: builder,
   closeCurrentSection: closeCurrentSection
-} only %}
+}, withContext = false) }}
