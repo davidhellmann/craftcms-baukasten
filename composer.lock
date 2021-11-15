@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "263241c8e0799ceeb54416e978fda502",
+    "content-hash": "7b434d13dbb1788386285d14c86383a6",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1774,21 +1774,25 @@
         },
         {
             "name": "guzzlehttp/oauth-subscriber",
-            "version": "0.4.0",
+            "version": "0.6.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/oauth-subscriber/zipball/47b4b9cd0b31a6733a3cc500d4285a8363502485",
-                "reference": "47b4b9cd0b31a6733a3cc500d4285a8363502485",
+                "url": "https://api.github.com/repos/guzzle/oauth-subscriber/zipball/8d6cab29f8397e5712d00a383eeead36108a3c1f",
+                "reference": "8d6cab29f8397e5712d00a383eeead36108a3c1f",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "guzzlehttp/guzzle": "^6.5|^7.2",
+                "guzzlehttp/psr7": "^1.7|^2.0",
                 "php": ">=5.5.0"
+            },
+            "suggest": {
+                "ext-openssl": "Required to sign using RSA-SHA1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.4-dev"
+                    "dev-master": "0.6-dev"
                 }
             },
             "autoload": {
@@ -1812,7 +1816,7 @@
                 "Guzzle",
                 "oauth"
             ],
-            "time": "2020-07-01T06:28:13+00:00"
+            "time": "2021-07-13T12:01:32+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -3605,11 +3609,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.4.18",
+            "version": "3.4.19",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/59afcee24a6bf23bff94f8bbdd84af4ad5e64984",
-                "reference": "59afcee24a6bf23bff94f8bbdd84af4ad5e64984",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/d134a4a9be225b62138e413afd2ccef8db9c39af",
+                "reference": "d134a4a9be225b62138e413afd2ccef8db9c39af",
                 "shasum": ""
             },
             "require": {
@@ -3659,7 +3663,7 @@
                 "docs": "https://nystudio107.com/plugins/seomatic/documentation",
                 "issues": "https://nystudio107.com/plugins/seomatic/support"
             },
-            "time": "2021-11-11T21:37:31+00:00"
+            "time": "2021-11-13T17:41:53+00:00"
         },
         {
             "name": "nystudio107/craft-vite",
@@ -6903,11 +6907,11 @@
         },
         {
             "name": "verbb/formie",
-            "version": "1.4.24",
+            "version": "1.4.25",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/formie/zipball/d23d382aae96dacda807f906c4f5df76bdda974c",
-                "reference": "d23d382aae96dacda807f906c4f5df76bdda974c",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/f79c2a4ca92beea2011bded8114d67ffacb46a85",
+                "reference": "f79c2a4ca92beea2011bded8114d67ffacb46a85",
                 "shasum": ""
             },
             "require": {
@@ -6917,7 +6921,7 @@
                 "ezyang/htmlpurifier": "^4.13",
                 "fakerphp/faker": "^1.9.1",
                 "giggsey/libphonenumber-for-php": "^8.12",
-                "guzzlehttp/oauth-subscriber": "^0.3.0 || ^0.4.0",
+                "guzzlehttp/oauth-subscriber": "^0.6.0",
                 "html2text/html2text": "^4.3",
                 "league/html-to-markdown": "^4.10",
                 "league/oauth1-client": "^1.7",
@@ -6962,7 +6966,7 @@
                 "docs": "https://github.com/verbb/formie",
                 "rss": "https://github.com/verbb/formie/commits/v2.atom"
             },
-            "time": "2021-11-06T02:16:10+00:00"
+            "time": "2021-11-14T02:32:21+00:00"
         },
         {
             "name": "verbb/navigation",
