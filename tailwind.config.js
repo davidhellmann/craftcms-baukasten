@@ -6,6 +6,9 @@
 // Settings
 const settingsGrid = require('./tailwind/tailwind.settings.grid');
 const settingsColors = require('./tailwind/tailwind.settings.colors');
+const settingsFontFamily = require('./tailwind/tailwind.settings.fontFamily');
+const settingsfluidType = require('./tailwind/tailwind.settings.fluidType');
+const settingsScreens = require('./tailwind/tailwind.settings.screens');
 
 // Plugins
 const pluginAddComponents = require('./tailwind/tailwind.plugins.addComponents');
@@ -14,10 +17,7 @@ module.exports = {
   mode: 'jit',
   purge: {
     enabled: process.env.NODE_ENV === 'production',
-    content: [
-      './templates/**/*.{twig,html,vue,js,ts}',
-      './src/vue/**/*.{vue,js,ts}',
-    ],
+    content: ['./templates/**/*.{twig,html,vue,js,ts}', './src/vue/**/*.{vue,js,ts}'],
     layers: ['base', 'components', 'utilities'],
     mode: 'layers',
     options: {
@@ -26,20 +26,15 @@ module.exports = {
   },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    fontFamily: {
-      sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
-      serif: ['Merriweather', 'Georgia', 'Times New Roman', 'Times', 'serif'],
-      mono: ['"JetBrains Mono"', '"Courier New"', 'Courier', 'monospace'],
-    },
+    fontFamily: settingsFontFamily,
+    fluidType: settingsfluidType,
     colors: settingsColors,
+    screens: settingsScreens,
     extend: {
       gridTemplateColumns: { ...settingsGrid.gridTemplateColumns },
       gridColumn: { ...settingsGrid.gridColumn },
       gridRowStart: { ...settingsGrid.gridRowStart },
       gridRowEnd: { ...settingsGrid.gridRowEnd },
-      screens: {
-        nthover: { raw: '(hover: hover)' },
-      }
     },
     // Plugin Stuff
     debugScreens: {
@@ -51,6 +46,7 @@ module.exports = {
   corePlugins: {
     float: false,
     container: false,
+    fontSize: false, // disable cause we use the fluid type plugin
   },
   plugins: [
     require('tailwindcss-debug-screens'),

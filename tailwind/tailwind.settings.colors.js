@@ -2,10 +2,10 @@
  * Tailwind Color Settings
  */
 
-const generateColorClass = (variable) =>  ({opacityValue}) => opacityValue
-  ? `rgba(var(--${variable}), ${opacityValue})`
-  : `rgb(var(--${variable}))`
-
+const generateColorClass =
+  (variable) =>
+  ({ opacityValue }) =>
+    opacityValue ? `rgba(var(--${variable}), ${opacityValue})` : `rgb(var(--${variable}))`;
 
 module.exports = {
   current: 'currentColor',

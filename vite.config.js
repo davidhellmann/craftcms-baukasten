@@ -4,7 +4,7 @@ import ViteRestart from 'vite-plugin-restart';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import critical from 'rollup-plugin-critical';
 import eslintPlugin from 'vite-plugin-eslint';
-// import { ViteFaviconsPlugin } from 'vite-plugin-favicon';
+import { ViteFaviconsPlugin } from 'vite-plugin-favicon2';
 import path from 'path';
 
 // https://vitejs.dev/config/
@@ -42,15 +42,17 @@ export default ({ command }) => ({
       criticalPages: [{ uri: '', template: 'index' }],
       criticalConfig: {},
     }),
-    // ViteFaviconsPlugin({
-    //   /** Your source logo (Will default to ) */
-    //   logo: '../src/public/img/favicon-src.svg',
-    //   favicons: {
-    //     appName: 'craftcms-baukasten',
-    //     background: '#244F43',
-    //     theme_color: '#244F43',
-    //   },
-    // }),
+    ViteFaviconsPlugin({
+      logo: './src/public/img/favicon-src.svg',
+      inject: false,
+      outputPath: 'favicons-default',
+      favicons: {
+        appName: 'craftcms-baukasten',
+        lang: 'de',
+        background: '#244F43',
+        theme_color: '#244F43',
+      },
+    }),
     legacy({
       targets: ['defaults', 'not IE 11'],
     }),
