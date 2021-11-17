@@ -7,9 +7,11 @@
   <head>
     {# >>> Render block head meta #}
     {{ include('_boilerplate/_partials/head-meta.twig', {}, withContext = true) }}
-    {{ include('_boilerplate/_partials/head-favicons.twig', {}, withContext = true) }}
     {% block blockHeadMeta %}
     {% endblock blockHeadMeta %}
+
+    {% block blockHeadFavicons %}
+    {% endblock blockHeadFavicons %}
 
     {# >>> Render block head js #}
     {{ include('_boilerplate/_partials/head-js.twig', {}, withContext = true) }}

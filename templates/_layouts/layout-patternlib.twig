@@ -1,5 +1,10 @@
 {% extends "_boilerplate/_layouts/layout-base.twig" %}
 
+{# >>> Render favicons #}
+{% block blockHeadFavicons %}
+  {{ include('_layouts/_partials/favicons/favicons-default.twig', {}, withContext = true) }}
+{% endblock blockHeadFavicons %}
+
 {# >>> Render block head fonts #}
 {% block blockHeadFonts %}
   {{ include('_layouts/_partials/fonts/fonts-default-preloading.twig', {}, withContext = true) }}

@@ -5,10 +5,6 @@
 
 {# >>> Glabal variables  #}
 {% set baseUrl = alias('@web') ~ '/' %}
-{% set CSRF_TOKEN = {
-  csrfTokenName: craft.app.config.general.csrfTokenName,
-  csrfTokenValue: craft.app.request.csrfToken,
-} %}
 
 {# >>> Glabal JS variables #}
 <script>
@@ -16,7 +12,6 @@
     'baseUrl': '{{ siteUrl }}',
     'id': parseInt('{{ currentSite.id }}')
   }
-  window.Craft = {{ CSRF_TOKEN|json_encode|raw }};
 </script>
 
 {# >>> Render block App #}
