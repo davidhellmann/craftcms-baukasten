@@ -12,15 +12,6 @@ export default async () => {
     const { default: globalResizeListener } = await import('./scripts/globalResizeListener');
     globalResizeListener.init();
 
-    // csrfToken
-    const csrfTokenEls = [
-      ...document.querySelectorAll<HTMLElement>('input[name="CRAFT_CSRF_TOKEN"]'),
-    ];
-    if (csrfTokenEls.length > 0) {
-      const { default: csrfToken } = await import('./scripts/csrf');
-      csrfToken.init(csrfTokenEls);
-    }
-
     // waypointObserver
     const waypointEls = [...document.querySelectorAll<HTMLElement>('[waypoint]')];
     if (waypointEls.length > 0) {
