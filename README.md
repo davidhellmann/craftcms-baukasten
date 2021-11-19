@@ -74,6 +74,7 @@ Go to `./` and do this: `valet link craftcms-baukasten` to create a domain like 
 
 
 ### Some plugins:
+- `Blitz (paid)`: Blitz provides intelligent static page caching for creating lightning-fast sites with Craft.
 - `Blitz Recommendations (free)`: Adds a utility that provides templating performance recommendations.
 - `CP Clear Cache (free)`: Less clickin’ to get clearin’
 - `CP Field Inspect (free)`: Inspect field handles and easily edit field and element source settings
@@ -81,6 +82,7 @@ Go to `./` and do this: `valet link craftcms-baukasten` to create a domain like 
 - `Dumper (free)`: Bringing larapack/dd to Craft 3
 - `Elements Panel (free)`: Adds an Elements and an Eager-Loading panel to the debug toolbar.
 - `Empty Coalesce (free)`: Empty Coalesce adds the ??? operator to Twig that will return the first thing that is defined, not null, and not empty.
+- `Formie (paid)`: Formie is a Craft CMS plugin for creating user-friendly forms that your content editors will love.
 - `Imager X (paid)`: Ninja powered image transforms.
 - `Minify (free)`: A simple plugin that allows you to minify blocks of HTML, CSS, and JS inline in Craft CMS templates.
 - `Navigation (paid)`: A Craft CMS plugin to create navigation menus for your site.
