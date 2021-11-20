@@ -17,10 +17,7 @@ if (typeof platform === 'undefined') {
 if (typeof browserVersion === 'undefined') {
   browserVersion = 'null';
 } else {
-  browserVersion = browserVersion
-    .toLowerCase()
-    .replace(' ', '-')
-    .split('.', 1)[0];
+  browserVersion = browserVersion.toLowerCase().replace(' ', '-').split('.', 1)[0];
 }
 /* eslint-enable */
 
@@ -54,7 +51,8 @@ const browserDetect = {
         const dataSrcset = image.getAttribute('data-srcset');
         const srcset = image.getAttribute('srcset');
         const type = image.getAttribute('type');
-        const searchRegExp = new RegExp('\\.webp', 'g');
+        // const searchRegExp = new RegExp('\\.webp', 'g');
+        const searchRegExp = /\\.webp/g;
 
         if (type) {
           image.removeAttribute('type');
