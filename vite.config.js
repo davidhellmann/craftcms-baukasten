@@ -43,7 +43,7 @@ export default ({ command }) => ({
       criticalConfig: {},
     }),
     ViteFaviconsPlugin({
-      logo: './src/public/img/favicon-src.svg',
+      logo: './src/public/images/favicon-src.svg',
       inject: false,
       outputPath: 'favicons-default',
       favicons: {

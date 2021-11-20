@@ -33,7 +33,7 @@
 {# >>> No macroComponentSettings here cause simplify the icon (noWrapper) #}
 
 {% if props.data.icon %}
-    {{ svg('@webroot/dist/img/svg/' ~ props.data.icon ~ '.svg')
+    {{ svg('@webroot/dist/images/svg/' ~ props.data.icon ~ '.svg')
     | attr({
       class: props.settings.name ~ ' ' ~ props.classes.root ~ ' ' ~ props.classes.color ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom
     }) }}
