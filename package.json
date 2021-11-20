@@ -62,7 +62,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "dev:update": "npm i && composer install",
+    "dev:update": "npm i && composer install && npm run build",
     "build": "npm run twc && vite build",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
