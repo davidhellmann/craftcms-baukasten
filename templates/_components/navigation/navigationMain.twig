@@ -9,6 +9,12 @@
   classes: {
     root: '',
     custom: '',
+    ul: 'c-navigationMain__list',
+    li: 'c-navigationMain__listItem',
+    span: 'c-navigationMain__listHeading',
+    link: 'c-navigationMain__listLink',
+    button: 'c-navigationMain__listButton',
+    subItemsHolder: 'c-navigationMain__subItemsWrapper',
   },
 } %}
 
@@ -19,11 +25,82 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{% import '_macros/_macro-navigation.twig' as macroNavigation  %}
-
 {% if props.data.nodes ??? null %}
-  <nav class="{{ props.settings.name }} {{ props.classes.root}}  {{ props.classes.custom }} js-navigationMain">
-    {{ macroNavigation.navigation(props.data.nodes, props.settings.name, props.data.activeNode) }}
+  <nav class="{{ props.settings.name }} {{ props.classes.root }}  {{ props.classes.custom }} js-navigationMain">
+    <ul alpinejs
+        x-data="{
+        activeId: {{ activeNode.id ??? 0 }},
+        activeParentId: {{ activeNode.parent.id ??? 0 }}
+      }"
+        class="{{ props.classes.ul }}" data-level="1">
+
+      {% nav node in props.data.nodes %}
+        {# >>> Set vars #}
+        {% set attributes = '' %}
+        {% if node.customAttributes %}
+          {% set attributes %}
+            {% for attribute in node.customAttributes %}
+              {{ attribute.attribute }}="{{ attribute.value }}"
+            {% endfor %}
+          {% endset %}
+        {% endif %}
+
+
+        <li class="{{ props.classes.li }} {{ node.classes ??? '' }}" data-level="{{ node.level }}"
+          {% if node.hasDescendants %}
+          x-data="{ flyoutMenuOpen: false }"
+          @click.away="flyoutMenuOpen = false"
+          @keydown.escape="flyoutMenuOpen = false"
+          {% endif %}>
+
+          {# >>> Render Link / Submenu Trigger #}
+          {% if node.url %}
+            {% if node.hasDescendants %}
+              <button :class="{'is-active': activeId === {{ node.id }} || activeParentId === {{ node.id }}}"
+                      class="{{ props.classes.button }}"
+                      aria-haspopup="true"
+                      @click="flyoutMenuOpen = !flyoutMenuOpen;
+                            activeId = {{ node.id }};
+                            activeParentId = {{ node.parent ? node.parent.id : 0 }};"
+                      :aria-expanded="flyoutMenuOpen"
+                      data-level="{{ node.level }}" {{ attributes }}>{{- node.title -}}</button>
+            {% else %}
+              <a href="{{ node.url }}"
+                 :class="{'is-active': activeId === {{ node.id }}}"
+                 @click="activeId = {{ node.id }}, activeParentId = {{ node.parent ? node.parent.id : 0 }};"
+                 class="{{ props.classes.link }}" data-level="{{ node.level }}"
+                {% if node.newWindow %}
+                  target="_blank"
+                  rel="noopener"
+                {% endif %} {{ attributes }}>{{- node.title -}}</a>
+            {% endif %}
+            {# >>> Render Heading / Label #}
+          {% else %}
+            <span class="{{ props.classes.span }}" data-level="{{ node.level }}" {{ attributes }}>
+          {{- node.title -}}
+          </span>
+          {% endif %}
+
+          {% if node.hasDescendants %}
+          {% set subItemUls = node.descendants | filter(a => not a.url and a.level == node.level + 1) | length ??? 1 %}
+          <div class="{{ props.classes.subItemsHolder }}" x-cloak data-level="{{ node.level }}"
+               data-cols="{{ subItemUls }}">
+            {% endif %}
+            {# >>> Render chidlren #}
+            {% ifchildren %}
+              {% set subItemUls = node.descendants | filter(a => not a.url and a.level == node.level + 1) | length ??? 1 %}
+              <ul class="{{ props.classes.ul }}"
+                  data-level="{{ node.level + 1 }}" data-cols="{{ subItemUls }}">
+                {% children %}
+              </ul>
+            {% endifchildren %}
+            {% if node.hasDescendants %}
+          </div>
+          {% endif %}
+        </li>
+      {% endnav %}
+    </ul>
+
   </nav>
 {% endif %}
 
