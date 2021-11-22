@@ -1,0 +1,75 @@
+{# >>> Comp Settings #}
+{% set compDefaults = {
+  settings: {
+    name: 'c-tabsHolder',
+  },
+  data: {
+    position: 'top',
+    activeTab: 1,
+    numberOfTabs: null,
+  },
+  classes: {
+    root: '',
+    custom: '',
+  },
+  variants: {
+    top: {
+      nav: '',
+      ul: 'grid grid-flow-col auto-cols-max gap-x-4',
+      li: '',
+      button: '',
+      contentHolder: '',
+      content: '',
+    },
+    left: {
+      nav: '',
+      ul: '',
+      li: '',
+      button: '',
+      contentHolder: '',
+      content: '',
+    },
+  }
+} %}
+
+
+{# >>> Merge settings / classes #}
+{% set props = {
+  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: variants is defined and variants is iterable ? compDefaults.variants | merge(variants) : compDefaults.variants,
+} %}
+
+{# Component #}
+<div alpinejs x-cloak
+     x-data="{
+        activeTab: {{ props.data.activeTab ??? 1 }},
+      }"
+     class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+
+  <nav class="{{ props.variants[props.data.position].nav }}">
+    <ul class="{{ props.variants[props.data.position].ul }}">
+      {% for i in 1..props.data.numberOfTabs %}
+        {% if block('tab' ~ i) is defined %}
+          <li class="{{ props.variants[props.data.position].li }}">
+            <button @click="activeTab = {{ i }};" :class="[activeTab === {{ i }} ? 'is-active' : '']">
+              {{ block('tab' ~ i) }}
+            </button>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <div class="{{ props.variants[props.data.position].contentHolder }}">
+    {% for i in 1..props.data.numberOfTabs %}
+      {% if block('content' ~ i) is defined %}
+        <div :class="[activeTab === {{ i }} ? 'block is-active' : 'hidden']" class="{{ props.variants[props.data.position].content }}">
+          {{ block('content' ~ i) }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
