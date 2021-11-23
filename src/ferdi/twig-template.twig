@@ -1,26 +1,25 @@
 {# >>> Comp Settings #}
 {% set compDefaults = {
-  settings: {
-    name: '<%= cn %>',
-  },
   data: {
+    name: '<%= cn %>',
     sample: true,
   },
   classes: {
     root: '',
     custom: '',
-  }
+  },
+  variants: {}
 } %}
 
-{# >>> Merge settings / data / classes #}
+{# >>> Merge data / classes / variansts (optional) #}
 {% set props = {
-  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
 } %}
 
 {% if props.data.sample %}
-  <div class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }}" >
+  <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}" >
     <%= mn %> finally rendered
   </div>
 {% endif %}
