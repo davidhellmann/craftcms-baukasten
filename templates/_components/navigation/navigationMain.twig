@@ -24,7 +24,7 @@
 
 {% if props.data.nodes ??? null %}
   <nav class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} js-navigationMain">
-    <ul alpinejs
+    <ul alpinejs x-cloak
         x-data="{
         activeId: {{ activeNode.id ??? 0 }},
         activeParentId: {{ activeNode.parent.id ??? 0 }}
