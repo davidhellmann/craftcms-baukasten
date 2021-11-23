@@ -26,7 +26,7 @@
 {% if props.data.svgName %}
   {{ svg('@webroot/dist/images/svg/' ~ props.data.svgName ~ '.svg')
   | attr({
-    class: data ~ ' ' ~ props.classes.root ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom
+    class: props.data.name ~ ' ' ~ props.classes.root ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom
   }) }}
 {% endif %}
 
