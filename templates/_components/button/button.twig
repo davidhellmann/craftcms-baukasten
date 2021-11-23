@@ -1,9 +1,7 @@
-{# >>> Comp Settings #}
+{# >>> Comp Defaults #}
 {% set compDefaults = {
-  settings: {
-    name: 'c-button',
-  },
   data: {
+    name: 'c-button',
     variant: 'primary',
     variantSize: 'md',
     icon: null,
@@ -32,9 +30,8 @@
   }
 } %}
 
-{# >>> Merge settings / data / classes #}
+{# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
   variants: compDefaults.variants,
@@ -45,7 +42,7 @@
   {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
 
   <{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }}
-  class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants[props.data.variant] }}  {{ props.variants[props.data.variantSize] }} {{ props.classes.custom }}">
+  class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants[props.data.variant] }}  {{ props.variants[props.data.variantSize] }} {{ props.classes.custom }}">
 
   {# >>> If icon exists #}
   {% if props.data.icon %}

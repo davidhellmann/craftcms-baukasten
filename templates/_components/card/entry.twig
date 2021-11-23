@@ -1,9 +1,7 @@
-{# >>> Comp Settings #}
+{# >>> Comp Defaults #}
 {% set compDefaults = {
-  settings: {
-    name: 'c-cardEntry',
-  },
   data: {
+    name: 'c-cardEntry',
     variant: 'col',
     image: null,
     transform: 'landscape',
@@ -32,9 +30,8 @@
   }
 } %}
 
-{# >>> Merge settings / data / classes #}
+{# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
   variants: compDefaults.variants,
@@ -43,7 +40,7 @@
 {# Modul #}
 {% if props.data.image and props.data.title and props.data.linkUrl %}
   <a href="{{ props.data.linkUrl }}"
-     class="{{ props.settings.name }} {{ props.classes.root }} {{ props.variants[props.data.variant].root }} {{ props.classes.custom }}">
+     class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants[props.data.variant].root }} {{ props.classes.custom }}">
     <div class="{{ props.variants[props.data.variant].image }}">
       {{ include('_components/image/image.twig', {
         data: {

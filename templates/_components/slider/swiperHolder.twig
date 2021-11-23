@@ -1,9 +1,7 @@
-{# >>> Comp Settings #}
+{# >>> Comp Defaults #}
 {% set compDefaults = {
-  settings: {
-    name: 'c-swiperHolder',
-  },
   data: {
+    name: 'c-swiperHolder',
     slides: null,
     swiperConfig: {
       init: false,
@@ -39,9 +37,8 @@
   variants: {}
 } %}
 
-{# >>> Merge settings / classes #}
+{# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
   variants: variants is defined and variants is iterable ? compDefaults.variants | merge(variants) : compDefaults.variants,
@@ -49,7 +46,7 @@
 
 
 {# Component #}
-<div class="swiper {{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }} js-swiperHolder"
+<div class="swiper {{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }} js-swiperHolder"
      data-swiper-config="{{ props.data.swiperConfig | json_encode }}"
  >
   <!-- Additional required wrapper -->

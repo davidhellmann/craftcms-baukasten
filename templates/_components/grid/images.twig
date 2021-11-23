@@ -1,9 +1,7 @@
-{# >>> Comp Settings #}
+{# >>> Comp Defaults #}
 {% set compDefaults = {
-  settings: {
-    name: 'c-imageGrid',
-  },
   data: {
+    name: 'c-imageGrid',
     images: null,
     caption: null,
     transform: 'landscape',
@@ -19,9 +17,8 @@
   }
 } %}
 
-{# >>> Merge settings / data / classes #}
+{# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
   variants: compDefaults.variants,
@@ -30,7 +27,7 @@
 
 {# Modul #}
 {% if props.data.images ??? null %}
-  <div class="{{ props.settings.name }}  {{ props.classes.root }}  {{ props.variants[props.data.variant] }} {{ props.classes.custom }}">
+  <div class="{{ props.data.name }}  {{ props.classes.root }}  {{ props.variants[props.data.variant] }} {{ props.classes.custom }}">
     {% for image in props.data.images %}
       {{ include('_components/image/image.twig', {
         data: {

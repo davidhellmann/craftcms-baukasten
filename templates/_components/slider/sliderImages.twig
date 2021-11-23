@@ -1,9 +1,7 @@
-{# >>> Comp Settings #}
+{# >>> Comp Defaults #}
 {% set compDefaults = {
-  settings: {
-    name: 'c-sliderImages',
-  },
   data: {
+    name: 'c-sliderImages',
     slides: null,
     variant: 'landscape'
   },
@@ -20,16 +18,15 @@
   }
 } %}
 
-  {# >>> Merge settings / classes #}
+  {# >>> Merge data / classes / variants (optional) #}
   {% set props = {
-    settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
     data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
     classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
     variants: compDefaults.variants,
   } %}
 
   {# Component #}
-<div class="{{ props.settings.name }} {{ props.classes.root }} {{ props.data.variant }} {{ props.classes.custom }}">
+<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.data.variant }} {{ props.classes.custom }}">
   {# >>> Embed Swiper Holder #}
   {% embed "_components/slider/swiperHolder.twig" with {
     data: {

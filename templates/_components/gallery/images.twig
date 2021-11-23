@@ -1,9 +1,7 @@
-{# >>> Comp Settings #}
+{# >>> Comp Defaults #}
 {% set compDefaults = {
-  settings: {
-    name: 'c-imageGallery',
-  },
   data: {
+    name: 'c-imageGallery',
     images: null,
     transform: 'landscape',
     cutAfter: 3,
@@ -19,9 +17,8 @@
   }
 } %}
 
-{# >>> Merge settings / data / classes #}
+{# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
@@ -43,7 +40,7 @@
     }]) %}
   {% endfor %}
 
-  <button class="js-imageGallery {{ props.settings.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
+  <button class="js-imageGallery {{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
           type="button"
           data-dynamic-data='{{ dynamicData | json_encode }}'>
     {% for image in props.data.images |slice(0, props.data.cutAfter) %}

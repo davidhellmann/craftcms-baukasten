@@ -42,10 +42,8 @@ Art Direction
 
 {# Set Defaults #}
 {% set compDefaults = {
-  settings: {
-    name: 'c-image',
-  },
   data: {
+    name: 'c-image',
     image: null,
     transform: 'landscape',
     objectFit: null,
@@ -64,9 +62,8 @@ Art Direction
   }
 } %}
 
-{# >>> Merge settings / data / classes #}
+{# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}

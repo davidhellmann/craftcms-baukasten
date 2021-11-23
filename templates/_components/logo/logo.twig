@@ -1,9 +1,7 @@
-{# >>> Comp Settings #}
+{# >>> Comp Defaults #}
 {% set compDefaults = {
-  settings: {
-    name: 'c-logo',
-  },
   data: {
+    name: 'c-logo',
     svgName: 'logo',
     variant: 'md',
   },
@@ -18,9 +16,8 @@
   }
 } %}
 
-{# >>> Merge settings / data / classes #}
+{# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
   variants: compDefaults.variants,
@@ -29,7 +26,7 @@
 {% if props.data.svgName %}
   {{ svg('@webroot/dist/images/svg/' ~ props.data.svgName ~ '.svg')
   | attr({
-    class: props.settings.name ~ ' ' ~ props.classes.root ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom
+    class: data ~ ' ' ~ props.classes.root ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom
   }) }}
 {% endif %}
 

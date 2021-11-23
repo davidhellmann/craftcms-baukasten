@@ -1,9 +1,7 @@
-{# >>> Comp Settings #}
+{# >>> Comp Defaults #}
 {% set compDefaults = {
-  settings: {
-    name: 'c-divider',
-  },
   data: {
+    name: 'c-divider',
     variant: 'sm',
     label: null
   },
@@ -22,16 +20,15 @@
   }
 } %}
 
-{# >>> Merge settings / data / classes #}
+{# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
   variants: compDefaults.variants,
 } %}
 
 <div
-  class="{{ props.settings.name }} {{ props.classes.root }} {{ props.variants[props.data.variant] }} {{ props.classes.custom }}">
+  class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants[props.data.variant] }} {{ props.classes.custom }}">
   <hr class="{{ props.classes.hr }}"/>
   {% if props.data.label %}
     <span class="{{ props.classes.label }}">

@@ -1,9 +1,7 @@
 {# Set Defaults #}
 {% set compDefaults = {
-  settings: {
-    name: 'c-quote',
-  },
   data: {
+    name: 'c-quote',
     quote: null,
     source: null,
     sourceSubline: null,
@@ -17,16 +15,15 @@
   }
 } %}
 
-{# >>> Merge settings / data / classes #}
+{# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
 {# Modul #}
 {% if props.data.quote %}
-  <blockquote class="{{ props.settings.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  <blockquote class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
     <p class="{{ props.classes.p }}">
       {{ props.data.quote | nl2br | raw }}
     </p>

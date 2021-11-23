@@ -1,9 +1,7 @@
 {# Set Defaults #}
 {% set compDefaults = {
-  settings: {
-    name: 'c-header',
-  },
   data: {
+    name: 'c-header',
     url: siteUrl,
     logoSize: 'sm',
     name: getenv('SITE_NAME'),
@@ -17,14 +15,13 @@
   }
 } %}
 
-{# >>> Merge settings / data / classes #}
+{# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-<header class="{{ props.settings.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+<header class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
   <div class=" {{ props.classes.container }}">
     <a href="{{ props.data.url }}" class="{{ props.classes.homeLink }}">
       {{ include('_components/logo/logo.twig', {

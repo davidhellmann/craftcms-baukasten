@@ -8,16 +8,15 @@
   overview: false,
 } %}
 
-{# >>> Merge settings / data / classes #}
+{# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  settings: settings is defined and settings is iterable ? compDefaults.settings | merge(settings) : compDefaults.settings,
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
 {# Modul #}
 {% if props.items %}
-  <div class="{{ props.settings.name }} {{ props.baseStyles }}  {{ props.customClasses }}">
+  <div class="{{ props.data.name }} {{ props.baseStyles }}  {{ props.customClasses }}">
     {% if not props.overview %}
       <div class="col-span-1">
         <h2 class="text-4xl uppercase" style="hyphens: auto;">

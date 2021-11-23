@@ -1,7 +1,7 @@
 {# >>> Include macros #}
 {% import '_macros/_macro-imageHelper.twig' as imageHelper %}
 
-<figure class="{{ props.settings.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
+<figure class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
         {% if props.data.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
   {{- imageHelper.renderImage(imageData, props.data.transform, props.data.lazy, props.data.objectFit) -}}
 
