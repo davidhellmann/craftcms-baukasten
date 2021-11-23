@@ -1,5 +1,5 @@
 import vue from '@vitejs/plugin-vue';
-// import legacy from '@vitejs/plugin-legacy';
+import legacy from '@vitejs/plugin-legacy';
 import ViteRestart from 'vite-plugin-restart';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import critical from 'rollup-plugin-critical';
@@ -53,9 +53,9 @@ export default ({ command }) => ({
         theme_color: '#244F43',
       },
     }),
-    // legacy({
-    //   targets: ['defaults', 'not IE 11'],
-    // }),
+    legacy({
+      targets: ['defaults', 'not IE 11'],
+    }),
     nodeResolve({
       moduleDirectories: [path.resolve('./node_modules')],
     }),
