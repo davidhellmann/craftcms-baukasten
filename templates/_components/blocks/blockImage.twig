@@ -1,0 +1,43 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockImage',
+    block: null,
+  },
+  classes: {
+    root: 'container lg:grid lg:grid-cols-24',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+
+    {# Set Image Width #}
+    {% switch props.data.block.imageWidth %}
+      {% case "narrow" %}
+      {% set imageWidthClass = 'lg:col-span-12 lg:col-start-7' %}
+
+      {% default %}
+      {% set imageWidthClass = 'col-span-24' %}
+    {% endswitch %}
+
+
+    {{ include('_components/image/image.twig', {
+      data: {
+        image: props.data.block.image[0] ??? null,
+        transform: props.data.block.imageTransform.value ??? 'landscape',
+        caption: props.data.block.showImageCaption ??? 0,
+      },
+      classes: {
+        custom: imageWidthClass
+      }
+    }, withContext = false) }}
+  </div>
+{% endif %}

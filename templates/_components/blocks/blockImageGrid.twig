@@ -1,0 +1,30 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockImageGrid',
+    block: null,
+  },
+  classes: {
+    root: 'container ',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {{ include('_components/grid/images.twig', {
+      data: {
+        images: props.data.block.images ??? null,
+        variant: props.data.block.imageColumns.value ??? 2,
+        caption: props.data.block.showImageCaption ??? null,
+        transform: props.data.block.imageTransform.value ??? 'landscape',
+      }
+    }, withContext = false) }}
+  </div>
+{% endif %}

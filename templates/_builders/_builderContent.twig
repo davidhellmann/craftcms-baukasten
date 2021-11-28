@@ -2,8 +2,7 @@
 {% set compDefaults = {
   data: {
     name: 'c-contentBuilder',
-    blocks: null,
-    object: entry ??? null,
+    context: null,
   },
   classes: {
     root: '',
@@ -17,38 +16,48 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{% if props.data.blocks %}
-<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
-    {% for content in props.data.blocks %}
+{% if props.data.context %}
+  {% do craft.app.elements.eagerLoadElements(
+    className(props.data.context),
+    [props.data.context],
+    [
+      'builderContent',
+      'builderContent.blockImage:image',
+      'builderContent.blockImageGallery:images',
+      'builderContent.blockImageGrid:images',
+      'builderContent.blockImageGridCalculated:images',
+      'builderContent.blockImageSlider:images',
+      'builderContent.blockTextFloatingImage:image',
+    ]
+  ) %}
+
+  <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+    {% for block in props.data.context.builderContent %}
 
       {# Create Section if first block is not a section #}
-      {% if loop.first and content.type.handle != 'cbSection' %}
+      {% if loop.first and block.type.handle != 'blockSection' %}
 
         {# Create Section #}
-        {{ include('_builders/_includes/_bSection.twig', {
-          data: content,
-          builder: 'contentBuilder',
+        {{ include('_components/blocks/blockSection.twig', {
+          block: block ??? null,
           closeCurrentSection: 0
         }, withContext = false) }}
 
         {# Create First Block #}
         {{ include('_builders/_blocks.twig', {
-          data: content,
-          builder: 'contentBuilder',
+          block: block ??? null,
           closeCurrentSection: 0
         }, withContext = false) }}
 
       {% else %}
         {# Create block elements and close section if it's loop.first #}
         {{ include('_builders/_blocks.twig', {
-          data: content,
-          builder: 'contentBuilder',
+          block: block ??? null,
           closeCurrentSection: loop.first ? 0 : 1,
         }, withContext = false) }}
       {% endif %}
     {% endfor %}
     {# Close Last Section #}
-    </div>
-    </div>
+  </div>
   </div>
 {% endif %}

@@ -1,22 +1,31 @@
 field: 74eb36ae-7a26-4e7d-b454-990ec52617f0 # Builder: Content
 fieldLayouts:
-  aa114924-5aa2-41f4-85a8-bca9eeb2183f:
+  76a7a664-77de-4dec-8abd-45b7b2ec462a:
     tabs:
       -
         elements:
           -
-            fieldUid: 1509cbec-547c-4338-bcc8-a5452ab8c801 # Images
+            fieldUid: 89272b00-6f81-47f7-9335-4367edcac941 # Images
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
+          -
+            fieldUid: 0528527a-c400-4aeb-8d16-b5fea2a082f6 # Show Image Caption
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
         name: Content
         sortOrder: 1
 fields:
-  1509cbec-547c-4338-bcc8-a5452ab8c801: # Images
+  89272b00-6f81-47f7-9335-4367edcac941: # Images
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
@@ -51,6 +60,21 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-handle: bImageGallery
-name: 'Image Gallery'
-sortOrder: 8
+  0528527a-c400-4aeb-8d16-b5fea2a082f6: # Show Image Caption
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: showImageCaption
+    instructions: ''
+    name: 'Show Image Caption'
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+handle: blockImageGridCalculated
+name: 'Image Grid Calculated'
+sortOrder: 7

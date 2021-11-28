@@ -1,0 +1,30 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockText',
+    block: null,
+  },
+  classes: {
+    root: 'container lg:grid lg:grid-cols-24',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {{ include('_components/text/text.twig', {
+      data: {
+        text: props.data.block.text ??? null,
+      },
+      classes: {
+        custom: 'lg:col-span-12 lg:col-start-7'
+      }
+    }, withContext = false) }}
+  </div>
+{% endif %}

@@ -4,11 +4,11 @@
  |--------------------------------------------------------------------------
  */
 
-.blocks .matrixblock[data-type="bSection"] {
+.blocks .matrixblock[data-type="blockSection"] {
   margin-top: 50px;
 }
 
-.blocks .matrixblock[data-type="bSection"] ~ .matrixblock:not([data-type="bSection"]) {
+.blocks .matrixblock[data-type="blockSection"] ~ .matrixblock:not([data-type="blockSection"]) {
   width: calc(97% - 30px);
   margin-left: 3%;
 }

@@ -1,0 +1,224 @@
+field: 74eb36ae-7a26-4e7d-b454-990ec52617f0 # Builder: Content
+fieldLayouts:
+  b5f39594-4dfb-477b-a358-ea2dac368b7b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 9a8fffce-3c28-4326-8f7a-e31d2f6cc04b # Section Background Color
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 74b87138-1475-47c2-a9dd-63baa78dd5f5 # Space Between Blocks
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: aa7883a4-2cce-4316-85f3-ec6ea59402ec # Section Padding Vertical
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Content
+        sortOrder: 1
+fields:
+  9a8fffce-3c28-4326-8f7a-e31d2f6cc04b: # Section Background Color
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: sectionBackgroundColor
+    instructions: ''
+    name: 'Section Background Color'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Transparent
+            -
+              - value
+              - transparent
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Gray 100'
+            -
+              - value
+              - gray-100
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  74b87138-1475-47c2-a9dd-63baa78dd5f5: # Space Between Blocks
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: spaceBetweenBlocks
+    instructions: ''
+    name: 'Space Between Blocks'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - SM
+            -
+              - value
+              - sm
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - MD
+            -
+              - value
+              - md
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - LG
+            -
+              - value
+              - lg
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - XL
+            -
+              - value
+              - xl
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 2XL
+            -
+              - value
+              - 2xl
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  aa7883a4-2cce-4316-85f3-ec6ea59402ec: # Section Padding Vertical
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: sectionPaddingVertical
+    instructions: ''
+    name: 'Section Padding Vertical'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - ZERO
+            -
+              - value
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - SM
+            -
+              - value
+              - sm
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - MD
+            -
+              - value
+              - md
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - LG
+            -
+              - value
+              - lg
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - XL
+            -
+              - value
+              - xl
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 2XL
+            -
+              - value
+              - 2xl
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: blockSection
+name: Section
+sortOrder: 1

@@ -44,7 +44,6 @@ module.exports = {
   },
   variants: {},
   corePlugins: {
-    float: false,
     container: false,
     fontSize: false, // disable cause we use the fluid type plugin
   },

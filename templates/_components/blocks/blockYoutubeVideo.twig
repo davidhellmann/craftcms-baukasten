@@ -1,0 +1,40 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockYoutube',
+    block: null,
+  },
+  classes: {
+    root: 'container lg:grid lg:grid-cols-24',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+
+    {# Set Image Width #}
+    {% switch props.data.block.videoWidth.value %}
+    {% case "narrow" %}
+      {% set videoWidthClass = 'lg:col-span-12 lg:col-start-7' %}
+
+    {% default %}
+      {% set videoWidthClass = 'col-span-24' %}
+    {% endswitch %}
+
+    {{ include('_components/video/youtube.twig', {
+      data: {
+        videoId: props.data.block.videoId ??? null,
+      },
+      classes: {
+        custom: videoWidthClass
+      }
+    }, withContext = false) }}
+  </div>
+{% endif %}

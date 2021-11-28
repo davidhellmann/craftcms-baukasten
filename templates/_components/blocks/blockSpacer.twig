@@ -1,14 +1,13 @@
 {# >>> Comp Defaults #}
 {% set compDefaults = {
   data: {
-    name: 'c-text',
-    text: null,
-    richText: true
+    name: 'c-blockSpacer',
+    block: null,
   },
   classes: {
-    root: 'space-y-4 md:space-y-8',
+    root: 'container ',
     custom: '',
-  }
+  },
 } %}
 
 {# >>> Merge data / classes / variants (optional) #}
@@ -17,13 +16,10 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{# Modul #}
-{% if props.data.text %}
-  <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
-    {% if props.data.richText %}
-      {{ props.data.text | raw }}
-    {% else %}
-      {{ props.data.text | nl2br | raw }}
-    {% endif %}
-  </div>
+{% if props.data.block ??? null %}
+  {{ include('_components/spacer/spacer.twig', {
+    data: {
+      variant: props.data.block.spacerVariant.value ??? 'sm',
+    },
+  }, withContext = false) }}
 {% endif %}

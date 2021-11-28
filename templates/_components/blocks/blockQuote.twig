@@ -1,0 +1,33 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockQuote',
+    block: null,
+  },
+  classes: {
+    root: 'container lg:grid lg:grid-cols-24',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {{ include('_components/text/quote.twig', {
+      data: {
+        quote: props.data.block.quote ??? null,
+        source: props.data.block.source ??? null,
+        sourceSubline: props.data.block.sourceSubline ??? null,
+        sourceUrl: props.data.block.sourceUrl ??? null
+      },
+      classes: {
+        custom: 'lg:col-span-18 lg:col-start-4'
+      }
+    }, withContext = false) }}
+  </div>
+{% endif %}

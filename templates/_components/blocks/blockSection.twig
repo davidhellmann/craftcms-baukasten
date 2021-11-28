@@ -1,0 +1,79 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockSection',
+    block: null,
+    closeCurrentSection: null
+  },
+  classes: {
+    root: '',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block ??? null %}
+    {% if props.data.closeCurrentSection ??? null %}
+      </div>
+    {% endif %}
+
+    {# >>> Set BG Color #}
+    {% switch props.data.block.sectionBackgroundColor.value %}
+    {% case "gray-100" %}
+      {% set sectionBGColorClass = 'bg-gray-100' %}
+
+    {% default %}
+      {% set sectionBGColorClass = 'bg-transparent' %}
+    {% endswitch %}
+
+    {# >>> Set Padding #}
+    {% switch props.data.block.sectionPaddingVertical.value %}
+    {% case "sm" %}
+      {% set sectionPaddingVerticalClass = 'py-2 md:py-4' %}
+
+    {% case "md" %}
+      {% set sectionPaddingVerticalClass = 'py-4 md:py-8' %}
+
+    {% case "lg" %}
+      {% set sectionPaddingVerticalClass = 'py-8 md:py-16' %}
+
+    {% case "xl" %}
+      {% set sectionPaddingVerticalClass = 'py-16 md:py-32' %}
+
+    {% case "2xl" %}
+      {% set sectionPaddingVerticalClass = 'py-32 md:py-64' %}
+
+    {% default %}
+      {% set sectionPaddingVerticalClass = '' %}
+    {% endswitch %}
+
+    {# >>> Set Space Between #}
+    {% switch props.data.block.spaceBetweenBlocks.value %}
+    {% case "sm" %}
+      {% set sectionSpaceBetweenClass = 'space-y-2 md:space-y-4' %}
+
+    {% case "md" %}
+      {% set sectionSpaceBetweenClass = 'space-y-4 md:space-y-8' %}
+
+    {% case "lg" %}
+      {% set sectionSpaceBetweenClass = 'space-y-8 md:space-y-16' %}
+
+    {% case "xl" %}
+      {% set sectionSpaceBetweenClass = 'space-y-16 md:space-y-32' %}
+
+    {% case "2xl" %}
+      {% set sectionSpaceBetweenClass = 'space-y-32 md:space-y-64' %}
+
+    {% default %}
+      {% set sectionSpaceBetweenClass = 'space-y-4 md:space-y-8' %}
+    {% endswitch %}
+
+
+<div
+  class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} {{ sectionPaddingVerticalClass }} {{ sectionBGColorClass }} {{ sectionSpaceBetweenClass }}">
+  {% endif %}

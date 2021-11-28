@@ -3,7 +3,7 @@
 {% block blockAppContent %}
   {% cache %}
     {% minify %}
-      {{ include('_builders/_contentBuilder.twig', {
+      {{ include('_builders/_builderContent.twig', {
         props: {
           blocks: entry.contentBuilder ??? null
         }

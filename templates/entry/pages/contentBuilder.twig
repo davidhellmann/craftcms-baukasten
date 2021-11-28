@@ -3,9 +3,26 @@
 {% block blockAppContent %}
   {% cache %}
     {% minify %}
-      {{ include('_builders/_contentBuilder.twig', {
-        props: {
-          blocks: entry.contentBuilder ??? null
+      {% do craft.app.elements.eagerLoadElements(
+        className(entry),
+        [entry],
+        ['']
+      ) %}
+
+      {# >>> Render page title #}
+      <div class="container py-16">
+        {{ include('_components/text/headline.twig', {
+          data: {
+            text: entry.entryCustomTitle ??? entry.title ??? null,
+            variant: 'mega',
+            tag: 'h1',
+          }
+        }, withContext = false) }}
+      </div>
+
+      {{ include('_builders/_builderContent.twig', {
+        data: {
+          context: entry ??? null
         }
       }, withContext = false) }}
     {% endminify %}
