@@ -52,13 +52,16 @@ const browserDetect = {
         const srcset = image.getAttribute('srcset');
         const type = image.getAttribute('type');
         // const searchRegExp = new RegExp('\\.webp', 'g');
-        const searchRegExp = /\\.webp/g;
+        const searchRegExp = /.webp/g;
 
         if (type) {
           image.removeAttribute('type');
         }
         if (dataSrcset) {
           image.setAttribute('data-srcset', dataSrcset.replace(searchRegExp, `.${imageType}`));
+        }
+        if (srcset) {
+          image.setAttribute('srcset', srcset.replace(searchRegExp, `.${imageType}`));
         }
         if (srcset && dataSrcset) {
           image.setAttribute('srcset', dataSrcset.replace(searchRegExp, `.${imageType}`));
