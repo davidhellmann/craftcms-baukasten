@@ -1,8 +1,13 @@
 export default async () => {
   try {
-    // Bowser
-    const { default: browserDetect } = await import('./scripts/bowser');
-    browserDetect.init();
+    // Safari WebP Fix
+    if (
+      navigator.userAgent.indexOf('Safari') !== -1 &&
+      navigator.userAgent.indexOf('Chrome') === -1
+    ) {
+      const { default: safariWebPFix } = await import('./scripts/safariWebPFix');
+      safariWebPFix.init();
+    }
 
     // globalScrollListener
     const { default: globalScrollListener } = await import('./scripts/globalScrollListener');
