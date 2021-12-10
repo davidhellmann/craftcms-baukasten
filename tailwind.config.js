@@ -14,16 +14,8 @@ const settingsScreens = require('./tailwind/tailwind.settings.screens');
 const pluginAddComponents = require('./tailwind/tailwind.plugins.addComponents');
 
 module.exports = {
-  mode: 'jit',
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: ['./templates/**/*.{twig,html,vue,js,ts}', './src/vue/**/*.{vue,js,ts}'],
-    layers: ['base', 'components', 'utilities'],
-    mode: 'layers',
-    options: {
-      safelist: ['./src/css/components/**/*.{pcss,css,js,ts}'],
-    },
-  },
+  content: ['./templates/**/*.{twig,html,vue,js,ts}', './src/vue/**/*.{vue,js,ts}'],
+  safelist: [],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: settingsFontFamily,
