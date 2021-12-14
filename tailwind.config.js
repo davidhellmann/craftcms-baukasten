@@ -3,6 +3,11 @@
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
 
+const fluidType = require('tailwindcss-fluid-type');
+const questionMark = require('tailwindcss-question-mark');
+const aspectRatio = require('@tailwindcss/aspect-ratio');
+const debugScreens = require('@tailwindcss/aspect-ratio');
+
 // Settings
 const settingsGrid = require('./tailwind/tailwind.settings.grid');
 const settingsColors = require('./tailwind/tailwind.settings.colors');
@@ -40,11 +45,11 @@ module.exports = {
     fontSize: false, // disable cause we use the fluid type plugin
   },
   plugins: [
-    require('tailwindcss-debug-screens'),
-    require('@tailwindcss/aspect-ratio'),
-    require('tailwindcss-question-mark'),
-    require('tailwindcss-fluid-type'),
-    function ({ addComponents }) {
+    debugScreens,
+    aspectRatio,
+    questionMark,
+    fluidType,
+    ({ addComponents }) => {
       addComponents(pluginAddComponents);
     },
   ],
