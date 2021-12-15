@@ -40,7 +40,18 @@ export default ({ command }) => ({
       criticalUrl: 'https://stage.baukasten.io/',
       criticalBase: './web/dist/criticalcss/',
       criticalPages: [{ uri: '', template: 'index' }],
-      criticalConfig: {},
+      criticalConfig: {
+        dimensions: [
+          {
+            width: 375,
+            height: 800,
+          },
+          {
+            width: 1680,
+            height: 1200,
+          },
+        ],
+      },
     }),
     ViteFaviconsPlugin({
       logo: './src/public/images/favicon-src.svg',
