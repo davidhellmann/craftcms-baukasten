@@ -1,0 +1,69 @@
+{# Set Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-code',
+    snippet: null,
+    snippetName: '…',
+    language: 'txt',
+    open: true,
+    textShow: 'translate.component.code.textShow' | t,
+    textHide: 'translate.component.code.textHide' | t,
+    textCopy: 'translate.component.code.textCopy' | t,
+    textCopied: 'translate.component.code.textCopied' | t,
+  },
+  classes: {
+    root: 'relative before:bg-gradient-to-b before:from-black/0 before:via-black/10 before:to-black/90 before:inset-0 before:absolute before:z-10 before:pointer-events-none',
+    custom: '',
+    pre: '!pt-[4rem] lg:!pt-[5rem] !rounded-md bg-gray-900 text-white !text-sm',
+    code: '!text-sm !font-mono',
+    toolBar: 'flex flex-row justify-between items-center font-bold absolute top-0 left-0 lg:left-20 right-0 z-20 border-b bg-gray-900 border-black h-14 rounded-t-md text-white text-sm px-4',
+    buttonHolder: 'flex flex-row',
+    button: 'relative bg-secondary rounded text-xs px-1 flex items-center ml-2 cursor-default select-none',
+    tooltip: 'c-tooltip c-tooltip--no-hover c-tooltip--n'
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Modul #}
+{% if props.data.snippet %}
+  <div class="alpinejs js-code {{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}"
+       x-data="{
+        open: '{{ props.data.open }}',
+        textShow: '{{ props.data.textShow }}',
+        textHide: '{{ props.data.textHide }}',
+        textCopy: '{{ props.data.textCopy }}',
+        textCopied: '{{ props.data.textCopied }}',
+      }" :class="[open ? 'before:opacity-0' : 'before:opacity-100']">
+
+    <pre class="line-numbers  language-{{ props.data.language }}  {{ props.classes.pre }}"
+         :class="[open ? '' : 'max-h-40']">
+      <code class="language-{{ props.data.language }} {{ props.classes.code }}">{{- props.data.snippet | e -}}</code>
+    </pre>
+
+    <div class="{{ props.classes.toolBar }}">
+      <span>{{ props.data.snippetName }}</span>
+
+      <div class="{{ props.classes.buttonHolder }}">
+        <div class="relative js-codeCopy {{ props.classes.button }} {{ props.classes.tooltip }}"
+             :aria-label="textCopied"
+             x-text="textCopy">
+        </div>
+
+        <textarea class="sr-only">
+          {{- props.data.snippet | e -}}
+        </textarea>
+
+        <div class="{{ props.classes.button }}"
+             @click="open = !open;"
+             x-text="open ? textHide : textShow">
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endif %}

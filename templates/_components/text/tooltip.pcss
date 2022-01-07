@@ -1,0 +1,51 @@
+.c-tooltip {
+  &::before {
+    content: '';
+    @apply absolute z-50 hidden w-0 h-0 pointer-events-none opacity-0 left-1/2 -translate-x-1/2 -top-2 -translate-y-3 bottom-auto border-8 border-transparent border-t-gray-500;
+  }
+
+  &::after {
+    content: attr(aria-label);
+    @apply absolute left-1/2 -translate-x-1/2 z-40 hidden px-2 py-0.5 text-xs text-center break-words bg-gray-500 whitespace-pre pointer-events-none rounded opacity-0 text-white shadow-lg -translate-y-3;
+  }
+
+  &--n {
+    &::after {
+      @apply bottom-full mb-2;
+    }
+  }
+
+  &:not(&--no-hover):hover,
+  &:not(&--no-hover):active,
+  &:not(&--no-hover):focus,
+  &.is-active {
+    &::before,
+    &::after {
+      @apply inline-block no-underline;
+      animation-name: tooltip-appear;
+      animation-duration: 0.1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in;
+      animation-delay: 0.125s;
+    }
+  }
+
+  &--no-delay:not(&--no-hover):hover,
+  &--no-delay:not(&--no-hover):active,
+  &--no-delay:not(&--no-hover):focus {
+    &::before,
+    &::after {
+      animation-delay: 0s;
+    }
+  }
+
+  @keyframes tooltip-appear {
+    from {
+      @apply opacity-0 -translate-x-1/2 -translate-y-3;
+    }
+
+    to {
+      @apply opacity-100 -translate-x-1/2 -translate-y-1;
+    }
+  }
+}

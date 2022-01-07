@@ -1,0 +1,54 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+
+    {% spaceless %}
+      {% set code %}{% verbatim %}
+        {# Comment #}
+        {{ include('_components/text/code.twig', {
+          data: {
+            snippet: code ??? null,
+            snippetName: 'sample.twig',
+            open: true,
+            language: 'twig',
+          },
+        }, withContext = false) }}{% endverbatim %}
+      {% endset %}
+    {% endspaceless %}
+
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Code{% endblock %}
+      {% block content %}
+        {{ include('_components/text/code.twig', {
+          data: {
+            snippet: code ??? null,
+            snippetName: 'sample.twig',
+            open: true,
+            language: 'twig',
+          },
+        }, withContext = false) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Code closed{% endblock %}
+      {% block content %}
+        {{ include('_components/text/code.twig', {
+          data: {
+            snippet: code ??? null,
+            snippetName: 'sample.twig',
+            open: false,
+            language: 'twig',
+          },
+        }, withContext = false) }}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+

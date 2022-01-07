@@ -35,6 +35,13 @@ export default async () => {
       );
       imagesCalculated.init(navigationMainEl);
     }
+
+    // Code
+    const codeBlockEls = [...document.querySelectorAll<HTMLElement>('.js-code')];
+    if (codeBlockEls.length > 0) {
+      const { default: code } = await import('../../templates/_components/text/code');
+      code.init(codeBlockEls);
+    }
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error(e);
