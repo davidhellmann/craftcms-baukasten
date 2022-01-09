@@ -7,24 +7,26 @@
     numberOfTabs: null,
   },
   classes: {
-    root: '',
+    root: 'grid grid-cols-6',
     custom: '',
   },
   variants: {
     top: {
-      nav: '',
-      ul: 'grid grid-flow-col auto-cols-max gap-x-4',
-      li: '',
-      button: 'text-7xl font-black lowercase',
-      contentHolder: 'mt-4 md:mt-8',
+      nav: 'col-span-6',
+      ul: 'flex flex-col sm:inline-flex sm:flex-row p-0.5 rounded-t-md bg-gray-100',
+      li: 'col-span-1 sm:col-auto',
+      button: 'text-xs font-bold px-4 py-2 w-full text-left sm:w-auto',
+      buttonActive: 'bg-white rounded shadow-sm',
+      contentHolder: 'col-span-6 p-4 bg-gray-100',
       content: '',
     },
     left: {
-      nav: '',
-      ul: '',
+      nav: 'col-span-6 sm:col-span-2 xl:col-span-1',
+      ul: 'flex flex-col p-0.5 rounded-t-md sm:rounded-r-none sm:rounded-l-md bg-gray-100',
       li: '',
-      button: '',
-      contentHolder: '',
+      button: 'text-xs font-bold px-4 py-2 w-full text-left',
+      buttonActive: 'bg-white rounded shadow-sm',
+      contentHolder: 'col-span-6 sm:col-span-4 xl:col-span-5 p-4 bg-gray-100',
       content: '',
     },
   }
@@ -51,7 +53,7 @@
         {% if block('tab' ~ i) is defined %}
           <li class="{{ props.variants[props.data.position].li }}">
             <button @click="activeTab = {{ i }};"
-                    :class="[activeTab === {{ i }} ? 'is-active' : '']"
+                    :class="[activeTab === {{ i }} ? '{{ props.variants[props.data.position].buttonActive }}' : '']"
             class="{{ props.variants[props.data.position].button }}">
               {{ block('tab' ~ i) }}
             </button>

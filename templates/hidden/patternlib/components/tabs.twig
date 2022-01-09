@@ -1,0 +1,48 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Code{% endblock %}
+      {% block content %}
+        {% embed '_components/tabs/tabsHolder.twig' with {
+          data: {
+            numberOfTabs: 3,
+          },
+        } %}
+          {% block tab1 %}Tab 1{% endblock %}
+          {% block content1 %}Tab 1{% endblock %}
+          {% block tab2 %}Tab 2{% endblock %}
+          {% block content2 %}Tab 2{% endblock %}
+          {% block tab3 %}Tab 3{% endblock %}
+          {% block content3 %}Tab 3{% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Code{% endblock %}
+      {% block content %}
+        {% embed '_components/tabs/tabsHolder.twig' with {
+          data: {
+            numberOfTabs: 3,
+            position: 'left'
+          },
+        } %}
+          {% block tab1 %}Tab 1{% endblock %}
+          {% block content1 %}Tab 1{% endblock %}
+          {% block tab2 %}Tab 2{% endblock %}
+          {% block content2 %}Tab 2{% endblock %}
+          {% block tab3 %}Tab 3{% endblock %}
+          {% block content3 %}Tab 3{% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+
