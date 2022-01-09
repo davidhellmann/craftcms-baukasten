@@ -1,0 +1,50 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-accordion',
+    firstOpen: true,
+    numberOfAccordions: 1,
+  },
+  classes: {
+    root: 'border-b-2 first:border-t-2 py-4',
+    custom: '',
+    summary: 'list-none cursor-pointer font-bold flex outline-none justify-between items-center rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all',
+    contentHolder: 'mt-4',
+  }
+} %}
+
+
+  {# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Component #}
+
+{% for i in 1..props.data.numberOfAccordions %}
+  <details class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}"
+           {% if props.data.firstOpen and loop.first %}open{% endif %}/>
+    {% if block('summary' ~ i) is defined %}
+      <summary class="{{ props.classes.summary }}">
+        {{ block('summary' ~ i) }}
+
+        {{ include('_components/icon/icon.twig', {
+          data: {
+            icon: 'icons/filled/caret-down',
+            variant: 'sm',
+          },
+          classes: {
+            color: 'text-black'
+          }
+        }, withContext = false) }}
+      </summary>
+
+      {% if block('content' ~ i) is defined %}
+        <div class="{{ props.classes.contentHolder }}">
+          {{ block('content' ~ i) }}
+        </div>
+      {% endif %}
+    {% endif %}
+  </details>
+{% endfor %}

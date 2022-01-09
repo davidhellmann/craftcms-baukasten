@@ -1,7 +1,7 @@
 {# >>> Comp Defaults #}
 {% set compDefaults = {
   data: {
-    name: 'c-tabsHolder',
+    name: 'c-tabs',
     position: 'top',
     activeTab: 1,
     numberOfTabs: null,
@@ -15,8 +15,8 @@
       nav: 'col-span-6',
       ul: 'flex flex-col sm:inline-flex sm:flex-row p-0.5 rounded-t-md bg-gray-100',
       li: 'col-span-1 sm:col-auto',
-      button: 'text-xs font-bold px-4 py-2 w-full text-left sm:w-auto',
-      buttonActive: 'bg-white rounded shadow-sm',
+      button: 'text-xs font-bold px-4 py-2 w-full text-left sm:w-auto rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 transition-all',
+      buttonActive: 'bg-white  shadow-sm',
       contentHolder: 'col-span-6 p-4 bg-gray-100',
       content: '',
     },
@@ -24,8 +24,8 @@
       nav: 'col-span-6 sm:col-span-2 xl:col-span-1',
       ul: 'flex flex-col p-0.5 rounded-t-md sm:rounded-r-none sm:rounded-l-md bg-gray-100',
       li: '',
-      button: 'text-xs font-bold px-4 py-2 w-full text-left',
-      buttonActive: 'bg-white rounded shadow-sm',
+      button: 'text-xs font-bold px-4 py-2 w-full text-left rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 transition-all',
+      buttonActive: 'bg-white shadow-sm',
       contentHolder: 'col-span-6 sm:col-span-4 xl:col-span-5 p-4 bg-gray-100',
       content: '',
     },

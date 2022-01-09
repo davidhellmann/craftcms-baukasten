@@ -1,0 +1,30 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Accordion first open{% endblock %}
+      {% block content %}
+        {% embed '_components/accordion/accordion.twig' with {
+          data: {
+            numberOfAccordions: 3,
+          },
+        } %}
+          {% block summary1 %}Tab 1{% endblock %}
+          {% block content1 %}Content 1{% endblock %}
+
+          {% block summary2 %}Tab 2{% endblock %}
+          {% block content2 %}Content 2{% endblock %}
+
+          {% block summary3 %}Tab 3{% endblock %}
+          {% block content3 %}Content 3{% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+
