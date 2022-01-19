@@ -18,16 +18,6 @@ return [
         'cacheDurationExternalStorage' => 31536000, // 1 Year
         'jpegQuality' => 90,
         'pngCompressionLevel' => 0,
-        'customEncoders' => [
-            'webp' => [
-                'path' => '/usr/bin/cwebp',
-                'options' => [
-                    'quality' => 90,
-                    'effort' => 4,
-                ],
-                'paramsString' => '-q {quality} -m {effort} {src} -o {dest}'
-            ],
-        ],
         'optimizers' => [
             'jpegoptim',
             'jpegtran',
@@ -49,16 +39,6 @@ return [
 
     // Local Env
     'local' => [
-        'customEncoders' => [
-            'webp' => [
-                'path' => '/usr/local/bin/cwebp',
-                'options' => [
-                    'quality' => 90,
-                    'effort' => 4,
-                ],
-                'paramsString' => '-q {quality} -m {effort} {src} -o {dest}'
-            ],
-        ],
         'optimizers' => null,
         'mockImage' => getenv('MOCK_IMAGE') ?: null,
     ],
