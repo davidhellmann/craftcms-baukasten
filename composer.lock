@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13aaa7f8ecb3bd6325ba094e26f04fde",
+    "content-hash": "bc8852d87bb58ef0b14f0a305ce06da4",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -650,11 +650,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.7.28",
+            "version": "3.7.29",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/7b3728dd95dbdda80ebf0aa1fd84eb9d6d98f744",
-                "reference": "7b3728dd95dbdda80ebf0aa1fd84eb9d6d98f744",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/a54e725a3ad01da409d466e30369855642845a41",
+                "reference": "a54e725a3ad01da409d466e30369855642845a41",
                 "shasum": ""
             },
             "require": {
@@ -737,7 +737,7 @@
                 "docs": "https://craftcms.com/docs/3.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2022-01-05T20:16:48+00:00"
+            "time": "2022-01-18T18:58:42+00:00"
         },
         {
             "name": "craftcms/oauth2-craftid",
@@ -935,11 +935,6 @@
         {
             "name": "davechild/textstatistics",
             "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DaveChild/Text-Statistics.git",
-                "reference": "dd16252a5c78fad6f8ea4fcd7e55d14fd07b1382"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/DaveChild/Text-Statistics/zipball/dd16252a5c78fad6f8ea4fcd7e55d14fd07b1382",
@@ -948,9 +943,6 @@
             },
             "require": {
                 "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.2.*"
             },
             "suggest": {
                 "ext-bcmath": "More accurate floating point calculations.",
@@ -967,7 +959,6 @@
                     "DaveChild\\TextStatistics": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-2-Clause"
             ],
@@ -981,10 +972,6 @@
             ],
             "description": "PHP package to measure the readability of text according to various algorithms.",
             "homepage": "https://github.com/DaveChild/Text-Statistics",
-            "support": {
-                "issues": "https://github.com/DaveChild/Text-Statistics/issues",
-                "source": "https://github.com/DaveChild/Text-Statistics/tree/master"
-            },
             "time": "2018-06-19T09:25:42+00:00"
         },
         {
@@ -1095,22 +1082,17 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/e864bbf5904cb8f5bb334f99209b48018522f042",
-                "reference": "e864bbf5904cb8f5bb334f99209b48018522f042",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/9c50f840f257bbb941e6f4a0e94ccf5db5c3f76c",
+                "reference": "9c50f840f257bbb941e6f4a0e94ccf5db5c3f76c",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2 || ^8.0"
+                "php": "^7.1 || ^8.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.2.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Doctrine\\Common\\Lexer\\": "lib/Doctrine/Common/Lexer"
@@ -1142,7 +1124,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-05-25T17:44:05+00:00"
+            "time": "2022-01-12T08:27:12+00:00"
         },
         {
             "name": "dompdf/dompdf",
@@ -1496,11 +1478,11 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "8.12.40",
+            "version": "8.12.41",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/cafb3497dce678e9643ec3eba38be251a67d7469",
-                "reference": "cafb3497dce678e9643ec3eba38be251a67d7469",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/c7b9f89a25e37e8bb650a378c3eabcbdafedeafd",
+                "reference": "c7b9f89a25e37e8bb650a378c3eabcbdafedeafd",
                 "shasum": ""
             },
             "require": {
@@ -1545,7 +1527,7 @@
                 "phonenumber",
                 "validation"
             ],
-            "time": "2021-12-23T11:54:39+00:00"
+            "time": "2022-01-11T10:10:37+00:00"
         },
         {
             "name": "giggsey/locale",
@@ -2554,11 +2536,11 @@
         },
         {
             "name": "laminas/laminas-stdlib",
-            "version": "3.6.4",
+            "version": "3.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-stdlib/zipball/830a36d93aeaf06e540e90ec031babb3c6eafadb",
-                "reference": "830a36d93aeaf06e540e90ec031babb3c6eafadb",
+                "url": "https://api.github.com/repos/laminas/laminas-stdlib/zipball/cba75fad2053bb5dc8d3e7f5e62b61d75eecfaf1",
+                "reference": "cba75fad2053bb5dc8d3e7f5e62b61d75eecfaf1",
                 "shasum": ""
             },
             "require": {
@@ -2582,7 +2564,7 @@
                 "laminas",
                 "stdlib"
             ],
-            "time": "2021-12-29T14:33:01+00:00"
+            "time": "2022-01-10T11:18:55+00:00"
         },
         {
             "name": "larapack/dd",
@@ -3683,11 +3665,6 @@
         {
             "name": "nystudio107/craft-plugin-manifest",
             "version": "1.0.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-plugin-manifest.git",
-                "reference": "47087da878be95b7bd79bb1b8f5f4f49f2bfbe5c"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/nystudio107/craft-plugin-manifest/zipball/47087da878be95b7bd79bb1b8f5f4f49f2bfbe5c",
@@ -3703,7 +3680,6 @@
                     "nystudio107\\pluginmanifest\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3721,29 +3697,17 @@
             ],
             "support": {
                 "docs": "https://github.com/nystudio107/craft-plugin-manifest/blob/v1/README.md",
-                "issues": "https://github.com/nystudio107/craft-plugin-manifest/issues",
-                "source": "https://github.com/nystudio107/craft-plugin-manifest/tree/1.0.8"
+                "issues": "https://github.com/nystudio107/craft-plugin-manifest/issues"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/khalwat",
-                    "type": "github"
-                }
-            ],
             "time": "2021-10-11T16:38:14+00:00"
         },
         {
             "name": "nystudio107/craft-plugin-vite",
-            "version": "1.0.19",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-plugin-vite.git",
-                "reference": "db53fdb759dd8f7b5716f809997630bce30719c1"
-            },
+            "version": "1.0.20",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-plugin-vite/zipball/db53fdb759dd8f7b5716f809997630bce30719c1",
-                "reference": "db53fdb759dd8f7b5716f809997630bce30719c1",
+                "url": "https://api.github.com/repos/nystudio107/craft-plugin-vite/zipball/00ff48d44732a14715720eb4858893bcefd38937",
+                "reference": "00ff48d44732a14715720eb4858893bcefd38937",
                 "shasum": ""
             },
             "require": {
@@ -3755,7 +3719,6 @@
                     "nystudio107\\pluginvite\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3773,16 +3736,9 @@
             ],
             "support": {
                 "docs": "https://github.com/nystudio107/craft-plugin-vite/blob/v1/README.md",
-                "issues": "https://github.com/nystudio107/craft-plugin-vite/issues",
-                "source": "https://github.com/nystudio107/craft-plugin-vite/tree/1.0.19"
+                "issues": "https://github.com/nystudio107/craft-plugin-vite/issues"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/khalwat",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-12-16T20:28:56+00:00"
+            "time": "2022-01-17T16:59:14+00:00"
         },
         {
             "name": "nystudio107/craft-scripts",
@@ -3831,16 +3787,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.4.21",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-seomatic.git",
-                "reference": "cab8c6dc3190092918b5899ace67101fb596c3a4"
-            },
+            "version": "3.4.22",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/cab8c6dc3190092918b5899ace67101fb596c3a4",
-                "reference": "cab8c6dc3190092918b5899ace67101fb596c3a4",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/8ff2e5735bc72b73a346c70a0c1a371a832d1a1b",
+                "reference": "8ff2e5735bc72b73a346c70a0c1a371a832d1a1b",
                 "shasum": ""
             },
             "require": {
@@ -3849,10 +3800,6 @@
                 "nystudio107/craft-plugin-manifest": "^1.0.4",
                 "php-science/textrank": "^1.0.3",
                 "sunra/php-simple-html-dom-parser": "^1.5.2"
-            },
-            "require-dev": {
-                "codeception/codeception": "^3.0",
-                "vlucas/phpdotenv": "^3.0"
             },
             "type": "craft-plugin",
             "extra": {
@@ -3866,7 +3813,6 @@
                     "nystudio107\\seomatic\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -3878,49 +3824,37 @@
             ],
             "description": "SEOmatic facilitates modern SEO best practices & implementation for Craft CMS 3. It is a turnkey SEO system that is comprehensive, powerful, and flexible.",
             "keywords": [
-                "Craft",
-                "JSON-LD",
-                "Sitemap",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "facebook",
+                "json-ld",
                 "meta",
                 "seo",
                 "seomatic",
+                "sitemap",
                 "tags",
                 "twitter"
             ],
             "support": {
                 "docs": "https://nystudio107.com/plugins/seomatic/documentation",
-                "issues": "https://nystudio107.com/plugins/seomatic/support",
-                "source": "https://github.com/nystudio107/craft-seomatic/tree/3.4.21"
+                "issues": "https://nystudio107.com/plugins/seomatic/support"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/khalwat",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-12-13T20:08:46+00:00"
+            "time": "2022-01-12T18:24:39+00:00"
         },
         {
             "name": "nystudio107/craft-vite",
-            "version": "1.0.20",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-vite.git",
-                "reference": "b0e6c60f4d24909547b8572ddf44ab2598ce7a41"
-            },
+            "version": "1.0.21",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-vite/zipball/b0e6c60f4d24909547b8572ddf44ab2598ce7a41",
-                "reference": "b0e6c60f4d24909547b8572ddf44ab2598ce7a41",
+                "url": "https://api.github.com/repos/nystudio107/craft-vite/zipball/493578a280051d7f5c5895806e51b541761e8210",
+                "reference": "493578a280051d7f5c5895806e51b541761e8210",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^3.0.0",
-                "nystudio107/craft-plugin-vite": "^1.0.19"
+                "nystudio107/craft-plugin-vite": "^1.0.20"
             },
             "type": "craft-plugin",
             "extra": {
@@ -3937,7 +3871,6 @@
                     "nystudio107\\vite\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3949,24 +3882,17 @@
             ],
             "description": "Allows the use of the Vite.js next generation frontend tooling with Craft CMS",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "vite"
             ],
             "support": {
                 "docs": "https://github.com/nystudio107/craft-vite/blob/master/README.md",
-                "issues": "https://github.com/nystudio107/craft-vite/issues",
-                "source": "https://github.com/nystudio107/craft-vite/tree/1.0.20"
+                "issues": "https://github.com/nystudio107/craft-vite/issues"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/khalwat",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-12-16T20:30:21+00:00"
+            "time": "2022-01-17T17:38:36+00:00"
         },
         {
             "name": "opis/closure",
@@ -4120,11 +4046,6 @@
         {
             "name": "php-science/textrank",
             "version": "1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PHP-Science/TextRank.git",
-                "reference": "cfa7480c9e136492109602473c242c1788279a4d"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/PHP-Science/TextRank/zipball/cfa7480c9e136492109602473c242c1788279a4d",
@@ -4136,9 +4057,6 @@
                 "ext-mbstring": "*",
                 "php": ">=7.2"
             },
-            "require-dev": {
-                "phpunit/phpunit": "9.*"
-            },
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4148,7 +4066,6 @@
                     ]
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -4168,10 +4085,6 @@
                 "summarization",
                 "textrank"
             ],
-            "support": {
-                "issues": "https://github.com/PHP-Science/TextRank/issues",
-                "source": "https://github.com/PHP-Science/TextRank/tree/1.2.1"
-            },
             "time": "2021-02-27T07:54:19+00:00"
         },
         {
@@ -5635,11 +5548,6 @@
         {
             "name": "sunra/php-simple-html-dom-parser",
             "version": "v1.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunra/php-simple-html-dom-parser.git",
-                "reference": "75b9b1cb64502d8f8c04dc11b5906b969af247c6"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/sunra/php-simple-html-dom-parser/zipball/75b9b1cb64502d8f8c04dc11b5906b969af247c6",
@@ -5656,7 +5564,6 @@
                     "Sunra\\PhpSimple\\HtmlDomParser": "Src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5678,10 +5585,6 @@
                 "html",
                 "parser"
             ],
-            "support": {
-                "issues": "https://github.com/sunra/php-simple-html-dom-parser/issues",
-                "source": "https://github.com/sunra/php-simple-html-dom-parser/tree/master"
-            },
             "time": "2016-11-22T22:57:47+00:00"
         },
         {
@@ -7384,11 +7287,11 @@
         },
         {
             "name": "verbb/formie",
-            "version": "1.5.5",
+            "version": "1.5.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/formie/zipball/c4dd8e219c801e286a23f33c13d9c3e5b00704d1",
-                "reference": "c4dd8e219c801e286a23f33c13d9c3e5b00704d1",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/f66d1e8b60d4b2f76ec437857dbd8d2200f83b04",
+                "reference": "f66d1e8b60d4b2f76ec437857dbd8d2200f83b04",
                 "shasum": ""
             },
             "require": {
@@ -7445,7 +7348,7 @@
                 "docs": "https://github.com/verbb/formie",
                 "rss": "https://github.com/verbb/formie/commits/v2.atom"
             },
-            "time": "2022-01-07T21:48:29+00:00"
+            "time": "2022-01-16T21:21:55+00:00"
         },
         {
             "name": "verbb/navigation",
