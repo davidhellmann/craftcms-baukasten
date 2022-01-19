@@ -67,6 +67,7 @@ return [
 
     /**
      * @var bool Should we check for the presence of the dev server by pinging $devServerInternal to make sure it's running?
+     * Enable it when using Nitro
      */
     'checkDevServer' => false,
 

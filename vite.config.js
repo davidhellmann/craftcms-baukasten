@@ -88,10 +88,21 @@ export default ({ command }) => ({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  // Use this for Laravel Valet
   server: {
     host: '0.0.0.0',
     origin: 'http://localhost:3000/',
     port: 3000,
     strictPort: true,
   },
+  // Use this for Nitro with Vite
+  // server: {
+  //   host: '0.0.0.0',
+  //   hmr: {
+  //     host: 'craftcms-baukasten.test',
+  //     port: '3000',
+  //     path: '/',
+  //   },
+  //   cors: true,
+  // },
 });
