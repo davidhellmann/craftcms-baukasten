@@ -6,7 +6,7 @@
 const fluidType = require('tailwindcss-fluid-type');
 const questionMark = require('tailwindcss-question-mark');
 const aspectRatio = require('@tailwindcss/aspect-ratio');
-const debugScreens = require('@tailwindcss/aspect-ratio');
+const debugScreens = require('tailwindcss-debug-screens');
 
 // Settings
 const settingsGrid = require('./tailwind/tailwind.settings.grid');
