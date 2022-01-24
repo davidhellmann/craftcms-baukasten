@@ -49,6 +49,7 @@ return [
     'enableCsrfProtection' => true,
     'errorTemplatePrefix' => 'errors/',
     'limitAutoSlugsToAscii' => true,
+    'autosaveDrafts' => false,
     'convertFilenamesToAscii' => true,
     'generateTransformsBeforePageLoad' => true,
     'maxCachedCloudImageSize' => 3000,
