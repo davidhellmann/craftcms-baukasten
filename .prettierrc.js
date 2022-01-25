@@ -13,4 +13,18 @@ module.exports = {
       },
     },
   ],
+  plugins: [
+    './node_modules/prettier-plugin-tailwindcss',
+    './node_modules/prettier-plugin-twig-melody',
+  ],
+  tailwindConfig: './tailwind.config.js',
+  twigPrintWidth: 120,
+  twigSingleQuote: false,
+  twigMultiTags: [
+    'nav,endnav',
+    'switch,case,default,endswitch',
+    'ifchildren,endifchildren',
+    'cache,endcache',
+    'js,endjs',
+  ],
 };
