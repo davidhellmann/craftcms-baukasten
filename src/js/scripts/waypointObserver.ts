@@ -19,8 +19,8 @@ interface ICompWaypointObserver extends IComponent {
 
   startObserving(el: Array<HTMLElement>): void;
   getSettings(el: Element): Settings;
-  getWaypointTargets(el: Element): Array<HTMLElement> | Array<any>;
-  handleAnimateClasses(el: Array<HTMLElement>, settings: Settings): void;
+  getWaypointTargets(el: Element): Array<HTMLElement> | Array<Element>;
+  handleAnimateClasses(el: Array<HTMLElement> | Array<Element>, settings: Settings): void;
 }
 
 const waypointObserver: ICompWaypointObserver = {

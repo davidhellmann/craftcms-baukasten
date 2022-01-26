@@ -1,4 +1,5 @@
 // from: https://markus.oberlehner.net/blog/lazy-load-vue-components-when-they-become-visible/
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 export default function lazyLoadComponent({ componentFactory, loading, loadingData }) {
   let resolveComponent;

@@ -25,7 +25,7 @@ export default async () => {
     }
 
     // Lazy Images
-    const selector: string = 'img[loading="lazy"], iframe[loading="lazy"], source[data-srcset]';
+    const selector = 'img[loading="lazy"], iframe[loading="lazy"], source[data-srcset]';
     const lazyImageEls = [...document.querySelectorAll<HTMLElement>(selector)];
     if (lazyImageEls.length > 0) {
       if ('loading' in HTMLImageElement.prototype) {

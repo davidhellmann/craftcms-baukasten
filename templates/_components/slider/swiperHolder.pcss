@@ -23,7 +23,7 @@
 /* Scrollbar 100% width */
 .swiper-scrollbar {
   @apply w-full inset-x-0 bottom-0 !important;
-  @apply bg-gray-100 !important;;
+  @apply bg-gray-100 !important;
 }
 
 .swiper-scrollbar-drag {
@@ -33,7 +33,7 @@
 /* Custom prev / next */
 .swiper-button-prev,
 .swiper-button-next {
-  @apply hidden !important;
+  @apply !hidden !bg-white !w-12 !h-12 !rounded-full !bg-no-repeat !text-primary-500;
 }
 
 @screen md {
@@ -47,9 +47,3 @@
 .swiper-button-next::after {
   @apply hidden;
 }
-
-.swiper-button-prev,
-.swiper-button-next {
-  @apply bg-white w-12 h-12 rounded-full bg-no-repeat text-primary-500 !important;
-}
-

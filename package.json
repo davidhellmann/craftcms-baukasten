@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
+    "@types/alpinejs": "^3.7.0",
     "@types/lodash-es": "^4.17.5",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
@@ -42,7 +43,6 @@
     "cypress": "^9.2.0",
     "cypress-audit": "^1.1.0",
     "eslint": "^8.6.0",
-    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.25.3",
@@ -56,24 +56,37 @@
     "prettier-plugin-tailwindcss": "^0.1.3",
     "prettier-plugin-twig-melody": "^0.4.6",
     "rollup-plugin-critical": "^1.0.8",
+    "rollup-plugin-visualizer": "^5.5.4",
+    "stylelint": "^14.3.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-recommended-vue": "^1.1.0",
+    "stylelint-config-standard-scss": "^3.0.0",
     "tailwindcss": "^3.0.12",
     "tailwindcss-debug-screens": "^2.2.1",
     "typescript": "^4.5.4",
     "vite": "^2.7.10",
+    "vite-plugin-compression": "^0.4.0",
     "vite-plugin-eslint": "^1.3.0",
     "vite-plugin-favicon2": "^1.1.4",
-    "vite-plugin-restart": "^0.1.0"
+    "vite-plugin-manifest-sri": "^0.1.0",
+    "vite-plugin-restart": "0.0.2",
+    "vue-eslint-parser": "^8.2.0"
   },
   "scripts": {
     "dev": "vite",
     "dev:update": "npm i && composer install && npm run build",
     "build": "npm run twc && vite build",
+    "twc": "npx tailwindcss build ./src/css/app.pcss -o ./src/public/css/tailwind.app.css -c tailwind.config.js",
+    "lint": "npm run lint:ts && npm run lint:js && npm run lint:css",
+    "lint:ts": "tsc --noEmit",
+    "lint:js": "eslint './src/**/*.{js,ts,vue}' './templates/**/*.{js,ts,vue}' --fix",
+    "lint:css": "stylelint './src/**/*.{pcss,vue}' './templates/**/*.{css,vue}' --fix",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "upgrade-interactive": "npm-check --update",
     "preinstall": "$npm_execpath --silent run checknpm",
-    "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)",
-    "twc": "npx tailwindcss build ./src/css/app.pcss -o ./src/public/css/tailwind.app.css -c tailwind.config.js"
+    "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)"
   },
   "version": "1.1.3"
 }

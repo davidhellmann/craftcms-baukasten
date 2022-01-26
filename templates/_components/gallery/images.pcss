@@ -1,9 +1,9 @@
-@import 'lightgallery/css/lightgallery.css';
-@import 'lightgallery/css/lg-zoom.css';
-@import 'lightgallery/css/lg-thumbnail.css';
+@import "lightgallery/css/lightgallery.css";
+@import "lightgallery/css/lg-zoom.css";
+@import "lightgallery/css/lg-thumbnail.css";
 
 @font-face {
-  font-family: 'lg';
+  font-family: "lg";
   src: url("/dist/fonts/lg.woff") format("woff"), url("/dist/fonts/lg.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
@@ -17,7 +17,7 @@
 
 .lg-next:hover:not(.disabled),
 .lg-prev:hover:not(.disabled) {
-  @apply text-primary
+  @apply text-primary;
 }
 
 .lg-toolbar .lg-icon {
@@ -30,7 +30,8 @@
 
 .lg-sub-html {
   @apply text-gray text-xs leading-tight;
-  background-color: rgba(255, 255, 255, 0.9);
+
+  background-color: rgb(255 255 255 / 90%);
 }
 
 .lg-error-msg {
@@ -42,16 +43,15 @@
 }
 
 .lg-backdrop {
-  background-color: rgba(255, 255, 255, 0.98);
+  background-color: rgb(255 255 255 / 98%);
 }
-
 
 /* Thumb */
 .lg-outer .lg-thumb-outer {
   @apply bg-white;
 }
 
-.lg-outer .lg-thumb-item.active, .lg-outer .lg-thumb-item:hover {
+.lg-outer .lg-thumb-item.active,
+.lg-outer .lg-thumb-item:hover {
   @apply border-primary;
 }
-

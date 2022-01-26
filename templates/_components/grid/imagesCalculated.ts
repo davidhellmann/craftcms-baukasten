@@ -1,8 +1,6 @@
-// eslint-disable-next-line import/no-unresolved
 import _debounce from 'lodash-es/debounce';
 import { IComponent } from '../../../src/js/@types/IComponent';
 
-// @ts-ignore
 import './imagesCalculated.pcss';
 
 interface ICompImagesCalculated extends IComponent {
@@ -31,7 +29,7 @@ const imagesCalculated: ICompImagesCalculated = {
 
   doCalculation(imageHolder, imageHolderWidth) {
     const images: Array<HTMLElement> = [...imageHolder.querySelectorAll<HTMLImageElement>('img')];
-    let imagesWidthSum: number = 0;
+    let imagesWidthSum = 0;
     const imageCount: number = images.length - 1 || 1;
     const rowGap = parseFloat(
       getComputedStyle(<HTMLElement>imageHolder).getPropertyValue('row-gap'),

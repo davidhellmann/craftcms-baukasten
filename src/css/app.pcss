@@ -1,24 +1,24 @@
 /**
  * This injects Tailwind's base styles, which is a combination of
- * Normalize.css and some additional base styles.
+ * Normalize.pcss and some additional base styles.
  */
-@import 'tailwindcss/base';
+@import "tailwindcss/base";
 
 /**
  * Here we add custom base styles, applied after the tailwind-base
  * classes
  *
  */
-@import './base/colors.pcss';
-@import './base/global.pcss';
-@import './base/lazy.pcss';
-@import './base/typography.pcss';
+@import "./base/colors.pcss";
+@import "./base/global.pcss";
+@import "./base/lazy.pcss";
+@import "./base/typography.pcss";
 
 /**
  * This injects any component classes registered by plugins.
  *
  */
-@import 'tailwindcss/components';
+@import "tailwindcss/components";
 
 /**
  * Here we add custom component classes; stuff we want loaded
@@ -26,23 +26,23 @@
  * override them.
  *
  */
-@import './components/transitions.pcss';
-@import '../../templates/_components/icon/icon.pcss';
-@import '../../templates/_components/text/text.pcss';
-@import '../../templates/_components/accordion/accordion.pcss';
+@import "./components/transitions.pcss";
+@import "../../templates/_components/icon/icon.pcss";
+@import "../../templates/_components/text/text.pcss";
+@import "../../templates/_components/accordion/accordion.pcss";
 
 /**
  * Include styles for individual pages
  *
  */
-@import './pages/homepage.pcss';
+@import "./pages/homepage.pcss";
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
  *
  */
-@import 'tailwindcss/utilities';
+@import "tailwindcss/utilities";
 
 /**
  * Here we add custom utility classes, applied after the tailwind-utilitie
@@ -55,4 +55,4 @@
  *
  */
 
-@import 'vendors/formie.pcss';
+@import "vendors/formie.pcss";

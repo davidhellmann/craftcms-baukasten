@@ -1,6 +1,7 @@
 /* PrismJS 1.25.0
 https://prismjs.com/download.html?#themes=prism-okaidia&languages=markup+css+clike+javascript+bash+json+markdown+markup-templating+regex+sass+scss+twig+typescript&plugins=line-numbers+normalize-whitespace */
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 /* eslint-disable */
 

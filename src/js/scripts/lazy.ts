@@ -6,20 +6,26 @@ export const init = (els: Array<HTMLElement>, selector: string): void => {
       entries.forEach((entry) => {
         // Do these if the target intersects with the root
         if (entry.isIntersecting) {
-          const lazyItem: any = entry.target;
+          const lazyItem = entry.target as HTMLImageElement | HTMLSourceElement;
 
           if (lazyItem.nodeName === 'IMG') {
             lazyItem.src = lazyItem.dataset.src || lazyItem.src;
-            lazyItem.srcset = lazyItem.dataset.srcset;
+            if (lazyItem.dataset.srcset) {
+              lazyItem.srcset = lazyItem.dataset.srcset;
+            }
             lazyItem.sizes = `${lazyItem.getBoundingClientRect().width}px`;
           }
 
           if (lazyItem.nodeName === 'SOURCE') {
-            lazyItem.srcset = lazyItem.dataset.srcset;
+            if (lazyItem.dataset.srcset) {
+              lazyItem.srcset = lazyItem.dataset.srcset;
+            }
           }
 
           if (lazyItem.nodeName === 'IFRAME') {
-            lazyItem.src = lazyItem.dataset.src;
+            if (lazyItem.dataset.src) {
+              lazyItem.src = lazyItem.dataset.src;
+            }
           }
 
           lazyItem.classList.remove('lazyload');
@@ -35,8 +41,10 @@ export const init = (els: Array<HTMLElement>, selector: string): void => {
     });
 
     // Save for Sprig
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     window.LazyImageSelector = selector;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     window.LazyImageObserver = lazyItemObserver;
   }

@@ -1,14 +1,19 @@
+import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 // import legacy from '@vitejs/plugin-legacy';
 import ViteRestart from 'vite-plugin-restart';
+import viteCompression from 'vite-plugin-compression';
+import manifestSRI from 'vite-plugin-manifest-sri';
+import { visualizer } from 'rollup-plugin-visualizer';
+import eslintPlugin from 'vite-plugin-eslint';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import critical from 'rollup-plugin-critical';
-import eslintPlugin from 'vite-plugin-eslint';
 import { ViteFaviconsPlugin } from 'vite-plugin-favicon2';
-import path from 'path';
+import * as path from 'path';
 
 // https://vitejs.dev/config/
-export default ({ command }) => ({
+
+export default defineConfig(({ command }) => ({
   base: command === 'serve' ? '' : '/dist/',
   build: {
     emptyOutDir: true,
@@ -24,34 +29,20 @@ export default ({ command }) => ({
     },
   },
   plugins: [
-    eslintPlugin({
-      cache: false,
-      include: [
-        'src/**/*.js',
-        'src/**/*.ts',
-        'src/**/*.d.ts',
-        'src/**/*.vue',
-        'templates/**/*.js',
-        'templates/**/*.ts',
-        'templates/**/*.vue',
-      ],
-    }),
     critical({
       criticalUrl: 'https://stage.baukasten.io/',
       criticalBase: './web/dist/criticalcss/',
       criticalPages: [{ uri: '', template: 'index' }],
       criticalConfig: {
-        dimensions: [
-          {
-            width: 375,
-            height: 800,
-          },
-          {
-            width: 1680,
-            height: 1200,
-          },
-        ],
+        width: 1680,
+        height: 1200,
       },
+    }),
+    // legacy({
+    //   targets: ['defaults', 'not IE 11'],
+    // }),
+    nodeResolve({
+      moduleDirectories: [path.resolve('./node_modules')],
     }),
     ViteFaviconsPlugin({
       logo: './src/public/images/favicon-src.svg',
@@ -64,23 +55,22 @@ export default ({ command }) => ({
         theme_color: '#244F43',
       },
     }),
-    // legacy({
-    //   targets: ['defaults', 'not IE 11'],
-    // }),
-    nodeResolve({
-      moduleDirectories: [path.resolve('./node_modules')],
-    }),
     ViteRestart({
       reload: ['./translations/**/*', './templates/**/*'],
-      restart: [
-        './tailwind.config.js',
-        './postcss.config.js',
-        './tailwind/**/*',
-        './.eslintrc.js',
-        './.prettierrc.js',
-      ],
     }),
     vue(),
+    viteCompression({
+      filter: /\.(js|mjs|json|css|map)$/i,
+    }),
+    manifestSRI(),
+    visualizer({
+      filename: './web/assets/dist/stats.html',
+      template: 'treemap',
+      sourcemap: true,
+    }),
+    eslintPlugin({
+      cache: false,
+    }),
   ],
   publicDir: './src/public',
   resolve: {
@@ -105,4 +95,4 @@ export default ({ command }) => ({
   //   },
   //   cors: true,
   // },
-});
+}));
