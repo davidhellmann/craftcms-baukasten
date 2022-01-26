@@ -1,8 +1,8 @@
 import ClipboardJS from 'clipboard';
 import Prismjs from './prism';
 import { IComponent } from '../../../src/js/@types/IComponent';
-import './tooltip.pcss';
-import './prism.pcss';
+import './tooltip.css';
+import './prism.css';
 
 interface ICompCode extends IComponent {
   copyToClipboard(): void;

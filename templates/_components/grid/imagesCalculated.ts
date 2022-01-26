@@ -1,7 +1,7 @@
 import _debounce from 'lodash-es/debounce';
 import { IComponent } from '../../../src/js/@types/IComponent';
 
-import './imagesCalculated.pcss';
+import './imagesCalculated.css';
 
 interface ICompImagesCalculated extends IComponent {
   settings: {

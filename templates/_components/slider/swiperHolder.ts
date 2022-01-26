@@ -7,7 +7,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/scrollbar';
 import 'swiper/css/keyboard';
 import 'swiper/css/navigation';
-import './swiperHolder.pcss';
+import './swiperHolder.css';
 
 const swiperHolder: IComponent = {
   name: 'swiperHolder',

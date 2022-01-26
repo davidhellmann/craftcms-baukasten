@@ -1,14 +1,14 @@
 .c-tooltip {
   &::before {
-    content: "";
+    content: '';
 
-    @apply absolute z-50 hidden w-0 h-0 pointer-events-none opacity-0 left-1/2 -translate-x-1/2 -top-2 -translate-y-3 bottom-auto border-8 border-transparent border-t-gray-500;
+    @apply pointer-events-none absolute left-1/2 -top-2 bottom-auto z-50 hidden h-0 w-0 -translate-x-1/2 -translate-y-3 border-8 border-transparent border-t-gray-500 opacity-0;
   }
 
   &::after {
     content: attr(aria-label);
 
-    @apply absolute left-1/2 -translate-x-1/2 z-40 hidden px-2 py-0.5 text-xs text-center break-words bg-gray-500 whitespace-pre pointer-events-none rounded opacity-0 text-white shadow-lg -translate-y-3;
+    @apply pointer-events-none absolute left-1/2 z-40 hidden -translate-x-1/2 -translate-y-3 whitespace-pre break-words rounded bg-gray-500 px-2 py-0.5 text-center text-white opacity-0 shadow-lg text-xs;
   }
 
   &--n {
@@ -44,11 +44,11 @@
 
   @keyframes tooltip-appear {
     from {
-      @apply opacity-0 -translate-x-1/2 -translate-y-3;
+      @apply -translate-x-1/2 -translate-y-3 opacity-0;
     }
 
     to {
-      @apply opacity-100 -translate-x-1/2 -translate-y-1;
+      @apply -translate-x-1/2 -translate-y-1 opacity-100;
     }
   }
 }

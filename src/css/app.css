@@ -1,6 +1,6 @@
 /**
  * This injects Tailwind's base styles, which is a combination of
- * Normalize.pcss and some additional base styles.
+ * Normalize.css and some additional base styles.
  */
 @import "tailwindcss/base";
 
@@ -9,10 +9,10 @@
  * classes
  *
  */
-@import "./base/colors.pcss";
-@import "./base/global.pcss";
-@import "./base/lazy.pcss";
-@import "./base/typography.pcss";
+@import "./base/colors.css";
+@import "./base/global.css";
+@import "./base/lazy.css";
+@import "./base/typography.css";
 
 /**
  * This injects any component classes registered by plugins.
@@ -26,16 +26,16 @@
  * override them.
  *
  */
-@import "./components/transitions.pcss";
-@import "../../templates/_components/icon/icon.pcss";
-@import "../../templates/_components/text/text.pcss";
-@import "../../templates/_components/accordion/accordion.pcss";
+@import "./components/transitions.css";
+@import "../../templates/_components/icon/icon.css";
+@import "../../templates/_components/text/text.css";
+@import "../../templates/_components/accordion/accordion.css";
 
 /**
  * Include styles for individual pages
  *
  */
-@import "./pages/homepage.pcss";
+@import "./pages/homepage.css";
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
@@ -55,4 +55,4 @@
  *
  */
 
-@import "vendors/formie.pcss";
+@import "vendors/formie.css";
