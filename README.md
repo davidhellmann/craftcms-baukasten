@@ -5,7 +5,7 @@ Heavily opinionated starter kit for CraftCMS Projects.
 
 ## What's recommended
 - Laravel Valet (https://laravel.com/docs/8.x/valet)
-- PHP 7.4
+- PHP 8.0
 - MySQL 8 / MariaDB
 - optional: Redis `brew install redis`
 

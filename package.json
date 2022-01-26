@@ -48,6 +48,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.2.0",
+    "husky": "^7.0.4",
     "npm-check": "^5.9.2",
     "postcss": "^8.4.5",
     "postcss-import": "^14.0.2",
@@ -86,7 +87,8 @@
     "cy:run": "cypress run",
     "upgrade-interactive": "npm-check --update",
     "preinstall": "$npm_execpath --silent run checknpm",
-    "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)"
+    "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)",
+    "prepare": "husky install"
   },
   "version": "1.1.3"
 }
