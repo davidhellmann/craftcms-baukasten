@@ -1,4 +1,8 @@
 {% extends "_layouts/layout-default.twig" %}
+{% set htmlClass = "template-"
+  ~ (_self|replace({
+  "/": "-"
+})) %}
 
 {% block blockAppContent %}
   {{ sprig('_components/_sprig/paginateNews', {

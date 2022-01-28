@@ -1,29 +1,34 @@
 {% extends "_layouts/layout-default.twig" %}
+{% set htmlClass = "template-"
+  ~ (_self|replace({
+    "/": "-"
+  }))
+%}
 
 {% block blockAppContent %}
   {% cache %}
     {% minify %}
-    <div class="container py-16">
-      <h1 class="text-xl">
-        Oh, hey!
-      </h1>
-      {# link #}
-      {{
-        include(
-          "_components/button/button.twig",
-          {
-            data: {
-              url: "/hidden/patternlib",
-              text: "Pattern Library"
+      <div class="container py-16">
+        <h1 class="text-xl">
+          Oh, hey!
+        </h1>
+        {# link #}
+        {{
+          include(
+            "_components/button/button.twig",
+            {
+              data: {
+                url: "/hidden/patternlib",
+                text: "Pattern Library"
+              },
+              classes: {
+                custom: "mt-4"
+              }
             },
-            classes: {
-              custom: "mt-4"
-            }
-          },
-          withContext = false
-        )
-      }}
-    </div>
+            withContext = false
+          )
+        }}
+      </div>
     {% endminify %}
   {% endcache %}
 {% endblock %}

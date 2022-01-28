@@ -22,6 +22,7 @@ module.exports = {
   twigSingleQuote: false,
   twigMultiTags: [
     'nav,endnav',
+    'minify,endminify',
     'switch,case,default,endswitch',
     'ifchildren,endifchildren',
     'cache,endcache',

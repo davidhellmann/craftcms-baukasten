@@ -1,4 +1,9 @@
 {% extends "_layouts/layout-default.twig" %}
+{% set htmlClass = "template-"
+  ~ (_self|replace({
+  "/": "-"
+}))
+%}
 
 {% block blockAppContent %}
   {% cache %}

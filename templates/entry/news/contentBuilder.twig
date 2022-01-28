@@ -1,13 +1,24 @@
 {% extends "_layouts/generic-page-layout.twig" %}
+{% set htmlClass = "template-"
+  ~ (_self|replace({
+    "/": "-"
+  }))
+%}
 
 {% block blockAppContent %}
   {% cache %}
     {% minify %}
-      {{ include('_builders/_builderContent.twig', {
-        props: {
-          blocks: entry.contentBuilder ??? null
-        }
-      }, withContext = false) }}
+      {{
+        include(
+          "_builders/_builderContent.twig",
+          {
+            props: {
+              blocks: entry.contentBuilder ??? null
+            }
+          },
+          withContext = false
+        )
+      }}
     {% endminify %}
   {% endcache %}
 {% endblock %}

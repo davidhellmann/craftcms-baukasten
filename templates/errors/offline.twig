@@ -1,3 +1,8 @@
-{% set entry = craft.entries.section('errorPages').slug('offline').one() %}
+{% set entry = craft.entries.section("errorPages").slug("offline").one() %}
 
 {% extends "_layouts/layout-error.twig" %}
+{% set htmlClass = "template-"
+  ~ (_self|replace({
+    "/": "-"
+  }))
+%}
