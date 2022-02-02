@@ -45,7 +45,7 @@ return [
         'subRight' => true,
     ],
     'defaultWeekStartDay' => 1,
-    'defaultTokenDuration' => 'P2W',
+    'defaultTokenDuration' => 86400,
     'enableCsrfProtection' => true,
     'errorTemplatePrefix' => 'errors/',
     'limitAutoSlugsToAscii' => true,
@@ -58,4 +58,5 @@ return [
     'useEmailAsUsername' => false,
     'usePathInfo' => true,
     'useProjectConfigFile' => true,
+    'preventUserEnumeration' => true,
 ];
