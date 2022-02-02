@@ -36,7 +36,7 @@ return [
                 return Craft::createObject($config);
             },
             'deprecator' => [
-                'throwExceptions' => App::env('DEV_MODE'),
+                'throwExceptions' => App::env('HARD_MODE') ?: false,
             ],
             'queue' => [
                 'class' => craft\queue\Queue::class,
