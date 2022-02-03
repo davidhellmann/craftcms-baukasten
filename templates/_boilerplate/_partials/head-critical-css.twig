@@ -8,9 +8,9 @@
 # If the `critical-css` cookie is set, the client already has the CSS file download,
 # so don't include the critical CSS, and load the full stylesheet(s) synchronously
 #}
-<!--# if expr="$HTTP_COOKIE=/critical\-css\={{ cssHash }}/" -->
-  {{ craft.vite.script("src/js/app.ts", false) }}
-<!--# else -->
+<!-- # if expr="$HTTP_COOKIE=/critical\-css\={{ cssHash }}/" -->
+{{ craft.vite.script("src/js/app.ts", false) }}
+<!-- # else -->
 {#
 # If the cookie is not set, set the cookie, then include the critical CSS for this page,
 # and load the full stylesheet(s) asychronously
@@ -18,6 +18,6 @@
 <script>
   Cookie.set("critical-css", "{{ cssHash }}", {expires: "7D", secure: true});
 </script>
-{{ craft.vite.includeCriticalCssTags() }}
+{{ craft.vite.includeCriticalCssTags(criticalPath) }}
 {{ craft.vite.script("src/js/app.ts", true) }}
-<!--# endif -->
+<!-- # endif -->

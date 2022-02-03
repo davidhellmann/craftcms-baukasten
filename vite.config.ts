@@ -32,7 +32,10 @@ export default defineConfig(({ command }) => ({
     critical({
       criticalUrl: 'https://stage.baukasten.io/',
       criticalBase: './web/dist/criticalcss/',
-      criticalPages: [{ uri: '', template: 'index' }],
+      criticalPages: [
+        { uri: '', template: 'index' },
+        { uri: 'content-builder', template: 'entry/pages/contentBuilder' },
+      ],
       criticalConfig: {
         width: 1680,
         height: 1200,

@@ -3,7 +3,15 @@
 {# >>> Render block app #}
 {% block blockApp %}
   <!DOCTYPE html>
-  <html class="no-js {{ htmlClass|default("") }}" lang="{{ craft.app.language|slice(0, 2) }}">
+  <html class="no-js {{
+    "template-"
+      ~ (templatePath
+        |default("")
+        |replace({
+          "/": "-"
+        }))
+    }}"
+    lang="{{ craft.app.language|slice(0, 2) }}">
     <head>
       {# >>> Render block head meta #}
       {{ include("_boilerplate/_partials/head-meta.twig", {}, withContext = true) }}
@@ -33,7 +41,15 @@
       <style>
         [v-cloak], [x-cloak] { display: none !important; }
       </style>
-      {{ include("_boilerplate/_partials/head-critical-css.twig", {}, withContext = true) }}
+      {{
+        include(
+          "_boilerplate/_partials/head-critical-css.twig",
+          {
+            criticalPath: templatePath|default("")
+          },
+          withContext = true
+        )
+      }}
 
       {# >>> Include RSS feeds #}
       {{ include("_boilerplate/_partials/head-rss-feeds.twig", {}, withContext = true) }}

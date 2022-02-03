@@ -1,9 +1,5 @@
 {% extends "_layouts/layout-patternlib.twig" %}
-{% set htmlClass = "template-"
-  ~ (_self|replace({
-    "/": "-"
-  }))
-%}
+{% set templatePath = _self ??? '' %}
 {% set patternLibRoot = true %}
 
 {% block blockAppContent %}
