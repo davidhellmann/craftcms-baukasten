@@ -3,6 +3,7 @@
   data: {
     name: 'c-contentBuilder',
     context: null,
+    contentBuilderHandle: null,
   },
   classes: {
     root: '',
@@ -16,23 +17,23 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{% if props.data.context %}
+{% if props.data.context and props.data.contentBuilderHandle %}
   {% do craft.app.elements.eagerLoadElements(
     className(props.data.context),
     [props.data.context],
     [
-      'builderContent',
-      'builderContent.blockImage:image',
-      'builderContent.blockImageGallery:images',
-      'builderContent.blockImageGrid:images',
-      'builderContent.blockImageGridCalculated:images',
-      'builderContent.blockImageSlider:images',
-      'builderContent.blockTextFloatingImage:image',
+      props.data.contentBuilderHandle,
+      props.data.contentBuilderHandle ~ '.blockImage:image',
+      props.data.contentBuilderHandle ~ '.blockImageGallery:images',
+      props.data.contentBuilderHandle ~ '.blockImageGrid:images',
+      props.data.contentBuilderHandle ~ '.blockImageGridCalculated:images',
+      props.data.contentBuilderHandle ~ '.blockImageSlider:images',
+      props.data.contentBuilderHandle ~ '.blockTextFloatingImage:image',
     ]
   ) %}
 
   <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
-    {% for block in props.data.context.builderContent %}
+    {% for block in props.data.context[props.data.contentBuilderHandle] %}
 
       {# Create Section if first block is not a section #}
       {% if loop.first and block.type.handle != 'blockSection' %}

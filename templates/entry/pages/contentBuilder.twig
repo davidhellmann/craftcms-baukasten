@@ -23,7 +23,8 @@
 
       {{ include('_builders/_builderContent.twig', {
         data: {
-          context: entry ??? null
+          context: entry ??? null,
+          contentBuilderHandle: 'builderContent' ??? null
         }
       }, withContext = false) }}
     {% endminify %}
