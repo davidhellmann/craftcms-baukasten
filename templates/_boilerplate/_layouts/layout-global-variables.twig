@@ -1,19 +1,26 @@
 {# >>> Prefetch links #}
-{% set prefetchUrls = [
-  alias("@assetsUrl"),
-] %}
+{% set prefetchUrls = [alias("@assetsUrl")] %}
 
-{# >>> Glabal variables  #}
-{% set baseUrl = alias('@web') ~ '/' %}
+{# >>> Glabal variables #}
+{% set baseUrl = alias("@web") ~ "/" %}
+{% set eagerLoading = {
+  builderContent: [
+    "builderContent",
+    "builderContent.blockImage:image",
+    "builderContent.blockImageGallery:images",
+    "builderContent.blockImageGrid:images",
+    "builderContent.blockImageGridCalculated:images",
+    "builderContent.blockImageSlider:images",
+    "builderContent.blockTextFloatingImage:image"
+  ]
+} %}
 
 {# >>> Glabal JS variables #}
 <script>
-  window.CurrentSite = {
-    'baseUrl': '{{ siteUrl }}',
-    'id': parseInt('{{ currentSite.id }}')
-  }
+  window.CurrentSite = {'baseUrl': '{{ siteUrl }}', 'id': parseInt('{{ currentSite.id }}')}
 </script>
 
 {# >>> Render block App #}
 {% block blockApp %}
+
 {% endblock %}

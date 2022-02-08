@@ -7,7 +7,7 @@
       {% do craft.app.elements.eagerLoadElements(
         className(entry),
         [entry],
-        ['']
+        [''] | merge(eagerLoading.builderContent ??? '')
       ) %}
 
       {# >>> Render page title #}
@@ -23,8 +23,7 @@
 
       {{ include('_builders/_builderContent.twig', {
         data: {
-          context: entry ??? null,
-          contentBuilderHandle: 'builderContent' ??? null
+          contentBuilder: entry.builderContent ??? null,
         }
       }, withContext = false) }}
     {% endminify %}
