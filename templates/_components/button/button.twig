@@ -2,7 +2,7 @@
 {% set compDefaults = {
   data: {
     name: 'c-button',
-    variant: 'primary',
+    variantStyle: 'primary',
     variantSize: 'md',
     icon: null,
     iconSize: 'sm',
@@ -18,15 +18,16 @@
     rounded: 'rounded-md'
   },
   variants: {
-    primary: 'text-white bg-primary-700 hover:bg-primary-800 group-hover:bg-primary-800',
-    secondary: 'text-secondary-900 bg-secondary-300 hover:bg-secondary-400 group-hover:bg-secondary-400',
-    outlined: 'text-gray-900 border-gray-200 bg-white hover:bg-gray-50 group-hover:bg-gray-50',
-    sm: 'px-2.5 py-1.5 gap-2 text-xs',
-    md: 'px-4 py-2 gap-3 text-base',
-    lg: 'px-6 py-3 gap-4 text-base',
-    smIcon: 'p-1.5',
-    mdIcon: 'p-2',
-    lgIcon: 'p-3',
+    style: {
+      primary: 'text-white bg-primary-700 hover:bg-primary-800 group-hover:bg-primary-800',
+      secondary: 'text-secondary-900 bg-secondary-300 hover:bg-secondary-400 group-hover:bg-secondary-400',
+      outlined: 'text-gray-900 border-gray-200 bg-white hover:bg-gray-50 group-hover:bg-gray-50',
+    },
+    size: {
+      sm: 'px-2.5 py-1.5 gap-2 text-xs',
+      md: 'px-4 py-2 gap-3 text-base',
+      lg: 'px-6 py-3 gap-4 text-base',
+    }
   }
 } %}
 
@@ -42,7 +43,7 @@
   {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
 
   <{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }}
-  class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants[props.data.variant] }}  {{ props.variants[props.data.variantSize] }} {{ props.classes.custom }}">
+  class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants.style[props.data.variantStyle] }}  {{ props.variants.size[props.data.variantSize] }} {{ props.classes.custom }}">
 
   {# >>> If icon exists #}
   {% if props.data.icon %}
@@ -50,7 +51,7 @@
     {{ include('_components/icon/icon.twig', {
       data: {
         icon: props.data.icon ??? null,
-        variant: props.data.iconSize
+        variantSize: props.data.iconSize
       },
       classes: {
         custom: (props.data.reverse ? 'order-2 ml-1' : 'mr-1')

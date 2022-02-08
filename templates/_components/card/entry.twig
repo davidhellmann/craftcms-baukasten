@@ -2,7 +2,7 @@
 {% set compDefaults = {
   data: {
     name: 'c-cardEntry',
-    variant: 'col',
+    variantDirection: 'col',
     image: null,
     transform: 'landscape',
     title: null,
@@ -15,17 +15,19 @@
     custom: '',
   },
   variants: {
-    col: {
-      root: 'flex flex-col',
-      image: '',
-      body: 'px-4 md:px-8 py-4 md:py-8',
-      button: 'mt-4 md:mt-8',
-    },
-    row: {
-      root: 'flex flex-col md:grid md:grid-cols-3',
-      image: 'md:h-full md:col-span-1',
-      body: 'px-4 md:px-8 py-4 md:py-8 md:col-span-2',
-      button: 'mt-4 md:mt-8',
+    direction: {
+      col: {
+        root: 'flex flex-col',
+        image: '',
+        body: 'px-4 md:px-8 py-4 md:py-8',
+        button: 'mt-4 md:mt-8',
+      },
+      row: {
+        root: 'flex flex-col md:grid md:grid-cols-3',
+        image: 'md:h-full md:col-span-1',
+        body: 'px-4 md:px-8 py-4 md:py-8 md:col-span-2',
+        button: 'mt-4 md:mt-8',
+      }
     }
   }
 } %}
@@ -40,8 +42,8 @@
 {# Modul #}
 {% if props.data.image and props.data.title and props.data.linkUrl %}
   <a href="{{ props.data.linkUrl }}"
-     class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants[props.data.variant].root }} {{ props.classes.custom }}">
-    <div class="{{ props.variants[props.data.variant].image }}">
+     class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants.direction[props.data.variantDirection].root }} {{ props.classes.custom }}">
+    <div class="{{ props.variants.direction[props.data.variantDirection].image }}">
       {{ include('_components/image/image.twig', {
         data: {
           image: props.data.image ??? null,
@@ -51,7 +53,7 @@
         }
       }, withContext = false) }}
     </div>
-    <div class="{{ props.variants[props.data.variant].body }}">
+    <div class="{{ props.variants.direction[props.data.variantDirection].body }}">
       {# >>> Render headline #}
       {{ include('_components/text/headline.twig', {
         data: {
@@ -72,13 +74,13 @@
         {# >>> Render button #}
         {{ include('_components/button/button.twig', {
           data: {
-            variant: 'primary',
+            variantStyle: 'primary',
             variantSize: 'md',
             iconSize: 'sm',
             text: 'Read more',
           },
           classes: {
-            custom: props.variants[props.data.variant].button
+            custom: props.variants.direction[props.data.variantDirection].button
           }
         }, withContext = false) }}
       {% endif %}

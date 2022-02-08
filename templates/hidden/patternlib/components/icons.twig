@@ -2,105 +2,157 @@
 
 {% block blockAppContent %}
   {% cache using key craft.app.request.pathInfo %}
-
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Icon SM{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Icon SM
+      {% endblock %}
       {% block content %}
-        {{ include('_components/icon/icon.twig', {
-          data: {
-            icon: 'brand/html5',
-            variant: 'sm',
-          },
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/icon/icon.twig",
+            {
+              data: {
+                icon: "brand/html5",
+                variantSize: "sm"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Icon MD{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Icon MD
+      {% endblock %}
       {% block content %}
-        {{ include('_components/icon/icon.twig', {
-          data: {
-            icon: 'brand/html5',
-            variant: 'md',
-          },
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/icon/icon.twig",
+            {
+              data: {
+                icon: "brand/html5",
+                variantSize: "md"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Icon LG{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Icon LG
+      {% endblock %}
       {% block content %}
-        {{ include('_components/icon/icon.twig', {
-          data: {
-            icon: 'brand/html5',
-            variant: 'lg',
-          },
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/icon/icon.twig",
+            {
+              data: {
+                icon: "brand/html5",
+                variantSize: "lg"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Icon XL{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Icon XL
+      {% endblock %}
       {% block content %}
-        {{ include('_components/icon/icon.twig', {
-          data: {
-            icon: 'brand/html5',
-            variant: 'xl',
-          },
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/icon/icon.twig",
+            {
+              data: {
+                icon: "brand/html5",
+                variantSize: "xl"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Icon 2XL{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Icon 2XL
+      {% endblock %}
       {% block content %}
-        {{ include('_components/icon/icon.twig', {
-          data: {
-            icon: 'brand/html5',
-            variant: '2xl',
-          },
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/icon/icon.twig",
+            {
+              data: {
+                icon: "brand/html5",
+                variantSize: "2xl"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Icon 2XL / Primary{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Icon 2XL / Primary
+      {% endblock %}
       {% block content %}
-        {{ include('_components/icon/icon.twig', {
-          data: {
-            icon: 'brand/html5',
-            variant: '2xl',
-          },
-          classes: {
-            color: 'text-primary-500'
-          }
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/icon/icon.twig",
+            {
+              data: {
+                icon: "brand/html5",
+                variantSize: "2xl"
+              },
+              classes: {
+                color: "text-primary-500"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Icon 2XL / Secondary{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Icon 2XL / Secondary
+      {% endblock %}
       {% block content %}
-        {{ include('_components/icon/icon.twig', {
-          data: {
-            icon: 'brand/html5',
-            variant: '2xl',
-          },
-          classes: {
-            color: 'text-secondary-500'
-          }
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/icon/icon.twig",
+            {
+              data: {
+                icon: "brand/html5",
+                variantSize: "2xl"
+              },
+              classes: {
+                color: "text-secondary-500"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
-
   {% endcache %}
 {% endblock %}
-
-

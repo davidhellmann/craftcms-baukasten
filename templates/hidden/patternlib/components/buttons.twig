@@ -2,288 +2,422 @@
 
 {% block blockAppContent %}
   {% cache using key craft.app.request.pathInfo %}
-
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Primary buttons{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Primary buttons
+      {% endblock %}
       {% block content %}
         <div class="pl-compsInRowCentered">
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'primary',
-              variantSize: 'sm'
-            },
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "primary",
+                  variantSize: "sm"
+                }
+              },
+              withContext = false
+            )
+          }}
 
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'primary',
-              variantSize: 'md'
-            },
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "primary",
+                  variantSize: "md"
+                }
+              },
+              withContext = false
+            )
+          }}
 
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'primary',
-              variantSize: 'lg'
-            },
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "primary",
+                  variantSize: "lg"
+                }
+              },
+              withContext = false
+            )
+          }}
         </div>
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Secondary buttons{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Secondary buttons
+      {% endblock %}
       {% block content %}
         <div class="pl-compsInRowCentered">
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'secondary',
-              variantSize: 'sm'
-            },
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "secondary",
+                  variantSize: "sm"
+                }
+              },
+              withContext = false
+            )
+          }}
 
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'secondary',
-              variantSize: 'md'
-            },
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "secondary",
+                  variantSize: "md"
+                }
+              },
+              withContext = false
+            )
+          }}
 
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'secondary',
-              variantSize: 'lg'
-            },
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "secondary",
+                  variantSize: "lg"
+                }
+              },
+              withContext = false
+            )
+          }}
         </div>
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Outlined buttons{% endblock %}
-      {% block content %}
-        <div class="pl-compsInRowCentered">
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'outlined',
-              variantSize: 'sm'
-            },
-          }, withContext = false) }}
-
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'outlined',
-              variantSize: 'md'
-            },
-          }, withContext = false) }}
-
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'outlined',
-              variantSize: 'lg'
-            },
-          }, withContext = false) }}
-        </div>
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Outlined buttons
       {% endblock %}
-    {% endembed %}
-
-
-    {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Button with leading icon{% endblock %}
       {% block content %}
         <div class="pl-compsInRowCentered">
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'primary',
-              variantSize: 'sm',
-              icon: 'icons/sharp/mail',
-              iconSize: 'sm',
-            },
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "outlined",
+                  variantSize: "sm"
+                }
+              },
+              withContext = false
+            )
+          }}
 
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'primary',
-              variantSize: 'md',
-              icon: 'icons/sharp/mail',
-              iconSize: 'md',
-            },
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "outlined",
+                  variantSize: "md"
+                }
+              },
+              withContext = false
+            )
+          }}
 
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'primary',
-              variantSize: 'lg',
-              icon: 'icons/sharp/mail',
-              iconSize: 'md',
-            },
-          }, withContext = false) }}
-        </div>
-      {% endblock %}
-    {% endembed %}
-
-
-    {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Button with trailing icons{% endblock %}
-      {% block content %}
-        <div class="pl-compsInRowCentered">
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'primary',
-              variantSize: 'sm',
-              icon: 'icons/sharp/mail',
-              iconSize: 'sm',
-              reverse: true,
-            },
-          }, withContext = false) }}
-
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'primary',
-              variantSize: 'md',
-              icon: 'icons/sharp/mail',
-              iconSize: 'md',
-              reverse: true,
-            },
-          }, withContext = false) }}
-
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'primary',
-              variantSize: 'lg',
-              icon: 'icons/sharp/mail',
-              iconSize: 'md',
-              reverse: true,
-            },
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "outlined",
+                  variantSize: "lg"
+                }
+              },
+              withContext = false
+            )
+          }}
         </div>
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Round buttons{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Button with leading icon
+      {% endblock %}
       {% block content %}
         <div class="pl-compsInRowCentered">
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'primary',
-              variantSize: 'sm',
-            },
-            classes: {
-              rounded: 'rounded-full'
-            }
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "primary",
+                  variantSize: "sm",
+                  icon: "icons/sharp/mail",
+                  iconSize: "sm"
+                }
+              },
+              withContext = false
+            )
+          }}
 
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'primary',
-              variantSize: 'md',
-            },
-            classes: {
-              rounded: 'rounded-full'
-            }
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "primary",
+                  variantSize: "md",
+                  icon: "icons/sharp/mail",
+                  iconSize: "md"
+                }
+              },
+              withContext = false
+            )
+          }}
 
-          {{ include('_components/button/button.twig', {
-            data: {
-              url: '/hidden/patternlib',
-              text: 'Button text',
-              variant: 'primary',
-              variantSize: 'lg',
-            },
-            classes: {
-              rounded: 'rounded-full'
-            }
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "primary",
+                  variantSize: "lg",
+                  icon: "icons/sharp/mail",
+                  iconSize: "md"
+                }
+              },
+              withContext = false
+            )
+          }}
         </div>
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Round buttons{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Button with trailing icons
+      {% endblock %}
       {% block content %}
         <div class="pl-compsInRowCentered">
-          {{ include('_components/button/button.twig', {
-            data: {
-              variant: 'primary',
-              variantSize: 'smIcon',
-              icon: 'icons/sharp/add',
-              iconSize: 'sm',
-            },
-            classes: {
-              rounded: 'rounded-full'
-            }
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "primary",
+                  variantSize: "sm",
+                  icon: "icons/sharp/mail",
+                  iconSize: "sm",
+                  reverse: true
+                }
+              },
+              withContext = false
+            )
+          }}
 
-          {{ include('_components/button/button.twig', {
-            data: {
-              variant: 'primary',
-              variantSize: 'mdIcon',
-              icon: 'icons/sharp/add',
-              iconSize: 'md',
-            },
-            classes: {
-              rounded: 'rounded-full'
-            }
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "primary",
+                  variantSize: "md",
+                  icon: "icons/sharp/mail",
+                  iconSize: "md",
+                  reverse: true
+                }
+              },
+              withContext = false
+            )
+          }}
 
-          {{ include('_components/button/button.twig', {
-            data: {
-              variant: 'primary',
-              variantSize: 'lgIcon',
-              icon: 'icons/sharp/add',
-              iconSize: 'lg',
-            },
-            classes: {
-              rounded: 'rounded-full'
-            }
-          }, withContext = false) }}
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "primary",
+                  variantSize: "lg",
+                  icon: "icons/sharp/mail",
+                  iconSize: "md",
+                  reverse: true
+                }
+              },
+              withContext = false
+            )
+          }}
         </div>
       {% endblock %}
     {% endembed %}
 
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Round buttons
+      {% endblock %}
+      {% block content %}
+        <div class="pl-compsInRowCentered">
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "primary",
+                  variantSize: "sm"
+                },
+                classes: {
+                  rounded: "rounded-full"
+                }
+              },
+              withContext = false
+            )
+          }}
+
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "primary",
+                  variantSize: "md"
+                },
+                classes: {
+                  rounded: "rounded-full"
+                }
+              },
+              withContext = false
+            )
+          }}
+
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  url: "/hidden/patternlib",
+                  text: "Button text",
+                  variantStyle: "primary",
+                  variantSize: "lg"
+                },
+                classes: {
+                  rounded: "rounded-full"
+                }
+              },
+              withContext = false
+            )
+          }}
+        </div>
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Round buttons
+      {% endblock %}
+      {% block content %}
+        <div class="pl-compsInRowCentered">
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  variantStyle: "primary",
+                  variantSize: "smIcon",
+                  icon: "icons/sharp/add",
+                  iconSize: "sm"
+                },
+                classes: {
+                  rounded: "rounded-full"
+                }
+              },
+              withContext = false
+            )
+          }}
+
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  variantStyle: "primary",
+                  variantSize: "mdIcon",
+                  icon: "icons/sharp/add",
+                  iconSize: "md"
+                },
+                classes: {
+                  rounded: "rounded-full"
+                }
+              },
+              withContext = false
+            )
+          }}
+
+          {{
+            include(
+              "_components/button/button.twig",
+              {
+                data: {
+                  variantStyle: "primary",
+                  variantSize: "lgIcon",
+                  icon: "icons/sharp/add",
+                  iconSize: "lg"
+                },
+                classes: {
+                  rounded: "rounded-full"
+                }
+              },
+              withContext = false
+            )
+          }}
+        </div>
+      {% endblock %}
+    {% endembed %}
   {% endcache %}
 {% endblock %}
-
-

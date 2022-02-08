@@ -1,21 +1,22 @@
 {# >>> Comp Defaults #}
 {% set compDefaults = {
   data: {
-    name: 'c-swiperHolder',
+    name: "c-swiperHolder",
     slides: null,
+    variantRatio: "landscape",
     swiperConfig: {
       init: false,
       freeMode: {
-        sticky: true,
+        sticky: true
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
       },
       scrollbar: {
-        el: '.swiper-scrollbar',
+        el: ".swiper-scrollbar",
         draggable: true,
-        hide: true,
+        hide: true
       },
       spaceBetween: 16,
       breakpoints: {
@@ -27,51 +28,63 @@
       simulateTouch: true,
       watchSlidesProgress: true,
       watchSlidesVisibility: true,
-      slidesPerView: 'auto'
+      slidesPerView: "auto"
     }
   },
   classes: {
-    root: '',
-    custom: '',
+    root: "",
+    custom: ""
   },
   variants: {}
 } %}
 
 {# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-  variants: variants is defined and variants is iterable ? compDefaults.variants | merge(variants) : compDefaults.variants,
+  data: data is defined and data is iterable ? compDefaults.data|merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes|merge(classes) : compDefaults.classes,
+  variants: variants is defined and variants is iterable ? compDefaults.variants|merge(variants) : compDefaults.variants
 } %}
-
 
 {# Component #}
 <div class="swiper {{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }} js-swiperHolder"
-     data-swiper-config="{{ props.data.swiperConfig | json_encode }}"
- >
+  data-swiper-config="{{ props.data.swiperConfig|json_encode }}">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
-    {% block swiperSlides %}{% endblock %}
+    {% block swiperSlides %}
+
+    {% endblock %}
   </div>
 
   {% if props.data.swiperConfig.navigation %}
     <div class="swiper-button-prev">
       {# >>> Render icon #}
-      {{ include('_components/icon/icon.twig', {
-        data: {
-          icon: 'swiper-left',
-          variant: 'md',
-        }
-      }, withContext = false) }}
+      {{
+        include(
+          "_components/icon/icon.twig",
+          {
+            data: {
+              icon: "swiper-left",
+              variantSize: "md"
+            }
+          },
+          withContext = false
+        )
+      }}
     </div>
     <div class="swiper-button-next">
       {# >>> Render icon #}
-      {{ include('_components/icon/icon.twig', {
-        data: {
-          icon: 'swiper-right',
-          variant: 'md',
-        }
-      }, withContext = false) }}
+      {{
+        include(
+          "_components/icon/icon.twig",
+          {
+            data: {
+              icon: "swiper-right",
+              variantSize: "md"
+            }
+          },
+          withContext = false
+        )
+      }}
     </div>
   {% endif %}
 
@@ -79,4 +92,3 @@
     <div class="swiper-scrollbar"></div>
   {% endif %}
 </div>
-

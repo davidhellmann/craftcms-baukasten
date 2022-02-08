@@ -2,44 +2,64 @@
 
 {% block blockAppContent %}
   {% cache using key craft.app.request.pathInfo %}
-
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Small{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Small
+      {% endblock %}
       {% block content %}
-        {{ include('_components/logo/logo.twig', {
-          data: {
-            variant: 'sm',
-          }
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/logo/logo.twig",
+            {
+              data: {
+                variantSize: "sm"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Medium{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Medium
+      {% endblock %}
       {% block content %}
-        {{ include('_components/logo/logo.twig', {
-          data: {
-            variant: 'md',
-          }
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/logo/logo.twig",
+            {
+              data: {
+                variantSize: "md"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Large{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Large
+      {% endblock %}
       {% block content %}
-        {{ include('_components/logo/logo.twig', {
-          data: {
-            variant: 'lg',
-          }
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/logo/logo.twig",
+            {
+              data: {
+                variantSize: "lg"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
-
   {% endcache %}
 {% endblock %}
-
-

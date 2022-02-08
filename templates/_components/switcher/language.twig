@@ -2,7 +2,7 @@
 {% set compDefaults = {
   data: {
     name: 'c-switcherLanguage',
-    openPosition: 'bottom'
+    variantPosition: 'bottom'
   },
   classes: {
     root: 'relative text-sm',
@@ -12,13 +12,15 @@
     link: 'px-4 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600'
   },
   variants: {
-    top: {
-      icon: 'chevron-up-circle',
-      menu: 'bottom-10',
-    },
-    bottom: {
-      icon: 'chevron-down-circle',
-      menu: 'top-10',
+    position: {
+      top: {
+        icon: 'chevron-up-circle',
+        menu: 'bottom-10',
+      },
+      bottom: {
+        icon: 'chevron-down-circle',
+        menu: 'top-10',
+      }
     }
   }
 } %}
@@ -75,8 +77,8 @@
         <span x-text="label"></span>
         {{ include('_components/icon/icon.twig', {
           data: {
-            icon: 'icons/filled/' ~ props.variants[props.data.openPosition].icon,
-            variant: 'sm',
+            icon: 'icons/filled/' ~ props.variants.position[props.data.variantPosition].icon,
+            variantSize: 'sm',
           },
           classes: {
             custom: 'ml-2'
@@ -85,7 +87,7 @@
       </button>
 
       <div x-cloak x-show="selectOpen" :aria-expanded="selectOpen"
-      class="{{ props.classes.menu }} {{ props.variants[props.data.openPosition].menu }}">
+      class="{{ props.classes.menu }} {{ props.variants.position[props.data.variantPosition].menu }}">
         {% for switcherLink in switcherLinks | filter (x => not x.current) %}
           <a class="{{ props.classes.link }}" href="{{ switcherLink.url }}"
              hreflang="{{ switcherLink.title }}" lang="{{ switcherLink.language }}" @click="label = '{{ switcherLink.countryCode }}'">

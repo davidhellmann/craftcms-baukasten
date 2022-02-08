@@ -3,7 +3,7 @@
   data: {
     name: 'c-headline',
     text: null,
-    variant: 'h2',
+    variantSize: 'h2',
     tag: 'h2',
   },
   classes: {
@@ -11,13 +11,15 @@
     custom: '',
   },
   variants: {
-    mega: 'text-9xl',
-    h1: 'text-4xl',
-    h2: 'text-3xl',
-    h3: 'text-2xl',
-    h4: 'text-xl',
-    h5: 'text-lg',
-    h6: 'text-base',
+    size: {
+      mega: 'text-9xl',
+      h1: 'text-4xl',
+      h2: 'text-3xl',
+      h3: 'text-2xl',
+      h4: 'text-xl',
+      h5: 'text-lg',
+      h6: 'text-base',
+    }
   }
 } %}
 
@@ -29,7 +31,7 @@
 } %}
 
 {% if props.data.text %}
-  <{{ props.data.tag }} class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants[props.data.variant] }}  {{ props.classes.custom }}">
+  <{{ props.data.tag }} class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants.size[props.data.variantSize] }}  {{ props.classes.custom }}">
   {{ props.data.text | nl2br | raw }}
   </{{ props.data.tag }}>
 {% endif %}

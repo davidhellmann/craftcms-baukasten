@@ -21,7 +21,7 @@
     {{ include('_components/grid/images.twig', {
       data: {
         images: props.data.block.images ??? null,
-        variant: props.data.block.imageColumns.value ??? 2,
+        variantColumns: props.data.block.imageColumns.value ??? 2,
         caption: props.data.block.showImageCaption ??? null,
         transform: props.data.block.imageTransform.value ??? 'landscape',
       }

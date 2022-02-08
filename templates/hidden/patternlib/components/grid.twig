@@ -12,7 +12,7 @@
         {{ include('_components/grid/images.twig', {
           data: {
             images: images.limit(2).all() ??? null,
-            variant: 2
+            variantColumns: 2
           }
         }, withContext = false) }}
       {% endblock %}
@@ -25,7 +25,7 @@
           data: {
             images: images.limit(3).all() ??? null,
             transform: 'portrait',
-            variant: 3
+            variantColumns: 3
           }
         }, withContext = false) }}
       {% endblock %}

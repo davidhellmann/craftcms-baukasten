@@ -5,15 +5,17 @@
     images: null,
     caption: null,
     transform: 'landscape',
-    variant: 2,
+    variantColumns: 2,
   },
   classes: {
     root: 'grid grid-cols-1 gap-4 md:gap-8',
     custom: '',
   },
   variants: {
-    2: 'md:grid-cols-2',
-    3: 'md:grid-cols-3'
+    columns: {
+      2: 'md:grid-cols-2',
+      3: 'md:grid-cols-3'
+    }
   }
 } %}
 
@@ -27,7 +29,7 @@
 
 {# Modul #}
 {% if props.data.images ??? null %}
-  <div class="{{ props.data.name }}  {{ props.classes.root }}  {{ props.variants[props.data.variant] }} {{ props.classes.custom }}">
+  <div class="{{ props.data.name }}  {{ props.classes.root }}  {{ props.variants.columns[props.data.variantColumns] }} {{ props.classes.custom }}">
     {% for image in props.data.images %}
       {{ include('_components/image/image.twig', {
         data: {

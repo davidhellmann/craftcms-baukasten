@@ -1,33 +1,35 @@
 {# >>> Comp Defaults #}
 {% set compDefaults = {
   data: {
-    name: 'c-logo',
-    svgName: 'logo',
-    variant: 'md',
+    name: "c-logo",
+    svgName: "logo",
+    variantSize: "md"
   },
   classes: {
-    root: '',
-    custom: ''
+    root: "",
+    custom: ""
   },
   variants: {
-    sm: 'w-8 h-8',
-    md: 'w-16 h-16',
-    lg: 'w-24 h-24',
+    size: {
+      sm: "w-8 h-8",
+      md: "w-16 h-16",
+      lg: "w-24 h-24"
+    }
   }
 } %}
 
 {# >>> Merge data / classes / variants (optional) #}
 {% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-  variants: compDefaults.variants,
+  data: data is defined and data is iterable ? compDefaults.data|merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes|merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants
 } %}
 
 {% if props.data.svgName %}
-  {{ svg('@webroot/dist/images/svg/' ~ props.data.svgName ~ '.svg')
-  | attr({
-    class: props.data.name ~ ' ' ~ props.classes.root ~ ' ' ~ props.variants[props.data.variant] ~ ' ' ~ props.classes.custom
-  }) }}
+  {{
+    svg("@webroot/dist/images/svg/" ~ props.data.svgName ~ ".svg")|attr({
+      class: props.data.name ~ " " ~ props.classes.root ~ " " ~ props.variants.size[props.data.variantSize] ~ " "
+        ~ props.classes.custom
+    })
+  }}
 {% endif %}
-
-

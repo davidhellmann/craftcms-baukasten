@@ -10,7 +10,7 @@
       {% block content %}
         {{ include('_components/card/entry.twig', {
           data: {
-            variant: 'col',
+            variantDirection: 'col',
             image: cat01Image ??? null,
             transform: 'landscape',
             title: 'The quick brown fox jumps',
@@ -28,7 +28,7 @@
       {% block content %}
         {{ include('_components/card/entry.twig', {
           data: {
-            variant: 'row',
+            variantDirection: 'row',
             image: cat01Image ??? null,
             transform: 'landscape',
             title: 'The quick brown fox jumps',

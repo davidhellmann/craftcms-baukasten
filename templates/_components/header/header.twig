@@ -26,7 +26,7 @@
     <a href="{{ props.data.url }}" class="{{ props.classes.homeLink }}">
       {{ include('_components/logo/logo.twig', {
         data: {
-          variant: props.data.logoSize ??? 'md'
+          variantSize: props.data.logoSize ??? 'md'
         },
       }, withContext = false) }}
       <h1 class="{{ props.classes.h1 }}">{{ props.data.name }}</h1>

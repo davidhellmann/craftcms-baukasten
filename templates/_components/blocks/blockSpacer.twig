@@ -19,7 +19,7 @@
 {% if props.data.block ??? null %}
   {{ include('_components/spacer/spacer.twig', {
     data: {
-      variant: props.data.block.spacerVariant.value ??? 'sm',
+      variantSize: props.data.block.spacerVariant.value ??? 'sm',
     },
   }, withContext = false) }}
 {% endif %}

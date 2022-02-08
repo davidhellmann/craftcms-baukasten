@@ -19,7 +19,7 @@
 {% if props.data.block ??? null %}
   {{ include('_components/divider/divider.twig', {
     data: {
-      variant: props.data.block.dividerVariant.value ??? 'sm'
+      variantSize: props.data.block.dividerVariant.value ??? 'sm'
     },
     classes: {
       custom: props.classes.root ~ ' ' ~ props.classes.custom

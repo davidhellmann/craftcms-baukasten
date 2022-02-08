@@ -2,113 +2,165 @@
 
 {% block blockAppContent %}
   {% cache using key craft.app.request.pathInfo %}
-
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Headline Mega{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Headline Mega
+      {% endblock %}
       {% block content %}
-        {{ include('_components/text/headline.twig', {
-          data: {
-            text: 'The quick brown fox jumps over the lazy dogs
-              Lorem Ipsum dolor sit',
-            variant: 'mega',
-            tag: 'h1',
-          },
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/text/headline.twig",
+            {
+              data: {
+                text: "The quick brown fox jumps over the lazy dogs
+              Lorem Ipsum dolor sit",
+                variantSize: "mega",
+                tag: "h1"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Headline H1{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Headline H1
+      {% endblock %}
       {% block content %}
-        {{ include('_components/text/headline.twig', {
-          data: {
-            text: 'The quick brown fox jumps over the lazy dogs
-              Lorem Ipsum dolor sit',
-            variant: 'h1',
-            tag: 'h1',
-          },
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/text/headline.twig",
+            {
+              data: {
+                text: "The quick brown fox jumps over the lazy dogs
+              Lorem Ipsum dolor sit",
+                variantSize: "h1",
+                tag: "h1"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Headline H2{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Headline H2
+      {% endblock %}
       {% block content %}
-        {{ include('_components/text/headline.twig', {
-          data: {
-            text: 'The quick brown fox jumps over the lazy dogs
-              Lorem Ipsum dolor sit',
-            variant: 'h2',
-            tag: 'h2',
-          },
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/text/headline.twig",
+            {
+              data: {
+                text: "The quick brown fox jumps over the lazy dogs
+              Lorem Ipsum dolor sit",
+                variantSize: "h2",
+                tag: "h2"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Headline H3{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Headline H3
+      {% endblock %}
       {% block content %}
-        {{ include('_components/text/headline.twig', {
-          data: {
-            text: 'The quick brown fox jumps over the lazy dogs
-              Lorem Ipsum dolor sit',
-            variant: 'h3',
-            tag: 'h3',
-          },
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/text/headline.twig",
+            {
+              data: {
+                text: "The quick brown fox jumps over the lazy dogs
+              Lorem Ipsum dolor sit",
+                variantSize: "h3",
+                tag: "h3"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Headline H4{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Headline H4
+      {% endblock %}
       {% block content %}
-        {{ include('_components/text/headline.twig', {
-          data: {
-            text: 'The quick brown fox jumps over the lazy dogs
-              Lorem Ipsum dolor sit',
-            variant: 'h4',
-            tag: 'h4',
-          },
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/text/headline.twig",
+            {
+              data: {
+                text: "The quick brown fox jumps over the lazy dogs
+              Lorem Ipsum dolor sit",
+                variantSize: "h4",
+                tag: "h4"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Headline H5{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Headline H5
+      {% endblock %}
       {% block content %}
-        {{ include('_components/text/headline.twig', {
-          data: {
-            text: 'The quick brown fox jumps over the lazy dogs
-              Lorem Ipsum dolor sit',
-            variant: 'h5',
-            tag: 'h5',
-          },
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/text/headline.twig",
+            {
+              data: {
+                text: "The quick brown fox jumps over the lazy dogs
+              Lorem Ipsum dolor sit",
+                variantSize: "h5",
+                tag: "h5"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
 
     {# >>> Render variant #}
-    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Headline H6{% endblock %}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Headline H6
+      {% endblock %}
       {% block content %}
-        {{ include('_components/text/headline.twig', {
-          data: {
-            text: 'The quick brown fox jumps over the lazy dogs
-              Lorem Ipsum dolor sit',
-            variant: 'h6',
-            tag: 'h6',
-          },
-        }, withContext = false) }}
+        {{
+          include(
+            "_components/text/headline.twig",
+            {
+              data: {
+                text: "The quick brown fox jumps over the lazy dogs
+              Lorem Ipsum dolor sit",
+                variantSize: "h6",
+                tag: "h6"
+              }
+            },
+            withContext = false
+          )
+        }}
       {% endblock %}
     {% endembed %}
-
   {% endcache %}
 {% endblock %}
-
-

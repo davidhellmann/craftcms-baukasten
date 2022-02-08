@@ -2,7 +2,7 @@
 {% set compDefaults = {
   data: {
     name: 'c-tabs',
-    position: 'top',
+    variantPosition: 'top',
     activeTab: 1,
     numberOfTabs: null,
   },
@@ -11,24 +11,26 @@
     custom: '',
   },
   variants: {
-    top: {
-      nav: 'col-span-6',
-      ul: 'flex flex-col sm:inline-flex sm:flex-row p-0.5 rounded-t-md bg-gray-100',
-      li: 'col-span-1 sm:col-auto',
-      button: 'text-xs font-bold px-4 py-2 w-full text-left sm:w-auto rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 transition-all',
-      buttonActive: 'bg-white  shadow-sm',
-      contentHolder: 'col-span-6 p-4 bg-gray-100',
-      content: '',
-    },
-    left: {
-      nav: 'col-span-6 sm:col-span-2 xl:col-span-1',
-      ul: 'flex flex-col p-0.5 rounded-t-md sm:rounded-r-none sm:rounded-l-md bg-gray-100',
-      li: '',
-      button: 'text-xs font-bold px-4 py-2 w-full text-left rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 transition-all',
-      buttonActive: 'bg-white shadow-sm',
-      contentHolder: 'col-span-6 sm:col-span-4 xl:col-span-5 p-4 bg-gray-100',
-      content: '',
-    },
+    position: {
+      top: {
+        nav: 'col-span-6',
+        ul: 'flex flex-col sm:inline-flex sm:flex-row p-0.5 rounded-t-md bg-gray-100',
+        li: 'col-span-1 sm:col-auto',
+        button: 'text-xs font-bold px-4 py-2 w-full text-left sm:w-auto rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 transition-all',
+        buttonActive: 'bg-white  shadow-sm',
+        contentHolder: 'col-span-6 p-4 bg-gray-100',
+        content: '',
+      },
+      left: {
+        nav: 'col-span-6 sm:col-span-2 xl:col-span-1',
+        ul: 'flex flex-col p-0.5 rounded-t-md sm:rounded-r-none sm:rounded-l-md bg-gray-100',
+        li: '',
+        button: 'text-xs font-bold px-4 py-2 w-full text-left rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 transition-all',
+        buttonActive: 'bg-white shadow-sm',
+        contentHolder: 'col-span-6 sm:col-span-4 xl:col-span-5 p-4 bg-gray-100',
+        content: '',
+      },
+    }
   }
 } %}
 
@@ -47,14 +49,14 @@
       }"
      class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
 
-  <nav class="{{ props.variants[props.data.position].nav }}">
-    <ul class="{{ props.variants[props.data.position].ul }}">
+  <nav class="{{ props.variants.position[props.data.positionPosition].nav }}">
+    <ul class="{{ props.variants.position[props.data.positionPosition].ul }}">
       {% for i in 1..props.data.numberOfTabs %}
         {% if block('tab' ~ i) is defined %}
-          <li class="{{ props.variants[props.data.position].li }}">
+          <li class="{{ props.variants.position[props.data.positionPosition].li }}">
             <button @click="activeTab = {{ i }};"
-                    :class="[activeTab === {{ i }} ? '{{ props.variants[props.data.position].buttonActive }}' : '']"
-            class="{{ props.variants[props.data.position].button }}">
+                    :class="[activeTab === {{ i }} ? '{{ props.variants.position[props.data.positionPosition].buttonActive }}' : '']"
+            class="{{ props.variants.position[props.data.positionPosition].button }}">
               {{ block('tab' ~ i) }}
             </button>
           </li>
@@ -63,10 +65,10 @@
     </ul>
   </nav>
 
-  <div class="{{ props.variants[props.data.position].contentHolder }}">
+  <div class="{{ props.variants.position[props.data.positionPosition].contentHolder }}">
     {% for i in 1..props.data.numberOfTabs %}
       {% if block('content' ~ i) is defined %}
-        <div :class="[activeTab === {{ i }} ? 'block is-active' : 'hidden']" class="{{ props.variants[props.data.position].content }}">
+        <div :class="[activeTab === {{ i }} ? 'block is-active' : 'hidden']" class="{{ props.variants.position[props.data.positioPositionn].content }}">
           {{ block('content' ~ i) }}
         </div>
       {% endif %}
