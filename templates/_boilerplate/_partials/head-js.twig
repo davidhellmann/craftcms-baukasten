@@ -1,9 +1,10 @@
 {# -- Polyfills detected by User-Agent as per: https://polyfill.io/v2/docs/examples#feature-detection -- #}
 <script src="https://cdn.polyfill.io/v3/polyfill.min.js?callback=polyfillsAreLoaded&flags=gated" defer async></script>
 
-{{ include('_boilerplate/_partials/js/js-sprig.twig', {}, withContext = true) }}
-{{ include('_boilerplate/_partials/js/js-tailwind-darkmode.twig', {}, withContext = true) }}
-{{ include('_boilerplate/_partials/js/js-tab-handler.twig', {}, withContext = true) }}
-{{ include('_boilerplate/_partials/js/js-tiny-cookie.twig', {}, withContext = true) }}
-{{ include('_boilerplate/_partials/js/js-enabled-check.twig', {}, withContext = true) }}
-{{ include('_boilerplate/_partials/js/js-touch-device-check.twig', {}, withContext = true) }}
+{{ include("_boilerplate/_partials/js/js-global-vars.twig", {}, withContext = true) }}
+{{ include("_boilerplate/_partials/js/js-sprig.twig", {}, withContext = true) }}
+{{ include("_boilerplate/_partials/js/js-tailwind-darkmode.twig", {}, withContext = true) }}
+{{ include("_boilerplate/_partials/js/js-tab-handler.twig", {}, withContext = true) }}
+{{ include("_boilerplate/_partials/js/js-tiny-cookie.twig", {}, withContext = true) }}
+{{ include("_boilerplate/_partials/js/js-enabled-check.twig", {}, withContext = true) }}
+{{ include("_boilerplate/_partials/js/js-touch-device-check.twig", {}, withContext = true) }}
