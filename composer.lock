@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1dcce3098ca9975ff8f5c8ef7bcc29a",
+    "content-hash": "71eabc09f18f7f823d77ec193883f28c",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -442,11 +442,6 @@
         {
             "name": "composer/semver",
             "version": "3.2.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/composer/semver.git",
-                "reference": "a951f614bd64dcd26137bc9b7b2637ddcfc57649"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/composer/semver/zipball/a951f614bd64dcd26137bc9b7b2637ddcfc57649",
@@ -455,10 +450,6 @@
             },
             "require": {
                 "php": "^5.3.2 || ^7.0 || ^8.0"
-            },
-            "require-dev": {
-                "phpstan/phpstan": "^1.4",
-                "symfony/phpunit-bridge": "^4.2 || ^5"
             },
             "type": "library",
             "extra": {
@@ -471,7 +462,6 @@
                     "Composer\\Semver\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -498,25 +488,6 @@
                 "semver",
                 "validation",
                 "versioning"
-            ],
-            "support": {
-                "irc": "irc://irc.freenode.org/composer",
-                "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.2.9"
-            },
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2022-02-04T13:58:43+00:00"
         },
@@ -679,11 +650,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.7.30.1",
+            "version": "3.7.31",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/5c17ca766e18c2b4722b24b9d3216fcf8808f858",
-                "reference": "5c17ca766e18c2b4722b24b9d3216fcf8808f858",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/81856f0d33c233ff58d07ef9bac5dcb5db5f058c",
+                "reference": "81856f0d33c233ff58d07ef9bac5dcb5db5f058c",
                 "shasum": ""
             },
             "require": {
@@ -715,7 +686,6 @@
                 "twig/twig": "~2.14.3",
                 "voku/stringy": "^6.4.0",
                 "webonyx/graphql-php": "~14.4.1",
-                "yii2tech/ar-softdelete": "^1.0.4",
                 "yiisoft/yii2": "~2.0.44.0",
                 "yiisoft/yii2-debug": "^2.1.16",
                 "yiisoft/yii2-queue": "~2.3.2",
@@ -728,7 +698,8 @@
                 "bower-asset/inputmask": "~3.2.2 | ~3.3.5",
                 "bower-asset/jquery": "3.5.*@stable | 3.4.*@stable | 3.3.*@stable | 3.2.*@stable | 3.1.*@stable | 2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
                 "bower-asset/punycode": "1.3.*",
-                "bower-asset/yii2-pjax": "~2.0.1"
+                "bower-asset/yii2-pjax": "~2.0.1",
+                "yii2tech/ar-softdelete": "1.0.4"
             },
             "suggest": {
                 "ext-iconv": "Adds support for more character encodings than PHP’s built-in mb_convert_encoding() function, which Craft will take advantage of when converting strings to UTF-8.",
@@ -739,7 +710,8 @@
             "autoload": {
                 "psr-4": {
                     "craft\\": "src/",
-                    "crafttests\\fixtures\\": "tests/fixtures/"
+                    "crafttests\\fixtures\\": "tests/fixtures/",
+                    "yii2tech\\ar\\softdelete\\": "lib/ar-softdelete/src/"
                 }
             },
             "license": [
@@ -766,7 +738,7 @@
                 "docs": "https://craftcms.com/docs/3.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2022-01-21T22:33:24+00:00"
+            "time": "2022-02-08T20:13:00+00:00"
         },
         {
             "name": "craftcms/oauth2-craftid",
@@ -846,11 +818,11 @@
         },
         {
             "name": "craftcms/redactor",
-            "version": "2.9.0",
+            "version": "2.9.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/redactor/zipball/1fdc24225b4b7a9e8afa2052abda0d101c81b41c",
-                "reference": "1fdc24225b4b7a9e8afa2052abda0d101c81b41c",
+                "url": "https://api.github.com/repos/craftcms/redactor/zipball/2f3d9dbe86e13203ccd66ff25ceeca1708dd243a",
+                "reference": "2f3d9dbe86e13203ccd66ff25ceeca1708dd243a",
                 "shasum": ""
             },
             "require": {
@@ -891,7 +863,7 @@
                 "docs": "https://github.com/craftcms/redactor/blob/v2/README.md",
                 "rss": "https://github.com/craftcms/redactor/commits/v2.atom"
             },
-            "time": "2022-01-31T15:50:45+00:00"
+            "time": "2022-02-07T10:51:12+00:00"
         },
         {
             "name": "craftcms/server-check",
@@ -7156,11 +7128,11 @@
         },
         {
             "name": "trendyminds/craft-palette",
-            "version": "1.0.0",
+            "version": "1.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trendyminds/craft-palette/zipball/e850981c93f25227fab5bbfdba4cceb3fbdf3b50",
-                "reference": "e850981c93f25227fab5bbfdba4cceb3fbdf3b50",
+                "url": "https://api.github.com/repos/trendyminds/craft-palette/zipball/ec6eb7ffccac8e3152b480bbc2f078909c51f65f",
+                "reference": "ec6eb7ffccac8e3152b480bbc2f078909c51f65f",
                 "shasum": ""
             },
             "require": {
@@ -7202,7 +7174,7 @@
                 "source": "https://github.com/trendyminds/craft-palette",
                 "docs": "https://github.com/trendyminds/craft-palette/blob/master/README.md"
             },
-            "time": "2022-02-04T03:20:57+00:00"
+            "time": "2022-02-09T02:14:38+00:00"
         },
         {
             "name": "true/punycode",
@@ -7300,11 +7272,6 @@
         {
             "name": "twig/twig",
             "version": "v2.14.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
-                "reference": "66baa66f29ee30e487e05f1679903e36eb01d727"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/twigphp/Twig/zipball/66baa66f29ee30e487e05f1679903e36eb01d727",
@@ -7316,10 +7283,6 @@
                 "symfony/polyfill-ctype": "^1.8",
                 "symfony/polyfill-mbstring": "^1.3",
                 "symfony/polyfill-php72": "^1.8"
-            },
-            "require-dev": {
-                "psr/container": "^1.0",
-                "symfony/phpunit-bridge": "^4.4.9|^5.0.9|^6.0"
             },
             "type": "library",
             "extra": {
@@ -7335,7 +7298,6 @@
                     "Twig\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -7360,20 +7322,6 @@
             "homepage": "https://twig.symfony.com",
             "keywords": [
                 "templating"
-            ],
-            "support": {
-                "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v2.14.11"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/twig/twig",
-                    "type": "tidelift"
-                }
             ],
             "time": "2022-02-04T06:57:25+00:00"
         },
@@ -8139,50 +8087,6 @@
                 "graphql"
             ],
             "time": "2021-01-23T09:55:10+00:00"
-        },
-        {
-            "name": "yii2tech/ar-softdelete",
-            "version": "1.0.4",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yii2tech/ar-softdelete/zipball/498ed03f89ded835f0ca156ec50d432191c58769",
-                "reference": "498ed03f89ded835f0ca156ec50d432191c58769",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "~2.0.13"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "yii2tech\\ar\\softdelete\\": "src"
-                }
-            },
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Paul Klimov",
-                    "email": "klimov.paul@gmail.com"
-                }
-            ],
-            "description": "Provides support for ActiveRecord soft delete in Yii2",
-            "keywords": [
-                "active",
-                "delete",
-                "integrity",
-                "record",
-                "smart",
-                "soft",
-                "yii2"
-            ],
-            "time": "2019-07-30T11:05:57+00:00"
         },
         {
             "name": "yiisoft/yii2",
