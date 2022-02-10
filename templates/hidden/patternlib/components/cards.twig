@@ -8,7 +8,7 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Card / Column{% endblock %}
       {% block content %}
-        {{ include('_components/card/entry.twig', {
+        {{ include('_components/card/cardNews.twig', {
           data: {
             variantDirection: 'col',
             image: cat01Image ??? null,
@@ -26,7 +26,7 @@
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Card / Row{% endblock %}
       {% block content %}
-        {{ include('_components/card/entry.twig', {
+        {{ include('_components/card/cardNews.twig', {
           data: {
             variantDirection: 'row',
             image: cat01Image ??? null,

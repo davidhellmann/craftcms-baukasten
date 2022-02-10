@@ -16,7 +16,7 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{% if props.data.block ??? null %}
+{% if props.data.block.dividerVariant ??? null %}
   {{ include('_components/divider/divider.twig', {
     data: {
       variantSize: props.data.block.dividerVariant.value ??? 'sm'

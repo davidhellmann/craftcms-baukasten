@@ -16,7 +16,7 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{% if props.data.block ??? null %}
+{% if props.data.block.spacerVariant ??? null %}
   {{ include('_components/spacer/spacer.twig', {
     data: {
       variantSize: props.data.block.spacerVariant.value ??? 'sm',

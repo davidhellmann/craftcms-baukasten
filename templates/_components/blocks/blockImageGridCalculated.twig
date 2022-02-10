@@ -16,7 +16,7 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{% if props.data.block ??? null %}
+{% if props.data.block.images ??? null %}
   <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
     {{ include('_components/grid/imagesCalculated.twig', {
       data: {
