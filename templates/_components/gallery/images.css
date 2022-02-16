@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "lg";
-  src: url("/dist/fonts/lg.woff") format("woff"), url("/dist/fonts/lg.woff2") format("woff2");
+  font-family: 'lg';
+  src: url('/dist/fonts/lg.woff') format('woff'), url('/dist/fonts/lg.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -8,7 +8,7 @@
 
 .lg-next,
 .lg-prev {
-  @apply text-gray bg-white;
+  @apply bg-white text-gray;
 }
 
 .lg-next:hover:not(.disabled),
@@ -25,7 +25,7 @@
 }
 
 .lg-sub-html {
-  @apply text-gray text-xs leading-tight;
+  @apply leading-tight text-gray text-xs;
 
   background-color: rgb(255 255 255 / 90%);
 }

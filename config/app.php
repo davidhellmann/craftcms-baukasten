@@ -42,21 +42,17 @@ return [
                 'class' => craft\queue\Queue::class,
                 'ttr' => 10 * 60,
             ],
-            'cache' => [
-                'class' => yii\redis\Cache::class,
-                'keyPrefix' => '_' . App::env('APP_ID') . '_CACHE_' ?: 'CraftCMS_CACHE_',
-                'defaultDuration' => 86400,
-                'redis' => [
-                    'hostname' => App::env('REDIS_HOSTNAME'),
-                    'port' => App::env('REDIS_PORT'),
-                    'database' => App::env('REDIS_CRAFT_DB'),
-                ],
-            ],
             'redis' => [
                 'class' => yii\redis\Connection::class,
                 'hostname' => App::env('REDIS_HOSTNAME'),
                 'port' => App::env('REDIS_PORT'),
                 'database' => App::env('REDIS_DEFAULT_DB'),
+            ],
+            'cache' => [
+                'class' => yii\redis\Cache::class,
+                'keyPrefix' => '_' . App::env('APP_ID') . '_CACHE_' ?: 'CraftCMS_CACHE_',
+                'defaultDuration' => 86400,
+                'redis' => 'redis',
             ],
         ],
     ],

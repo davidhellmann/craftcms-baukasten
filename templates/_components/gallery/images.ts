@@ -3,9 +3,9 @@ import lightGallery from 'lightgallery';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
 import { IComponent } from '../../../src/js/@types/IComponent';
-import 'lightGallery/css/lightgallery.css';
-import 'lightGallery/css/lg-zoom.css';
-import 'lightGallery/css/lg-thumbnail.css';
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-thumbnail.css';
 import './images.css';
 
 const imageGallery: IComponent = {
