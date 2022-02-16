@@ -18,7 +18,7 @@ export default defineConfig(({ command }) => ({
   build: {
     emptyOutDir: true,
     manifest: true,
-    outDir: './web/dist',
+    outDir: path.resolve('./web/dist'),
     rollupOptions: {
       input: {
         app: './src/js/app.ts',
