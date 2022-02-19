@@ -8,7 +8,8 @@
     title: null,
     text: null,
     linkUrl: null,
-    linkText: null
+    linkText: null,
+    lazy: true,
   },
   classes: {
     root: 'rounded-lg overflow-hidden border group',
@@ -50,6 +51,7 @@
           transform: props.data.transform ??? null,
           objectFit: 'cover',
           renderPlainImage: true,
+          lazy: props.data.lazy,
         }
       }, withContext = false) }}
     </div>

@@ -1,6 +1,5 @@
 {# Sets a default value if not defined by `s-val:*` on the clicked element #}
-{% set page = page ??? 1 %}
-{% set distributor = distributor ??? 0 %}
+{% set page = page ??? craft.app.request.pageNum ??? 1 %}
 
 {% cache using key craft.app.request.pathInfo ~ 'overviewNews-' ~ section ~ '-' ~ page %}
   {% minify %}
@@ -13,6 +12,7 @@
     {# Paginates the entry query given the current page #}
     {% set pageInfo = sprig.paginate(entryQuery, page) %}
     {% set entries = pageInfo.pageResults %}
+    {% do craft.blitz.options.paginate(pageInfo.totalPages) %}
 
     <div class="container">
       {{ include('_components/pageIntros/image.twig', {
@@ -21,10 +21,10 @@
         }
       }, withContext = false) }}
 
-      {{ include('_components/stacks/news.twig', {
+      {{ include('_components/stacks/stackNews.twig', {
         props: {
           items: entries ??? null,
-          overview: true,
+          noLazyImageLoadingCount: 6,
         }
       }, withContext = false) }}
 

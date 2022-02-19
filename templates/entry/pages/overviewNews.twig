@@ -2,9 +2,10 @@
 {% set templatePath = _self ??? '' %}
 
 {% block blockAppContent %}
-  {{ sprig('_components/_sprig/paginateNews', {
+  {{ sprig('_components-sprig/paginateNews', {
     'limit': 12,
     'section': 'news',
+    'entryUri': entry.uri ??? null,
     'headline': entry.entryCustomTitleOverwrite ??? entry.title ??? null,
   }) }}
 {% endblock %}
