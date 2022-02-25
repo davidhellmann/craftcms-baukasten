@@ -8,6 +8,7 @@
     iconSize: 'sm',
     text: null,
     url: null,
+    buttonType: 'button',
     reverse: false,
     target: null,
   },
@@ -40,7 +41,7 @@
 
 {% if props.data.text or props.data.icon %}
   {% set tag = props.data.url ? 'a' : 'button' %}
-  {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=button' %}
+  {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=' ~ props.data.buttonType %}
 
   <{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }}
   class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants.style[props.data.variantStyle] }}  {{ props.variants.size[props.data.variantSize] }} {{ props.classes.custom }}">

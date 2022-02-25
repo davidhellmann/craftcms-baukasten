@@ -6,6 +6,9 @@
 const fluidType = require('tailwindcss-fluid-type');
 const questionMark = require('tailwindcss-question-mark');
 const aspectRatio = require('@tailwindcss/aspect-ratio');
+const forms = require('@tailwindcss/forms')({
+  strategy: 'class',
+});
 const debugScreens = require('tailwindcss-debug-screens');
 
 // Settings
@@ -49,6 +52,7 @@ module.exports = {
     aspectRatio,
     questionMark,
     fluidType,
+    forms,
     ({ addComponents }) => {
       addComponents(pluginAddComponents);
     },
