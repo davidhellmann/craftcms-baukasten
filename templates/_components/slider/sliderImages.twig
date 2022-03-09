@@ -3,7 +3,8 @@
   data: {
     name: 'c-sliderImages',
     slides: null,
-    variantRatio: 'landscape'
+    variantRatio: 'landscape',
+    destroyBreakpoint: null
   },
   classes: {
     root: '',
@@ -34,6 +35,7 @@
     data: {
       slides: props.data.slides ??? null,
       variant: props.data.variantRatio,
+      destroyBreakpoint: props.data.destroyBreakpoint ??? null,
     },
     classes: {
       swiperSlide: 'swiper-slide',

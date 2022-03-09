@@ -1,6 +1,6 @@
 /* Smooth on load */
 .swiper {
-  @apply transition duration-500 opacity-0 overflow-visible;
+  @apply overflow-visible opacity-0 transition duration-500;
   @apply !pb-2;
 }
 
@@ -10,6 +10,20 @@
 
 .swiper-slide:not(:first-child) {
   @apply hidden;
+}
+
+/* Destroyed Swiper */
+.swiper-is-destroyed {
+  @apply opacity-100;
+
+  .swiper-wrapper {
+    @apply grid grid-cols-3 gap-6 gap-y-8;
+    transform: translate3d(0, 0, 0) !important;
+  }
+
+  .swiper-slide {
+    @apply !block;
+  }
 }
 
 .swiper.swiper-is-ready {
@@ -22,7 +36,7 @@
 
 /* Scrollbar 100% width */
 .swiper-scrollbar {
-  @apply w-full inset-x-0 bottom-0 !important;
+  @apply inset-x-0 bottom-0 w-full !important;
   @apply bg-gray-100 !important;
 }
 
@@ -33,7 +47,7 @@
 /* Custom prev / next */
 .swiper-button-prev,
 .swiper-button-next {
-  @apply !hidden !bg-white !w-12 !h-12 !rounded-full !bg-no-repeat !text-primary-500;
+  @apply !hidden !h-12 !w-12 !rounded-full !bg-white !bg-no-repeat !text-primary-500;
 }
 
 @screen md {

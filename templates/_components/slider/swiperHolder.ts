@@ -12,16 +12,53 @@ import './swiperHolder.css';
 const swiperHolder: IComponent = {
   name: 'swiperHolder',
   init(sliders: Array<HTMLElement>) {
-    sliders?.forEach((slider) => {
-      const sliderConfig = JSON.parse(<string>slider.dataset.swiperConfig) || {};
+    if (sliders) {
+      sliders.forEach((slider) => {
+        const sliderConfig = JSON.parse(<string>slider.dataset.swiperConfig) || {};
+        const destroyBreakpoint = slider.dataset.swiperDestroyBreakpoint || '';
 
-      const swiper = new Swiper(slider, {
-        modules: [Navigation, A11y, Scrollbar, FreeMode, Keyboard],
-        ...sliderConfig,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        let swiper = undefined;
+
+        const initSwiper = () => {
+          swiper = new Swiper(slider, {
+            modules: [Navigation, A11y, Scrollbar, FreeMode, Keyboard],
+            ...sliderConfig,
+          });
+
+          slider.classList.remove('swiper-is-destroyed');
+          slider.classList.add('swiper-is-ready');
+          swiper.init();
+        };
+
+        const checkDestroy = () => {
+          const breakpoint = window.matchMedia(`(${destroyBreakpoint})`);
+          if (breakpoint.matches) {
+            slider.classList.add('swiper-is-destroyed');
+            slider.classList.remove('swiper-is-ready');
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            if (swiper) {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              swiper.destroy(true, true);
+            }
+          } else {
+            initSwiper();
+          }
+        };
+
+        if (destroyBreakpoint.length > 0) {
+          checkDestroy();
+          window.addEventListener('resize', () => {
+            checkDestroy();
+          });
+        } else {
+          initSwiper();
+        }
       });
-      slider.classList.add('swiper-is-ready');
-      swiper.init();
-    });
+    }
   },
 };
 

@@ -4,6 +4,7 @@
     name: "c-swiperHolder",
     slides: null,
     variantRatio: "landscape",
+    destroyBreakpoint: null,
     swiperConfig: {
       init: false,
       freeMode: {
@@ -52,7 +53,8 @@
 
 {# Component #}
 <div class="swiper {{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }} js-swiperHolder"
-  data-swiper-config="{{ props.data.swiperConfig|json_encode }}">
+  data-swiper-config="{{ props.data.swiperConfig|json_encode }}"
+  data-swiper-destroy-breakpoint="{{ props.data.destroyBreakpoint }}">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     {% block swiperSlides %}
