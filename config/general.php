@@ -17,11 +17,6 @@ return [
         '@web' => App::env('SITE_URL'),
         '@webroot' => App::env('WEB_ROOT_PATH'),
     ],
-    'custom' => [
-        'craftEnv' => App::env('ENVIRONMENT') ?: 'local',
-        'localDevPerformance' => (bool)App::env('LOCAL_DEV_PERFORMANCE') ?: null,
-        'dominantColor' => '#e8e8e8',
-    ],
     'disabledPlugins' => App::env('ENVIRONMENT') === 'live'
         ? ['dumper', 'elements-panel', 'blitz-recommendations', 'cp-field-inspect']
         : [],
@@ -57,6 +52,5 @@ return [
     'omitScriptNameInUrls' => true,
     'useEmailAsUsername' => false,
     'usePathInfo' => true,
-    'useProjectConfigFile' => true,
     'preventUserEnumeration' => true,
 ];
