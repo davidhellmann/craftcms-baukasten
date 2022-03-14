@@ -54,6 +54,9 @@ return [
         // The max number of characters in the `<title>` tag
         'maxTitleLength' => 70,
 
+        // Should Title tags be truncated at the max length, on word boundaries?
+        'truncateTitleTags' => false,
+
         // The max number of characters in the `<meta name="description">` tag
         'maxDescriptionLength' => 155,
 
