@@ -6,7 +6,7 @@
     richText: true
   },
   classes: {
-    root: 'space-y-4 md:space-y-8',
+    root: 'block space-y-4 md:space-y-8',
     custom: '',
   }
 } %}
@@ -19,11 +19,13 @@
 
 {# Modul #}
 {% if props.data.text %}
-  <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
-    {% if props.data.richText %}
-      {{ props.data.text | raw }}
-    {% else %}
-      {{ props.data.text | nl2br | raw }}
-    {% endif %}
-  </div>
+  {% set tag = props.data.richText ? 'div' : 'p' %}
+
+  <{{ tag }} class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  {% if props.data.richText %}
+    {{ props.data.text | raw }}
+  {% else %}
+    {{ props.data.text | nl2br | raw }}
+  {% endif %}
+  </{{ tag }}>
 {% endif %}
