@@ -78,7 +78,10 @@ export default defineConfig(({ command }) => ({
   publicDir: './src/public',
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      vue: 'vue/dist/vue.esm-bundler.js',
+      '@': path.resolve('./src'),
+      '@templates': path.resolve('./templates'),
+      '@components': path.resolve('./templates/_components'),
     },
   },
   // Use this for Laravel Valet
