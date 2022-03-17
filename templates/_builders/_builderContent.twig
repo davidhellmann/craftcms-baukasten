@@ -24,7 +24,7 @@
       {% if loop.first and block.type.handle != 'blockSection' %}
 
         {# Create Section #}
-        {{ include('_components/blocks/blockSection.twig', {
+        {{ include('_builders/blocks/blockSection.twig', {
           block: block ??? null,
           closeCurrentSection: 0
         }, withContext = false) }}
