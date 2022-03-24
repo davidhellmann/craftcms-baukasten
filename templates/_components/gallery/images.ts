@@ -21,6 +21,7 @@ const imageGallery: IComponent = {
           download: false,
           thumbnail: true,
           dynamic: true,
+          licenseKey: '',
           dynamicEl: JSON.parse(dynamicData),
         });
 
