@@ -62,7 +62,7 @@
     {% endblock %}
   </div>
 
-  {% if props.data.swiperConfig.navigation %}
+  {% if props.data.swiperConfig.navigation ??? null %}
     <div class="swiper-button-prev">
       {# >>> Render icon #}
       {{
@@ -95,7 +95,11 @@
     </div>
   {% endif %}
 
-  {% if props.data.swiperConfig.scrollbar %}
+  {% if props.data.swiperConfig.scrollbar ??? null %}
     <div class="swiper-scrollbar"></div>
+  {% endif %}
+
+  {% if props.data.swiperConfig.pagination ??? null %}
+    <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal"></div>
   {% endif %}
 </div>
