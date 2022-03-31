@@ -6,28 +6,22 @@ document.documentElement.classList.add('js-loaded');
 
 // App main
 const main = async () => {
-  try {
-    // Import Vendors
-    const { default: vendors } = await import('./_vendors');
-    await vendors();
+  // Import Vendors
+  await import('./_vendors');
 
-    // Import Scripts
-    const { default: scripts } = await import('./_scripts');
-    await scripts();
+  // Import Scripts
+  await import('./_scripts');
 
-    // Import Components
-    const { default: components } = await import('./_components');
-    await components();
+  // Import Components
+  await import('./_components');
 
-    // Import Components
-    const { default: vueComponents } = await import('./_vue-components');
-    await vueComponents();
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.error(e);
-  }
+  // Import Components
+  await import('./_vue-components');
 };
 
 // Execute async function
 // eslint-disable-next-line
-main().then(() => {});
+main()
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  .then(() => {})
+  .catch((e) => console.error(e));
