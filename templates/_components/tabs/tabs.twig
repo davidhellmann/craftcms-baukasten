@@ -49,14 +49,14 @@
       }"
      class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
 
-  <nav class="{{ props.variants.position[props.data.positionPosition].nav }}">
-    <ul class="{{ props.variants.position[props.data.positionPosition].ul }}">
+  <nav class="{{ props.variants.position[props.data.variantPosition].nav }}">
+    <ul class="{{ props.variants.position[props.data.variantPosition].ul }}">
       {% for i in 1..props.data.numberOfTabs %}
         {% if block('tab' ~ i) is defined %}
-          <li class="{{ props.variants.position[props.data.positionPosition].li }}">
+          <li class="{{ props.variants.position[props.data.variantPosition].li }}">
             <button @click="activeTab = {{ i }};"
-                    :class="[activeTab === {{ i }} ? '{{ props.variants.position[props.data.positionPosition].buttonActive }}' : '']"
-            class="{{ props.variants.position[props.data.positionPosition].button }}">
+                    :class="[activeTab === {{ i }} ? '{{ props.variants.position[props.data.variantPosition].buttonActive }}' : '']"
+            class="{{ props.variants.position[props.data.variantPosition].button }}">
               {{ block('tab' ~ i) }}
             </button>
           </li>
@@ -65,10 +65,10 @@
     </ul>
   </nav>
 
-  <div class="{{ props.variants.position[props.data.positionPosition].contentHolder }}">
+  <div class="{{ props.variants.position[props.data.variantPosition].contentHolder }}">
     {% for i in 1..props.data.numberOfTabs %}
       {% if block('content' ~ i) is defined %}
-        <div :class="[activeTab === {{ i }} ? 'block is-active' : 'hidden']" class="{{ props.variants.position[props.data.positioPositionn].content }}">
+        <div :class="[activeTab === {{ i }} ? 'block is-active' : 'hidden']" class="{{ props.variants.position[props.data.variantPosition].content }}">
           {{ block('content' ~ i) }}
         </div>
       {% endif %}
