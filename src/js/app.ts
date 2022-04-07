@@ -25,3 +25,10 @@ main()
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   .then(() => {})
   .catch((e) => console.error(e));
+
+// Accept HMR as per: https://vitejs.dev/guide/api-hmr.html
+if (import.meta.hot) {
+  import.meta.hot.accept(() => {
+    console.log('HMR');
+  });
+}
