@@ -57,6 +57,5 @@ return [
     'omitScriptNameInUrls' => true,
     'useEmailAsUsername' => false,
     'usePathInfo' => true,
-    'useProjectConfigFile' => true,
     'preventUserEnumeration' => true,
 ];
