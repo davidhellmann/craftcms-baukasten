@@ -11,6 +11,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: a2d2ae44-aab1-43bb-99c9-8a0fafc84580
             warning: null
             width: 100
           -
@@ -20,6 +21,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 09c38737-b871-44d0-ab12-373028e86477
             warning: null
             width: 50
           -
@@ -29,6 +31,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 272f157a-ffca-49bc-b1ed-91685fec4fcd
             warning: null
             width: 50
           -
@@ -38,17 +41,18 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: c672e3e4-0be2-4bcf-89d3-871187136e8e
             warning: null
             width: 50
         name: Content
-        sortOrder: 1
+        uid: bb2df4f8-8532-459f-ae5f-12b9013d58c0
 fields:
   3ac3bfdf-e50b-46e3-abb9-cef4bffab4a0: # Autoplay
     columnSuffix: null
     contentColumnType: boolean
     fieldGroup: null
     handle: autoplay
-    instructions: ''
+    instructions: null
     name: Autoplay
     searchable: false
     settings:
@@ -63,7 +67,7 @@ fields:
     contentColumnType: boolean
     fieldGroup: null
     handle: loop
-    instructions: ''
+    instructions: null
     name: Loop
     searchable: false
     settings:
@@ -78,11 +82,10 @@ fields:
     contentColumnType: string
     fieldGroup: null
     handle: videoWidth
-    instructions: ''
+    instructions: null
     name: 'Video Width'
     searchable: false
     settings:
-      optgroups: true
       options:
         -
           __assoc__:
@@ -114,16 +117,16 @@ fields:
     contentColumnType: text
     fieldGroup: null
     handle: videoId
-    instructions: ''
+    instructions: null
     name: 'Video Id'
     searchable: false
     settings:
       byteLimit: null
       charLimit: null
-      code: ''
+      code: false
       columnType: null
-      initialRows: '4'
-      multiline: ''
+      initialRows: 4
+      multiline: false
       placeholder: null
       uiMode: normal
     translationKeyFormat: null

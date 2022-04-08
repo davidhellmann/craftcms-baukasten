@@ -17,8 +17,19 @@ return [
         // Should sitemaps be submitted to search engines automatically whenever there are changes?
         'submitSitemaps' => true,
 
+        // Should items where the entry URL doesn't match the canonical URL be excluded?
+        'excludeNonCanonicalUrls' => false,
+
+
+        // Should the homepage be included in the generated Breadcrumbs JSON-LD?
+        'includeHomepageInBreadcrumbs' => true,
+
         // Should SEOmatic add to the http response headers?
         'headersEnabled' => true,
+
+        // Whether the environment should be manually set, or automatically determined
+        'manuallySetEnvironment' => false,
+
 
         // The server environment, either `live`, `stage`, or `local`
         'environment' => getenv('ENVIRONMENT'),
@@ -54,11 +65,14 @@ return [
         // The max number of characters in the `<title>` tag
         'maxTitleLength' => 70,
 
+        // The max number of characters in the `<meta name="description">` tag
+        'maxDescriptionLength' => 155,
+
         // Should Title tags be truncated at the max length, on word boundaries?
         'truncateTitleTags' => false,
 
-        // The max number of characters in the `<meta name="description">` tag
-        'maxDescriptionLength' => 155,
+        // Should Description tags be truncated at the max length, on word boundaries?
+        'truncateDescriptionTags' => true,
 
         // Site Groups define logically separate sites
         'siteGroupsSeparate' => true,
@@ -72,6 +86,24 @@ return [
         // Whether to dynamically include hreflang tags on paginated pages
         'addPaginatedHreflang' => true,
 
+        // Whether to include a Content Security Policy "nonce" for inline
+        // CSS or JavaScript. Valid values are 'header' or 'tag' for how the CSP
+        // should be included. c.f.:
+        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#Unsafe_inline_script
+        'cspNonce' => '',
+
+        // Fixed Content Security Policies to be added before any CSP nonces
+        'cspScriptSrcPolicies' => [
+            0 => [
+                'policy' => "'self'",
+            ],
+        ],
+
+        // SEO [best practices](https://www.searchenginejournal.com/google-dont-mix-noindex-relcanonical/262607)
+        // are to have `canonical` links not appear on pages that are not intended to be indexed. SEOmatic does
+        // this for you by default, but you can override that behavior with this setting
+        'alwaysIncludeCanonicalUrls' => false,
+
         // Should the Canonical URL be automatically lower-cased?
         'lowercaseCanonicalUrl' => true,
 
@@ -83,8 +115,23 @@ return [
         // ElementAPI server, you can override what it uses for the `siteUrl` below.
         'siteUrlOverride' => '',
 
+
+        // The duration of the SEOmatic meta cache in seconds. Null means always cached until explicitly broken
+        // If devMode is on, caches last 30 seconds.
+        'metaCacheDuration' => null,
+
+
+        // Determines whether the meta container endpoint should be enabled for anonymous frontend access
+        'enableMetaContainerEndpoint' => false,
+
+        // Determines whether the JSON-LD endpoint should be enabled for anonymous frontend access
+        'enableJsonLdEndpoint' => false,
+
         // SeoElementInterface[] The default SeoElement type classes
         'defaultSeoElementTypes' => [],
+
+        // string[] URL params that are allowed to be considered part of the unique URL used for the metadata cache
+        'allowedUrlParams' => []
     ],
 
     // Live (production) environment

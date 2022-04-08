@@ -11,6 +11,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 4078acc8-f5db-408e-87f7-59f4c72eba2b
             warning: null
             width: 100
           -
@@ -20,41 +21,45 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 259e8250-4463-4fa6-8745-a8c5c15887c9
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 075e2dcc-f0cc-4f2d-b89b-d427b1f479ef
 fields:
   0a686d89-8754-4f00-a79e-fed75548909d: # Images
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: images
-    instructions: ''
+    instructions: null
     name: Images
     searchable: false
     settings:
       allowSelfRelations: false
+      allowSubfolders: false
       allowUploads: true
       allowedKinds:
         - image
       defaultUploadLocationSource: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
-      defaultUploadLocationSubpath: ''
-      limit: ''
+      defaultUploadLocationSubpath: null
       localizeRelations: false
+      maxRelations: null
+      minRelations: null
       previewMode: full
-      restrictFiles: '1'
-      selectionLabel: ''
+      restrictFiles: true
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
+      restrictedLocationSubpath: null
+      selectionLabel: null
       showSiteMenu: true
       showUnpermittedFiles: true
       showUnpermittedVolumes: true
-      singleUploadLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
-      singleUploadLocationSubpath: ''
       source: null
       sources:
         - 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
       targetSiteId: null
-      useSingleFolder: false
       validateRelatedElements: true
       viewMode: list
     translationKeyFormat: null
@@ -65,11 +70,10 @@ fields:
     contentColumnType: string
     fieldGroup: null
     handle: imageTransform
-    instructions: ''
+    instructions: null
     name: 'Image Transform'
     searchable: false
     settings:
-      optgroups: true
       options:
         -
           __assoc__:

@@ -11,6 +11,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: ebcb219e-30ee-4922-aa43-761de25e995e
             warning: null
             width: 50
           -
@@ -20,41 +21,45 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 4f7463a9-9a12-4156-ba40-3843333d4a39
             warning: null
             width: 50
         name: Content
-        sortOrder: 1
+        uid: a467cfb8-7cdc-4373-a4c9-31ad556a0102
 fields:
   89272b00-6f81-47f7-9335-4367edcac941: # Images
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
     handle: images
-    instructions: ''
+    instructions: null
     name: Images
     searchable: false
     settings:
       allowSelfRelations: false
+      allowSubfolders: false
       allowUploads: true
       allowedKinds:
         - image
       defaultUploadLocationSource: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
-      defaultUploadLocationSubpath: ''
-      limit: ''
+      defaultUploadLocationSubpath: null
       localizeRelations: false
+      maxRelations: null
+      minRelations: null
       previewMode: full
-      restrictFiles: '1'
-      selectionLabel: ''
+      restrictFiles: true
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
+      restrictedLocationSubpath: null
+      selectionLabel: null
       showSiteMenu: true
       showUnpermittedFiles: true
       showUnpermittedVolumes: true
-      singleUploadLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
-      singleUploadLocationSubpath: ''
       source: null
       sources:
         - 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
       targetSiteId: null
-      useSingleFolder: false
       validateRelatedElements: true
       viewMode: large
     translationKeyFormat: null
@@ -65,7 +70,7 @@ fields:
     contentColumnType: boolean
     fieldGroup: null
     handle: showImageCaption
-    instructions: ''
+    instructions: null
     name: 'Show Image Caption'
     searchable: false
     settings:

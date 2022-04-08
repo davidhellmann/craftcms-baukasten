@@ -26,7 +26,8 @@
       {{ include('_components/image/image.twig', {
         data: {
           image: image ??? null,
-          transform: 'auto',
+          objectFit: null,
+          aspectRatio: 'auto',
           renderPlainImage: true,
           caption: props.data.caption ??? null,
         },

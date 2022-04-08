@@ -6,7 +6,7 @@ Image Helper
 #}
 
 {# >>> Render image #}
-{%- macro renderImage(imageData = null, transform = 'landscape', lazy = true, objectFit = null, customClasses = '') -%}
+{%- macro renderImage(imageData = null, lazy = true, objectFit = null, customClasses = '') -%}
   {# If Image exists render it #}
   {%- if imageData ??? null -%}
     <img data-type="{{- imageData.filetype -}}"
@@ -45,7 +45,7 @@ Image Helper
 
 
 {# >>> Render source #}
-{%- macro renderSource(filetype = null, srcset = null, transform = 'landscape', lazy = true, mediaQuery = null, type = 'image/webp') -%}
+{%- macro renderSource(filetype = null, srcset = null, lazy = true, mediaQuery = null, type = 'image/webp') -%}
   {# Handle Image #}
   {%- if srcset and filetype -%}
     <source  data-type="{{- filetype -}}"

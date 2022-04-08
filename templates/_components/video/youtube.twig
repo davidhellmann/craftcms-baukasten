@@ -8,7 +8,7 @@
     showinfo: 0
   },
   classes: {
-    root: "aspect-w-16 aspect-h-9",
+    root: "aspect-video",
     custom: ""
   }
 } %}
@@ -21,7 +21,7 @@
 
 {% if props.data.videoId %}
   <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
-    <iframe class="lazyload"
+    <iframe class="lazyload w-full h-full"
       loading="lazy"
       data-src="https://www.youtube-nocookie.com/embed/{{ props.data.videoId }}?rel=0&loop={{
       props.data.loop

@@ -29,11 +29,11 @@
 # @return string className
 #}
 {%- macro get(name, cookieJar = null) -%}
-  {% spaceless %}
+  {% apply spaceless %}
     {% set cookieJar = cookieJar ?? craft.app.request.cookies %}
     {% set cookie = cookieJar.get(name) %}
     {{ cookie.value ?? '' }}
-  {% endspaceless %}
+  {% endapply %}
 {%- endmacro -%}
 
 {#
@@ -52,7 +52,7 @@
 # @param yii\web\CookieCollection  cookieJar
 #}
 {%- macro set(name, value = '', expires = 0, path = '/', domain = '', secure = false, httpOnly = false, cookieJar = null) -%}
-  {% spaceless %}
+  {% apply spaceless %}
     {% set cookieJar = cookieJar ?? craft.app.response.cookies %}
     {% set domain = domain | length ?: craft.app.config.general.defaultCookieDomain %}
     {% set cookie = create({
@@ -66,5 +66,5 @@
       'expire': expires
     }) %}
     {% do cookieJar.add(cookie) %}
-  {% endspaceless %}
+  {% endapply %}
 {%- endmacro -%}

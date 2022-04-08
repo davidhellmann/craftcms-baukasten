@@ -1,15 +1,14 @@
 <?php
 
 $transforms = [
-    'landscape',
-    'landscapeWebp',
-    'square',
-    'squareWebp',
+    'auto',
+    'autoWebp',
 ];
 
 return [
     'volumes' => [
         'images' => $transforms,
         'templateImages' => $transforms,
+        'users' => $transforms,
     ],
 ];

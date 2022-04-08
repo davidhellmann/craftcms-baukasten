@@ -11,7 +11,7 @@
         {{ include('_components/slider/sliderImages.twig', {
           data: {
             slides: images ??? null,
-            variant: 'landscape'
+            aspectRatio: 'aspect-landscape'
           },
         }, withContext = false) }}
       {% endblock %}
@@ -25,7 +25,7 @@
         {{ include('_components/slider/sliderImages.twig', {
           data: {
             slides: images ??? null,
-            variant: 'square'
+            aspectRatio: 'aspect-square'
           },
         }, withContext = false) }}
       {% endblock %}
@@ -39,7 +39,7 @@
         {{ include('_components/slider/sliderImages.twig', {
           data: {
             slides: images ??? null,
-            variant: 'portrait'
+            aspectRatio: 'aspect-portrait'
           },
         }, withContext = false) }}
       {% endblock %}
@@ -53,7 +53,7 @@
         {{ include('_components/slider/sliderImages.twig', {
           data: {
             slides: images ??? null,
-            variant: 'auto'
+            aspectRatio: 'aspect-auto'
           },
         }, withContext = false) }}
       {% endblock %}

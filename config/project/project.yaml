@@ -1,4 +1,4 @@
-dateModified: 1647522729
+dateModified: 1649450003
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -7,6 +7,42 @@ email:
   transportSettings:
     command: ''
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  files:
+    hasUrls: true
+    name: Files
+    settings:
+      path: '@webroot/assets/files'
+    type: craft\fs\Local
+    url: '@assetsUrl/files/'
+  images:
+    hasUrls: true
+    name: Images
+    settings:
+      path: '@webroot/assets/images'
+    type: craft\fs\Local
+    url: '@assetsUrl/images/'
+  templateImages:
+    hasUrls: true
+    name: 'Template Images'
+    settings:
+      path: '@webroot/assets/templateImages'
+    type: craft\fs\Local
+    url: '@assetsUrl/templateImages/'
+  transforms:
+    hasUrls: true
+    name: Transforms
+    settings:
+      path: '@webroot/assets/transforms'
+    type: craft\fs\Local
+    url: '@assetsUrl/transforms/'
+  users:
+    hasUrls: true
+    name: Users
+    settings:
+      path: '@webroot/assets/users'
+    type: craft\fs\Local
+    url: '@assetsUrl/users/'
 meta:
   __names__:
     0a7dd988-f4db-40b7-8112-6f6fc7c4fb54: Text # Text
@@ -20,7 +56,6 @@ meta:
     2c12b530-3423-45aa-a4ad-92cd9da42fd0: 'Single Fields' # Single Fields
     2f642060-4792-41cb-a427-083aabeba231: 'Content Builder' # Content Builder
     3ac3bfdf-e50b-46e3-abb9-cef4bffab4a0: Autoplay # Autoplay
-    3c7f4848-69ba-4da0-ac25-4009410c05e3: 'Asset: Alt Text' # Asset: Alt Text
     4a25e574-679a-4d01-8e8b-d5927129ce33: Loop # Loop
     5c9f2ce6-f780-4ea6-a50c-539a252aec94: 'Image Grid' # Image Grid
     5d0f7961-203c-4008-a55a-6a7d35e7a37a: Home # Home
@@ -106,12 +141,12 @@ plugins:
   blitz:
     edition: standard
     enabled: true
-    licenseKey: NUEHB6I8C9EYSHNQBCJOQ7KF
+    licenseKey: 7SB15C4SBPG4SSY4F08CIENC
     schemaVersion: 3.10.0
     settings:
       apiKey: ''
       cacheControlHeader: 'public, s-maxage=31536000, max-age=0'
-      cacheDuration: null
+      cacheDuration: 0
       cacheElementQueries: true
       cacheElements: true
       cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
@@ -133,16 +168,23 @@ plugins:
             - concurrency
             - '5'
       cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
-      cachingEnabled: '1'
-      clearCacheAutomatically: '1'
-      customSiteUris: ''
+      cachingEnabled: false
+      clearCacheAutomatically: true
+      customSiteUris:
+        -
+          __assoc__:
+            -
+              - siteId
+              - '1'
+            -
+              - uri
+              - 'hidden/.*'
       debug: false
       deployerType: putyourlightson\blitz\drivers\deployers\DummyDeployer
       driverJobPriority: 100
       excludedQueryStringParams:
         - gclid
         - fbclid
-      excludedUriPatterns: ''
       includedQueryStringParams:
         - '.*'
       includedUriPatterns:
@@ -158,19 +200,15 @@ plugins:
       maxRetryAttempts: 10
       mutexTimeout: 1
       outputComments: true
-      queryStringCaching: '1'
-      queueJobTtr: 300
+      queryStringCaching: 0
+      queueJobTtr: 3000
       refreshCacheAutomaticallyForGlobals: true
       refreshCacheJobPriority: 10
       refreshCacheWhenElementSavedNotLive: false
       refreshCacheWhenElementSavedUnchanged: false
       sendPoweredByHeader: true
-      warmCacheAutomatically: '1'
+      warmCacheAutomatically: true
       warmPagesWithQueryStringParams: true
-  blitz-recommendations:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   cp-clearcache:
     edition: standard
     enabled: true
@@ -183,14 +221,6 @@ plugins:
       additionalCss: ''
       cssFile: /dist/css/controlPanelCss.css
   cp-field-inspect:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  dumper:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-  elements-panel:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
@@ -328,10 +358,10 @@ plugins:
       useQueueForIntegrations: true
       useQueueForNotifications: true
   imager-x:
-    edition: lite
+    edition: pro
     enabled: true
     licenseKey: KP2FQXZG5W9KPCNTYGSZQ8JE
-    schemaVersion: 3.0.0
+    schemaVersion: 4.0.0
   minify:
     edition: standard
     enabled: true
@@ -341,10 +371,6 @@ plugins:
     enabled: true
     licenseKey: OCO5DTVW9ZUVOQ5BQR2SF8IF
     schemaVersion: 1.0.21
-  palette:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   redactor:
     edition: standard
     enabled: true
@@ -408,7 +434,11 @@ plugins:
   super-table:
     edition: standard
     enabled: true
-    schemaVersion: 2.2.1
+    schemaVersion: 3.0.0
+  symfony-dump:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   typedlinkfield:
     edition: standard
     enabled: true
@@ -422,10 +452,11 @@ system:
   live: true
   name: $SITE_NAME
   retryDuration: null
-  schemaVersion: 3.7.33
+  schemaVersion: 4.0.0.8
   timeZone: Europe/Berlin
 users:
   allowPublicRegistration: false
+  deactivateByDefault: false
   defaultGroup: null
   photoSubpath: '{username}'
   photoVolumeUid: 6c5fc0dd-cf56-48d8-8af8-88abe763b970 # Files

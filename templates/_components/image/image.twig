@@ -8,7 +8,7 @@ Simple Image
 {{ include('_components/image/image.twig', {
   data: {
     image: cat01Image ??? null,
-    transform: 'landscape',
+    aspectRatio: 'aspect-landscape',
     renderPlainImage: true,
   }
 }, withContext = false }}
@@ -19,7 +19,7 @@ Figure Image
 {{ include('_components/image/image.twig', {
   data: {
     image: cat01Image ??? null,
-    transform: 'landscape',
+    aspectRatio: 'aspect-landscape',
   }
 }, withContext = false }}
 
@@ -31,7 +31,7 @@ Art Direction
 {{ include('_components/image/image.twig', {
   data: {
     image: cat01Image ??? null,
-    transform: 'landscape',
+    aspectRatio: 'aspect-landscape',
     sources: [
       [cat02Image, 'portrait', true, '(min-width: 430px)'],
       [cat03Image, 'square', true, '(min-width: 330px)'],
@@ -45,8 +45,9 @@ Art Direction
   data: {
     name: 'c-image',
     image: null,
-    transform: 'landscape',
-    objectFit: null,
+    aspectRatio: 'aspect-landscape',
+    transform: 'auto',
+    objectFit: 'cover',
     lazy: true,
     showDominantColor: true,
     calcDominantColor: false,
@@ -147,21 +148,19 @@ Art Direction
   {% if props.data.sources | length > 1 %}
     {% for source in props.data.sources %}
       {% if isTranformable %}
-        {% set srcsetLegacy = craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape') %}
-        {% set transforms = craft.imager.transformImage(source[0] ??? null, source[1] ??? 'landscape', { format: imageSettings.format }) %}
-        {% set srcset = craft.imager.srcset(transforms) | trim %}
+        {% set srcsetLegacySource = craft.imager.transformImage(source[0] ??? null, props.data.transform) %}
+        {% set transformsSource = craft.imager.transformImage(source[0] ??? null, props.data.transform, { format: imageSettings.format }) %}
+        {% set srcsetSource = craft.imager.srcset(transformsSource) | trim %}
 
         {% set finaleSources = finaleSources|merge([[
-          isTranformable and transforms is defined ? transforms[0].source.extension | lower : extension ??? null,
-          srcset ??? null,
-          source[1] ??? 'landscape',
-          source[2] ??? true,
-          source[3] ??? null
+          isTranformable and transformsSource is defined ? transformsSource[0].source.extension | lower : extension ??? null,
+          srcsetSource ??? null,
+          source[1] ??? true,
+          source[2] ??? null
         ]]) %}
       {% endif %}
     {% endfor %}
   {% endif %}
-
 
   {# >>> Merge Settings #}
   {% set imageData = imageData|merge({
@@ -170,6 +169,7 @@ Art Direction
     'focalpoint': props.data.image.getFocalpoint('asCss') ??? '50% 50%',
     'title': title,
     'alt': props.data.decorativeImage ? '' : (props.data.image.assetAltText ??? title),
+    'aspectRatio': props.data.aspectRatio ??? 'aspect-auto',
     'noscript': "<noscript><img src='#{imageData.url}' alt='#{title}'/></noscript>",
     'transforms': transforms ??? null,
     'srcset': srcset ??? imageData.url,
@@ -183,6 +183,7 @@ Art Direction
     'caption': caption,
     'sources': finaleSources
   }) %}
+
 
   {# >>> Render logic #}
   {% if props.data.renderPlainImage and not props.data.sources %}

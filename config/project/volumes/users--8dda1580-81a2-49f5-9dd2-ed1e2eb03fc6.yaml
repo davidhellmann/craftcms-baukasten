@@ -23,7 +23,29 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\AssetTitleField
+            type: craft\fieldlayoutelements\assets\AssetTitleField
+            uid: 0d54794f-2cbf-4dce-9dd1-0375444002b9
+            warning: null
+            width: 100
+          -
+            attribute: alt
+            class: null
+            cols: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: true
+            required: false
+            rows: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\assets\AltField
+            uid: 72092439-a6c2-4a17-a159-59712c76fb53
             warning: null
             width: 100
           -
@@ -33,15 +55,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 3c7f4848-69ba-4da0-ac25-4009410c05e3 # Asset: Alt Text
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
+            uid: f9ac3637-99ff-4db2-8b7a-79c4415f181c
             warning: null
             width: 100
           -
@@ -51,6 +65,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 3cc5b53e-0cd2-49da-8c61-cc39d3cbb1c0
             warning: null
             width: 100
           -
@@ -60,6 +75,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: e0324cf8-4bb0-4eae-ae10-820e7fbb69a2
             warning: null
             width: 100
           -
@@ -69,17 +85,16 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: ceafbea2-4ca5-409e-91b4-8b1bfbbae6ea
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 7fa2cead-3f59-4c5b-8562-8ee83d4acf7b
+fs: users
 handle: users
-hasUrls: true
 name: Users
-settings:
-  path: '@webroot/assets/users/'
 sortOrder: 4
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-type: craft\volumes\Local
-url: '@assetsUrl/users/'
+transformFs: transforms
+transformSubpath: craft-transforms/users

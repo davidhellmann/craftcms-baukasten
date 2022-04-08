@@ -2,14 +2,14 @@
 {% import '_macros/_macro-imageHelper.twig' as imageHelper %}
 
 {% if props.data.caption %}
-  <figure class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
+  <figure class="{{ props.data.name }} {{ props.classes.root }} {{ imageData.aspectRatio }} {{ props.classes.custom }}"
           {% if props.data.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
     <picture>
       {% for source in imageData.sources %}
-        {{- imageHelper.renderSource(source[0], source[1], source[2], source[3], source[4]) -}}
+        {{- imageHelper.renderSource(source[0], source[1], source[2], source[3]) -}}
       {% endfor %}
 
-      {{- imageHelper.renderImage(imageData, props.data.transform, props.data.lazy, props.data.objectFit) -}}
+      {{- imageHelper.renderImage(imageData, props.data.lazy, props.data.objectFit) -}}
 
       {% if props.data.caption %}
         {# caption #}
@@ -27,13 +27,13 @@
     </picture>
   </figure>
 {% else %}
-  <picture class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
+  <picture class="{{ props.data.name }} {{ props.classes.root }} {{ imageData.aspectRatio }} {{ props.classes.custom }}"
            {% if props.data.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
     {% for source in imageData.sources %}
-      {{- imageHelper.renderSource(source[0], source[1], source[2], source[3], source[4]) -}}
+      {{- imageHelper.renderSource(source[0], source[1], source[2], source[3]) -}}
     {% endfor %}
 
-    {{- imageHelper.renderImage(imageData, props.data.transform, props.data.lazy, props.data.objectFit) -}}
+    {{- imageHelper.renderImage(imageData, props.data.lazy, props.data.objectFit) -}}
     {{ include('_components/image/_partials/_nocript.twig', {}, withContext = true) }}
   </picture>
 {% endif %}
