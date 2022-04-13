@@ -107,5 +107,3 @@ For this reason there is the "Baukasten" to get started faster in new projects. 
 - [webdevs](https://webdevs.xyz/)
 - [putyourlightson](https://github.com/putyourlightson/)
 - [verbb](https://github.com/verbb/)
-
-.
