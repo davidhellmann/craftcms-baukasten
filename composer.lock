@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.219.0",
+            "version": "3.219.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "e77a9bc31fdd98d3893f398468a36e00b12db3dc"
+                "reference": "2bbafacd922391077b9dcf40d57fc33ad9759e33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e77a9bc31fdd98d3893f398468a36e00b12db3dc",
-                "reference": "e77a9bc31fdd98d3893f398468a36e00b12db3dc",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2bbafacd922391077b9dcf40d57fc33ad9759e33",
+                "reference": "2bbafacd922391077b9dcf40d57fc33ad9759e33",
                 "shasum": ""
             },
             "require": {
@@ -143,9 +143,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.219.0"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.219.3"
             },
-            "time": "2022-04-08T18:16:00+00:00"
+            "time": "2022-04-13T18:15:40+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -2118,24 +2118,24 @@
         },
         {
             "name": "google/auth",
-            "version": "v1.19.0",
+            "version": "v1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-auth-library-php.git",
-                "reference": "31e5d24d5fa0eaf6adc7e596292dc4732f4b60c5"
+                "reference": "73392bad2eb6852eea9084b6bbdec752515cb849"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/31e5d24d5fa0eaf6adc7e596292dc4732f4b60c5",
-                "reference": "31e5d24d5fa0eaf6adc7e596292dc4732f4b60c5",
+                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/73392bad2eb6852eea9084b6bbdec752515cb849",
+                "reference": "73392bad2eb6852eea9084b6bbdec752515cb849",
                 "shasum": ""
             },
             "require": {
-                "firebase/php-jwt": "~5.0",
+                "firebase/php-jwt": "^5.5||^6.0",
                 "guzzlehttp/guzzle": "^6.2.1|^7.0",
                 "guzzlehttp/psr7": "^1.7|^2.0",
-                "php": ">=5.6",
-                "psr/cache": "^1.0|^2.0",
+                "php": "^7.1||^8.0",
+                "psr/cache": "^1.0|^2.0|^3.0",
                 "psr/http-message": "^1.0"
             },
             "require-dev": {
@@ -2143,7 +2143,7 @@
                 "kelvinmo/simplejwt": "^0.2.5|^0.5.1",
                 "phpseclib/phpseclib": "^2.0.31",
                 "phpspec/prophecy-phpunit": "^1.1",
-                "phpunit/phpunit": "^5.7||^8.5.13",
+                "phpunit/phpunit": "^7.5||^8.5",
                 "sebastian/comparator": ">=1.2.3",
                 "squizlabs/php_codesniffer": "^3.5"
             },
@@ -2170,9 +2170,9 @@
             "support": {
                 "docs": "https://googleapis.github.io/google-auth-library-php/main/",
                 "issues": "https://github.com/googleapis/google-auth-library-php/issues",
-                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.19.0"
+                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.21.0"
             },
-            "time": "2022-03-24T21:22:45+00:00"
+            "time": "2022-04-13T20:35:52+00:00"
         },
         {
             "name": "google/cloud-core",
@@ -2888,7 +2888,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v9.7.0",
+            "version": "v9.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -2943,7 +2943,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v9.7.0",
+            "version": "v9.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -2989,7 +2989,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v9.7.0",
+            "version": "v9.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -3037,7 +3037,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v9.7.0",
+            "version": "v9.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -3184,16 +3184,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "5.2.11",
+            "version": "5.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "2ab6744b7296ded80f8cc4f9509abbff393399aa"
+                "reference": "ad87d5a5ca981228e0e205c2bc7dfb8e24559b60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/2ab6744b7296ded80f8cc4f9509abbff393399aa",
-                "reference": "2ab6744b7296ded80f8cc4f9509abbff393399aa",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/ad87d5a5ca981228e0e205c2bc7dfb8e24559b60",
+                "reference": "ad87d5a5ca981228e0e205c2bc7dfb8e24559b60",
                 "shasum": ""
             },
             "require": {
@@ -3248,9 +3248,9 @@
             ],
             "support": {
                 "issues": "https://github.com/justinrainbow/json-schema/issues",
-                "source": "https://github.com/justinrainbow/json-schema/tree/5.2.11"
+                "source": "https://github.com/justinrainbow/json-schema/tree/5.2.12"
             },
-            "time": "2021-07-22T09:24:00+00:00"
+            "time": "2022-04-13T08:02:27+00:00"
         },
         {
             "name": "kornrunner/blurhash",
@@ -5372,16 +5372,16 @@
         },
         {
             "name": "psr/cache",
-            "version": "2.0.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/cache.git",
-                "reference": "213f9dbc5b9bfbc4f8db86d2838dc968752ce13b"
+                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/cache/zipball/213f9dbc5b9bfbc4f8db86d2838dc968752ce13b",
-                "reference": "213f9dbc5b9bfbc4f8db86d2838dc968752ce13b",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
+                "reference": "aa5030cfa5405eccfdcb1083ce040c2cb8d253bf",
                 "shasum": ""
             },
             "require": {
@@ -5415,9 +5415,9 @@
                 "psr-6"
             ],
             "support": {
-                "source": "https://github.com/php-fig/cache/tree/2.0.0"
+                "source": "https://github.com/php-fig/cache/tree/3.0.0"
             },
-            "time": "2021-02-03T23:23:37+00:00"
+            "time": "2021-02-03T23:26:27+00:00"
         },
         {
             "name": "psr/container",
@@ -6604,16 +6604,16 @@
         },
         {
             "name": "spacecatninja/imager-x",
-            "version": "4.0.0-beta.1",
+            "version": "4.0.0-beta.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spacecatninja/craft-imager-x.git",
-                "reference": "055289388b96d1016082ff3a2ef804bb909e5ef7"
+                "reference": "2352485f58d75de443f175600848c768b0485db2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spacecatninja/craft-imager-x/zipball/055289388b96d1016082ff3a2ef804bb909e5ef7",
-                "reference": "055289388b96d1016082ff3a2ef804bb909e5ef7",
+                "url": "https://api.github.com/repos/spacecatninja/craft-imager-x/zipball/2352485f58d75de443f175600848c768b0485db2",
+                "reference": "2352485f58d75de443f175600848c768b0485db2",
                 "shasum": ""
             },
             "require": {
@@ -6669,9 +6669,9 @@
             "support": {
                 "docs": "http://imager-x.spacecat.ninja/",
                 "issues": "https://github.com/spacecatninja/craft-imager-x/issues",
-                "source": "https://github.com/spacecatninja/craft-imager-x/tree/4.0.0-beta.1"
+                "source": "https://github.com/spacecatninja/craft-imager-x/tree/4.0.0-beta.2"
             },
-            "time": "2022-03-27T19:00:15+00:00"
+            "time": "2022-04-13T21:58:19+00:00"
         },
         {
             "name": "ssnepenthe/color-utils",
@@ -6892,21 +6892,21 @@
         },
         {
             "name": "symfony/cache-contracts",
-            "version": "v2.5.1",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache-contracts.git",
-                "reference": "64be4a7acb83b6f2bf6de9a02cee6dad41277ebc"
+                "reference": "1c0a181c9ee221afe4fa55b2d13fc63c5ae14348"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/64be4a7acb83b6f2bf6de9a02cee6dad41277ebc",
-                "reference": "64be4a7acb83b6f2bf6de9a02cee6dad41277ebc",
+                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/1c0a181c9ee221afe4fa55b2d13fc63c5ae14348",
+                "reference": "1c0a181c9ee221afe4fa55b2d13fc63c5ae14348",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2.5",
-                "psr/cache": "^1.0|^2.0|^3.0"
+                "php": ">=8.0.2",
+                "psr/cache": "^3.0"
             },
             "suggest": {
                 "symfony/cache-implementation": ""
@@ -6914,7 +6914,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.5-dev"
+                    "dev-main": "3.0-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -6951,7 +6951,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache-contracts/tree/v2.5.1"
+                "source": "https://github.com/symfony/cache-contracts/tree/v3.0.1"
             },
             "funding": [
                 {
@@ -6967,7 +6967,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-02T09:53:40+00:00"
+            "time": "2022-01-02T09:55:41+00:00"
         },
         {
             "name": "symfony/console",
@@ -10461,16 +10461,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v14.11.5",
+            "version": "v14.11.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "ffa431c0821821839370a68dab3c2597c06bf7f0"
+                "reference": "6070542725b61fc7d0654a8a9855303e5e157434"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/ffa431c0821821839370a68dab3c2597c06bf7f0",
-                "reference": "ffa431c0821821839370a68dab3c2597c06bf7f0",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/6070542725b61fc7d0654a8a9855303e5e157434",
+                "reference": "6070542725b61fc7d0654a8a9855303e5e157434",
                 "shasum": ""
             },
             "require": {
@@ -10515,7 +10515,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v14.11.5"
+                "source": "https://github.com/webonyx/graphql-php/tree/v14.11.6"
             },
             "funding": [
                 {
@@ -10523,7 +10523,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-01-24T11:13:31+00:00"
+            "time": "2022-04-13T16:25:32+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -11271,12 +11271,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "44e64dc3426a056b16041e56619b96619564b28d"
+                "reference": "370b357e26aeed8d2b450026954eda969b2db0dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/44e64dc3426a056b16041e56619b96619564b28d",
-                "reference": "44e64dc3426a056b16041e56619b96619564b28d",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/370b357e26aeed8d2b450026954eda969b2db0dc",
+                "reference": "370b357e26aeed8d2b450026954eda969b2db0dc",
                 "shasum": ""
             },
             "conflict": {
@@ -11332,7 +11332,7 @@
                 "contao/core-bundle": "<4.9.18|>=4.10,<4.11.7|= 4.10.0",
                 "contao/listing-bundle": ">=4,<4.4.8",
                 "contao/managed-edition": "<=1.5",
-                "craftcms/cms": "<3.7.14",
+                "craftcms/cms": "<3.7.29",
                 "croogo/croogo": "<3.0.7",
                 "cuyz/valinor": ">=0.5,<0.7",
                 "datadog/dd-trace": ">=0.30,<0.30.2",
@@ -11421,7 +11421,7 @@
                 "illuminate/database": "<6.20.26|>=7,<7.30.5|>=8,<8.40",
                 "illuminate/encryption": ">=4,<=4.0.11|>=4.1,<=4.1.31|>=4.2,<=4.2.22|>=5,<=5.0.35|>=5.1,<=5.1.46|>=5.2,<=5.2.45|>=5.3,<=5.3.31|>=5.4,<=5.4.36|>=5.5,<5.5.40|>=5.6,<5.6.15",
                 "illuminate/view": "<6.20.42|>=7,<7.30.6|>=8,<8.75",
-                "impresscms/impresscms": "<1.4.3",
+                "impresscms/impresscms": "<=1.4.3",
                 "in2code/femanager": "<5.5.1|>=6,<6.3.1",
                 "intelliants/subrion": "<=4.2.1",
                 "ivankristianto/phpwhois": "<=4.3",
@@ -11444,6 +11444,7 @@
                 "laminas/laminas-http": "<2.14.2",
                 "laravel/fortify": "<1.11.1",
                 "laravel/framework": "<6.20.42|>=7,<7.30.6|>=8,<8.75",
+                "laravel/laravel": "<=5.8.38",
                 "laravel/socialite": ">=1,<1.0.99|>=2,<2.0.10",
                 "latte/latte": "<2.10.8",
                 "lavalite/cms": "<=5.8",
@@ -11534,7 +11535,7 @@
                 "prestashop/ps_emailsubscription": "<2.6.1",
                 "prestashop/ps_facetedsearch": "<3.4.1",
                 "prestashop/ps_linklist": "<3.1",
-                "privatebin/privatebin": "<1.2.2|>=1.3,<1.3.2",
+                "privatebin/privatebin": "<1.4",
                 "propel/propel": ">=2-alpha.1,<=2-alpha.7",
                 "propel/propel1": ">=1,<=1.7.1",
                 "pterodactyl/panel": "<1.7",
@@ -11577,7 +11578,7 @@
                 "simplito/elliptic-php": "<1.0.6",
                 "slim/slim": "<2.6",
                 "smarty/smarty": "<3.1.43|>=4,<4.0.3",
-                "snipe/snipe-it": "<= 6.0.0-RC-5|<5.3.11",
+                "snipe/snipe-it": "<5.4.2|>= 6.0.0-RC-1, <= 6.0.0-RC-5",
                 "socalnick/scn-social-auth": "<1.15.2",
                 "socialiteproviders/steam": "<1.1",
                 "spipu/html2pdf": "<5.2.4",
@@ -11630,6 +11631,7 @@
                 "symfony/yaml": ">=2,<2.0.22|>=2.1,<2.1.7",
                 "t3/dce": ">=2.2,<2.6.2",
                 "t3g/svg-sanitizer": "<1.0.3",
+                "tastyigniter/tastyigniter": "<3.3",
                 "tecnickcom/tcpdf": "<6.2.22",
                 "terminal42/contao-tablelookupwizard": "<3.3.5",
                 "thelia/backoffice-default-template": ">=2.1,<2.1.2",
@@ -11666,6 +11668,8 @@
                 "wikimedia/parsoid": "<0.12.2",
                 "willdurand/js-translation-bundle": "<2.1.1",
                 "wp-cli/wp-cli": "<2.5",
+                "wpanel/wpanel4-cms": "<=4.3.1",
+                "wwbn/avideo": "<=11.6",
                 "yeswiki/yeswiki": "<4.1",
                 "yetiforce/yetiforce-crm": "<=6.3",
                 "yidashi/yii2cmf": "<=2",
@@ -11741,7 +11745,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-06T19:03:57+00:00"
+            "time": "2022-04-13T14:08:56+00:00"
         },
         {
             "name": "yiisoft/yii2-shell",
