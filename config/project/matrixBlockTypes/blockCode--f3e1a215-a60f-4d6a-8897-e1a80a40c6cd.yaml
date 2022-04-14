@@ -11,6 +11,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 727b44a7-8246-484f-9861-87f2ded3cdbf
             warning: null
             width: 100
           -
@@ -20,6 +21,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: d5894475-806c-4ca8-b23c-509f0c4fd7e7
             warning: null
             width: 100
           -
@@ -29,6 +31,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 4cf3d5fe-3e7c-4b78-943a-3434d46aa2cb
             warning: null
             width: 100
           -
@@ -38,26 +41,27 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: abccd044-3e6d-4f0e-b792-937722131014
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: c033e8a9-eab3-4bd0-bea5-4a8d2dcf5ad3
 fields:
   9cb7ea0d-8dd4-4298-ac6c-ab6c0efbe6ba: # Snippet Name
     columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: snippetName
-    instructions: ''
+    instructions: null
     name: 'Snippet Name'
     searchable: false
     settings:
       byteLimit: null
       charLimit: null
-      code: ''
+      code: false
       columnType: null
-      initialRows: '4'
-      multiline: ''
+      initialRows: 4
+      multiline: false
       placeholder: null
       uiMode: normal
     translationKeyFormat: null
@@ -68,16 +72,16 @@ fields:
     contentColumnType: text
     fieldGroup: null
     handle: snippet
-    instructions: ''
+    instructions: null
     name: Snippet
     searchable: false
     settings:
       byteLimit: null
       charLimit: null
-      code: '1'
+      code: true
       columnType: null
-      initialRows: '4'
-      multiline: '1'
+      initialRows: 4
+      multiline: true
       placeholder: null
       uiMode: normal
     translationKeyFormat: null
@@ -88,7 +92,7 @@ fields:
     contentColumnType: boolean
     fieldGroup: null
     handle: open
-    instructions: ''
+    instructions: null
     name: Open
     searchable: false
     settings:
@@ -103,11 +107,10 @@ fields:
     contentColumnType: string
     fieldGroup: null
     handle: snippetLanguage
-    instructions: ''
+    instructions: null
     name: 'Snippet Language'
     searchable: false
     settings:
-      optgroups: true
       options:
         -
           __assoc__:

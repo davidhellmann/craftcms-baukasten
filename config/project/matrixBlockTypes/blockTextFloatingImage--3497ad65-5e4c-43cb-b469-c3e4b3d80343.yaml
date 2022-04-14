@@ -11,6 +11,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: c04a0818-9736-44dd-ad57-fc588b03f04d
             warning: null
             width: 100
           -
@@ -20,6 +21,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 87804880-f909-41bd-a1c5-0a540b00a904
             warning: null
             width: 50
           -
@@ -29,6 +31,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: fe377a9b-6717-435d-b230-2b81c2b2be15
             warning: null
             width: 50
           -
@@ -38,6 +41,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: f29d1263-2fbc-45c5-a24b-4d7ab00e6a4d
             warning: null
             width: 50
           -
@@ -47,17 +51,18 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 39b5a36d-9f34-4d20-b28d-ca9488aa4c7c
             warning: null
             width: 50
         name: Content
-        sortOrder: 1
+        uid: a7ac4d85-057b-421c-a16b-b382da491a30
 fields:
   0a7dd988-f4db-40b7-8112-6f6fc7c4fb54: # Text
     columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: text
-    instructions: ''
+    instructions: null
     name: Text
     searchable: true
     settings:
@@ -67,13 +72,13 @@ fields:
       configSelectionMode: choose
       defaultTransform: ''
       manualConfig: ''
-      purifierConfig: ''
-      purifyHtml: '1'
+      purifierConfig: null
+      purifyHtml: true
       redactorConfig: Advanced.json
-      removeEmptyTags: '1'
-      removeInlineStyles: '1'
-      removeNbsp: '1'
-      showHtmlButtonForNonAdmins: '1'
+      removeEmptyTags: true
+      removeInlineStyles: true
+      removeNbsp: true
+      showHtmlButtonForNonAdmins: true
       showUnpermittedFiles: true
       showUnpermittedVolumes: true
       uiMode: enlarged
@@ -85,7 +90,7 @@ fields:
     contentColumnType: boolean
     fieldGroup: null
     handle: showImageCaption
-    instructions: ''
+    instructions: null
     name: 'Show Image Caption'
     searchable: false
     settings:
@@ -100,11 +105,10 @@ fields:
     contentColumnType: string
     fieldGroup: null
     handle: imageTransform
-    instructions: ''
+    instructions: null
     name: 'Image Transform'
     searchable: false
     settings:
-      optgroups: true
       options:
         -
           __assoc__:
@@ -158,7 +162,7 @@ fields:
     contentColumnType: boolean
     fieldGroup: null
     handle: imagePosition
-    instructions: ''
+    instructions: null
     name: 'Image Position'
     searchable: false
     settings:
@@ -173,31 +177,34 @@ fields:
     contentColumnType: string
     fieldGroup: null
     handle: image
-    instructions: ''
+    instructions: null
     name: Image
     searchable: false
     settings:
       allowSelfRelations: false
+      allowSubfolders: false
       allowUploads: true
       allowedKinds:
         - image
       defaultUploadLocationSource: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
-      defaultUploadLocationSubpath: ''
-      limit: '1'
+      defaultUploadLocationSubpath: null
       localizeRelations: false
+      maxRelations: 1
+      minRelations: null
       previewMode: full
-      restrictFiles: '1'
-      selectionLabel: ''
+      restrictFiles: true
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
+      restrictedLocationSubpath: null
+      selectionLabel: null
       showSiteMenu: true
       showUnpermittedFiles: true
       showUnpermittedVolumes: true
-      singleUploadLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
-      singleUploadLocationSubpath: ''
       source: null
       sources:
         - 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
       targetSiteId: null
-      useSingleFolder: false
       validateRelatedElements: true
       viewMode: large
     translationKeyFormat: null

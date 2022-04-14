@@ -11,8 +11,8 @@
 return [
     '*' => [
         'transformer' => 'craft',
-        'imagerSystemPath' => '@webroot/assets/imager/',
-        'imagerUrl' => '/assets/imager/',
+        'imagerSystemPath' => '@webroot/assets/transforms/imager/',
+        'imagerUrl' => '/assets/transforms/imager/',
         'cacheDuration' => 31536000, // 1 Year
         'cacheDurationRemoteFiles' => 31536000, // 1 Year
         'cacheDurationExternalStorage' => 31536000, // 1 Year
@@ -41,5 +41,15 @@ return [
     'local' => [
         'optimizers' => null,
         'mockImage' => getenv('MOCK_IMAGE') ?: null,
+        'customEncoders' => [
+            'webp' => [
+                'path' => '/opt/homebrew/bin/cwebp',
+                'options' => [
+                    'quality' => 80,
+                    'effort' => 4,
+                ],
+                'paramsString' => '-q {quality} -m {effort} {src} -o {dest}'
+            ],
+        ]
     ],
 ];

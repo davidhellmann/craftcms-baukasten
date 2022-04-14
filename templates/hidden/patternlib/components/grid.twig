@@ -24,7 +24,7 @@
         {{ include('_components/grid/images.twig', {
           data: {
             images: images.limit(3).all() ??? null,
-            transform: 'portrait',
+            aspectRatio: 'aspect-portrait',
             variantColumns: 3
           }
         }, withContext = false) }}

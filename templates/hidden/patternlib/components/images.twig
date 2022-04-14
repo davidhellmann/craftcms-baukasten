@@ -9,12 +9,12 @@
   {% cache using key craft.app.request.pathInfo %}
 
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Transform: Landscape{% endblock %}
+      {% block label %}Size: Landscape{% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {
           data: {
             image: cat01Image ??? null,
-            transform: 'landscape',
+            aspectRatio: 'aspect-landscape',
             lazy: false,
           }
         }, withContext = false) }}
@@ -23,12 +23,12 @@
 
     {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Transform: Square{% endblock %}
+      {% block label %}Size: Square{% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {
           data: {
             image: cat02Image ??? null,
-            transform: 'square',
+            aspectRatio: 'aspect-square',
             lazy: false,
           }
         }, withContext = false) }}
@@ -37,12 +37,12 @@
 
     {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Transform: Portrait{% endblock %}
+      {% block label %}Size: Portrait{% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {
           data: {
-            image: cat03Image ??? null,
-            transform: 'portrait',
+            image: cat01Image ??? null,
+            aspectRatio: 'aspect-portrait',
           }
         }, withContext = false) }}
       {% endblock %}
@@ -50,12 +50,12 @@
 
     {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Transform: Auto{% endblock %}
+      {% block label %}Size: Auto{% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {
           data: {
             image: cat01Image ??? null,
-            transform: 'auto',
+            aspectRatio: 'aspect-auto',
           }
         }, withContext = false) }}
       {% endblock %}
@@ -68,7 +68,7 @@
         {{ include('_components/image/image.twig', {
           data: {
             image: cat01Image ??? null,
-            transform: 'landscape',
+            aspectRatio: 'aspect-landscape',
             decorativeImage: true
           }
         }, withContext = false) }}
@@ -81,8 +81,8 @@
       {% block content %}
         {{ include('_components/image/image.twig', {
           data: {
-            image: cat03Image ??? null,
-            transform: 'landscape',
+            image: cat01Image ??? null,
+            aspectRatio: 'aspect-landscape',
             renderPlainImage: true
           }
         }, withContext = false) }}
@@ -96,10 +96,10 @@
         {{ include('_components/image/image.twig', {
           data: {
             image: cat01Image ??? null,
-            transform: 'portrait',
+            aspectRatio: 'aspect-portrait sm:aspect-square lg:aspect-landscape',
             sources: [
-              [cat02Image, 'landscape', true, '(min-width: 1000px)'],
-              [cat03Image, 'square', true, '(min-width: 600px)'],
+              [cat02Image, true, '(min-width: 1024px)'],
+              [cat03Image, true, '(min-width: 640px)'],
             ]
           }
         }, withContext = false) }}

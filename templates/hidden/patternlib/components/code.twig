@@ -3,7 +3,7 @@
 {% block blockAppContent %}
   {% cache using key craft.app.request.pathInfo %}
 
-    {% spaceless %}
+    {% apply spaceless %}
       {% set code %}{% verbatim %}
         {# Comment #}
         {{ include('_components/text/code.twig', {
@@ -15,7 +15,7 @@
           },
         }, withContext = false) }}{% endverbatim %}
       {% endset %}
-    {% endspaceless %}
+    {% endapply %}
 
 
     {# >>> Render variant #}

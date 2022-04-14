@@ -40,7 +40,7 @@
   {% set switcherLinks = [] %}
 
 
-  {% for site in sites if site.baseUrl is not empty %}
+  {% for site in sites |filter(site => site.baseUrl is not empty) %}
 
     {% set title = craft.app.i18n.getLocaleById(site.language).displayName %}
     {% set url = site.getBaseUrl() %}

@@ -3,20 +3,20 @@
   data: {
     name: 'c-sliderImages',
     slides: null,
-    variantRatio: 'landscape',
+    aspectRatio: 'aspect-landscape',
     destroyBreakpoint: null
   },
   classes: {
-    root: '',
+    root: 'overflow-hidden',
     custom: '',
     swiperSlide: 'swiper-slide'
   },
   variants: {
-    ratio: {
-      landscape: '!w-11/12 sm:!w-5/12',
-      portrait: '!w-11/12 sm:!w-3/12',
-      square: '!w-11/12 sm:!w-3/12',
-      auto: '!w-11/12 sm:!w-3/12',
+    aspectRatio: {
+      'aspect-landscape': '!w-11/12 sm:!w-5/12 aspect-landscape',
+      'aspect-portrait': '!w-11/12 sm:!w-3/12 aspect-portrait',
+      'aspect-square': '!w-11/12 sm:!w-3/12 aspect-square',
+      'aspect-auto': '!w-11/12 sm:!w-3/12 aspect-auto',
     }
   }
 } %}
@@ -29,12 +29,12 @@
   } %}
 
   {# Component #}
-<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.data.variant }} {{ props.classes.custom }}">
+<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
   {# >>> Embed Swiper Holder #}
   {% embed "_components/slider/swiperHolder.twig" with {
     data: {
       slides: props.data.slides ??? null,
-      variant: props.data.variantRatio,
+      aspectRatio: props.data.aspectRatio,
       destroyBreakpoint: props.data.destroyBreakpoint ??? null,
     },
     classes: {
@@ -45,11 +45,11 @@
     {# >>> Render slides #}
     {% block swiperSlides %}
       {% for image in props.data.slides %}
-        <div class="{{ props.classes.swiperSlide }} {{ props.variants.ratio[props.data.variantRatio] }}">
+        <div class="{{ props.classes.swiperSlide }} {{ props.variants.aspectRatio[props.data.aspectRatio] }}">
           {{ include('_components/image/image.twig', {
             data: {
               image: image ??? null,
-              transform: props.data.variantRatio,
+              aspectRatio: props.data.aspectRatio,
               renderPlainImage: true,
             }
           }, withContext = false) }}

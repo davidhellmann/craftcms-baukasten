@@ -4,7 +4,7 @@
     name: 'c-cardNews',
     variantDirection: 'col',
     image: null,
-    transform: 'landscape',
+    aspectRatio: 'aspect-landscape',
     title: null,
     text: null,
     linkUrl: null,
@@ -48,7 +48,7 @@
       {{ include('_components/image/image.twig', {
         data: {
           image: props.data.image ??? null,
-          transform: props.data.transform ??? null,
+          aspectRatio: props.data.aspectRatio ??? null,
           objectFit: 'cover',
           renderPlainImage: true,
           lazy: props.data.lazy,

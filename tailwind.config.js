@@ -5,7 +5,6 @@
 
 const fluidType = require('tailwindcss-fluid-type');
 const questionMark = require('tailwindcss-question-mark');
-const aspectRatio = require('@tailwindcss/aspect-ratio');
 const forms = require('@tailwindcss/forms')({
   strategy: 'class',
 });
@@ -17,6 +16,7 @@ const settingsColors = require('./tailwind/tailwind.settings.colors');
 const settingsFontFamily = require('./tailwind/tailwind.settings.fontFamily');
 const settingsfluidType = require('./tailwind/tailwind.settings.fluidType');
 const settingsScreens = require('./tailwind/tailwind.settings.screens');
+const settingsAspectRatio = require('./tailwind/tailwind.settings.aspectRatio');
 
 // Plugins
 const pluginAddComponents = require('./tailwind/tailwind.plugins.addComponents');
@@ -35,6 +35,7 @@ module.exports = {
       gridColumn: { ...settingsGrid.gridColumn },
       gridRowStart: { ...settingsGrid.gridRowStart },
       gridRowEnd: { ...settingsGrid.gridRowEnd },
+      aspectRatio: { ...settingsAspectRatio },
     },
     // Plugin Stuff
     debugScreens: {
@@ -49,7 +50,6 @@ module.exports = {
   },
   plugins: [
     debugScreens,
-    aspectRatio,
     questionMark,
     fluidType,
     forms,

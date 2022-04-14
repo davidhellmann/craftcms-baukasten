@@ -4,7 +4,7 @@
     name: 'c-imageGrid',
     images: null,
     caption: null,
-    transform: 'landscape',
+    aspectRatio: 'aspect-landscape',
     variantColumns: 2,
   },
   classes: {
@@ -34,7 +34,7 @@
       {{ include('_components/image/image.twig', {
         data: {
           image: image ??? null,
-          transform: props.data.transform ??? null,
+          aspectRatio: props.data.aspectRatio ??? null,
           caption: props.data.caption ??? null,
         },
         classes: {

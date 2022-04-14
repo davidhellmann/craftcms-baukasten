@@ -3,7 +3,7 @@
   data: {
     name: 'c-imageGallery',
     images: null,
-    transform: 'landscape',
+    aspectRatio: 'aspect-landscape',
     cutAfter: 3,
     caption: null
   },
@@ -35,7 +35,7 @@
     {% endif %}
     {% set dynamicData = dynamicData|merge([{
       "src": image.url,
-      "thumb": craft.imager.transformImage(image, 'thumbnail') | last.url ??? '',
+      "thumb": craft.imager.transformImage(image, 'auto') | last.url ??? '',
       "subHtml": (title ? "<strong>#{title}</strong>" : "")  ~ (caption ? "<br>#{caption}" : ""),
     }]) %}
   {% endfor %}
@@ -48,7 +48,7 @@
         {{ include('_components/image/image.twig', {
           data: {
             image: image ??? null,
-            transform: props.data.transform,
+            aspectRatio: props.data.aspectRatio,
             objectFit: 'cover',
           }
         }, withContext = false) }}

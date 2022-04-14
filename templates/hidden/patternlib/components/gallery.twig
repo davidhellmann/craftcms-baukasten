@@ -12,7 +12,7 @@
         {{ include('_components/gallery/images.twig', {
           data: {
             images: images ??? null,
-            transform: 'landscape',
+            aspectRatio: 'aspect-landscape',
           }
         }, withContext = false) }}
       {% endblock %}

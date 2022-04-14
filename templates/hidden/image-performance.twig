@@ -2,7 +2,7 @@
 
 {% block blockAppContent %}
   {# Redirect to home if on a live env #}
-  {% if craft.app.config.general.custom.craftEnv == 'live' %}
+  {% if craft.app.config.custom.craftEnv == 'live' %}
     {% redirect siteUrl %}
   {% endif %}
 
