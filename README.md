@@ -73,7 +73,7 @@ Go to `./` and do this: `valet link craftcms-baukasten` to create a domain like 
 - `Users`: Where our user images lives
 
 
-### Some plugins:
+### Some plugins: (WIP cause CraftCMS 4 missing Plugins)
 - `Blitz (paid)`: Blitz provides intelligent static page caching for creating lightning-fast sites with Craft.
 - `Blitz Recommendations (free)`: Adds a utility that provides templating performance recommendations.
 - `CP Clear Cache (free)`: Less clickin’ to get clearin’
