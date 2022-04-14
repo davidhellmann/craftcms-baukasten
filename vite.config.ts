@@ -59,7 +59,7 @@ export default defineConfig(({ command }) => ({
       },
     }),
     ViteRestart({
-      reload: ['./translations/**/*.{php}', './templates/**/*.{twig}'],
+      reload: ['./translations/**/*.php', './templates/**/*.{twig,html,php}'],
     }),
     vue(),
     viteCompression({

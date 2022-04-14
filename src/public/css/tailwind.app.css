@@ -3,7 +3,7 @@
  * Normalize.css and some additional base styles.
  */
 
-/*! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
+/*! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com
  */
 
 /*
@@ -536,26 +536,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-.aspect-w-16 {
-  position: relative;
-  padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
-  --tw-aspect-w: 16;
-}
-
-.aspect-w-16 > * {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.aspect-h-9 {
-  --tw-aspect-h: 9;
-}
-
 .container {
   width: 100%;
   padding-left: 1rem;
@@ -767,14 +747,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: -6rem;
 }
 
-.ml-1 {
-  margin-left: 0.25rem;
-}
-
-.mr-1 {
-  margin-right: 0.25rem;
-}
-
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -843,6 +815,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
+.aspect-landscape {
+  aspect-ratio: 3 / 2;
+}
+
+.aspect-auto {
+  aspect-ratio: auto;
+}
+
+.aspect-portrait {
+  aspect-ratio: 2 / 3;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
 .h-px {
   height: 1px;
 }
@@ -893,6 +885,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-14 {
   height: 3.5rem;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .max-h-40 {
@@ -1705,6 +1701,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     display: inline-flex;
   }
 
+  .sm\:aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
   .sm\:\!w-5\/12 {
     width: 41.666667% !important;
   }
@@ -1920,6 +1920,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:grid {
     display: grid;
+  }
+
+  .lg\:aspect-landscape {
+    aspect-ratio: 3 / 2;
   }
 
   .lg\:grid-cols-24 {
