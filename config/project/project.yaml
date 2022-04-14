@@ -1,4 +1,4 @@
-dateModified: 1649937745
+dateModified: 1649963272
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -142,13 +142,19 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_BLITZ
-    schemaVersion: 3.10.0
+    schemaVersion: 4.0.0
     settings:
       apiKey: ''
       cacheControlHeader: 'public, s-maxage=31536000, max-age=0'
       cacheDuration: 0
       cacheElementQueries: true
       cacheElements: true
+      cacheGeneratorSettings:
+        __assoc__:
+          -
+            - concurrency
+            - '5'
+      cacheGeneratorType: putyourlightson\blitz\drivers\generators\HttpGenerator
       cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
       cacheStorageSettings:
         __assoc__:
@@ -183,10 +189,16 @@ plugins:
       deployerType: putyourlightson\blitz\drivers\deployers\DummyDeployer
       driverJobPriority: 100
       excludedQueryStringParams:
-        - gclid
-        - fbclid
+        -
+          queryStringParam: gclid
+          siteId: ''
+        -
+          queryStringParam: fbclid
+          siteId: ''
       includedQueryStringParams:
-        - '.*'
+        -
+          queryStringParam: '.*'
+          siteId: ''
       includedUriPatterns:
         -
           __assoc__:
@@ -206,6 +218,7 @@ plugins:
       refreshCacheJobPriority: 10
       refreshCacheWhenElementSavedNotLive: false
       refreshCacheWhenElementSavedUnchanged: false
+      refreshMode: 3
       sendPoweredByHeader: true
       warmCacheAutomatically: true
       warmPagesWithQueryStringParams: true
