@@ -23,10 +23,5 @@ return [
         'defaults' => [
             'format' => 'webp'
         ],
-    ],
-    'dominantColor' => [
-        'transforms' => [
-            ['width' => 30],
-        ],
-    ],
+    ]
 ];
