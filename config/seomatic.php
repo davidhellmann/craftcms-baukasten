@@ -1,4 +1,5 @@
 <?php
+use craft\helpers\App;
 return [
     // All environments
     '*' => [
@@ -32,7 +33,7 @@ return [
 
 
         // The server environment, either `live`, `stage`, or `local`
-        'environment' => getenv('ENVIRONMENT'),
+        'environment' => App::env('ENVIRONMENT'),
 
         // Should SEOmatic display the SEO Preview sidebar?
         'displayPreviewSidebar' => true,

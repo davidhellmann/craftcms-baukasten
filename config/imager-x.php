@@ -8,6 +8,8 @@
  * @copyright Copyright (c) 2020 André Elvan
  */
 
+use craft\helpers\App;
+
 return [
     '*' => [
         'transformer' => 'craft',
@@ -26,7 +28,7 @@ return [
             'optipng',
             'gifsicle',
         ],
-        'fallbackImage' => getenv('FALLBACK_IMAGE') ?: null,
+        'fallbackImage' => App::env('FALLBACK_IMAGE') ?: null,
         'hideClearCachesForUserGroups' => [],
     ],
     // Live Env
@@ -41,7 +43,7 @@ return [
     // Local Env
     'local' => [
         'optimizers' => null,
-        'mockImage' => getenv('MOCK_IMAGE') ?: null,
+        'mockImage' => App::env('MOCK_IMAGE') ?: null,
         'customEncoders' => [
             'webp' => [
                 'path' => '/opt/homebrew/bin/cwebp',
