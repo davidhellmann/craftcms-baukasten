@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43a05598e7a1574dfb6204933942742c",
+    "content-hash": "a56e8c4ebd93a1fbd868d574e9834dd5",
     "packages": [
         {
             "name": "amphp/amp",
@@ -2725,69 +2725,6 @@
                 }
             ],
             "time": "2021-11-21T21:41:47+00:00"
-        },
-        {
-            "name": "gustavs-gutmanis/craft-symfony-dump",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/gustavs-gutmanis/craft-symfony-dump.git",
-                "reference": "a1af3d390d0f7569b93c6aead55617192f07ad2b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/gustavs-gutmanis/craft-symfony-dump/zipball/a1af3d390d0f7569b93c6aead55617192f07ad2b",
-                "reference": "a1af3d390d0f7569b93c6aead55617192f07ad2b",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^3.0.0|^4.0.0-alpha",
-                "symfony/var-dumper": "^3.4.46 || ^4.4.0 || ^5.1.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Symfony Dump Twig Filter",
-                "handle": "symfony-dump",
-                "developer": "Gustavs Gūtmanis",
-                "developerUrl": "https://github.com/gustavs-gutmanis",
-                "documentationUrl": "https://github.com/gustavs-gutmanis/craft-symfony-dump",
-                "changelogUrl": "https://raw.githubusercontent.com/gustavs-gutmanis/craft-symfony-dump/master/CHANGELOG.md",
-                "class": "GG\\SymfonyDump\\SymfonyDump",
-                "hasCpSettings": false,
-                "hasCpSection": false
-            },
-            "autoload": {
-                "psr-4": {
-                    "GG\\SymfonyDump\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Gustavs Gutmanis",
-                    "homepage": "https://github.com/gustavs-gutmanis"
-                }
-            ],
-            "description": "Symfony `dump` twig filter for Craft CMS",
-            "keywords": [
-                "Craft",
-                "cms",
-                "craft-plugin",
-                "craftcms",
-                "debugging",
-                "dump",
-                "symfony-dump",
-                "twig"
-            ],
-            "support": {
-                "docs": "https://github.com/gustavs-gutmanis/craft-symfony-dump",
-                "issues": "https://github.com/gustavs-gutmanis/craft-symfony-dump/issues",
-                "source": "https://github.com/gustavs-gutmanis/craft-symfony-dump/tree/v1.1.0"
-            },
-            "time": "2022-03-08T16:36:26+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -6747,6 +6684,60 @@
                 "source": "https://github.com/ssnepenthe/color-utils/tree/master"
             },
             "time": "2017-06-19T16:48:17+00:00"
+        },
+        {
+            "name": "studioespresso/craft-dumper",
+            "version": "3.0.0-beta.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/studioespresso/craft3-dumper/zipball/4f1660b373b255ecd22863285e207178c978995e",
+                "reference": "4f1660b373b255ecd22863285e207178c978995e",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0-alpha",
+                "symfony/var-dumper": "^5.0.0 || ^6.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Dumper",
+                "handle": "dumper",
+                "schemaVersion": "1.0.0",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/studioespresso/craft3-dumper/master/CHANGELOG.md",
+                "class": "studioespresso\\craftdumper\\CraftDumper"
+            },
+            "autoload": {
+                "psr-4": {
+                    "studioespresso\\craftdumper\\": "src/"
+                },
+                "files": [
+                    "src/helper.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Studio Espresso",
+                    "homepage": "https://studioespresso.dev"
+                }
+            ],
+            "description": "Bringing larapack/dd to Craft CMS",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "dumper"
+            ],
+            "support": {
+                "docs": "https://github.com/studioespresso/craft3-dumper/blob/master/README.md",
+                "issues": "https://github.com/studioespresso/craft3-dumper/issues"
+            },
+            "time": "2022-04-14T18:17:15+00:00"
         },
         {
             "name": "sunra/php-simple-html-dom-parser",
