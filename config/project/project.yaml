@@ -1,4 +1,4 @@
-dateModified: 1650192674
+dateModified: 1650193154
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -142,86 +142,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_BLITZ
-    schemaVersion: 4.0.0
-    settings:
-      apiKey: ''
-      cacheControlHeader: 'public, s-maxage=31536000, max-age=0'
-      cacheDuration: 0
-      cacheElementQueries: true
-      cacheElements: true
-      cacheGeneratorSettings:
-        __assoc__:
-          -
-            - concurrency
-            - '5'
-      cacheGeneratorType: putyourlightson\blitz\drivers\generators\HttpGenerator
-      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
-      cacheStorageSettings:
-        __assoc__:
-          -
-            - folderPath
-            - '@webroot/cache/blitz'
-          -
-            - createGzipFiles
-            - '1'
-          -
-            - createBrotliFiles
-            - ''
-      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
-      cacheWarmerSettings:
-        __assoc__:
-          -
-            - concurrency
-            - '5'
-      cacheWarmerType: putyourlightson\blitz\drivers\warmers\GuzzleWarmer
-      cachingEnabled: false
-      clearCacheAutomatically: true
-      customSiteUris:
-        -
-          __assoc__:
-            -
-              - siteId
-              - '1'
-            -
-              - uri
-              - 'hidden/.*'
-      debug: false
-      deployerType: putyourlightson\blitz\drivers\deployers\DummyDeployer
-      driverJobPriority: 100
-      excludedQueryStringParams:
-        -
-          queryStringParam: gclid
-          siteId: ''
-        -
-          queryStringParam: fbclid
-          siteId: ''
-      includedQueryStringParams:
-        -
-          queryStringParam: '.*'
-          siteId: ''
-      includedUriPatterns:
-        -
-          __assoc__:
-            -
-              - uriPattern
-              - '.*'
-      injectScriptEvent: DOMContentLoaded
-      integrations:
-        - putyourlightson\blitz\drivers\integrations\FeedMeIntegration
-        - putyourlightson\blitz\drivers\integrations\SeomaticIntegration
-      maxRetryAttempts: 10
-      mutexTimeout: 1
-      outputComments: true
-      queryStringCaching: 0
-      queueJobTtr: 3000
-      refreshCacheAutomaticallyForGlobals: true
-      refreshCacheJobPriority: 10
-      refreshCacheWhenElementSavedNotLive: false
-      refreshCacheWhenElementSavedUnchanged: false
-      refreshMode: 3
-      sendPoweredByHeader: true
-      warmCacheAutomatically: true
-      warmPagesWithQueryStringParams: true
+    schemaVersion: 4.0.0-beta.3
   cp-clearcache:
     edition: standard
     enabled: true
