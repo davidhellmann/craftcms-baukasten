@@ -10,7 +10,7 @@
           data: {
             snippet: code ??? null,
             snippetName: 'sample.twig',
-            open: true,
+            collapsed: false,
             language: 'twig',
           },
         }, withContext = false) }}{% endverbatim %}
@@ -26,7 +26,7 @@
           data: {
             snippet: code ??? null,
             snippetName: 'sample.twig',
-            open: true,
+            collapsed: false,
             language: 'twig',
           },
         }, withContext = false) }}
@@ -35,13 +35,13 @@
 
     {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
-      {% block label %}Code closed{% endblock %}
+      {% block label %}Code collapsed{% endblock %}
       {% block content %}
         {{ include('_components/text/code.twig', {
           data: {
             snippet: code ??? null,
             snippetName: 'sample.twig',
-            open: false,
+            collapsed: true,
             language: 'twig',
           },
         }, withContext = false) }}

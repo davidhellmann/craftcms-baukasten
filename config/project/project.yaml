@@ -1,4 +1,4 @@
-dateModified: 1650214650
+dateModified: 1650729118
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -64,7 +64,7 @@ meta:
     6c5fc0dd-cf56-48d8-8af8-88abe763b970: Files # Files
     6d94dcc4-6ec1-45b4-8c86-e53cee842b11: 'Overview News' # Overview News
     7b3b13e0-e20d-4d51-b0ae-832300f45234: Text # Text
-    7b23a4a8-a6f8-43c4-b12c-326d089176ad: 'Youtube Video' # Youtube Video
+    7b23a4a8-a6f8-43c4-b12c-326d089176ad: 'Video Youtube' # Video Youtube
     7e8fd607-0b56-4196-9e02-76ebba9ad7bd: New # New
     7eb1a718-0679-4fda-b656-9bfdf55a2025: 'Navigation Main' # Navigation Main
     8ced5be5-13b2-483f-8db9-aab9757aad21: Error # Error
@@ -117,7 +117,7 @@ meta:
     be45c3e2-5e9f-491e-a000-94d95c4fa20b: Snippet # Snippet
     c6d6d63e-16f8-4450-a631-a9d6a37d2d88: 'Video Width' # Video Width
     c40b8b5e-0ccb-4d0d-9eee-bd24ac9209b0: Source # Source
-    cf5b11e3-a6d6-430f-991f-9b78f9e4dd7f: Open # Open
+    cf5b11e3-a6d6-430f-991f-9b78f9e4dd7f: 'Snippet collapsed' # Snippet collapsed
     d4cabad1-1cae-4a1e-a914-c38d9f1a813a: Text # Text
     d6a382fb-fadf-4449-8e74-b89f2c649c4c: Entry # Entry
     d29e8520-ab62-4c8f-bda2-61868797c1ca: 'Entry: SEO' # Entry: SEO
@@ -300,6 +300,10 @@ plugins:
     enabled: true
     licenseKey: $PLUGIN_IMAGERX
     schemaVersion: 4.0.0
+  matrixmate:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   minify:
     edition: standard
     enabled: true

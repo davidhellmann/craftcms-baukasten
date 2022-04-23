@@ -11,7 +11,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: c04a0818-9736-44dd-ad57-fc588b03f04d
+            uid: 9a0a629b-dedd-49ea-ad2d-1edb9467411a
             warning: null
             width: 100
           -
@@ -21,9 +21,9 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 87804880-f909-41bd-a1c5-0a540b00a904
+            uid: ef3f7b45-5488-42ad-b8f8-a061753b931d
             warning: null
-            width: 50
+            width: 100
           -
             fieldUid: 98f7a455-6764-4b7d-8d19-405bdcc42228 # Image Transform
             instructions: null
@@ -31,7 +31,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: fe377a9b-6717-435d-b230-2b81c2b2be15
+            uid: 99431768-a2dd-4643-802c-90fb7c7910e5
             warning: null
             width: 50
           -
@@ -41,7 +41,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: f29d1263-2fbc-45c5-a24b-4d7ab00e6a4d
+            uid: 46d38419-2b5b-47f2-b680-fe1b2e75746d
             warning: null
             width: 50
           -
@@ -51,7 +51,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 39b5a36d-9f34-4d20-b28d-ca9488aa4c7c
+            uid: 1c54096d-f78c-43b0-9686-27921c278874
             warning: null
             width: 50
         name: Content
@@ -197,6 +197,17 @@ fields:
       restrictedDefaultUploadSubpath: null
       restrictedLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
       restrictedLocationSubpath: null
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Asset
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\assets\AssetCondition
       selectionLabel: null
       showSiteMenu: true
       showUnpermittedFiles: true

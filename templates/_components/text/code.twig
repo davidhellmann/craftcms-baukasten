@@ -5,7 +5,7 @@
     snippet: null,
     snippetName: '…',
     language: 'txt',
-    open: true,
+    collapsed: true,
     textShow: 'translate.component.code.textShow' | t,
     textHide: 'translate.component.code.textHide' | t,
     textCopy: 'translate.component.code.textCopy' | t,
@@ -33,15 +33,15 @@
 {% if props.data.snippet %}
   <div class="alpinejs js-code {{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}"
        x-data="{
-        open: '{{ props.data.open }}',
+        collapsed: '{{ props.data.collapsed }}',
         textShow: '{{ props.data.textShow }}',
         textHide: '{{ props.data.textHide }}',
         textCopy: '{{ props.data.textCopy }}',
         textCopied: '{{ props.data.textCopied }}',
-      }" :class="[open ? 'before:opacity-0' : 'before:opacity-100']">
+      }" :class="[collapsed ? 'before:opacity-100' : 'before:opacity-0']">
 
     <pre class="line-numbers  language-{{ props.data.language }}  {{ props.classes.pre }}"
-         :class="[open ? '' : 'max-h-40']">
+         :class="[collapsed ? 'max-h-40' : '']">
       <code class="language-{{ props.data.language }} {{ props.classes.code }}">{{- props.data.snippet | e -}}</code>
     </pre>
 
@@ -59,8 +59,8 @@
         </textarea>
 
         <button class="{{ props.classes.button }}"
-             @click="open = !open;"
-             x-text="open ? textHide : textShow">
+             @click="collapsed = !collapsed;"
+             x-text="collapsed ? textShow : textHide">
         </button>
       </div>
     </div>

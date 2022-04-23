@@ -11,7 +11,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 71ce4c62-27d5-46a9-9e06-b61e6471f372
+            uid: 9b050410-4b2e-4f03-941c-4a6f51861737
             warning: null
             width: 100
         name: Content
@@ -42,6 +42,17 @@ fields:
       restrictedDefaultUploadSubpath: null
       restrictedLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
       restrictedLocationSubpath: null
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Asset
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\assets\AssetCondition
       selectionLabel: null
       showSiteMenu: true
       showUnpermittedFiles: true

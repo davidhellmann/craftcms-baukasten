@@ -11,9 +11,9 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 33352127-ae4e-4ffd-8ccc-28940f642a9b
+            uid: 0f4e629c-f8fc-4c15-a032-b67743c933bf
             warning: null
-            width: 50
+            width: 100
           -
             fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Image Transform
             instructions: null
@@ -21,7 +21,7 @@ fieldLayouts:
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 80d0e43a-19da-4d09-949d-05a033560bec
+            uid: ba1b0410-5bcc-49c9-8969-464106b48128
             warning: null
             width: 50
           -
@@ -31,7 +31,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 7d1dd14d-4f69-4907-85f3-46d5d1d5df4f
+            uid: ca590b3c-5ecb-40cd-8a74-b14231d088f9
             warning: null
             width: 50
           -
@@ -41,7 +41,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 230907db-2ae4-4386-80ec-2f05e9fb64f3
+            uid: dc805f5e-4b42-4c9f-9864-1426c0ecc019
             warning: null
             width: 50
         name: Content
@@ -122,6 +122,17 @@ fields:
       restrictedDefaultUploadSubpath: null
       restrictedLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
       restrictedLocationSubpath: null
+      selectionCondition:
+        __assoc__:
+          -
+            - elementType
+            - craft\elements\Asset
+          -
+            - fieldContext
+            - global
+          -
+            - class
+            - craft\elements\conditions\assets\AssetCondition
       selectionLabel: null
       showSiteMenu: true
       showUnpermittedFiles: true
