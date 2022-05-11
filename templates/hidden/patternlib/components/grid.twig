@@ -64,6 +64,17 @@
       {% endblock %}
     {% endembed %}
 
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Grid: Images Calculated 5 Cols{% endblock %}
+      {% block content %}
+        {{ include('_components/grid/imagesCalculated.twig', {
+          data: {
+            images: images.limit(5).all() ??? null,
+          }
+        }, withContext = false) }}
+      {% endblock %}
+    {% endembed %}
+
   {% endcache %}
 {% endblock %}
 

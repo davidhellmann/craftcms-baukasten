@@ -21,20 +21,22 @@
 {# Modul #}
 {% if props.data.images ??? null %}
   <div
-    class="js-imageGridCalculated {{ props.data.name }}  {{ props.classes.root }} {{ props.classes.custom }}">
+    class="{{ props.data.name }}  {{ props.classes.root }} {{ props.classes.custom }}">
     {% for image in props.data.images %}
-      {{ include('_components/image/image.twig', {
-        data: {
-          image: image ??? null,
-          objectFit: null,
-          aspectRatio: 'auto',
-          renderPlainImage: true,
-          caption: props.data.caption ??? null,
-        },
-        classes: {
-          custom: 'w-full md:max-w-full md:w-auto'
-        }
-      }, withContext = false) }}
+      <div style="--ratio: {{ image.width }} / {{ image.height }}">
+        {{ include('_components/image/image.twig', {
+          data: {
+            image: image ??? null,
+            objectFit: null,
+            aspectRatio: 'auto',
+            renderPlainImage: true,
+            caption: props.data.caption ??? null,
+          },
+          classes: {
+            custom: 'w-full h-auto'
+          }
+        }, withContext = false) }}
+      </div>
     {% endfor %}
   </div>
 {% endif %}
