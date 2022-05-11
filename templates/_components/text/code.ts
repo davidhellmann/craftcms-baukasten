@@ -28,7 +28,7 @@ const code: ICompCode = {
     });
   },
 
-  init(codeblocks: Array<HTMLElement>) {
+  init(codeblocks: NodeListOf<HTMLElement>) {
     if (codeblocks.length > 0) {
       Prismjs.init();
       this.copyToClipboard();

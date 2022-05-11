@@ -11,7 +11,7 @@ import './swiperHolder.css';
 
 const swiperHolder: IComponent = {
   name: 'swiperHolder',
-  init(sliders: Array<HTMLElement>) {
+  init(sliders: NodeListOf<HTMLElement>) {
     if (sliders) {
       sliders.forEach((slider) => {
         const sliderConfig = JSON.parse(<string>slider.dataset.swiperConfig) || {};

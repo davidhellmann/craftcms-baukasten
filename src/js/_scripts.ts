@@ -17,7 +17,7 @@ export default (async () => {
   globalResizeListener.init();
 
   // waypointObserver
-  const waypointEls = [...document.querySelectorAll<HTMLElement>('[waypoint]')];
+  const waypointEls = document.querySelectorAll<HTMLElement>('[waypoint]');
   if (waypointEls.length > 0) {
     const { default: waypointObserver } = await import('./scripts/waypointObserver');
     waypointObserver.init(waypointEls);
@@ -25,7 +25,7 @@ export default (async () => {
 
   // Lazy Images
   const selector = 'img[loading="lazy"], iframe[loading="lazy"], source[data-srcset]';
-  const lazyImageEls = [...document.querySelectorAll<HTMLElement>(selector)];
+  const lazyImageEls = document.querySelectorAll<HTMLElement>(selector);
   if (lazyImageEls.length > 0) {
     if ('loading' in HTMLImageElement.prototype) {
       const lazy = await import('./scripts/lazy');

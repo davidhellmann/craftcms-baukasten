@@ -16,8 +16,9 @@ export interface IComponent {
     [key: string]: HTMLElement | null;
   };
   els?: {
-    [key: string]: Array<HTMLElement> | null;
+    [key: string]: NodeListOf<HTMLElement> | null;
   };
 
-  init(el: HTMLElement | Array<HTMLElement>): void;
+  init(el: HTMLElement | NodeListOf<HTMLElement>): void;
+  setElements?(): void;
 }

@@ -11,7 +11,7 @@ import './images.css';
 const imageGallery: IComponent = {
   name: 'imageGallery',
 
-  init(imageGalleryEls: Array<HTMLElement>) {
+  init(imageGalleryEls: NodeListOf<HTMLElement>) {
     imageGalleryEls?.forEach((gal) => {
       const dynamicData = gal.dataset.dynamicData || null;
 

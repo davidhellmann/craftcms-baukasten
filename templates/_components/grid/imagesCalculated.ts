@@ -8,8 +8,8 @@ interface ICompImagesCalculated extends IComponent {
     imageHolderWidth: number;
     height: number;
   };
-  setImageHeights(el: Array<HTMLElement>, height: number, ratio: number): void;
-  startImageGrid(el: HTMLElement | Array<HTMLElement>): void;
+  setImageHeights(el: NodeListOf<HTMLElement>, height: number, ratio: number): void;
+  startImageGrid(el: HTMLElement | NodeListOf<HTMLElement>): void;
   doCalculation(el: HTMLElement, width: number): void;
 }
 
@@ -28,7 +28,7 @@ const imagesCalculated: ICompImagesCalculated = {
   },
 
   doCalculation(imageHolder, imageHolderWidth) {
-    const images: Array<HTMLElement> = [...imageHolder.querySelectorAll<HTMLImageElement>('img')];
+    const images: NodeListOf<HTMLElement> = imageHolder.querySelectorAll<HTMLImageElement>('img');
     let imagesWidthSum = 0;
     const imageCount: number = images.length - 1 || 1;
     const rowGap = parseFloat(
@@ -47,7 +47,7 @@ const imagesCalculated: ICompImagesCalculated = {
     this.setImageHeights(images, this.settings.height, ratio);
   },
 
-  startImageGrid(imageGridCalculatedEls: Array<HTMLElement>) {
+  startImageGrid(imageGridCalculatedEls: NodeListOf<HTMLElement>) {
     imageGridCalculatedEls?.forEach((imageHolder) => {
       if (!this.settings) return;
       this.settings.imageHolderWidth = imageHolder.getBoundingClientRect().width;
@@ -55,7 +55,7 @@ const imagesCalculated: ICompImagesCalculated = {
     });
   },
 
-  init(imageGridCalculatedEls: HTMLElement | Array<HTMLElement>) {
+  init(imageGridCalculatedEls: HTMLElement | NodeListOf<HTMLElement>) {
     this.startImageGrid(imageGridCalculatedEls);
 
     const winResize = _debounce(() => {

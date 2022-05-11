@@ -1,4 +1,4 @@
-export const init = (els: Array<HTMLElement>, selector: string): void => {
+export const init = (els: NodeListOf<HTMLElement>, selector: string): void => {
   if ('IntersectionObserver' in window) {
     // Create new observer object
     const lazyItemObserver = new IntersectionObserver((entries) => {

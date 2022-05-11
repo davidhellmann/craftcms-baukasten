@@ -17,10 +17,10 @@ interface ICompWaypointObserver extends IComponent {
     endless: boolean;
   };
 
-  startObserving(el: Array<HTMLElement>): void;
+  startObserving(el: NodeListOf<HTMLElement>): void;
   getSettings(el: Element): Settings;
-  getWaypointTargets(el: Element): Array<HTMLElement> | Array<Element>;
-  handleAnimateClasses(el: Array<HTMLElement> | Array<Element>, settings: Settings): void;
+  getWaypointTargets(el: Element): NodeListOf<HTMLElement> | Array<Element>;
+  handleAnimateClasses(el: NodeListOf<HTMLElement> | Array<Element>, settings: Settings): void;
 }
 
 const waypointObserver: ICompWaypointObserver = {
@@ -129,7 +129,7 @@ const waypointObserver: ICompWaypointObserver = {
     });
   },
 
-  init(waypointEls: Array<HTMLElement>) {
+  init(waypointEls: NodeListOf<HTMLElement>) {
     this.startObserving(waypointEls);
   },
 };

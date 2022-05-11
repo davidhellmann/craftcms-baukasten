@@ -1,7 +1,6 @@
 import { IComponent } from '../@types/IComponent';
 
 interface ICompToggleContent extends IComponent {
-  setElements(): void;
   toggleContent(): void;
 }
 
@@ -20,7 +19,7 @@ const toggleContent: ICompToggleContent = {
 
   setElements() {
     if (this.selectors && this.els) {
-      this.els.$triggers = [...document.querySelectorAll<HTMLElement>(this.selectors.triggers)];
+      this.els.$triggers = document.querySelectorAll<HTMLElement>(this.selectors.triggers);
     }
   },
 
@@ -40,8 +39,8 @@ const toggleContent: ICompToggleContent = {
   },
 
   init() {
-    this.setElements();
-    this.toggleContent();
+    this.setElements?.();
+    this.toggleContent?.();
   },
 };
 
