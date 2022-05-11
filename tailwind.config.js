@@ -4,6 +4,7 @@
  * */
 
 const fluidType = require('tailwindcss-fluid-type');
+const fluidSpacings = require('./tailwind/fluidSpacings');
 const questionMark = require('tailwindcss-question-mark');
 const forms = require('@tailwindcss/forms')({
   strategy: 'class',
@@ -15,6 +16,7 @@ const settingsGrid = require('./tailwind/tailwind.settings.grid');
 const settingsColors = require('./tailwind/tailwind.settings.colors');
 const settingsFontFamily = require('./tailwind/tailwind.settings.fontFamily');
 const settingsfluidType = require('./tailwind/tailwind.settings.fluidType');
+const settingsfluidSpacings = require('./tailwind/tailwind.settings.fluidSpacings');
 const settingsScreens = require('./tailwind/tailwind.settings.screens');
 const settingsAspectRatio = require('./tailwind/tailwind.settings.aspectRatio');
 
@@ -28,6 +30,7 @@ module.exports = {
   theme: {
     fontFamily: settingsFontFamily,
     fluidType: settingsfluidType,
+    fluidSpacings: settingsfluidSpacings,
     colors: settingsColors,
     screens: settingsScreens,
     extend: {
@@ -46,12 +49,14 @@ module.exports = {
   variants: {},
   corePlugins: {
     container: false,
+    // margin: false,
     fontSize: false, // disable cause we use the fluid type plugin
   },
   plugins: [
     debugScreens,
     questionMark,
     fluidType,
+    fluidSpacings,
     forms,
     ({ addComponents }) => {
       addComponents(pluginAddComponents);
