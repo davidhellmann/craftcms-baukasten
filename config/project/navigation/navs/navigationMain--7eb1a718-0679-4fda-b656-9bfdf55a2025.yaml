@@ -1,6 +1,46 @@
+defaultPlacement: end
+fieldLayouts:
+  abc08fce-9bc1-47bb-bd1e-278fb69164f2:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: 81c1e3d1-2c86-4c02-a36b-c9df669614b0
+            warning: null
+            width: 100
+          -
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: verbb\navigation\fieldlayoutelements\NodeTypeElements
+            uid: cd7c26f1-2929-4d18-9390-01ccaadf71ac
+            warning: null
+        name: Content
+        uid: 17345704-8e0e-4a2f-8e32-a06e66b18860
 handle: navigationMain
-instructions: ''
-maxNodes: ''
+instructions: null
+maxNodes: null
 name: 'Navigation Main'
 permissions:
   craft\elements\Asset:
@@ -21,8 +61,9 @@ permissions:
     enabled: '1'
 propagateNodes: false
 siteSettings:
-  8153a2df-373f-4aac-9a92-d52292c9f1aa: null # $SITE_NAME
+  8153a2df-373f-4aac-9a92-d52292c9f1aa: # $SITE_NAME
+    enabled: false
 sortOrder: 1
 structure:
-  maxLevels: '3'
+  maxLevels: 3
   uid: 0ba622b0-32db-4ff9-b9e9-46ae3f392176

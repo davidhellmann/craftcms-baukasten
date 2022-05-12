@@ -28,7 +28,7 @@
       {{ include('_components/image/image.twig', {
         data: {
           image: props.data.block.image[0] ??? null,
-          transform: props.data.block.imageTransform.value ??? 'landscape',
+          aspectRatio: props.data.block.imageTransform.value ??? 'aspect-landscape',
           caption: props.data.block.showImageCaption ??? 0,
         },
         classes: {
