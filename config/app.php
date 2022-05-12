@@ -21,7 +21,7 @@ use craft\helpers\App;
 
 return [
     '*' => [
-        'id' => App::env('APP_ID') ?: 'CraftCMS',
+        'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
         'modules' => [
             'site-module' => [
                 'class' => \modules\sitemodule\SiteModule::class,
@@ -50,13 +50,13 @@ return [
             ],
             'cache' => [
                 'class' => yii\redis\Cache::class,
-                'keyPrefix' => '_' . App::env('APP_ID') . '_CACHE_' ?: 'CraftCMS_CACHE_',
+                'keyPrefix' => '_' . App::env('CRAFT_APP_ID') . '_CACHE_' ?: 'CraftCMS_CACHE_',
                 'defaultDuration' => 86400,
                 'redis' => 'redis',
             ],
         ],
     ],
-    'live' => [],
+    'production' => [],
     'staging' => [],
-    'local' => [],
+    'dev' => [],
 ];

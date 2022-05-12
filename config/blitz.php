@@ -219,12 +219,7 @@ return [
         'injectScriptEvent' => 'DOMContentLoaded',
     ],
 
-    // Live Env
-    'live' => [],
-
-    // Stage Env
-    'stage' => [],
-
-    // Local Env
-    'local' => [],
+    'production' => [],
+    'staging' => [],
+    'dev' => [],
 ];

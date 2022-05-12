@@ -31,17 +31,15 @@ return [
         'fallbackImage' => App::env('FALLBACK_IMAGE') ?: null,
         'hideClearCachesForUserGroups' => [],
     ],
-    // Live Env
-    'live' => [
+
+    'production' => [
     ],
 
-    // Stage Env
-    'stage' => [
+    'staging' => [
         'optimizers' => null
     ],
 
-    // Local Env
-    'local' => [
+    'dev' => [
         'optimizers' => null,
         'mockImage' => App::env('MOCK_IMAGE') ?: null,
         'customEncoders' => [
