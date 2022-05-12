@@ -11,7 +11,7 @@
 use craft\helpers\App;
 
 return [
-    'craftEnv' => App::env('ENVIRONMENT') ?: 'local',
+    'craftEnv' => App::env('CRAFT_ENVIRONMENT') ?: 'dev',
     'localDevPerformance' => (bool)App::env('LOCAL_DEV_PERFORMANCE') ?: null,
     'dominantColor' => '#e8e8e8',
 ];

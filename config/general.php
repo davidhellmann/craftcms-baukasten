@@ -10,6 +10,9 @@
 
 use craft\helpers\App;
 
+$isDev = App::env('CRAFT_ENVIRONMENT') === 'dev';
+$isProd = App::env('CRAFT_ENVIRONMENT') === 'production';
+
 return [
     // Craft config settings from .env variables
     'aliases' => [
@@ -17,7 +20,7 @@ return [
         '@web' => App::env('SITE_URL'),
         '@webroot' => App::env('WEB_ROOT_PATH'),
     ],
-    'disabledPlugins' => App::env('ENVIRONMENT') === 'live'
+    'disabledPlugins' => $isProd
         ? ['dumper', 'elements-panel', 'blitz-recommendations', 'cp-field-inspect']
         : [],
     'allowedFileExtensions' => ['jpg', 'png', 'jpeg', 'gif', 'svg', 'mp4', 'wov', 'mp3', 'wav', 'pdf', 'zip', 'csv', 'rar'],

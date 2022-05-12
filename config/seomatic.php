@@ -32,8 +32,8 @@ return [
         'manuallySetEnvironment' => false,
 
 
-        // The server environment, either `live`, `stage`, or `local`
-        'environment' => App::env('ENVIRONMENT'),
+        // The server environment, either `production`, `staging`, or `dev`
+        'environment' => App::env('CRAFT_ENVIRONMENT'),
 
         // Should SEOmatic display the SEO Preview sidebar?
         'displayPreviewSidebar' => true,
@@ -135,15 +135,7 @@ return [
         'allowedUrlParams' => []
     ],
 
-    // Live (production) environment
-    'live'  => [
-    ],
-
-    // Staging (pre-production) environment
-    'stage'  => [
-    ],
-
-    // Local (development) environment
-    'local'  => [
-    ],
+    'production' => [],
+    'staging' => [],
+    'dev' => [],
 ];
