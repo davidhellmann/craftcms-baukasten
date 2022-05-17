@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c19b3e9aebea1b64dd7fadb3a140a07e",
+    "content-hash": "2ec1c4238c6967b57ae5d7b3444c9f2b",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1064,16 +1064,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.222.11",
+            "version": "3.222.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "458d322b7f913a54dfc10dd25d3fbb35bb3f7502"
+                "reference": "007ddbbded7b753c2ceda61f3648774597a2615f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/458d322b7f913a54dfc10dd25d3fbb35bb3f7502",
-                "reference": "458d322b7f913a54dfc10dd25d3fbb35bb3f7502",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/007ddbbded7b753c2ceda61f3648774597a2615f",
+                "reference": "007ddbbded7b753c2ceda61f3648774597a2615f",
                 "shasum": ""
             },
             "require": {
@@ -1149,9 +1149,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.222.11"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.222.13"
             },
-            "time": "2022-05-12T18:17:33+00:00"
+            "time": "2022-05-16T18:15:06+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -3230,16 +3230,16 @@
         },
         {
             "name": "google/cloud-core",
-            "version": "v1.44.4",
+            "version": "v1.45.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-core.git",
-                "reference": "971b7e163e0cc2b282c462d3a709891af7004d53"
+                "reference": "28181b5ec2d40e9c9cdf2085096b33bac1f237fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-core/zipball/971b7e163e0cc2b282c462d3a709891af7004d53",
-                "reference": "971b7e163e0cc2b282c462d3a709891af7004d53",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-core/zipball/28181b5ec2d40e9c9cdf2085096b33bac1f237fd",
+                "reference": "28181b5ec2d40e9c9cdf2085096b33bac1f237fd",
                 "shasum": ""
             },
             "require": {
@@ -3258,8 +3258,9 @@
                 "google/gax": "^1.9",
                 "opis/closure": "^3",
                 "phpdocumentor/reflection": "^3.0",
-                "phpunit/phpunit": "^4.8|^5.0",
-                "squizlabs/php_codesniffer": "2.*"
+                "phpunit/phpunit": "^4.8|^5.0|^8.0",
+                "squizlabs/php_codesniffer": "2.*",
+                "yoast/phpunit-polyfills": "^1.0"
             },
             "suggest": {
                 "opis/closure": "May be used to serialize closures to process jobs in the batch daemon. Please require version ^3.",
@@ -3288,22 +3289,22 @@
             ],
             "description": "Google Cloud PHP shared dependency, providing functionality useful to all components.",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-core/tree/v1.44.4"
+                "source": "https://github.com/googleapis/google-cloud-php-core/tree/v1.45.0"
             },
-            "time": "2022-05-04T00:38:37+00:00"
+            "time": "2022-05-13T22:51:50+00:00"
         },
         {
             "name": "google/cloud-storage",
-            "version": "v1.26.3",
+            "version": "v1.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-storage.git",
-                "reference": "1c9cfee8a51605faa93cf2b011a848bd94d50f48"
+                "reference": "51edfafd86ca3fc71e542a16961fb35bd59d7186"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-storage/zipball/1c9cfee8a51605faa93cf2b011a848bd94d50f48",
-                "reference": "1c9cfee8a51605faa93cf2b011a848bd94d50f48",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-storage/zipball/51edfafd86ca3fc71e542a16961fb35bd59d7186",
+                "reference": "51edfafd86ca3fc71e542a16961fb35bd59d7186",
                 "shasum": ""
             },
             "require": {
@@ -3314,9 +3315,10 @@
                 "erusev/parsedown": "^1.6",
                 "google/cloud-pubsub": "^1.0",
                 "phpdocumentor/reflection": "^3.0",
-                "phpseclib/phpseclib": "^2",
-                "phpunit/phpunit": "^4.8|^5.0",
-                "squizlabs/php_codesniffer": "2.*"
+                "phpseclib/phpseclib": "^2.0||^3.0",
+                "phpunit/phpunit": "^4.8|^5.0|^8.0",
+                "squizlabs/php_codesniffer": "2.*",
+                "yoast/phpunit-polyfills": "^1.0"
             },
             "suggest": {
                 "google/cloud-pubsub": "May be used to register a topic to receive bucket notifications.",
@@ -3342,9 +3344,9 @@
             ],
             "description": "Cloud Storage Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-storage/tree/v1.26.3"
+                "source": "https://github.com/googleapis/google-cloud-php-storage/tree/v1.27.0"
             },
-            "time": "2022-04-27T23:24:15+00:00"
+            "time": "2022-05-13T22:51:50+00:00"
         },
         {
             "name": "google/crc32",
@@ -5443,16 +5445,16 @@
         },
         {
             "name": "mrclay/minify",
-            "version": "3.0.11",
+            "version": "3.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mrclay/minify.git",
-                "reference": "f1572a580a8ab29c5c7df4319c4787c74f7dcb3e"
+                "reference": "1962d3614c7ee1795a9fb74e49e603646b34207d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mrclay/minify/zipball/f1572a580a8ab29c5c7df4319c4787c74f7dcb3e",
-                "reference": "f1572a580a8ab29c5c7df4319c4787c74f7dcb3e",
+                "url": "https://api.github.com/repos/mrclay/minify/zipball/1962d3614c7ee1795a9fb74e49e603646b34207d",
+                "reference": "1962d3614c7ee1795a9fb74e49e603646b34207d",
                 "shasum": ""
             },
             "require": {
@@ -5503,10 +5505,10 @@
             "support": {
                 "email": "minify@googlegroups.com",
                 "issues": "https://github.com/mrclay/minify/issues",
-                "source": "https://github.com/mrclay/minify/tree/3.0.11",
+                "source": "https://github.com/mrclay/minify/tree/3.0.12",
                 "wiki": "https://github.com/mrclay/minify/blob/master/docs"
             },
-            "time": "2021-03-11T11:58:14+00:00"
+            "time": "2022-05-14T11:11:27+00:00"
         },
         {
             "name": "mrclay/props-dic",
@@ -5886,16 +5888,16 @@
         },
         {
             "name": "nystudio107/craft-plugin-vite",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nystudio107/craft-plugin-vite.git",
-                "reference": "54ba26000d9cdf8146ec590dfa2bb84c61223240"
+                "reference": "204d8de7563117f9a2ecdfa84487122847179d02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-plugin-vite/zipball/54ba26000d9cdf8146ec590dfa2bb84c61223240",
-                "reference": "54ba26000d9cdf8146ec590dfa2bb84c61223240",
+                "url": "https://api.github.com/repos/nystudio107/craft-plugin-vite/zipball/204d8de7563117f9a2ecdfa84487122847179d02",
+                "reference": "204d8de7563117f9a2ecdfa84487122847179d02",
                 "shasum": ""
             },
             "require": {
@@ -5926,7 +5928,7 @@
             "support": {
                 "docs": "https://github.com/nystudio107/craft-plugin-vite/blob/v1/README.md",
                 "issues": "https://github.com/nystudio107/craft-plugin-vite/issues",
-                "source": "https://github.com/nystudio107/craft-plugin-vite/tree/4.0.0"
+                "source": "https://github.com/nystudio107/craft-plugin-vite/tree/4.0.1"
             },
             "funding": [
                 {
@@ -5934,7 +5936,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-07T19:23:48+00:00"
+            "time": "2022-05-16T02:48:22+00:00"
         },
         {
             "name": "nystudio107/craft-scripts",
@@ -5983,22 +5985,22 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "4.0.0-beta.8",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nystudio107/craft-seomatic.git",
-                "reference": "d084081d3735108bfe4762217ee0424248806d37"
+                "reference": "a31f7d211b52d55d274c66a291310ceec64c733f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/d084081d3735108bfe4762217ee0424248806d37",
-                "reference": "d084081d3735108bfe4762217ee0424248806d37",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/a31f7d211b52d55d274c66a291310ceec64c733f",
+                "reference": "a31f7d211b52d55d274c66a291310ceec64c733f",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^4.0.0-alpha",
+                "craftcms/cms": "^4.0.0",
                 "davechild/textstatistics": "1.0.2",
-                "nystudio107/craft-plugin-manifest": "^4.0.0-beta.1",
+                "nystudio107/craft-plugin-manifest": "^4.0.0",
                 "php": "^8.0.2",
                 "php-science/textrank": "^1.0.3",
                 "sunra/php-simple-html-dom-parser": "^1.5.2"
@@ -6054,25 +6056,25 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-04-18T22:18:58+00:00"
+            "time": "2022-05-16T16:46:40+00:00"
         },
         {
             "name": "nystudio107/craft-vite",
-            "version": "4.0.0-beta.4",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nystudio107/craft-vite.git",
-                "reference": "30a896644f07e7b3cc1e714c5ded5cebc468cb23"
+                "reference": "243366abc9e0cfe086d988d68fa67b0e6683b99e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-vite/zipball/30a896644f07e7b3cc1e714c5ded5cebc468cb23",
-                "reference": "30a896644f07e7b3cc1e714c5ded5cebc468cb23",
+                "url": "https://api.github.com/repos/nystudio107/craft-vite/zipball/243366abc9e0cfe086d988d68fa67b0e6683b99e",
+                "reference": "243366abc9e0cfe086d988d68fa67b0e6683b99e",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^4.0.0-beta.1",
-                "nystudio107/craft-plugin-vite": "^4.0.0-beta.3"
+                "craftcms/cms": "^4.0.0",
+                "nystudio107/craft-plugin-vite": "^4.0.1"
             },
             "type": "craft-plugin",
             "extra": {
@@ -6114,7 +6116,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-04-26T18:56:35+00:00"
+            "time": "2022-05-16T02:59:54+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -7073,23 +7075,24 @@
         },
         {
             "name": "putyourlightson/craft-blitz",
-            "version": "4.0.3",
+            "version": "4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/putyourlightson/craft-blitz.git",
-                "reference": "bb2cc07efdef1b0c3a333188731a83a4e9ba566e"
+                "reference": "4693d2fa8dbdaf3cc53f88ad931d396c0629f529"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-blitz/zipball/bb2cc07efdef1b0c3a333188731a83a4e9ba566e",
-                "reference": "bb2cc07efdef1b0c3a333188731a83a4e9ba566e",
+                "url": "https://api.github.com/repos/putyourlightson/craft-blitz/zipball/4693d2fa8dbdaf3cc53f88ad931d396c0629f529",
+                "reference": "4693d2fa8dbdaf3cc53f88ad931d396c0629f529",
                 "shasum": ""
             },
             "require": {
                 "amphp/http-client": "^4.0",
                 "amphp/parallel": "^1.0",
-                "craftcms/cms": "^4.0.0",
+                "craftcms/cms": "^4.0",
                 "php": "^8.0.2",
+                "putyourlightson/craft-blitz-hints": "^1.0.1",
                 "symplify/git-wrapper": "^10.0"
             },
             "require-dev": {
@@ -7138,20 +7141,56 @@
                 "issues": "https://github.com/putyourlightson/craft-blitz/issues",
                 "source": "https://github.com/putyourlightson/craft-blitz"
             },
-            "time": "2022-05-06T08:12:33+00:00"
+            "time": "2022-05-16T18:06:42+00:00"
         },
         {
-            "name": "putyourlightson/craft-blitz-recommendations",
-            "version": "2.0.1",
+            "name": "putyourlightson/craft-blitz-hints",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/putyourlightson/craft-blitz-recommendations.git",
-                "reference": "3ebe41b7bc2bfbaebdc09a10216b6f546afff4ea"
+                "url": "https://github.com/putyourlightson/craft-blitz-hints.git",
+                "reference": "ade30b8648f353cdb987cce174d65b8a8f24db22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-blitz-recommendations/zipball/3ebe41b7bc2bfbaebdc09a10216b6f546afff4ea",
-                "reference": "3ebe41b7bc2bfbaebdc09a10216b6f546afff4ea",
+                "url": "https://api.github.com/repos/putyourlightson/craft-blitz-hints/zipball/ade30b8648f353cdb987cce174d65b8a8f24db22",
+                "reference": "ade30b8648f353cdb987cce174d65b8a8f24db22",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0",
+                "php": "^8.0.2"
+            },
+            "type": "craft-module",
+            "autoload": {
+                "psr-4": {
+                    "putyourlightson\\blitzhints\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "mit"
+            ],
+            "description": "Provides templating performance hints.",
+            "support": {
+                "docs": "https://github.com/putyourlightson/craft-blitz-hints",
+                "issues": "https://github.com/putyourlightson/craft-blitz-hints/issues",
+                "source": "https://github.com/putyourlightson/craft-blitz-hints"
+            },
+            "time": "2022-05-16T17:52:26+00:00"
+        },
+        {
+            "name": "putyourlightson/craft-elements-panel",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/putyourlightson/craft-elements-panel.git",
+                "reference": "7775c4fb0eb996544c6365863e14a986c0159592"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/putyourlightson/craft-elements-panel/zipball/7775c4fb0eb996544c6365863e14a986c0159592",
+                "reference": "7775c4fb0eb996544c6365863e14a986c0159592",
                 "shasum": ""
             },
             "require": {
@@ -7160,30 +7199,30 @@
             },
             "type": "craft-plugin",
             "extra": {
-                "name": "Blitz Recommendations",
-                "handle": "blitz-recommendations",
+                "name": "Elements Panel",
+                "handle": "elements-panel",
                 "developer": "PutYourLightsOn",
                 "developerUrl": "https://putyourlightson.com/",
-                "documentationUrl": "https://putyourlightson.com/plugins/blitz-recommendations",
-                "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-blitz-recommendations/v2/CHANGELOG.md",
-                "class": "putyourlightson\\blitzrecommendations\\BlitzRecommendations"
+                "documentationUrl": "https://putyourlightson.com/plugins/elements-panel",
+                "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-elements-panel/v2/CHANGELOG.md",
+                "class": "putyourlightson\\elementspanel\\ElementsPanel"
             },
             "autoload": {
                 "psr-4": {
-                    "putyourlightson\\blitzrecommendations\\": "src/"
+                    "putyourlightson\\elementspanel\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "mit"
             ],
-            "description": "Adds a utility that provides templating performance recommendations.",
+            "description": "Adds an Elements and an Eager-Loading panel to the debug toolbar.",
             "support": {
-                "docs": "https://putyourlightson.com/plugins/blitz-recommendations",
-                "issues": "https://github.com/putyourlightson/craft-blitz-recommendations/issues",
-                "source": "https://github.com/putyourlightson/craft-blitz-recommendations"
+                "docs": "https://putyourlightson.com/plugins/elements-panel",
+                "issues": "https://github.com/putyourlightson/craft-elements-panel/issues",
+                "source": "https://github.com/putyourlightson/craft-elements-panel"
             },
-            "time": "2022-05-09T09:25:16+00:00"
+            "time": "2022-05-04T18:44:34+00:00"
         },
         {
             "name": "putyourlightson/craft-sherlock",
@@ -12682,12 +12721,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "2ed308386e65cafaadd54723f5b57775374c2ae8"
+                "reference": "c491d086242983f784b8af91cbb9de43d3374971"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/2ed308386e65cafaadd54723f5b57775374c2ae8",
-                "reference": "2ed308386e65cafaadd54723f5b57775374c2ae8",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/c491d086242983f784b8af91cbb9de43d3374971",
+                "reference": "c491d086242983f784b8af91cbb9de43d3374971",
                 "shasum": ""
             },
             "conflict": {
@@ -12720,6 +12759,7 @@
                 "bolt/core": "<=4.2",
                 "bottelet/flarepoint": "<2.2.1",
                 "brightlocal/phpwhois": "<=4.2.5",
+                "brotkrueml/codehighlight": "<2.7",
                 "buddypress/buddypress": "<7.2.1",
                 "bugsnag/bugsnag-laravel": ">=2,<2.0.2",
                 "bytefury/crater": "<6.0.2",
@@ -13164,7 +13204,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-11T11:06:18+00:00"
+            "time": "2022-05-16T08:10:11+00:00"
         },
         {
             "name": "yiisoft/yii2-shell",

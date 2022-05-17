@@ -88,7 +88,7 @@ export default defineConfig(({ command }) => ({
   // Use this for Laravel Valet
   server: {
     host: '0.0.0.0',
-    origin: 'http://localhost:3000/',
+    origin: 'http://localhost:3000',
     port: 3000,
     strictPort: true,
   },
