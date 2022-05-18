@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ec1c4238c6967b57ae5d7b3444c9f2b",
+    "content-hash": "79dc29fc26ab8438498c48583b2d37f3",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1064,16 +1064,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.222.13",
+            "version": "3.222.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "007ddbbded7b753c2ceda61f3648774597a2615f"
+                "reference": "2c73f3f3716516f733d449f504e954446a994994"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/007ddbbded7b753c2ceda61f3648774597a2615f",
-                "reference": "007ddbbded7b753c2ceda61f3648774597a2615f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2c73f3f3716516f733d449f504e954446a994994",
+                "reference": "2c73f3f3716516f733d449f504e954446a994994",
                 "shasum": ""
             },
             "require": {
@@ -1149,9 +1149,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.222.13"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.222.15"
             },
-            "time": "2022-05-16T18:15:06+00:00"
+            "time": "2022-05-18T18:15:15+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -3881,16 +3881,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v9.12.2",
+            "version": "v9.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "32badf046bfc187afacbee37b9820c5e200285d0"
+                "reference": "7d7617afdca6f15c881856c679da4e76820e7674"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/32badf046bfc187afacbee37b9820c5e200285d0",
-                "reference": "32badf046bfc187afacbee37b9820c5e200285d0",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/7d7617afdca6f15c881856c679da4e76820e7674",
+                "reference": "7d7617afdca6f15c881856c679da4e76820e7674",
                 "shasum": ""
             },
             "require": {
@@ -3932,11 +3932,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-05-02T14:05:19+00:00"
+            "time": "2022-05-16T15:20:45+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v9.12.2",
+            "version": "v9.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -3982,7 +3982,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v9.12.2",
+            "version": "v9.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -4030,7 +4030,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v9.12.2",
+            "version": "v9.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -5195,23 +5195,23 @@
         },
         {
             "name": "moneyphp/money",
-            "version": "v4.0.3",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moneyphp/money.git",
-                "reference": "d945f775bd6ab0920d9d205813d8831a899a8844"
+                "reference": "efe904ab6109d87046eb624d5dff7d270fd0cca5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moneyphp/money/zipball/d945f775bd6ab0920d9d205813d8831a899a8844",
-                "reference": "d945f775bd6ab0920d9d205813d8831a899a8844",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/efe904ab6109d87046eb624d5dff7d270fd0cca5",
+                "reference": "efe904ab6109d87046eb624d5dff7d270fd0cca5",
                 "shasum": ""
             },
             "require": {
                 "ext-bcmath": "*",
                 "ext-filter": "*",
                 "ext-json": "*",
-                "php": "^8.0"
+                "php": "~8.0.0 || ~8.1.0"
             },
             "require-dev": {
                 "cache/taggable-cache": "^1.1.0",
@@ -5224,12 +5224,11 @@
                 "moneyphp/iso-currencies": "^3.2.1",
                 "php-http/message": "^1.11.0",
                 "php-http/mock-client": "^1.4.1",
-                "phpbench/phpbench": "1.0.0-beta1@BETA",
-                "phpspec/phpspec": "^7.0.1",
+                "phpbench/phpbench": "^1.2.5",
+                "phpspec/phpspec": "^7.2",
                 "phpunit/phpunit": "^9.5.4",
                 "psalm/plugin-phpunit": "^0.15.1",
                 "psr/cache": "^1.0.1",
-                "roave/infection-static-analysis-plugin": "^1.7",
                 "vimeo/psalm": "~4.7.0 || ^4.8.2"
             },
             "suggest": {
@@ -5278,9 +5277,9 @@
             ],
             "support": {
                 "issues": "https://github.com/moneyphp/money/issues",
-                "source": "https://github.com/moneyphp/money/tree/v4.0.3"
+                "source": "https://github.com/moneyphp/money/tree/v4.0.4"
             },
-            "time": "2021-12-01T10:39:00+00:00"
+            "time": "2022-05-18T19:32:15+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7075,16 +7074,16 @@
         },
         {
             "name": "putyourlightson/craft-blitz",
-            "version": "4.1.1",
+            "version": "4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/putyourlightson/craft-blitz.git",
-                "reference": "4693d2fa8dbdaf3cc53f88ad931d396c0629f529"
+                "reference": "bc40b61eba9032efbf1fff4b4648ab43ddc552d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-blitz/zipball/4693d2fa8dbdaf3cc53f88ad931d396c0629f529",
-                "reference": "4693d2fa8dbdaf3cc53f88ad931d396c0629f529",
+                "url": "https://api.github.com/repos/putyourlightson/craft-blitz/zipball/bc40b61eba9032efbf1fff4b4648ab43ddc552d0",
+                "reference": "bc40b61eba9032efbf1fff4b4648ab43ddc552d0",
                 "shasum": ""
             },
             "require": {
@@ -7141,7 +7140,7 @@
                 "issues": "https://github.com/putyourlightson/craft-blitz/issues",
                 "source": "https://github.com/putyourlightson/craft-blitz"
             },
-            "time": "2022-05-16T18:06:42+00:00"
+            "time": "2022-05-17T11:35:17+00:00"
         },
         {
             "name": "putyourlightson/craft-blitz-hints",
@@ -7342,16 +7341,16 @@
         },
         {
             "name": "putyourlightson/craft-sprig-core",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/putyourlightson/craft-sprig-core.git",
-                "reference": "81ada92cd49deea22d6869c97766331d58305e05"
+                "reference": "e0f031bc27b1d2c89101d96a4b89c368f685ceee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/81ada92cd49deea22d6869c97766331d58305e05",
-                "reference": "81ada92cd49deea22d6869c97766331d58305e05",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/e0f031bc27b1d2c89101d96a4b89c368f685ceee",
+                "reference": "e0f031bc27b1d2c89101d96a4b89c368f685ceee",
                 "shasum": ""
             },
             "require": {
@@ -7380,7 +7379,7 @@
                 "issues": "https://github.com/putyourlightson/craft-sprig-core/issues",
                 "source": "https://github.com/putyourlightson/craft-sprig-core"
             },
-            "time": "2022-05-04T18:09:41+00:00"
+            "time": "2022-05-17T07:21:59+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -11009,16 +11008,16 @@
         },
         {
             "name": "verbb/navigation",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/verbb/navigation.git",
-                "reference": "fb998c7553bf5dfe9fc5bdd3eaf422d21c840bda"
+                "reference": "8c4ac77cac4fe5704611440135661d44d59d5dac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/navigation/zipball/fb998c7553bf5dfe9fc5bdd3eaf422d21c840bda",
-                "reference": "fb998c7553bf5dfe9fc5bdd3eaf422d21c840bda",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/8c4ac77cac4fe5704611440135661d44d59d5dac",
+                "reference": "8c4ac77cac4fe5704611440135661d44d59d5dac",
                 "shasum": ""
             },
             "require": {
@@ -11064,20 +11063,20 @@
                 "rss": "https://github.com/verbb/navigation/commits/v2.atom",
                 "source": "https://github.com/verbb/navigation"
             },
-            "time": "2022-05-06T01:45:56+00:00"
+            "time": "2022-05-17T23:56:47+00:00"
         },
         {
             "name": "verbb/super-table",
-            "version": "3.0.0-beta.3",
+            "version": "3.0.0-beta.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/verbb/super-table.git",
-                "reference": "e69a9f4e7b6435327fb6c713b4e17f332568ef24"
+                "reference": "00fc1782a797d2f41ae9888c28e352146ed11e00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/e69a9f4e7b6435327fb6c713b4e17f332568ef24",
-                "reference": "e69a9f4e7b6435327fb6c713b4e17f332568ef24",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/00fc1782a797d2f41ae9888c28e352146ed11e00",
+                "reference": "00fc1782a797d2f41ae9888c28e352146ed11e00",
                 "shasum": ""
             },
             "require": {
@@ -11130,7 +11129,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-15T22:33:17+00:00"
+            "time": "2022-05-18T00:05:59+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
