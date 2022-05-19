@@ -8,6 +8,7 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/keyboard';
 import 'swiper/css/navigation';
 import './swiperHolder.css';
+import './swiperOverflow.css';
 
 const swiperHolder: IComponent = {
   name: 'swiperHolder',

@@ -1,0 +1,34 @@
+/* Custom prev / next */
+.c-sliderOverflow .swiper-button-prev,
+.c-sliderOverflow .swiper-button-next {
+  /*@apply !hidden !h-12 !w-12 !rounded-full !bg-white !bg-no-repeat !text-primary-500 md:!flex;*/
+  @apply !top-0 !bottom-0 !mt-0 !flex !h-auto !w-8 !rounded-none !bg-white;
+}
+
+.c-sliderOverflow .swiper-button-prev svg,
+.c-sliderOverflow .swiper-button-next svg {
+  @apply !h-3 !w-3;
+}
+
+.c-sliderOverflow .swiper-button-prev svg path,
+.c-sliderOverflow .swiper-button-next svg path {
+  @apply fill-gray-900;
+}
+
+.c-sliderOverflow .swiper-button-prev {
+  @apply !left-0 before:pointer-events-none before:absolute before:right-0 before:left-8 before:h-full
+  before:w-16 before:bg-gradient-to-r before:from-white;
+}
+
+.c-sliderOverflow .swiper-button-next {
+  @apply !right-0 before:pointer-events-none before:absolute before:right-0 before:right-8 before:h-full before:w-16 before:bg-gradient-to-l before:from-white;
+}
+
+.c-sliderOverflow .swiper-button-prev.swiper-button-disabled,
+.c-sliderOverflow .swiper-button-next.swiper-button-disabled {
+  @apply !opacity-0;
+}
+
+.c-sliderOverflow .swiper {
+  @apply !pb-0;
+}
