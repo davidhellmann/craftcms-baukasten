@@ -1,5 +1,6 @@
 {
   "name": "craftcms-baukasten",
+  "version": "4.0.3",
   "description": "A drop-in buildchain for using Vite in your Craft CMS plugins or modules",
   "author": {
     "email": "david@hellmann.io",
@@ -89,6 +90,5 @@
     "preinstall": "$npm_execpath --silent run checknpm",
     "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)",
     "prepare": "husky install"
-  },
-  "version": "4.0.2"
+  }
 }

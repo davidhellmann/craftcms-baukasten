@@ -32,7 +32,6 @@ return [
     'isSystemLive' => (bool)App::env('IS_SYSTEM_LIVE'),
     'resourceBasePath' => App::env('WEB_ROOT_PATH') . '/cpresources',
     'runQueueAutomatically' => (bool)App::env('RUN_QUEUE_AUTOMATICALLY'),
-    'securityKey' => App::env('SECURITY_KEY'),
     'testToEmailAddress' => App::env('TEST_MAIL') ?: null,
     'enableGraphqlCaching' => (bool)App::env('ENABLE_GQL_CACHING'),
     // Craft config settings from constants
