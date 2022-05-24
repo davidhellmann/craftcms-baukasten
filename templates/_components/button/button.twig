@@ -13,21 +13,23 @@
     target: null,
   },
   classes: {
-    root: 'items-center border border-transparent font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all',
+    root: 'items-center font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all',
     custom: '',
     display: 'inline-flex',
     rounded: 'rounded-md'
   },
   variants: {
     style: {
-      primary: 'text-white bg-primary-700 hover:bg-primary-800 group-hover:bg-primary-800',
-      secondary: 'text-secondary-900 bg-secondary-300 hover:bg-secondary-400 group-hover:bg-secondary-400',
-      outlined: 'text-gray-900 border-gray-200 bg-white hover:bg-gray-50 group-hover:bg-gray-50',
+      primary: 'text-white border border-transparent bg-primary-700 hover:bg-primary-800 group-hover:bg-primary-800',
+      secondary: 'text-secondary-900 border border-transparent bg-secondary-300 hover:bg-secondary-400 group-hover:bg-secondary-400',
+      outlined: 'text-gray-900 border border-transparent border-gray-200 bg-white hover:bg-gray-50 group-hover:bg-gray-50',
+      overflowNav: 'text-gray-900 border-b-2 border-b-transparent hover:border-b-gray-900 !rounded-none'
     },
     size: {
       sm: 'px-2.5 py-1.5 gap-2 text-xs',
       md: 'px-4 py-2 gap-3 text-base',
       lg: 'px-6 py-3 gap-4 text-base',
+      overflowNav: 'py-1 gap-3 text-xs',
     }
   }
 } %}

@@ -1,0 +1,67 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-sliderOverflow',
+    slides: null,
+  },
+  classes: {
+    root: 'overflow-hidden relative before:absolute before:h-[2px] before:bg-gray-200 before:bottom-0 before:left-0 before:right-0',
+    custom: '',
+  },
+} %}
+
+  {# >>> Merge data / classes / variants (optional) #}
+  {% set props = {
+    data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+    classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  } %}
+
+  {# Component #}
+<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  {# >>> Embed Swiper Holder #}
+  {% embed "_components/slider/swiperHolder.twig" with {
+    data: {
+      slides: props.data.slides ??? null,
+      swiperConfig: {
+        init: false,
+        freeMode: {
+          sticky: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        scrollbar: false,
+        slidesPerView: 'auto',
+        spaceBetween: 16,
+        grabCursor: true,
+        simulateTouch: true,
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true
+      }
+    },
+    classes: {
+      swiperSlide: 'swiper-slide !w-auto',
+    },
+  } only %}
+    {# >>> Render slides #}
+    {% block swiperSlides %}
+      {% for slide in props.data.slides %}
+        <div class="{{ props.classes.swiperSlide }}">
+          {{ include(
+            "_components/button/button.twig",
+            {
+              data: {
+              url: slide.url ??? null,
+              text: slide.title ??? null,
+              variantStyle: "overflowNav",
+              variantSize: "overflowNav"
+            }
+            },
+            withContext = false
+          ) }}
+        </div>
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+</div>

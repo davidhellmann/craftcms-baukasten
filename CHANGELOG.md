@@ -1,4 +1,12 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.3 - 2022.05.24
+
+### Updated
+- composer packages / plugins
+
+### Added
+- Overflow Nav Slider Comp
+
 ## 4.0.2 - 2022.05.17
 
 ### Added

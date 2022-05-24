@@ -59,6 +59,35 @@
       {% endblock %}
     {% endembed %}
 
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Slider Overflow{% endblock %}
+      {% block content %}
+        {{ include('_components/slider/sliderOverflow.twig', {
+          data: {
+            slides: [
+              {url: '#', title: 'Lorem'},
+              {url: '#', title: 'Dolores'},
+              {url: '#', title: 'Internationale'},
+              {url: '#', title: 'Sit amet'},
+              {url: '#', title: 'Dolores'},
+              {url: '#', title: 'Internationale'},
+              {url: '#', title: 'Sit amet'},
+              {url: '#', title: 'Dolores'},
+              {url: '#', title: 'Internationale'},
+              {url: '#', title: 'Sit amet'},
+              {url: '#', title: 'Dolores'},
+              {url: '#', title: 'Internationale'},
+              {url: '#', title: 'Sit amet'},
+              {url: '#', title: 'Dolores'},
+              {url: '#', title: 'Internationale'},
+              {url: '#', title: 'Sit amet'},
+            ]
+          },
+        }, withContext = false) }}
+      {% endblock %}
+    {% endembed %}
+
   {% endcache %}
 {% endblock %}
 
