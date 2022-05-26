@@ -1,4 +1,11 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.4 - WIP
+
+### Updated
+- dumper plugin
+- vite: remove `console.log()` / `console.debug()` on build task
+
+
 ## 4.0.3 - 2022.05.24
 
 ### Updated
