@@ -5,6 +5,7 @@
 - dumper plugin
 - imagerX plugin
 - vite: remove `console.log()` / `console.debug()` on build task
+- npm packages
 
 
 ## 4.0.3 - 2022.05.24
