@@ -3,6 +3,7 @@
 
 ### Updated
 - dumper plugin
+- imagerX plugin
 - vite: remove `console.log()` / `console.debug()` on build task
 
 
