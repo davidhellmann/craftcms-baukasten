@@ -4,6 +4,7 @@
 ### Updated
 - dumper plugin
 - imagerX plugin
+- formie plugin
 - vite: remove `console.log()` / `console.debug()` on build task
 - npm packages
 
