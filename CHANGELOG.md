@@ -7,6 +7,7 @@
 - formie plugin
 - vite: remove `console.log()` / `console.debug()` on build task
 - npm packages
+- remove backgrounds for lazy images after they loaded.
 
 
 ## 4.0.3 - 2022.05.24

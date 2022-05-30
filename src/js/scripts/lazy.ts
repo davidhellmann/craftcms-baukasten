@@ -30,6 +30,14 @@ export const init = (els: NodeListOf<HTMLElement>, selector: string): void => {
 
           lazyItem.classList.remove('lazyload');
           lazyItem.classList.add('lazyloaded');
+
+          const parentNode: HTMLElement | null = lazyItem.parentElement;
+          if (parentNode?.style?.backgroundColor) {
+            setTimeout(() => {
+              parentNode.style.backgroundColor = 'transparent';
+            }, 1000);
+          }
+
           lazyItemObserver.unobserve(lazyItem);
         }
       });
