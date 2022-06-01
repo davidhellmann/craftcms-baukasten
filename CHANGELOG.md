@@ -5,6 +5,8 @@
 - dumper plugin
 - imagerX plugin
 - formie plugin
+- seomatic plugin
+- navigation plugin
 - vite: remove `console.log()` / `console.debug()` on build task
 - npm packages
 - remove backgrounds for lazy images after they loaded.
