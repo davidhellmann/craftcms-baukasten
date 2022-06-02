@@ -15,6 +15,9 @@
 - upgrade cypress to v10 (WIP)
 - remove backgrounds for lazy images after they loaded.
 
+### Changed
+- Use `craft up` to run migrations & apply Project Config changes
+
 
 ## 4.0.3 - 2022.05.24
 
