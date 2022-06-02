@@ -1,5 +1,5 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.4 - WIP
+## 4.0.4 - 2022.06.02
 
 ### Added
 - Image Resizer Plugin
