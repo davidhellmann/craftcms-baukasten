@@ -19,7 +19,7 @@ return [
         'cacheDuration' => 31536000, // 1 Year
         'cacheDurationRemoteFiles' => 31536000, // 1 Year
         'cacheDurationExternalStorage' => 31536000, // 1 Year
-        'jpegQuality' => 90,
+        'jpegQuality' => 95,
         'pngCompressionLevel' => 0,
         'optimizers' => [
             'jpegoptim',
@@ -46,7 +46,7 @@ return [
             'webp' => [
                 'path' => '/opt/homebrew/bin/cwebp',
                 'options' => [
-                    'quality' => 80,
+                    'quality' => 95,
                     'effort' => 4,
                 ],
                 'paramsString' => '-q {quality} -m {effort} {src} -o {dest}'

@@ -8,18 +8,19 @@
         "nystudio107/craft-emptycoalesce": "^4.0.0-beta.1",
         "nystudio107/craft-minify": "^4.0.0-beta.2",
         "nystudio107/craft-scripts": "^1.2.13",
-        "nystudio107/craft-seomatic": "4.0.0",
+        "nystudio107/craft-seomatic": "4.0.1",
         "nystudio107/craft-vite": "4.0.0",
         "putyourlightson/craft-blitz": "4.1.3",
         "putyourlightson/craft-elements-panel": "2.0.0",
         "putyourlightson/craft-sherlock": "4.0.1",
         "putyourlightson/craft-sprig": "^2.0.0",
         "sebastianlenz/linkfield": "2.1.3-rc",
-        "spacecatninja/imager-x": "^4.0.0",
-        "studioespresso/craft-dumper": "^3.0.0-beta.1",
+        "spacecatninja/imager-x": "4.0.1",
+        "studioespresso/craft-dumper": "3.0.1",
         "vaersaagod/matrixmate": "^2.0.1",
-        "verbb/formie": "2.0.0-beta.9",
-        "verbb/navigation": "2.0.1",
+        "verbb/formie": "2.0.0-beta.10",
+        "verbb/image-resizer": "3.0.0-beta.1",
+        "verbb/navigation": "2.0.2",
         "verbb/super-table": "3.0.0-beta.4",
         "vlucas/phpdotenv": "^5.4",
         "yiisoft/yii2-redis": "^2.0.13"
@@ -66,9 +67,7 @@
             "@php craft install/check && php craft clear-caches/compiled-templates || exit 0",
             "@php craft install/check && php craft clear-caches/data || exit 0",
             "@php craft install/check && php craft clear-caches/temp-files || exit 0",
-            "@php craft install/check && php craft migrate/all --no-content || exit 0",
-            "@php craft install/check && php craft project-config/apply --force || exit 0",
-            "@php craft install/check && php craft migrate --track=content || exit 0"
+            "@php craft install/check && php craft up || exit 0"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

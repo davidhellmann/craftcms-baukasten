@@ -15,6 +15,9 @@ import * as path from 'path';
 
 export default defineConfig(({ command }) => ({
   base: command === 'serve' ? '' : '/dist/',
+  esbuild: {
+    drop: command === 'build' ? ['console', 'debugger'] : [],
+  },
   build: {
     emptyOutDir: true,
     manifest: true,

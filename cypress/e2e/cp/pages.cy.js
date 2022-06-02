@@ -6,7 +6,7 @@ describe('Pages', () => {
   it(`shows an error when trying to save an empty page`, function () {
     cy.cpVisit('/entries/pages/new');
 
-    cy.get('#save-btn-container button[type=submit]').click();
+    cy.get('#action-buttons button[type=submit]').click();
 
     cy.get('#notifications .notification.error').contains('Couldn’t create entry.');
   });

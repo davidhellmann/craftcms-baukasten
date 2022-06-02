@@ -120,7 +120,7 @@ Art Direction
 
 
   {# Dominant Color / Placeholder #}
-  {% set dominantColor = craft.app.config.general.custom.dominantColor ??? 'transparent' %}
+  {% set dominantColor = craft.app.config.custom.dominantColor ??? 'transparent' %}
   {% if props.data.calcDominantColor
     and not craft.app.config.general.custom.localDevPerformance
     and isTranformable

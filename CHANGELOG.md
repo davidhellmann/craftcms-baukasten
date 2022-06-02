@@ -1,4 +1,24 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.4 - 2022.06.02
+
+### Added
+- Image Resizer Plugin
+
+### Updated
+- dumper plugin
+- imagerX plugin
+- formie plugin
+- seomatic plugin
+- navigation plugin
+- vite: remove `console.log()` / `console.debug()` on build task
+- npm packages
+- upgrade cypress to v10 (WIP)
+- remove backgrounds for lazy images after they loaded.
+
+### Changed
+- Use `craft up` to run migrations & apply Project Config changes
+
+
 ## 4.0.3 - 2022.05.24
 
 ### Updated

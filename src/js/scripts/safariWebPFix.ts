@@ -6,7 +6,7 @@ interface ICompSafariWebPFix extends IComponent {
 }
 
 const safariWebPFix: ICompSafariWebPFix = {
-  name: 'globalScrollListener',
+  name: 'safariWebPFix',
 
   replaceWebPWithFileType() {
     const images = [...document.querySelectorAll<HTMLElement>('img, source')];

@@ -1,4 +1,37 @@
-dateModified: 1652910941
+dateModified: 1654152542
+elementSources:
+  craft\elements\Asset:
+    -
+      key: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
+      type: native
+    -
+      disabled: false
+      key: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
+      tableAttributes:
+        - filename
+        - size
+        - dateModified
+        - uploader
+        - link
+        - imageSize
+      type: native
+    -
+      disabled: false
+      key: 'volume:77c74b5c-6bbb-41a7-b166-c6b158a3cc7f' # Template Images
+      tableAttributes:
+        - filename
+        - size
+        - dateModified
+        - uploader
+        - link
+        - imageSize
+      type: native
+    -
+      key: 'volume:8dda1580-81a2-49f5-9dd2-ed1e2eb03fc6' # Users
+      type: native
+    -
+      key: 'folder:c8e15363-b103-4fd2-b6e4-097752fa2cef'
+      type: native
 email:
   fromEmail: $SYSTEM_MAIL
   fromName: $SITE_NAME
@@ -299,6 +332,10 @@ plugins:
       spamLimit: 1000
       useQueueForIntegrations: true
       useQueueForNotifications: true
+  image-resizer:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
   imager-x:
     edition: pro
     enabled: true
