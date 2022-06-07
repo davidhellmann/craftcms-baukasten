@@ -1,4 +1,10 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.5 - WIP
+
+### Updated
+- npm packages
+- craftcms 4.0.4
+
 ## 4.0.4 - 2022.06.02
 
 ### Added
