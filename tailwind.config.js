@@ -2,6 +2,7 @@
  * Opatciy Map for Colors
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
+/** @type {import('tailwindcss').Config} */
 
 const fluidType = require('tailwindcss-fluid-type');
 const questionMark = require('tailwindcss-question-mark');

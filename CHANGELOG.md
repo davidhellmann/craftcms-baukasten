@@ -3,7 +3,10 @@
 
 ### Updated
 - npm packages
+- tailwindcss 3.1
 - craftcms 4.0.4
+- formie plugin
+- supertable plugin
 
 ## 4.0.4 - 2022.06.02
 
