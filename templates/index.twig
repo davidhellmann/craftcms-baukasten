@@ -9,21 +9,19 @@
           Oh, hey!
         </h1>
         {# link #}
-        {{
-          include(
-            "_components/button/button.twig",
-            {
-              data: {
-                url: "/hidden/patternlib",
-                text: "Pattern Library"
-              },
-              classes: {
-                custom: "mt-4"
-              }
-            },
-            withContext = false
-          )
-        }}
+        {{ include(
+          "_components/button/button.twig",
+          {
+            data: {
+            url: "/hidden/patternlib",
+            text: "Pattern Library"
+          },
+            classes: {
+            custom: "mt-4"
+          }
+          },
+          withContext = false
+        ) }}
       </div>
     {% endminify %}
   {% endcache %}

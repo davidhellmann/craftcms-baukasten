@@ -2,57 +2,48 @@
  * Tailwind Color Settings
  */
 
-function withOpacityValue(variable) {
-  return ({ opacityValue }) => {
-    if (opacityValue === undefined) {
-      return `rgb(var(${variable}))`;
-    }
-    return `rgb(var(${variable}) / ${opacityValue})`;
-  };
-}
-
 module.exports = {
   current: 'currentColor',
   transparent: 'transparent',
-  black: withOpacityValue('--c-black'),
-  white: withOpacityValue('--c-white'),
+  black: 'rgb(var(--c-black) / <alpha-value>)',
+  white: 'rgb(var(--c-white) / <alpha-value>)',
   gray: {
-    50: withOpacityValue('--c-gray-50'),
-    100: withOpacityValue('--c-gray-100'),
-    200: withOpacityValue('--c-gray-200'),
-    300: withOpacityValue('--c-gray-300'),
-    400: withOpacityValue('--c-gray-400'),
-    500: withOpacityValue('--c-gray-500'),
-    DEFAULT: withOpacityValue('--c-gray-500'),
-    600: withOpacityValue('--c-gray-600'),
-    700: withOpacityValue('--c-gray-700'),
-    800: withOpacityValue('--c-gray-800'),
-    900: withOpacityValue('--c-gray-900'),
+    50: 'rgb(var(--c-gray-50) / <alpha-value>)',
+    100: 'rgb(var(--c-gray-100) / <alpha-value>)',
+    200: 'rgb(var(--c-gray-200) / <alpha-value>)',
+    300: 'rgb(var(--c-gray-300) / <alpha-value>)',
+    400: 'rgb(var(--c-gray-400) / <alpha-value>)',
+    500: 'rgb(var(--c-gray-500) / <alpha-value>)',
+    DEFAULT: 'rgb(var(--c-gray-500) / <alpha-value>)',
+    600: 'rgb(var(--c-gray-600) / <alpha-value>)',
+    700: 'rgb(var(--c-gray-700) / <alpha-value>)',
+    800: 'rgb(var(--c-gray-800) / <alpha-value>)',
+    900: 'rgb(var(--c-gray-900) / <alpha-value>)',
   },
   primary: {
-    50: withOpacityValue('--c-primary-50'),
-    100: withOpacityValue('--c-primary-100'),
-    200: withOpacityValue('--c-primary-200'),
-    300: withOpacityValue('--c-primary-300'),
-    400: withOpacityValue('--c-primary-400'),
-    500: withOpacityValue('--c-primary-500'),
-    DEFAULT: withOpacityValue('--c-primary-500'),
-    600: withOpacityValue('--c-primary-600'),
-    700: withOpacityValue('--c-primary-700'),
-    800: withOpacityValue('--c-primary-800'),
-    900: withOpacityValue('--c-primary-900'),
+    50: 'rgb(var(--c-primary-50) / <alpha-value>)',
+    100: 'rgb(var(--c-primary-100) / <alpha-value>)',
+    200: 'rgb(var(--c-primary-200) / <alpha-value>)',
+    300: 'rgb(var(--c-primary-300) / <alpha-value>)',
+    400: 'rgb(var(--c-primary-400) / <alpha-value>)',
+    500: 'rgb(var(--c-primary-500) / <alpha-value>)',
+    DEFAULT: 'rgb(var(--c-primary-500) / <alpha-value>)',
+    600: 'rgb(var(--c-primary-600) / <alpha-value>)',
+    700: 'rgb(var(--c-primary-700) / <alpha-value>)',
+    800: 'rgb(var(--c-primary-800) / <alpha-value>)',
+    900: 'rgb(var(--c-primary-900) / <alpha-value>)',
   },
   secondary: {
-    50: withOpacityValue('--c-secondary-50'),
-    100: withOpacityValue('--c-secondary-100'),
-    200: withOpacityValue('--c-secondary-200'),
-    300: withOpacityValue('--c-secondary-300'),
-    400: withOpacityValue('--c-secondary-400'),
-    500: withOpacityValue('--c-secondary-500'),
-    DEFAULT: withOpacityValue('--c-secondary-500'),
-    600: withOpacityValue('--c-secondary-600'),
-    700: withOpacityValue('--c-secondary-700'),
-    800: withOpacityValue('--c-secondary-800'),
-    900: withOpacityValue('--c-secondary-900'),
+    50: 'rgb(var(--c-secondary-50) / <alpha-value>)',
+    100: 'rgb(var(--c-secondary-100) / <alpha-value>)',
+    200: 'rgb(var(--c-secondary-200) / <alpha-value>)',
+    300: 'rgb(var(--c-secondary-300) / <alpha-value>)',
+    400: 'rgb(var(--c-secondary-400) / <alpha-value>)',
+    500: 'rgb(var(--c-secondary-500) / <alpha-value>)',
+    DEFAULT: 'rgb(var(--c-secondary-500) / <alpha-value>)',
+    600: 'rgb(var(--c-secondary-600) / <alpha-value>)',
+    700: 'rgb(var(--c-secondary-700) / <alpha-value>)',
+    800: 'rgb(var(--c-secondary-800) / <alpha-value>)',
+    900: 'rgb(var(--c-secondary-900) / <alpha-value>)',
   },
 };
