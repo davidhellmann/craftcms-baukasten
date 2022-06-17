@@ -8,6 +8,7 @@
 - formie plugin
 - supertable plugin
 - image component
+- imagerX plugin
 
 ## 4.0.4 - 2022.06.02
 
