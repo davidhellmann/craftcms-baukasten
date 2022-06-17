@@ -24,7 +24,7 @@ Image Helper
 
       {# >>> check if lazy #}
       {% if lazy %}
-        class="lazyload {{ customClasses }}"
+        class="lazyload {{ imageData.aspectRatio }} {{ customClasses }}"
         loading="lazy"
         src="{{- imageData.placeholder -}}"
         {%- if imageData.transformable -%}
@@ -34,6 +34,7 @@ Image Helper
         {%- endif -%}
         data-sizes="auto"
       {%- else -%}
+        class="{{ imageData.aspectRatio }} {{ customClasses }}"
         src="{{- imageData.url -}}"
         {%- if imageData.transformable -%}
           srcset="{{- imageData.srcset -}}"

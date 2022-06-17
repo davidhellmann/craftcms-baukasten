@@ -14,12 +14,35 @@ $defaultTransforms = [
     ['width' => 2400],
 ];
 
+$defaultTransformsAutoWidth = [
+    ['height' => 100],
+    ['height' => 200],
+    ['height' => 300],
+    ['height' => 400],
+    ['height' => 500],
+    ['height' => 600],
+    ['height' => 700],
+    ['height' => 800],
+    ['height' => 1200],
+    ['height' => 1600],
+    ['height' => 2400],
+];
+
 return [
     'auto' => [
         'transforms' => $defaultTransforms,
     ],
     'autoWebp' => [
         'transforms' => $defaultTransforms,
+        'defaults' => [
+            'format' => 'webp'
+        ],
+    ],
+    'autoWidth' => [
+        'transforms' => $defaultTransformsAutoWidth,
+    ],
+    'autoWidthWebp' => [
+        'transforms' => $defaultTransformsAutoWidth,
         'defaults' => [
             'format' => 'webp'
         ],

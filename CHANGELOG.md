@@ -7,6 +7,7 @@
 - craftcms 4.0.4
 - formie plugin
 - supertable plugin
+- image component
 
 ## 4.0.4 - 2022.06.02
 

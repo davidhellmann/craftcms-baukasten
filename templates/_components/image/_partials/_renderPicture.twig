@@ -1,34 +1,14 @@
 {# >>> Include macros #}
 {% import '_macros/_macro-imageHelper.twig' as imageHelper %}
 
-{% if props.data.caption %}
-  <figure class="{{ props.data.name }} {{ props.classes.root }} {{ imageData.aspectRatio }} {{ props.classes.custom }}"
-          {% if props.data.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
-    <picture>
-      {% for source in imageData.sources %}
-        {{- imageHelper.renderSource(source[0], source[1], source[2], source[3]) -}}
-      {% endfor %}
+{% set bgColor %}
+  style="background-color: {{- imageData.dominantColor -}}; "
+{% endset %}
 
-      {{- imageHelper.renderImage(imageData, props.data.lazy, props.data.objectFit) -}}
-
-      {% if props.data.caption %}
-        {# caption #}
-        {{ include('_components/caption/caption.twig', {
-          data: {
-            headline: imageData.caption.headline ??? null,
-            text: imageData.caption.text ??? null,
-            source: imageData.caption.source ??? null,
-            sourceUrl: imageData.caption.sourceUrl ??? null
-          }
-        }, withContext = false) }}
-      {% endif %}
-
-      {{ include('_components/image/_partials/_nocript.twig', {}, withContext = true) }}
-    </picture>
-  </figure>
-{% else %}
-  <picture class="{{ props.data.name }} {{ props.classes.root }} {{ imageData.aspectRatio }} {{ props.classes.custom }}"
-           {% if props.data.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
+{# If there is no caption #}
+{% if not props.data.caption %}
+  <picture class="overflow-hidden {{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}"
+    {% if props.data.showDominantColor %}{{ bgColor }}{% endif %}>
     {% for source in imageData.sources %}
       {{- imageHelper.renderSource(source[0], source[1], source[2], source[3]) -}}
     {% endfor %}
@@ -36,4 +16,33 @@
     {{- imageHelper.renderImage(imageData, props.data.lazy, props.data.objectFit) -}}
     {{ include('_components/image/_partials/_nocript.twig', {}, withContext = true) }}
   </picture>
+
+{# If there is a caption #}
+{% else %}
+  <figure class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+    <picture class="overflow-hidden" {% if props.data.showDominantColor  %}{{ bgColor }}{% endif %}>
+      {% for source in imageData.sources %}
+        {{- imageHelper.renderSource(source[0], source[1], source[2], source[3]) -}}
+      {% endfor %}
+
+      {{- imageHelper.renderImage(imageData, props.data.lazy, props.data.objectFit) -}}
+
+      {{ include('_components/image/_partials/_nocript.twig', {}, withContext = true) }}
+    </picture>
+
+    {% if props.data.caption %}
+      {# caption #}
+      {{ include('_components/caption/caption.twig', {
+        data: {
+          headline: imageData.caption.headline ??? null,
+          text: imageData.caption.text ??? null,
+          source: imageData.caption.source ??? null,
+          sourceUrl: imageData.caption.sourceUrl ??? null
+        },
+        classes: {
+          custom: 'mt-2'
+        }
+      }, withContext = false) }}
+    {% endif %}
+  </figure>
 {% endif %}

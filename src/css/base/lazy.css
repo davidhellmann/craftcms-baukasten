@@ -1,10 +1,22 @@
 .lazyload,
 .lazyloading {
-  @apply opacity-0;
+  @apply opacity-0 transition-all duration-500;
+}
+
+figure .lazyload,
+figure .lazyloading,
+picture .lazyload,
+picture .lazyloading {
+  @apply scale-105;
 }
 
 .lazyloaded {
   @apply opacity-100;
+}
+
+figure .lazyloaded,
+picture .lazyloaded {
+  @apply scale-100;
 }
 
 .lazypreload {
