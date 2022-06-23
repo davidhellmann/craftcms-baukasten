@@ -1,4 +1,4 @@
 <?php
 return [
-    'translate.component.gallery.images.showAll' => 'Show all photos',
+    'translate.component.gallery.images.showAll' => 'Open gallery',
 ];

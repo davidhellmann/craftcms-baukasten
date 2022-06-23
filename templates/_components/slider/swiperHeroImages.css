@@ -1,0 +1,25 @@
+.c-sliderHeroImages .swiper-pagination-bullet {
+  @apply !m-0 w-full h-full bg-transparent inline-block relative opacity-100 overflow-hidden rounded-none
+  before:w-full
+  before:h-1
+  before:bg-white
+  before:rounded-md
+  before:absolute
+  before:left-0
+  before:top-0
+
+  after:w-full
+  after:h-1
+  after:bg-primary-500
+  after:absolute
+  after:-translate-x-full
+  after:rounded-md
+  after:left-0
+  after:transition
+  after:duration-[0ms]
+  after:ease-linear
+}
+
+.c-sliderHeroImages .swiper-has-started .swiper-pagination-bullet-active {
+  @apply after:translate-x-0 after:duration-[6000ms]
+}

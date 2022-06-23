@@ -1,6 +1,6 @@
 /* Smooth on load */
 .swiper {
-  @apply !pb-2 opacity-0 transition duration-500;
+  @apply pb-2 opacity-0 transition duration-500;
 }
 
 .swiper-wrapper {
@@ -14,16 +14,15 @@
 /* Destroyed Swiper */
 .swiper-is-destroyed {
   @apply opacity-100;
+}
 
-  .swiper-wrapper {
-    @apply grid grid-cols-3 gap-6 gap-y-8;
+.swiper-is-destroyed .swiper-wrapper {
+  @apply grid grid-cols-3 gap-6 gap-y-8;
+  transform: translate3d(0, 0, 0) !important;
+}
 
-    transform: translate3d(0, 0, 0) !important;
-  }
-
-  .swiper-slide {
-    @apply !block;
-  }
+.swiper-is-destroyed .swiper-slide {
+  @apply !block;
 }
 
 .swiper.swiper-is-ready {

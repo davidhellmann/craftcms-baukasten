@@ -1,4 +1,13 @@
-import Swiper, { A11y, FreeMode, Keyboard, Navigation, Scrollbar } from 'swiper';
+import Swiper, {
+  A11y,
+  FreeMode,
+  Keyboard,
+  Navigation,
+  Scrollbar,
+  Pagination,
+  Autoplay,
+  EffectFade,
+} from 'swiper';
 import { IComponent } from '../../../src/js/@types/IComponent';
 
 import 'swiper/css';
@@ -7,8 +16,11 @@ import 'swiper/css/free-mode';
 import 'swiper/css/scrollbar';
 import 'swiper/css/keyboard';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 import './swiperHolder.css';
 import './swiperOverflow.css';
+import './swiperHeroImages.css';
 
 const swiperHolder: IComponent = {
   name: 'swiperHolder',
@@ -23,13 +35,44 @@ const swiperHolder: IComponent = {
         let swiper = undefined;
 
         const initSwiper = () => {
+          // @ts-ignore
           swiper = new Swiper(slider, {
-            modules: [Navigation, A11y, Scrollbar, FreeMode, Keyboard],
+            modules: [
+              Navigation,
+              A11y,
+              Scrollbar,
+              FreeMode,
+              Keyboard,
+              Pagination,
+              Autoplay,
+              EffectFade,
+            ],
             ...sliderConfig,
+            on: {
+              beforeInit() {
+                slider.classList.remove('swiper-is-destroyed');
+                slider.classList.add('swiper-is-ready');
+              },
+              afterInit() {
+                if (sliderConfig?.autoplay) {
+                  setTimeout(() => {
+                    slider.classList.add('swiper-has-started');
+                  });
+                }
+              },
+              slideChangeTransitionStart() {
+                if (sliderConfig?.autoplay) {
+                  slider.classList.remove('swiper-has-started');
+                }
+              },
+              slideChangeTransitionEnd() {
+                if (sliderConfig?.autoplay) {
+                  slider.classList.add('swiper-has-started');
+                }
+              },
+            },
           });
 
-          slider.classList.remove('swiper-is-destroyed');
-          slider.classList.add('swiper-is-ready');
           swiper.init();
         };
 

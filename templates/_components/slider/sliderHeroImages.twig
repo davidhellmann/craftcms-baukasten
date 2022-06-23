@@ -1,0 +1,102 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-sliderHeroImages',
+    slides: null,
+    aspectRatio: 'aspect-landscape',
+    destroyBreakpoint: null,
+  },
+  classes: {
+    root: 'overflow-hidden',
+    custom: '!pb-0',
+    swiperSlide: 'swiper-slide !h-[80vh] bg-black',
+    swiperWrapper: '',
+  },
+  variants: {
+    aspectRatio: {
+      'aspect-landscape': 'aspect-landscape',
+      'aspect-portrait': 'aspect-portrait',
+      'aspect-square': 'aspect-square',
+      'aspect-auto': 'aspect-auto',
+    }
+  }
+} %}
+
+  {# >>> Merge data / classes / variants (optional) #}
+  {% set props = {
+    data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+    classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+    variants: compDefaults.variants,
+  } %}
+
+  {# Component #}
+<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  {# >>> Embed Swiper Holder #}
+  {% embed "_components/slider/swiperHolder.twig" with {
+    data: {
+      slides: props.data.slides ??? null,
+      aspectRatio: props.data.aspectRatio,
+      destroyBreakpoint: props.data.destroyBreakpoint ??? null,
+      swiperConfig: {
+        init: false,
+        scrollbar: false,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          type: 'bullets'
+        },
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
+        speed: 350,
+        autoplay: {
+          delay: 6000,
+          disableOnInteraction: false
+        },
+        slidesPerView: 1,
+        spaceBetween: 0,
+        grabCursor: true,
+        simulateTouch: true,
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true
+      }
+    },
+    classes: props.classes,
+    variants: props.variants
+  } only %}
+    {# >>> Render slides #}
+    {% block swiperSlides %}
+      {% for image in props.data.slides %}
+        <div class="{{ props.classes.swiperSlide }}">
+          {{ include('_components/image/image.twig', {
+            data: {
+              image: image ??? null,
+              aspectRatio: props.data.aspectRatio,
+              lazy: false
+            },
+            classes: {
+              custom: 'h-full'
+            }
+          }, withContext = false) }}
+        </div>
+      {% endfor %}
+    {% endblock %}
+
+    {% block pagination %}
+      <div class="absolute w-full xl:w-3/4 bottom-0 z-10 text-white min-h-[0.25rem] px-4 xl:px-20 ">
+        <ul class="grid-cols-4 gap-4 xl:gap-8 pb-20 pt-4 hidden lg:grid">
+          {% for i in 1..4 %}
+            <li class="w-full pr-4">
+              <h2>Title</h2>
+              <p>The quick brown fox jumps over the lazy dogs</p>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div
+          class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal left-0 -top-4 xl:top-0 grid grid-cols-4 gap-4 xl:gap-8 px-4 xl:px-20 h-full"></div>
+      </div>
+    {% endblock %}
+  {% endembed %}
+</div>
