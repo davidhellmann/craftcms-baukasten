@@ -1,4 +1,4 @@
-dateModified: 1654894519
+dateModified: 1657099063
 elementSources:
   craft\elements\Asset:
     -
@@ -175,7 +175,10 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_BLITZ
-    schemaVersion: 4.1.2
+    schemaVersion: 4.2.0
+    settings:
+      integrations:
+        - putyourlightson\blitz\drivers\integrations\CommerceIntegration
   cp-clearcache:
     edition: standard
     enabled: true
