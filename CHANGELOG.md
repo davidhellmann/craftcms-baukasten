@@ -1,14 +1,17 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.5 - WIP
+## 4.0.5 - 20220.07.09
 
 ### Updated
 - npm packages
 - tailwindcss 3.1
-- craftcms 4.0.4
+- craftcms 4.1.3
 - formie plugin
 - supertable plugin
 - image component
 - imagerX plugin
+
+### Added
+- Full Page Slider (Wip)
 
 ## 4.0.4 - 2022.06.02
 
