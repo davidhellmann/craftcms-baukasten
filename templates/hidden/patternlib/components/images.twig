@@ -91,6 +91,20 @@
 
     {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Render image with caption{% endblock %}
+      {% block content %}
+        {{ include('_components/image/image.twig', {
+          data: {
+            image: cat01Image ??? null,
+            aspectRatio: 'aspect-landscape',
+            caption: true
+          }
+        }, withContext = false) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Art Direction{% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {

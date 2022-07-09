@@ -54,6 +54,9 @@ return [
                 'defaultDuration' => 86400,
                 'redis' => 'redis',
             ],
+            'mutex' => [
+                'mutex' => 'yii\redis\Mutex',
+            ],
         ],
     ],
     'production' => [],

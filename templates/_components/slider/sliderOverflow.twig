@@ -7,6 +7,8 @@
   classes: {
     root: 'overflow-hidden relative before:absolute before:h-[2px] before:bg-gray-200 before:bottom-0 before:left-0 before:right-0',
     custom: '',
+    swiperSlide: 'swiper-slide !w-auto',
+    swiperWrapper: '',
   },
 } %}
 
@@ -40,9 +42,7 @@
         watchSlidesVisibility: true
       }
     },
-    classes: {
-      swiperSlide: 'swiper-slide !w-auto',
-    },
+    classes: props.classes,
   } only %}
     {# >>> Render slides #}
     {% block swiperSlides %}

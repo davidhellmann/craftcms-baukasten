@@ -1,10 +1,23 @@
 {# >>> Include macros #}
 {% import '_macros/_macro-imageHelper.twig' as imageHelper %}
-<figure class="{{ props.data.name }} {{ props.classes.root }}  {{ imageData.aspectRatio }}  {{ props.classes.custom }}"
-        {% if props.data.showDominantColor %}style="background-color: {{- imageData.dominantColor -}}; "{% endif %}>
-  {{- imageHelper.renderImage(imageData, props.data.lazy, props.data.objectFit) -}}
 
-  {% if props.data.caption %}
+{% set bgColor %}
+  style="background-color: {{- imageData.dominantColor -}}; "
+{% endset %}
+
+<figure class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} {{ not props.data.caption ? 'overflow-hidden' : '' }}"
+  {% if props.data.showDominantColor and not props.data.caption %}{{ bgColor }}{% endif %}>
+
+  {# If there is no caption #}
+  {% if not props.data.caption %}
+    {{- imageHelper.renderImage(imageData, props.data.lazy, props.data.objectFit) -}}
+
+  {# If there is a caption #}
+  {% else %}
+    <div class="overflow-hidden" {% if props.data.showDominantColor %}{{ bgColor }}{% endif %}>
+      {{- imageHelper.renderImage(imageData, props.data.lazy, props.data.objectFit) -}}
+    </div>
+
     {# caption #}
     {{ include('_components/caption/caption.twig', {
       data: {
@@ -12,6 +25,9 @@
         text: imageData.caption.text ??? null,
         source: imageData.caption.source ??? null,
         sourceUrl: imageData.caption.sourceUrl ??? null
+      },
+      classes: {
+        custom: 'mt-2'
       }
     }, withContext = false) }}
   {% endif %}

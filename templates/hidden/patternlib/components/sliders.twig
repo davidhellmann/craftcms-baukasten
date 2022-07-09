@@ -61,6 +61,20 @@
 
     {# >>> Render variant #}
     {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Slider Hero Images{% endblock %}
+      {% block content %}
+        {% set images = craft.assets().limit(4).all() %}
+        {{ include('_components/slider/sliderHeroImages.twig', {
+          data: {
+            slides: images ??? null,
+            aspectRatio: 'aspect-landscape'
+          },
+        }, withContext = false) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
       {% block label %}Slider Overflow{% endblock %}
       {% block content %}
         {{ include('_components/slider/sliderOverflow.twig', {

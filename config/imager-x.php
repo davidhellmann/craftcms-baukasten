@@ -21,6 +21,7 @@ return [
         'cacheDurationExternalStorage' => 31536000, // 1 Year
         'jpegQuality' => 95,
         'pngCompressionLevel' => 0,
+        'allowUpscale' => false,
         'optimizers' => [
             'jpegoptim',
             'jpegtran',

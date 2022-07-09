@@ -9,7 +9,8 @@
   classes: {
     root: 'overflow-hidden',
     custom: '',
-    swiperSlide: 'swiper-slide'
+    swiperSlide: 'swiper-slide',
+    swiperWrapper: '',
   },
   variants: {
     aspectRatio: {
@@ -37,9 +38,7 @@
       aspectRatio: props.data.aspectRatio,
       destroyBreakpoint: props.data.destroyBreakpoint ??? null,
     },
-    classes: {
-      swiperSlide: 'swiper-slide',
-    },
+    classes: props.classes,
     variants: props.variants
   } only %}
     {# >>> Render slides #}
@@ -50,7 +49,7 @@
             data: {
               image: image ??? null,
               aspectRatio: props.data.aspectRatio,
-              renderPlainImage: true,
+              lazy: false
             }
           }, withContext = false) }}
         </div>
