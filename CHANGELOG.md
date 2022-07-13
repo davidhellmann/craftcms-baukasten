@@ -4,6 +4,7 @@
 ### Updated
 - imagerX plugin
 - formie plugin
+- image resizer plugin
 
 ### Added
 - 
