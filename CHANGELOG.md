@@ -5,6 +5,7 @@
 - imagerX plugin
 - formie plugin
 - image resizer plugin
+- craftcms 4.1.4.1
 
 ### Added
 - 
