@@ -3,6 +3,7 @@
 
 ### Updated
 - imagerX plugin
+- formie plugin
 
 ### Added
 - 
