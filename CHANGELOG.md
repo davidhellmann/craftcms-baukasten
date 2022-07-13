@@ -8,7 +8,7 @@
 - craftcms 4.1.4.1
 
 ### Added
-- 
+- palette plugin
 
 ## 4.0.5 - 2022.07.09
 

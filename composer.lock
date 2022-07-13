@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6cc534b7ca1ef414b7766e9d8b452228",
+    "content-hash": "a1ee2c06e5a59cd5029eadb7422f3056",
     "packages": [
         {
             "name": "amphp/amp",
@@ -8243,6 +8243,56 @@
                 "tinypng"
             ],
             "time": "2021-09-29T11:48:17+00:00"
+        },
+        {
+            "name": "trendyminds/craft-palette",
+            "version": "2.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/trendyminds/craft-palette/zipball/f85a29361c1c478198f06035af50ac842a166a3b",
+                "reference": "f85a29361c1c478198f06035af50ac842a166a3b",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0",
+                "php": "^8.0.2"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Palette",
+                "handle": "palette",
+                "class": "trendyminds\\palette\\Palette",
+                "changelogUrl": "https://raw.githubusercontent.com/trendyminds/craft-palette/main/CHANGELOG.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "trendyminds\\palette\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "TrendyMinds",
+                    "homepage": "https://trendyminds.com"
+                }
+            ],
+            "description": "A command palette to easily jump to specific areas within Craft",
+            "keywords": [
+                "cmdk",
+                "craft",
+                "craft cms",
+                "craft plugin",
+                "palette",
+                "spotlight"
+            ],
+            "support": {
+                "issues": "https://github.com/trendyminds/craft-palette/issues?state=open",
+                "source": "https://github.com/trendyminds/craft-palette",
+                "docs": "https://github.com/trendyminds/craft-palette/blob/master/README.md"
+            },
+            "time": "2022-07-12T14:12:40+00:00"
         },
         {
             "name": "true/punycode",
