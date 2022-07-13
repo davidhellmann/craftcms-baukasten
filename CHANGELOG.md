@@ -1,4 +1,12 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.6 - WIP
+
+### Updated
+- imagerX plugin
+
+### Added
+- 
+
 ## 4.0.5 - 2022.07.09
 
 ### Updated
