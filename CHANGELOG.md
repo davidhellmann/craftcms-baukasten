@@ -6,6 +6,7 @@
 - formie plugin
 - image resizer plugin
 - craftcms 4.1.4.1
+- vite plugin
 
 ### Added
 - palette plugin
