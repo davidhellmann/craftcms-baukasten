@@ -7,6 +7,7 @@
 - image resizer plugin
 - craftcms 4.1.4.1
 - vite plugin
+- image resizer
 
 ### Added
 - palette plugin
