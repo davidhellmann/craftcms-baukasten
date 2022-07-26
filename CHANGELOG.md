@@ -1,11 +1,11 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.6 - WIP
+## 4.0.6 - 2022.07.26
 
 ### Updated
 - imagerX plugin
 - formie plugin
 - image resizer plugin
-- craftcms 4.1.4.1
+- craftcms 4.2
 - vite plugin
 - image resizer
 
