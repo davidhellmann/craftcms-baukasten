@@ -4,6 +4,7 @@
 ### Updated
 - supertable plugins
 - craftcms 4.2.0.1
+- npm packages
 
 
 ## 4.0.6 - 2022.07.26
