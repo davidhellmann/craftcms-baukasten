@@ -1,4 +1,11 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.7 - WIP
+
+### Updated
+- supertable plugins
+- craftcms 4.2
+
+
 ## 4.0.6 - 2022.07.26
 
 ### Updated
