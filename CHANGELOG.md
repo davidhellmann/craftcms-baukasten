@@ -3,7 +3,7 @@
 
 ### Updated
 - supertable plugins
-- craftcms 4.2
+- craftcms 4.2.0.1
 
 
 ## 4.0.6 - 2022.07.26
