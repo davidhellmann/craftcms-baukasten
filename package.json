@@ -87,6 +87,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "upgrade-interactive": "npm-check --update",
+    "ui": "npm run upgrade-interactive",
     "preinstall": "$npm_execpath --silent run checknpm",
     "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)",
     "prepare": "husky install"
