@@ -356,68 +356,6 @@
       {% endblock %}
     {% endembed %}
 
-    {# >>> Render variant #}
-    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
-      {% block label %}
-        Round buttons
-      {% endblock %}
-      {% block content %}
-        <div class="pl-compsInRowCentered">
-          {{
-            include(
-              "_components/button/button.twig",
-              {
-                data: {
-                  variantStyle: "primary",
-                  variantSize: "sm",
-                  icon: "icons/sharp/add",
-                  iconSize: "sm"
-                },
-                classes: {
-                  rounded: "rounded-full"
-                }
-              },
-              withContext = false
-            )
-          }}
 
-          {{
-            include(
-              "_components/button/button.twig",
-              {
-                data: {
-                  variantStyle: "primary",
-                  variantSize: "md",
-                  icon: "icons/sharp/add",
-                  iconSize: "md"
-                },
-                classes: {
-                  rounded: "rounded-full"
-                }
-              },
-              withContext = false
-            )
-          }}
-
-          {{
-            include(
-              "_components/button/button.twig",
-              {
-                data: {
-                  variantStyle: "primary",
-                  variantSize: "lg",
-                  icon: "icons/sharp/add",
-                  iconSize: "lg"
-                },
-                classes: {
-                  rounded: "rounded-full"
-                }
-              },
-              withContext = false
-            )
-          }}
-        </div>
-      {% endblock %}
-    {% endembed %}
   {% endcache %}
 {% endblock %}

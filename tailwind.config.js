@@ -13,7 +13,6 @@ const debugScreens = require('tailwindcss-debug-screens');
 
 // Settings
 const settingsGrid = require('./tailwind/tailwind.settings.grid');
-const settingsColors = require('./tailwind/tailwind.settings.colors');
 const settingsFontFamily = require('./tailwind/tailwind.settings.fontFamily');
 const settingsfluidType = require('./tailwind/tailwind.settings.fluidType');
 const settingsScreens = require('./tailwind/tailwind.settings.screens');
@@ -21,6 +20,7 @@ const settingsAspectRatio = require('./tailwind/tailwind.settings.aspectRatio');
 
 // Plugins
 const pluginAddComponents = require('./tailwind/tailwind.plugins.addComponents');
+const pluginMultiTheme = require('./tailwind/tailwind.plugins.multiTheme');
 
 module.exports = {
   content: ['./templates/**/*.{twig,html,vue,js,ts}', './src/vue/**/*.{vue,js,ts}'],
@@ -29,7 +29,6 @@ module.exports = {
   theme: {
     fontFamily: settingsFontFamily,
     fluidType: settingsfluidType,
-    colors: settingsColors,
     screens: settingsScreens,
     extend: {
       gridTemplateColumns: { ...settingsGrid.gridTemplateColumns },
@@ -57,5 +56,6 @@ module.exports = {
     ({ addComponents }) => {
       addComponents(pluginAddComponents);
     },
+    pluginMultiTheme,
   ],
 };
