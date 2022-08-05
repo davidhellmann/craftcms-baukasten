@@ -31,6 +31,10 @@
       }, withContext = false) }}
       <h1 class="{{ props.classes.h1 }}">{{ props.data.name }}</h1>
     </a>
+
+    <div class="ml-auto">
+      {{ include('_components/switcher/theme.twig', {}, withContext = false) }}
+    </div>
   </div>
 </header>
 
