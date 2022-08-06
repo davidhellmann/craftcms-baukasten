@@ -1,20 +1,13 @@
 /*
  * Tailwind Color Settings
- * Colors MUST BE defined as HEX Value!!!
+ * IMPORTANT: Custom colors MUST BE defined as HEX Value!!!
+ * IMPORTANT: You should define the same colors for each theme based on the default theme
+ * otherwise theming works not as expected, except for colors like "inherit", "current", and "transparent".
+ *
  */
 
 const colors = require('tailwindcss/colors');
-
-// Map Default Colors
-const mapDefaults = (palette, name) => {
-  if (!name || !palette) return;
-  const colors = {};
-  Object.entries(palette).map((color) => {
-    colors[`${name}-${color[0]}`] = color[1];
-  });
-
-  return colors;
-};
+const useMapDefaultColorPalette = require('./helpers/useMapDefaultColorPalette');
 
 module.exports = [
   {
@@ -25,16 +18,30 @@ module.exports = [
       transparent: colors.transparent,
       black: colors.black,
       white: colors.white,
-      ...mapDefaults(colors.zinc, 'gray'),
-      ...mapDefaults(colors.emerald, 'primary'),
-      ...mapDefaults(colors.amber, 'secondary'),
+      ...useMapDefaultColorPalette({ palette: colors.zinc, name: 'gray' }),
+      ...useMapDefaultColorPalette({ palette: colors.emerald, name: 'primary' }),
+      ...useMapDefaultColorPalette({ palette: colors.amber, name: 'secondary' }),
+    },
+  },
+  {
+    name: 'bluish',
+    colors: {
+      ...useMapDefaultColorPalette({ palette: colors.sky, name: 'primary' }),
+      ...useMapDefaultColorPalette({ palette: colors.slate, name: 'secondary' }),
+    },
+  },
+  {
+    name: 'redish',
+    colors: {
+      ...useMapDefaultColorPalette({ palette: colors.red, name: 'primary' }),
+      ...useMapDefaultColorPalette({ palette: colors.stone, name: 'secondary' }),
     },
   },
   {
     name: 'monochrome',
     colors: {
-      ...mapDefaults(colors.zinc, 'primary'),
-      ...mapDefaults(colors.neutral, 'secondary'),
+      ...useMapDefaultColorPalette({ palette: colors.zinc, name: 'primary' }),
+      ...useMapDefaultColorPalette({ palette: colors.neutral, name: 'secondary' }),
     },
   },
 ];
