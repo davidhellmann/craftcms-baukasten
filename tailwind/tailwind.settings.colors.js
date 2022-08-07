@@ -23,25 +23,11 @@ module.exports = [
       ...useMapDefaultColorPalette({ palette: colors.amber, name: 'secondary' }),
     },
   },
-  {
-    name: 'bluish',
-    colors: {
-      ...useMapDefaultColorPalette({ palette: colors.sky, name: 'primary' }),
-      ...useMapDefaultColorPalette({ palette: colors.slate, name: 'secondary' }),
-    },
-  },
-  {
-    name: 'redish',
-    colors: {
-      ...useMapDefaultColorPalette({ palette: colors.red, name: 'primary' }),
-      ...useMapDefaultColorPalette({ palette: colors.stone, name: 'secondary' }),
-    },
-  },
-  {
-    name: 'monochrome',
-    colors: {
-      ...useMapDefaultColorPalette({ palette: colors.zinc, name: 'primary' }),
-      ...useMapDefaultColorPalette({ palette: colors.neutral, name: 'secondary' }),
-    },
-  },
+  // {
+  //   name: 'monochrome',
+  //   colors: {
+  //     ...useMapDefaultColorPalette({ palette: colors.zinc, name: 'primary' }),
+  //     ...useMapDefaultColorPalette({ palette: colors.neutral, name: 'secondary' }),
+  //   },
+  // },
 ];
