@@ -7,6 +7,7 @@
 - npm packages
 - MatrixMate plugin
 - Formie plugin
+- EmptyCoalesce plugin
 
 ### Changed
 - Changed the logic how colors are defined. tailwind.settings.colors.js 
