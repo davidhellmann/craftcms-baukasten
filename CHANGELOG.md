@@ -2,9 +2,10 @@
 ## 4.0.7 - WIP
 
 ### Updated
-- supertable plugins
+- supertable plugin
 - craftcms 4.2.0.2
 - npm packages
+- MatrixMate plugin
 
 ### Changed
 - Changed the logic how colors are defined. tailwind.settings.colors.js 
