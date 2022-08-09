@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c11f2bdb65045acc9fb3cab3fb02e584",
+    "content-hash": "ab31f779ebe72b84153c85380f03f834",
     "packages": [
         {
             "name": "amphp/amp",
@@ -6300,6 +6300,56 @@
                 "issues": "https://github.com/spacecatninja/craft-imager-x/issues"
             },
             "time": "2022-07-13T14:44:39+00:00"
+        },
+        {
+            "name": "spicyweb/craft-quick-field",
+            "version": "2.0.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spicywebau/craft-quick-field/zipball/eba4bee7dd3f357585ffd55c46073cc2e4746303",
+                "reference": "eba4bee7dd3f357585ffd55c46073cc2e4746303",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.1.0",
+                "php": "^8.0.2"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "quick-field",
+                "name": "Quick Field",
+                "schemaVersion": "1.0.0",
+                "class": "spicyweb\\quickfield\\Plugin",
+                "changelogUrl": "https://github.com/spicywebau/craft-quick-field/blob/2.x/CHANGELOG.md",
+                "downloadUrl": "https://github.com/spicywebau/craft-quick-field/archive/refs/tags/2.0.2.zip"
+            },
+            "autoload": {
+                "psr-4": {
+                    "spicyweb\\quickfield\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Spicy Web",
+                    "homepage": "https://spicyweb.com.au/"
+                }
+            ],
+            "description": "Create Craft CMS fields on the fly while designing field layouts",
+            "keywords": [
+                "cms",
+                "craftcms",
+                "plugin"
+            ],
+            "support": {
+                "issues": "https://github.com/spicywebau/craft-quick-field/issues",
+                "source": "https://github.com/spicywebau/craft-quick-field",
+                "docs": "https://github.com/spicywebau/craft-quick-field/blob/2.0.2/README.md",
+                "rss": "https://github.com/spicywebau/craft-quick-field/commits/2.x.atom"
+            },
+            "time": "2022-07-30T01:58:19+00:00"
         },
         {
             "name": "ssnepenthe/color-utils",

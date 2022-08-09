@@ -1,6 +1,10 @@
 # davidhellmann/craftcms-baukasten Change Log.
 ## 4.0.7 - WIP
 
+### added
+- Quick field plugin
+- Closure plugin
+
 ### Updated
 - SuperTable plugin
 - craftcms 4.2.0.2
