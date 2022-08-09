@@ -8,6 +8,7 @@
 - MatrixMate plugin
 - Formie plugin
 - EmptyCoalesce plugin
+- Palette plugin
 
 ### Changed
 - Changed the logic how colors are defined. tailwind.settings.colors.js 
