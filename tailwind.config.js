@@ -4,19 +4,19 @@
  * */
 /** @type {import('tailwindcss').Config} */
 
-const fluidType = require('tailwindcss-fluid-type');
+// Settings
+const settingsGrid = require('./tailwind/tailwind.settings.grid');
+const settingsFluidType = require('./tailwind/tailwind.settings.fluidType');
+const settingsFontFamily = require('./tailwind/tailwind.settings.fontFamily');
+const settingsScreens = require('./tailwind/tailwind.settings.screens');
+const settingsAspectRatio = require('./tailwind/tailwind.settings.aspectRatio');
+
 const questionMark = require('tailwindcss-question-mark');
+const fluidType = require('tailwindcss-fluid-type')(settingsFluidType);
 const forms = require('@tailwindcss/forms')({
   strategy: 'class',
 });
 const debugScreens = require('tailwindcss-debug-screens');
-
-// Settings
-const settingsGrid = require('./tailwind/tailwind.settings.grid');
-const settingsFontFamily = require('./tailwind/tailwind.settings.fontFamily');
-const settingsfluidType = require('./tailwind/tailwind.settings.fluidType');
-const settingsScreens = require('./tailwind/tailwind.settings.screens');
-const settingsAspectRatio = require('./tailwind/tailwind.settings.aspectRatio');
 
 // Plugins
 const pluginAddComponents = require('./tailwind/tailwind.plugins.addComponents');
@@ -28,7 +28,6 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: settingsFontFamily,
-    fluidType: settingsfluidType,
     screens: settingsScreens,
     extend: {
       gridTemplateColumns: { ...settingsGrid.gridTemplateColumns },
@@ -50,12 +49,12 @@ module.exports = {
   },
   plugins: [
     debugScreens,
-    questionMark,
     fluidType,
     forms,
+    pluginMultiTheme,
+    questionMark,
     ({ addComponents }) => {
       addComponents(pluginAddComponents);
     },
-    pluginMultiTheme,
   ],
 };
