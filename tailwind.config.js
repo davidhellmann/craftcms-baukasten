@@ -26,7 +26,6 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: settingsFontFamily,
-    // fluidType: settingsfluidType,
     screens: settingsScreens,
     extend: {
       gridTemplateColumns: {...settingsGrid.gridTemplateColumns},
