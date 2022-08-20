@@ -3,8 +3,6 @@
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
 /** @type {import('tailwindcss').Config} */
-
-const fluidType = require('tailwindcss-fluid-type');
 const questionMark = require('tailwindcss-question-mark');
 const forms = require('@tailwindcss/forms')({
   strategy: 'class',
@@ -28,14 +26,14 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: settingsFontFamily,
-    fluidType: settingsfluidType,
+    // fluidType: settingsfluidType,
     screens: settingsScreens,
     extend: {
-      gridTemplateColumns: { ...settingsGrid.gridTemplateColumns },
-      gridColumn: { ...settingsGrid.gridColumn },
-      gridRowStart: { ...settingsGrid.gridRowStart },
-      gridRowEnd: { ...settingsGrid.gridRowEnd },
-      aspectRatio: { ...settingsAspectRatio },
+      gridTemplateColumns: {...settingsGrid.gridTemplateColumns},
+      gridColumn: {...settingsGrid.gridColumn},
+      gridRowStart: {...settingsGrid.gridRowStart},
+      gridRowEnd: {...settingsGrid.gridRowEnd},
+      aspectRatio: {...settingsAspectRatio},
     },
     // Plugin Stuff
     debugScreens: {
@@ -49,13 +47,15 @@ module.exports = {
     fontSize: false, // disable cause we use the fluid type plugin
   },
   plugins: [
+    pluginMultiTheme,
+    require('tailwindcss-fluid-type')({
+      ...settingsfluidType,
+    }),
     debugScreens,
     questionMark,
-    fluidType,
     forms,
-    ({ addComponents }) => {
+    ({addComponents}) => {
       addComponents(pluginAddComponents);
     },
-    pluginMultiTheme,
   ],
 };
