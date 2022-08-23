@@ -13,9 +13,12 @@
 - Formie plugin
 - EmptyCoalesce plugin
 - Palette plugin
+- Typed Link Field plugin
+- Formie plugin
 
 ### Changed
 - Changed the logic how colors are defined. tailwind.settings.colors.js 
+- Going back to use custom Alt Text Field because of missing translation support for the build in one
 
 
 ## 4.0.6 - 2022.07.26
