@@ -15,6 +15,7 @@
 - Palette plugin
 - Typed Link Field plugin
 - Formie plugin
+- Tailwind Fluid Type Plugin (V2 Alpha)
 
 ### Changed
 - Changed the logic how colors are defined. tailwind.settings.colors.js 
