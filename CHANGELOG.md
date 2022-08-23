@@ -7,7 +7,7 @@
 
 ### Updated
 - SuperTable plugin
-- craftcms 4.2.0.2
+- craftcms 4.2.2
 - npm packages
 - MatrixMate plugin
 - Formie plugin
