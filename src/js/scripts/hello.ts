@@ -16,7 +16,7 @@ const sayHello: ICompSayHello = {
       'color: #fff; background: #eee; padding:10px 0; font-size: 0.845rem; font-weight: 500; font-family: monospace;',
     ];
 
-    if (navigator.userAgent.toLowerCase().includes('schrome')) {
+    if (navigator.userAgent.toLowerCase().includes('chrome')) {
       window.console.log.apply(console, a);
       window.console.log.apply(console, b);
     } else {
