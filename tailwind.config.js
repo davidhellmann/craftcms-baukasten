@@ -3,20 +3,18 @@
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
 /** @type {import('tailwindcss').Config} */
-
-// Settings
-const settingsGrid = require('./tailwind/tailwind.settings.grid');
-const settingsFluidType = require('./tailwind/tailwind.settings.fluidType');
-const settingsFontFamily = require('./tailwind/tailwind.settings.fontFamily');
-const settingsScreens = require('./tailwind/tailwind.settings.screens');
-const settingsAspectRatio = require('./tailwind/tailwind.settings.aspectRatio');
-
 const questionMark = require('tailwindcss-question-mark');
-const fluidType = require('tailwindcss-fluid-type')(settingsFluidType);
 const forms = require('@tailwindcss/forms')({
   strategy: 'class',
 });
 const debugScreens = require('tailwindcss-debug-screens');
+
+// Settings
+const settingsGrid = require('./tailwind/tailwind.settings.grid');
+const settingsFontFamily = require('./tailwind/tailwind.settings.fontFamily');
+const settingsfluidType = require('./tailwind/tailwind.settings.fluidType');
+const settingsScreens = require('./tailwind/tailwind.settings.screens');
+const settingsAspectRatio = require('./tailwind/tailwind.settings.aspectRatio');
 
 // Plugins
 const pluginAddComponents = require('./tailwind/tailwind.plugins.addComponents');
@@ -30,11 +28,11 @@ module.exports = {
     fontFamily: settingsFontFamily,
     screens: settingsScreens,
     extend: {
-      gridTemplateColumns: { ...settingsGrid.gridTemplateColumns },
-      gridColumn: { ...settingsGrid.gridColumn },
-      gridRowStart: { ...settingsGrid.gridRowStart },
-      gridRowEnd: { ...settingsGrid.gridRowEnd },
-      aspectRatio: { ...settingsAspectRatio },
+      gridTemplateColumns: {...settingsGrid.gridTemplateColumns},
+      gridColumn: {...settingsGrid.gridColumn},
+      gridRowStart: {...settingsGrid.gridRowStart},
+      gridRowEnd: {...settingsGrid.gridRowEnd},
+      aspectRatio: {...settingsAspectRatio},
     },
     // Plugin Stuff
     debugScreens: {
@@ -48,12 +46,14 @@ module.exports = {
     fontSize: false, // disable cause we use the fluid type plugin
   },
   plugins: [
-    debugScreens,
-    fluidType,
-    forms,
     pluginMultiTheme,
+    require('tailwindcss-fluid-type')({
+      ...settingsfluidType,
+    }),
+    debugScreens,
     questionMark,
-    ({ addComponents }) => {
+    forms,
+    ({addComponents}) => {
       addComponents(pluginAddComponents);
     },
   ],
