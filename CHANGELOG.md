@@ -15,6 +15,7 @@
 - Palette plugin
 - Typed Link Field plugin
 - Formie plugin
+- navigation plugin
 - Tailwind Fluid Type Plugin (V2 Alpha)
 
 ### Changed
