@@ -1,5 +1,8 @@
 // Import our CSS
 import '../css/app.css';
+import sayHello from './scripts/hello';
+
+sayHello.init();
 
 // Add JS Loaded class to the body
 document.documentElement.classList.add('js-loaded');
