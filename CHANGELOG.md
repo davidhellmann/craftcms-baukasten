@@ -17,6 +17,7 @@
 - Formie plugin
 - navigation plugin
 - Tailwind Fluid Type Plugin (V2 Alpha)
+- general.php 
 
 ### Changed
 - Changed the logic how colors are defined. tailwind.settings.colors.js 
