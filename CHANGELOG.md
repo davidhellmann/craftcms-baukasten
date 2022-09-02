@@ -1,5 +1,5 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.7 - WIP
+## 4.0.7 - 2022.09.02
 
 ### added
 - Quick field plugin
