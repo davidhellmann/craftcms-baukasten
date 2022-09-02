@@ -1,0 +1,104 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-switcherTheme',
+    variantPosition: 'bottom',
+    themes: [
+      {name: 'Default', handle: 'default'},
+      {name: 'Bluish', handle: 'bluish'},
+      {name: 'Redish', handle: 'redish'},
+      {name: 'Monochrome', handle: 'monochrome'},
+    ]
+  },
+  classes: {
+    root: 'relative text-sm',
+    custom: '',
+    button: 'flex items-center uppercase border border-gray-200 font-bold px-4 py-1 bg-gray-100 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600',
+    menu: 'flex flex-col absolute bg-gray-100 rounded-md left-0 w-48 shadow-sm border border-gray-200',
+    link: 'px-4 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600'
+  },
+  variants: {
+    position: {
+      top: {
+        icon: 'chevron-up-circle',
+        menu: 'bottom-10',
+      },
+      bottom: {
+        icon: 'chevron-down-circle',
+        menu: 'top-10',
+      }
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+<div alpinejs class="flex justify-center">
+  <div
+    x-data="{
+            theme: $persist('default'),
+            open: false,
+            toggle() {
+                if (this.open) {
+                    return this.close()
+                }
+
+                this.$refs.button.focus()
+
+                this.open = true
+            },
+            close(focusAfter) {
+                if (! this.open) return
+
+                this.open = false
+
+                focusAfter && focusAfter.focus()
+            }
+        }"
+    x-on:keydown.escape.prevent.stop="close($refs.button)"
+    x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+    x-init="document.body.dataset.theme = theme"
+    x-id="['dropdown-button']"
+    class="relative"
+  >
+    <!-- Button -->
+    <button
+      x-ref="button"
+      x-on:click="toggle()"
+      :aria-expanded="open"
+      :aria-controls="$id('dropdown-button')"
+      type="button"
+      class="rounded-md bg-white px-5 py-2.5 shadow"
+    >
+      <span x-text="theme" class="capitalize" />
+      <span aria-hidden="true">&darr;</span>
+    </button>
+
+    <!-- Panel -->
+    <div
+      x-ref="panel"
+      x-show="open"
+      x-transition.origin.top.right
+      x-on:click.outside="close($refs.button)"
+      x-on:click="close($refs.button)"
+      :id="$id('dropdown-button')"
+      style="display: none;"
+      class="absolute right-0 mt-2 w-40 overflow-hidden rounded bg-white shadow-md"
+    >
+      <div>
+        {% for theme in props.data.themes %}
+          <button
+            x-on:click="theme = '{{ theme.handle }}'; document.body.dataset.theme = '{{ theme.handle }}';"
+            class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500" >
+            {{ theme.name }}
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

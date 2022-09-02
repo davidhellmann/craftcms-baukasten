@@ -8,34 +8,34 @@
 
 .lg-next,
 .lg-prev {
-  @apply bg-white text-gray;
+  @apply bg-white text-gray-500;
 }
 
 .lg-next:hover:not(.disabled),
 .lg-prev:hover:not(.disabled) {
-  @apply text-primary;
+  @apply text-primary-500;
 }
 
 .lg-toolbar .lg-icon {
-  @apply text-gray;
+  @apply text-gray-500;
 }
 
 .lg-toolbar .lg-icon:hover {
-  @apply text-primary;
+  @apply text-primary-500;
 }
 
 .lg-sub-html {
-  @apply leading-tight text-gray text-xs;
+  @apply leading-tight text-gray-500 text-xs;
 
   background-color: rgb(255 255 255 / 90%);
 }
 
 .lg-error-msg {
-  @apply text-gray;
+  @apply text-gray-500;
 }
 
 .lg-counter {
-  @apply text-gray;
+  @apply text-gray-500;
 }
 
 .lg-backdrop {
@@ -49,5 +49,5 @@
 
 .lg-outer .lg-thumb-item.active,
 .lg-outer .lg-thumb-item:hover {
-  @apply border-primary;
+  @apply border-primary-500;
 }

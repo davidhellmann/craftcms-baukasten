@@ -60,7 +60,7 @@
       {% endblock %}
     </head>
 
-    <body class="{{ craft.app.config.custom.craftEnv != "production" ? "debug-screens" : "" }}">
+    <body data-theme="{{ theme|default('') }}" class="{{ craft.app.config.custom.craftEnv != "production" ? "debug-screens" : "" }}">
       {# >>> Render block app body #}
       {% block blockAppBody %}
 

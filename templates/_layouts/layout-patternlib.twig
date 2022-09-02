@@ -1,4 +1,5 @@
 {% extends "_boilerplate/_layouts/layout-base.twig" %}
+{% set theme = 'default' %}
 
 {# >>> Render favicons #}
 {% block blockHeadFavicons %}
@@ -43,6 +44,10 @@
               {% endfor %}
             {% endif %}
           </a>
+
+          <div class="ml-auto relative z-10">
+            {{ include('_components/switcher/theme.twig', {}, withContext = false) }}
+          </div>
         </div>
 
         {# -- Primary content block -- #}

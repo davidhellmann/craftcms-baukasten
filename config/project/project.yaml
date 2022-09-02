@@ -1,4 +1,4 @@
-dateModified: 1657748409
+dateModified: 1662106756
 elementSources:
   craft\elements\Asset:
     -
@@ -121,11 +121,12 @@ meta:
     210de09a-f6c8-42dd-b4d6-c1c00e7d0b82: 'Image Position' # Image Position
     359d175b-2fe0-421b-959a-16ca87c71044: Contact # Contact
     419ebfbb-8723-48db-ae89-10adf52cdf11: 'Asset: Source' # Asset: Source
+    485f0e1d-ef6b-4035-8a72-8fc0c4ca553a: 'Asset: Alt Text' # Asset: Alt Text
     1509cbec-547c-4338-bcc8-a5452ab8c801: Images # Images
     1516a801-6243-468d-b8e2-479085458faa: 'Asset: Title' # Asset: Title
     3497ad65-5e4c-43cb-b469-c3e4b3d80343: 'Text : Floating Image' # Text : Floating Image
     3547e7b4-f3fb-4cf4-9d29-9f12dfa94594: News # News
-    8153a2df-373f-4aac-9a92-d52292c9f1aa: $SITE_NAME # $SITE_NAME
+    8153a2df-373f-4aac-9a92-d52292c9f1aa: Baukasten # $SITE_NAME
     8512e79b-4bb8-4d2d-b731-5fa98546f2c9: Builders # Builders
     8780cb03-c9ea-4482-ab85-3e541453b50f: 'Asset: Source Url' # Asset: Source Url
     9005a655-4d9f-46b4-8c33-aadba34b6112: 'Social Sharing Facebook' # Social Sharing Facebook
@@ -210,7 +211,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_FORMIE
-    schemaVersion: 2.0.2
+    schemaVersion: 2.0.3
     settings:
       ajaxTimeout: 10
       captchas:
@@ -356,8 +357,12 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_NAVIGATION
-    schemaVersion: 2.0.2
+    schemaVersion: 2.0.3
   palette:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  quick-field:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
@@ -440,7 +445,7 @@ plugins:
 system:
   edition: pro
   live: true
-  name: $SITE_NAME
+  name: Baukasten
   retryDuration: null
   schemaVersion: 4.0.0.9
   timeZone: Europe/Berlin

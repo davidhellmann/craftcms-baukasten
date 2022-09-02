@@ -1,4 +1,30 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.7 - 2022.09.02
+
+### added
+- Quick field plugin
+- Closure plugin
+
+### Updated
+- SuperTable plugin
+- craftcms 4.2.3
+- npm packages
+- MatrixMate plugin
+- Formie plugin
+- EmptyCoalesce plugin
+- Palette plugin
+- Typed Link Field plugin
+- Formie plugin
+- navigation plugin
+- Tailwind Fluid Type Plugin (V2 Alpha)
+- general.php 
+- update sherlock plugin
+
+### Changed
+- Changed the logic how colors are defined. tailwind.settings.colors.js 
+- Going back to use custom Alt Text Field because of missing translation support for the build in one
+
+
 ## 4.0.6 - 2022.07.26
 
 ### Updated
