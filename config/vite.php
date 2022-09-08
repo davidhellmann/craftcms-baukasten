@@ -24,12 +24,16 @@
 
 use craft\helpers\App;
 
+$isDev = App::env('CRAFT_ENVIRONMENT') === 'dev';
+$isProd = App::env('CRAFT_ENVIRONMENT') === 'production';
+
+
 return [
 
-   /**
-    * @var bool Should the dev server be used for?
-    */
-    'useDevServer' => (bool)App::env('DEV_MODE'),
+    /**
+     * @var bool Should the dev server be used for?
+     */
+    'useDevServer' => $isDev,
 
     /**
      * @var string File system path (or URL) to the Vite-built manifest.json
