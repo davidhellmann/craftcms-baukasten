@@ -7,6 +7,7 @@
 ### Updated
 - formie plugin
 - fix vite config
+- vite plugin
 
 ## 4.0.7 - 2022.09.02
 
