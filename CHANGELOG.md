@@ -9,6 +9,7 @@
 - fix vite config
 - vite plugin
 - supertable plugin
+- imagerX plugin
 
 ## 4.0.7 - 2022.09.02
 
