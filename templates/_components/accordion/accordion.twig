@@ -24,7 +24,7 @@
 
 {% for i in 1..props.data.numberOfAccordions %}
   <details class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}"
-           {% if props.data.firstOpen and loop.first %}open{% endif %}/>
+           {% if props.data.firstOpen and loop.first %}open{% endif %}>
     {% if block('summary' ~ i) is defined %}
       <summary class="{{ props.classes.summary }}">
         {{ block('summary' ~ i) }}
