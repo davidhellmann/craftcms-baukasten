@@ -12,6 +12,7 @@
 - supertable plugin
 - imagerX plugin
 - seomatic plugin
+- image resizer plugin
 
 ## 4.0.7 - 2022.09.02
 
