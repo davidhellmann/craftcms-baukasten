@@ -5,7 +5,7 @@
 - 
 
 ### Updated
-- CraftCMS 4.2.4
+- CraftCMS 4.2.5
 - formie plugin
 - fix vite config
 - vite plugin
