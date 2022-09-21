@@ -29,13 +29,13 @@ const waypointObserver: ICompWaypointObserver = {
     waypointTarget: '[waypoint-target]',
   },
   settings: {
-    delay: 100,
+    delay: 50,
     staggeringDelay: 100,
     endless: false,
   },
   observerConfig: {
     threshold: [0],
-    rootMargin: '0px 0px -20% 0px',
+    rootMargin: '0px 0px -10% 0px',
   },
   classes: {
     isInViewport: 'is-inViewport',
