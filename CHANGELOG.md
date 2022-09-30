@@ -14,6 +14,7 @@
 - seomatic plugin
 - image resizer plugin
 - palette plugin
+- blitz plugin
 - navigation plugin
 
 ## 4.0.7 - 2022.09.02
