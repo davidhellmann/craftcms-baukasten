@@ -5,7 +5,7 @@
 - ddev as default
 
 ### Updated
-- CraftCMS 4.2.5
+- CraftCMS 4.2.5.1
 - formie plugin
 - fix vite config
 - vite plugin
