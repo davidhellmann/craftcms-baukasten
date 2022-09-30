@@ -2,7 +2,7 @@
 ## 4.0.8 - wip
 
 ### added
-- 
+- ddev as default
 
 ### Updated
 - CraftCMS 4.2.5
