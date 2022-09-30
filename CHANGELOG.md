@@ -13,6 +13,7 @@
 - imagerX plugin
 - seomatic plugin
 - image resizer plugin
+- palette plugin
 
 ## 4.0.7 - 2022.09.02
 
