@@ -35,7 +35,6 @@ $config = GeneralConfig::create()
         'subRight' => true,
     ])
     ->testToEmailAddress(App::env('TEST_MAIL') ?: null)
-
     ->aliases([
         '@assetsUrl' => App::env('ASSETS_URL'),
         '@web' => App::env('SITE_URL'),
