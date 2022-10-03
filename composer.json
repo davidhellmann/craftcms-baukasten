@@ -3,6 +3,7 @@
         "craftcms/cms": "4.2.5.1",
         "craftcms/redactor": "3.0.2",
         "doublesecretagency/craft-cpcss": "^2.5.0",
+        "haariga/craft-gonzo": "^2.0@alpha",
         "mmikkel/cp-clearcache": "^1.2.1",
         "mmikkel/cp-field-inspect": "^1.4.4",
         "nystudio107/craft-emptycoalesce": "4.0.0",
@@ -39,6 +40,12 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./plugin"
+    }
+  ],
     "config": {
         "allow-plugins": {
             "craftcms/plugin-installer": true,

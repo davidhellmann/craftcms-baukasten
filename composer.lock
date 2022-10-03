@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d6575c57329c0e26ab1724cef5d6981",
+    "content-hash": "60c3f226f7c3638b7814d65260d7eeef",
     "packages": [
         {
             "name": "amphp/amp",
@@ -2834,6 +2834,68 @@
                 "url"
             ],
             "time": "2022-08-28T14:45:39+00:00"
+        },
+        {
+            "name": "haariga/craft-gonzo",
+            "version": "2.0.0-alpha-1",
+            "dist": {
+                "type": "path",
+                "url": "./plugin",
+                "reference": "ab4d275937501d682c617bdfa1ffe887a4dd7180"
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0-alpha.1",
+                "nystudio107/craft-plugin-vite": "^4.0.6"
+            },
+            "require-dev": {
+                "craftcms/rector": "dev-main",
+                "phpstan/phpstan": "^1.8"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Craft Gonzo",
+                "handle": "craft-gonzo",
+                "schemaVersion": "2.0.0-alpha.1",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/haariga/craft-gonzo/master/CHANGELOG.md",
+                "class": "haariga\\craftgonzo\\CraftGonzo"
+            },
+            "autoload": {
+                "psr-4": {
+                    "haariga\\craftgonzo\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Herweg",
+                    "homepage": "https://martinherweg.de"
+                },
+                {
+                    "name": "David Hellmann",
+                    "homepage": "https://davidhellmann.com"
+                }
+            ],
+            "description": "Component Library from your templates Folder",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft gonzo",
+                "craft-plugin",
+                "craftcms",
+                "patternlib",
+                "styleguide"
+            ],
+            "support": {
+                "docs": "https://github.com/haariga/craft-gonzo/blob/master/README.md",
+                "issues": "https://github.com/haariga/craft-gonzo/issues"
+            },
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "html2text/html2text",
@@ -10614,6 +10676,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "haariga/craft-gonzo": 15,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
@@ -10623,5 +10686,5 @@
     "platform-overrides": {
         "php": "8.1.0"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
