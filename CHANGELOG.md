@@ -16,6 +16,7 @@
 - palette plugin
 - blitz plugin
 - navigation plugin
+- npm packages
 
 ## 4.0.7 - 2022.09.02
 

@@ -48,7 +48,7 @@ export default defineConfig(({ command }) => ({
     //   targets: ['defaults', 'not IE 11'],
     // }),
     nodeResolve({
-      moduleDirectories: [path.resolve('./node_modules')],
+      moduleDirectories: ['node_modules'],
     }),
     ViteFaviconsPlugin({
       logo: './src/public/images/favicon-src.svg',
