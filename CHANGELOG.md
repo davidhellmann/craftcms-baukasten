@@ -15,6 +15,7 @@
 - image resizer plugin
 - palette plugin
 - blitz plugin
+- sprig plugin
 - navigation plugin
 - npm packages
 
