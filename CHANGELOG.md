@@ -7,6 +7,7 @@
 ### Updated
 - CraftCMS 4.2.5.2
 - formie plugin
+- MatrixMate plugin
 - fix vite config
 - vite plugin
 - supertable plugin

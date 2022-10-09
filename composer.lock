@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2227a381fb63a4eea1aab05e41c780a1",
+    "content-hash": "d3608683d2a7f6d14f17f8529500553e",
     "packages": [
         {
             "name": "amphp/amp",
@@ -4722,11 +4722,11 @@
         },
         {
             "name": "nystudio107/craft-twigfield",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-twigfield/zipball/1b920b9fa491256755975c9dd8e3a9a160546494",
-                "reference": "1b920b9fa491256755975c9dd8e3a9a160546494",
+                "url": "https://api.github.com/repos/nystudio107/craft-twigfield/zipball/532872715b5b6342f65a2442d6517eae32e32390",
+                "reference": "532872715b5b6342f65a2442d6517eae32e32390",
                 "shasum": ""
             },
             "require": {
@@ -4766,7 +4766,7 @@
                 "issues": "https://github.com/nystudio107/craft-twigfield/issues",
                 "source": "https://github.com/nystudio107/craft-twigfield"
             },
-            "time": "2022-07-24T18:06:56+00:00"
+            "time": "2022-10-05T05:11:44+00:00"
         },
         {
             "name": "nystudio107/craft-vite",
@@ -5795,23 +5795,18 @@
         },
         {
             "name": "putyourlightson/craft-sprig",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/putyourlightson/craft-sprig.git",
-                "reference": "21edd2408dccb2e28e2f116a2e0a55b0b0f84e6d"
-            },
+            "version": "2.2.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/21edd2408dccb2e28e2f116a2e0a55b0b0f84e6d",
-                "reference": "21edd2408dccb2e28e2f116a2e0a55b0b0f84e6d",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/7afdbeb22ce1e822dc162d8a5ba4999246a25a30",
+                "reference": "7afdbeb22ce1e822dc162d8a5ba4999246a25a30",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^4.0",
-                "nystudio107/craft-twigfield": "^1.0.6",
+                "nystudio107/craft-twigfield": "^1.0.8",
                 "php": "^8.0.2",
-                "putyourlightson/craft-sprig-core": "^2.0.4"
+                "putyourlightson/craft-sprig-core": "^2.1.1"
             },
             "type": "craft-plugin",
             "extra": {
@@ -5828,47 +5823,29 @@
                     "putyourlightson\\sprig\\plugin\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "mit"
             ],
             "description": "A reactive Twig component framework for Craft.",
             "support": {
                 "docs": "https://putyourlightson.com/plugins/sprig",
-                "issues": "https://github.com/putyourlightson/craft-sprig/issues",
-                "source": "https://github.com/putyourlightson/craft-sprig"
+                "source": "https://github.com/putyourlightson/craft-sprig",
+                "issues": "https://github.com/putyourlightson/craft-sprig/issues"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/bencroker",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-06-22T18:21:45+00:00"
+            "time": "2022-10-08T14:57:44+00:00"
         },
         {
             "name": "putyourlightson/craft-sprig-core",
-            "version": "2.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/putyourlightson/craft-sprig-core.git",
-                "reference": "b280f343bbd227b08cd090c95aa08c125f64a4d7"
-            },
+            "version": "2.1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/b280f343bbd227b08cd090c95aa08c125f64a4d7",
-                "reference": "b280f343bbd227b08cd090c95aa08c125f64a4d7",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/6adcb8989dfea41bb6e355f157486052e2f336e2",
+                "reference": "6adcb8989dfea41bb6e355f157486052e2f336e2",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^4.0.0",
                 "php": "^8.0.2"
-            },
-            "require-dev": {
-                "codeception/codeception": "^4.1.29",
-                "codeception/module-asserts": "^1.3.1",
-                "codeception/module-yii2": "^1.1.5",
-                "vlucas/phpdotenv": "^5.4.1"
             },
             "type": "craft-module",
             "autoload": {
@@ -5876,17 +5853,16 @@
                     "putyourlightson\\sprig\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "mit"
             ],
             "description": "A reactive Twig component framework for Craft.",
             "support": {
                 "docs": "https://github.com/putyourlightson/craft-sprig-core",
-                "issues": "https://github.com/putyourlightson/craft-sprig-core/issues",
-                "source": "https://github.com/putyourlightson/craft-sprig-core"
+                "source": "https://github.com/putyourlightson/craft-sprig-core",
+                "issues": "https://github.com/putyourlightson/craft-sprig-core/issues"
             },
-            "time": "2022-06-30T14:48:02+00:00"
+            "time": "2022-10-08T14:54:20+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -8466,24 +8442,16 @@
         },
         {
             "name": "vaersaagod/matrixmate",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vaersaagod/matrixmate.git",
-                "reference": "c7b1a75a1a82723d12bc68d1db31343ab4731beb"
-            },
+            "version": "2.1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vaersaagod/matrixmate/zipball/c7b1a75a1a82723d12bc68d1db31343ab4731beb",
-                "reference": "c7b1a75a1a82723d12bc68d1db31343ab4731beb",
+                "url": "https://api.github.com/repos/vaersaagod/matrixmate/zipball/cc865206b3e456089a6a85d06583faf50d73edc8",
+                "reference": "cc865206b3e456089a6a85d06583faf50d73edc8",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^4.0.0",
                 "php": "^8.0.2"
-            },
-            "require-dev": {
-                "craftcms/rector": "dev-main"
             },
             "type": "craft-plugin",
             "extra": {
@@ -8500,7 +8468,6 @@
                     "vaersaagod\\matrixmate\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -8512,18 +8479,17 @@
             ],
             "description": "Welding Matrix into shape, mate!",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "matrixmate"
             ],
             "support": {
                 "docs": "https://github.com/vaersaagod/matrixmate/blob/master/README.md",
-                "issues": "https://github.com/vaersaagod/matrixmate/issues",
-                "source": "https://github.com/vaersaagod/matrixmate/tree/v2.1.0"
+                "issues": "https://github.com/vaersaagod/matrixmate/issues"
             },
-            "time": "2022-08-05T15:47:19+00:00"
+            "time": "2022-10-05T12:32:12+00:00"
         },
         {
             "name": "verbb/base",
