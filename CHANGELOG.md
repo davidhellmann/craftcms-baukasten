@@ -5,7 +5,7 @@
 - ddev as default
 
 ### Updated
-- CraftCMS 4.2.5.2
+- CraftCMS 4.2.7
 - formie plugin
 - MatrixMate plugin
 - fix vite config
