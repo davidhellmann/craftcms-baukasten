@@ -11,7 +11,13 @@
     @apply flex  flex-col  min-h-screen;
   }
 
-  .keyboard-focus {
-    @apply focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-primary-500 transition-all focus-visible:ring-offset-black;
+  /* a11y-keyboard-focus */
+  .a11y-keyboard-focus {
+    @apply transition-all;
+    @apply focus:outline-none;
+    @apply focus-visible:ring-4;
+    @apply focus-visible:ring-offset-2;
+    @apply focus-visible:ring-keyboard-focus;
+    @apply focus-visible:ring-offset-white dark:focus-visible:ring-offset-black;
   }
 }
