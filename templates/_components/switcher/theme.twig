@@ -11,34 +11,21 @@
     ]
   },
   classes: {
-    root: 'relative text-sm',
+    root: 'flex justify-center',
     custom: '',
-    button: 'a11y-keyboard-focus flex items-center uppercase border border-gray-200 font-bold px-4 py-1 bg-gray-100 rounded-md',
-    menu: 'flex flex-col absolute bg-gray-100 rounded-md left-0 w-48 shadow-sm border border-gray-200',
-    link: 'a11y-keyboard-focus px-4 py-1 rounded-md'
+    button: 'a11y-keyboard-focus rounded-md bg-white px-5 py-2.5 shadow',
+    panel: 'absolute right-0 mt-2 w-40 rounded bg-white shadow-md',
+    listButton: 'a11y-keyboard-focus block w-full rounded-md px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500'
   },
-  variants: {
-    position: {
-      top: {
-        icon: 'chevron-up-circle',
-        menu: 'bottom-10',
-      },
-      bottom: {
-        icon: 'chevron-down-circle',
-        menu: 'top-10',
-      }
-    }
-  }
 } %}
 
 {# >>> Merge data / classes / variants (optional) #}
 {% set props = {
   data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-  variants: compDefaults.variants,
 } %}
 
-<div alpinejs class="flex justify-center">
+<div alpinejs class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
   <div
     x-data="{
             theme: $persist('default'),
@@ -73,7 +60,7 @@
       :aria-expanded="open"
       :aria-controls="$id('dropdown-button')"
       type="button"
-      class="rounded-md bg-white px-5 py-2.5 shadow"
+      class="{{ props.classes.button }}"
     >
       <span x-text="theme" class="capitalize" />
       <span aria-hidden="true">&darr;</span>
@@ -88,13 +75,13 @@
       x-on:click="close($refs.button)"
       :id="$id('dropdown-button')"
       style="display: none;"
-      class="absolute right-0 mt-2 w-40 overflow-hidden rounded bg-white shadow-md"
+      class="{{ props.classes.panel }}"
     >
       <div>
         {% for theme in props.data.themes %}
           <button
             x-on:click="theme = '{{ theme.handle }}'; document.body.dataset.theme = '{{ theme.handle }}';"
-            class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-50 disabled:text-gray-500" >
+            class="{{ props.classes.listButton }}" >
             {{ theme.name }}
           </button>
         {% endfor %}
