@@ -10,4 +10,8 @@
   #appWrapper {
     @apply flex  flex-col  min-h-screen;
   }
+
+  .keyboard-focus {
+    @apply focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-primary-500-600 transition-all focus-visible:ring-offset-black;
+  }
 }
