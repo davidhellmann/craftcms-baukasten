@@ -12,7 +12,8 @@
   }
 
   /* a11y-keyboard-focus */
-  .a11y-keyboard-focus {
+  :is(a[href], button, object, embed, iframe, input, textarea, select, details .a11y-keyboard-focus):not([disabled]):not([aria-hidden="true"]),
+  [tabindex]:not([tabindex="-1"]){
     @apply transition-all;
     @apply focus:outline-none;
     @apply focus-visible:ring-4;
