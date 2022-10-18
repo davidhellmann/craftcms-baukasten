@@ -19,7 +19,7 @@ Image Helper
 
       {# >>> check if objectFit #}
       {%- if objectFit -%}
-        style="object-fit: {{ objectFit }}; object-position: {{ imageData.focalpoint }}; height: 100%; width: 100%;"
+        style="object-fit: {{ objectFit }}; object-position: {{ imageData.focalpoint }}; {{ imageData.aspectRatio == 'aspect-auto' ? 'height: auto;' : 'height: 100%;' }} width: 100%;"
       {%- endif -%}
 
       {# >>> check if lazy #}
