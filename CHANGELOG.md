@@ -1,5 +1,5 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.8 - wip
+## 4.0.8 - 2022.10.20
 
 ### added
 - ddev as default
