@@ -1,4 +1,25 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.8 - 2022.10.20
+
+### added
+- ddev as default
+
+### Updated
+- CraftCMS 4.2.8
+- formie plugin
+- MatrixMate plugin
+- fix vite config
+- vite plugin
+- supertable plugin
+- imagerX plugin
+- seomatic plugin
+- image resizer plugin
+- palette plugin
+- blitz plugin
+- sprig plugin
+- navigation plugin
+- npm packages
+
 ## 4.0.7 - 2022.09.02
 
 ### added

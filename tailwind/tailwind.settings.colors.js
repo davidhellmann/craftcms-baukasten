@@ -18,6 +18,7 @@ module.exports = [
       transparent: colors.transparent,
       black: colors.black,
       white: colors.white,
+      'keyboard-focus': '#ff98de',
       ...useMapDefaultColorPalette({ palette: colors.zinc, name: 'gray' }),
       ...useMapDefaultColorPalette({ palette: colors.emerald, name: 'primary' }),
       ...useMapDefaultColorPalette({ palette: colors.amber, name: 'secondary' }),

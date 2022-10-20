@@ -10,4 +10,15 @@
   #appWrapper {
     @apply flex  flex-col  min-h-screen;
   }
+
+  /* a11y-keyboard-focus */
+  :is(a[href], button, object, embed, iframe, input, textarea, select, details .a11y-keyboard-focus):not([disabled]):not([aria-hidden="true"]),
+  [tabindex]:not([tabindex="-1"]){
+    @apply transition-all;
+    @apply focus:outline-none;
+    @apply focus-visible:ring-4;
+    @apply focus-visible:ring-offset-2;
+    @apply focus-visible:ring-keyboard-focus;
+    @apply focus-visible:ring-offset-white dark:focus-visible:ring-offset-black;
+  }
 }

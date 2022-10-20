@@ -48,7 +48,7 @@ export default defineConfig(({ command }) => ({
     //   targets: ['defaults', 'not IE 11'],
     // }),
     nodeResolve({
-      moduleDirectories: [path.resolve('./node_modules')],
+      moduleDirectories: ['node_modules'],
     }),
     ViteFaviconsPlugin({
       logo: './src/public/images/favicon-src.svg',
@@ -91,18 +91,8 @@ export default defineConfig(({ command }) => ({
   // Use this for Laravel Valet
   server: {
     host: '0.0.0.0',
-    origin: 'http://localhost:3000',
-    port: 3000,
+    origin: 'http://localhost:3100',
+    port: 3100,
     strictPort: true,
   },
-  // Use this for Nitro with Vite
-  // server: {
-  //   host: '0.0.0.0',
-  //   hmr: {
-  //     host: 'craftcms-baukasten.test',
-  //     port: '3000',
-  //     path: '/',
-  //   },
-  //   cors: true,
-  // },
 }));

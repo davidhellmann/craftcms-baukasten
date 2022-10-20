@@ -35,8 +35,6 @@ $config = GeneralConfig::create()
         'subRight' => true,
     ])
     ->testToEmailAddress(App::env('TEST_MAIL') ?: null)
-    ->resourceBasePath(App::env('WEB_ROOT_PATH') . '/cpresources')
-
     ->aliases([
         '@assetsUrl' => App::env('ASSETS_URL'),
         '@web' => App::env('SITE_URL'),

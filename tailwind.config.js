@@ -8,6 +8,7 @@ const forms = require('@tailwindcss/forms')({
   strategy: 'class',
 });
 const debugScreens = require('tailwindcss-debug-screens');
+const containerQueries = require('@tailwindcss/container-queries');
 
 // Settings
 const settingsGrid = require('./tailwind/tailwind.settings.grid');
@@ -28,11 +29,11 @@ module.exports = {
     fontFamily: settingsFontFamily,
     screens: settingsScreens,
     extend: {
-      gridTemplateColumns: {...settingsGrid.gridTemplateColumns},
-      gridColumn: {...settingsGrid.gridColumn},
-      gridRowStart: {...settingsGrid.gridRowStart},
-      gridRowEnd: {...settingsGrid.gridRowEnd},
-      aspectRatio: {...settingsAspectRatio},
+      gridTemplateColumns: { ...settingsGrid.gridTemplateColumns },
+      gridColumn: { ...settingsGrid.gridColumn },
+      gridRowStart: { ...settingsGrid.gridRowStart },
+      gridRowEnd: { ...settingsGrid.gridRowEnd },
+      aspectRatio: { ...settingsAspectRatio },
     },
     // Plugin Stuff
     debugScreens: {
@@ -47,13 +48,14 @@ module.exports = {
   },
   plugins: [
     pluginMultiTheme,
+    containerQueries,
     require('tailwindcss-fluid-type')({
       ...settingsfluidType,
     }),
     debugScreens,
     questionMark,
     forms,
-    ({addComponents}) => {
+    ({ addComponents }) => {
       addComponents(pluginAddComponents);
     },
   ],
