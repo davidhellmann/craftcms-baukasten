@@ -3,8 +3,8 @@
   data: {
     name: "c-icon",
     icon: null,
+    fill: 'outline',
     variantSize: "sm",
-    size: "sm"
   },
   classes: {
     root: "inline-flex",
@@ -32,12 +32,15 @@
 {# >>> No macroComponentSettings here cause simplify the icon (noWrapper) #}
 
 {% if props.data.icon %}
+  {% set iconFillMethod = props.data.fill == 'solid' ? '[&>path]:fill-current' : '[&>path]:stroke-current' %}
+
   {{
-    svg("@webroot/dist/images/svg/" ~ props.data.icon ~ ".svg")|attr({
-      class: props.data.name ~ " " ~ props.classes.root ~ " " ~ props.classes.color ~ " "
-        ~ props.variants.size[props.data.variantSize]
-        ~ " "
-        ~ props.classes.custom
-    })
+  svg("@webroot/dist/images/svg/" ~ props.data.icon ~ ".svg")|attr({
+    class: props.data.name ~ " " ~ props.data.name ~ " " ~ props.classes.root ~ " " ~ props.classes.color ~ " "
+    ~ iconFillMethod ~ " "
+    ~ props.variants.size[props.data.variantSize]
+    ~ " "
+    ~ props.classes.custom
+  })
   }}
 {% endif %}

@@ -4,6 +4,9 @@
 ### added
 - heroicons (tailwindcss icon set)
 
+### updated
+- icon component
+
 ## 4.0.8 - 2022.10.20
 
 ### added
