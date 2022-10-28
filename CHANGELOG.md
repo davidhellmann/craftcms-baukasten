@@ -6,7 +6,7 @@
 
 ### updated
 - icon component
-- CraftCMS 4.3.0
+- CraftCMS 4.3.1
 - Formie plugin
 - Navigation plugin
 
