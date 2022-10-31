@@ -8,6 +8,7 @@
 - icon component
 - CraftCMS 4.3.1
 - Formie plugin
+- Image Resizer plugin
 - Navigation plugin
 
 ## 4.0.8 - 2022.10.20
