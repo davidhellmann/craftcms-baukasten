@@ -5,10 +5,12 @@
 - heroicons (tailwindcss icon set)
 
 ### updated
-- icon component
+- Icon component
 - CraftCMS 4.3.1
 - Formie plugin
+- Seomatic plugin
 - Image Resizer plugin
+- SuperTable plugin
 - Navigation plugin
 
 ## 4.0.8 - 2022.10.20
