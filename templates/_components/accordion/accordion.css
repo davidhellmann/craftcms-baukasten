@@ -1,4 +1,8 @@
 .c-accordion {
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
   &[open] > summary svg {
     @apply rotate-180;
   }
