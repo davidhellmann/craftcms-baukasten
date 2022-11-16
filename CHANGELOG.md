@@ -6,7 +6,7 @@
 
 ### updated
 - Icon component
-- CraftCMS 4.3.1
+- CraftCMS 4.3.2
 - Formie plugin
 - Seomatic plugin
 - CP Clear Cache plugin
