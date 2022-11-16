@@ -12,6 +12,7 @@
 - Image Resizer plugin
 - SuperTable plugin
 - Navigation plugin
+- Matrix Mate plugin
 - fix accordion safari styles
 
 ## 4.0.8 - 2022.10.20
