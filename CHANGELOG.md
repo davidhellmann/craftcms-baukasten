@@ -9,6 +9,7 @@
 - CraftCMS 4.3.2
 - Formie plugin
 - Seomatic plugin
+- ImagerX Plugin
 - CP Clear Cache plugin
 - Image Resizer plugin
 - SuperTable plugin
