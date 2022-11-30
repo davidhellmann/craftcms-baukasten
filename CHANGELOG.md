@@ -3,6 +3,7 @@
 
 ### added
 - heroicons (tailwindcss icon set)
+- container-full as tailwind component
 
 ### updated
 - Icon component
