@@ -1,4 +1,4 @@
-dateModified: 1667255081
+dateModified: 1670447494
 elementSources:
   craft\elements\Asset:
     -
@@ -31,71 +31,6 @@ elementSources:
       type: native
     -
       key: 'folder:c8e15363-b103-4fd2-b6e4-097752fa2cef'
-      type: native
-  craft\elements\Entry:
-    -
-      key: '*'
-      type: native
-    -
-      defaultSort:
-        - title
-        - asc
-      disabled: false
-      key: singles
-      tableAttributes:
-        - link
-        - type
-        - slug
-        - uri
-        - postDate
-        - id
-        - dateUpdated
-      type: native
-    -
-      heading: Channels
-      type: heading
-    -
-      defaultSort:
-        - postDate
-        - desc
-      disabled: false
-      key: 'section:e5172a18-ed16-4229-89ca-fc0dc776597a' # Error Pages
-      tableAttributes:
-        - link
-        - dateUpdated
-      type: native
-    -
-      defaultSort:
-        - postDate
-        - desc
-      disabled: false
-      key: 'section:3547e7b4-f3fb-4cf4-9d29-9f12dfa94594' # News
-      tableAttributes:
-        - postDate
-        - link
-        - type
-        - slug
-        - uri
-        - id
-        - dateUpdated
-      type: native
-    -
-      heading: Structures
-      type: heading
-    -
-      defaultSort:
-        - structure
-        - asc
-      disabled: false
-      key: 'section:b0207f48-be48-49ab-a759-1ff51f232df3' # Pages
-      tableAttributes:
-        - postDate
-        - link
-        - type
-        - slug
-        - uri
-        - id
-        - dateUpdated
       type: native
 email:
   fromEmail: $SYSTEM_MAIL
@@ -276,7 +211,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_FORMIE
-    schemaVersion: 2.0.8
+    schemaVersion: 2.0.10
     settings:
       ajaxTimeout: 10
       captchas:
@@ -422,7 +357,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_NAVIGATION
-    schemaVersion: 2.0.6
+    schemaVersion: 2.0.7
   palette:
     edition: standard
     enabled: true
