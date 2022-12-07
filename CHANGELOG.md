@@ -15,6 +15,7 @@
 - Image Resizer plugin
 - SuperTable plugin
 - Navigation plugin
+- Sherlock plugin
 - Matrix Mate plugin
 - Typed Link Field plugin
 
