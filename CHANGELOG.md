@@ -16,6 +16,9 @@
 - SuperTable plugin
 - Navigation plugin
 - Matrix Mate plugin
+- Typed Link Field plugin
+
+### fixed
 - fix accordion safari styles
 
 ## 4.0.8 - 2022.10.20
