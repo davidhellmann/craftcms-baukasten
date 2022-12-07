@@ -1,10 +1,10 @@
 name: baukasten
-type: php
+type: craftcms
 docroot: web
 php_version: "8.1"
 webserver_type: nginx-fpm
-router_http_port: "80"
-router_https_port: "443"
+router_http_port: "8080"
+router_https_port: "4443"
 xdebug_enabled: false
 timezone: Europe/Berlin
 additional_hostnames: []
@@ -14,7 +14,6 @@ database:
   version: "8.0"
 nfs_mount_enabled: false
 mutagen_enabled: true
-project_tld: ddev.test
 use_dns_when_possible: true
 composer_version: "2"
 web_environment: []

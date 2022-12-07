@@ -1,10 +1,34 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.9 - 2022.12.07
+
+### added
+- heroicons (tailwindcss icon set)
+- container-full as tailwind component
+
+### updated
+- Icon component
+- CraftCMS 4.3.4
+- Formie plugin
+- Seomatic plugin
+- ImagerX Plugin
+- CP Clear Cache plugin
+- Image Resizer plugin
+- SuperTable plugin
+- Navigation plugin
+- Sherlock plugin
+- Quick Field plugin
+- Matrix Mate plugin
+- Typed Link Field plugin
+
+### fixed
+- fix accordion safari styles
+
 ## 4.0.8 - 2022.10.20
 
 ### added
 - ddev as default
 
-### Updated
+### updated
 - CraftCMS 4.2.8
 - formie plugin
 - MatrixMate plugin
@@ -26,7 +50,7 @@
 - Quick field plugin
 - Closure plugin
 
-### Updated
+### updated
 - SuperTable plugin
 - craftcms 4.2.3
 - npm packages
@@ -41,14 +65,14 @@
 - general.php 
 - update sherlock plugin
 
-### Changed
-- Changed the logic how colors are defined. tailwind.settings.colors.js 
+### changed
+- changed the logic how colors are defined. tailwind.settings.colors.js 
 - Going back to use custom Alt Text Field because of missing translation support for the build in one
 
 
 ## 4.0.6 - 2022.07.26
 
-### Updated
+### updated
 - imagerX plugin
 - formie plugin
 - image resizer plugin
@@ -56,12 +80,12 @@
 - vite plugin
 - image resizer
 
-### Added
+### added
 - palette plugin
 
 ## 4.0.5 - 2022.07.09
 
-### Updated
+### updated
 - npm packages
 - tailwindcss 3.1
 - craftcms 4.1.3
@@ -70,15 +94,15 @@
 - image component
 - imagerX plugin
 
-### Added
+### added
 - Full Page Slider (Wip)
 
 ## 4.0.4 - 2022.06.02
 
-### Added
+### added
 - Image Resizer Plugin
 
-### Updated
+### updated
 - dumper plugin
 - imagerX plugin
 - formie plugin
@@ -89,79 +113,79 @@
 - upgrade cypress to v10 (WIP)
 - remove backgrounds for lazy images after they loaded.
 
-### Changed
+### changed
 - Use `craft up` to run migrations & apply Project Config changes
 
 
 ## 4.0.3 - 2022.05.24
 
-### Updated
+### updated
 - composer packages / plugins
 
-### Added
+### added
 - Overflow Nav Slider Comp
 
 ## 4.0.2 - 2022.05.17
 
-### Added
+### added
 - Elements Panel Plugin
 
-### Removed
+### removed
 - Blitz Recommendations Plugin because it's integrated in Blitz itself now. 
 
-### Updated
+### updated
 - composer packages
 
 ## 4.0.1 - 2022.05.13
 
-### Added
+### added
 - `"prefer-stable"` to composer.json
 
-### Changed
+### changed
 - switch from (local, stage, live) to (dev, staging, production) terming
 
-### Updated
+### updated
 - composer packages
 
 ## 4.0.0 - 2022.05.12
-### Added
+### added
 * CraftCMS 4
-* Added a new template structure `templates`
+* added a new template structure `templates`
   * Cleaner Boilerplate `templates/_boilerplate`
   * Cleaner Layouts `templates/_layouts`
-* Added a simple Patternlib `templates/hidden/patternlib` & `config/patternlib.php`
-* Added Vite Config from [nystudio107](https://nystudio107.com/) `buildchain/vite.config.js`
-* Added partialized Tailwind Config `buildchain/tailwindcss` & `buildchain/tailwind.config.js`
-* Added CSS Vars / Theming for Tailwind Colors
-* Added TailwindCSS Screen Debug Plugin
-* Added a Set of components `templates/_components/**/*`
-* Added a Set of sprig components `templates/_components-sprig/**/*`
+* added a simple Patternlib `templates/hidden/patternlib` & `config/patternlib.php`
+* added Vite Config from [nystudio107](https://nystudio107.com/) `buildchain/vite.config.js`
+* added partialized Tailwind Config `buildchain/tailwindcss` & `buildchain/tailwind.config.js`
+* added CSS Vars / Theming for Tailwind Colors
+* added TailwindCSS Screen Debug Plugin
+* added a Set of components `templates/_components/**/*`
+* added a Set of sprig components `templates/_components-sprig/**/*`
 
-### Fixed
-* Fixed Intersection Observer Script
-* Fixed Image Component Logic
+### fixed
+* fixed Intersection Observer Script
+* fixed Image Component Logic
 
-### Removed
-* Removed webpack
-* Removed TailwindCSS Config Viewer
+### removed
+* removed webpack
+* removed TailwindCSS Config Viewer
 
 
 
 ## 1.0.0 - 2021.09.02
-### Added
-* Added a new template structure `templates`
+### added
+* added a new template structure `templates`
   * Cleaner Boilerplate `templates/_boilerplate`
   * Cleaner Layouts `templates/_layouts`
-* Added a simple Patternlib `templates/hidden/patternlib` & `config/patternlib.php`
-* Added Vite Config from [nystudio107](https://nystudio107.com/) `buildchain/vite.config.js`
-* Added partialized Tailwind Config `buildchain/tailwindcss` & `buildchain/tailwind.config.js`
-* Added Tailwind Config Viewer `_tailwind`
+* added a simple Patternlib `templates/hidden/patternlib` & `config/patternlib.php`
+* added Vite Config from [nystudio107](https://nystudio107.com/) `buildchain/vite.config.js`
+* added partialized Tailwind Config `buildchain/tailwindcss` & `buildchain/tailwind.config.js`
+* added Tailwind Config Viewer `_tailwind`
 
-### Changed
+### changed
 * -
 
-### Removed
-* Removed webpack
+### removed
+* removed webpack
 
 
 ---

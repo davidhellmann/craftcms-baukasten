@@ -14,7 +14,7 @@ export const init = (els: NodeListOf<HTMLElement>, selector: string, threshold =
               if (lazyItem.dataset.srcset) {
                 lazyItem.srcset = lazyItem.dataset.srcset;
               }
-              lazyItem.sizes = `${lazyItem.getBoundingClientRect().width}px`;
+              lazyItem.sizes = `${Math.round(lazyItem.getBoundingClientRect().width)}px`;
             }
 
             if (lazyItem.nodeName === 'SOURCE') {

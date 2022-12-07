@@ -22,4 +22,17 @@ module.exports = {
       paddingRight: '4rem',
     },
   },
+  '.container-full': {
+    width: '100%',
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+    '@screen md': {
+      paddingLeft: '2rem',
+      paddingRight: '2rem',
+    },
+    '@screen 2xl': {
+      paddingLeft: '4rem',
+      paddingRight: '4rem',
+    },
+  },
 };
