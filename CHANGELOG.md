@@ -1,5 +1,5 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.9 - WIP
+## 4.0.9 - 2022.12.07
 
 ### added
 - heroicons (tailwindcss icon set)
