@@ -16,6 +16,7 @@
 - SuperTable plugin
 - Navigation plugin
 - Sherlock plugin
+- Quick Field plugin
 - Matrix Mate plugin
 - Typed Link Field plugin
 
