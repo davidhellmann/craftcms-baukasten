@@ -5,8 +5,9 @@
 - 
 
 ### updated
-- plugin: superTable
-- plugin: sprig
+- plugin: superTable (3.0.7)
+- plugin: sprig (2.4.0)
+- plugin: sherlock (4.2.2)
 
 ### fixed
 - 
