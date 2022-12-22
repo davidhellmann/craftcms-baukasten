@@ -9,6 +9,8 @@
 - plugin: sprig (2.4.0)
 - plugin: sherlock (4.2.2)
 - plugin: seomatic (4.0.16)
+- plugin: navigation (2.0.15)
+- plugin: control panel css (2.6.0)
 
 ### fixed
 - 
