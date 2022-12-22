@@ -6,6 +6,7 @@
 
 ### updated
 - plugin: superTable
+- plugin: sprig
 
 ### fixed
 - 
