@@ -6,7 +6,7 @@ module.exports = (
 ) => {
   if (!params.palette || !params.name) return;
   const colors = {
-    [params.name]: {}
+    [params.name]: {},
   };
   Object.entries(params.palette).map((color) => {
     colors[params.name][`${color[0]}`] = color[1];

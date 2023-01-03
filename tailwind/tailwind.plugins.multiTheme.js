@@ -34,12 +34,12 @@ const createObject = (obj, colorName, colorLevel, value) => {
       [colorLevel]: value,
     };
   }
-}
+};
 
 const finalColorSet = {};
 const finalThemeColorSettings = {};
 colorThemes.forEach((theme) => {
-  const {colors, name} = theme;
+  const { colors, name } = theme;
   const finalColors = {};
 
   Object.entries(colors).forEach((color) => {
@@ -47,11 +47,11 @@ colorThemes.forEach((theme) => {
       finalColors[`--c-${color[0]}`] = hexToRGB(color[1]);
     }
 
-    if (typeof color[1] === "object") {
-      const colorName = color[0]
+    if (typeof color[1] === 'object') {
+      const colorName = color[0];
       Object.entries(color[1]).forEach((color) => {
         finalColors[`--c-${colorName}-${color[0]}`] = hexToRGB(color[1]);
-      })
+      });
     }
   });
 
@@ -64,28 +64,32 @@ colorThemes.forEach((theme) => {
 
 Object.entries(finalColorSet[':root']).forEach((color) => {
   const [a, b] = color;
-  const colorKey = a.replace('--c-', '')
-  let colorName = colorKey.split('-')[0] || colorKey
-  let colorLevel = colorKey.split('-')[1] || colorName
+  const colorKey = a.replace('--c-', '');
+  let colorName = colorKey.split('-')[0] || colorKey;
+  let colorLevel = colorKey.split('-')[1] || colorName;
 
   if (/\s/.test(b)) {
     if (colorName === colorLevel) {
       finalThemeColorSettings[colorName] = `rgb(var(${a}) / <alpha-value>)`;
     } else {
-      createObject(finalThemeColorSettings, colorName, colorLevel, `rgb(var(${a}) / <alpha-value>)`)
+      createObject(
+        finalThemeColorSettings,
+        colorName,
+        colorLevel,
+        `rgb(var(${a}) / <alpha-value>)`,
+      );
     }
   } else {
-
     if (colorName === colorLevel) {
       finalThemeColorSettings[colorName] = `var(${a})`;
     } else {
-      createObject(finalThemeColorSettings, colorName, colorLevel, `var(${a})`)
+      createObject(finalThemeColorSettings, colorName, colorLevel, `var(${a})`);
     }
   }
 });
 
 module.exports = plugin(
-  ({addBase}) => {
+  ({ addBase }) => {
     addBase(finalColorSet);
   },
 
