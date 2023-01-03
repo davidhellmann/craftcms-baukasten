@@ -11,6 +11,7 @@
 - plugin: sherlock (4.2.2)
 - plugin: seomatic (4.0.16)
 - plugin: formie (2.0.20)
+- plugin: palette (3.1.0)
 - plugin: navigation (2.0.15)
 - plugin: control panel css (2.6.0)
 
