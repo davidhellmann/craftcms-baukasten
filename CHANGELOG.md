@@ -14,6 +14,7 @@
 - plugin: palette (3.1.0)
 - plugin: redactor (3.0.3)
 - plugin: navigation (2.0.15)
+- plugin: vite (4.0.4)
 - plugin: control panel css (2.6.0)
 
 ### fixed
