@@ -23,6 +23,33 @@
           },
           withContext = false
         ) }}
+
+        <ul class="grid grid-cols-2 gap-8 mt-8">
+          {% for i in 0..12 %}
+            <li data-theme="{{ random(['default', 'monochrome', 'blue', 'red', 'purple']) }}"
+                class="bg-primary-100 p-8 rounded-md">
+              <h1>Headline</h1>
+              <p>Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo. Per
+                placerat ocurreret te, eos diceret accumsan in? Qui no viderer vivendum facilisi, pro illud possim
+                legimus at. Illum sonet numquam id vis.</p>
+
+              {{ include(
+                "_components/button/button.twig",
+                {
+                  data: {
+                  variantSize: 'sm',
+                  url: "/hidden/patternlib",
+                  text: "Read more"
+                },
+                  classes: {
+                  custom: "mt-4"
+                }
+                },
+                withContext = false
+              ) }}
+            </li>
+          {% endfor %}
+        </ul>
       </div>
     {% endminify %}
   {% endcache %}

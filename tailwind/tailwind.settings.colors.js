@@ -1,6 +1,6 @@
 /*
  * Tailwind Color Settings
- * IMPORTANT: Custom colors MUST BE defined as HEX Value!!!
+ * IMPORTANT: Custom colors must be defined as HEX ('red-500': '#fff' or 'red-500': '#ffffff') or RGB ('red-500': '255 0 0')
  * IMPORTANT: You should define the same colors for each theme based on the default theme
  * otherwise theming works not as expected, except for colors like "inherit", "current", and "transparent".
  *

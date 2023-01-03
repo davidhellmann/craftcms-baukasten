@@ -4,9 +4,9 @@
 const plugin = require('tailwindcss/plugin');
 const colorThemes = require('./tailwind.settings.colors');
 
-const hexToRGB = (hexColor) => {
-  if (!hexColor.startsWith('#')) return hexColor;
-  const c = hexColor.startsWith('#') ? hexColor.substring(1) : hexColor;
+const hexToRGB = (color) => {
+  if (!color.startsWith('#')) return color;
+  const c = color.startsWith('#') ? color.substring(1) : color;
   const l = c.length;
 
   if (l === 3) {

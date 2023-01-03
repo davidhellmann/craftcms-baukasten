@@ -19,7 +19,9 @@ const settingsAspectRatio = require('./tailwind/tailwind.settings.aspectRatio');
 
 // Plugins
 const pluginAddComponents = require('./tailwind/tailwind.plugins.addComponents');
-const pluginMultiTheme = require('./tailwind/tailwind.plugins.multiTheme');
+// const pluginMultiTheme = require('./tailwind/tailwind.plugins.multiTheme');
+const colors = require('tailwindcss/colors');
+const useMapDefaultColorPalette = require('./tailwind/helpers/useMapDefaultColorPalette');
 
 module.exports = {
   content: ['./templates/**/*.{twig,html,vue,js,ts}', './src/vue/**/*.{vue,js,ts}'],
@@ -47,7 +49,51 @@ module.exports = {
     fontSize: false, // disable cause we use the fluid type plugin
   },
   plugins: [
-    pluginMultiTheme,
+    // pluginMultiTheme,
+    require('./tailwind/tailwindcss-theming/src/index.js')([
+      {
+        name: 'default',
+        colors: {
+          inherit: colors.inherit,
+          current: colors.current,
+          transparent: colors.transparent,
+          black: colors.black,
+          white: colors.white,
+          'keyboard-focus': '#ff98de',
+          gray: colors.zinc,
+          primary: colors.emerald,
+          secondary: colors.amber,
+        },
+      },
+      {
+        name: 'monochrome',
+        colors: {
+          primary: colors.zinc,
+          secondary: colors.neutral,
+        }
+      },
+      {
+        name: 'blue',
+        colors: {
+          primary: colors.indigo,
+          secondary: colors.violet,
+        }
+      },
+      {
+        name: 'red',
+        colors: {
+          primary: colors.rose,
+          secondary: colors.orange,
+        }
+      },
+      {
+        name: 'purple',
+        colors: {
+          primary: colors.purple,
+          secondary: colors.fuchsia,
+        }
+      },
+    ]),
     containerQueries,
     require('tailwindcss-fluid-type')({
       ...settingsfluidType,
