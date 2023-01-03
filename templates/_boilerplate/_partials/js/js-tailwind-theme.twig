@@ -1,11 +1,10 @@
 <script>
   // On page load or when changing themes, best to add inline in `head` to avoid FOUC
   var xTheme = JSON.parse(localStorage.getItem('_x_theme'))
-  var html = document.getElementsByTagName('html')[0];
 
   if (xTheme) {
-    html.dataset.theme = xTheme
+    document.documentElement.dataset.theme = xTheme
   } else {
-    html.dataset.theme = 'default'
+    document.documentElement.dataset.theme = 'default'
   }
 </script>
