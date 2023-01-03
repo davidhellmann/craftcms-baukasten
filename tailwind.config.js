@@ -3,39 +3,39 @@
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
 /** @type {import('tailwindcss').Config} */
-const questionMark = require('tailwindcss-question-mark');
-const forms = require('@tailwindcss/forms')({
-  strategy: 'class',
-});
-const debugScreens = require('tailwindcss-debug-screens');
-const containerQueries = require('@tailwindcss/container-queries');
 
 // Settings
 const settingsGrid = require('./tailwind/tailwind.settings.grid');
-const settingsFontFamily = require('./tailwind/tailwind.settings.fontFamily');
 const settingsfluidType = require('./tailwind/tailwind.settings.fluidType');
-const settingsScreens = require('./tailwind/tailwind.settings.screens');
-const settingsAspectRatio = require('./tailwind/tailwind.settings.aspectRatio');
-
-// Plugins
-const pluginAddComponents = require('./tailwind/tailwind.plugins.addComponents');
-// const pluginMultiTheme = require('./tailwind/tailwind.plugins.multiTheme');
-const colors = require('tailwindcss/colors');
-const useMapDefaultColorPalette = require('./tailwind/helpers/useMapDefaultColorPalette');
+const settingsThemeIt = require('./tailwind/tailwind.settings.themeIt');
 
 module.exports = {
   content: ['./templates/**/*.{twig,html,vue,js,ts}', './src/vue/**/*.{vue,js,ts}'],
   safelist: [],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    fontFamily: settingsFontFamily,
-    screens: settingsScreens,
+    fontFamily: {
+      sans: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
+      serif: ['Merriweather', 'Georgia', 'Times New Roman', 'Times', 'serif'],
+      mono: ['"JetBrains Mono"', '"Courier New"', 'Courier', 'monospace'],
+    },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+      nthover: { raw: '(hover: hover)' },
+    },
     extend: {
       gridTemplateColumns: { ...settingsGrid.gridTemplateColumns },
       gridColumn: { ...settingsGrid.gridColumn },
       gridRowStart: { ...settingsGrid.gridRowStart },
       gridRowEnd: { ...settingsGrid.gridRowEnd },
-      aspectRatio: { ...settingsAspectRatio },
+      aspectRatio: {
+        landscape: '3 / 2',
+        portrait: '2 / 3',
+      },
     },
     // Plugin Stuff
     debugScreens: {
@@ -49,60 +49,21 @@ module.exports = {
     fontSize: false, // disable cause we use the fluid type plugin
   },
   plugins: [
-    // pluginMultiTheme,
-    require('./tailwind/tailwindcss-theming/src/index.js')([
-      {
-        name: 'default',
-        colors: {
-          inherit: colors.inherit,
-          current: colors.current,
-          transparent: colors.transparent,
-          black: colors.black,
-          white: colors.white,
-          'keyboard-focus': '#ff98de',
-          gray: colors.zinc,
-          primary: colors.emerald,
-          secondary: colors.amber,
-        },
-      },
-      {
-        name: 'monochrome',
-        colors: {
-          primary: colors.zinc,
-          secondary: colors.neutral,
-        }
-      },
-      {
-        name: 'blue',
-        colors: {
-          primary: colors.indigo,
-          secondary: colors.violet,
-        }
-      },
-      {
-        name: 'red',
-        colors: {
-          primary: colors.rose,
-          secondary: colors.orange,
-        }
-      },
-      {
-        name: 'purple',
-        colors: {
-          primary: colors.purple,
-          secondary: colors.fuchsia,
-        }
-      },
-    ]),
-    containerQueries,
+    require('@tailwindcss/container-queries'),
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require('tailwindcss-theme-it')(settingsThemeIt),
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     require('tailwindcss-fluid-type')({
       ...settingsfluidType,
     }),
-    debugScreens,
-    questionMark,
-    forms,
+    require('tailwindcss-debug-screens'),
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require('@tailwindcss/forms')({
+      strategy: 'class',
+    }),
     ({ addComponents }) => {
-      addComponents(pluginAddComponents);
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      addComponents(require('./tailwind/tailwind.plugins.addComponents'));
     },
   ],
 };

@@ -1,7 +1,7 @@
 {% extends "_layouts/layout-default.twig" %}
 
 {% block blockAppContent %}
-  <main class="container">
+  <main class="container py-10">
     <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-8">
       {% for i in 1..12 %}
         {% set theme = random(['default', 'monochrome', 'blue', 'red', 'purple']) %}

@@ -2,7 +2,7 @@
 ## 4.0.9 - WIP
 
 ### added
-- 
+- tailwindcss-theme-it plugins for multi theme support
 
 ### updated
 - cms: CraftCMS (4.3.5)
