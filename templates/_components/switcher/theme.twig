@@ -48,7 +48,7 @@
         }"
     x-on:keydown.escape.prevent.stop="close($refs.button)"
     x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-    x-init="document.body.dataset.theme = theme"
+    x-init="document.documentElement.dataset.theme = theme"
     x-id="['dropdown-button']"
     class="relative"
   >
@@ -79,7 +79,7 @@
       <div>
         {% for theme in props.data.themes %}
           <button
-            x-on:click="theme = '{{ theme.handle }}'; document.body.dataset.theme = '{{ theme.handle }}';"
+            x-on:click="theme = '{{ theme.handle }}'; document.documentElement.dataset.theme = '{{ theme.handle }}';"
             class="{{ props.classes.listButton }}" >
             {{ theme.name }}
           </button>
