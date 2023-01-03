@@ -3,7 +3,7 @@
 {# >>> Render block app #}
 {% block blockApp %}
   <!DOCTYPE html>
-  <html class="no-js {{
+  <html data-theme="{{ theme|default('') }}" class="no-js {{
     "template-"
       ~ (templatePath
         |default("")
@@ -60,7 +60,7 @@
       {% endblock %}
     </head>
 
-    <body data-theme="{{ theme|default('') }}" class="{{ craft.app.config.custom.craftEnv != "production" ? "debug-screens" : "" }}">
+    <body class="{{ craft.app.config.custom.craftEnv != "production" ? "debug-screens" : "" }}">
       {# >>> Render block app body #}
       {% block blockAppBody %}
 
