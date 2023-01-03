@@ -9,8 +9,8 @@ module.exports = plugin.withOptions(
     };
   },
   function (options) {
-    const finalSet = finalColorSet(options)
-    const finalSettings = finalThemeColorSettings(finalSet)
+    const finalSet = finalColorSet(options);
+    const finalSettings = finalThemeColorSettings(finalSet);
 
     return {
       theme: {

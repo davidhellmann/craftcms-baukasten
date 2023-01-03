@@ -1,0 +1,50 @@
+{% extends "_layouts/layout-default.twig" %}
+
+{% block blockAppContent %}
+  <main class="container">
+    <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-8">
+      {% for i in 1..12 %}
+        {% set theme = random(['default', 'monochrome', 'blue', 'red', 'purple']) %}
+
+        <li data-theme="{{ theme }}" class="bg-primary-50 border border-2 border-primary-200 text-primary-900 p-8 rounded-md relative overflow-hidden">
+          <span class="absolute right-0 -bottom-4 text-9xl font-extrabold opacity-5 scale-150">{{ i }}</span>
+          <h1>Theme: {{ theme | capitalize }}</h1>
+          <p>Lorem ipsum dolor sit amet, quas appetere qui te, vel ne enim putent tractatos, ullum inani et duo.</p>
+
+          <div class="flex gap-2">
+            {{ include(
+              "_components/button/button.twig",
+              {
+                data: {
+                variantSize: 'sm',
+                url: "/hidden/patternlib",
+                text: "Primary"
+              },
+                classes: {
+                custom: "mt-4"
+              }
+              },
+              withContext = false
+            ) }}
+
+            {{ include(
+              "_components/button/button.twig",
+              {
+                data: {
+                variantSize: 'sm',
+                variantStyle: 'secondary',
+                url: "/hidden/patternlib",
+                text: "Secondary"
+              },
+                classes: {
+                custom: "mt-4"
+              }
+              },
+              withContext = false
+            ) }}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </main>
+{% endblock %}

@@ -30,5 +30,7 @@ module.exports = (finalColorSet) => {
     }
   });
 
+  console.log(finalThemeColorSettings);
+
   return finalThemeColorSettings;
 };
