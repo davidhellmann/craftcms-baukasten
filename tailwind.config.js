@@ -46,7 +46,7 @@ module.exports = {
   variants: {},
   corePlugins: {
     container: false,
-    fontSize: false, // disable cause we use the fluid type plugin
+    fontSize: false, // disable because we use the fluid type plugin
   },
   plugins: [
     require('@tailwindcss/container-queries'),
