@@ -9,15 +9,7 @@ Image Helper
 {# >>> Render image #}
 {%- macro renderImage(imageData = null, lazy = true, objectFit = null, customClasses = '') -%}
   {% set stdDeviation = (imageData.width / 20 * 0.5) %}
-  {% set svgCode = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 #{imageData.width * 0.5} #{imageData.height * 0.5}'>
-    <filter id='b' color-interpolation-filters='sRGB'>
-      <feGaussianBlur stdDeviation='#{stdDeviation}'></feGaussianBlur>
-      <feComponentTransfer>
-        <feFuncA type='discrete' tableValues='1 1'></feFuncA>
-      </feComponentTransfer>
-    </filter>
-    <image filter='url(#b)' x='0' y='0' width='100%' height='100%' href='#{imageData.placeholder}'></image>
-  </svg>
+  {% set svgCode = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 #{imageData.width * 0.5} #{imageData.height * 0.5}'><filter id='b' color-interpolation-filters='sRGB'><feGaussianBlur stdDeviation='#{stdDeviation}'></feGaussianBlur><feComponentTransfer><feFuncA type='discrete' tableValues='1 1'></feFuncA></feComponentTransfer></filter><image filter='url(#b)' x='0' y='0' width='100%' height='100%' href='#{imageData.placeholder}'></image></svg>
   " %}
 
   {% set svgCode = 'data:image/svg+xml;charset=utf-8,' ~ svgCode | url_encode | replace({ '%2F': '/', '%3A': ':', '%3D': '=' }) %}
