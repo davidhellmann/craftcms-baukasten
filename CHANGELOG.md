@@ -5,7 +5,7 @@
 - tailwindcss-theme-it plugins for multi theme support
 
 ### updated
-- cms: CraftCMS (4.3.5)
+- cms: CraftCMS (4.3.6.1)
 - plugin: superTable (3.0.7)
 - plugin: sprig (2.4.0)
 - plugin: sherlock (4.3.0)
@@ -13,7 +13,7 @@
 - plugin: formie (2.0.20)
 - plugin: palette (3.1.0)
 - plugin: redactor (3.0.3)
-- plugin: navigation (2.0.15)
+- plugin: navigation (2.0.16)
 - plugin: vite (4.0.4)
 - plugin: control panel css (2.6.0)
 
