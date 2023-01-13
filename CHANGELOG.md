@@ -16,6 +16,7 @@
 - plugin: navigation (2.0.16)
 - plugin: vite (4.0.4)
 - plugin: control panel css (2.6.0)
+- npm packages (a lot!)
 
 ### fixed
 - 
