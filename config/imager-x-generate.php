@@ -2,7 +2,7 @@
 
 $transforms = [
     'auto',
-    'autoWebp',
+    'autoAvif',
 ];
 
 return [

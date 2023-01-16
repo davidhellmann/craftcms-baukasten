@@ -19,7 +19,9 @@ return [
         'cacheDuration' => 31536000, // 1 Year
         'cacheDurationRemoteFiles' => 31536000, // 1 Year
         'cacheDurationExternalStorage' => 31536000, // 1 Year
-        'jpegQuality' => 95,
+        'jpegQuality' => 90,
+        'avifQuality' => 90,
+        'webpQuality' => 90,
         'pngCompressionLevel' => 0,
         'allowUpscale' => false,
         'optimizers' => [
@@ -43,15 +45,5 @@ return [
     'dev' => [
         'optimizers' => null,
         'mockImage' => App::env('MOCK_IMAGE') ?: null,
-        'customEncoders' => [
-            'webp' => [
-                'path' => '/opt/homebrew/bin/cwebp',
-                'options' => [
-                    'quality' => 95,
-                    'effort' => 4,
-                ],
-                'paramsString' => '-q {quality} -m {effort} {src} -o {dest}'
-            ],
-        ]
     ],
 ];

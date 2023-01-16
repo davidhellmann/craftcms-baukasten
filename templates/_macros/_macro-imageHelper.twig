@@ -53,7 +53,7 @@ Image Helper
 
 
 {# >>> Render source #}
-{%- macro renderSource(filetype = null, srcset = null, lazy = true, mediaQuery = null, type = 'image/webp') -%}
+{%- macro renderSource(filetype = null, srcset = null, lazy = true, mediaQuery = null, type = 'image/avif') -%}
   {# Handle Image #}
   {%- if srcset and filetype -%}
     <source  data-type="{{- filetype -}}"

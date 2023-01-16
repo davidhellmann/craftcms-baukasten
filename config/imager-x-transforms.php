@@ -32,19 +32,19 @@ return [
     'auto' => [
         'transforms' => $defaultTransforms,
     ],
-    'autoWebp' => [
+    'autoAvif' => [
         'transforms' => $defaultTransforms,
         'defaults' => [
-            'format' => 'webp'
+            'format' => 'avif'
         ],
     ],
     'autoWidth' => [
         'transforms' => $defaultTransformsAutoWidth,
     ],
-    'autoWidthWebp' => [
+    'autoWidthAvif' => [
         'transforms' => $defaultTransformsAutoWidth,
         'defaults' => [
-            'format' => 'webp'
+            'format' => 'avif'
         ],
     ]
 ];

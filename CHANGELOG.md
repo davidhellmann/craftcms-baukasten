@@ -3,6 +3,7 @@
 
 ### added
 - tailwindcss-theme-it plugins for multi theme support
+- avif support instead of webp
 
 ### updated
 - cms: CraftCMS (4.3.6.1)
