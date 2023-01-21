@@ -42,9 +42,11 @@ Image Helper
         data-sizes="auto"
       {%- else -%}
         class="{{ imageData.aspectRatio }} {{ customClasses }}"
-        src="{{- imageData.url -}}"
         {%- if imageData.transformable -%}
+          src="{{- svgCode ??? imageData.placeholder -}}"
           srcset="{{- imageData.srcset -}}"
+        {% else %}
+          src="{{- imageData.url -}}"
         {% endif %}
       {% endif %}
     />
