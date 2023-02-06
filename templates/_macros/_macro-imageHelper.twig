@@ -17,7 +17,7 @@ Image Helper
   {# If Image exists render it #}
   {%- if imageData ??? null -%}
     <img data-type="{{- imageData.filetype -}}"
-         decoding="async"
+         fetchpriority="high"
          width="{{- imageData.width -}}"
          height="{{- imageData.height -}}"
          alt="{{- imageData.alt -}}"
@@ -33,6 +33,7 @@ Image Helper
       {% if lazy %}
         class="lazyload {{ imageData.aspectRatio }} {{ customClasses }}"
         loading="lazy"
+        decoding="async"
         src="{{- svgCode ??? imageData.placeholder -}}"
         {%- if imageData.transformable -%}
           data-srcset="{{- imageData.srcset -}}"
