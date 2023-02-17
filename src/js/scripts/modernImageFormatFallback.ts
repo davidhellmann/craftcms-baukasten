@@ -1,5 +1,3 @@
-import { IComponent } from '../@types/IComponent';
-
 type fileFormat = 'webp' | 'avif';
 
 interface ICompModernImageFormatFallback {

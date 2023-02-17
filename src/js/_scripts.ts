@@ -1,5 +1,3 @@
-import modernImageFormatFallback from './scripts/modernImageFormatFallback';
-
 export default (async () => {
   // WebP Fallback
   // if (

@@ -1,5 +1,5 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.9 - WIP
+## 4.0.10 - WIP
 
 ### added
 - tailwindcss-theme-it plugins for multi theme support
@@ -16,12 +16,15 @@
 - plugin: palette (3.1.0)
 - plugin: redactor (3.0.3)
 - plugin: navigation (2.0.16)
-- plugin: vite (4.0.4)
+- plugin: vite (4.0.5)
 - plugin: control panel css (2.6.0)
 - npm packages (a lot!)
 
 ### fixed
 - 
+
+### removed
+- ddev files
 
 ## 4.0.9 - 2022.12.07
 
