@@ -8,7 +8,7 @@
 ### updated
 - cms: CraftCMS (4.3.6.1)
 - plugin: superTable (3.0.7)
-- plugin: sprig (2.5.0)
+- plugin: sprig (2.5.1)
 - plugin: imagerX (4.1.9.1)
 - plugin: sherlock (4.3.0)
 - plugin: seomatic (4.0.16)
