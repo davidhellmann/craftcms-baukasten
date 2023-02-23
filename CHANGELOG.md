@@ -1,5 +1,5 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.10 - WIP
+## 4.0.10 - WIP 
 
 ### added
 - tailwindcss-theme-it plugins for multi theme support
