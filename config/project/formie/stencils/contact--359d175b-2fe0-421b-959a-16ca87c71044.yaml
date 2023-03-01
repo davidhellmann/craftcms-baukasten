@@ -1,8 +1,4 @@
 data:
-  availability: always
-  availabilityFrom: null
-  availabilitySubmissions: null
-  availabilityTo: null
   dataRetention: forever
   dataRetentionValue: null
   fileUploadsAction: retain
@@ -152,11 +148,7 @@ data:
         showBackButton: false
         submitButtonLabel: 'Contact us'
       sortOrder: 0
-  requireUser: false
   settings:
-    availabilityMessage: null
-    availabilityMessageDate: null
-    availabilityMessageSubmissions: null
     collectIp: false
     collectUser: false
     dataRetention: null
@@ -182,12 +174,22 @@ data:
       javascript:
         enabled: '1'
         showAllPages: '1'
+    limitSubmissions: false
+    limitSubmissionsMessage: null
+    limitSubmissionsNumber: null
+    limitSubmissionsType: null
     loadingIndicator: spinner
     loadingIndicatorText: null
     progressPosition: end
     redirectUrl: null
+    requireUser: false
+    requireUserMessage: null
+    scheduleForm: false
+    scheduleFormEnd: null
+    scheduleFormExpiredMessage: null
+    scheduleFormPendingMessage: null
+    scheduleFormStart: null
     scrollToTop: true
-    storeData: false
     submissionTitleFormat: '{timestamp}: {field.yourName} <{field.emailAddress}>'
     submitAction: message
     submitActionFormHide: true
@@ -197,7 +199,6 @@ data:
     submitActionTab: null
     submitActionUrl: null
     submitMethod: ajax
-    userDeletedAction: null
     validationOnFocus: true
     validationOnSubmit: true
   userDeletedAction: retain

@@ -3,8 +3,10 @@ fieldLayouts:
   aa114924-5aa2-41f4-85a8-bca9eeb2183f:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 1509cbec-547c-4338-bcc8-a5452ab8c801 # Images
             instructions: null
             label: null
@@ -12,10 +14,12 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: dd770e69-a4d3-4edd-b3b0-d9bfbaec7c64
+            userCondition: null
             warning: null
             width: 100
         name: Content
         uid: 90ce938f-350d-4cc9-8381-c8a86abb1448
+        userCondition: null
 fields:
   1509cbec-547c-4338-bcc8-a5452ab8c801: # Images
     columnSuffix: null
@@ -31,9 +35,11 @@ fields:
       allowUploads: true
       allowedKinds:
         - image
+      branchLimit: null
       defaultUploadLocationSource: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
       defaultUploadLocationSubpath: null
       localizeRelations: false
+      maintainHierarchy: false
       maxRelations: null
       minRelations: null
       previewMode: full
