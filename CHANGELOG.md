@@ -6,10 +6,10 @@
 - avif support instead of webp
 
 ### updated
-- cms: CraftCMS (4.4.0-beta.2)
+- cms: CraftCMS (4.4.0-beta.3)
 - plugin: superTable (3.0.7) 
 - plugin: sprig (2.5.1)
-- plugin: blitz (4.3.3)
+- plugin: blitz (4.4.0)
 - plugin: imagerX (4.1.10)
 - plugin: sherlock (4.3.0)
 - plugin: seomatic (4.0.20)
