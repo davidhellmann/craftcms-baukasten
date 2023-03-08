@@ -4,6 +4,7 @@
 ### added
 - tailwindcss-theme-it plugins for multi theme support
 - avif support instead of webp
+- plugin: Hyper
 
 ### updated
 - cms: CraftCMS (4.4.0-beta.6)
@@ -26,6 +27,7 @@
 
 ### removed
 - ddev files
+- plugin: Typed Link Field (because using Hyper now)
 
 ## 4.0.9 - 2022.12.07
 
