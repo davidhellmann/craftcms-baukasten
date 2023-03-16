@@ -7,7 +7,7 @@
 - plugin: Hyper 1.1.2
 
 ### updated
-- cms: CraftCMS (4.4.0)
+- cms: CraftCMS (4.4.3)
 - plugin: superTable (3.0.7) 
 - plugin: sprig (2.5.1)
 - plugin: blitz (4.4.3)
