@@ -4,7 +4,7 @@
 ### added
 - tailwindcss-theme-it plugins for multi theme support
 - avif support instead of webp
-- plugin: Hyper
+- plugin: Hyper 1.1.2
 
 ### updated
 - cms: CraftCMS (4.4.0)
