@@ -3,8 +3,10 @@ fieldLayouts:
   58ddc97d-9694-4104-a136-b6344987e1b6:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 35b67fb3-4bdb-470f-a686-3d46c5cd5f96 # Image
             instructions: null
             label: null
@@ -12,9 +14,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 0cd02812-349c-46d5-a4b7-57700a221566
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Image Transform
             instructions: null
             label: null
@@ -22,9 +26,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: b0fb63ad-8f84-4caf-a7b6-c0e44deeae12
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: 9b73b533-898f-4f77-a500-37ea0be0afc7 # Show Image Caption
             instructions: null
             label: null
@@ -32,9 +38,11 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 089ab2ac-9335-40c2-9827-f4dd1baca5dc
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: 1be86da8-5273-40c6-ba88-718f5c32a6c3 # Image Width
             instructions: null
             label: null
@@ -42,10 +50,12 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 744a7c6f-6d25-4c12-8d70-9a8752b5f5f6
+            userCondition: null
             warning: null
             width: 50
         name: Content
         uid: 5e8a312e-45d0-491c-924d-84d96af3b270
+        userCondition: null
 fields:
   1be86da8-5273-40c6-ba88-718f5c32a6c3: # Image Width
     columnSuffix: null
@@ -111,9 +121,11 @@ fields:
       allowUploads: true
       allowedKinds:
         - image
+      branchLimit: null
       defaultUploadLocationSource: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
       defaultUploadLocationSubpath: null
       localizeRelations: false
+      maintainHierarchy: false
       maxRelations: 1
       minRelations: null
       previewMode: full
@@ -137,7 +149,6 @@ fields:
       showSiteMenu: true
       showUnpermittedFiles: true
       showUnpermittedVolumes: true
-      source: null
       sources:
         - 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
       targetSiteId: null

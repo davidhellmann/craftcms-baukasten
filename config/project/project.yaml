@@ -1,4 +1,4 @@
-dateModified: 1670447494
+dateModified: 1678143975
 elementSources:
   craft\elements\Asset:
     -
@@ -101,6 +101,7 @@ meta:
     7e8fd607-0b56-4196-9e02-76ebba9ad7bd: New # New
     7eb1a718-0679-4fda-b656-9bfdf55a2025: 'Navigation Main' # Navigation Main
     8ced5be5-13b2-483f-8db9-aab9757aad21: Error # Error
+    8d272b11-c1b4-4fc3-95c8-9d94fa513795: 'Plugin: Hyperlink Single' # Plugin: Hyperlink Single
     8dda1580-81a2-49f5-9dd2-ed1e2eb03fc6: Users # Users
     9a8fffce-3c28-4326-8f7a-e31d2f6cc04b: 'Section Background Color' # Section Background Color
     9b0f2718-07f3-4577-9fec-20385cba4c33: 'Image Slider' # Image Slider
@@ -132,6 +133,7 @@ meta:
     9005a655-4d9f-46b4-8c33-aadba34b6112: 'Social Sharing Facebook' # Social Sharing Facebook
     45510f13-91d2-479f-9ff2-68dd09ab6643: 'Entry: Short Description' # Entry: Short Description
     68109da0-245f-4b21-b040-b7f4385e618e: 'Video Width' # Video Width
+    68256f75-da63-4dab-bcc1-fc890f40c2f6: 'Plugin: Hyperlink Multi' # Plugin: Hyperlink Multi
     75195ab8-b7c4-4dca-b807-ef8a042ef5a9: Images # Images
     89272b00-6f81-47f7-9335-4367edcac941: Images # Images
     92963d20-e763-4d2e-a367-9e543dfde522: Spacer # Spacer
@@ -157,6 +159,7 @@ meta:
     d29e8520-ab62-4c8f-bda2-61868797c1ca: 'Entry: SEO' # Entry: SEO
     d383bdc6-fcfa-4652-9155-d7ead2d89f29: Assets # Assets
     df1d53fb-d9ed-4066-93e5-a46aac3f458e: 'Image Columns' # Image Columns
+    dfb88745-e0f0-4c67-9781-f72dad33bf65: Plugins # Plugins
     e0e9e510-46ff-45aa-aa46-700b325bb911: 'Show Image Caption' # Show Image Caption
     e3c7bdf5-9e45-4977-ba11-1e2c4b57644e: Divider # Divider
     e11e03f7-19c1-45c3-935e-1994a7ce7d26: 'Source Url' # Source Url
@@ -176,10 +179,14 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_BLITZ
-    schemaVersion: 4.2.0
+    schemaVersion: 4.4.0
     settings:
       integrations:
         - putyourlightson\blitz\drivers\integrations\CommerceIntegration
+  blur-hash:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   cp-clearcache:
     edition: standard
     enabled: true
@@ -336,6 +343,11 @@ plugins:
       spamLimit: 1000
       useQueueForIntegrations: true
       useQueueForNotifications: true
+  hyper:
+    edition: standard
+    enabled: true
+    licenseKey: 83AVPXF1W0Q1CAIAE1SAHJWO
+    schemaVersion: 1.0.0
   image-resizer:
     edition: standard
     enabled: true
@@ -434,10 +446,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.0.0
-  typedlinkfield:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.0.0
   vite:
     edition: standard
     enabled: true
@@ -447,7 +455,7 @@ system:
   live: true
   name: Baukasten
   retryDuration: null
-  schemaVersion: 4.0.0.9
+  schemaVersion: 4.4.0.4
   timeZone: Europe/Berlin
 users:
   allowPublicRegistration: false

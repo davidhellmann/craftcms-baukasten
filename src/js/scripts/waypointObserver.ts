@@ -8,7 +8,8 @@ interface Settings {
 
 interface ICompWaypointObserver extends IComponent {
   observerConfig: {
-    [key: string]: string | Array<number>;
+    threshold: Array<number>;
+    rootMargin: string;
   };
 
   settings: {

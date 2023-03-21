@@ -1,4 +1,34 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.10 - 2023.03.21 
+
+### added
+- tailwindcss-theme-it plugins for multi theme support
+- avif support instead of webp
+- plugin: Hyper 1.1.2
+
+### updated
+- cms: CraftCMS (4.4.5)
+- plugin: superTable (3.0.7) 
+- plugin: sprig (2.5.1)
+- plugin: blitz (4.4.3)
+- plugin: imagerX (4.1.11)
+- plugin: sherlock (4.3.0)
+- plugin: seomatic (4.0.22)
+- plugin: formie (2.0.23.1)
+- plugin: palette (3.1.1)
+- plugin: redactor (3.0.4)
+- plugin: navigation (2.0.17)
+- plugin: vite (4.0.5)
+- plugin: control panel css (2.6.0)
+- npm packages (a lot!)
+
+### fixed
+- 
+
+### removed
+- ddev files
+- plugin: Typed Link Field (because using Hyper now)
+
 ## 4.0.9 - 2022.12.07
 
 ### added

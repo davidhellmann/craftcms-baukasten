@@ -1,14 +1,15 @@
-import { IComponent } from '../@types/IComponent';
+type fileFormat = 'webp' | 'avif';
 
-interface ICompSafariWebPFix extends IComponent {
-  replaceWebPWithFileType(): void;
-  init(): void;
+interface ICompModernImageFormatFallback {
+  name: string;
+  replaceModernFormatWithFallback(modernFormat: fileFormat): void;
+  init(x: fileFormat): void;
 }
 
-const safariWebPFix: ICompSafariWebPFix = {
-  name: 'safariWebPFix',
+const modernImageFormatFallback: ICompModernImageFormatFallback = {
+  name: 'modernImageFormatFallback',
 
-  replaceWebPWithFileType() {
+  replaceModernFormatWithFallback(modernFormat: fileFormat = 'avif'): void {
     const images = [...document.querySelectorAll<HTMLElement>('img, source')];
 
     if (images) {
@@ -17,8 +18,11 @@ const safariWebPFix: ICompSafariWebPFix = {
         const dataSrcset = image.getAttribute('data-srcset');
         const srcset = image.getAttribute('srcset');
         const type = image.getAttribute('type');
-        // const searchRegExp = new RegExp('\\.webp', 'g');
-        const searchRegExp = /.webp/g;
+        // const searchRegExp = new RegExp('\\.avif', 'g');
+        let searchRegExp = /.webp/g;
+        if (modernFormat === 'avif') {
+          searchRegExp = /.avif/g;
+        }
 
         if (type) {
           image.removeAttribute('type');
@@ -36,9 +40,9 @@ const safariWebPFix: ICompSafariWebPFix = {
     }
   },
 
-  init() {
-    this.replaceWebPWithFileType();
+  init(modernFormat): void {
+    this.replaceModernFormatWithFallback(modernFormat);
   },
 };
 
-export default safariWebPFix;
+export default modernImageFormatFallback;

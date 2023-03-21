@@ -1,12 +1,25 @@
 export default (async () => {
-  // Safari WebP Fix
-  if (
-    navigator.userAgent.indexOf('Safari') !== -1 &&
-    navigator.userAgent.indexOf('Chrome') === -1
-  ) {
-    const { default: safariWebPFix } = await import('./scripts/safariWebPFix');
-    safariWebPFix.init();
-  }
+  // WebP Fallback
+  // if (
+  //   navigator.userAgent.indexOf('Safari') !== -1 &&
+  //   navigator.userAgent.indexOf('Chrome') === -1
+  // ) {
+  //   const { default: modernImageFormatFallback } = await import(
+  //     './scripts/modernImageFormatFallback'
+  //   );
+  //   modernImageFormatFallback.init('webp');
+  // }
+
+  // Avif Fallback
+  const avifImage = new Image();
+  avifImage.src =
+    'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=';
+  avifImage.onerror = async () => {
+    const { default: modernImageFormatFallback } = await import(
+      './scripts/modernImageFormatFallback'
+    );
+    modernImageFormatFallback.init('avif');
+  };
 
   // globalScrollListener
   const { default: globalScrollListener } = await import('./scripts/globalScrollListener');
