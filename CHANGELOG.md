@@ -1,5 +1,5 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.10 - WIP 
+## 4.0.10 - 2023.03.21 
 
 ### added
 - tailwindcss-theme-it plugins for multi theme support
@@ -7,7 +7,7 @@
 - plugin: Hyper 1.1.2
 
 ### updated
-- cms: CraftCMS (4.4.3)
+- cms: CraftCMS (4.4.5)
 - plugin: superTable (3.0.7) 
 - plugin: sprig (2.5.1)
 - plugin: blitz (4.4.3)
