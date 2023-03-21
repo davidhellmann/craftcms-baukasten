@@ -16,7 +16,7 @@
 - plugin: seomatic (4.0.22)
 - plugin: formie (2.0.23.1)
 - plugin: palette (3.1.1)
-- plugin: redactor (3.0.3)
+- plugin: redactor (3.0.4)
 - plugin: navigation (2.0.16)
 - plugin: vite (4.0.5)
 - plugin: control panel css (2.6.0)
