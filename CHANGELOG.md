@@ -6,6 +6,7 @@
 
 ### updated
 - update waypoints script by chatgpt
+- rename hidden/iso.twig > hidden/waypoints.twig
 
 ### fixed
 - 
