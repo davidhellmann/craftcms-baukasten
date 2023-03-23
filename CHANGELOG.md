@@ -7,6 +7,7 @@
 ### updated
 - refactor waypoints script by chatgpt
 - refactor lazy script by chatgpt
+- refactor modernImageFormatFallback script by chatgpt
 - rename hidden/iso.twig > hidden/waypoints.twig
 
 ### fixed
