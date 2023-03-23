@@ -1,4 +1,19 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.11 - WIP
+
+### added
+- 
+
+### updated
+- update waypoints script by chatgpt
+
+### fixed
+- 
+
+### removed
+- 
+
+
 ## 4.0.10 - 2023.03.21 
 
 ### added
