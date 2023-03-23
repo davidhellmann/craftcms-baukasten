@@ -1,32 +1,39 @@
+type LazyItem = HTMLImageElement | HTMLSourceElement | HTMLIFrameElement;
+
+const handleLazyImage = (lazyItem: HTMLImageElement): void => {
+  lazyItem.src = lazyItem.dataset.src || lazyItem.src;
+  if (lazyItem.dataset.srcset) {
+    lazyItem.srcset = lazyItem.dataset.srcset;
+  }
+  lazyItem.sizes = `${Math.round(lazyItem.getBoundingClientRect().width)}px`;
+};
+
+const handleLazySource = (lazyItem: HTMLSourceElement): void => {
+  if (lazyItem.dataset.srcset) {
+    lazyItem.srcset = lazyItem.dataset.srcset;
+  }
+};
+
+const handleLazyIFrame = (lazyItem: HTMLIFrameElement): void => {
+  if (lazyItem.dataset.src) {
+    lazyItem.src = lazyItem.dataset.src;
+  }
+};
+
 export const init = (els: NodeListOf<HTMLElement>, selector: string, threshold = 0.25): void => {
   if ('IntersectionObserver' in window) {
-    // Create new observer object
     const lazyItemObserver = new IntersectionObserver(
       (entries) => {
-        // Loop through IntersectionObserverEntry objects
         entries.forEach((entry) => {
-          // Do these if the target intersects with the root
           if (entry.isIntersecting) {
-            const lazyItem = entry.target as HTMLImageElement | HTMLSourceElement;
+            const lazyItem = entry.target as LazyItem;
 
             if (lazyItem.nodeName === 'IMG') {
-              lazyItem.src = lazyItem.dataset.src || lazyItem.src;
-              if (lazyItem.dataset.srcset) {
-                lazyItem.srcset = lazyItem.dataset.srcset;
-              }
-              lazyItem.sizes = `${Math.round(lazyItem.getBoundingClientRect().width)}px`;
-            }
-
-            if (lazyItem.nodeName === 'SOURCE') {
-              if (lazyItem.dataset.srcset) {
-                lazyItem.srcset = lazyItem.dataset.srcset;
-              }
-            }
-
-            if (lazyItem.nodeName === 'IFRAME') {
-              if (lazyItem.dataset.src) {
-                lazyItem.src = lazyItem.dataset.src;
-              }
+              handleLazyImage(lazyItem as HTMLImageElement);
+            } else if (lazyItem.nodeName === 'SOURCE') {
+              handleLazySource(lazyItem as HTMLSourceElement);
+            } else if (lazyItem.nodeName === 'IFRAME') {
+              handleLazyIFrame(lazyItem as HTMLIFrameElement);
             }
 
             // lazyItem.classList.remove('lazyload');
