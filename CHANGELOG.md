@@ -13,6 +13,7 @@
 - plugin: SEOmatic (4.0.23)
 - plugin: ImagerX (4.1.12)
 - plugin: Formie (2.0.25.1)
+- plugin: Blitz (4.4.4)
 
 ### fixed
 - 
