@@ -11,6 +11,7 @@
 - rename hidden/iso.twig > hidden/waypoints.twig
 - plugin: Super Table (3.0.8.1)
 - plugin: SEOmatic (4.0.23)
+- plugin: ImagerX (4.1.12)
 
 ### fixed
 - 
