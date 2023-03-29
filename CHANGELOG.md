@@ -12,6 +12,7 @@
 - plugin: Super Table (3.0.8.1)
 - plugin: SEOmatic (4.0.23)
 - plugin: ImagerX (4.1.12)
+- plugin: Formie (2.0.25.1)
 
 ### fixed
 - 
