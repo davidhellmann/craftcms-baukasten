@@ -9,6 +9,8 @@
 - refactor lazy script by chatgpt
 - refactor modernImageFormatFallback script by chatgpt
 - rename hidden/iso.twig > hidden/waypoints.twig
+- plugin: Super Table (3.0.8.1)
+- plugin: SEOmatic (4.0.23)
 
 ### fixed
 - 
