@@ -5,6 +5,7 @@
 - 
 
 ### updated
+- cms: CraftCMS (4.4.7)
 - refactor waypoints script by chatgpt
 - refactor lazy script by chatgpt
 - refactor modernImageFormatFallback script by chatgpt
