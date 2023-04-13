@@ -2,7 +2,7 @@
 ## 4.0.11 - WIP
 
 ### added
-- 
+- CKEditor 3.0.0
 
 ### updated
 - cms: CraftCMS (4.4.7)

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "973f4a23cb07cefb33edd984b715aada",
+    "content-hash": "3bc450ab88ba6673a3cef30763fc55ec",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1281,6 +1281,58 @@
             "time": "2022-02-25T21:32:43+00:00"
         },
         {
+            "name": "craftcms/ckeditor",
+            "version": "3.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/craftcms/ckeditor/zipball/6b6d50bf5430a445bcef7efab6447a234c68cf4d",
+                "reference": "6b6d50bf5430a445bcef7efab6447a234c68cf4d",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.4.7",
+                "craftcms/html-field": "^2.0.0-alpha.2",
+                "nystudio107/craft-code-editor": "^1.0",
+                "php": "^8.0.2"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "CKEditor",
+                "handle": "ckeditor",
+                "documentationUrl": "https://github.com/craftcms/ckeditor/blob/master/README.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "craft\\ckeditor\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pixel & Tonic",
+                    "homepage": "https://pixelandtonic.com/"
+                }
+            ],
+            "description": "Edit rich text content in Craft CMS using CKEditor.",
+            "keywords": [
+                "ckeditor",
+                "cms",
+                "craftcms",
+                "html",
+                "yii2"
+            ],
+            "support": {
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/ckeditor/issues?state=open",
+                "source": "https://github.com/craftcms/ckeditor",
+                "docs": "https://github.com/craftcms/ckeditor/blob/master/README.md",
+                "rss": "https://github.com/craftcms/ckeditor/commits/master.atom"
+            },
+            "time": "2023-04-12T19:25:05+00:00"
+        },
+        {
             "name": "craftcms/cms",
             "version": "4.4.7",
             "dist": {
@@ -1382,11 +1434,6 @@
         {
             "name": "craftcms/html-field",
             "version": "2.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/craftcms/html-field.git",
-                "reference": "3030f7878335b8c7163b1db354fdc22c083d131c"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/craftcms/html-field/zipball/3030f7878335b8c7163b1db354fdc22c083d131c",
@@ -1397,18 +1444,12 @@
                 "craftcms/cms": "^4.0.0-alpha.1",
                 "php": "^8.0.2"
             },
-            "require-dev": {
-                "craftcms/ecs": "dev-main",
-                "craftcms/phpstan": "dev-main",
-                "craftcms/rector": "dev-main"
-            },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "craft\\htmlfield\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1420,11 +1461,11 @@
             ],
             "description": "Base class for Craft CMS field types with HTML values.",
             "support": {
-                "docs": "https://github.com/craftcms/html-field/blob/main/README.md",
                 "email": "support@craftcms.com",
                 "issues": "https://github.com/craftcms/html-field/issues?state=open",
-                "rss": "https://github.com/craftcms/html-field/commits/main.atom",
-                "source": "https://github.com/craftcms/html-field"
+                "source": "https://github.com/craftcms/html-field",
+                "docs": "https://github.com/craftcms/html-field/blob/main/README.md",
+                "rss": "https://github.com/craftcms/html-field/commits/main.atom"
             },
             "time": "2022-11-16T11:13:37+00:00"
         },
@@ -4617,15 +4658,23 @@
         },
         {
             "name": "nystudio107/craft-code-editor",
-            "version": "1.0.7",
+            "version": "1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nystudio107/craft-code-editor.git",
+                "reference": "6e9cd8a7078915660c99e934357eafc720492b88"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-code-editor/zipball/68ddd78f0988d6702b5849ae69241a473a58f08c",
-                "reference": "68ddd78f0988d6702b5849ae69241a473a58f08c",
+                "url": "https://api.github.com/repos/nystudio107/craft-code-editor/zipball/6e9cd8a7078915660c99e934357eafc720492b88",
+                "reference": "6e9cd8a7078915660c99e934357eafc720492b88",
                 "shasum": ""
             },
             "require": {
                 "phpdocumentor/reflection-docblock": "^5.0.0"
+            },
+            "require-dev": {
+                "craftcms/cms": "^3.0.0 || ^4.0.0"
             },
             "type": "yii2-extension",
             "extra": {
@@ -4636,6 +4685,7 @@
                     "nystudio107\\codeeditor\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -4658,7 +4708,18 @@
                 "markdown",
                 "twig"
             ],
-            "time": "2022-12-16T03:52:43+00:00"
+            "support": {
+                "docs": "https://github.com/nystudio107/craft-code-editor/blob/v1/README.md",
+                "issues": "https://github.com/nystudio107/craft-code-editor/issues",
+                "source": "https://github.com/nystudio107/craft-code-editor"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/khalwat",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-04-13T03:43:09+00:00"
         },
         {
             "name": "nystudio107/craft-emptycoalesce",
