@@ -15,6 +15,7 @@
 - plugin: Formie (2.0.25.1)
 - plugin: Blitz (4.4.4)
 - plugin: Palette (3.1.3)
+- plugin: Hyper (1.1.4)
 
 ### fixed
 - 
