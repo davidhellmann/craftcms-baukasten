@@ -1,22 +1,20 @@
-css: null
-js: null
+css: ".ck.ck-content mark.yellow {\r\n    background-color: lemonchiffon;\r\n    padding: 0.25rem;\r\n}"
+js: "return {\r\n  style: {\r\n    definitions: [\r\n      {\r\n        name: 'Mark (yellow)',\r\n        element: 'mark',\r\n        classes: ['yellow']\r\n      },\r\n    ]\r\n  }\r\n}"
 name: Default
 toolbar:
-  - alignment
   - heading
-  - style
-  - '|'
   - bold
   - italic
   - underline
   - strikethrough
+  - '|'
   - subscript
   - superscript
+  - '|'
+  - style
   - '|'
   - link
   - bulletedList
   - numberedList
   - code
   - '|'
-  - codeBlock
-  - insertTable
