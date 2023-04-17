@@ -12,6 +12,7 @@
 - rename hidden/iso.twig > hidden/waypoints.twig
 - plugin: Super Table (3.0.8.1)
 - plugin: SEOmatic (4.0.23)
+- plugin: CK Editor (3.1.0)
 - plugin: ImagerX (4.1.12)
 - plugin: Formie (2.0.26)
 - plugin: Blitz (4.4.4)
