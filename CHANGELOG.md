@@ -20,7 +20,7 @@
 - plugin: Hyper (1.1.4)
 
 ### fixed
-- 
+- mutex config part
 
 ### removed
 - 
