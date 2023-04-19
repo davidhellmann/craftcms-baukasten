@@ -2,7 +2,7 @@
  * Tailwind Plugins AddComponents Settings
  */
 
-module.exports = {
+export default {
   '.container': {
     width: '100%',
     paddingLeft: '1rem',

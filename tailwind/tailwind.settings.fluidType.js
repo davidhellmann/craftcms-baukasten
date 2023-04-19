@@ -2,7 +2,7 @@
  * Tailwind Fluid Type Settings
  */
 
-module.exports = {
+export default {
   // your fluid type settings
   // works only with unitless numbers
   // This numbers are the defaults settings

@@ -2,14 +2,21 @@
  * Opatciy Map for Colors
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
-/** @type {import('tailwindcss').Config} */
+
+// plugins
+import containerQuerries from '@tailwindcss/container-queries';
+import themeIt from 'tailwindcss-theme-it';
+import fluidType from 'tailwindcss-fluid-type';
+import debugScreens from 'tailwindcss-debug-screens';
+import forms from '@tailwindcss/forms';
+import components from './tailwind/tailwind.plugins.addComponents';
 
 // Settings
-const settingsGrid = require('./tailwind/tailwind.settings.grid');
-const settingsfluidType = require('./tailwind/tailwind.settings.fluidType');
-const settingsThemeIt = require('./tailwind/tailwind.settings.themeIt');
+import settingsGrid from './tailwind/tailwind.settings.grid';
+import settingsfluidType from './tailwind/tailwind.settings.fluidType';
+import settingsThemeIt from './tailwind/tailwind.settings.themeIt';
 
-module.exports = {
+export default {
   content: ['./templates/**/*.{twig,html,vue,js,ts}', './src/vue/**/*.{vue,js,ts}'],
   safelist: [],
   darkMode: 'class', // or 'media' or 'class'
@@ -49,21 +56,21 @@ module.exports = {
     fontSize: false, // disable because we use the fluid type plugin
   },
   plugins: [
-    require('@tailwindcss/container-queries'),
+    containerQuerries,
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require('tailwindcss-theme-it')(settingsThemeIt),
+    themeIt(settingsThemeIt),
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require('tailwindcss-fluid-type')({
+    fluidType({
       ...settingsfluidType,
     }),
-    require('tailwindcss-debug-screens'),
+    debugScreens,
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require('@tailwindcss/forms')({
+    forms({
       strategy: 'class',
     }),
     ({ addComponents }) => {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
-      addComponents(require('./tailwind/tailwind.plugins.addComponents'));
+      addComponents(components);
     },
   ],
 };
