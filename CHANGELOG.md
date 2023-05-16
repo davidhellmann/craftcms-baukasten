@@ -20,6 +20,7 @@
 - plugin: Hyper (1.1.4)
 - plugin: Sprig (2.6.2)
 - plugin: Quick Field (2.0.4)
+- plugin: MatrixMate (2.1.3)
 
 ### fixed
 - mutex config part
