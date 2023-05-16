@@ -18,6 +18,7 @@
 - plugin: Blitz (4.4.4)
 - plugin: Palette (3.1.3)
 - plugin: Hyper (1.1.4)
+- plugin: Sprig (2.6.2)
 
 ### fixed
 - mutex config part
