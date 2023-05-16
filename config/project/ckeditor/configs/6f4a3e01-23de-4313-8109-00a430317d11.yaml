@@ -1,8 +1,15 @@
 css: ".ck.ck-content mark.yellow {\r\n    background-color: lemonchiffon;\r\n    padding: 0.25rem;\r\n}"
-js: "return {\r\n  style: {\r\n    definitions: [\r\n      {\r\n        name: 'Mark (yellow)',\r\n        element: 'mark',\r\n        classes: ['yellow']\r\n      },\r\n    ]\r\n  }\r\n}"
+headingLevels:
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+js: "return {\r\n  style: {\r\n    definitions: [\r\n      {\r\n        name: 'Mark (yellow)',\r\n        element: 'mark',\r\n        classes: [\r\n          'yellow',\r\n        ],\r\n      },\r\n      {\r\n        name: 'Looks like H3',\r\n        classes: [\r\n          'text-2xl',\r\n        ],\r\n      },\r\n      {\r\n        name: 'Looks like h4',\r\n        classes: [\r\n          'text-xl',\r\n        ],\r\n      },\r\n    ],\r\n  },\r\n  alignment: {\r\n    options: [\r\n      'left',\r\n      'right',\r\n      'center'\r\n    ],\r\n  },\r\n}"
 name: Default
 toolbar:
   - heading
+  - alignment
   - bold
   - italic
   - underline
@@ -17,4 +24,3 @@ toolbar:
   - bulletedList
   - numberedList
   - code
-  - '|'
