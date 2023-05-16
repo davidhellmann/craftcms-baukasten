@@ -18,6 +18,7 @@
 - plugin: Blitz (4.4.4)
 - plugin: Palette (3.1.4)
 - plugin: Hyper (1.1.4)
+- plugin: Image Resizer (3.0.6)
 - plugin: Sprig (2.6.2)
 - plugin: Quick Field (2.0.4)
 - plugin: MatrixMate (2.1.3)
