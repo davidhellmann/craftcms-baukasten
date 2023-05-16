@@ -16,7 +16,7 @@
 - plugin: ImagerX (4.1.12)
 - plugin: Formie (2.0.26)
 - plugin: Blitz (4.4.4)
-- plugin: Palette (3.1.3)
+- plugin: Palette (3.1.4)
 - plugin: Hyper (1.1.4)
 - plugin: Sprig (2.6.2)
 - plugin: Quick Field (2.0.4)
