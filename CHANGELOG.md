@@ -19,6 +19,7 @@
 - plugin: Palette (3.1.3)
 - plugin: Hyper (1.1.4)
 - plugin: Sprig (2.6.2)
+- plugin: Quick Field (2.0.4)
 
 ### fixed
 - mutex config part
