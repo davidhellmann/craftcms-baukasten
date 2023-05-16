@@ -15,7 +15,7 @@
 - plugin: SEOmatic (4.0.24)
 - plugin: CK Editor (3.1.0)
 - plugin: ImagerX (4.1.13)
-- plugin: Formie (2.0.26)
+- plugin: Formie (2.0.28)
 - plugin: Blitz (4.4.4)
 - plugin: Palette (3.1.4)
 - plugin: Hyper (1.1.5)
