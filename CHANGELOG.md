@@ -18,7 +18,7 @@
 - plugin: Formie (2.0.28)
 - plugin: Blitz (4.4.4)
 - plugin: SuperTable (3.0.9)
-- plugin: Palette (3.1.4)
+- plugin: Palette (3.1.5)
 - plugin: Hyper (1.1.5)
 - plugin: Image Resizer (3.0.6)
 - plugin: Sprig (2.6.2)
