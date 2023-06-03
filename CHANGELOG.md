@@ -12,7 +12,7 @@
 - refactor modernImageFormatFallback script by chatgpt
 - rename hidden/iso.twig > hidden/waypoints.twig
 - plugin: Super Table (3.0.8.1)
-- plugin: SEOmatic (4.0.25)
+- plugin: SEOmatic (4.0.27)
 - plugin: CK Editor (3.4.0)
 - plugin: ImagerX (4.1.13)
 - plugin: Formie (2.0.30)
