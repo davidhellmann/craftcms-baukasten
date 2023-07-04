@@ -43,6 +43,9 @@ export default {
         landscape: '3 / 2',
         portrait: '2 / 3',
       },
+      transitionTimingFunction: {
+        'out-back': 'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
+      },
     },
     // Plugin Stuff
     debugScreens: {
