@@ -46,7 +46,7 @@ const waypointObserver: ICompWaypointObserver = {
   },
   settings: {
     delay: 50,
-    staggeringDelay: 25,
+    staggeringDelay: 35,
     endless: false,
   },
   observerConfig: {
