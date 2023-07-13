@@ -19,7 +19,7 @@ interface ICompWaypointObserver extends IComponent {
   };
 
   startObserving(el: NodeListOf<HTMLElement>): void;
-  getSettings(el: Element): Settings;
+  setSettings(el: Element): void;
   getWaypointTargets(el: Element): Array<HTMLElement>;
   handleAnimateClasses(el: Array<HTMLElement>, settings: Settings): void;
 }
@@ -46,7 +46,7 @@ const waypointObserver: ICompWaypointObserver = {
   },
   settings: {
     delay: 50,
-    staggeringDelay: 100,
+    staggeringDelay: 35,
     endless: false,
   },
   observerConfig: {
@@ -61,12 +61,12 @@ const waypointObserver: ICompWaypointObserver = {
   startObserving(waypoints) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        const settings = this.getSettings(entry.target);
+        this.setSettings(entry.target);
         const targets = this.getWaypointTargets(entry.target);
 
         if (entry.isIntersecting) {
           // Unobserve Element if endless setting false
-          if (!settings.endless) {
+          if (!this.settings.endless) {
             observer.unobserve(entry.target);
           }
 
@@ -76,7 +76,7 @@ const waypointObserver: ICompWaypointObserver = {
 
           // Animate Targets
           if (!targets) return;
-          this.handleAnimateClasses(targets, settings);
+          this.handleAnimateClasses(targets, this.settings);
         } else {
           // Add in-view class for element
           if (!this.classes) return;
@@ -95,24 +95,16 @@ const waypointObserver: ICompWaypointObserver = {
     });
   },
 
-  getSettings(waypoint) {
-    const settings: Settings = {
-      delay: this.settings?.delay ?? 50,
-      staggeringDelay: this.settings?.staggeringDelay ?? 100,
-      endless: this.settings?.endless ?? false,
-    };
+  setSettings(waypoint) {
+    this.settings.delay = getAttributeAsNumber(waypoint, 'waypoint-delay', this.settings.delay);
 
-    settings.delay = getAttributeAsNumber(waypoint, 'waypoint-delay', settings.delay);
-
-    settings.staggeringDelay = getAttributeAsNumber(
+    this.settings.staggeringDelay = getAttributeAsNumber(
       waypoint,
       'waypoint-staggering-delay',
-      settings.staggeringDelay,
+      this.settings.staggeringDelay,
     );
 
-    settings.endless = waypoint.getAttribute('waypoint-endless') === 'true';
-
-    return settings;
+    this.settings.endless = waypoint.getAttribute('waypoint-endless') === 'true';
   },
 
   getWaypointTargets(holder): Array<HTMLElement> {
@@ -129,7 +121,11 @@ const waypointObserver: ICompWaypointObserver = {
 
   handleAnimateClasses(targets: Array<HTMLElement>, settings: Settings): void {
     targets.forEach((target, index) => {
-      const delay = settings.delay + settings.staggeringDelay * index;
+      let delay = settings.delay + settings.staggeringDelay * index;
+
+      if (settings.staggeringDelay === 0) {
+        delay = settings.delay;
+      }
 
       if (!target.classList.contains('is-animated')) {
         animateElement(target, delay);
