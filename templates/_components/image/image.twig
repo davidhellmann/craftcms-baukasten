@@ -97,7 +97,7 @@ Art Direction
   } %}
 
   {# Extension #}
-  {% set extension = props.data.image is iterable ? props.data.image.extension | lower : props.data.image | split('.') | last | lower %}
+  {% set extension = props.data.image is iterable ? props.data.image.extension : props.data.image | split('.') | last %}
 
 
   {# If Transformable #}
@@ -153,7 +153,7 @@ Art Direction
         {% set srcsetSource = craft.imager.srcset(transformsSource) | trim %}
 
         {% set finaleSources = finaleSources|merge([[
-          isTranformable and transformsSource is defined ? transformsSource[0].source.extension | lower : extension ??? null,
+          isTranformable and transformsSource is defined ? transformsSource[0].source.extension : extension ??? null,
           srcsetSource ??? null,
           source[1] ??? true,
           source[2] ??? null
@@ -173,7 +173,7 @@ Art Direction
     'noscript': "<noscript><img src='#{imageData.url}' alt='#{title}'/></noscript>",
     'transforms': transforms ??? null,
     'srcset': srcset ??? imageData.url,
-    'filetype': isTranformable and transforms is defined ? transforms[0].source.extension | lower : extension,
+    'filetype': isTranformable and transforms is defined ? transforms[0].source.extension : extension,
     'dominantColor': dominantColor,
     'placeholder': blurhash(props.data.image),
     'caption': caption,

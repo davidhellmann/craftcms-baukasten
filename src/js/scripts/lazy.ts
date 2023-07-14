@@ -5,7 +5,20 @@ const handleLazyImage = (lazyItem: HTMLImageElement): void => {
   if (lazyItem.dataset.srcset) {
     lazyItem.srcset = lazyItem.dataset.srcset;
   }
-  lazyItem.sizes = `${Math.round(lazyItem.getBoundingClientRect().width)}px`;
+
+  let factor = 1;
+  const width = lazyItem.getAttribute('width');
+  const height = lazyItem.getAttribute('height');
+
+  if (width && height) {
+    const _factor = parseInt(width, 10) / parseInt(height, 10);
+
+    if (_factor > 1) {
+      factor = _factor;
+    }
+  }
+
+  lazyItem.sizes = `${Math.round(lazyItem.getBoundingClientRect().width * factor)}px`;
 };
 
 const handleLazySource = (lazyItem: HTMLSourceElement): void => {
