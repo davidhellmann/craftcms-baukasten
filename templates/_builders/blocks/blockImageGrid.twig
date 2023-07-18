@@ -3,6 +3,7 @@
   data: {
     name: 'c-blockImageGrid',
     block: null,
+    blockNumber: null,
   },
   classes: {
     root: 'container ',
@@ -24,6 +25,7 @@
         variantColumns: props.data.block.imageColumns.value ??? 2,
         caption: props.data.block.showImageCaption ??? null,
         aspectRatio: props.data.block.imageTransform.value ??? 'aspect-landscape',
+        lazy: props.data.blockNumber >= 5 ? true : false,
       }
     }, withContext = false) }}
   </div>

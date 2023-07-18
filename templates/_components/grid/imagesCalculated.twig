@@ -3,6 +3,7 @@
   data: {
     name: 'c-imageGridCalculated',
     images: null,
+    lazy: true,
     caption: null,
   },
   classes: {
@@ -31,6 +32,7 @@
             aspectRatio: 'auto',
             renderPlainImage: true,
             caption: props.data.caption ??? null,
+            lazy: props.data.lazy
           },
           classes: {
             custom: 'w-full h-auto'

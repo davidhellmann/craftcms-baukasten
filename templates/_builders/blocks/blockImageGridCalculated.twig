@@ -3,6 +3,7 @@
   data: {
     name: 'c-blockImageGridCalculated',
     block: null,
+    blockNumber: null,
   },
   classes: {
     root: 'container ',
@@ -22,6 +23,7 @@
       data: {
         images: props.data.block.images ??? null,
         caption: props.data.block.showImageCaption ??? null,
+        lazy: props.data.blockNumber >= 5 ? true : false,
       }
     }, withContext = false) }}
   </div>

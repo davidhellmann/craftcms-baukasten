@@ -3,6 +3,7 @@
   data: {
     name: 'c-imageGallery',
     images: null,
+    lazy: true,
     aspectRatio: 'aspect-landscape',
     cutAfter: 3,
     caption: null
@@ -50,6 +51,7 @@
             image: image ??? null,
             aspectRatio: props.data.aspectRatio,
             objectFit: 'cover',
+            lazy: props.data.lazy
           }
         }, withContext = false) }}
       </div>
