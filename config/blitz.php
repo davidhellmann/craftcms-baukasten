@@ -66,7 +66,7 @@ return [
         // Custom site URIs to generate when either a site or the entire cache is generated.
         'customSiteUris' => [
             [
-                'siteId' => '',
+                'siteId' => 1,
                 'uri' => 'hidden/.*',
             ],
         ],
