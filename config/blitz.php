@@ -47,7 +47,7 @@ return [
         // The storage settings.
         'cacheStorageSettings' => [
             'folderPath' => '@webroot/cache/blitz',
-            'createGzipFiles' => true,
+            'compressCachedValues' => true,
             'countCachedFiles' => true,
         ],
 
@@ -66,7 +66,7 @@ return [
         // Custom site URIs to generate when either a site or the entire cache is generated.
         'customSiteUris' => [
             [
-                'siteId' => '',
+                'siteId' => 1,
                 'uri' => 'hidden/.*',
             ],
         ],

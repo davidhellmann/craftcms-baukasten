@@ -3,6 +3,7 @@
   data: {
     name: 'c-imageGrid',
     images: null,
+    lazy: true,
     caption: null,
     aspectRatio: 'aspect-landscape',
     variantColumns: 2,
@@ -36,6 +37,7 @@
           image: image ??? null,
           aspectRatio: props.data.aspectRatio ??? null,
           caption: props.data.caption ??? null,
+          lazy: props.data.lazy
         },
         classes: {
           custom: 'col-span-1'

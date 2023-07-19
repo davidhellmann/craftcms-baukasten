@@ -10,7 +10,9 @@ const modernImageFormatFallback: ICompModernImageFormatFallback = {
   name: 'modernImageFormatFallback',
 
   replaceModernFormatWithFallback(modernFormat: fileFormat = 'avif'): void {
-    const images = [...document.querySelectorAll<HTMLElement>('img, source')];
+    const images = [
+      ...document.querySelectorAll<HTMLImageElement | HTMLSourceElement>('img, source'),
+    ];
 
     if (images) {
       images.forEach((image) => {
@@ -18,7 +20,6 @@ const modernImageFormatFallback: ICompModernImageFormatFallback = {
         const dataSrcset = image.getAttribute('data-srcset');
         const srcset = image.getAttribute('srcset');
         const type = image.getAttribute('type');
-        // const searchRegExp = new RegExp('\\.avif', 'g');
         let searchRegExp = /.webp/g;
         if (modernFormat === 'avif') {
           searchRegExp = /.avif/g;

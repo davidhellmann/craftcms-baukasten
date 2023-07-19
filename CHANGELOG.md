@@ -1,4 +1,40 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.11 - 2023.07.19
+
+### added
+- CKEditor 3.0.0
+
+### updated
+- (cms): CraftCMS (4.4.16.1)
+- ckeditor config
+- refactor waypoints script by chatgpt
+- refactor lazy script by chatgpt
+- refactor modernImageFormatFallback script by chatgpt
+- rename hidden/iso.twig > hidden/waypoints.twig
+- (plugin): Super Table (3.0.8.1)
+- (plugin): SEOmatic (4.0.30)
+- (plugin): CK Editor (3.4.0)
+- (plugin): ImagerX (4.2.1)
+- (plugin): Formie (2.0.33)
+- (plugin): Blitz (4.5.0)
+- (plugin): SuperTable (3.0.9)
+- (plugin): Navigation (2.0.19)
+- (plugin): Palette (3.2.2)
+- (plugin): Hyper (1.1.9)
+- (plugin): Image Resizer (3.0.6)
+- (plugin): Vite (4.0.6)
+- (plugin): Sprig (2.6.2)
+- (plugin): Quick Field (2.0.4)
+- (plugin): MatrixMate (2.1.3)
+- Composer Packages
+
+### fixed
+- mutex config part
+
+### removed
+- 
+
+
 ## 4.0.10 - 2023.03.21 
 
 ### added

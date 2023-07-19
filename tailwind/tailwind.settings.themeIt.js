@@ -2,9 +2,9 @@
  * Tailwind Theme it Settings
  */
 
-const colors = require('tailwindcss/colors');
+import colors from 'tailwindcss/colors';
 
-module.exports = [
+export default [
   {
     name: 'default',
     colors: {

@@ -3,6 +3,7 @@
   data: {
     name: 'c-blockTextFloatingImage',
     block: null,
+    blockNumber: null,
   },
   classes: {
     root: 'container lg:grid lg:grid-cols-24',
@@ -33,6 +34,7 @@
           image: props.data.block.image[0] ??? null,
           aspectRatio: props.data.block.imageTransform.value ??? 'aspect-landscape',
           caption: props.data.block.showImageCaption ??? 0,
+          lazy: props.data.blockNumber >= 5 ? true : false,
         },
         classes: {
           custom: imageVariantClasses ??? ''

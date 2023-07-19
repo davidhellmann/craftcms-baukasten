@@ -3,6 +3,7 @@
   data: {
     name: 'c-blockSection',
     block: null,
+    blockNumber: null,
     closeCurrentSection: null
   },
   classes: {
@@ -70,7 +71,7 @@
       {% set sectionSpaceBetweenClass = 'space-y-32 md:space-y-64' %}
 
     {% default %}
-      {% set sectionSpaceBetweenClass = 'space-y-4 md:space-y-8' %}
+      {% set sectionSpaceBetweenClass = 'space-y-8 md:space-y-16' %}
     {% endswitch %}
 
 

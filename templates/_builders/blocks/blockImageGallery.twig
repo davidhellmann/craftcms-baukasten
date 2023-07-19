@@ -3,6 +3,7 @@
   data: {
     name: 'c-blockImageGallery',
     block: null,
+    blockNumber: null,
   },
   classes: {
     root: 'container ',
@@ -21,6 +22,7 @@
     {{ include('_components/gallery/images.twig', {
       data: {
         images: props.data.block.images ??? null,
+        lazy: props.data.blockNumber >= 5 ? true : false,
       }
     }, withContext = false) }}
   </div>

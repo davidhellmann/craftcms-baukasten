@@ -17,10 +17,45 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 426b9c6d-ddd6-433e-a29d-8247cd9095ba # Text CK
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f0c52fc3-4d55-40d5-9dcc-9c4e0c8a8333
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: f371c36b-db60-4c3f-a1dc-a3e11244e2ca
         userCondition: null
 fields:
+  426b9c6d-ddd6-433e-a29d-8247cd9095ba: # Text CK
+    columnSuffix: lqkvvnya
+    contentColumnType: text
+    fieldGroup: null
+    handle: textCk
+    instructions: null
+    name: 'Text CK'
+    searchable: false
+    settings:
+      availableTransforms: ''
+      availableVolumes: ''
+      ckeConfig: 6f4a3e01-23de-4313-8109-00a430317d11 # Default
+      columnType: text
+      defaultTransform: null
+      enableSourceEditingForNonAdmins: false
+      purifierConfig: null
+      purifyHtml: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      showWordCount: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\ckeditor\Field
   d4cabad1-1cae-4a1e-a914-c38d9f1a813a: # Text
     columnSuffix: null
     contentColumnType: text

@@ -32,6 +32,7 @@
         {# Create First Block #}
         {{ include('_builders/_blocks.twig', {
           block: block ??? null,
+          blockNumber: loop.index,
           closeCurrentSection: 0
         }, withContext = false) }}
 
@@ -39,6 +40,7 @@
         {# Create block elements and close section if it's loop.first #}
         {{ include('_builders/_blocks.twig', {
           block: block ??? null,
+          blockNumber: loop.index,
           closeCurrentSection: loop.first ? 0 : 1,
         }, withContext = false) }}
       {% endif %}

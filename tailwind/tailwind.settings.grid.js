@@ -10,7 +10,7 @@ const createItems = (count, keyPrefix, output) => {
   }));
 };
 
-module.exports = {
+export default {
   gridTemplateColumns: createItems(cols, '', `repeat($$$, minmax(0, 1fr))`),
   gridColumn: createItems(cols, 'span-', `span $$$ / span $$$`),
   gridRowStart: createItems(cols, '', `$$$`),
