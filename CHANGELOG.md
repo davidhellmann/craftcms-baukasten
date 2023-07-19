@@ -11,21 +11,21 @@
 - refactor lazy script by chatgpt
 - refactor modernImageFormatFallback script by chatgpt
 - rename hidden/iso.twig > hidden/waypoints.twig
-- plugin: Super Table (3.0.8.1)
-- plugin: SEOmatic (4.0.27)
-- plugin: CK Editor (3.4.0)
-- plugin: ImagerX (4.1.13)
-- plugin: Formie (2.0.30)
-- plugin: Blitz (4.4.5)
-- plugin: SuperTable (3.0.9)
-- plugin: Navigation (2.0.18)
-- plugin: Palette (3.1.5)
-- plugin: Hyper (1.1.7)
-- plugin: Image Resizer (3.0.6)
-- plugin: Vite (4.0.6)
-- plugin: Sprig (2.6.2)
-- plugin: Quick Field (2.0.4)
-- plugin: MatrixMate (2.1.3)
+- (plugin): Super Table (3.0.8.1)
+- (plugin): SEOmatic (4.0.30)
+- (plugin): CK Editor (3.4.0)
+- (plugin): ImagerX (4.1.13)
+- (plugin): Formie (2.0.30)
+- (plugin): Blitz (4.4.5)
+- (plugin): SuperTable (3.0.9)
+- (plugin): Navigation (2.0.18)
+- (plugin): Palette (3.1.5)
+- (plugin): Hyper (1.1.7)
+- (plugin): Image Resizer (3.0.6)
+- (plugin): Vite (4.0.6)
+- (plugin): Sprig (2.6.2)
+- (plugin): Quick Field (2.0.4)
+- (plugin): MatrixMate (2.1.3)
 - Composer Packages
 
 ### fixed
