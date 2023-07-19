@@ -15,7 +15,7 @@
 - (plugin): SEOmatic (4.0.30)
 - (plugin): CK Editor (3.4.0)
 - (plugin): ImagerX (4.2.1)
-- (plugin): Formie (2.0.30)
+- (plugin): Formie (2.0.33)
 - (plugin): Blitz (4.4.5)
 - (plugin): SuperTable (3.0.9)
 - (plugin): Navigation (2.0.19)
