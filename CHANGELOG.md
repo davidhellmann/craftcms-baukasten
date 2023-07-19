@@ -1,5 +1,5 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.11 - WIP
+## 4.0.11 - 2023.07.19
 
 ### added
 - CKEditor 3.0.0
