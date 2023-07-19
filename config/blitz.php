@@ -47,7 +47,7 @@ return [
         // The storage settings.
         'cacheStorageSettings' => [
             'folderPath' => '@webroot/cache/blitz',
-            'createGzipFiles' => true,
+            'compressCachedValues' => true,
             'countCachedFiles' => true,
         ],
 

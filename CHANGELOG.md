@@ -16,7 +16,7 @@
 - (plugin): CK Editor (3.4.0)
 - (plugin): ImagerX (4.2.1)
 - (plugin): Formie (2.0.33)
-- (plugin): Blitz (4.4.5)
+- (plugin): Blitz (4.5.0)
 - (plugin): SuperTable (3.0.9)
 - (plugin): Navigation (2.0.19)
 - (plugin): Palette (3.2.2)
