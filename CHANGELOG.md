@@ -18,7 +18,7 @@
 - (plugin): Formie (2.0.30)
 - (plugin): Blitz (4.4.5)
 - (plugin): SuperTable (3.0.9)
-- (plugin): Navigation (2.0.18)
+- (plugin): Navigation (2.0.19)
 - (plugin): Palette (3.2.2)
 - (plugin): Hyper (1.1.7)
 - (plugin): Image Resizer (3.0.6)
