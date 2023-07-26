@@ -1,12 +1,12 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.11 - WIP
+## 4.0.12 - WIP
 
 ### added
 - 
 
 ### updated
 - (cms): CraftCMS (4.4.16.1)
-- (plugin): XXX (XXX)
+- (plugin): Hyper (1.1.10)
 
 ### fixed
 - 
