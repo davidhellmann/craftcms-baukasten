@@ -74,17 +74,33 @@ fields:
     name: Snippet
     searchable: false
     settings:
-      byteLimit: null
-      charLimit: null
-      code: true
-      columnType: null
-      initialRows: 4
-      multiline: true
-      placeholder: null
-      uiMode: normal
+      availableLanguages:
+        - css
+        - graphql
+        - html
+        - javascript
+        - json
+        - markdown
+        - mysql
+        - php
+        - shell
+        - twig
+        - typescript
+        - yaml
+      codeFolding: true
+      columnType: text
+      defaultValue: ''
+      fontSize: 14
+      language: javascript
+      lineNumbers: true
+      monacoEditorOptions: ''
+      placeholder: ''
+      showLanguageDropdown: true
+      singleLineEditor: false
+      theme: vs-dark
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\PlainText
+    type: nystudio107\codefield\fields\Code
   cf5b11e3-a6d6-430f-991f-9b78f9e4dd7f: # Snippet collapsed
     columnSuffix: null
     contentColumnType: boolean
