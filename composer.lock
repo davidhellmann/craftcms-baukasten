@@ -4,8 +4,69 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a99655f067ef5fecfb694d32ec15ab28",
+    "content-hash": "c8f5286b31e356d88f2768fcf785b54d",
     "packages": [
+        {
+            "name": "amici/craft-super-dynamic-fields",
+            "version": "2.0.0.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amici-infotech/craft-super-dynamic-fields/zipball/c63ab1dd6952bf9626574e055d354da0fb1ed9ed",
+                "reference": "c63ab1dd6952bf9626574e055d354da0fb1ed9ed",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0",
+                "php": "^8.0.2"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "super-dynamic-fields",
+                "name": "Super Dynamic Fields",
+                "description": "Use JSON templates as field options for dropdown, radio or checkboxes.",
+                "developer": "Amici Infotech",
+                "developerUrl": "https://amiciinfotech.com",
+                "documentationUrl": "https://docs.amiciinfotech.com/craft-cms/super-dynamic-fields-craft",
+                "changelogUrl": "https://github.com/amici-infotech/craft-super-dynamic-fields/master/CHANGELOG.md",
+                "downloadUrl": "https://github.com/amici-infotech/craft-super-dynamic-fields/archive/master.zip",
+                "class": "amici\\SuperDynamicFields\\SuperDynamicFields"
+            },
+            "autoload": {
+                "psr-4": {
+                    "amici\\SuperDynamicFields\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Amici Infotech",
+                    "homepage": "https://amiciinfotech.com"
+                }
+            ],
+            "description": "Use JSON templates as field options for dropdown, radio or checkboxes.",
+            "keywords": [
+                "amici",
+                "checkboxes",
+                "custom",
+                "dropdown",
+                "dynamic",
+                "json",
+                "multi select",
+                "options",
+                "radio",
+                "select"
+            ],
+            "support": {
+                "email": "contact@amiciinfotech.com",
+                "issues": "https://github.com/amici-infotech/craft-super-dynamic-fields/issues?state=open",
+                "source": "https://github.com/amici-infotech/craft-super-dynamic-fields",
+                "docs": "https://github.com/amici-infotech/craft-super-dynamic-fields",
+                "rss": "https://github.com/amici-infotech/craft-super-dynamic-fields/commits/v2.atom"
+            },
+            "time": "2023-06-14T09:14:47+00:00"
+        },
         {
             "name": "amphp/amp",
             "version": "v2.6.2",
@@ -2970,11 +3031,6 @@
         {
             "name": "illuminate/collections",
             "version": "v9.52.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/collections.git",
-                "reference": "d3710b0b244bfc62c288c1a87eaa62dd28352d1f"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/collections/zipball/d3710b0b244bfc62c288c1a87eaa62dd28352d1f",
@@ -3004,7 +3060,6 @@
                     "Illuminate\\Support\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3016,20 +3071,11 @@
             ],
             "description": "The Illuminate Collections package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
             "time": "2023-06-11T21:17:10+00:00"
         },
         {
             "name": "illuminate/conditionable",
             "version": "v9.52.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/conditionable.git",
-                "reference": "bea24daa0fa84b7e7b0d5b84f62c71b7e2dc3364"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/conditionable/zipball/bea24daa0fa84b7e7b0d5b84f62c71b7e2dc3364",
@@ -3050,7 +3096,6 @@
                     "Illuminate\\Support\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3062,20 +3107,11 @@
             ],
             "description": "The Illuminate Conditionable package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
             "time": "2023-02-01T21:42:32+00:00"
         },
         {
             "name": "illuminate/contracts",
             "version": "v9.52.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/contracts.git",
-                "reference": "44f65d723b13823baa02ff69751a5948bde60c22"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/contracts/zipball/44f65d723b13823baa02ff69751a5948bde60c22",
@@ -3098,7 +3134,6 @@
                     "Illuminate\\Contracts\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3110,20 +3145,11 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
             "time": "2023-02-08T14:36:30+00:00"
         },
         {
             "name": "illuminate/macroable",
             "version": "v9.52.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/macroable.git",
-                "reference": "e3bfaf6401742a9c6abca61b9b10e998e5b6449a"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/macroable/zipball/e3bfaf6401742a9c6abca61b9b10e998e5b6449a",
@@ -3144,7 +3170,6 @@
                     "Illuminate\\Support\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3156,10 +3181,6 @@
             ],
             "description": "The Illuminate Macroable package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
             "time": "2022-08-09T13:29:29+00:00"
         },
         {
@@ -4628,6 +4649,54 @@
                 "twig"
             ],
             "time": "2023-06-19T22:09:46+00:00"
+        },
+        {
+            "name": "nystudio107/craft-code-field",
+            "version": "4.0.9",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nystudio107/craft-code-field/zipball/526639f38c6c0f59e20fc6562091c37115750561",
+                "reference": "526639f38c6c0f59e20fc6562091c37115750561",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0",
+                "nystudio107/craft-code-editor": "^1.0.8"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Code Field",
+                "handle": "codefield",
+                "changelogUrl": "https://raw.githubusercontent.com/nystudio107/craft-code-field/v3/CHANGELOG.md",
+                "class": "nystudio107\\codefield\\CodeField"
+            },
+            "autoload": {
+                "psr-4": {
+                    "nystudio107\\codefield\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nystudio107",
+                    "homepage": "https://nystudio107.com"
+                }
+            ],
+            "description": "Provides a Code Field that has a full-featured code editor with syntax highlighting & autocomplete",
+            "keywords": [
+                "cms",
+                "code field",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/nystudio107/craft-code-field/blob/v3/README.md",
+                "issues": "https://github.com/nystudio107/craft-code-field/issues"
+            },
+            "time": "2023-04-17T04:02:07+00:00"
         },
         {
             "name": "nystudio107/craft-emptycoalesce",

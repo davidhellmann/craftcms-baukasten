@@ -3,7 +3,7 @@
  * Normalize.css and some additional base styles.
  */
 
-/*! tailwindcss v3.3.1 | MIT License | https://tailwindcss.com
+/*! tailwindcss v3.3.2 | MIT License | https://tailwindcss.com
  */
 
 /*
@@ -45,8 +45,7 @@ html {
   /* 2 */
   -moz-tab-size: 4;
   /* 3 */
-  -o-tab-size: 4;
-     tab-size: 4;
+  tab-size: 4;
   /* 3 */
   font-family: Lato, Helvetica, Arial, sans-serif;
   /* 4 */
@@ -693,6 +692,9 @@ h1,
   --tw-pan-y:  ;
   --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
   --tw-ordinal:  ;
   --tw-slashed-zero:  ;
   --tw-numeric-figure:  ;
@@ -740,6 +742,9 @@ h1,
   --tw-pan-y:  ;
   --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
   --tw-ordinal:  ;
   --tw-slashed-zero:  ;
   --tw-numeric-figure:  ;
@@ -894,19 +899,19 @@ picture .lazyloaded {
 }
 
 [waypoint-target] {
+  transform: translate3d(var(--tw-translate-x), var(--tw-translate-y), 0) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
 [waypoint-target].is-fadeInUp {
   --tw-translate-y: 3rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  transform: translate3d(var(--tw-translate-x), var(--tw-translate-y), 0) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   opacity: 0;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
 [waypoint-target].is-fadeInUp.is-animated {
@@ -2323,24 +2328,19 @@ picture .lazyloaded {
 .before\:from-black\/0::before {
   content: var(--tw-content);
   --tw-gradient-from: rgb(var(--c-black) / 0) var(--tw-gradient-from-position);
-  --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(var(--c-black) / 0)  var(--tw-gradient-from-position);
-  --tw-gradient-to-position:  ;
+  --tw-gradient-to: rgb(var(--c-black) / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .before\:via-black\/10::before {
   content: var(--tw-content);
-  --tw-gradient-via-position:  ;
   --tw-gradient-to: rgb(var(--c-black) / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-to-position:  ;
   --tw-gradient-stops: var(--tw-gradient-from), rgb(var(--c-black) / 0.1) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .before\:to-black\/90::before {
   content: var(--tw-content);
   --tw-gradient-to: rgb(var(--c-black) / 0.9) var(--tw-gradient-to-position);
-  --tw-gradient-to-position:  ;
 }
 
 .before\:opacity-0::before {
