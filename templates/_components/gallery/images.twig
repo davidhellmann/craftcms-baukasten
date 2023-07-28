@@ -29,7 +29,7 @@
 {% if props.data.images ??? null %}
   {% set dynamicData = [] %}
   {% for image in props.data.images %}
-    {% set title = image.assetTitle ??? '' %}
+    {% set title = image.textCustomTitle ??? '' %}
     {% set caption = '' %}
     {% if image.assetCaption %}
       {% set caption = image.assetCaption %}

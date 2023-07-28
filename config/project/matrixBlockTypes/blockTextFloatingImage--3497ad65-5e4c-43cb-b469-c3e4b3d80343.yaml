@@ -78,25 +78,20 @@ fields:
     name: Text
     searchable: true
     settings:
-      availableTransforms: '*'
-      availableVolumes: '*'
+      availableTransforms: ''
+      availableVolumes: ''
+      ckeConfig: 6f4a3e01-23de-4313-8109-00a430317d11 # Rich Text Default
       columnType: text
-      configSelectionMode: choose
-      defaultTransform: ''
-      manualConfig: ''
+      defaultTransform: null
+      enableSourceEditingForNonAdmins: false
       purifierConfig: null
       purifyHtml: true
-      redactorConfig: Advanced.json
-      removeEmptyTags: true
-      removeInlineStyles: true
-      removeNbsp: true
-      showHtmlButtonForNonAdmins: true
-      showUnpermittedFiles: true
-      showUnpermittedVolumes: true
-      uiMode: enlarged
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      showWordCount: true
     translationKeyFormat: null
     translationMethod: none
-    type: craft\redactor\Field
+    type: craft\ckeditor\Field
   6a90dae3-938c-47e6-8e36-6b1d6be92d63: # Show Image Caption
     columnSuffix: null
     contentColumnType: boolean

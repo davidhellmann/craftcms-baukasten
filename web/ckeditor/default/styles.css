@@ -1,0 +1,79 @@
+/* Headlines */
+.ck.ck-content h2, .ck.ck-content :is(h2,h3,h4,h5,h6).text-4xl {
+  font-size: 4rem;
+  text-transform: none;
+}
+
+.ck.ck-content h3, .ck.ck-content :is(h2,h3,h4,h5,h6).text-3xl {
+  font-size: 3rem;
+  text-transform: none;
+}
+
+.ck.ck-content h4, .ck.ck-content :is(h2,h3,h4,h5,h6).text-2xl {
+  font-size: 2rem;
+  text-transform: none;
+}
+
+.ck.ck-content h5, .ck.ck-content :is(h2,h3,h4,h5,h6).text-xl {
+  font-size: 1rem;
+  text-transform: none;
+}
+
+.ck.ck-content h6, .ck.ck-content :is(h2,h3,h4,h5,h6).text-lg {
+  font-size: 1rem;
+  text-transform: none;
+}
+
+/* Paragraphs */
+.ck.ck-content p {
+  font-size: 1rem;
+}
+
+.ck.ck-content p.text-sm {
+  font-size: 0.75rem;
+}
+
+.ck.ck-content p.text-lg {
+  font-size: 1.25rem;
+}
+
+/* Inline Text Styles */
+.ck.ck-content mark {
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+}
+
+.ck.ck-content mark.yellow {
+  background-color: rgba(255, 250, 205, 0.976);
+}
+
+.ck.ck-content mark.red {
+  background-color: rgb(255, 220, 220);
+}
+
+.ck.ck-content mark.green {
+  background-color: rgb(213, 255, 213);
+}
+
+.ck.ck-content kbd {
+  border-radius: 3px;
+  padding: 0.125rem 0.25rem;
+  font-family: monospace;
+}
+
+.ck.ck-content kbd.light {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 0 #fff;
+}
+
+.ck.ck-content kbd.dark {
+  background-color: #555;
+  border: 1px solid #333;
+  box-shadow: inset 0 1px 0 #777;
+  color: #eee;
+}
+
+.ck.ck-style-panel .ck-style-grid .ck-style-grid__button.ck-disabled {
+  display: none; /* Add this */
+}

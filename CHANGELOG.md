@@ -13,6 +13,7 @@
 
 ### removed
 - plugin: palette
+- plugin: redactor
 
 
 ## 4.0.11 - 2023.07.19

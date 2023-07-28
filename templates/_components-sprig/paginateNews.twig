@@ -5,7 +5,7 @@
   {% minify %}
     {% set entryQuery = craft.entries
       .section(section)
-      .with(['entryImage'])
+      .with(['assetEntryImage'])
       .limit(limit)
       .orderBy('postDate DESC') %}
 
@@ -17,7 +17,7 @@
     <div class="container">
       {{ include('_components/pageIntros/image.twig', {
         props: {
-          headline: entryCustomTitleOverwrite ??? headline ??? null,
+          headline: textCustomTitleOverwrite ??? headline ??? null,
         }
       }, withContext = false) }}
 
