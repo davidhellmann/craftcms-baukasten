@@ -14,6 +14,7 @@
 ### removed
 - plugin: palette
 - plugin: redactor
+- plugin: quickfield
 
 
 ## 4.0.11 - 2023.07.19
