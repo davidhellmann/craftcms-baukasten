@@ -17,7 +17,7 @@ import settingsfluidType from './tailwind/tailwind.settings.fluidType';
 import settingsThemeIt from './tailwind/tailwind.settings.themeIt';
 
 export default {
-  content: ['./templates/**/*.{twig,html,vue,js,ts}', './src/vue/**/*.{vue,js,ts}'],
+  content: ['./templates/**/*.{twig,html,vue,js,ts,json}', './src/vue/**/*.{vue,js,ts}'],
   safelist: [],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
