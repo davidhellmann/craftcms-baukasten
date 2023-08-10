@@ -8,6 +8,7 @@
 ### updated
 - (cms): CraftCMS (4.4.16.1)
 - (plugin): Hyper (1.1.10)
+- (plugin): Navigation (2.0.20)
 
 ### fixed
 - 
