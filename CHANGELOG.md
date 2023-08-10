@@ -6,7 +6,7 @@
 - 
 
 ### updated
-- (cms): CraftCMS (4.4.16.1)
+- (cms): CraftCMS (4.4.17)
 - (plugin): Hyper (1.1.11)
 - (plugin): Formie (2.0.34.1)
 - (plugin): Navigation (2.0.20)
