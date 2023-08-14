@@ -11,7 +11,7 @@
 - (plugin): Formie (2.0.34.1)
 - (plugin): Navigation (2.0.20)
 - (plugin): BlurHash (2.0.5)
-- (plugin): Blitz (4.5.1)
+- (plugin): Blitz (4.5.2)
 - (plugin): ImagerX (4.2.2)
 - (plugin): Code Field (4.0.10)
 - NPM Packages
