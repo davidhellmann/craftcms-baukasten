@@ -20,10 +20,9 @@
 {# >>> Render block app body #}
 {% block blockAppBody %}
   {% set config = craft.app.config.getConfigFromFile('patternlib') ??? null %}
-  {% set path = config.path ??? null %}
+  {% set path = config.path | replace('/', '$') ??? null %}
   {% set segments = '/' ~ craft.app.request.segments | join('/') %}
-  {% set segments = segments | replace({(path): ''}) | split('/') %}
-
+  {% set segments = segments | replace('/', '$') | replace(path, '') | split('$') %}
 
   <div id="appWrapper" class="">
     <main id="appContent">
