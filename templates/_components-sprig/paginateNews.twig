@@ -16,13 +16,13 @@
 
     <div class="container">
       {{ include('_components/pageIntros/image.twig', {
-        props: {
+        data: {
           headline: textCustomTitleOverwrite ??? headline ??? null,
         }
       }, withContext = false) }}
 
       {{ include('_components/stacks/stackNews.twig', {
-        props: {
+        data: {
           items: entries ??? null,
           noLazyImageLoadingCount: 6,
         }

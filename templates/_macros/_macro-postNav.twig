@@ -41,7 +41,7 @@
               <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--prev' }}">
                 {# Icon #}
                 {{ include('_components/icon/icon.twig', {
-                  props: {
+                  data: {
                     modifiers: ['24'],
                     icon: props.prevIcon,
                   }
@@ -70,7 +70,7 @@
               <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--next' }}">
                 {# Icon #}
                 {{ include('_components/icon/icon.twig', {
-                  props: {
+                  data: {
                     modifiers: ['24'],
                     icon: props.nextIcon,
                   }
