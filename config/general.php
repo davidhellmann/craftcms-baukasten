@@ -15,7 +15,7 @@ $config = GeneralConfig::create()
     ->defaultWeekStartDay(1)
     ->isSystemLive(1)
     ->backupOnUpdate(0)
-    ->headlessMode(App::env('HEADLESS_MODE'))
+    ->headlessMode(App::env('HEADLESS_MODE') ?: false)
     ->allowedGraphqlOrigins([
         'http://localhost:3100',
     ])

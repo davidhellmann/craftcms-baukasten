@@ -898,6 +898,12 @@ picture .lazyloaded {
   }
 }
 
+.enlarge-click-area::after {
+  position: absolute;
+  content: var(--tw-content);
+  inset: 0px;
+}
+
 [waypoint-target] {
   transform: translate3d(var(--tw-translate-x), var(--tw-translate-y), 0) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
@@ -1906,10 +1912,6 @@ picture .lazyloaded {
 .bg-secondary-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--c-secondary-300) / var(--tw-bg-opacity));
-}
-
-.bg-transparent {
-  background-color: var(--c-transparent);
 }
 
 .bg-white {
