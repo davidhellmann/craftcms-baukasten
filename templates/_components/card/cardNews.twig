@@ -7,7 +7,7 @@
     aspectRatio: 'aspect-landscape',
     title: null,
     text: null,
-    linkUrl: null,
+    url: null,
     linkText: null,
     lazy: true,
   },
@@ -41,8 +41,8 @@
 } %}
 
 {# Modul #}
-{% if props.data.image and props.data.title and props.data.linkUrl %}
-  <a href="{{ props.data.linkUrl }}"
+{% if props.data.image and props.data.title and props.data.url %}
+  <a href="{{ props.data.url }}"
      class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants.direction[props.data.variantDirection].root }} {{ props.classes.custom }}">
     <div class="{{ props.variants.direction[props.data.variantDirection].image }}">
       {{ include('_components/image/image.twig', {

@@ -15,11 +15,15 @@
     {% do craft.blitz.options.paginate(pageInfo.totalPages) %}
 
     <div class="container">
-      {{ include('_components/pageIntros/image.twig', {
-        data: {
-          headline: textCustomTitleOverwrite ??? headline ??? null,
-        }
-      }, withContext = false) }}
+      <div class="container py-16">
+        {{ include('_components/text/headline.twig', {
+          data: {
+            text: headline ??? null,
+            variantSize: 'mega',
+            tag: 'h1',
+          }
+        }, withContext = false) }}
+      </div>
 
       {{ include('_components/stacks/stackNews.twig', {
         data: {
