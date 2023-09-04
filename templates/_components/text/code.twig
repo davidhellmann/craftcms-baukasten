@@ -42,7 +42,7 @@
 
     <pre class="line-numbers  language-{{ props.data.language }}  {{ props.classes.pre }}"
          :class="[collapsed ? 'max-h-40' : '']">
-      <code class="language-{{ props.data.language }} {{ props.classes.code }}">{{- props.data.snippet | e -}}</code>
+      <code class="language-{{ props.data.language }} {{ props.classes.code }}">{{- props.data.snippet -}}</code>
     </pre>
 
     <div class="{{ props.classes.toolBar }}">

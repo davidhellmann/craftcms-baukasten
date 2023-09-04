@@ -1,15 +1,14 @@
-css: ".ck.ck-content mark.yellow {\r\n    background-color: lemonchiffon;\r\n    padding: 0.25rem;\r\n}"
+css: '@import ''/ckeditor/default/styles.css'';'
 headingLevels:
   - 2
   - 3
   - 4
   - 5
   - 6
-js: "return {\r\n  style: {\r\n    definitions: [\r\n      {\r\n        name: 'Mark (yellow)',\r\n        element: 'mark',\r\n        classes: [\r\n          'yellow',\r\n        ],\r\n      },\r\n      {\r\n        name: 'Looks like H3',\r\n        classes: [\r\n          'text-2xl',\r\n        ],\r\n      },\r\n      {\r\n        name: 'Looks like h4',\r\n        classes: [\r\n          'text-xl',\r\n        ],\r\n      },\r\n    ],\r\n  },\r\n  alignment: {\r\n    options: [\r\n      'left',\r\n      'right',\r\n      'center'\r\n    ],\r\n  },\r\n}"
-name: Default
+js: "return {\r\n  style: {\r\n    definitions: [\r\n      { name: 'Looks like H2 <h2>', element: 'h2', classes: ['text-4xl'] },\r\n      { name: 'Looks like H3 <h2>', element: 'h2', classes: ['text-3xl'] },\r\n      { name: 'Looks like H4 <h2>', element: 'h2', classes: ['text-2xl'] },\r\n      { name: 'Looks like H5 <h2>', element: 'h2', classes: ['text-xl'] },\r\n      { name: 'Looks like H6 <h2>', element: 'h2', classes: ['text-lg'] },\r\n      { name: 'Looks like H2 <h3>', element: 'h3', classes: ['text-4xl'] },\r\n      { name: 'Looks like H3 <h3>', element: 'h3', classes: ['text-3xl'] },\r\n      { name: 'Looks like H4 <h3>', element: 'h3', classes: ['text-2xl'] },\r\n      { name: 'Looks like H5 <h3>', element: 'h3', classes: ['text-xl'] },\r\n      { name: 'Looks like H6 <h3>', element: 'h3', classes: ['text-lg'] },\r\n      { name: 'Looks like H2 <h4>', element: 'h4', classes: ['text-4xl'] },\r\n      { name: 'Looks like H3 <h4>', element: 'h4', classes: ['text-3xl'] },\r\n      { name: 'Looks like H4 <h4>', element: 'h4', classes: ['text-2xl'] },\r\n      { name: 'Looks like H5 <h4>', element: 'h4', classes: ['text-xl'] },\r\n      { name: 'Looks like H6 <h4>', element: 'h4', classes: ['text-lg'] },\r\n      { name: 'Looks like H2 <h5>', element: 'h5', classes: ['text-4xl'] },\r\n      { name: 'Looks like H3 <h5>', element: 'h5', classes: ['text-3xl'] },\r\n      { name: 'Looks like H4 <h5>', element: 'h5', classes: ['text-2xl'] },\r\n      { name: 'Looks like H5 <h5>', element: 'h5', classes: ['text-xl'] },\r\n      { name: 'Looks like H6 <h5>', element: 'h5', classes: ['text-lg'] },\r\n      { name: 'Looks like H2 <h6>', element: 'h6', classes: ['text-4xl'] },\r\n      { name: 'Looks like H3 <h6>', element: 'h6', classes: ['text-3xl'] },\r\n      { name: 'Looks like H4 <h6>', element: 'h6', classes: ['text-2xl'] },\r\n      { name: 'Looks like H5 <h6>', element: 'h6', classes: ['text-xl'] },\r\n      { name: 'Looks like H6 <h6>', element: 'h6', classes: ['text-lg'] },\r\n      { name: 'Paragraph Small', element: 'p', classes: ['text-sm'] },\r\n      { name: 'Paragraph Large', element: 'p', classes: ['text-lg'] },\r\n      { name: 'Mark (red) <mark>', element: 'mark', classes: ['red'] },\r\n      { name: 'Mark (green) <mark>', element: 'mark', classes: ['green'] },\r\n      { name: 'Mark (yellow) <mark>', element: 'mark', classes: ['yellow'] },\r\n      { name: 'Keyboard Shortcut <kbd>', element: 'kbd', classes: ['light'] },\r\n      { name: 'Keyboard Shortcut (dark) <kbd>', element: 'kbd', classes: ['dark'] },\r\n    ],\r\n  },\r\n};"
+name: 'Rich Text Default'
 toolbar:
   - heading
-  - alignment
   - bold
   - italic
   - underline
@@ -17,10 +16,11 @@ toolbar:
   - '|'
   - subscript
   - superscript
-  - '|'
-  - style
+  - code
   - '|'
   - link
+  - '|'
   - bulletedList
   - numberedList
-  - code
+  - style
+  - findAndReplace

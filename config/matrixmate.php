@@ -29,12 +29,8 @@ $blockTabSettings = [
     'blockSection' => [
         'tabs' => [
             [
-                'label' => 'Background',
-                'fields' => ['sectionBackgroundColor'],
-            ],
-            [
                 'label' => 'Settings',
-                'fields' => ['spaceBetweenBlocks', 'sectionPaddingVertical'],
+                'fields' => ['sectionBackgroundColor', 'spaceBetweenBlocks', 'sectionPaddingVertical'],
             ]
         ]
     ],
@@ -42,11 +38,7 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['quote'],
-            ],
-            [
-                'label' => 'Quote Details',
-                'fields' => ['source', 'sourceSubline', 'sourceUrl'],
+                'fields' => ['quote', 'source', 'sourceSubline', 'sourceUrl'],
             ]
         ]
     ],
@@ -54,11 +46,7 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['image'],
-            ],
-            [
-                'label' => 'Settings',
-                'fields' => ['imageTransform', 'showImageCaption', 'imageWidth'],
+                'fields' => ['image', 'imageTransform', 'showImageCaption', 'imageWidth'],
             ]
         ]
     ],
@@ -66,11 +54,7 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['images'],
-            ],
-            [
-                'label' => 'Settings',
-                'fields' => ['imageTransform', 'imageColumns', 'showImageCaption'],
+                'fields' => ['images', 'imageTransform', 'imageColumns', 'showImageCaption'],
             ]
         ]
     ],
@@ -78,11 +62,7 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['images'],
-            ],
-            [
-                'label' => 'Settings',
-                'fields' => ['showImageCaption'],
+                'fields' => ['images','showImageCaption'],
             ]
         ]
     ],
@@ -90,27 +70,15 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['images'],
-            ],
-            [
-                'label' => 'Settings',
-                'fields' => ['imageTransform'],
+                'fields' => ['images','imageTransform'],
             ]
         ]
     ],
     'blockTextFloatingImage' => [
         'tabs' => [
             [
-                'label' => 'Text',
-                'fields' => ['text'],
-            ],
-            [
-                'label' => 'Image',
-                'fields' => ['image'],
-            ],
-            [
-                'label' => 'Settings',
-                'fields' => ['imageTransform', 'showImageCaption', 'imagePosition'],
+                'label' => 'Text : Image',
+                'fields' => ['text', 'image', 'imageTransform', 'showImageCaption', 'imagePosition'],
             ]
         ]
     ],
@@ -118,11 +86,7 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['videoId'],
-            ],
-            [
-                'label' => 'Settings',
-                'fields' => ['autoplay', 'loop', 'videoWidth'],
+                'fields' => ['videoId','autoplay', 'loop', 'videoWidth'],
             ]
         ]
     ],
@@ -130,10 +94,7 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['snippetName', 'snippet'],
-            ], [
-                'label' => 'Settings',
-                'fields' => ['snippetLanguage', 'snippetCollapsed'],
+                'fields' => ['snippetName', 'snippet', 'snippetCollapsed'],
             ]
         ]
     ]

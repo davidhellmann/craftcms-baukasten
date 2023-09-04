@@ -106,8 +106,8 @@ Art Direction
 
   {# Focal Point / Title / URL #}
   {% set title = props.data.image.title %}
-  {% if props.data.image.assetTitle %}
-    {% set title = props.data.image.assetTitle %}
+  {% if props.data.image.textCustomTitle %}
+    {% set title = props.data.image.textCustomTitle %}
   {% endif %}
 
 
@@ -134,10 +134,10 @@ Art Direction
   {% set caption = null %}
   {% if props.data.caption %}
     {% set caption = {
-      'title': props.data.image.assetTitle ??? null,
+      'title': props.data.image.textCustomTitle ??? null,
       'text': props.data.image.assetCaption ??? null,
-      'source': props.data.image.assetSource ??? null,
-      'sourceUrl': props.data.image.assetSourceUrl ??? null,
+      'source': props.data.image.textSource ??? null,
+      'sourceUrl': props.data.image.textSourceUrl ??? null,
     } %}
   {% endif %}
 

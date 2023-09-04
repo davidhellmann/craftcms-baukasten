@@ -21,9 +21,9 @@
   <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
     {{ include('_components/text/code.twig', {
       data: {
-        snippet: props.data.block.snippet ??? null,
         snippetName: props.data.block.snippetName ??? null,
-        language: props.data.block.snippetLanguage.value ??? 'html',
+        snippet: props.data.block.snippet.value | raw ??? null,
+        language: props.data.block.snippet.language ??? 'Javascript',
         collapsed: props.data.block.snippetCollapsed ??? true,
       },
     }, withContext = false) }}

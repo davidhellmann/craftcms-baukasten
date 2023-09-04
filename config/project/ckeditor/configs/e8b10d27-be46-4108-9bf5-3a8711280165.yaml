@@ -1,0 +1,16 @@
+css: '@import ''/ckeditor/simple/styles.css'';'
+headingLevels: false
+js: "return {\r\n  style: {\r\n    definitions: [\r\n      { name: 'Mark (red) <mark>', element: 'mark', classes: ['red'] },\r\n      { name: 'Mark (green) <mark>', element: 'mark', classes: ['green'] },\r\n      { name: 'Mark (yellow) <mark>', element: 'mark', classes: ['yellow'] },\r\n      { name: 'Keyboard Shortcut <kbd>', element: 'kbd', classes: ['light'] },\r\n      { name: 'Keyboard Shortcut (dark) <kbd>', element: 'kbd', classes: ['dark'] },\r\n    ],\r\n  }\r\n};"
+name: 'Rich Text Simple'
+toolbar:
+  - bold
+  - italic
+  - underline
+  - strikethrough
+  - '|'
+  - subscript
+  - superscript
+  - '|'
+  - link
+  - '|'
+  - findAndReplace

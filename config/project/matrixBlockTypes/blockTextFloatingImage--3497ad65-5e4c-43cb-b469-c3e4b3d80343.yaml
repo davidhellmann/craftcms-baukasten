@@ -28,7 +28,7 @@ fieldLayouts:
             uid: ab6dd79a-0d9c-4799-860a-01a7c242ba68
             userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
             elementCondition: null
             fieldUid: 98f7a455-6764-4b7d-8d19-405bdcc42228 # Image Transform
@@ -78,25 +78,20 @@ fields:
     name: Text
     searchable: true
     settings:
-      availableTransforms: '*'
-      availableVolumes: '*'
+      availableTransforms: ''
+      availableVolumes: ''
+      ckeConfig: 6f4a3e01-23de-4313-8109-00a430317d11 # Rich Text Default
       columnType: text
-      configSelectionMode: choose
-      defaultTransform: ''
-      manualConfig: ''
+      defaultTransform: null
+      enableSourceEditingForNonAdmins: false
       purifierConfig: null
       purifyHtml: true
-      redactorConfig: Advanced.json
-      removeEmptyTags: true
-      removeInlineStyles: true
-      removeNbsp: true
-      showHtmlButtonForNonAdmins: true
-      showUnpermittedFiles: true
-      showUnpermittedVolumes: true
-      uiMode: enlarged
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      showWordCount: true
     translationKeyFormat: null
     translationMethod: none
-    type: craft\redactor\Field
+    type: craft\ckeditor\Field
   6a90dae3-938c-47e6-8e36-6b1d6be92d63: # Show Image Caption
     columnSuffix: null
     contentColumnType: boolean
@@ -121,54 +116,16 @@ fields:
     name: 'Image Transform'
     searchable: false
     settings:
-      options:
-        -
-          __assoc__:
-            -
-              - label
-              - Landscape
-            -
-              - value
-              - aspect-landscape
-            -
-              - default
-              - '1'
-        -
-          __assoc__:
-            -
-              - label
-              - Square
-            -
-              - value
-              - aspect-square
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Portrait
-            -
-              - value
-              - aspect-portrait
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Auto
-            -
-              - value
-              - aspect-auto
-            -
-              - default
-              - ''
+      cachedOptions: true
+      element: null
+      genError: ''
+      json: ''
+      multi: false
+      template: _super-dynamic-fields/image-transform.json
+      templateData: ''
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\Dropdown
+    type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
   210de09a-f6c8-42dd-b4d6-c1c00e7d0b82: # Image Position
     columnSuffix: null
     contentColumnType: boolean

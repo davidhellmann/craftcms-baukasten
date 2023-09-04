@@ -24,16 +24,16 @@
     {% endif %}
 
     {# >>> Set BG Color #}
-    {% switch props.data.block.sectionBackgroundColor.value %}
-    {% case "gray-100" %}
+    {% switch props.data.block.sectionBackgroundColor %}
+    {% case "light-gray" %}
       {% set sectionBGColorClass = 'bg-gray-100' %}
 
     {% default %}
-      {% set sectionBGColorClass = 'bg-transparent' %}
+      {% set sectionBGColorClass = 'transparent' %}
     {% endswitch %}
 
     {# >>> Set Padding #}
-    {% switch props.data.block.sectionPaddingVertical.value %}
+    {% switch props.data.block.sectionPaddingVertical %}
     {% case "sm" %}
       {% set sectionPaddingVerticalClass = 'py-2 md:py-4' %}
 
@@ -54,7 +54,7 @@
     {% endswitch %}
 
     {# >>> Set Space Between #}
-    {% switch props.data.block.spaceBetweenBlocks.value %}
+    {% switch props.data.block.spaceBetweenBlocks %}
     {% case "sm" %}
       {% set sectionSpaceBetweenClass = 'space-y-2 md:space-y-4' %}
 

@@ -27,12 +27,12 @@
             position: 'center-center'
           } %}
 
-          {% set entryImage = entry.entryImage.one() %}
-          {% if entryImage ?? null %}
+          {% set assetEntryImage = entry.assetEntryImage.one() %}
+          {% if assetEntryImage ?? null %}
             <a href="{{ entry.url }}">
-              <img src="{{ entryImage.getUrl(thumb) }}"
-                   width="{{ entryImage.getWidth(thumb) }}"
-                   height="{{ entryImage.getHeight(thumb) }}"
+              <img src="{{ assetEntryImage.getUrl(thumb) }}"
+                   width="{{ assetEntryImage.getWidth(thumb) }}"
+                   height="{{ assetEntryImage.getHeight(thumb) }}"
                    alt="{{ entry.title }}">
             </a>
           {% endif %}

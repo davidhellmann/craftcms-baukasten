@@ -16,7 +16,7 @@ fieldLayouts:
             uid: 0cd02812-349c-46d5-a4b7-57700a221566
             userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
             elementCondition: null
             fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Image Transform
@@ -166,54 +166,16 @@ fields:
     name: 'Image Transform'
     searchable: false
     settings:
-      options:
-        -
-          __assoc__:
-            -
-              - label
-              - Landscape
-            -
-              - value
-              - aspect-landscape
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Square
-            -
-              - value
-              - aspect-square
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Portrait
-            -
-              - value
-              - aspect-portrait
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Auto
-            -
-              - value
-              - aspect-auto
-            -
-              - default
-              - '1'
+      cachedOptions: true
+      element: null
+      genError: ''
+      json: ''
+      multi: false
+      template: _super-dynamic-fields/image-transform.json
+      templateData: ''
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\Dropdown
+    type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
 handle: blockImage
 name: Image
 sortOrder: 5

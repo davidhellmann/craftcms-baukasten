@@ -1,18 +1,18 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: d6a382fb-fadf-4449-8e74-b89f2c649c4c # Entry
-handle: entryImage
+fieldGroup: d383bdc6-fcfa-4652-9155-d7ead2d89f29 # Assets
+handle: assetEntryImage
 instructions: null
-name: 'Entry: Image'
+name: 'Asset: Entry Image'
 searchable: false
 settings:
   allowSelfRelations: false
-  allowSubfolders: false
-  allowUploads: true
+  allowSubfolders: true
+  allowUploads: false
   allowedKinds:
     - image
   branchLimit: null
-  defaultUploadLocationSource: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
+  defaultUploadLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
   defaultUploadLocationSubpath: null
   localizeRelations: false
   maintainHierarchy: false
@@ -20,16 +20,26 @@ settings:
   minRelations: null
   previewMode: full
   restrictFiles: true
-  restrictLocation: false
+  restrictLocation: true
   restrictedDefaultUploadSubpath: null
-  restrictedLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
+  restrictedLocationSource: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
   restrictedLocationSubpath: null
+  selectionCondition:
+    __assoc__:
+      -
+        - elementType
+        - craft\elements\Asset
+      -
+        - fieldContext
+        - global
+      -
+        - class
+        - craft\elements\conditions\assets\AssetCondition
   selectionLabel: null
-  showSiteMenu: false
+  showSiteMenu: true
   showUnpermittedFiles: true
   showUnpermittedVolumes: true
-  sources:
-    - 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
+  sources: '*'
   targetSiteId: null
   validateRelatedElements: true
   viewMode: large

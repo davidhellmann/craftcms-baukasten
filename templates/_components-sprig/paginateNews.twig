@@ -5,7 +5,7 @@
   {% minify %}
     {% set entryQuery = craft.entries
       .section(section)
-      .with(['entryImage'])
+      .with(['assetEntryImage'])
       .limit(limit)
       .orderBy('postDate DESC') %}
 
@@ -15,14 +15,18 @@
     {% do craft.blitz.options.paginate(pageInfo.totalPages) %}
 
     <div class="container">
-      {{ include('_components/pageIntros/image.twig', {
-        props: {
-          headline: entryCustomTitleOverwrite ??? headline ??? null,
-        }
-      }, withContext = false) }}
+      <div class="container py-16">
+        {{ include('_components/text/headline.twig', {
+          data: {
+            text: headline ??? null,
+            variantSize: 'mega',
+            tag: 'h1',
+          }
+        }, withContext = false) }}
+      </div>
 
       {{ include('_components/stacks/stackNews.twig', {
-        props: {
+        data: {
           items: entries ??? null,
           noLazyImageLoadingCount: 6,
         }

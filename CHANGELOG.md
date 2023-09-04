@@ -1,4 +1,33 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.12 - 2023.09.04
+
+### added
+
+- 
+
+### updated
+- (cms): CraftCMS (4.5.3)
+- (plugin): Hyper (1.1.11)
+- (plugin): Formie (2.0.35)
+- (plugin): Navigation (2.0.20)
+- (plugin): BlurHash (2.0.5)
+- (plugin): Blitz (4.5.2)
+- (plugin): Image Resizer (3.0.7)
+- (plugin): ImagerX (4.2.2)
+- (plugin): CKEditor (3.5.1)
+- (plugin): Code Field (4.0.10)
+- NPM Packages
+
+
+### fixed
+- 
+
+### removed
+- plugin: palette
+- plugin: redactor
+- plugin: quickfield
+
+
 ## 4.0.11 - 2023.07.19
 
 ### added
