@@ -14,7 +14,7 @@
 - (plugin): Blitz (4.5.2)
 - (plugin): Image Resizer (3.0.7)
 - (plugin): ImagerX (4.2.2)
-- (plugin): CKEditor (3.5.0)
+- (plugin): CKEditor (3.5.1)
 - (plugin): Code Field (4.0.10)
 - NPM Packages
 
