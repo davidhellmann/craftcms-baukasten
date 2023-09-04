@@ -8,7 +8,7 @@
 ### updated
 - (cms): CraftCMS (4.5.2)
 - (plugin): Hyper (1.1.11)
-- (plugin): Formie (2.0.34.1)
+- (plugin): Formie (2.0.35)
 - (plugin): Navigation (2.0.20)
 - (plugin): BlurHash (2.0.5)
 - (plugin): Blitz (4.5.2)
