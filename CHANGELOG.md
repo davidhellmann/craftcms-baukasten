@@ -1,12 +1,12 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.12 - WIP
+## 4.0.12 - 2023.09.04
 
 ### added
 
 - 
 
 ### updated
-- (cms): CraftCMS (4.5.2)
+- (cms): CraftCMS (4.5.3)
 - (plugin): Hyper (1.1.11)
 - (plugin): Formie (2.0.35)
 - (plugin): Navigation (2.0.20)
