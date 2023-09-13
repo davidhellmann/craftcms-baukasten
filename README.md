@@ -28,6 +28,15 @@ Go to `./` and do this: `valet link craftcms-baukasten` to create a domain like 
 - `npm run upgrade-interactive` To get an interactive GUI to update NPM Packages
 - `npm run twc` creates a `tailwind.app.css` file in `./src/css/`
 
+## How to use static assets with Vite
+Assets must be in `src/public/` to be copied to `web/dist` folder.
+```twig
+<img class="w-12 h-12" src="{{ craft.vite.asset('images/svg/logo.svg', true) }}" alt="">
+
+{% set asset = craft.vite.asset('images/svg/logo.svg', true) %}
+{{ craft.vite.inline(asset) }}
+```
+
 
 ## Whats inside?
 ### Some Basic Fields:
