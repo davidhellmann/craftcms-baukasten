@@ -8,6 +8,7 @@
 ### updated
 - (cms): CraftCMS (4.5.4)
 - (plugin): Blitz (4.5.3)
+- (plugin): CKEditor (3.6.0)
 
 
 ### fixed
