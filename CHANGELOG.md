@@ -10,6 +10,7 @@
 - (plugin): CKEditor (3.6.0)
 - (plugin): Formie (2.0.36)
 - (plugin): Navigation (2.0.21)
+- (plugin): SEOmatic (4.0.31)
 
 
 ### fixed
