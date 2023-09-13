@@ -2,7 +2,6 @@
 ## 4.0.12 - WIP
 
 ### added
-
 -
 
 ### updated
@@ -10,6 +9,7 @@
 - (plugin): Blitz (4.5.3)
 - (plugin): CKEditor (3.6.0)
 - (plugin): Formie (2.0.36)
+- (plugin): Navigation (2.0.21)
 
 
 ### fixed
