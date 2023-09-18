@@ -10,6 +10,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import critical from 'rollup-plugin-critical';
 import { ViteFaviconsPlugin } from 'vite-plugin-favicon2';
 import * as path from 'path';
+import copy from 'rollup-plugin-copy';
 
 // https://vitejs.dev/config/
 
@@ -78,6 +79,11 @@ export default defineConfig(({ command }) => ({
       cache: false,
     }),
     splitVendorChunkPlugin(),
+    copy({
+      targets: [{ src: 'src/public/*', dest: 'web/dist' }],
+      hook: command === 'build' ? 'writeBundle' : 'buildStart',
+      copyOnce: true,
+    }),
   ],
   publicDir: './src/public',
   resolve: {
