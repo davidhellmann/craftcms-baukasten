@@ -6,7 +6,7 @@
 
 ### updated
 - (cms): CraftCMS (4.5.4)
-- (plugin): Blitz (4.5.3)
+- (plugin): Blitz (4.5.4)
 - (plugin): CKEditor (3.6.0)
 - (plugin): Hyper (1.1.12)
 - (plugin): Formie (2.0.36)
