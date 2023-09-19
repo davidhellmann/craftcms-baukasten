@@ -107,13 +107,13 @@ const waypointObserver: ICompWaypointObserver = {
     this.settings.endless = waypoint.getAttribute('waypoint-endless') === 'true';
   },
 
-  getWaypointTargets(holder): Array<HTMLElement> {
+  getWaypointTargets(holder: HTMLElement): Array<HTMLElement> {
     if (!this.selectors) return [];
     let targets = [...holder.querySelectorAll<HTMLElement>(this.selectors.waypointTarget)];
-    const holderIsTarget = holder.hasAttribute('waypoint-target')
+    const holderIsTarget = holder.hasAttribute('waypoint-target');
     if (holderIsTarget) {
       // Animate the waypoint itself if there is a waypoint-target attribute
-      targets = [holder]
+      targets = [holder];
     }
 
     return targets;
