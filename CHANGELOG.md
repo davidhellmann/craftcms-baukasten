@@ -8,6 +8,7 @@
 - (cms): CraftCMS (4.5.5)
 - (plugin): Blitz (4.5.5)
 - (plugin): CKEditor (3.6.0)
+- (plugin): ImagerX (4.2.3)
 - (plugin): Hyper (1.1.12)
 - (plugin): Formie (2.0.36)
 - (plugin): Navigation (2.0.21)

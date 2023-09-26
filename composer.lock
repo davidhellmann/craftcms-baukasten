@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96cfa97c11e0d75223e487a1f2c12350",
+    "content-hash": "56aa851fe6d03b436ed6626cd1a44c5b",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -817,11 +817,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.281.8",
+            "version": "3.281.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aws/aws-sdk-php.git",
+                "reference": "4b5b8aab08ef0add75f086bc03c7651799d187db"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/eb349b9f31502a05c70362f57913b9fed6b65b1f",
-                "reference": "eb349b9f31502a05c70362f57913b9fed6b65b1f",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4b5b8aab08ef0add75f086bc03c7651799d187db",
+                "reference": "4b5b8aab08ef0add75f086bc03c7651799d187db",
                 "shasum": ""
             },
             "require": {
@@ -835,6 +840,25 @@
                 "mtdowling/jmespath.php": "^2.6",
                 "php": ">=7.2.5",
                 "psr/http-message": "^1.0 || ^2.0"
+            },
+            "require-dev": {
+                "andrewsville/php-token-reflection": "^1.4",
+                "aws/aws-php-sns-message-validator": "~1.0",
+                "behat/behat": "~3.0",
+                "composer/composer": "^1.10.22",
+                "dms/phpunit-arraysubset-asserts": "^0.4.0",
+                "doctrine/cache": "~1.4",
+                "ext-dom": "*",
+                "ext-openssl": "*",
+                "ext-pcntl": "*",
+                "ext-sockets": "*",
+                "nette/neon": "^2.3",
+                "paragonie/random_compat": ">= 2",
+                "phpunit/phpunit": "^5.6.3 || ^8.5 || ^9.5",
+                "psr/cache": "^1.0",
+                "psr/simple-cache": "^1.0",
+                "sebastian/comparator": "^1.2.3 || ^4.0",
+                "yoast/phpunit-polyfills": "^1.0"
             },
             "suggest": {
                 "aws/aws-php-sns-message-validator": "To validate incoming SNS notifications",
@@ -857,6 +881,7 @@
                     "Aws\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache-2.0"
             ],
@@ -878,7 +903,12 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2023-09-15T18:34:59+00:00"
+            "support": {
+                "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
+                "issues": "https://github.com/aws/aws-sdk-php/issues",
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.281.14"
+            },
+            "time": "2023-09-26T18:15:48+00:00"
         },
         {
             "name": "brick/math",
@@ -6438,11 +6468,11 @@
         },
         {
             "name": "spacecatninja/imager-x",
-            "version": "4.2.2",
+            "version": "4.2.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spacecatninja/craft-imager-x/zipball/456fa773e463aeb8dd424ee07096e189cc4d229b",
-                "reference": "456fa773e463aeb8dd424ee07096e189cc4d229b",
+                "url": "https://api.github.com/repos/spacecatninja/craft-imager-x/zipball/922ce31d0442b7c4d53e197203df34a5e22e95c9",
+                "reference": "922ce31d0442b7c4d53e197203df34a5e22e95c9",
                 "shasum": ""
             },
             "require": {
@@ -6499,7 +6529,7 @@
                 "docs": "http://imager-x.spacecat.ninja/",
                 "issues": "https://github.com/spacecatninja/craft-imager-x/issues"
             },
-            "time": "2023-08-12T22:39:23+00:00"
+            "time": "2023-09-22T13:35:04+00:00"
         },
         {
             "name": "ssnepenthe/color-utils",
