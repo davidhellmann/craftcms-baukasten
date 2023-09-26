@@ -12,6 +12,7 @@
 - (plugin): Formie (2.0.36)
 - (plugin): Navigation (2.0.21)
 - (plugin): SEOmatic (4.0.31)
+- (plugin): Sprig (2.7.0)
 
 
 ### fixed
