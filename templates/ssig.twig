@@ -1,0 +1,10 @@
+{% extends "_layouts/layout-ssig.twig" %}
+
+{% block blockAppContent %}
+  {% set entry = craft.entries.id(craft.app.request.segments|last).one %}
+
+  <div class="w-[1200px] h-[675px] bg-gray-200 flex items-center justify-center">
+
+    {{ entry.title }}
+  </div>
+{% endblock %}

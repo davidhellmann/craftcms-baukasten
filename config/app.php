@@ -18,6 +18,7 @@
  */
 
 use craft\helpers\App;
+use modules\socialshareimage\Module;
 
 $redisConfig = [
     'redis' => [
@@ -60,13 +61,13 @@ return [
     '*' => [
         'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
         'modules' => [
-            'site-module' => [
-                'class' => \modules\sitemodule\SiteModule::class,
+            'social-share-image' => [
+                'class' => \modules\socialshareimage\Module::class,
             ],
         ],
-        'bootstrap' => ['site-module'],
+        'bootstrap' => ['social-share-image'],
         'components' => [
-            'db' => function () {
+            'db' => static function () {
                 $config = craft\helpers\App::dbConfig();
                 $config['enableSchemaCache'] = true;
                 $config['schemaCacheDuration'] = 60 * 60 * 24; // 1 day
@@ -84,4 +85,6 @@ return [
     'production' => [],
     'staging' => [],
     'dev' => [],
+    'modules' => ['social-share-image' => Module::class],
+    'bootstrap' => ['social-share-image'],
 ];

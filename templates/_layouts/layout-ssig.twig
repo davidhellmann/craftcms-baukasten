@@ -1,0 +1,18 @@
+{% extends "_boilerplate/_layouts/layout-ssig.twig" %}
+
+{# >>> Render favicons #}
+{% block blockHeadFavicons %}
+  {{ include("_layouts/_partials/favicons/favicons-default.twig", {}, withContext = true) }}
+{% endblock %}
+
+{# >>> Render block head fonts #}
+{% block blockHeadFonts %}
+  {{ include("_layouts/_partials/fonts/fonts-default-preloading.twig", {}, withContext = true) }}
+{% endblock %}
+
+{# >>> Render block app body #}
+{% block blockAppBody %}
+  {% block blockAppContent %}
+
+  {% endblock %}
+{% endblock %}
