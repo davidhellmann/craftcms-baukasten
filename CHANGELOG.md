@@ -10,7 +10,7 @@
 - (plugin): Code Field (4.0.11)
 - (plugin): CKEditor (3.6.0)
 - (plugin): ImagerX (4.2.3)
-- (plugin): Hyper (1.1.13)
+- (plugin): Hyper (1.1.16)
 - (plugin): Formie (2.0.42)
 - (plugin): Navigation (2.0.21)
 - (plugin): SEOmatic (4.0.31)
