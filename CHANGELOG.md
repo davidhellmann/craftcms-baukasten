@@ -7,6 +7,7 @@
 ### updated
 - (cms): CraftCMS (4.5.11)
 - (plugin): Blitz (4.9.1)
+- (plugin): Code Field (4.0.11)
 - (plugin): CKEditor (3.6.0)
 - (plugin): ImagerX (4.2.3)
 - (plugin): Hyper (1.1.13)
