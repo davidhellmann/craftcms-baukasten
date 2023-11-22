@@ -14,13 +14,15 @@
 - (plugin): Navigation (2.0.21)
 - (plugin): SEOmatic (4.0.31)
 - (plugin): Sprig (2.7.0)
+- (npm): all packages to latest versions
+- (vite): 5.0.2
 
 
 ### fixed
 - 
 
 ### removed
-- 
+- prettier twig plugin
 
 ## 4.0.12 - 2023.09.04
 

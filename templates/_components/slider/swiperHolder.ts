@@ -1,4 +1,5 @@
-import Swiper, {
+import Swiper from 'swiper';
+import {
   A11y,
   FreeMode,
   Keyboard,
@@ -7,7 +8,7 @@ import Swiper, {
   Pagination,
   Autoplay,
   EffectFade,
-} from 'swiper';
+} from 'swiper/modules';
 import { IComponent } from '../../../src/js/@types/IComponent';
 
 import 'swiper/css';

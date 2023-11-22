@@ -1,5 +1,3 @@
-import { forOwn } from 'lodash-es';
-
 export default (async () => {
   const alpinejsEls = document.querySelectorAll('[alpinejs]');
   if (alpinejsEls.length > 0) {

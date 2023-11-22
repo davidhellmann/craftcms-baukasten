@@ -27,13 +27,11 @@ export default defineConfig(({ command }) => ({
       input: {
         app: './src/js/app.ts',
       },
-      output: {
-        sourcemap: true,
-      },
     },
+    sourcemap: true,
   },
   plugins: [
-    critical({
+    (critical as any).default({
       criticalUrl: 'https://stage.baukasten.io/',
       criticalBase: './web/dist/criticalcss/',
       criticalPages: [
