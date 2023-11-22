@@ -14,7 +14,7 @@
 - (plugin): Hyper (1.1.16)
 - (plugin): MatrixMate (2.1.4)
 - (plugin): Formie (2.0.42)
-- (plugin): Navigation (2.0.21)
+- (plugin): Navigation (2.0.22)
 - (plugin): SEOmatic (4.0.31)
 - (plugin): Sprig (2.7.0)
 - (npm): all packages to latest versions
