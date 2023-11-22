@@ -17,7 +17,7 @@
 - (plugin): Formie (2.0.42)
 - (plugin): Navigation (2.0.22)
 - (plugin): SEOmatic (4.0.35)
-- (plugin): Sprig (2.7.0)
+- (plugin): Sprig (2.7.2)
 - (npm): all packages to latest versions
 - (vite): 5.0.2
 
