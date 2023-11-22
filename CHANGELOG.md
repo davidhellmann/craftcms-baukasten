@@ -10,6 +10,7 @@
 - (plugin): Code Field (4.0.11)
 - (plugin): CKEditor (3.6.0)
 - (plugin): ImagerX (4.2.3)
+- (plugin): Sherlock (4.4.0)
 - (plugin): Image Resizer (3.0.8)
 - (plugin): Hyper (1.1.16)
 - (plugin): MatrixMate (2.1.4)
