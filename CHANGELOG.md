@@ -13,7 +13,7 @@
 - (plugin): ImagerX (4.2.3)
 - (plugin): Sherlock (4.4.0)
 - (plugin): Image Resizer (3.0.8)
-- (plugin): Hyper (1.1.16)
+- (plugin): Hyper (1.1.17)
 - (plugin): MatrixMate (2.1.4)
 - (plugin): Formie (2.0.42)
 - (plugin): Navigation (2.0.22)
