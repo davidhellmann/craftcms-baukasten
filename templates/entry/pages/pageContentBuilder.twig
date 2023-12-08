@@ -14,7 +14,7 @@
       <div class="container py-16">
         {{ include('_components/text/headline.twig', {
           data: {
-            text: entry.textCustomTitle ??? entry.title ??? null,
+            text: entry.textTitleOverwrite ??? entry.title ??? null,
             variantSize: 'mega',
             tag: 'h1',
           }

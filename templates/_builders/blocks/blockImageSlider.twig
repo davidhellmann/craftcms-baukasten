@@ -22,7 +22,7 @@
     {{ include('_components/slider/sliderImages.twig', {
       data: {
         slides: props.data.block.images ??? null,
-        aspectRatio: props.data.block.imageTransform.value ??? 'aspect-landscape'
+        aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape'
       },
     }, withContext = false) }}
   </div>

@@ -25,7 +25,7 @@
         data: {
           image: item.assetEntryImage[0] ??? null,
           date: item.postDate|date("M Y") ??? null,
-          title: item.textCustomTitle ??? item.title ??? null,
+          title: item.textTitleOverwrite ??? item.title ??? null,
           url: item.url ??? null,
           lazy: loop.index > props.data.noLazyImageLoadingCount
         }

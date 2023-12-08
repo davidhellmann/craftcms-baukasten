@@ -31,7 +31,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 98f7a455-6764-4b7d-8d19-405bdcc42228 # Image Transform
+            fieldUid: 98f7a455-6764-4b7d-8d19-405bdcc42228 # Image Ratio
             instructions: null
             label: null
             required: true
@@ -89,6 +89,7 @@ fields:
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       showWordCount: true
+      wordLimit: null
     translationKeyFormat: null
     translationMethod: none
     type: craft\ckeditor\Field
@@ -107,21 +108,22 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
-  98f7a455-6764-4b7d-8d19-405bdcc42228: # Image Transform
+  98f7a455-6764-4b7d-8d19-405bdcc42228: # Image Ratio
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
-    handle: imageTransform
+    handle: imageRatio
     instructions: null
-    name: 'Image Transform'
+    name: 'Image Ratio'
     searchable: false
     settings:
       cachedOptions: true
+      columnType: string
       element: null
       genError: ''
       json: ''
       multi: false
-      template: _super-dynamic-fields/image-transform.json
+      template: _super-dynamic-fields/image-ratio.json
       templateData: ''
     translationKeyFormat: null
     translationMethod: none
@@ -191,6 +193,6 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-handle: blockTextFloatingImage
-name: 'Text : Floating Image'
+handle: blockTextImage
+name: 'Text : Image'
 sortOrder: 3

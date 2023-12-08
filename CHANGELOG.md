@@ -6,18 +6,18 @@
 
 ### updated
 - (cms): CraftCMS (4.5.11.1)
-- (plugin): Blitz (4.9.1)
+- (plugin): Blitz (4.9.3)
 - (plugin): Super Table (3.0.12)
 - (plugin): Code Field (4.0.11)
 - (plugin): CKEditor (3.6.0)
 - (plugin): ImagerX (4.2.3)
 - (plugin): Sherlock (4.4.0)
 - (plugin): Image Resizer (3.0.8)
-- (plugin): Hyper (1.1.17)
+- (plugin): Hyper (1.1.18)
 - (plugin): MatrixMate (2.1.4)
-- (plugin): Formie (2.0.42)
+- (plugin): Formie (2.0.43)
 - (plugin): Navigation (2.0.22)
-- (plugin): SEOmatic (4.0.35)
+- (plugin): SEOmatic (4.0.36)
 - (plugin): Sprig (2.7.2)
 - (npm): all packages to latest versions
 - (vite): 5.0.2

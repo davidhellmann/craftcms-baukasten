@@ -7,6 +7,18 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
+            fieldUid: 63bd200d-3882-4788-a8ba-528452521d6c # Video Provider
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 61617279-3f13-4142-9007-28c5defd3157
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
             fieldUid: e9486b85-fd5e-40c8-851b-a6b0133e1f88 # Video Id
             instructions: null
             label: null
@@ -87,6 +99,26 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
+  63bd200d-3882-4788-a8ba-528452521d6c: # Video Provider
+    columnSuffix: msfzxjxb
+    contentColumnType: string
+    fieldGroup: null
+    handle: videoProvider
+    instructions: null
+    name: 'Video Provider'
+    searchable: false
+    settings:
+      cachedOptions: true
+      columnType: string
+      element: null
+      genError: ''
+      json: ''
+      multi: false
+      template: _super-dynamic-fields/video-provider.json
+      templateData: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
   68109da0-245f-4b21-b040-b7f4385e618e: # Video Width
     columnSuffix: null
     contentColumnType: string
@@ -96,6 +128,7 @@ fields:
     name: 'Video Width'
     searchable: false
     settings:
+      columnType: string
       options:
         -
           __assoc__:
@@ -129,7 +162,7 @@ fields:
     handle: videoId
     instructions: null
     name: 'Video Id'
-    searchable: false
+    searchable: true
     settings:
       byteLimit: null
       charLimit: null
@@ -142,6 +175,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\PlainText
-handle: blockVideoYoutube
-name: 'Video Youtube'
+handle: blockVideo
+name: Video
 sortOrder: 10

@@ -24,7 +24,7 @@
         images: props.data.block.images ??? null,
         variantColumns: props.data.block.imageColumns.value ??? 2,
         caption: props.data.block.showImageCaption ??? null,
-        aspectRatio: props.data.block.imageTransform.value ??? 'aspect-landscape',
+        aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape',
         lazy: props.data.blockNumber >= 5 ? true : false,
       }
     }, withContext = false) }}

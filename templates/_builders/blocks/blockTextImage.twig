@@ -1,7 +1,7 @@
 {# >>> Comp Defaults #}
 {% set compDefaults = {
   data: {
-    name: 'c-blockTextFloatingImage',
+    name: 'c-blockTextImage',
     block: null,
     blockNumber: null,
   },
@@ -32,7 +32,7 @@
       {{ include('_components/image/image.twig', {
         data: {
           image: props.data.block.image[0] ??? null,
-          aspectRatio: props.data.block.imageTransform.value ??? 'aspect-landscape',
+          aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape',
           caption: props.data.block.showImageCaption ??? 0,
           lazy: props.data.blockNumber >= 5 ? true : false,
         },
