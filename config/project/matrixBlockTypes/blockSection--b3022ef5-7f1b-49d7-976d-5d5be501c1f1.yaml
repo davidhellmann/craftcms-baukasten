@@ -47,64 +47,200 @@ fieldLayouts:
 fields:
   9a8fffce-3c28-4326-8f7a-e31d2f6cc04b: # Section Background Color
     columnSuffix: null
-    contentColumnType: string
+    contentColumnType: string(11)
     fieldGroup: null
     handle: sectionBackgroundColor
     instructions: null
     name: 'Section Background Color'
     searchable: false
     settings:
-      cachedOptions: true
-      columnType: string
-      element: null
-      genError: ''
-      json: ''
-      multi: false
-      template: _super-dynamic-fields/background-color-section.json
-      templateData: ''
+      columnType: null
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Transparent
+            -
+              - value
+              - transparent
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Light Gray'
+            -
+              - value
+              - light-gray
+            -
+              - default
+              - ''
     translationKeyFormat: null
     translationMethod: none
-    type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
+    type: craft\fields\Dropdown
   74b87138-1475-47c2-a9dd-63baa78dd5f5: # Space Between Blocks
     columnSuffix: null
-    contentColumnType: string
+    contentColumnType: string(4)
     fieldGroup: null
     handle: spaceBetweenBlocks
     instructions: null
     name: 'Space Between Blocks'
     searchable: false
     settings:
-      cachedOptions: true
-      columnType: string
-      element: null
-      genError: ''
-      json: ''
-      multi: false
-      template: _super-dynamic-fields/spacing-between-y.json
-      templateData: ''
+      columnType: null
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Zero
+            -
+              - value
+              - zero
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - SM
+            -
+              - value
+              - sm
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - MD
+            -
+              - value
+              - md
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - LG
+            -
+              - value
+              - lg
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - XL
+            -
+              - value
+              - xl
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 2XL
+            -
+              - value
+              - 2xl
+            -
+              - default
+              - ''
     translationKeyFormat: null
     translationMethod: none
-    type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
+    type: craft\fields\Dropdown
   aa7883a4-2cce-4316-85f3-ec6ea59402ec: # Section Padding Vertical
     columnSuffix: null
-    contentColumnType: string
+    contentColumnType: string(4)
     fieldGroup: null
     handle: sectionPaddingVertical
     instructions: null
     name: 'Section Padding Vertical'
     searchable: false
     settings:
-      cachedOptions: true
-      columnType: string
-      element: null
-      genError: ''
-      json: ''
-      multi: false
-      template: _super-dynamic-fields/spacing-padding-vertical.json
-      templateData: ''
+      columnType: null
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Zero
+            -
+              - value
+              - zero
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - SM
+            -
+              - value
+              - sm
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - MD
+            -
+              - value
+              - md
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - LG
+            -
+              - value
+              - lg
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - XL
+            -
+              - value
+              - xl
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 2XL
+            -
+              - value
+              - 2xl
+            -
+              - default
+              - ''
     translationKeyFormat: null
     translationMethod: none
-    type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
+    type: craft\fields\Dropdown
 handle: blockSection
 name: Section
 sortOrder: 1

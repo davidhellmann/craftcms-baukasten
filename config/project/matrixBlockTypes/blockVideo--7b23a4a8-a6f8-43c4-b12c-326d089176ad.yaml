@@ -101,24 +101,40 @@ fields:
     type: craft\fields\Lightswitch
   63bd200d-3882-4788-a8ba-528452521d6c: # Video Provider
     columnSuffix: msfzxjxb
-    contentColumnType: string
+    contentColumnType: string(7)
     fieldGroup: null
     handle: videoProvider
     instructions: null
     name: 'Video Provider'
     searchable: false
     settings:
-      cachedOptions: true
-      columnType: string
-      element: null
-      genError: ''
-      json: ''
-      multi: false
-      template: _super-dynamic-fields/video-provider.json
-      templateData: ''
+      columnType: null
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Youtube
+            -
+              - value
+              - youtube
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Vimeo
+            -
+              - value
+              - vimeo
+            -
+              - default
+              - ''
     translationKeyFormat: null
     translationMethod: none
-    type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
+    type: craft\fields\Dropdown
   68109da0-245f-4b21-b040-b7f4385e618e: # Video Width
     columnSuffix: null
     contentColumnType: string

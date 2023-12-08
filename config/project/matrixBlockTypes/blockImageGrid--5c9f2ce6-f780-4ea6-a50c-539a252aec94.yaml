@@ -109,24 +109,62 @@ fields:
     type: craft\fields\Assets
   62883121-63a2-4e5c-a6f3-4855cf64df2c: # Image Ratio
     columnSuffix: null
-    contentColumnType: string
+    contentColumnType: string(16)
     fieldGroup: null
     handle: imageRatio
     instructions: null
     name: 'Image Ratio'
     searchable: false
     settings:
-      cachedOptions: true
-      columnType: string
-      element: null
-      genError: ''
-      json: ''
-      multi: false
-      template: _super-dynamic-fields/image-ratio.json
-      templateData: ''
+      columnType: null
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Landscape
+            -
+              - value
+              - aspect-landscape
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Square
+            -
+              - value
+              - aspect-square
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Portrait
+            -
+              - value
+              - aspect-portrait
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Auto
+            -
+              - value
+              - aspect-auto
+            -
+              - default
+              - ''
     translationKeyFormat: null
     translationMethod: none
-    type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
+    type: craft\fields\Dropdown
   df1d53fb-d9ed-4066-93e5-a46aac3f458e: # Image Columns
     columnSuffix: null
     contentColumnType: string
