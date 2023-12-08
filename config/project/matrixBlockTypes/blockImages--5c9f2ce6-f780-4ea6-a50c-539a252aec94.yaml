@@ -7,6 +7,18 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
+            fieldUid: 74c3cd4f-b565-4fb4-879e-72022774f93c # Variant
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 11e9d4b4-edcc-4533-b7a1-8b07c6602017
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
             fieldUid: 75195ab8-b7c4-4dca-b807-ef8a042ef5a9 # Images
             instructions: null
             label: null
@@ -16,7 +28,7 @@ fieldLayouts:
             uid: d10b279e-4bce-49cf-90fd-0a2fae06d537
             userCondition: null
             warning: null
-            width: 50
+            width: 100
           -
             elementCondition: null
             fieldUid: 62883121-63a2-4e5c-a6f3-4855cf64df2c # Image Ratio
@@ -26,18 +38,6 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 721a9d99-a7c1-4462-b772-b18fadab09e8
-            userCondition: null
-            warning: null
-            width: 50
-          -
-            elementCondition: null
-            fieldUid: df1d53fb-d9ed-4066-93e5-a46aac3f458e # Image Columns
-            instructions: null
-            label: null
-            required: true
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 845f4b8e-7c6e-4e29-8d14-59b67483c74e
             userCondition: null
             warning: null
             width: 50
@@ -57,6 +57,90 @@ fieldLayouts:
         uid: 56042e3e-7a7b-4a4c-9222-63e004682c9b
         userCondition: null
 fields:
+  74c3cd4f-b565-4fb4-879e-72022774f93c: # Variant
+    columnSuffix: swaooeeb
+    contentColumnType: string(14)
+    fieldGroup: null
+    handle: variant
+    instructions: null
+    name: Variant
+    searchable: false
+    settings:
+      columnType: null
+      options:
+        -
+          __assoc__:
+            -
+              - optgroup
+              - Grid
+        -
+          __assoc__:
+            -
+              - label
+              - 'Grid (2 Cols)'
+            -
+              - value
+              - grid2Cols
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - 'Grid (3 Cols)'
+            -
+              - value
+              - grid3Cols
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Grid Calculated'
+            -
+              - value
+              - gridCalculated
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - optgroup
+              - Gallery
+        -
+          __assoc__:
+            -
+              - label
+              - Gallery
+            -
+              - value
+              - gallery
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - optgroup
+              - Slider
+        -
+          __assoc__:
+            -
+              - label
+              - Slider
+            -
+              - value
+              - slider
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
   75195ab8-b7c4-4dca-b807-ef8a042ef5a9: # Images
     columnSuffix: null
     contentColumnType: string
@@ -112,7 +196,7 @@ fields:
     contentColumnType: string(16)
     fieldGroup: null
     handle: imageRatio
-    instructions: null
+    instructions: 'Usable for: Grids (non calculated) / Sliders'
     name: 'Image Ratio'
     searchable: false
     settings:
@@ -165,48 +249,12 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  df1d53fb-d9ed-4066-93e5-a46aac3f458e: # Image Columns
-    columnSuffix: null
-    contentColumnType: string
-    fieldGroup: null
-    handle: imageColumns
-    instructions: null
-    name: 'Image Columns'
-    searchable: false
-    settings:
-      columnType: string
-      options:
-        -
-          __assoc__:
-            -
-              - label
-              - '2'
-            -
-              - value
-              - '2'
-            -
-              - default
-              - '1'
-        -
-          __assoc__:
-            -
-              - label
-              - '3'
-            -
-              - value
-              - '3'
-            -
-              - default
-              - ''
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Dropdown
   e0e9e510-46ff-45aa-aa46-700b325bb911: # Show Image Caption
     columnSuffix: null
     contentColumnType: boolean
     fieldGroup: null
     handle: showImageCaption
-    instructions: null
+    instructions: 'Usable for: Grids'
     name: 'Show Image Caption'
     searchable: false
     settings:
@@ -216,6 +264,6 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
-handle: blockImageGrid
-name: 'Image Grid'
+handle: blockImages
+name: Images
 sortOrder: 6
