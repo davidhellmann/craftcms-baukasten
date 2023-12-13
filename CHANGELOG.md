@@ -5,7 +5,7 @@
 - Rollup copy plugin to copy `src/public/*` to `web/dist` on npm run dev (start only). Feel free to extend it to your needs.
 
 ### updated
-- (cms): CraftCMS (4.5.11.1)
+- (cms): CraftCMS (4.5.12)
 - (plugin): Blitz (4.9.3)
 - (plugin): Super Table (3.0.12)
 - (plugin): Code Field (4.0.11)
@@ -15,10 +15,11 @@
 - (plugin): Image Resizer (3.0.8)
 - (plugin): Hyper (1.1.18)
 - (plugin): MatrixMate (2.1.4)
-- (plugin): Formie (2.0.43)
-- (plugin): Navigation (2.0.22)
-- (plugin): SEOmatic (4.0.36)
-- (plugin): Sprig (2.7.2)
+- (plugin): Formie (2.0.44.1)
+- (plugin): Navigation (2.0.23)
+- (plugin): SEOmatic (4.0.37)
+- (plugin): Vite (4.0.7)
+- (plugin): Sprig (2.7.3)
 - (npm): all packages to latest versions
 - (vite): 5.0.2
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "351702923b3eb3378d123a17624dd607",
+    "content-hash": "186431f2ec1cf723668396c5b04a526b",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1067,11 +1067,11 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.6.5",
+            "version": "2.6.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/4b0fe89db9e65b1e64df633a992e70a7a215ab33",
-                "reference": "4b0fe89db9e65b1e64df633a992e70a7a215ab33",
+                "url": "https://api.github.com/repos/composer/composer/zipball/683557bd2466072777309d039534bb1332d0dda5",
+                "reference": "683557bd2466072777309d039534bb1332d0dda5",
                 "shasum": ""
             },
             "require": {
@@ -1089,7 +1089,7 @@
                 "seld/jsonlint": "^1.4",
                 "seld/phar-utils": "^1.2",
                 "seld/signal-handler": "^2.0",
-                "symfony/console": "^5.4.11 || ^6.0.11 || ^7",
+                "symfony/console": "^5.4.11 || ^6.0.11",
                 "symfony/filesystem": "^5.4 || ^6.0 || ^7",
                 "symfony/finder": "^5.4 || ^6.0 || ^7",
                 "symfony/polyfill-php73": "^1.24",
@@ -1143,7 +1143,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2023-10-06T08:11:52+00:00"
+            "time": "2023-12-08T17:32:26+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -1420,11 +1420,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.5.11.1",
+            "version": "4.5.12",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/99a8f9a688483d38bdb8cefbf39ad43a5e7b7b82",
-                "reference": "99a8f9a688483d38bdb8cefbf39ad43a5e7b7b82",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/d7ac8a6d9bac3a1adc2c538af17d9489f899c19e",
+                "reference": "d7ac8a6d9bac3a1adc2c538af17d9489f899c19e",
                 "shasum": ""
             },
             "require": {
@@ -1512,7 +1512,7 @@
                 "docs": "https://craftcms.com/docs/4.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2023-11-24T05:57:24+00:00"
+            "time": "2023-12-12T17:06:10+00:00"
         },
         {
             "name": "craftcms/html-field",
@@ -2004,11 +2004,16 @@
         },
         {
             "name": "dompdf/dompdf",
-            "version": "v2.0.3",
+            "version": "v2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dompdf/dompdf.git",
+                "reference": "093f2d9739cec57428e39ddadedfd4f3ae862c0f"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/e8d2d5e37e8b0b30f0732a011295ab80680d7e85",
-                "reference": "e8d2d5e37e8b0b30f0732a011295ab80680d7e85",
+                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/093f2d9739cec57428e39ddadedfd4f3ae862c0f",
+                "reference": "093f2d9739cec57428e39ddadedfd4f3ae862c0f",
                 "shasum": ""
             },
             "require": {
@@ -2018,6 +2023,13 @@
                 "phenx/php-font-lib": ">=0.5.4 <1.0.0",
                 "phenx/php-svg-lib": ">=0.3.3 <1.0.0",
                 "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "ext-zip": "*",
+                "mockery/mockery": "^1.3",
+                "phpunit/phpunit": "^7.5 || ^8 || ^9",
+                "squizlabs/php_codesniffer": "^3.5"
             },
             "suggest": {
                 "ext-gd": "Needed to process images",
@@ -2034,6 +2046,7 @@
                     "lib/"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL-2.1"
             ],
@@ -2045,7 +2058,11 @@
             ],
             "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
             "homepage": "https://github.com/dompdf/dompdf",
-            "time": "2023-02-07T12:51:48+00:00"
+            "support": {
+                "issues": "https://github.com/dompdf/dompdf/issues",
+                "source": "https://github.com/dompdf/dompdf/tree/v2.0.4"
+            },
+            "time": "2023-12-12T20:19:39+00:00"
         },
         {
             "name": "doublesecretagency/craft-cpcss",
@@ -4704,11 +4721,11 @@
         },
         {
             "name": "nystudio107/craft-code-editor",
-            "version": "1.0.15",
+            "version": "1.0.16",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-code-editor/zipball/80d4db7514a1f74e93200cb49e52e8c3731b5a12",
-                "reference": "80d4db7514a1f74e93200cb49e52e8c3731b5a12",
+                "url": "https://api.github.com/repos/nystudio107/craft-code-editor/zipball/ea5d1866d891a09f1c2e5a482d47e555bdf34392",
+                "reference": "ea5d1866d891a09f1c2e5a482d47e555bdf34392",
                 "shasum": ""
             },
             "require": {
@@ -4745,7 +4762,7 @@
                 "markdown",
                 "twig"
             ],
-            "time": "2023-11-30T19:22:16+00:00"
+            "time": "2023-12-08T14:39:29+00:00"
         },
         {
             "name": "nystudio107/craft-code-field",
@@ -4979,11 +4996,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "4.0.36",
+            "version": "4.0.37",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/3785d2cb9c28f1280c4ca65c6a576695b9d7eedf",
-                "reference": "3785d2cb9c28f1280c4ca65c6a576695b9d7eedf",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/524c5fe79fe238c124f1d5cb621bd615ebe1a821",
+                "reference": "524c5fe79fe238c124f1d5cb621bd615ebe1a821",
                 "shasum": ""
             },
             "require": {
@@ -5035,15 +5052,15 @@
                 "issues": "https://nystudio107.com/plugins/seomatic/support",
                 "source": "https://github.com/nystudio107/craft-seomatic"
             },
-            "time": "2023-11-28T15:01:38+00:00"
+            "time": "2023-12-12T20:04:54+00:00"
         },
         {
             "name": "nystudio107/craft-vite",
-            "version": "4.0.6",
+            "version": "4.0.7",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-vite/zipball/d20d2dbfd3b2d4ecd0380b3869185d54a9cf80a2",
-                "reference": "d20d2dbfd3b2d4ecd0380b3869185d54a9cf80a2",
+                "url": "https://api.github.com/repos/nystudio107/craft-vite/zipball/c5d4a719151678ec2e629b3b6931257733645e1d",
+                "reference": "c5d4a719151678ec2e629b3b6931257733645e1d",
                 "shasum": ""
             },
             "require": {
@@ -5083,7 +5100,7 @@
                 "issues": "https://nystudio107.com/plugins/vite/support",
                 "source": "https://github.com/nystudio107/craft-vite"
             },
-            "time": "2023-06-07T17:25:10+00:00"
+            "time": "2023-12-08T20:22:47+00:00"
         },
         {
             "name": "oscarotero/html-parser",
@@ -5191,11 +5208,11 @@
         },
         {
             "name": "phenx/php-svg-lib",
-            "version": "0.5.0",
+            "version": "0.5.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dompdf/php-svg-lib/zipball/76876c6cf3080bcb6f249d7d59705108166a6685",
-                "reference": "76876c6cf3080bcb6f249d7d59705108166a6685",
+                "url": "https://api.github.com/repos/dompdf/php-svg-lib/zipball/8a8a1ebcf6aea861ef30197999f096f7bd4b4456",
+                "reference": "8a8a1ebcf6aea861ef30197999f096f7bd4b4456",
                 "shasum": ""
             },
             "require": {
@@ -5220,7 +5237,7 @@
             ],
             "description": "A library to read, parse and export to PDF SVG files.",
             "homepage": "https://github.com/PhenX/php-svg-lib",
-            "time": "2022-09-06T12:16:56+00:00"
+            "time": "2023-12-11T20:56:08+00:00"
         },
         {
             "name": "php-science/textrank",
@@ -6109,18 +6126,18 @@
         },
         {
             "name": "putyourlightson/craft-sprig",
-            "version": "2.7.2",
+            "version": "2.7.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/217f2b94c412f48c6648259390dc8bfa69619f85",
-                "reference": "217f2b94c412f48c6648259390dc8bfa69619f85",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/850bf29b99a47077fbd1ba6c9b4189b7b883e114",
+                "reference": "850bf29b99a47077fbd1ba6c9b4189b7b883e114",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^4.0",
                 "nystudio107/craft-code-editor": "^1.0.0",
                 "php": "^8.0.2",
-                "putyourlightson/craft-sprig-core": "^2.6.3"
+                "putyourlightson/craft-sprig-core": "^2.6.4"
             },
             "type": "craft-plugin",
             "extra": {
@@ -6146,15 +6163,15 @@
                 "source": "https://github.com/putyourlightson/craft-sprig",
                 "issues": "https://github.com/putyourlightson/craft-sprig/issues"
             },
-            "time": "2023-09-29T16:10:34+00:00"
+            "time": "2023-12-12T15:09:09+00:00"
         },
         {
             "name": "putyourlightson/craft-sprig-core",
-            "version": "2.6.3",
+            "version": "2.6.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/9c5bc247d4291d8e480954b2ae0847bea22c362f",
-                "reference": "9c5bc247d4291d8e480954b2ae0847bea22c362f",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig-core/zipball/76422893fa491c2bca48669cbf73ca512c04c5e3",
+                "reference": "76422893fa491c2bca48669cbf73ca512c04c5e3",
                 "shasum": ""
             },
             "require": {
@@ -6176,7 +6193,7 @@
                 "source": "https://github.com/putyourlightson/craft-sprig-core",
                 "issues": "https://github.com/putyourlightson/craft-sprig-core/issues"
             },
-            "time": "2023-09-29T16:09:43+00:00"
+            "time": "2023-12-12T15:03:53+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -8989,11 +9006,11 @@
         },
         {
             "name": "verbb/formie",
-            "version": "2.0.43",
+            "version": "2.0.44.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/formie/zipball/82d33aef88b0048d6f30268fbb02eccf81110ece",
-                "reference": "82d33aef88b0048d6f30268fbb02eccf81110ece",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/42542dce0f9d41d435fe9937ad0df47d26a6afe0",
+                "reference": "42542dce0f9d41d435fe9937ad0df47d26a6afe0",
                 "shasum": ""
             },
             "require": {
@@ -9054,7 +9071,7 @@
                 "docs": "https://github.com/verbb/formie",
                 "rss": "https://github.com/verbb/formie/commits/v2.atom"
             },
-            "time": "2023-11-25T23:46:43+00:00"
+            "time": "2023-12-12T11:11:57+00:00"
         },
         {
             "name": "verbb/hyper",
@@ -9167,11 +9184,11 @@
         },
         {
             "name": "verbb/navigation",
-            "version": "2.0.22",
+            "version": "2.0.23",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/navigation/zipball/9375bc90c74b005a86a16b7c34cacb6d446115d7",
-                "reference": "9375bc90c74b005a86a16b7c34cacb6d446115d7",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/64893180dfec035817de889fc321b946cb7f4ea6",
+                "reference": "64893180dfec035817de889fc321b946cb7f4ea6",
                 "shasum": ""
             },
             "require": {
@@ -9216,7 +9233,7 @@
                 "docs": "https://github.com/verbb/navigation",
                 "rss": "https://github.com/verbb/navigation/commits/v2.atom"
             },
-            "time": "2023-10-25T00:36:49+00:00"
+            "time": "2023-12-13T10:57:49+00:00"
         },
         {
             "name": "verbb/super-table",
