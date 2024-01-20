@@ -3,7 +3,7 @@
  * Normalize.css and some additional base styles.
  */
 
-/*! tailwindcss v3.3.2 | MIT License | https://tailwindcss.com
+/*! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com
  */
 
 /*
@@ -194,6 +194,10 @@ select,
 textarea {
   font-family: inherit;
   /* 1 */
+  font-feature-settings: inherit;
+  /* 1 */
+  font-variation-settings: inherit;
+  /* 1 */
   font-size: 100%;
   /* 1 */
   font-weight: inherit;
@@ -341,6 +345,14 @@ ul,
 menu {
   list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+/*
+Reset default styling for dialogs.
+*/
+
+dialog {
   padding: 0;
 }
 
@@ -1560,6 +1572,10 @@ picture .lazyloaded {
   height: 2.25rem;
 }
 
+.h-\[675px\] {
+  height: 675px;
+}
+
 .h-auto {
   height: auto;
 }
@@ -1642,6 +1658,10 @@ picture .lazyloaded {
 
 .w-9 {
   width: 2.25rem;
+}
+
+.w-\[1200px\] {
+  width: 1200px;
 }
 
 .w-full {
@@ -2231,6 +2251,10 @@ picture .lazyloaded {
 .text-9xl {
   font-size: clamp(3.65323615365196rem, calc(3.65323615365196rem + ((7.739670527999997 - 3.65323615365196) * ((100vw - 20rem) / (96 - 20)))), 7.739670527999997rem);
   line-height: 1;
+}
+
+.\[text-wrap\:balance\] {
+  text-wrap: balance;
 }
 
 /**

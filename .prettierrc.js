@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   trailingComma: 'all',
   tabWidth: 2,
   semi: true,
@@ -14,8 +14,8 @@ module.exports = {
     },
   ],
   plugins: [
-    './node_modules/prettier-plugin-tailwindcss',
-    './node_modules/prettier-plugin-twig-melody',
+    // './node_modules/prettier-plugin-twig-melody',
+    'prettier-plugin-tailwindcss',
   ],
   tailwindConfig: './tailwind.config.js',
   twigPrintWidth: 120,

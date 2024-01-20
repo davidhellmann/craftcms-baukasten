@@ -106,8 +106,8 @@ Art Direction
 
   {# Focal Point / Title / URL #}
   {% set title = props.data.image.title %}
-  {% if props.data.image.textCustomTitle %}
-    {% set title = props.data.image.textCustomTitle %}
+  {% if props.data.image.textTitleOverwrite %}
+    {% set title = props.data.image.textTitleOverwrite %}
   {% endif %}
 
 
@@ -134,8 +134,8 @@ Art Direction
   {% set caption = null %}
   {% if props.data.caption %}
     {% set caption = {
-      'title': props.data.image.textCustomTitle ??? null,
-      'text': props.data.image.assetCaption ??? null,
+      'title': props.data.image.textTitleOve ??? null,
+      'text': props.data.image.textCaption ??? null,
       'source': props.data.image.textSource ??? null,
       'sourceUrl': props.data.image.textSourceUrl ??? null,
     } %}
@@ -168,7 +168,7 @@ Art Direction
     'transformable': isTranformable,
     'focalpoint': props.data.image.getFocalpoint('asCss') ??? '50% 50%',
     'title': title,
-    'alt': props.data.decorativeImage ? '' : (props.data.image.assetAltText ??? title),
+    'alt': props.data.decorativeImage ? '' : (props.data.image.alt ??? title),
     'aspectRatio': props.data.aspectRatio ??? 'aspect-auto',
     'noscript': "<noscript><img src='#{imageData.url}' alt='#{title}'/></noscript>",
     'transforms': transforms ??? null,

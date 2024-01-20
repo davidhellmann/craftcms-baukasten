@@ -19,18 +19,6 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Image Transform
-            instructions: null
-            label: null
-            required: true
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: b0fb63ad-8f84-4caf-a7b6-c0e44deeae12
-            userCondition: null
-            warning: null
-            width: 50
-          -
-            elementCondition: null
             fieldUid: 9b73b533-898f-4f77-a500-37ea0be0afc7 # Show Image Caption
             instructions: null
             label: null
@@ -38,6 +26,18 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 089ab2ac-9335-40c2-9827-f4dd1baca5dc
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Image Ratio
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b0fb63ad-8f84-4caf-a7b6-c0e44deeae12
             userCondition: null
             warning: null
             width: 50
@@ -66,6 +66,7 @@ fields:
     name: 'Image Width'
     searchable: false
     settings:
+      columnType: string
       options:
         -
           __assoc__:
@@ -157,25 +158,64 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  70bc887b-faf2-45c7-b4bc-4299acd343da: # Image Transform
+  70bc887b-faf2-45c7-b4bc-4299acd343da: # Image Ratio
     columnSuffix: null
-    contentColumnType: string
+    contentColumnType: string(16)
     fieldGroup: null
-    handle: imageTransform
+    handle: imageRatio
     instructions: null
-    name: 'Image Transform'
+    name: 'Image Ratio'
     searchable: false
     settings:
-      cachedOptions: true
-      element: null
-      genError: ''
-      json: ''
-      multi: false
-      template: _super-dynamic-fields/image-transform.json
-      templateData: ''
+      columnType: null
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Landscape
+            -
+              - value
+              - aspect-landscape
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Square
+            -
+              - value
+              - aspect-square
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Portrait
+            -
+              - value
+              - aspect-portrait
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Auto
+            -
+              - value
+              - aspect-auto
+            -
+              - default
+              - ''
     translationKeyFormat: null
     translationMethod: none
-    type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
+    type: craft\fields\Dropdown
 handle: blockImage
 name: Image
 sortOrder: 5

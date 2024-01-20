@@ -29,10 +29,10 @@
 {% if props.data.images ??? null %}
   {% set dynamicData = [] %}
   {% for image in props.data.images %}
-    {% set title = image.textCustomTitle ??? '' %}
+    {% set title = image.textTitleOverwrite ??? '' %}
     {% set caption = '' %}
-    {% if image.assetCaption %}
-      {% set caption = image.assetCaption %}
+    {% if image.textCaption %}
+      {% set caption = image.textCaption %}
     {% endif %}
     {% set dynamicData = dynamicData|merge([{
       "src": image.url,

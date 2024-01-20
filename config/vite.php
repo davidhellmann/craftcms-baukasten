@@ -30,7 +30,7 @@ $isProd = App::env('CRAFT_ENVIRONMENT') === 'production';
 
 return [
     'useDevServer' => $isDev,
-    'manifestPath' => '@webroot/dist/manifest.json',
+    'manifestPath' => '@webroot/dist/.vite/manifest.json',
     'devServerPublic' => App::env('VITE_DEV_SERVER_PUBLIC'),
     'serverPublic' => App::env('SITE_URL') . '/dist/',
     'errorEntry' => 'src/js/app.ts',

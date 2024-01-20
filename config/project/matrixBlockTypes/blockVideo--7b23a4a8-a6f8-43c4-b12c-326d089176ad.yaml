@@ -1,0 +1,196 @@
+field: 74eb36ae-7a26-4e7d-b454-990ec52617f0 # Builder: Content
+fieldLayouts:
+  1abefa28-ba0b-4e7e-be2b-12835562bb01:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 63bd200d-3882-4788-a8ba-528452521d6c # Video Provider
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 61617279-3f13-4142-9007-28c5defd3157
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: e9486b85-fd5e-40c8-851b-a6b0133e1f88 # Video Id
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 209e0b27-694f-492c-8618-f97820ac8a2a
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 3ac3bfdf-e50b-46e3-abb9-cef4bffab4a0 # Autoplay
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 85e4faf3-8c53-4926-9624-5ba7b9cca49b
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 4a25e574-679a-4d01-8e8b-d5927129ce33 # Loop
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ca8a500e-d6df-4d29-b957-9e9f7172facc
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 68109da0-245f-4b21-b040-b7f4385e618e # Video Width
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6b9c294a-c00e-4b45-b0e5-c0ff793155ac
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: bb2df4f8-8532-459f-ae5f-12b9013d58c0
+        userCondition: null
+fields:
+  3ac3bfdf-e50b-46e3-abb9-cef4bffab4a0: # Autoplay
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: autoplay
+    instructions: null
+    name: Autoplay
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  4a25e574-679a-4d01-8e8b-d5927129ce33: # Loop
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: loop
+    instructions: null
+    name: Loop
+    searchable: false
+    settings:
+      default: false
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  63bd200d-3882-4788-a8ba-528452521d6c: # Video Provider
+    columnSuffix: msfzxjxb
+    contentColumnType: string(7)
+    fieldGroup: null
+    handle: videoProvider
+    instructions: null
+    name: 'Video Provider'
+    searchable: false
+    settings:
+      columnType: null
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Youtube
+            -
+              - value
+              - youtube
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Vimeo
+            -
+              - value
+              - vimeo
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  68109da0-245f-4b21-b040-b7f4385e618e: # Video Width
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: videoWidth
+    instructions: null
+    name: 'Video Width'
+    searchable: false
+    settings:
+      columnType: string
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Wide
+            -
+              - value
+              - wide
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Narrow
+            -
+              - value
+              - narrow
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  e9486b85-fd5e-40c8-851b-a6b0133e1f88: # Video Id
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: videoId
+    instructions: null
+    name: 'Video Id'
+    searchable: true
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: false
+      columnType: null
+      initialRows: 4
+      multiline: false
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: blockVideo
+name: Video
+sortOrder: 7

@@ -1,0 +1,52 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockTextImage',
+    block: null,
+    blockNumber: null,
+  },
+  classes: {
+    root: 'container lg:grid lg:grid-cols-24',
+    custom: '',
+    text: 'lg:col-span-12 lg:col-start-7',
+    imageLeft: 'float-left w-2/6 mr-8 mb-4 -ml-24',
+    imageRight: 'float-right w-2/6 ml-8 mb-4 -mr-24',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block.image ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {% set imageVariantClasses = props.classes.imageLeft %}
+
+    {% if props.data.block.imagePosition == 'right' %}
+      {% set imageVariantClasses = props.classes.imageRight %}
+    {% endif %}
+
+    <div class="{{ props.classes.text }}">
+      {{ include('_components/image/image.twig', {
+        data: {
+          image: props.data.block.image[0] ??? null,
+          aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape',
+          caption: props.data.block.showImageCaption ??? 0,
+          lazy: props.data.blockNumber >= 5 ? true : false,
+        },
+        classes: {
+          custom: imageVariantClasses ??? ''
+        }
+      }, withContext = false) }}
+
+
+      {{ include('_components/text/text.twig', {
+        data: {
+          text: props.data.block.text ??? null,
+        }
+      }, withContext = false) }}
+    </div>
+  </div>
+{% endif %}

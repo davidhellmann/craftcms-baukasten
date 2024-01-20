@@ -17,7 +17,7 @@ $groupTextMedia = [
 
 $groupMedia = [
     'label' => 'Media',
-    'types' => ['blockImage', 'blockImageGrid', 'blockImageGridCalculated', 'blockImageGallery', 'blockImageSlider', 'blockVideoYoutube'],
+    'types' => ['blockImage', 'blockImages', 'blockVideoYoutube'],
 ];
 
 $groupMisc = [
@@ -46,31 +46,15 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['image', 'imageTransform', 'showImageCaption', 'imageWidth'],
+                'fields' => ['image', 'imageRatio', 'showImageCaption', 'imageWidth'],
             ]
         ]
     ],
-    'blockImageGrid' => [
+    'blockImages' => [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['images', 'imageTransform', 'imageColumns', 'showImageCaption'],
-            ]
-        ]
-    ],
-    'blockImageGridCalculated' => [
-        'tabs' => [
-            [
-                'label' => 'Content',
-                'fields' => ['images','showImageCaption'],
-            ]
-        ]
-    ],
-    'blockImageSlider' => [
-        'tabs' => [
-            [
-                'label' => 'Content',
-                'fields' => ['images','imageTransform'],
+                'fields' => ['images', 'imageRatio', 'showImageCaption', 'variant'],
             ]
         ]
     ],
@@ -78,7 +62,7 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Text : Image',
-                'fields' => ['text', 'image', 'imageTransform', 'showImageCaption', 'imagePosition'],
+                'fields' => ['text', 'image', 'imageRatio', 'showImageCaption', 'imagePosition'],
             ]
         ]
     ],

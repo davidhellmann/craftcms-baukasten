@@ -1,0 +1,11 @@
+{% extends "_layouts/layout-default.twig" %}
+{% set templatePath = _self ??? '' %}
+
+{% block blockAppContent %}
+  {{ sprig('_components-sprig/paginateNews', {
+    'limit': 12,
+    'section': 'news',
+    'entryUri': entry.uri ??? null,
+    'headline': entry.textTitleOverwrite ??? entry.title ??? null,
+  }) }}
+{% endblock %}

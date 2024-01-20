@@ -3,6 +3,8 @@
  * https://www.viget.com/articles/tips-for-your-tailwind-config/
  * */
 
+/** @type {import('tailwindcss').Config} */
+
 // plugins
 import containerQuerries from '@tailwindcss/container-queries';
 import themeIt from 'tailwindcss-theme-it';
@@ -76,4 +78,4 @@ export default {
       addComponents(components);
     },
   ],
-};
+}

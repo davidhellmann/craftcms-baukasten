@@ -1,5 +1,8 @@
 <?php
 
+# Path to local mysql bin to run mysql commands
+# putenv("PATH={$_SERVER["PATH"]}:/Users/Shared/DBngin/mysql/8.0.27/bin");
+
 use craft\config\GeneralConfig;
 use craft\helpers\App;
 

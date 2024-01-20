@@ -1,4 +1,35 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.13 - 2024.01.20
+
+### added
+- Rollup copy plugin to copy `src/public/*` to `web/dist` on npm run dev (start only). Feel free to extend it to your needs.
+
+### updated
+- (cms): CraftCMS (4.6.1)
+- (plugin): Blitz (4.10.3)
+- (plugin): Super Table (3.0.12)
+- (plugin): Code Field (4.0.12)
+- (plugin): CKEditor (3.6.0)
+- (plugin): ImagerX (4.2.4)
+- (plugin): Sherlock (4.4.1)
+- (plugin): Image Resizer (3.0.9)
+- (plugin): Hyper (1.1.19)
+- (plugin): MatrixMate (2.1.4)
+- (plugin): Formie (2.1.2)
+- (plugin): Navigation (2.0.24)
+- (plugin): SEOmatic (4.0.37)
+- (plugin): Vite (4.0.7)
+- (plugin): Sprig (2.7.3)
+- (npm): all packages to latest versions
+- (vite): 5.0.2
+
+
+### fixed
+- 
+
+### removed
+- prettier twig plugin
+
 ## 4.0.12 - 2023.09.04
 
 ### added
