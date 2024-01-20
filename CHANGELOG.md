@@ -6,7 +6,7 @@
 
 ### updated
 - (cms): CraftCMS (4.6.1)
-- (plugin): Blitz (4.9.3)
+- (plugin): Blitz (4.10.3)
 - (plugin): Super Table (3.0.12)
 - (plugin): Code Field (4.0.11)
 - (plugin): CKEditor (3.6.0)
