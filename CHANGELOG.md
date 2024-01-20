@@ -5,7 +5,7 @@
 - Rollup copy plugin to copy `src/public/*` to `web/dist` on npm run dev (start only). Feel free to extend it to your needs.
 
 ### updated
-- (cms): CraftCMS (4.5.12)
+- (cms): CraftCMS (4.6.1)
 - (plugin): Blitz (4.9.3)
 - (plugin): Super Table (3.0.12)
 - (plugin): Code Field (4.0.11)
