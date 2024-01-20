@@ -15,7 +15,7 @@
 - (plugin): Image Resizer (3.0.8)
 - (plugin): Hyper (1.1.18)
 - (plugin): MatrixMate (2.1.4)
-- (plugin): Formie (2.0.44.1)
+- (plugin): Formie (2.1.2)
 - (plugin): Navigation (2.0.23)
 - (plugin): SEOmatic (4.0.37)
 - (plugin): Vite (4.0.7)
