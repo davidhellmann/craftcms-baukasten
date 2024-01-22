@@ -1,4 +1,16 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 4.0.14 - wip
+
+### added
+- 
+
+### updated
+- (waypoints): Better waypoint target selection
+
+
+### fixed
+- 
+
 ## 4.0.13 - 2024.01.20
 
 ### added

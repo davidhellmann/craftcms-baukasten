@@ -3,6 +3,7 @@ import { IComponent } from '../@types/IComponent';
 interface Settings {
   delay: number;
   staggeringDelay: number;
+  includeHolder: boolean;
   endless: boolean;
 }
 
@@ -15,11 +16,13 @@ interface ICompWaypointObserver extends IComponent {
   settings: {
     delay: number;
     staggeringDelay: number;
+    includeHolder: boolean;
     endless: boolean;
   };
 
   startObserving(el: NodeListOf<HTMLElement>): void;
   setSettings(el: Element): void;
+  findWaypointTargets(el: Element): Array<HTMLElement>;
   getWaypointTargets(el: Element): Array<HTMLElement>;
   handleAnimateClasses(el: Array<HTMLElement>, settings: Settings): void;
 }
@@ -42,11 +45,12 @@ const animateElement = (element: HTMLElement, delay: number): void => {
 const waypointObserver: ICompWaypointObserver = {
   name: 'waypointObserver',
   selectors: {
-    waypointTarget: '[waypoint-target]',
+    waypointTarget: '[waypoint-target]:not([waypoint])',
   },
   settings: {
     delay: 50,
     staggeringDelay: 35,
+    includeHolder: false,
     endless: false,
   },
   observerConfig: {
@@ -105,15 +109,31 @@ const waypointObserver: ICompWaypointObserver = {
     );
 
     this.settings.endless = waypoint.getAttribute('waypoint-endless') === 'true';
+
+    this.settings.includeHolder = waypoint.getAttribute('waypoint-include-holder') === 'true';
+  },
+
+  findWaypointTargets(holder: HTMLElement): Array<HTMLElement> {
+    if (!this.selectors) return [];
+    const allTargets = holder.querySelectorAll<HTMLElement>(this.selectors.waypointTarget);
+
+    return Array.from(allTargets).filter((target) => {
+      return target.closest('[waypoint]') === holder;
+    }) as Array<HTMLElement>;
   },
 
   getWaypointTargets(holder: HTMLElement): Array<HTMLElement> {
     if (!this.selectors) return [];
-    let targets = [...holder.querySelectorAll<HTMLElement>(this.selectors.waypointTarget)];
+    let targets = [...this.findWaypointTargets(holder)];
     const holderIsTarget = holder.hasAttribute('waypoint-target');
-    if (holderIsTarget) {
+    if (holderIsTarget && !this.settings.includeHolder) {
       // Animate the waypoint itself if there is a waypoint-target attribute
       targets = [holder];
+    }
+
+    if (holderIsTarget && this.settings.includeHolder) {
+      // Animate also the holder element with the waypoint-targets
+      targets = [holder, ...targets];
     }
 
     return targets;
