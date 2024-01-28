@@ -1,5 +1,18 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.13 - 2024.01.20
+## 4.0.14 - wip
+
+### added
+- 
+
+### updated
+- (plugin): SEOmatic (4.0.38)
+
+### fixed
+- 
+
+
+### fixed
+- ## 4.0.13 - 2024.01.20
 
 ### added
 - Rollup copy plugin to copy `src/public/*` to `web/dist` on npm run dev (start only). Feel free to extend it to your needs.
