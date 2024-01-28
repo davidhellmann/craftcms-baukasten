@@ -756,11 +756,11 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.296.6",
+            "version": "3.297.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/11d0a94f8b2539d587e2f6db7c2fa8e39fe78a67",
-                "reference": "11d0a94f8b2539d587e2f6db7c2fa8e39fe78a67",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/bbf516a4a88f829f92cc396628be705966880dbd",
+                "reference": "bbf516a4a88f829f92cc396628be705966880dbd",
                 "shasum": ""
             },
             "require": {
@@ -817,7 +817,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2024-01-19T19:14:55+00:00"
+            "time": "2024-01-26T19:09:20+00:00"
         },
         {
             "name": "brick/math",
@@ -2494,15 +2494,16 @@
         },
         {
             "name": "google/cloud-core",
-            "version": "v1.53.1",
+            "version": "v1.54.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-core/zipball/4bb40e0cc1839054ea5010321e1105107a3413ce",
-                "reference": "4bb40e0cc1839054ea5010321e1105107a3413ce",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-core/zipball/cd3f670dbb7f6a5b9b550b0d1b8e5b6ed148fb58",
+                "reference": "cd3f670dbb7f6a5b9b550b0d1b8e5b6ed148fb58",
                 "shasum": ""
             },
             "require": {
                 "google/auth": "^1.34",
+                "google/gax": "^1.26.3",
                 "guzzlehttp/guzzle": "^6.5.8|^7.4.4",
                 "guzzlehttp/promises": "^1.4||^2.0",
                 "guzzlehttp/psr7": "^2.6",
@@ -2536,15 +2537,15 @@
                 "Apache-2.0"
             ],
             "description": "Google Cloud PHP shared dependency, providing functionality useful to all components.",
-            "time": "2024-01-19T15:59:50+00:00"
+            "time": "2024-01-26T20:27:24+00:00"
         },
         {
             "name": "google/cloud-storage",
-            "version": "v1.37.0",
+            "version": "v1.37.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-storage/zipball/48489319d931262def899a5b2337b8e514c39d34",
-                "reference": "48489319d931262def899a5b2337b8e514c39d34",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-storage/zipball/7982d8afc3d0b2fc6b2676b329d05abadc5c2554",
+                "reference": "7982d8afc3d0b2fc6b2676b329d05abadc5c2554",
                 "shasum": ""
             },
             "require": {
@@ -2574,20 +2575,193 @@
                 "Apache-2.0"
             ],
             "description": "Cloud Storage Client for PHP",
-            "time": "2024-01-12T19:18:38+00:00"
+            "time": "2024-01-26T20:27:24+00:00"
+        },
+        {
+            "name": "google/common-protos",
+            "version": "v4.5.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/googleapis/common-protos-php/zipball/dfc232e90823cedca107b56e7371f2e2f35b9427",
+                "reference": "dfc232e90823cedca107b56e7371f2e2f35b9427",
+                "shasum": ""
+            },
+            "require": {
+                "google/protobuf": "^3.6.1",
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Google\\Api\\": "src/Api",
+                    "Google\\Iam\\": "src/Iam",
+                    "Google\\Rpc\\": "src/Rpc",
+                    "Google\\Type\\": "src/Type",
+                    "Google\\Cloud\\": "src/Cloud",
+                    "GPBMetadata\\Google\\Api\\": "metadata/Api",
+                    "GPBMetadata\\Google\\Iam\\": "metadata/Iam",
+                    "GPBMetadata\\Google\\Rpc\\": "metadata/Rpc",
+                    "GPBMetadata\\Google\\Type\\": "metadata/Type",
+                    "GPBMetadata\\Google\\Cloud\\": "metadata/Cloud",
+                    "GPBMetadata\\Google\\Logging\\": "metadata/Logging"
+                }
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Google API Common Protos for PHP",
+            "homepage": "https://github.com/googleapis/common-protos-php",
+            "keywords": [
+                "google"
+            ],
+            "time": "2023-11-29T21:08:16+00:00"
+        },
+        {
+            "name": "google/gax",
+            "version": "v1.26.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/b7c782dcc40957ad84c9da947cc201f42e97859e",
+                "reference": "b7c782dcc40957ad84c9da947cc201f42e97859e",
+                "shasum": ""
+            },
+            "require": {
+                "google/auth": "^1.34.0",
+                "google/common-protos": "^4.4",
+                "google/grpc-gcp": "^0.2||^0.3",
+                "google/longrunning": "~0.2",
+                "google/protobuf": "^3.22",
+                "grpc/grpc": "^1.13",
+                "guzzlehttp/promises": "^1.4||^2.0",
+                "guzzlehttp/psr7": "^2.0",
+                "php": ">=7.4"
+            },
+            "conflict": {
+                "ext-protobuf": "<3.7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Google\\ApiCore\\": "src",
+                    "GPBMetadata\\ApiCore\\": "metadata/ApiCore"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Google API Core for PHP",
+            "homepage": "https://github.com/googleapis/gax-php",
+            "keywords": [
+                "google"
+            ],
+            "time": "2024-01-18T20:24:45+00:00"
+        },
+        {
+            "name": "google/grpc-gcp",
+            "version": "v0.3.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GoogleCloudPlatform/grpc-gcp-php/zipball/4d8b455a45a89f57e1552cadc41a43bc34c40456",
+                "reference": "4d8b455a45a89f57e1552cadc41a43bc34c40456",
+                "shasum": ""
+            },
+            "require": {
+                "google/auth": "^1.3",
+                "google/protobuf": "^v3.3.0",
+                "grpc/grpc": "^v1.13.0",
+                "php": "^7.4||^8.0",
+                "psr/cache": "^1.0.1||^2.0.0||^3.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Grpc\\Gcp\\": "src/"
+                },
+                "classmap": [
+                    "src/generated/"
+                ]
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "gRPC GCP library for channel management",
+            "time": "2023-04-24T14:37:29+00:00"
+        },
+        {
+            "name": "google/longrunning",
+            "version": "0.3.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/googleapis/php-longrunning/zipball/c21cb8f8794f724ca672dad94bf7d406e62476b9",
+                "reference": "c21cb8f8794f724ca672dad94bf7d406e62476b9",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "component": {
+                    "id": "longrunning",
+                    "path": "LongRunning",
+                    "entry": null,
+                    "target": "googleapis/php-longrunning"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Google\\LongRunning\\": "src/LongRunning",
+                    "Google\\ApiCore\\LongRunning\\": "src/ApiCore/LongRunning",
+                    "GPBMetadata\\Google\\Longrunning\\": "metadata/Longrunning"
+                }
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Google LongRunning Client for PHP",
+            "time": "2024-01-05T17:46:51+00:00"
+        },
+        {
+            "name": "google/protobuf",
+            "version": "v3.25.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/83ea4c147718666ce6a9b9332ac2aa588c9211eb",
+                "reference": "83ea4c147718666ce6a9b9332ac2aa588c9211eb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "suggest": {
+                "ext-bcmath": "Need to support JSON deserialization"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Google\\Protobuf\\": "src/Google/Protobuf",
+                    "GPBMetadata\\Google\\Protobuf\\": "src/GPBMetadata/Google/Protobuf"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "proto library for PHP",
+            "homepage": "https://developers.google.com/protocol-buffers/",
+            "keywords": [
+                "proto"
+            ],
+            "time": "2024-01-09T22:12:32+00:00"
         },
         {
             "name": "graham-campbell/result-type",
-            "version": "v1.1.1",
+            "version": "v1.1.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/672eff8cf1d6fe1ef09ca0f89c4b287d6a3eb831",
-                "reference": "672eff8cf1d6fe1ef09ca0f89c4b287d6a3eb831",
+                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/fbd48bce38f73f8a4ec8583362e732e4095e5862",
+                "reference": "fbd48bce38f73f8a4ec8583362e732e4095e5862",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2.5 || ^8.0",
-                "phpoption/phpoption": "^1.9.1"
+                "phpoption/phpoption": "^1.9.2"
             },
             "type": "library",
             "autoload": {
@@ -2613,7 +2787,39 @@
                 "Result-Type",
                 "result"
             ],
-            "time": "2023-02-25T20:23:15+00:00"
+            "time": "2023-11-12T22:16:48+00:00"
+        },
+        {
+            "name": "grpc/grpc",
+            "version": "1.57.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/grpc/grpc-php/zipball/b610c42022ed3a22f831439cb93802f2a4502fdf",
+                "reference": "b610c42022ed3a22f831439cb93802f2a4502fdf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "suggest": {
+                "ext-protobuf": "For better performance, install the protobuf C extension.",
+                "google/protobuf": "To get started using grpc quickly, install the native protobuf library."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Grpc\\": "src/lib/"
+                }
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "gRPC library for PHP",
+            "homepage": "https://grpc.io",
+            "keywords": [
+                "rpc"
+            ],
+            "time": "2023-08-14T23:57:54+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -3421,11 +3627,11 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.17.0",
+            "version": "3.23.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/bd4c9b26849d82364119c68429541f1631fba94b",
-                "reference": "bd4c9b26849d82364119c68429541f1631fba94b",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/199e1aebbe3e62bd39f4d4fc8c61ce0b3786197e",
+                "reference": "199e1aebbe3e62bd39f4d4fc8c61ce0b3786197e",
                 "shasum": ""
             },
             "require": {
@@ -3471,15 +3677,15 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2023-10-05T20:15:05+00:00"
+            "time": "2024-01-26T18:42:03+00:00"
         },
         {
             "name": "league/flysystem-local",
-            "version": "3.16.0",
+            "version": "3.23.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-local/zipball/ec7383f25642e6fd4bb0c9554fc2311245391781",
-                "reference": "ec7383f25642e6fd4bb0c9554fc2311245391781",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-local/zipball/b884d2bf9b53bb4804a56d2df4902bb51e253f00",
+                "reference": "b884d2bf9b53bb4804a56d2df4902bb51e253f00",
                 "shasum": ""
             },
             "require": {
@@ -3511,7 +3717,7 @@
                 "filesystem",
                 "local"
             ],
-            "time": "2023-08-30T10:23:59+00:00"
+            "time": "2024-01-26T18:25:23+00:00"
         },
         {
             "name": "league/glide",
@@ -6669,16 +6875,16 @@
         },
         {
             "name": "spatie/browsershot",
-            "version": "3.59.0",
+            "version": "3.61.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/browsershot.git",
-                "reference": "1b74e71fdd1c30fa1de45465bacc1cf5dc852881"
+                "reference": "14d75679390b8b84a71b3a17dc5905928deeb887"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/browsershot/zipball/1b74e71fdd1c30fa1de45465bacc1cf5dc852881",
-                "reference": "1b74e71fdd1c30fa1de45465bacc1cf5dc852881",
+                "url": "https://api.github.com/repos/spatie/browsershot/zipball/14d75679390b8b84a71b3a17dc5905928deeb887",
+                "reference": "14d75679390b8b84a71b3a17dc5905928deeb887",
                 "shasum": ""
             },
             "require": {
@@ -6686,7 +6892,7 @@
                 "php": "^8.0",
                 "spatie/image": "^1.5.3|^2.0",
                 "spatie/temporary-directory": "^1.1|^2.0",
-                "symfony/process": "^4.2|^5.0|^6.0"
+                "symfony/process": "^4.2|^5.0|^6.0|^7.0"
             },
             "require-dev": {
                 "pestphp/pest": "^1.20",
@@ -6723,7 +6929,7 @@
                 "webpage"
             ],
             "support": {
-                "source": "https://github.com/spatie/browsershot/tree/3.59.0"
+                "source": "https://github.com/spatie/browsershot/tree/3.61.0"
             },
             "funding": [
                 {
@@ -6731,7 +6937,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-09T12:59:37+00:00"
+            "time": "2023-12-21T10:00:28+00:00"
         },
         {
             "name": "spatie/image",
@@ -6804,28 +7010,28 @@
         },
         {
             "name": "spatie/image-optimizer",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image-optimizer.git",
-                "reference": "af179994e2d2413e4b3ba2d348d06b4eaddbeb30"
+                "reference": "62f7463483d1bd975f6f06025d89d42a29608fe1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image-optimizer/zipball/af179994e2d2413e4b3ba2d348d06b4eaddbeb30",
-                "reference": "af179994e2d2413e4b3ba2d348d06b4eaddbeb30",
+                "url": "https://api.github.com/repos/spatie/image-optimizer/zipball/62f7463483d1bd975f6f06025d89d42a29608fe1",
+                "reference": "62f7463483d1bd975f6f06025d89d42a29608fe1",
                 "shasum": ""
             },
             "require": {
                 "ext-fileinfo": "*",
                 "php": "^7.3|^8.0",
                 "psr/log": "^1.0 | ^2.0 | ^3.0",
-                "symfony/process": "^4.2|^5.0|^6.0"
+                "symfony/process": "^4.2|^5.0|^6.0|^7.0"
             },
             "require-dev": {
                 "pestphp/pest": "^1.21",
                 "phpunit/phpunit": "^8.5.21|^9.4.4",
-                "symfony/var-dumper": "^4.2|^5.0|^6.0"
+                "symfony/var-dumper": "^4.2|^5.0|^6.0|^7.0"
             },
             "type": "library",
             "autoload": {
@@ -6853,17 +7059,17 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/image-optimizer/issues",
-                "source": "https://github.com/spatie/image-optimizer/tree/1.7.1"
+                "source": "https://github.com/spatie/image-optimizer/tree/1.7.2"
             },
-            "time": "2023-07-27T07:57:32+00:00"
+            "time": "2023-11-03T10:08:02+00:00"
         },
         {
             "name": "spatie/temporary-directory",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/temporary-directory/zipball/efc258c9f4da28f0c7661765b8393e4ccee3d19c",
-                "reference": "efc258c9f4da28f0c7661765b8393e4ccee3d19c",
+                "url": "https://api.github.com/repos/spatie/temporary-directory/zipball/76949fa18f8e1a7f663fd2eaa1d00e0bcea0752a",
+                "reference": "76949fa18f8e1a7f663fd2eaa1d00e0bcea0752a",
                 "shasum": ""
             },
             "require": {
@@ -6893,7 +7099,7 @@
                 "spatie",
                 "temporary-directory"
             ],
-            "time": "2023-09-25T07:13:36+00:00"
+            "time": "2023-12-25T11:46:58+00:00"
         },
         {
             "name": "ssnepenthe/color-utils",
@@ -9242,21 +9448,21 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v5.5.0",
+            "version": "v5.6.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1a7ea2afc49c3ee6d87061f5a233e3a035d0eae7",
-                "reference": "1a7ea2afc49c3ee6d87061f5a233e3a035d0eae7",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/2cf9fb6054c2bb1d59d1f3817706ecdb9d2934c4",
+                "reference": "2cf9fb6054c2bb1d59d1f3817706ecdb9d2934c4",
                 "shasum": ""
             },
             "require": {
                 "ext-pcre": "*",
-                "graham-campbell/result-type": "^1.0.2",
-                "php": "^7.1.3 || ^8.0",
-                "phpoption/phpoption": "^1.8",
-                "symfony/polyfill-ctype": "^1.23",
-                "symfony/polyfill-mbstring": "^1.23.1",
-                "symfony/polyfill-php80": "^1.23.1"
+                "graham-campbell/result-type": "^1.1.2",
+                "php": "^7.2.5 || ^8.0",
+                "phpoption/phpoption": "^1.9.2",
+                "symfony/polyfill-ctype": "^1.24",
+                "symfony/polyfill-mbstring": "^1.24",
+                "symfony/polyfill-php80": "^1.24"
             },
             "suggest": {
                 "ext-filter": "Required to use the boolean validator."
@@ -9268,7 +9474,7 @@
                     "forward-command": true
                 },
                 "branch-alias": {
-                    "dev-master": "5.5-dev"
+                    "dev-master": "5.6-dev"
                 }
             },
             "autoload": {
@@ -9297,7 +9503,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2022-10-16T01:01:54+00:00"
+            "time": "2023-11-12T22:43:29+00:00"
         },
         {
             "name": "voku/anti-xss",
@@ -10186,11 +10392,11 @@
         },
         {
             "name": "nette/php-generator",
-            "version": "v4.1.1",
+            "version": "v4.1.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/php-generator/zipball/d915b7fa643cd0cf6ffe306c25ac5c3db24914a4",
-                "reference": "d915b7fa643cd0cf6ffe306c25ac5c3db24914a4",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/08ab9bff22ae34fe4e1d2fe8ba16b3770ea2459f",
+                "reference": "08ab9bff22ae34fe4e1d2fe8ba16b3770ea2459f",
                 "shasum": ""
             },
             "require": {
@@ -10234,15 +10440,15 @@
                 "php",
                 "scaffolding"
             ],
-            "time": "2023-10-17T08:36:10+00:00"
+            "time": "2024-01-18T17:44:20+00:00"
         },
         {
             "name": "nette/utils",
-            "version": "v4.0.2",
+            "version": "v4.0.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/cead6637226456b35e1175cc53797dd585d85545",
-                "reference": "cead6637226456b35e1175cc53797dd585d85545",
+                "url": "https://api.github.com/repos/nette/utils/zipball/d3ad0aa3b9f934602cb3e3902ebccf10be34d218",
+                "reference": "d3ad0aa3b9f934602cb3e3902ebccf10be34d218",
                 "shasum": ""
             },
             "require": {
@@ -10304,15 +10510,15 @@
                 "utility",
                 "validation"
             ],
-            "time": "2023-09-19T11:58:07+00:00"
+            "time": "2024-01-17T16:50:36+00:00"
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.17.1",
+            "version": "v4.18.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/a6303e50c90c355c7eeee2c4a8b27fe8dc8fef1d",
-                "reference": "a6303e50c90c355c7eeee2c4a8b27fe8dc8fef1d",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/1bcbb2179f97633e98bbbc87044ee2611c7d7999",
+                "reference": "1bcbb2179f97633e98bbbc87044ee2611c7d7999",
                 "shasum": ""
             },
             "require": {
@@ -10346,24 +10552,24 @@
                 "parser",
                 "php"
             ],
-            "time": "2023-08-13T19:53:39+00:00"
+            "time": "2023-12-10T21:03:43+00:00"
         },
         {
             "name": "nystudio107/craft-autocomplete",
-            "version": "1.11.1",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nystudio107/craft-autocomplete.git",
-                "reference": "72f192858dba23f5f94e1e9abe5ae0049c55a916"
+                "reference": "13d432970963cb7825bcb929bb7704c21bdac51f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-autocomplete/zipball/72f192858dba23f5f94e1e9abe5ae0049c55a916",
-                "reference": "72f192858dba23f5f94e1e9abe5ae0049c55a916",
+                "url": "https://api.github.com/repos/nystudio107/craft-autocomplete/zipball/13d432970963cb7825bcb929bb7704c21bdac51f",
+                "reference": "13d432970963cb7825bcb929bb7704c21bdac51f",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.0.0 || ^4.0.0-alpha"
+                "craftcms/cms": "^3.0.0 || ^4.0.0 || ^5.0.0-alpha.1"
             },
             "type": "yii2-extension",
             "extra": {
@@ -10410,15 +10616,15 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-07-03T21:51:43+00:00"
+            "time": "2024-01-26T02:03:40+00:00"
         },
         {
             "name": "psy/psysh",
-            "version": "v0.11.21",
+            "version": "v0.11.22",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/bcb22101107f3bf770523b65630c9d547f60c540",
-                "reference": "bcb22101107f3bf770523b65630c9d547f60c540",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/128fa1b608be651999ed9789c95e6e2a31b5802b",
+                "reference": "128fa1b608be651999ed9789c95e6e2a31b5802b",
                 "shasum": ""
             },
             "require": {
@@ -10444,7 +10650,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "0.11.x-dev"
+                    "dev-0.11": "0.11.x-dev"
                 },
                 "bamarni-bin": {
                     "bin-links": false,
@@ -10477,7 +10683,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2023-09-17T21:15:54+00:00"
+            "time": "2023-10-14T21:56:36+00:00"
         },
         {
             "name": "roave/security-advisories",
@@ -10485,20 +10691,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "a4a221e6b171fe5eadf48e21ad8247304738bcd5"
+                "reference": "cea5a32b418b44dc5a480049f531f53563c26210"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/a4a221e6b171fe5eadf48e21ad8247304738bcd5",
-                "reference": "a4a221e6b171fe5eadf48e21ad8247304738bcd5",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/cea5a32b418b44dc5a480049f531f53563c26210",
+                "reference": "cea5a32b418b44dc5a480049f531f53563c26210",
                 "shasum": ""
             },
             "conflict": {
                 "3f/pygmentize": "<1.2",
-                "admidio/admidio": "<4.2.11",
+                "admidio/admidio": "<4.2.13",
                 "adodb/adodb-php": "<=5.20.20|>=5.21,<=5.21.3",
                 "aheinze/cockpit": "<2.2",
                 "aimeos/aimeos-typo3": "<19.10.12|>=20,<20.10.5",
+                "airesvsg/acf-to-rest-api": "<=3.1",
                 "akaunting/akaunting": "<2.1.13",
                 "akeneo/pim-community-dev": "<5.0.119|>=6,<6.0.53",
                 "alextselegidis/easyappointments": "<1.5",
@@ -10521,22 +10728,23 @@
                 "athlon1600/php-proxy": "<=5.1",
                 "athlon1600/php-proxy-app": "<=3",
                 "austintoddj/canvas": "<=3.4.2",
-                "automad/automad": "<1.8",
+                "automad/automad": "<=1.10.9",
                 "awesome-support/awesome-support": "<=6.0.7",
-                "aws/aws-sdk-php": ">=3,<3.2.1",
+                "aws/aws-sdk-php": "<3.288.1",
                 "azuracast/azuracast": "<0.18.3",
                 "backdrop/backdrop": "<1.24.2",
                 "backpack/crud": "<3.4.9",
+                "bacula-web/bacula-web": "<8.0.0.0-RC2-dev",
                 "badaso/core": "<2.7",
-                "bagisto/bagisto": "<0.1.5",
+                "bagisto/bagisto": "<1.3.2",
                 "barrelstrength/sprout-base-email": "<1.2.7",
                 "barrelstrength/sprout-forms": "<3.9",
                 "barryvdh/laravel-translation-manager": "<0.6.2",
                 "barzahlen/barzahlen-php": "<2.0.1",
-                "baserproject/basercms": "<4.7.5",
+                "baserproject/basercms": "<4.8",
                 "bassjobsen/bootstrap-3-typeahead": ">4.0.2",
                 "bigfork/silverstripe-form-capture": ">=3,<3.1.1",
-                "billz/raspap-webgui": "<=2.9.2",
+                "billz/raspap-webgui": "<2.9.5",
                 "bk2k/bootstrap-package": ">=7.1,<7.1.2|>=8,<8.0.8|>=9,<9.0.4|>=9.1,<9.1.3|>=10,<10.0.10|>=11,<11.0.3",
                 "bmarshall511/wordpress_zero_spam": "<5.2.13",
                 "bolt/bolt": "<3.7.2",
@@ -10562,14 +10770,15 @@
                 "cesnet/simplesamlphp-module-proxystatistics": "<3.1",
                 "chriskacerguis/codeigniter-restserver": "<=2.7.1",
                 "civicrm/civicrm-core": ">=4.2,<4.2.9|>=4.3,<4.3.3",
+                "ckeditor/ckeditor": "<4.17",
                 "cockpit-hq/cockpit": "<=2.6.3",
                 "codeception/codeception": "<3.1.3|>=4,<4.1.22",
                 "codeigniter/framework": "<3.1.9",
-                "codeigniter4/framework": "<4.3.5",
-                "codeigniter4/shield": "<1.0.0.0-beta4",
+                "codeigniter4/framework": "<=4.4.2",
+                "codeigniter4/shield": "<1.0.0.0-beta8",
                 "codiad/codiad": "<=2.8.4",
-                "composer/composer": "<1.10.26|>=2,<2.2.12|>=2.3,<2.3.5",
-                "concrete5/concrete5": "<9.2",
+                "composer/composer": "<1.10.27|>=2,<2.2.22|>=2.3,<2.6.4",
+                "concrete5/concrete5": "<9.2.3",
                 "concrete5/core": "<8.5.8|>=9,<9.1",
                 "contao-components/mediaelement": ">=2.14.2,<2.21.1",
                 "contao/contao": ">=4,<4.4.56|>=4.5,<4.9.40|>=4.10,<4.11.7|>=4.13,<4.13.21|>=5.1,<5.1.4",
@@ -10577,8 +10786,9 @@
                 "contao/core-bundle": "<4.9.42|>=4.10,<4.13.28|>=5,<5.1.10",
                 "contao/listing-bundle": ">=4,<4.4.8",
                 "contao/managed-edition": "<=1.5",
+                "corveda/phpsandbox": "<1.3.5",
                 "cosenary/instagram": "<=2.3",
-                "craftcms/cms": "<=4.4.14",
+                "craftcms/cms": "<=4.5.10",
                 "croogo/croogo": "<4",
                 "cuyz/valinor": "<0.12",
                 "czproject/git-php": "<4.0.3",
@@ -10591,30 +10801,35 @@
                 "derhansen/fe_change_pwd": "<2.0.5|>=3,<3.0.3",
                 "derhansen/sf_event_mgt": "<4.3.1|>=5,<5.1.1",
                 "desperado/xml-bundle": "<=0.1.7",
-                "directmailteam/direct-mail": "<5.2.4",
-                "doctrine/annotations": ">=1,<1.2.7",
-                "doctrine/cache": ">=1,<1.3.2|>=1.4,<1.4.2",
-                "doctrine/common": ">=2,<2.4.3|>=2.5,<2.5.1",
+                "directmailteam/direct-mail": "<6.0.3|>=7,<7.0.3|>=8,<9.5.2",
+                "doctrine/annotations": "<1.2.7",
+                "doctrine/cache": "<1.3.2|>=1.4,<1.4.2",
+                "doctrine/common": "<2.4.3|>=2.5,<2.5.1",
                 "doctrine/dbal": ">=2,<2.0.8|>=2.1,<2.1.2|>=3,<3.1.4",
                 "doctrine/doctrine-bundle": "<1.5.2",
                 "doctrine/doctrine-module": "<=0.7.1",
-                "doctrine/mongodb-odm": ">=1,<1.0.2",
-                "doctrine/mongodb-odm-bundle": ">=2,<3.0.1",
+                "doctrine/mongodb-odm": "<1.0.2",
+                "doctrine/mongodb-odm-bundle": "<3.0.1",
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1|>=2.8.3,<2.8.4",
-                "dolibarr/dolibarr": "<17.0.1",
-                "dompdf/dompdf": "<2.0.2|==2.0.2",
-                "drupal/core": "<9.4.14|>=9.5,<9.5.8|>=10,<10.0.8",
+                "dolibarr/dolibarr": "<18.0.2",
+                "dompdf/dompdf": "<2.0.4",
+                "doublethreedigital/guest-entries": "<3.1.2",
+                "drupal/core": "<9.5.11|>=10,<10.0.11|>=10.1,<10.1.4",
                 "drupal/drupal": ">=6,<6.38|>=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
+                "duncanmcclean/guest-entries": "<3.1.2",
                 "dweeves/magmi": "<=0.7.24",
+                "ec-cube/ec-cube": "<2.4.4",
                 "ecodev/newsletter": "<=4",
                 "ectouch/ectouch": "<=2.7.2",
                 "elefant/cms": "<2.0.7",
                 "elgg/elgg": "<3.3.24|>=4,<4.0.5",
+                "elijaa/phpmemcacheadmin": "<=1.3",
                 "encore/laravel-admin": "<=1.8.19",
                 "endroid/qr-code-bundle": "<3.4.2",
                 "enshrined/svg-sanitize": "<0.15",
                 "erusev/parsedown": "<1.7.2",
                 "ether/logs": "<3.0.4",
+                "evolutioncms/evolution": "<=3.2.3",
                 "exceedone/exment": "<4.4.3|>=5,<5.0.3",
                 "exceedone/laravel-admin": "<2.2.3|==3",
                 "ezsystems/demobundle": ">=5.4,<5.4.6.1-dev",
@@ -10625,11 +10840,12 @@
                 "ezsystems/ezplatform-admin-ui": ">=1.3,<1.3.5|>=1.4,<1.4.6|>=1.5,<1.5.29|>=2.3,<2.3.26",
                 "ezsystems/ezplatform-admin-ui-assets": ">=4,<4.2.1|>=5,<5.0.1|>=5.1,<5.1.1",
                 "ezsystems/ezplatform-graphql": ">=1.0.0.0-RC1-dev,<1.0.13|>=2.0.0.0-beta1,<2.3.12",
-                "ezsystems/ezplatform-kernel": "<1.2.5.1-dev|>=1.3,<1.3.26",
+                "ezsystems/ezplatform-kernel": "<1.2.5.1-dev|>=1.3,<1.3.34",
                 "ezsystems/ezplatform-rest": ">=1.2,<=1.2.2|>=1.3,<1.3.8",
                 "ezsystems/ezplatform-richtext": ">=2.3,<2.3.7.1-dev",
+                "ezsystems/ezplatform-solr-search-engine": ">=1.7,<1.7.12|>=2,<2.0.2|>=3.3,<3.3.15",
                 "ezsystems/ezplatform-user": ">=1,<1.0.1",
-                "ezsystems/ezpublish-kernel": "<6.13.8.2-dev|>=7,<7.5.30",
+                "ezsystems/ezpublish-kernel": "<6.13.8.2-dev|>=7,<7.5.31",
                 "ezsystems/ezpublish-legacy": "<=2017.12.7.3|>=2018.06,<=2019.03.5.1",
                 "ezsystems/platform-ui-assets-bundle": ">=4.2,<4.2.3",
                 "ezsystems/repository-forms": ">=2.3,<2.3.2.1-dev|>=2.5,<2.5.15",
@@ -10643,14 +10859,16 @@
                 "firebase/php-jwt": "<6",
                 "fixpunkt/fp-masterquiz": "<2.2.1|>=3,<3.5.2",
                 "fixpunkt/fp-newsletter": "<1.1.1|>=2,<2.1.2|>=2.2,<3.2.6",
-                "flarum/core": "<1.8",
-                "flarum/framework": "<1.8",
+                "flarum/core": "<1.8.5",
+                "flarum/framework": "<1.8.5",
                 "flarum/mentions": "<1.6.3",
                 "flarum/sticky": ">=0.1.0.0-beta14,<=0.1.0.0-beta15",
                 "flarum/tags": "<=0.1.0.0-beta13",
+                "floriangaerber/magnesium": "<0.3.1",
                 "fluidtypo3/vhs": "<5.1.1",
                 "fof/byobu": ">=0.3.0.0-beta2,<1.1.7",
                 "fof/upload": "<1.2.3",
+                "foodcoopshop/foodcoopshop": ">=3.2,<3.6.1",
                 "fooman/tcpdf": "<6.2.22",
                 "forkcms/forkcms": "<5.11.1",
                 "fossar/tcpdf-parser": "<6.2.22",
@@ -10662,7 +10880,7 @@
                 "friendsoftypo3/mediace": ">=7.6.2,<7.6.5",
                 "friendsoftypo3/openid": ">=4.5,<4.5.31|>=4.7,<4.7.16|>=6,<6.0.11|>=6.1,<6.1.6",
                 "froala/wysiwyg-editor": "<3.2.7|>=4.0.1,<=4.1.1",
-                "froxlor/froxlor": "<2.1",
+                "froxlor/froxlor": "<=2.1.1",
                 "fuel/core": "<1.8.1",
                 "funadmin/funadmin": "<=3.2|>=3.3.2,<=3.3.3",
                 "gaoming13/wechat-php-sdk": "<=1.10.2",
@@ -10672,15 +10890,16 @@
                 "getkirby/kirby": "<=2.5.12",
                 "getkirby/panel": "<2.5.14",
                 "getkirby/starterkit": "<=3.7.0.2",
-                "gilacms/gila": "<=1.11.4",
-                "gleez/cms": "<=1.2",
+                "gilacms/gila": "<=1.15.4",
+                "gleez/cms": "<=1.2|==2",
                 "globalpayments/php-sdk": "<2",
                 "gogentooss/samlbase": "<1.2.7",
                 "google/protobuf": "<3.15",
                 "gos/web-socket-bundle": "<1.10.4|>=2,<2.6.1|>=3,<3.3",
                 "gree/jose": "<2.2.1",
                 "gregwar/rst": "<1.0.3",
-                "grumpydictator/firefly-iii": "<6",
+                "grumpydictator/firefly-iii": "<6.1.1",
+                "gugoan/economizzer": "<=0.9.0.0-beta1",
                 "guzzlehttp/guzzle": "<6.5.8|>=7,<7.4.5",
                 "guzzlehttp/psr7": "<1.9.1|>=2,<2.4.5",
                 "haffner/jh_captcha": "<=2.1.3|>=3,<=3.0.2",
@@ -10694,9 +10913,10 @@
                 "httpsoft/http-message": "<1.0.12",
                 "hyn/multi-tenant": ">=5.6,<5.7.2",
                 "ibexa/admin-ui": ">=4.2,<4.2.3",
-                "ibexa/core": ">=4,<4.0.7|>=4.1,<4.1.4|>=4.2,<4.2.3",
+                "ibexa/core": ">=4,<4.0.7|>=4.1,<4.1.4|>=4.2,<4.2.3|>=4.5,<4.5.4",
                 "ibexa/graphql": ">=2.5,<2.5.31|>=3.3,<3.3.28|>=4.2,<4.2.3",
                 "ibexa/post-install": "<=1.0.4",
+                "ibexa/solr": ">=4.5,<4.5.4",
                 "ibexa/user": ">=4,<4.4.3",
                 "icecoder/icecoder": "<=8.1",
                 "idno/known": "<=1.3.1",
@@ -10706,11 +10926,12 @@
                 "illuminate/encryption": ">=4,<=4.0.11|>=4.1,<=4.1.31|>=4.2,<=4.2.22|>=5,<=5.0.35|>=5.1,<=5.1.46|>=5.2,<=5.2.45|>=5.3,<=5.3.31|>=5.4,<=5.4.36|>=5.5,<5.5.40|>=5.6,<5.6.15",
                 "illuminate/view": "<6.20.42|>=7,<7.30.6|>=8,<8.75",
                 "impresscms/impresscms": "<=1.4.5",
-                "in2code/femanager": "<5.5.3|>=6,<6.3.4|>=7,<7.1",
+                "impresspages/impresspages": "<=1.0.12",
+                "in2code/femanager": "<5.5.3|>=6,<6.3.4|>=7,<7.2.3",
                 "in2code/ipandlanguageredirect": "<5.1.2",
                 "in2code/lux": "<17.6.1|>=18,<24.0.2",
                 "innologi/typo3-appointments": "<2.0.6",
-                "intelliants/subrion": "<=4.2.1",
+                "intelliants/subrion": "<4.2.2",
                 "islandora/islandora": ">=2,<2.4.1",
                 "ivankristianto/phpwhois": "<=4.3",
                 "jackalope/jackalope-doctrine-dbal": "<1.7.4",
@@ -10718,21 +10939,23 @@
                 "james-heinrich/phpthumb": "<1.7.12",
                 "jasig/phpcas": "<1.3.3",
                 "jcbrand/converse.js": "<3.3.3",
+                "joomla/application": "<1.0.13",
                 "joomla/archive": "<1.1.12|>=2,<2.0.1",
                 "joomla/filesystem": "<1.6.2|>=2,<2.0.1",
                 "joomla/filter": "<1.4.4|>=2,<2.0.1",
                 "joomla/framework": ">=2.5.4,<=3.8.12",
                 "joomla/input": ">=2,<2.0.2",
-                "joomla/joomla-cms": "<3.9.12",
+                "joomla/joomla-cms": ">=2.5,<3.9.12",
                 "joomla/session": "<1.3.1",
                 "joyqi/hyper-down": "<=2.4.27",
                 "jsdecena/laracom": "<2.0.9",
                 "jsmitty12/phpwhois": "<5.1",
+                "juzaweb/cms": "<=3.4",
                 "kazist/phpwhois": "<=4.2.6",
                 "kelvinmo/simplexrd": "<3.1.1",
                 "kevinpapst/kimai2": "<1.16.7",
                 "khodakhah/nodcms": "<=3",
-                "kimai/kimai": "<1.1",
+                "kimai/kimai": "<2.1",
                 "kitodo/presentation": "<3.2.3|>=3.3,<3.3.4",
                 "klaviyo/magento2-extension": ">=1,<3",
                 "knplabs/knp-snappy": "<=1.4.2",
@@ -10761,23 +10984,30 @@
                 "lms/routes": "<2.1.1",
                 "localizationteam/l10nmgr": "<7.4|>=8,<8.7|>=9,<9.2",
                 "luyadev/yii-helpers": "<1.2.1",
-                "magento/community-edition": "<=2.4",
+                "magento/community-edition": "<2.4.3.0-patch3|>=2.4.4,<2.4.5",
+                "magento/core": "<=1.9.4.5",
                 "magento/magento1ce": "<1.9.4.3-dev",
                 "magento/magento1ee": ">=1,<1.14.4.3-dev",
                 "magento/product-community-edition": ">=2,<2.2.10|>=2.3,<2.3.2.0-patch2",
+                "magneto/core": "<1.9.4.4-dev",
                 "maikuolan/phpmussel": ">=1,<1.6",
-                "mantisbt/mantisbt": "<=2.25.5",
+                "mainwp/mainwp": "<=4.4.3.3",
+                "mantisbt/mantisbt": "<=2.25.7",
                 "marcwillmann/turn": "<0.3.3",
                 "matyhtf/framework": "<3.0.6",
                 "mautic/core": "<4.3",
                 "mediawiki/core": ">=1.27,<1.27.6|>=1.29,<1.29.3|>=1.30,<1.30.2|>=1.31,<1.31.9|>=1.32,<1.32.6|>=1.32.99,<1.33.3|>=1.33.99,<1.34.3|>=1.34.99,<1.35",
                 "mediawiki/matomo": "<2.4.3",
+                "mediawiki/semantic-media-wiki": "<4.0.2",
                 "melisplatform/melis-asset-manager": "<5.0.1",
                 "melisplatform/melis-cms": "<5.0.1",
                 "melisplatform/melis-front": "<5.0.1",
                 "mezzio/mezzio-swoole": "<3.7|>=4,<4.3",
                 "mgallegos/laravel-jqgrid": "<=1.3",
-                "microweber/microweber": "<=1.3.4",
+                "microsoft/microsoft-graph": ">=1.16,<1.109.1|>=2.0.0.0-RC1-dev,<2.0.1",
+                "microsoft/microsoft-graph-beta": "<2.0.1",
+                "microsoft/microsoft-graph-core": "<2.0.2",
+                "microweber/microweber": "<=2.0.4",
                 "miniorange/miniorange-saml": "<1.4.3",
                 "mittwald/typo3_forum": "<1.2.1",
                 "mobiledetect/mobiledetectlib": "<2.8.32",
@@ -10785,21 +11015,27 @@
                 "mojo42/jirafeau": "<4.4",
                 "mongodb/mongodb": ">=1,<1.9.2",
                 "monolog/monolog": ">=1.8,<1.12",
-                "moodle/moodle": "<4.2.0.0-RC2-dev|==4.2",
+                "moodle/moodle": "<4.3.0.0-RC2-dev",
+                "mos/cimage": "<0.7.19",
                 "movim/moxl": ">=0.8,<=0.10",
                 "mpdf/mpdf": "<=7.1.7",
+                "munkireport/comment": "<4.1",
+                "munkireport/managedinstalls": "<2.6",
+                "munkireport/munkireport": ">=2.5.3,<5.6.3",
                 "mustache/mustache": ">=2,<2.14.1",
                 "namshi/jose": "<2.2",
                 "neoan3-apps/template": "<1.1.1",
                 "neorazorx/facturascripts": "<2022.04",
                 "neos/flow": ">=1,<1.0.4|>=1.1,<1.1.1|>=2,<2.0.1|>=2.3,<2.3.16|>=3,<3.0.12|>=3.1,<3.1.10|>=3.2,<3.2.13|>=3.3,<3.3.13|>=4,<4.0.6",
                 "neos/form": ">=1.2,<4.3.3|>=5,<5.0.9|>=5.1,<5.1.3",
+                "neos/media-browser": "<7.3.19|>=8,<8.0.16|>=8.1,<8.1.11|>=8.2,<8.2.11|>=8.3,<8.3.9",
                 "neos/neos": ">=1.1,<1.1.3|>=1.2,<1.2.13|>=2,<2.0.4|>=2.3,<2.9.99|>=3,<3.0.20|>=3.1,<3.1.18|>=3.2,<3.2.14|>=3.3,<5.3.10|>=7,<7.0.9|>=7.1,<7.1.7|>=7.2,<7.2.6|>=7.3,<7.3.4|>=8,<8.0.2",
                 "neos/swiftmailer": ">=4.1,<4.1.99|>=5.4,<5.4.5",
                 "netgen/tagsbundle": ">=3.4,<3.4.11|>=4,<4.0.15",
                 "nette/application": ">=2,<2.0.19|>=2.1,<2.1.13|>=2.2,<2.2.10|>=2.3,<2.3.14|>=2.4,<2.4.16|>=3,<3.0.6",
                 "nette/nette": ">=2,<2.0.19|>=2.1,<2.1.13",
                 "nilsteampassnet/teampass": "<3.0.10",
+                "nonfiction/nterchange": "<4.1.1",
                 "notrinos/notrinos-erp": "<=0.7",
                 "noumo/easyii": "<=0.9",
                 "nukeviet/nukeviet": "<4.5.02",
@@ -10810,18 +11046,22 @@
                 "october/cms": "<1.0.469|==1.0.469|==1.0.471|==1.1.1",
                 "october/october": "<=3.4.4",
                 "october/rain": "<1.0.472|>=1.1,<1.1.2",
-                "october/system": "<1.0.476|>=1.1,<1.1.12|>=2,<2.2.34|>=3,<3.0.66",
+                "october/system": "<1.0.476|>=1.1,<1.1.12|>=2,<2.2.34|>=3,<3.5.2",
+                "omeka/omeka-s": "<4.0.3",
                 "onelogin/php-saml": "<2.10.4",
                 "oneup/uploader-bundle": "<1.9.3|>=2,<2.1.5",
                 "open-web-analytics/open-web-analytics": "<1.7.4",
-                "opencart/opencart": "<=3.0.3.7",
+                "opencart/opencart": "<=3.0.3.7|>=4,<4.0.2.3-dev",
                 "openid/php-openid": "<2.3",
-                "openmage/magento-lts": "<=19.5|>=20,<=20.1",
+                "openmage/magento-lts": "<20.2",
                 "opensource-workshop/connect-cms": "<1.7.2|>=2,<2.3.2",
                 "orchid/platform": ">=9,<9.4.4|>=14.0.0.0-alpha4,<14.5",
-                "oro/commerce": ">=4.1,<5.0.6",
+                "oro/calendar-bundle": ">=4.2,<=4.2.6|>=5,<=5.0.6|>=5.1,<5.1.1",
+                "oro/commerce": ">=4.1,<5.0.11|>=5.1,<5.1.1",
                 "oro/crm": ">=1.7,<1.7.4|>=3.1,<4.1.17|>=4.2,<4.2.7",
-                "oro/platform": ">=1.7,<1.7.4|>=3.1,<3.1.29|>=4.1,<4.1.17|>=4.2,<4.2.8",
+                "oro/crm-call-bundle": ">=4.2,<=4.2.5|>=5,<5.0.4|>=5.1,<5.1.1",
+                "oro/customer-portal": ">=4.2,<=4.2.8|>=5,<5.0.11|>=5.1,<5.1.1",
+                "oro/platform": ">=1.7,<1.7.4|>=3.1,<3.1.29|>=4.1,<4.1.17|>=4.2,<=4.2.10|>=5,<5.0.8",
                 "oxid-esales/oxideshop-ce": "<4.5",
                 "packbackbooks/lti-1-3-php-library": "<5",
                 "padraic/humbug_get_contents": "<1.1.2",
@@ -10836,8 +11076,10 @@
                 "pegasus/google-for-jobs": "<1.5.1|>=2,<2.1.1",
                 "personnummer/personnummer": "<3.0.2",
                 "phanan/koel": "<5.1.4",
+                "phenx/php-svg-lib": "<0.5.1",
                 "php-mod/curl": "<2.3.2",
                 "phpbb/phpbb": "<3.2.10|>=3.3,<3.3.1",
+                "phpems/phpems": ">=6,<=6.1.3",
                 "phpfastcache/phpfastcache": "<6.1.5|>=7,<7.1.2|>=8,<8.0.7",
                 "phpmailer/phpmailer": "<6.5",
                 "phpmussel/phpmussel": ">=1,<1.6",
@@ -10845,42 +11087,49 @@
                 "phpmyfaq/phpmyfaq": "<=3.1.7",
                 "phpoffice/phpexcel": "<1.8",
                 "phpoffice/phpspreadsheet": "<1.16",
-                "phpseclib/phpseclib": "<2.0.31|>=3,<3.0.19",
+                "phpseclib/phpseclib": "<2.0.31|>=3,<3.0.34",
                 "phpservermon/phpservermon": "<3.6",
-                "phpsysinfo/phpsysinfo": "<3.2.5",
+                "phpsysinfo/phpsysinfo": "<3.4.3",
                 "phpunit/phpunit": ">=4.8.19,<4.8.28|>=5,<5.6.3",
                 "phpwhois/phpwhois": "<=4.2.5",
                 "phpxmlrpc/extras": "<0.6.1",
                 "phpxmlrpc/phpxmlrpc": "<4.9.2",
                 "pi/pi": "<=2.5",
-                "pimcore/admin-ui-classic-bundle": "<1.0.3",
-                "pimcore/customer-management-framework-bundle": "<3.4.2",
+                "pimcore/admin-ui-classic-bundle": "<1.3.2",
+                "pimcore/customer-management-framework-bundle": "<4.0.6",
                 "pimcore/data-hub": "<1.2.4",
+                "pimcore/demo": "<10.3",
+                "pimcore/ecommerce-framework-bundle": "<1.0.10",
                 "pimcore/perspective-editor": "<1.5.1",
-                "pimcore/pimcore": "<10.6.8",
+                "pimcore/pimcore": "<11.1.1",
                 "pixelfed/pixelfed": "<=0.11.4",
+                "plotly/plotly.js": "<2.25.2",
                 "pocketmine/bedrock-protocol": "<8.0.2",
                 "pocketmine/pocketmine-mp": "<=4.23|>=5,<5.3.1",
+                "pocketmine/raklib": ">=0.14,<0.14.6|>=0.15,<0.15.1",
                 "pressbooks/pressbooks": "<5.18",
                 "prestashop/autoupgrade": ">=4,<4.10.1",
+                "prestashop/blockreassurance": "<=5.1.3",
                 "prestashop/blockwishlist": ">=2,<2.1.1",
                 "prestashop/contactform": ">=1.0.1,<4.3",
                 "prestashop/gamification": "<2.3.2",
-                "prestashop/prestashop": "<=8.1",
+                "prestashop/prestashop": "<8.1.3",
                 "prestashop/productcomments": "<5.0.2",
                 "prestashop/ps_emailsubscription": "<2.6.1",
                 "prestashop/ps_facetedsearch": "<3.4.1",
                 "prestashop/ps_linklist": "<3.1",
                 "privatebin/privatebin": "<1.4",
-                "processwire/processwire": "<=3.0.200",
+                "processwire/processwire": "<=3.0.210",
                 "propel/propel": ">=2.0.0.0-alpha1,<=2.0.0.0-alpha7",
                 "propel/propel1": ">=1,<=1.7.1",
                 "pterodactyl/panel": "<1.7",
-                "ptheofan/yii2-statemachine": ">=2",
+                "ptheofan/yii2-statemachine": ">=2.0.0.0-RC1-dev,<=2",
                 "ptrofimov/beanstalk_console": "<1.7.14",
+                "pubnub/pubnub": "<6.1",
                 "pusher/pusher-php-server": "<2.2.1",
                 "pwweb/laravel-core": "<=0.3.6.0-beta",
                 "pyrocms/pyrocms": "<=3.9.1",
+                "rainlab/blog-plugin": "<1.4.1",
                 "rainlab/debugbar-plugin": "<3.1",
                 "rainlab/user-plugin": "<=1.4.5",
                 "rankmath/seo-by-rank-math": "<=1.0.95",
@@ -10888,6 +11137,8 @@
                 "react/http": ">=0.7,<1.9",
                 "really-simple-plugins/complianz-gdpr": "<6.4.2",
                 "remdex/livehelperchat": "<3.99",
+                "reportico-web/reportico": "<=7.1.21",
+                "rhukster/dom-sanitizer": "<1.0.7",
                 "rmccue/requests": ">=1.6,<1.8",
                 "robrichards/xmlseclibs": "<3.0.4",
                 "roots/soil": "<4.1",
@@ -10901,21 +11152,21 @@
                 "serluck/phpwhois": "<=4.2.6",
                 "sfroemken/url_redirect": "<=1.2.1",
                 "sheng/yiicms": "<=1.2",
-                "shopware/core": "<=6.4.20",
-                "shopware/platform": "<=6.4.20",
+                "shopware/core": "<=6.5.7.3",
+                "shopware/platform": "<=6.5.7.3",
                 "shopware/production": "<=6.3.5.2",
                 "shopware/shopware": "<=5.7.17",
                 "shopware/storefront": "<=6.4.8.1",
                 "shopxo/shopxo": "<2.2.6",
                 "showdoc/showdoc": "<2.10.4",
                 "silverstripe-australia/advancedreports": ">=1,<=2",
-                "silverstripe/admin": "<1.13.6",
+                "silverstripe/admin": "<1.13.19|>=2,<2.1.8",
                 "silverstripe/assets": ">=1,<1.11.1",
                 "silverstripe/cms": "<4.11.3",
                 "silverstripe/comments": ">=1.3,<1.9.99|>=2,<2.9.99|>=3,<3.1.1",
                 "silverstripe/forum": "<=0.6.1|>=0.7,<=0.7.3",
-                "silverstripe/framework": "<4.13.14|>=5,<5.0.13",
-                "silverstripe/graphql": "<3.5.2|>=4.0.0.0-alpha1,<4.0.0.0-alpha2|>=4.1.1,<4.1.2|>=4.2.2,<4.2.3",
+                "silverstripe/framework": "<4.13.39|>=5,<5.1.11",
+                "silverstripe/graphql": "<3.8.2|>=4,<4.3.7|>=5,<5.1.3",
                 "silverstripe/hybridsessions": ">=1,<2.4.1|>=2.5,<2.5.1",
                 "silverstripe/recipe-cms": ">=4.5,<4.5.3",
                 "silverstripe/registry": ">=2.1,<2.1.2|>=2.2,<2.2.1",
@@ -10926,19 +11177,20 @@
                 "silverstripe/userforms": "<3",
                 "silverstripe/versioned-admin": ">=1,<1.11.1",
                 "simple-updates/phpwhois": "<=1",
-                "simplesamlphp/saml2": "<1.15.4|>=2,<2.3.8|>=3,<3.1.4",
+                "simplesamlphp/saml2": "<1.15.4|>=2,<2.3.8|>=3,<3.1.4|==5.0.0.0-alpha12",
                 "simplesamlphp/simplesamlphp": "<1.18.6",
                 "simplesamlphp/simplesamlphp-module-infocard": "<1.0.1",
                 "simplesamlphp/simplesamlphp-module-openid": "<1",
                 "simplesamlphp/simplesamlphp-module-openidprovider": "<0.9",
+                "simplesamlphp/xml-security": "==1.6.11",
                 "simplito/elliptic-php": "<1.0.6",
                 "sitegeist/fluid-components": "<3.5",
-                "sjbr/sr-freecap": "<=2.5.2",
+                "sjbr/sr-freecap": "<2.4.6|>=2.5,<2.5.3",
                 "slim/psr7": "<1.4.1|>=1.5,<1.5.1|>=1.6,<1.6.1",
                 "slim/slim": "<2.6",
                 "slub/slub-events": "<3.0.3",
                 "smarty/smarty": "<3.1.48|>=4,<4.3.1",
-                "snipe/snipe-it": "<=6.0.14",
+                "snipe/snipe-it": "<=6.2.2",
                 "socalnick/scn-social-auth": "<1.15.2",
                 "socialiteproviders/steam": "<1.1",
                 "spatie/browsershot": "<3.57.4",
@@ -10947,16 +11199,16 @@
                 "spoonity/tcpdf": "<6.2.22",
                 "squizlabs/php_codesniffer": ">=1,<2.8.1|>=3,<3.0.1",
                 "ssddanbrown/bookstack": "<22.02.3",
-                "statamic/cms": "<4.10",
+                "statamic/cms": "<4.36",
                 "stormpath/sdk": "<9.9.99",
                 "studio-42/elfinder": "<2.1.62",
                 "subhh/libconnect": "<7.0.8|>=8,<8.1",
-                "subrion/cms": "<=4.2.1",
                 "sukohi/surpass": "<1",
                 "sulu/sulu": "<1.6.44|>=2,<2.2.18|>=2.3,<2.3.8|==2.4.0.0-RC1|>=2.5,<2.5.10",
                 "sumocoders/framework-user-bundle": "<1.4",
                 "swag/paypal": "<5.4.4",
                 "swiftmailer/swiftmailer": ">=4,<5.4.5",
+                "swiftyedit/swiftyedit": "<1.2",
                 "sylius/admin-bundle": ">=1,<1.0.17|>=1.1,<1.1.9|>=1.2,<1.2.2",
                 "sylius/grid": ">=1,<1.1.19|>=1.2,<1.2.18|>=1.3,<1.3.13|>=1.4,<1.4.5|>=1.5,<1.5.1",
                 "sylius/grid-bundle": "<1.10.1",
@@ -10988,17 +11240,21 @@
                 "symfony/security-core": ">=2.4,<2.6.13|>=2.7,<2.7.9|>=2.7.30,<2.7.32|>=2.8,<3.4.49|>=4,<4.4.24|>=5,<5.2.9",
                 "symfony/security-csrf": ">=2.4,<2.7.48|>=2.8,<2.8.41|>=3,<3.3.17|>=3.4,<3.4.11|>=4,<4.0.11",
                 "symfony/security-guard": ">=2.8,<3.4.48|>=4,<4.4.23|>=5,<5.2.8",
-                "symfony/security-http": ">=2.3,<2.3.41|>=2.4,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.2.12|>=4.3,<4.3.8|>=4.4,<4.4.7|>=5,<5.0.7|>=5.1,<5.2.8|>=5.3,<5.3.2",
+                "symfony/security-http": ">=2.3,<2.3.41|>=2.4,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.2.12|>=4.3,<4.3.8|>=4.4,<4.4.7|>=5,<5.0.7|>=5.1,<5.2.8|>=5.3,<5.3.2|>=5.4,<5.4.31|>=6,<6.3.8",
                 "symfony/serializer": ">=2,<2.0.11|>=4.1,<4.4.35|>=5,<5.3.12",
-                "symfony/symfony": "<4.4.50|>=5,<5.4.20|>=6,<6.0.20|>=6.1,<6.1.12|>=6.2,<6.2.6",
+                "symfony/symfony": "<4.4.51|>=5,<5.4.31|>=6,<6.3.8",
                 "symfony/translation": ">=2,<2.0.17",
+                "symfony/twig-bridge": ">=2,<4.4.51|>=5,<5.4.31|>=6,<6.3.8",
                 "symfony/ux-autocomplete": "<2.11.2",
                 "symfony/validator": ">=2,<2.0.24|>=2.1,<2.1.12|>=2.2,<2.2.5|>=2.3,<2.3.3",
                 "symfony/var-exporter": ">=4.2,<4.2.12|>=4.3,<4.3.8",
                 "symfony/web-profiler-bundle": ">=2,<2.3.19|>=2.4,<2.4.9|>=2.5,<2.5.4",
+                "symfony/webhook": ">=6.3,<6.3.8",
                 "symfony/yaml": ">=2,<2.0.22|>=2.1,<2.1.7",
+                "symphonycms/symphony-2": "<2.6.4",
                 "t3/dce": "<0.11.5|>=2.2,<2.6.2",
                 "t3g/svg-sanitizer": "<1.0.3",
+                "t3s/content-consent": "<1.0.3|>=2,<2.0.2",
                 "tastyigniter/tastyigniter": "<3.3",
                 "tcg/voyager": "<=1.4",
                 "tecnickcom/tcpdf": "<6.2.22",
@@ -11007,9 +11263,9 @@
                 "thelia/thelia": ">=2.1,<2.1.3",
                 "theonedemon/phpwhois": "<=4.2.5",
                 "thinkcmf/thinkcmf": "<=5.1.7",
-                "thorsten/phpmyfaq": "<3.2.0.0-beta2",
+                "thorsten/phpmyfaq": "<3.2.2",
                 "tikiwiki/tiki-manager": "<=17.1",
-                "tinymce/tinymce": "<5.10.7|>=6,<6.3.1",
+                "tinymce/tinymce": "<5.10.9|>=6,<6.7.3",
                 "tinymighty/wiki-seo": "<1.2.2",
                 "titon/framework": "<9.9.99",
                 "tobiasbg/tablepress": "<=2.0.0.0-RC1",
@@ -11017,35 +11273,36 @@
                 "topthink/think": "<=6.1.1",
                 "topthink/thinkphp": "<=3.2.3",
                 "tpwd/ke_search": "<4.0.3|>=4.1,<4.6.6|>=5,<5.0.2",
-                "tribalsystems/zenario": "<=9.3.57595",
+                "tribalsystems/zenario": "<=9.4.59197",
                 "truckersmp/phpwhois": "<=4.3.1",
                 "ttskch/pagination-service-provider": "<1",
                 "twig/twig": "<1.44.7|>=2,<2.15.3|>=3,<3.4.3",
-                "typo3/cms": "<8.7.38|>=9,<9.5.29|>=10,<10.4.35|>=11,<11.5.23|>=12,<12.2",
+                "typo3/cms": "<9.5.29|>=10,<10.4.35|>=11,<11.5.23|>=12,<12.2",
                 "typo3/cms-backend": ">=7,<=7.6.50|>=8,<=8.7.39|>=9,<=9.5.24|>=10,<=10.4.13|>=11,<=11.1",
-                "typo3/cms-core": "<8.7.51|>=9,<9.5.42|>=10,<10.4.39|>=11,<11.5.30|>=12,<12.4.4",
+                "typo3/cms-core": "<8.7.55|>=9,<9.5.44|>=10,<10.4.41|>=11,<11.5.33|>=12,<12.4.8",
                 "typo3/cms-extbase": "<6.2.24|>=7,<7.6.8|==8.1.1",
                 "typo3/cms-form": ">=8,<=8.7.39|>=9,<=9.5.24|>=10,<=10.4.13|>=11,<=11.1",
+                "typo3/cms-install": ">=12.2,<12.4.8",
                 "typo3/cms-rte-ckeditor": ">=9.5,<9.5.42|>=10,<10.4.39|>=11,<11.5.30",
                 "typo3/flow": ">=1,<1.0.4|>=1.1,<1.1.1|>=2,<2.0.1|>=2.3,<2.3.16|>=3,<3.0.12|>=3.1,<3.1.10|>=3.2,<3.2.13|>=3.3,<3.3.13|>=4,<4.0.6",
-                "typo3/html-sanitizer": ">=1,<1.5.1|>=2,<2.1.2",
+                "typo3/html-sanitizer": ">=1,<=1.5.2|>=2,<=2.1.3",
                 "typo3/neos": ">=1.1,<1.1.3|>=1.2,<1.2.13|>=2,<2.0.4|>=2.3,<2.3.99|>=3,<3.0.20|>=3.1,<3.1.18|>=3.2,<3.2.14|>=3.3,<3.3.23|>=4,<4.0.17|>=4.1,<4.1.16|>=4.2,<4.2.12|>=4.3,<4.3.3",
                 "typo3/phar-stream-wrapper": ">=1,<2.1.1|>=3,<3.1.1",
                 "typo3/swiftmailer": ">=4.1,<4.1.99|>=5.4,<5.4.5",
                 "typo3fluid/fluid": ">=2,<2.0.8|>=2.1,<2.1.7|>=2.2,<2.2.4|>=2.3,<2.3.7|>=2.4,<2.4.4|>=2.5,<2.5.11|>=2.6,<2.6.10",
                 "ua-parser/uap-php": "<3.8",
                 "uasoft-indonesia/badaso": "<=2.9.7",
-                "unisharp/laravel-filemanager": "<=2.5.1",
+                "unisharp/laravel-filemanager": "<2.6.4",
                 "userfrosting/userfrosting": ">=0.3.1,<4.6.3",
                 "usmanhalalit/pixie": "<1.0.3|>=2,<2.0.2",
                 "uvdesk/community-skeleton": "<=1.1.1",
                 "vanilla/safecurl": "<0.9.2",
-                "verot/class.upload.php": "<=1.0.3|>=2,<=2.0.4",
+                "verot/class.upload.php": "<=2.1.6",
                 "vova07/yii2-fileapi-widget": "<0.1.9",
                 "vrana/adminer": "<4.8.1",
                 "waldhacker/hcaptcha": "<2.1.2",
                 "wallabag/tcpdf": "<6.2.22",
-                "wallabag/wallabag": "<=2.6.2",
+                "wallabag/wallabag": "<2.6.7",
                 "wanglelecc/laracms": "<=1.0.3",
                 "web-auth/webauthn-framework": ">=3.3,<3.3.4",
                 "webbuilders-group/silverstripe-kapost-bridge": "<0.4",
@@ -11056,6 +11313,8 @@
                 "wikibase/wikibase": "<=1.39.3",
                 "wikimedia/parsoid": "<0.12.2",
                 "willdurand/js-translation-bundle": "<2.1.1",
+                "winter/wn-backend-module": "<1.2.4",
+                "winter/wn-system-module": "<1.2.4",
                 "wintercms/winter": "<1.2.3",
                 "woocommerce/woocommerce": "<6.6",
                 "wp-cli/wp-cli": "<2.5",
@@ -11069,8 +11328,9 @@
                 "yetiforce/yetiforce-crm": "<=6.4",
                 "yidashi/yii2cmf": "<=2",
                 "yii2mod/yii2-cms": "<1.9.2",
-                "yiisoft/yii": "<1.1.27",
+                "yiisoft/yii": "<1.1.29",
                 "yiisoft/yii2": "<2.0.38",
+                "yiisoft/yii2-authclient": "<2.2.15",
                 "yiisoft/yii2-bootstrap": "<2.0.4",
                 "yiisoft/yii2-dev": "<2.0.43",
                 "yiisoft/yii2-elasticsearch": "<2.0.5",
@@ -11082,7 +11342,7 @@
                 "yourls/yourls": "<=1.8.2",
                 "zencart/zencart": "<=1.5.7.0-beta",
                 "zendesk/zendesk_api_client_php": "<2.2.11",
-                "zendframework/zend-cache": ">=2.4,<2.4.8|>=2.5,<2.5.3",
+                "zendframework/zend-cache": "<2.4.8|>=2.5,<2.5.3",
                 "zendframework/zend-captcha": ">=2,<2.4.9|>=2.5,<2.5.2",
                 "zendframework/zend-crypt": ">=2,<2.4.9|>=2.5,<2.5.2",
                 "zendframework/zend-db": ">=2,<2.0.99|>=2.1,<2.1.99|>=2.2,<2.2.10|>=2.3,<2.3.5",
@@ -11101,14 +11361,22 @@
                 "zendframework/zend-xmlrpc": ">=2.1,<2.1.6|>=2.2,<2.2.6",
                 "zendframework/zendframework": "<=3",
                 "zendframework/zendframework1": "<1.12.20",
-                "zendframework/zendopenid": ">=2,<2.0.2",
+                "zendframework/zendopenid": "<2.0.2",
+                "zendframework/zendrest": "<2.0.2",
+                "zendframework/zendservice-amazon": "<2.0.3",
+                "zendframework/zendservice-api": "<1",
+                "zendframework/zendservice-audioscrobbler": "<2.0.2",
+                "zendframework/zendservice-nirvanix": "<2.0.2",
+                "zendframework/zendservice-slideshare": "<2.0.2",
+                "zendframework/zendservice-technorati": "<2.0.2",
+                "zendframework/zendservice-windowsazure": "<2.0.2",
                 "zendframework/zendxml": "<1.0.1",
                 "zenstruck/collection": "<0.2.1",
                 "zetacomponents/mail": "<1.8.2",
                 "zf-commons/zfc-user": "<1.2.2",
-                "zfcampus/zf-apigility-doctrine": ">=1,<1.0.3",
+                "zfcampus/zf-apigility-doctrine": "<1.0.3",
                 "zfr/zfr-oauth2-server-module": "<0.1.2",
-                "zoujingli/thinkadmin": "<6.0.22"
+                "zoujingli/thinkadmin": "<=6.1.53"
             },
             "default-branch": true,
             "type": "metapackage",
@@ -11146,7 +11414,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-09-15T19:04:11+00:00"
+            "time": "2024-01-24T22:04:16+00:00"
         },
         {
             "name": "yiisoft/yii2-shell",
