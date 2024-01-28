@@ -7,6 +7,7 @@
 ### updated
 - (plugin): SEOmatic (4.0.38)
 - (plugin): Image Resizer (3.0.10)
+- (plugin): Formie (2.1.3)
 
 ### fixed
 - 
