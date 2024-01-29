@@ -31,7 +31,7 @@ export default defineConfig(({ command }) => ({
     sourcemap: true,
   },
   plugins: [
-    (critical as any).default({
+    critical({
       criticalUrl: 'https://stage.baukasten.io/',
       criticalBase: './web/dist/criticalcss/',
       criticalPages: [
