@@ -1,40 +1,51 @@
 /* Headlines */
-.ck.ck-content h2, .ck.ck-content :is(h2,h3,h4,h5,h6).text-4xl {
-  font-size: 4rem;
-  text-transform: none;
-}
-
-.ck.ck-content h3, .ck.ck-content :is(h2,h3,h4,h5,h6).text-3xl {
-  font-size: 3rem;
-  text-transform: none;
-}
-
-.ck.ck-content h4, .ck.ck-content :is(h2,h3,h4,h5,h6).text-2xl {
+.ck.ck-content h2,
+.ck.ck-content :is(h2,h3,h4,h5,h6).text-4xl {
   font-size: 2rem;
   text-transform: none;
+  line-height: 1.3;
 }
 
-.ck.ck-content h5, .ck.ck-content :is(h2,h3,h4,h5,h6).text-xl {
-  font-size: 1rem;
+.ck.ck-content h3,
+.ck.ck-content :is(h2,h3,h4,h5,h6).text-3xl {
+  font-size: 1.8rem;
   text-transform: none;
+  line-height: 1.3;
 }
 
-.ck.ck-content h6, .ck.ck-content :is(h2,h3,h4,h5,h6).text-lg {
+.ck.ck-content h4,
+.ck.ck-content :is(h2,h3,h4,h5,h6).text-2xl {
+  font-size: 1.6rem;
+  text-transform: none;
+  line-height: 1.3;
+}
+
+.ck.ck-content h5,
+.ck.ck-content :is(h2,h3,h4,h5,h6).text-xl {
+  font-size: 1.2rem;
+  text-transform: none;
+  line-height: 1.5;
+}
+
+.ck.ck-content h6,
+.ck.ck-content :is(h2,h3,h4,h5,h6).text-lg {
   font-size: 1rem;
   text-transform: none;
+  line-height: 1.5;
 }
 
 /* Paragraphs */
-.ck.ck-content p {
-  font-size: 1rem;
+.ck.ck-content :is(p, ul, ol) {
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 
 .ck.ck-content p.text-sm {
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 
 .ck.ck-content p.text-lg {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 
 /* Inline Text Styles */
