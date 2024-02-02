@@ -9,6 +9,7 @@
 - (plugin): SEOmatic (4.0.38)
 - (plugin): Image Resizer (3.0.11)
 - (plugin): Formie (2.1.3)
+- (plugin): Navigation (2.0.25)
 - (plugin): Hyper (1.1.20)
 - (plugin): CKEditor (3.7.1)
 - (waypoints): Better waypoint target selection
