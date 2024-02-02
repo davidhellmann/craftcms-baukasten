@@ -7,7 +7,7 @@
 ### updated
 - (cms): CraftCMS (4.7.1)
 - (plugin): SEOmatic (4.0.38)
-- (plugin): Image Resizer (3.0.10)
+- (plugin): Image Resizer (3.0.11)
 - (plugin): Formie (2.1.3)
 - (plugin): Hyper (1.1.20)
 - (plugin): CKEditor (3.7.1)
