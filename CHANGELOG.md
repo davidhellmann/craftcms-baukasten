@@ -11,6 +11,7 @@
 - (plugin): Formie (2.1.3)
 - (plugin): Navigation (2.0.25)
 - (plugin): Hyper (1.1.20)
+- (plugin): Vite (4.0.8)
 - (plugin): CKEditor (3.7.1)
 - (waypoints): Better waypoint target selection
 
