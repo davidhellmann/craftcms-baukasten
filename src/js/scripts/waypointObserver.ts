@@ -21,10 +21,16 @@ interface ICompWaypointObserver extends IComponent {
   };
 
   startObserving(el: NodeListOf<HTMLElement>): void;
+
   setSettings(el: Element): void;
+
   findWaypointTargets(el: Element): Array<HTMLElement>;
+
   getWaypointTargets(el: Element): Array<HTMLElement>;
+
   handleAnimateClasses(el: Array<HTMLElement>, settings: Settings): void;
+
+  watchDomChanges(): void;
 }
 
 const getAttributeAsNumber = (
@@ -153,8 +159,30 @@ const waypointObserver: ICompWaypointObserver = {
     });
   },
 
+  watchDomChanges() {
+    const targetNode = document.body;
+    const config = {
+      childList: true,
+      attributes: true,
+      subtree: true,
+    };
+
+    const callback = (mutationList: MutationRecord[]) => {
+      for (const mutation of mutationList) {
+        if (mutation.type === 'childList') {
+          const waypointEls = document.querySelectorAll('[waypoint]');
+          this.startObserving(waypointEls as NodeListOf<HTMLElement>);
+        }
+      }
+    };
+
+    const observer = new MutationObserver(callback);
+    observer.observe(targetNode, config);
+  },
+
   init(waypointEls: NodeListOf<HTMLElement>) {
     this.startObserving(waypointEls);
+    this.watchDomChanges();
   },
 };
 
