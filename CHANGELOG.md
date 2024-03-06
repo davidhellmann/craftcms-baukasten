@@ -4,6 +4,9 @@
 ### added
 - 
 
+### removed
+- formie
+
 ### updated
 - (cms): CraftCMS (4.7.1)
 - (plugin): SEOmatic (4.0.38)
