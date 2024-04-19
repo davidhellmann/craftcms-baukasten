@@ -18,7 +18,6 @@
  */
 
 use craft\helpers\App;
-use modules\socialshareimage\Module;
 
 $redisConfig = [
     'redis' => [
@@ -60,12 +59,8 @@ $redisIsUsed = App::env('REDIS_HOSTNAME') && App::env('REDIS_PORT');
 return [
     '*' => [
         'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
-        'modules' => [
-            'social-share-image' => [
-                'class' => \modules\socialshareimage\Module::class,
-            ],
-        ],
-        'bootstrap' => ['social-share-image'],
+        'modules' => [],
+        'bootstrap' => [],
         'components' => [
             'db' => static function () {
                 $config = craft\helpers\App::dbConfig();
@@ -85,6 +80,6 @@ return [
     'production' => [],
     'staging' => [],
     'dev' => [],
-    'modules' => ['social-share-image' => Module::class],
-    'bootstrap' => ['social-share-image'],
+    'modules' => [],
+    'bootstrap' => [],
 ];

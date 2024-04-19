@@ -19,10 +19,5 @@
  */
 
 return [
-    'api' => 'graphql/api',
-
-    // Social share image
-    'ssig/<number:\d+>' => [
-        'template' => 'ssig'
-    ]
+    'api' => 'graphql/api'
 ];
