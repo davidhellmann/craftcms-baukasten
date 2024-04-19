@@ -3,7 +3,6 @@
 
 {% block blockAppContent %}
   {% cache %}
-    {% minify %}
       {% do craft.app.elements.eagerLoadElements(
         className(entry),
         [entry],
@@ -26,6 +25,5 @@
           contentBuilder: entry.builderContent ??? null,
         }
       }, withContext = false) }}
-    {% endminify %}
   {% endcache %}
 {% endblock %}
