@@ -1,4 +1,4 @@
-import { defineConfig, splitVendorChunkPlugin } from 'vite';
+import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 // import legacy from '@vitejs/plugin-legacy';
 import ViteRestart from 'vite-plugin-restart';
@@ -76,7 +76,6 @@ export default defineConfig(({ command }) => ({
     eslintPlugin({
       cache: false,
     }),
-    splitVendorChunkPlugin(),
     copy({
       targets: [{ src: 'src/public/*', dest: 'web/dist' }],
       hook: command === 'build' ? 'writeBundle' : 'buildStart',
