@@ -13,8 +13,9 @@
 - (plugin): Image Resizer (3.0.11)
 - (plugin): Formie (2.1.3)
 - (plugin): Blitz (4.19.0)
+- (plugin): ImagerX (4.4.1)
 - (plugin): Navigation (2.0.25)
-- (plugin): Hyper (1.1.20)
+- (plugin): Hyper (1.1.32)
 - (plugin): Vite (4.0.8)
 - (plugin): CKEditor (3.7.1)
 - (waypoints): Better waypoint target selection
