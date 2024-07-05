@@ -8,10 +8,11 @@
 - formie
 
 ### updated
-- (cms): CraftCMS (4.7.1)
+- (cms): CraftCMS (4.10.4)
 - (plugin): SEOmatic (4.0.38)
 - (plugin): Image Resizer (3.0.11)
 - (plugin): Formie (2.1.3)
+- (plugin): Blitz (4.19.0)
 - (plugin): Navigation (2.0.25)
 - (plugin): Hyper (1.1.20)
 - (plugin): Vite (4.0.8)
