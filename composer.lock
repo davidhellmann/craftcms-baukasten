@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c720f76280769297ccee38559df942fb",
+    "content-hash": "6cb3f6d2b0eb2aba2276b177329cba4d",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1432,11 +1432,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.10.4",
+            "version": "4.12.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/3c6df36faf3d0592795c0817fe871dc7bf5004fa",
-                "reference": "3c6df36faf3d0592795c0817fe871dc7bf5004fa",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/b56c3d877633016f64ab1d123bc684886a21a12d",
+                "reference": "b56c3d877633016f64ab1d123bc684886a21a12d",
                 "shasum": ""
             },
             "require": {
@@ -1446,7 +1446,7 @@
                 "craftcms/server-check": "~2.1.2",
                 "creocoder/yii2-nested-sets": "~0.9.0",
                 "elvanto/litemoji": "~4.3.0",
-                "enshrined/svg-sanitize": "~0.16.0",
+                "enshrined/svg-sanitize": "~0.19.0",
                 "ext-bcmath": "*",
                 "ext-curl": "*",
                 "ext-dom": "*",
@@ -1470,11 +1470,11 @@
                 "symfony/var-dumper": "^5.0|^6.0",
                 "symfony/yaml": "^5.2.3",
                 "theiconic/name-parser": "^1.2",
-                "twig/twig": "~3.8.0",
+                "twig/twig": "~3.12.0",
                 "voku/stringy": "^6.4.0",
                 "webonyx/graphql-php": "~14.11.5",
-                "yiisoft/yii2": "~2.0.50",
-                "yiisoft/yii2-debug": "~2.1.22.0",
+                "yiisoft/yii2": "~2.0.51.0",
+                "yiisoft/yii2-debug": "~2.1.25.0",
                 "yiisoft/yii2-queue": "~2.3.2",
                 "yiisoft/yii2-symfonymailer": "^2.0.0"
             },
@@ -1524,7 +1524,7 @@
                 "docs": "https://craftcms.com/docs/4.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2024-07-02T16:27:09+00:00"
+            "time": "2024-09-03T16:47:34+00:00"
         },
         {
             "name": "craftcms/html-field",
@@ -2199,17 +2199,16 @@
         },
         {
             "name": "enshrined/svg-sanitize",
-            "version": "0.16.0",
+            "version": "0.19.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/239e257605e2141265b429e40987b2ee51bba4b4",
-                "reference": "239e257605e2141265b429e40987b2ee51bba4b4",
+                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/e95cd17be68e45f523cbfb0fe50cdd891b0cf20e",
+                "reference": "e95cd17be68e45f523cbfb0fe50cdd891b0cf20e",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
-                "ezyang/htmlpurifier": "^4.16",
                 "php": "^5.6 || ^7.0 || ^8.0"
             },
             "type": "library",
@@ -2228,7 +2227,7 @@
                 }
             ],
             "description": "An SVG sanitizer for PHP",
-            "time": "2023-03-20T10:51:12+00:00"
+            "time": "2024-06-18T10:27:15+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -7110,21 +7109,28 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.8.0",
+            "version": "v3.12.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9d15f0ac07f44dc4217883ec6ae02fd555c6f71d",
-                "reference": "9d15f0ac07f44dc4217883ec6ae02fd555c6f71d",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/4d19472d4ac1838e0b1f0e029ce1fa4040eb34ea",
+                "reference": "4d19472d4ac1838e0b1f0e029ce1fa4040eb34ea",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2.5",
+                "php": ">=8.0.2",
+                "symfony/deprecation-contracts": "^2.5|^3",
                 "symfony/polyfill-ctype": "^1.8",
                 "symfony/polyfill-mbstring": "^1.3",
-                "symfony/polyfill-php80": "^1.22"
+                "symfony/polyfill-php81": "^1.29"
             },
             "type": "library",
             "autoload": {
+                "files": [
+                    "src/Resources/core.php",
+                    "src/Resources/debug.php",
+                    "src/Resources/escaper.php",
+                    "src/Resources/string_loader.php"
+                ],
                 "psr-4": {
                     "Twig\\": "src/"
                 }
@@ -7154,7 +7160,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2023-11-21T18:54:41+00:00"
+            "time": "2024-08-29T09:51:12+00:00"
         },
         {
             "name": "verbb/base",
@@ -7966,11 +7972,11 @@
         },
         {
             "name": "yiisoft/yii2-debug",
-            "version": "2.1.22",
+            "version": "2.1.25",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/c0fa388c56b64edfb92987fdcc37d7a0243170d7",
-                "reference": "c0fa388c56b64edfb92987fdcc37d7a0243170d7",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/4d011b9bfc83bde71cde43c9f6837f5a74685ea7",
+                "reference": "4d011b9bfc83bde71cde43c9f6837f5a74685ea7",
                 "shasum": ""
             },
             "require": {
@@ -8019,7 +8025,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2022-11-18T17:29:27+00:00"
+            "time": "2023-09-26T15:50:00+00:00"
         },
         {
             "name": "yiisoft/yii2-queue",
