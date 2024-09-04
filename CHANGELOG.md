@@ -8,16 +8,18 @@
 - formie
 
 ### updated
-- (cms): CraftCMS (4.10.4)
-- (plugin): SEOmatic (4.0.50)
+- (cms): CraftCMS (4.12.0)
+- (plugin): SEOmatic (4.1.2)
 - (plugin): Image Resizer (3.0.11)
 - (plugin): Formie (2.1.3)
-- (plugin): Blitz (4.19.0)
+- (plugin): Blitz (4.23.0)
 - (plugin): ImagerX (4.4.1)
-- (plugin): Navigation (2.0.28)
-- (plugin): Hyper (1.1.32)
-- (plugin): Vite (4.0.8)
-- (plugin): CKEditor (3.7.1)
+- (plugin): Navigation (2.1.0)
+- (plugin): Hyper (1.2.1)
+- (plugin): Vite (4.0.10)
+- (plugin): Sprig (2.13.0)
+- (plugin): CKEditor (3.9.0)
+- (npm): Packages
 - (waypoints): Better waypoint target selection
 
 ### fixed
