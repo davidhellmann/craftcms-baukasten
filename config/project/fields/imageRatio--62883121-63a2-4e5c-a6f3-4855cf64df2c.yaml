@@ -1,0 +1,54 @@
+columnSuffix: null
+handle: imageRatio
+instructions: 'Usable for: Grids (non calculated) / Sliders'
+name: 'Builder: Content - Images - Image Ratio'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Landscape
+        -
+          - value
+          - aspect-landscape
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Square
+        -
+          - value
+          - aspect-square
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Portrait
+        -
+          - value
+          - aspect-portrait
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Auto
+        -
+          - value
+          - aspect-auto
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

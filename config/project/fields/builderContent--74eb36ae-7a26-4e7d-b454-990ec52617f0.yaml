@@ -1,16 +1,26 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: 8512e79b-4bb8-4d2d-b731-5fa98546f2c9 # Builders
 handle: builderContent
 instructions: null
 name: 'Builder: Content'
 searchable: true
 settings:
-  contentTable: '{{%matrixcontent_buildercontent}}'
-  maxBlocks: null
-  minBlocks: null
+  entryTypes:
+    - 5c9f2ce6-f780-4ea6-a50c-539a252aec94
+    - 7b3b13e0-e20d-4d51-b0ae-832300f45234
+    - 7b23a4a8-a6f8-43c4-b12c-326d089176ad
+    - 3497ad65-5e4c-43cb-b469-c3e4b3d80343
+    - 92963d20-e763-4d2e-a367-9e543dfde522
+    - 295738c1-951d-4b8c-b5cd-83d71a85d7e8
+    - b3022ef5-7f1b-49d7-976d-5d5be501c1f1
+    - e3c7bdf5-9e45-4977-ba11-1e2c4b57644e
+    - f3e1a215-a60f-4d6a-8897-e1a80a40c6cd
+    - fa02ff5a-1741-4417-8c8f-b72b954dd4fd
+  maxEntries: null
+  minEntries: null
   propagationKeyFormat: null
   propagationMethod: all
+  viewMode: blocks
 translationKeyFormat: null
 translationMethod: site
 type: craft\fields\Matrix

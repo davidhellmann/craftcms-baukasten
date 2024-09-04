@@ -1,36 +1,36 @@
 columnSuffix: null
-contentColumnType: string
-handle: assetEntryImage
+handle: image2
 instructions: null
-name: 'Asset: Entry Image'
+name: 'Builder: Content - Image - Image'
 searchable: false
 settings:
   allowSelfRelations: false
-  allowSubfolders: true
-  allowUploads: false
+  allowSubfolders: false
+  allowUploads: true
   allowedKinds:
     - image
   branchLimit: null
-  defaultUploadLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
+  defaultUploadLocationSource: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
   defaultUploadLocationSubpath: null
-  localizeRelations: false
   maintainHierarchy: false
   maxRelations: 1
   minRelations: null
   previewMode: full
   restrictFiles: true
-  restrictLocation: true
+  restrictLocation: false
   restrictedDefaultUploadSubpath: null
-  restrictedLocationSource: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
+  restrictedLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
   restrictedLocationSubpath: null
   selectionLabel: null
+  showCardsInGrid: false
   showSiteMenu: true
   showUnpermittedFiles: true
   showUnpermittedVolumes: true
-  sources: '*'
+  sources:
+    - 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
   targetSiteId: null
   validateRelatedElements: true
   viewMode: large
 translationKeyFormat: null
-translationMethod: site
+translationMethod: none
 type: craft\fields\Assets
