@@ -1,0 +1,24 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-richText',
+    html: null,
+  },
+  classes: {
+    root: 'block space-y-4 md:space-y-8',
+    custom: '',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Modul #}
+{% if props.data.html %}
+  <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  {{ props.data.html | raw }}
+  </div>
+{% endif %}

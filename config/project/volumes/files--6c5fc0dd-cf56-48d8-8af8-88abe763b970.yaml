@@ -1,3 +1,5 @@
+altTranslationKeyFormat: null
+altTranslationMethod: none
 fieldLayouts:
   2ffc1297-6481-42bf-8cba-e3bc0fde84c2:
     tabs:
@@ -9,9 +11,12 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: '2024-09-04T19:47:47+00:00'
             disabled: false
             elementCondition: null
             id: null
+            includeInCards: false
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -19,6 +24,7 @@ fieldLayouts:
             name: null
             orientation: null
             placeholder: null
+            providesThumbs: false
             readonly: false
             requirable: false
             size: null
@@ -31,37 +37,78 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2024-09-04T22:33:47+00:00'
             elementCondition: null
-            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Title Overwrite
+            fieldUid: edfcb398-ef78-43ec-9434-d6405da2886e # Text Single
+            handle: customTitle
+            includeInCards: true
             instructions: null
-            label: null
+            label: 'Custom Title'
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: b4d2577f-6732-42fd-ac37-ac7b1c8dd18a
+            uid: d2923525-110f-4683-87dc-42c95d3b693a
             userCondition: null
             warning: null
-            width: 50
+            width: 100
           -
+            dateAdded: '2024-09-04T22:34:56+00:00'
             elementCondition: null
-            fieldUid: aac37142-e533-49aa-8665-b8cc6360e98b # Text: Caption
+            fieldUid: 5af0a821-fa33-490a-9439-3193f439dd06 # Rich Text Simple
+            handle: caption
+            includeInCards: false
             instructions: null
-            label: null
+            label: Caption
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 97b047e1-8f88-4f78-94bb-7473324b0235
+            uid: 2477b056-b17c-4169-b4b4-a2695bec998b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-05T21:52:28+00:00'
+            elementCondition: null
+            fieldUid: edfcb398-ef78-43ec-9434-d6405da2886e # Text Single
+            handle: source
+            includeInCards: false
+            instructions: null
+            label: Source
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 016b74f1-44be-413c-a68b-c5107b149ad5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-09-05T21:52:28+00:00'
+            elementCondition: null
+            fieldUid: a3f76ec3-252e-4be6-8178-8f6b54acce19 # Link
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5857c49d-820a-4b3e-8192-09d5a808dbe9
             userCondition: null
             warning: null
             width: 100
         name: Content
         uid: 03e36f1a-9425-43d4-9fea-59f3f9190e6e
         userCondition: null
-fs: files
+fs: assets
 handle: files
 name: Files
 sortOrder: 1
+subpath: files
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-transformFs: ''
-transformSubpath: ''
+transformFs: transforms
+transformSubpath: craft/files

@@ -1,0 +1,33 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockImage',
+    block: null,
+  },
+  classes: {
+    root: 'container lg:grid lg:grid-cols-24',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block.image ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {{ include('_components/image/image.twig', {
+      data: {
+        image: props.data.block.image[0] ??? null,
+        aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape',
+        caption: props.data.block.showImageCaption ??? 0,
+        lazy: true,
+      },
+      classes: {
+        custom: 'col-span-24'
+      }
+    }, withContext = false) }}
+  </div>
+{% endif %}

@@ -1,9 +1,10 @@
 {# Set Defaults #}
+
 {% set compDefaults = {
   data: {
     name: 'c-code',
-    snippet: null,
-    snippetName: '…',
+    codeSnippet: null,
+    codeSnippetName: '…',
     language: 'txt',
     collapsed: true,
     textShow: 'translate.component.code.textShow' | t,
@@ -30,7 +31,7 @@
 } %}
 
 {# Modul #}
-{% if props.data.snippet %}
+{% if props.data.codeSnippet %}
   <div class="alpinejs js-code {{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}"
        x-data="{
         collapsed: '{{ props.data.collapsed }}',
@@ -42,11 +43,11 @@
 
     <pre class="line-numbers  language-{{ props.data.language }}  {{ props.classes.pre }}"
          :class="[collapsed ? 'max-h-40' : '']">
-      <code class="language-{{ props.data.language }} {{ props.classes.code }}">{{- props.data.snippet -}}</code>
+      <code class="language-{{ props.data.language }} {{ props.classes.code }}">{{- props.data.codeSnippet -}}</code>
     </pre>
 
     <div class="{{ props.classes.toolBar }}">
-      <span>{{ props.data.snippetName }}</span>
+      <span>{{ props.data.codeSnippetName }}</span>
 
       <div class="{{ props.classes.buttonHolder }}">
         <button class="relative js-codeCopy {{ props.classes.button }} {{ props.classes.tooltip }}"
@@ -55,7 +56,7 @@
         </button>
 
         <textarea class="sr-only" tabindex="-1">
-          {{- props.data.snippet | e -}}
+          {{- props.data.codeSnippet | e -}}
         </textarea>
 
         <button class="{{ props.classes.button }}"

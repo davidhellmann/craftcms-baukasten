@@ -44,6 +44,7 @@ $config = GeneralConfig::create()
     ->testToEmailAddress(App::env('TEST_MAIL') ?: null)
     ->aliases([
         '@assetsUrl' => App::env('ASSETS_URL'),
+        '@transformsUrl' => App::env('TRANSFORMS_URL'),
         '@web' => App::env('SITE_URL'),
         '@webroot' => App::env('WEB_ROOT_PATH'),
     ])
@@ -52,7 +53,7 @@ $config = GeneralConfig::create()
 
 if ($isProd) {
     $config->disabledPlugins([
-        'dumper', 'elements-panel', 'blitz-recommendations', 'cp-field-inspect'
+       'elements-panel', 'blitz-recommendations', 'cp-field-inspect'
     ]);
 }
 

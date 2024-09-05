@@ -1,6 +1,9 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  - fb701216-3e80-4e6d-99d4-2e5f70561e22 # _News Detail
 handle: news
+maxAuthors: 1
 name: News
 previewTargets:
   -
@@ -19,6 +22,6 @@ siteSettings:
   8153a2df-373f-4aac-9a92-d52292c9f1aa: # Baukasten
     enabledByDefault: true
     hasUrls: true
-    template: _routerEntries
+    template: entryTypes/_routerViews.twig
     uriFormat: 'news/{slug}'
 type: channel

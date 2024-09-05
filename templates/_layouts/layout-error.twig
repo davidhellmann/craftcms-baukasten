@@ -24,10 +24,10 @@
           <div class="container mx-auto py-8">
             <div class="text-center p-8 mb-8">
               <h1 class="font-mono italic font-bold text-5xl pt-4">
-                {{ entry.errorHeadline ?? 'Error' }}
+                {{ entry.customTitle ?? entry.title ?? 'Error' }}
               </h1>
               <p class="font-sans font-light text-xl pt-4">
-                {{ (entry.errorText ?? 'An error has occurred.') |nl2br }}
+                {{ (entry.description ?? 'An error has occurred.') |nl2br }}
               </p>
             </div>
           </div>

@@ -1,3 +1,5 @@
+altTranslationKeyFormat: null
+altTranslationMethod: none
 fieldLayouts:
   0a4045e3-76db-4cd4-8347-e2eab25d0bd1:
     tabs:
@@ -9,9 +11,12 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: '2024-09-04T19:47:47+00:00'
             disabled: false
             elementCondition: null
             id: null
+            includeInCards: false
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -19,6 +24,7 @@ fieldLayouts:
             name: null
             orientation: null
             placeholder: null
+            providesThumbs: false
             readonly: false
             requirable: false
             size: null
@@ -31,29 +37,36 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2024-09-04T22:37:25+00:00'
             elementCondition: null
-            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Title Overwrite
+            fieldUid: edfcb398-ef78-43ec-9434-d6405da2886e # Text Single
+            handle: customTitle
+            includeInCards: true
             instructions: null
-            label: null
+            label: 'Custom Title'
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 7c0fd1ef-397e-44f0-8712-e185c9f4d918
+            uid: dd6bed42-a944-49bc-86f0-65be94f2b3af
             userCondition: null
             warning: null
-            width: 50
+            width: 100
           -
             attribute: alt
             class: null
             cols: null
+            dateAdded: '2024-09-04T19:47:47+00:00'
             disabled: false
             elementCondition: null
             id: null
+            includeInCards: true
             instructions: null
             label: null
             name: null
             orientation: null
             placeholder: null
+            providesThumbs: false
             readonly: false
             requirable: true
             required: false
@@ -66,49 +79,62 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2024-09-04T22:37:25+00:00'
             elementCondition: null
-            fieldUid: aac37142-e533-49aa-8665-b8cc6360e98b # Text: Caption
+            fieldUid: 5af0a821-fa33-490a-9439-3193f439dd06 # Rich Text Simple
+            handle: caption
+            includeInCards: false
             instructions: null
-            label: null
+            label: Caption
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: dc9d4562-974b-4af0-b234-d24d1162cdfa
+            uid: 769bfcb9-d78c-4a0a-9d00-132942489632
             userCondition: null
             warning: null
             width: 100
           -
+            dateAdded: '2024-09-05T21:52:46+00:00'
             elementCondition: null
-            fieldUid: 419ebfbb-8723-48db-ae89-10adf52cdf11 # Text: Source
+            fieldUid: edfcb398-ef78-43ec-9434-d6405da2886e # Text Single
+            handle: source
+            includeInCards: false
             instructions: null
-            label: null
+            label: Source
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: f6dd6ce4-f0ce-4c5f-99fe-c1bf7d423b60
+            uid: 25032eaf-a68e-4bae-a892-52e4b1ad8d6c
             userCondition: null
             warning: null
-            width: 50
+            width: 100
           -
+            dateAdded: '2024-09-04T22:37:25+00:00'
             elementCondition: null
-            fieldUid: 8780cb03-c9ea-4482-ab85-3e541453b50f # Text: Source Url
+            fieldUid: a3f76ec3-252e-4be6-8178-8f6b54acce19 # Link
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 965a2160-44cc-416d-a8dd-b648efa3ca13
+            uid: 0ba2f1b5-41e1-4a8b-b55a-e6a4226242fb
             userCondition: null
             warning: null
-            width: 50
+            width: 100
         name: Content
         uid: 17490b94-d86a-40c5-bc48-932d8c81319f
         userCondition: null
-fs: images
+fs: assets
 handle: images
 name: Images
 sortOrder: 2
+subpath: images
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
 transformFs: transforms
-transformSubpath: craft-transforms/images
+transformSubpath: craft/images

@@ -1,5 +1,34 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.13 - 2024.01.20
+## 5.0.0 - 2024.09.06
+
+### added
+- 
+
+### removed
+- formie
+
+### updated
+- (cms): CraftCMS (4.12.0)
+- (plugin): SEOmatic (4.1.2)
+- (plugin): Image Resizer (3.0.11)
+- (plugin): Formie (2.1.3)
+- (plugin): Blitz (4.23.0)
+- (plugin): ImagerX (4.4.1)
+- (plugin): Navigation (2.1.0)
+- (plugin): Hyper (1.2.1)
+- (plugin): Vite (4.0.10)
+- (plugin): Sprig (2.13.0)
+- (plugin): CKEditor (3.9.0)
+- (npm): Packages
+- (waypoints): Better waypoint target selection
+- All Templates / Fields / Components / Configs for Craft 5
+
+### fixed
+- 
+
+
+### fixed
+- ## 4.0.13 - 2024.01.20
 
 ### added
 - Rollup copy plugin to copy `src/public/*` to `web/dist` on npm run dev (start only). Feel free to extend it to your needs.

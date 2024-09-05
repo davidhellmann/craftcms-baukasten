@@ -1,0 +1,80 @@
+columnSuffix: swaooeeb
+handle: imagesViewMode
+instructions: null
+name: 'Images View Mode'
+searchable: true
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - optgroup
+          - Grid
+    -
+      __assoc__:
+        -
+          - label
+          - 'Grid (2 Cols)'
+        -
+          - value
+          - grid2Cols
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Grid (3 Cols)'
+        -
+          - value
+          - grid3Cols
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Grid Calculated'
+        -
+          - value
+          - gridCalculated
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - optgroup
+          - Gallery
+    -
+      __assoc__:
+        -
+          - label
+          - Gallery
+        -
+          - value
+          - gallery
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - optgroup
+          - Slider
+    -
+      __assoc__:
+        -
+          - label
+          - Slider
+        -
+          - value
+          - slider
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

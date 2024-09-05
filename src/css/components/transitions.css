@@ -1,45 +1,46 @@
 @layer components {
-  [waypoint-target] {
-    @apply transition duration-200 transform-gpu;
+  [data-waypoint-target] {
+    @apply transition duration-300 ease-out;
   }
 
-  [waypoint-target].is-zoomInUp {
-    @apply opacity-0 translate-y-32 scale-75;
+  [data-waypoint-target].is-fadeInUp {
+    @apply opacity-0 transform-gpu translate-y-8;
   }
 
-  [waypoint-target].is-zoomInUp.is-animated {
-    @apply opacity-100 translate-y-0 scale-100 ease-out-back;
-  }
-
-  [waypoint-target].is-fadeInUp {
-    @apply opacity-0 translate-y-12 ease-out;
-  }
-
-  [waypoint-target].is-fadeInUp.is-animated {
+  [data-waypoint-target][data-waypoint-animated].is-fadeInUp {
     @apply opacity-100 translate-y-0;
   }
 
-  [waypoint-target].is-fadeInDown {
-    @apply opacity-0 -translate-y-12 ease-out;
+  [data-waypoint-target].is-zoomInUp {
+    @apply opacity-0 transform-gpu translate-y-12 scale-75;
   }
 
-  [waypoint-target].is-fadeInDown.is-animated {
+  [data-waypoint-target][data-waypoint-animated].is-zoomInUp {
+    @apply opacity-100 translate-y-0 scale-100;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  }
+
+  [data-waypoint-target].is-fadeInDown {
+    @apply opacity-0 transform-gpu -translate-y-8;
+  }
+
+  [data-waypoint-target][data-waypoint-animated].is-fadeInDown {
     @apply opacity-100 translate-y-0;
   }
 
-  [waypoint-target].is-fadeInLeft {
-    @apply opacity-0 translate-x-12 ease-out;
+  [data-waypoint-target].is-fadeInLeft {
+    @apply opacity-0 transform-gpu translate-x-8;
   }
 
-  [waypoint-target].is-fadeInLeft.is-animated {
+  [data-waypoint-target][data-waypoint-animated].is-fadeInLeft {
     @apply opacity-100 translate-x-0;
   }
 
-  [waypoint-target].is-fadeInRight {
-    @apply opacity-0 -translate-x-12 ease-out;
+  [data-waypoint-target].is-fadeInRight {
+    @apply opacity-0 transform-gpu -translate-x-8;
   }
 
-  [waypoint-target].is-fadeInRight.is-animated {
+  [data-waypoint-target][data-waypoint-animated].is-fadeInRight {
     @apply opacity-100 translate-x-0;
   }
 }

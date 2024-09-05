@@ -1,0 +1,23 @@
+{% extends "_layouts/layout-default.twig" %}
+{% set templatePath = _self ??? '' %}
+
+{% block blockAppContent %}
+  {% cache %}
+    {# >>> Render page title #}
+    <div class="container py-16">
+      {{ include('_components/text/headline.twig', {
+        data: {
+          text: entry.customTitle ??? entry.title ??? null,
+          variantSize: 'mega',
+          tag: 'h1',
+        }
+      }, withContext = false) }}
+    </div>
+
+    {{ include('_builders/_builderContent.twig', {
+      data: {
+        builderContent: entry.builderContent.eagerly() ??? null,
+      }
+    }, withContext = false) }}
+  {% endcache %}
+{% endblock %}

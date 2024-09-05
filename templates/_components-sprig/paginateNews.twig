@@ -1,8 +1,7 @@
 {# Sets a default value if not defined by `s-val:*` on the clicked element #}
 {% set page = page ??? craft.app.request.pageNum ??? 1 %}
 
-{% cache using key craft.app.request.pathInfo ~ 'overviewNews-' ~ section ~ '-' ~ page %}
-  {% minify %}
+{% cache using key craft.app.request.pathInfo ~ 'listNews-' ~ section ~ '-' ~ page %}
     {% set entryQuery = craft.entries
       .section(section)
       .with(['assetEntryImage'])
@@ -34,5 +33,4 @@
 
       {{ include('_components/pagination/pagination.twig', {}, withContext = true) }}
     </div>
-  {% endminify %}
 {% endcache %}

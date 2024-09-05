@@ -13,8 +13,8 @@ use craft\helpers\App;
 return [
     '*' => [
         'transformer' => 'craft',
-        'imagerSystemPath' => '@webroot/assets/transforms/imager/',
-        'imagerUrl' => '/assets/transforms/imager/',
+        'imagerSystemPath' => '@webroot/transforms/imager/',
+        'imagerUrl' => '/transforms/imager/',
         'filenamePattern' => '{basename}_{transformString}_{transformString|hash}.{extension}',
         'cacheDuration' => 31536000, // 1 Year
         'cacheDurationRemoteFiles' => 31536000, // 1 Year

@@ -66,9 +66,8 @@
       {# >>> Render text #}
       {% if props.data.text ??? null %}
         <p>
-          {{ include('_components/text/text.twig', {
+          {{ include('_components/text/plainText.twig', {
             data: {
-              richText: false,
               text: props.data.text ??? null,
             }
           }, withContext = false) }}

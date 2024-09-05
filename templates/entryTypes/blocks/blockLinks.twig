@@ -1,0 +1,32 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockLinks',
+    block: null,
+  },
+  classes: {
+    root: 'container flex flex-row flex-wrap gap-2',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block.hyperLinks ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {% for link in props.data.block.hyperLinks %}
+      {{ include("_components/button/button.twig", {
+        data: {
+          url: link.url ??? null,
+          text: link.text ??? null,
+          target: link.target ??? null,
+          variantStyle: link.linkStyle.value ??? null
+        },
+      }, withContext = false) }}
+    {% endfor %}
+  </div>
+{% endif %}

@@ -29,9 +29,12 @@
   {% endif %}
 
   {# Caption #}
+  {{ include('_components/text/richText.twig', {
+    data: {
+      html: props.data.block.text ??? null,
+    },
+  }, withContext = false) }}
   <p>
-    {{ props.data.text | nl2br }}
-
     {% if props.data.source and props.data.sourceUrl %}
       &mdash;&nbsp;<a class="{{ props.classes.link }}" href="{{ props.data.sourceUrl }}">{{ props.data.source }}</a>
     {% elseif props.data.source ?? null %}

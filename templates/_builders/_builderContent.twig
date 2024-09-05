@@ -1,8 +1,8 @@
 {# >>> Comp Defaults #}
 {% set compDefaults = {
   data: {
-    name: 'c-contentBuilder',
-    contentBuilder: null,
+    name: 'c-builderContent',
+    builderContent: null,
   },
   classes: {
     root: '',
@@ -16,36 +16,12 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{% if props.data.contentBuilder %}
+{% if props.data.builderContent %}
   <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
-    {% for block in props.data.contentBuilder %}
-
-      {# Create Section if first block is not a section #}
-      {% if loop.first and block.type.handle != 'blockSection' %}
-
-        {# Create Section #}
-        {{ include('_builders/blocks/blockSection.twig', {
-          block: block ??? null,
-          closeCurrentSection: 0
-        }, withContext = false) }}
-
-        {# Create First Block #}
-        {{ include('_builders/_blocks.twig', {
-          block: block ??? null,
-          blockNumber: loop.index,
-          closeCurrentSection: 0
-        }, withContext = false) }}
-
-      {% else %}
-        {# Create block elements and close section if it's loop.first #}
-        {{ include('_builders/_blocks.twig', {
-          block: block ??? null,
-          blockNumber: loop.index,
-          closeCurrentSection: loop.first ? 0 : 1,
-        }, withContext = false) }}
-      {% endif %}
+    {% for block in props.data.builderContent %}
+      {{ include('entryTypes/_routerBlocks.twig', {
+        block: block ??? null,
+      }, withContext = false) }}
     {% endfor %}
-    {# Close Last Section #}
-  </div>
   </div>
 {% endif %}
