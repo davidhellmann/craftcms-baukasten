@@ -1,0 +1,79 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockSection',
+    block: null,
+  },
+  classes: {
+    root: '',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block ??? null %}
+  {# >>> Set BG Color #}
+  {% switch props.data.block.backgroundColor %}
+  {% case "light-gray" %}
+    {% set sectionBGColorClass = 'bg-gray-100' %}
+
+  {% default %}
+    {% set sectionBGColorClass = 'transparent' %}
+  {% endswitch %}
+
+  {# >>> Set Padding #}
+  {% switch props.data.block.spacingYAxis %}
+  {% case "sm" %}
+    {% set spacingYAxisClass = 'py-2 md:py-4' %}
+
+  {% case "md" %}
+    {% set spacingYAxisClass = 'py-4 md:py-8' %}
+
+  {% case "lg" %}
+    {% set spacingYAxisClass = 'py-8 md:py-16' %}
+
+  {% case "xl" %}
+    {% set spacingYAxisClass = 'py-16 md:py-32' %}
+
+  {% case "2xl" %}
+    {% set spacingYAxisClass = 'py-32 md:py-64' %}
+
+  {% default %}
+    {% set spacingYAxisClass = '' %}
+  {% endswitch %}
+
+  {# >>> Set Space Between #}
+  {% switch props.data.block.spaceBetween %}
+  {% case "sm" %}
+    {% set spaceBetweenClass = 'space-y-2 md:space-y-4' %}
+
+  {% case "md" %}
+    {% set spaceBetweenClass = 'space-y-4 md:space-y-8' %}
+
+  {% case "lg" %}
+    {% set spaceBetweenClass = 'space-y-8 md:space-y-16' %}
+
+  {% case "xl" %}
+    {% set spaceBetweenClass = 'space-y-16 md:space-y-32' %}
+
+  {% case "2xl" %}
+    {% set spaceBetweenClass = 'space-y-32 md:space-y-64' %}
+
+  {% default %}
+    {% set spaceBetweenClass = 'space-y-8 md:space-y-16' %}
+  {% endswitch %}
+
+  <section
+    class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} {{ spacingYAxisClass }} {{ sectionBGColorClass }} {{ spaceBetweenClass }}">
+    {% for block in props.data.block.builderContentBlocks.eagerly() %}
+      {{ include('entryTypes/_routerBlocks.twig', {
+        block: block ??? null,
+      }, withContext = false) }}
+    {% endfor %}
+  </section>
+{% endif %}

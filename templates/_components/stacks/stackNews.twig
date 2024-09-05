@@ -23,9 +23,9 @@
     {% for item in props.data.items %}
       {{ include('_components/card/cardNews.twig', {
         data: {
-          image: item.assetEntryImage[0] ??? null,
+          image: item.image.one() ??? null,
           date: item.postDate|date("M Y") ??? null,
-          title: item.textTitleOverwrite ??? item.title ??? null,
+          title: item.customTitle ??? item.title ??? null,
           url: item.url ??? null,
           lazy: loop.index > props.data.noLazyImageLoadingCount
         }

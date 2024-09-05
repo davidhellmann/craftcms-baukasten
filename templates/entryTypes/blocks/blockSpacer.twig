@@ -1,0 +1,25 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockSpacer',
+    block: null,
+  },
+  classes: {
+    root: 'container ',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block.height ??? null %}
+  {{ include('_components/spacer/spacer.twig', {
+    data: {
+      height: props.data.block.height.value ??? 'sm',
+    },
+  }, withContext = false) }}
+{% endif %}

@@ -1,4 +1,4 @@
-color: null
+color: cyan
 fieldLayouts:
   6c449cd7-ebc2-4ce6-be61-1e8c90cb176b:
     tabs:
@@ -6,13 +6,43 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-09-04T21:22:12+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: efef2748-d17e-44ad-adbe-2f2f8504dbc3
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2024-09-04T19:47:47+00:00'
             elementCondition: null
-            fieldUid: 74c3cd4f-b565-4fb4-879e-72022774f93c
+            fieldUid: 74c3cd4f-b565-4fb4-879e-72022774f93c # Images View Mode
             handle: null
             includeInCards: true
             instructions: null
-            label: Variant
+            label: null
             providesThumbs: false
             required: false
             tip: null
@@ -24,11 +54,11 @@ fieldLayouts:
           -
             dateAdded: '2024-09-04T19:47:47+00:00'
             elementCondition: null
-            fieldUid: 75195ab8-b7c4-4dca-b807-ef8a042ef5a9
+            fieldUid: 75195ab8-b7c4-4dca-b807-ef8a042ef5a9 # Images
             handle: null
-            includeInCards: false
+            includeInCards: true
             instructions: null
-            label: Images
+            label: null
             providesThumbs: true
             required: true
             tip: null
@@ -37,16 +67,22 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+        name: Content
+        uid: 56042e3e-7a7b-4a4c-9222-63e004682c9b
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
           -
             dateAdded: '2024-09-04T19:47:47+00:00'
             elementCondition: null
-            fieldUid: 62883121-63a2-4e5c-a6f3-4855cf64df2c
+            fieldUid: 62883121-63a2-4e5c-a6f3-4855cf64df2c # Image Ratio
             handle: null
             includeInCards: false
             instructions: null
             label: 'Image Ratio'
             providesThumbs: false
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 721a9d99-a7c1-4462-b772-b18fadab09e8
@@ -54,27 +90,27 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            dateAdded: '2024-09-04T19:47:47+00:00'
+            dateAdded: '2024-09-04T21:26:43+00:00'
             elementCondition: null
-            fieldUid: e0e9e510-46ff-45aa-aa46-700b325bb911
-            handle: null
+            fieldUid: 31947efb-fa8c-473c-9b01-bd36c8d70b68 # Lightswitch OFF
+            handle: showCaption
             includeInCards: false
             instructions: null
-            label: 'Show Image Caption'
+            label: 'Show Caption'
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 9eae0590-a0dc-4c71-8d19-af63a55af1bd
+            uid: 4c0afd85-25ca-4a2d-953e-ffdb72188d7a
             userCondition: null
             warning: null
             width: 50
-        name: Content
-        uid: 56042e3e-7a7b-4a4c-9222-63e004682c9b
+        name: Settings
+        uid: 18bed5b9-f49a-469d-b58d-0258602e7466
         userCondition: null
 handle: blockImages
 hasTitleField: false
-icon: null
+icon: images
 name: Images
 showSlugField: false
 showStatusField: true

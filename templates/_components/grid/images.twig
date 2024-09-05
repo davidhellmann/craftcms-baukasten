@@ -6,7 +6,7 @@
     lazy: true,
     caption: null,
     aspectRatio: 'aspect-landscape',
-    variantColumns: 2,
+    columns: 2,
   },
   classes: {
     root: 'grid grid-cols-1 gap-4 md:gap-8',
@@ -30,7 +30,7 @@
 
 {# Modul #}
 {% if props.data.images ??? null %}
-  <div class="{{ props.data.name }}  {{ props.classes.root }}  {{ props.variants.columns[props.data.variantColumns] }} {{ props.classes.custom }}">
+  <div class="{{ props.data.name }}  {{ props.classes.root }}  {{ props.variants.columns[props.data.columns] }} {{ props.classes.custom }}">
     {% for image in props.data.images %}
       {{ include('_components/image/image.twig', {
         data: {

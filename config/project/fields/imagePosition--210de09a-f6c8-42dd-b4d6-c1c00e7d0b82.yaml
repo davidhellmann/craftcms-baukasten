@@ -1,12 +1,32 @@
 columnSuffix: null
 handle: imagePosition
 instructions: null
-name: 'Builder: Content - Text : Image - Image Position'
+name: 'Image Position'
 searchable: false
 settings:
-  default: false
-  offLabel: Left
-  onLabel: Right
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Left
+        -
+          - value
+          - left
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Right
+        -
+          - value
+          - right
+        -
+          - default
+          - ''
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\Lightswitch
+type: craft\fields\Dropdown

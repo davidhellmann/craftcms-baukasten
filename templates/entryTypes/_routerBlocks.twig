@@ -1,0 +1,6 @@
+{{ include('entryTypes/blocks/' ~ block.type.handle ~ '.twig', {
+  data: {
+    block: block ??? null,
+  }
+}, withContext = false) }}
+

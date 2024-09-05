@@ -1,8 +1,9 @@
 defaultPlacement: end
 enableVersioning: false
 entryTypes:
-  - 8ced5be5-13b2-483f-8db9-aab9757aad21 # Error
+  - 8ced5be5-13b2-483f-8db9-aab9757aad21 # _Error
 handle: errorPages
+maxAuthors: 1
 name: 'Error Pages'
 previewTargets:
   -
@@ -21,6 +22,6 @@ siteSettings:
   8153a2df-373f-4aac-9a92-d52292c9f1aa: # Baukasten
     enabledByDefault: true
     hasUrls: true
-    template: _routerErrors
+    template: entryTypes/_routerViews.twig
     uriFormat: 'error/{slug}'
 type: channel

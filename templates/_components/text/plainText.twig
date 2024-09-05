@@ -1,0 +1,24 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-plainText',
+    text: null,
+  },
+  classes: {
+    root: 'block',
+    custom: '',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Modul #}
+{% if props.data.text %}
+  <p class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+    {{ props.data.text | nl2br | raw }}
+  </p>
+{% endif %}

@@ -4,7 +4,6 @@
     name: 'c-quote',
     quote: null,
     source: null,
-    sourceSubline: null,
     sourceUrl: null
   },
   classes: {
@@ -24,7 +23,7 @@
 {# Modul #}
 {% if props.data.quote %}
   <blockquote class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
-    <p class="{{ props.classes.p }}">
+    <p class="{{ props.classes.p }} text-2xl">
       {{ props.data.quote | nl2br | raw }}
     </p>
     {% if props.data.source %}
@@ -33,9 +32,6 @@
           <a href="{{ props.data.sourceUrl }}"><strong>{{ props.data.source }}</strong></a>
         {% else %}
           <strong>{{ props.data.source }}</strong>
-        {% endif %}
-        {% if props.data.sourceSubline %}
-          / {{ props.data.sourceSubline }}
         {% endif %}
       </footer>
     {% endif %}

@@ -1,76 +1,67 @@
-{% extends "_boilerplate/_layouts/layout-global-variables.twig" %}
+{% do _globals.set('prefetchUrls', [alias("@assetsUrl")]) %}
+{% do _globals.set('baseUrl', alias("@web") ~ "/") %}
 
-{# >>> Render block app #}
-{% block blockApp %}
-  <!DOCTYPE html>
-  <html data-theme="{{ theme|default('') }}" class="no-js {{
-    "template-"
-      ~ (templatePath
-        |default("")
-        |replace({
-          "/": "-"
-        }))
-    }}"
-    lang="{{ craft.app.language|slice(0, 2) }}">
-    <head>
-      {# >>> Render block head meta #}
-      {{ include("_boilerplate/_partials/head-meta.twig", {}, withContext = true) }}
-      {% block blockHeadMeta %}
+<!DOCTYPE html>
+<html data-theme="{{ theme|default('') }}" class="no-js {{
+  "template-" ~ (templatePath|default("")|replace({"/": "-"}))
+}}" lang="{{ craft.app.language|slice(0, 2) }}">
+<head>
+  {# >>> Render block head meta #}
+  {{ include("_boilerplate/_partials/head-meta.twig", {}, withContext = true) }}
+  {% block blockHeadMeta %}
 
-      {% endblock %}
+  {% endblock %}
 
-      {% block blockHeadFavicons %}
+  {% block blockHeadFavicons %}
 
-      {% endblock %}
+  {% endblock %}
 
-      {# >>> Render block head js #}
-      {{ include("_boilerplate/_partials/head-js.twig", {}, withContext = true) }}
-      {% block blockHeadJs %}
+  {# >>> Render block head js #}
+  {{ include("_boilerplate/_partials/head-js.twig", {}, withContext = true) }}
+  {% block blockHeadJs %}
 
-      {% endblock %}
+  {% endblock %}
 
-      {# >>> Render block head fonts #}
-      {% block blockHeadFonts %}
+  {# >>> Render block head fonts #}
+  {% block blockHeadFonts %}
 
-      {% endblock %}
+  {% endblock %}
 
-      {# >>> Render block head css #}
-      {% block blockHeadCss %}
+  {# >>> Render block head css #}
+  {% block blockHeadCss %}
 
-      {% endblock %}
-      <style>
-        [v-cloak], [x-cloak] { display: none !important; }
-      </style>
-      {{
-        include(
-          "_boilerplate/_partials/head-critical-css.twig",
-          {
-            criticalPath: templatePath|default("")
-          },
-          withContext = true
-        )
-      }}
+  {% endblock %}
+  <style>
+    [v-cloak], [x-cloak] { display: none !important; }
+  </style>
+  {{
+  include(
+    "_boilerplate/_partials/head-critical-css.twig",
+    {
+      criticalPath: templatePath|default("")
+    },
+    withContext = true
+  )
+  }}
 
-      {# >>> Include RSS feeds #}
-      {{ include("_boilerplate/_partials/head-rss-feeds.twig", {}, withContext = true) }}
+  {# >>> Include RSS feeds #}
+  {{ include("_boilerplate/_partials/head-rss-feeds.twig", {}, withContext = true) }}
 
-      {# >>> Render block app head #}
-      {% block blockAppHead %}
+  {# >>> Render block app head #}
+  {% block blockAppHead %}
 
-      {% endblock %}
-    </head>
+  {% endblock %}
+</head>
+  <body>
+  {# >>> Render block app body #}
+  {% block blockAppBody %}
 
-    <body class="{{ craft.app.config.custom.craftEnv != "production" ? "debug-screens" : "" }}">
-      {# >>> Render block app body #}
-      {% block blockAppBody %}
+  {% endblock %}
 
-      {% endblock %}
+  {# >>> Render block app footer #}
+  {{ include("_boilerplate/_partials/footer-global.twig", {}, withContext = true) }}
+  {% block blockAppFooter %}
 
-      {# >>> Render block app footer #}
-      {{ include("_boilerplate/_partials/footer-global.twig", {}, withContext = true) }}
-      {% block blockAppFooter %}
-
-      {% endblock %}
-    </body>
-  </html>
-{% endblock %}
+  {% endblock %}
+  </body>
+</html>

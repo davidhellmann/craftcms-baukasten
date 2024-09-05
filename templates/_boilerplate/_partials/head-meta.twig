@@ -5,7 +5,7 @@
 
 {# -- Prefetch & preconnect headers and links -- #}
 {% set headerLink = "Link: " %}
-{% for url in prefetchUrls %}
+{% for url in _globals.get('prefetchUrls') %}
   {% set headerLink = headerLink ~ "<#{url}>; rel=dns-prefetch;," %}
   {% set headerLink = headerLink ~ "<#{url}>; rel=preconnect; crossorigin;" %}
   {% if not loop.last %}

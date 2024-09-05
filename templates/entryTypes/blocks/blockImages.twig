@@ -1,0 +1,69 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockImages',
+    block: null,
+  },
+  classes: {
+    root: 'container ',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block.images ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {% set viewMode = props.data.block.imagesViewMode %}
+
+    {% if viewMode == 'grid2Cols' or viewMode == 'grid3Cols' %}
+      {% set cols = 2 %}
+      {% if viewMode == 'grid3Cols' %}
+        {% set cols = 3 %}
+      {% endif %}
+
+      {{ include('_components/grid/images.twig', {
+        data: {
+          images: props.data.block.images ??? null,
+          columns: cols ??? 2,
+          caption: props.data.block.showImageCaption ??? null,
+          aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape',
+          lazy: true,
+        }
+      }, withContext = false) }}
+    {% endif %}
+
+    {% if viewMode == 'gridCalculated' %}
+      {{ include('_components/grid/imagesCalculated.twig', {
+        data: {
+          images: props.data.block.images ??? null,
+          caption: props.data.block.showImageCaption ??? null,
+          lazy: true,
+        }
+      }, withContext = false) }}
+    {% endif %}
+
+    {% if viewMode == 'gallery' %}
+      {{ include('_components/gallery/images.twig', {
+        data: {
+          images: props.data.block.images ??? null,
+          lazy: true,
+        }
+      }, withContext = false) }}
+    {% endif %}
+
+    {% if viewMode == 'slider' %}
+      {{ include('_components/slider/sliderImages.twig', {
+        data: {
+          slides: props.data.block.images ??? null,
+          aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape'
+        },
+      }, withContext = false) }}
+    {% endif %}
+
+  </div>
+{% endif %}

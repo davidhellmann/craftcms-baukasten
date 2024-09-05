@@ -106,8 +106,8 @@ Art Direction
 
   {# Focal Point / Title / URL #}
   {% set title = props.data.image.title %}
-  {% if props.data.image.textTitleOverwrite %}
-    {% set title = props.data.image.textTitleOverwrite %}
+  {% if props.data.image.customTitle %}
+    {% set title = props.data.image.customTitle %}
   {% endif %}
 
 
@@ -122,7 +122,7 @@ Art Direction
   {# Dominant Color / Placeholder #}
   {% set dominantColor = craft.app.config.custom.dominantColor ??? 'transparent' %}
   {% if props.data.calcDominantColor
-    and not craft.app.config.general.custom.localDevPerformance
+    and not craft.app.config.custom.localDevPerformance
     and isTranformable
     and transforms is defined
     and extension != 'png' %}
@@ -134,10 +134,10 @@ Art Direction
   {% set caption = null %}
   {% if props.data.caption %}
     {% set caption = {
-      'title': props.data.image.textTitleOve ??? null,
-      'text': props.data.image.textCaption ??? null,
-      'source': props.data.image.textSource ??? null,
-      'sourceUrl': props.data.image.textSourceUrl ??? null,
+      'title': props.data.image.customTitle ??? null,
+      'text': props.data.image.caption ??? null,
+      'source': props.data.image.source ??? null,
+      'sourceUrl': props.data.image.hyperLink.url ??? null,
     } %}
   {% endif %}
 

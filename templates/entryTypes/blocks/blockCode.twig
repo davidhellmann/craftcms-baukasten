@@ -1,0 +1,30 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockCode',
+    block: null,
+  },
+  classes: {
+    root: 'container ',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block.codeSnippet ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {{ include('_components/text/code.twig', {
+      data: {
+        codeSnippetName: props.data.block.codeSnippetName ??? null,
+        codeSnippet: props.data.block.codeSnippet.value | raw ??? null,
+        language: props.data.block.codeSnippet.language ??? 'Javascript',
+        collapsed: props.data.block.collapsed ??? true,
+      },
+    }, withContext = false) }}
+  </div>
+{% endif %}

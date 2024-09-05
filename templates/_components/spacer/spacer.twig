@@ -2,7 +2,7 @@
 {% set compDefaults = {
   data: {
     name: "c-spacer",
-    variantSize: "sm",
+    height: "sm",
     visible: false
   },
   classes: {
@@ -28,7 +28,7 @@
   variants: compDefaults.variants
 } %}
 
-<hr class="{{ props.data.name }} {{ props.classes.root }}  {{ props.variants.size[props.data.variantSize] }}  {{
+<hr class="{{ props.data.name }} {{ props.classes.root }}  {{ props.variants.size[props.data.height] }}  {{
   props.data.visible
     ? props.classes.visible
     : ""
