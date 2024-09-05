@@ -1,5 +1,5 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 4.0.14 - wip
+## 5.0.0 - 2024.09.06
 
 ### added
 - 
@@ -21,6 +21,7 @@
 - (plugin): CKEditor (3.9.0)
 - (npm): Packages
 - (waypoints): Better waypoint target selection
+- All Templates / Fields / Components / Configs for Craft 5
 
 ### fixed
 - 
