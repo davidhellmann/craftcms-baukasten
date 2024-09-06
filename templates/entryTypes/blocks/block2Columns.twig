@@ -1,0 +1,28 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-block2Columns',
+    block: null,
+  },
+  classes: {
+    root: 'grid grid-cols-1 md:grid-cols-2 bg-primary-50',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block ??? null %}
+  <section
+    class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {% for block in props.data.block.builder2Columns.eagerly() %}
+      {{ include('entryTypes/_routerBlocks.twig', {
+        block: block ??? null,
+      }, withContext = false) }}
+    {% endfor %}
+  </section>
+{% endif %}

@@ -1,0 +1,27 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockDefault',
+    block: null,
+  },
+  classes: {
+    root: 'container',
+    inner: 'flex flex-col my-4 items-center justify-center p-8 font-bold bg-gray-100 rounded border border-gray-200 text-center',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    <div class="{{ props.classes.inner }}">
+      <span class="font-normal">Missing Block Template</span>
+      {{ props.data.block.type }}
+    </div>
+  </div>
+{% endif %}

@@ -1,6 +1,12 @@
-{{ include('entryTypes/blocks/' ~ block.type.handle ~ '.twig', {
-  data: {
-    block: block ??? null,
-  }
-}, withContext = false) }}
+{{ include(
+  [
+    "entryTypes/blocks/" ~ block.type.handle ~ ".twig",
+    "entryTypes/blocks/blockDefault.twig"
+  ],
+  {
+    data: {
+      block: block ??? null,
+    }
+  }, withContext = false)
+}}
 
