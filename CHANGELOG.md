@@ -1,4 +1,9 @@
 # davidhellmann/craftcms-baukasten Change Log.
+## 5.0.1 - 2024.09.12
+
+### updated
+- (plugin): SEOmatic (5.1.3)
+
 ## 5.0.0 - 2024.09.06
 
 ### added
