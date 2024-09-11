@@ -3,6 +3,7 @@
 
 ### updated
 - (plugin): SEOmatic (5.1.3)
+- (plugin): Navigation (3.0.4)
 
 ## 5.0.0 - 2024.09.06
 
