@@ -2,6 +2,7 @@
 ## 5.0.1 - 2024.09.12
 
 ### updated
+- (CMS): (5.4.2)
 - (plugin): SEOmatic (5.1.3)
 - (plugin): Navigation (3.0.4)
 - (plugin): Hyper (2.0.5)
