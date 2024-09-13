@@ -1,7 +1,7 @@
 @layer base {
   strong,
   b {
-    @apply font-bold;
+    font-weight: theme('fontWeight.bold');
   }
 
   h1,
@@ -10,6 +10,6 @@
   h4,
   h5,
   h6 {
-    @apply font-bold;
+    font-weight: theme('fontWeight.bold');
   }
 }

@@ -1,0 +1,10 @@
+@layer base {
+ *:focus-visible {
+    @apply transition;
+    @apply outline-none;
+    @apply ring-4;
+    @apply ring-offset-2;
+    @apply ring-keyboard-focus;
+    @apply ring-offset-white dark:ring-offset-black;
+  }
+}

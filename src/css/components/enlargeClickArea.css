@@ -1,5 +1,9 @@
 @layer components {
   .enlarge-click-area {
-    @apply after:absolute after:inset-0;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: theme('spacing.0');
+    }
   }
 }

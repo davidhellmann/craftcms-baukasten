@@ -1,46 +1,59 @@
 @layer components {
   [data-waypoint-target] {
-    @apply transition duration-300 ease-out;
+    transition-property: theme('transitionProperty.DEFAULT');
+    transition-duration: theme('transitionDuration.300');
+    transition-timing-function: theme('transitionTimingFunction.out');
   }
 
   [data-waypoint-target].is-fadeInUp {
-    @apply opacity-0 transform-gpu translate-y-8;
+    opacity: theme('opacity.0');
+    transform: translateY(theme('spacing.8'));
   }
 
   [data-waypoint-target][data-waypoint-animated].is-fadeInUp {
-    @apply opacity-100 translate-y-0;
+    opacity: theme('opacity.100');
+    transform: translateY(theme('spacing.0'));
   }
 
   [data-waypoint-target].is-zoomInUp {
-    @apply opacity-0 transform-gpu translate-y-12 scale-75;
+    opacity: theme('opacity.0');
+    transform: translateY(theme('spacing.12')) scale(0.75);
   }
 
   [data-waypoint-target][data-waypoint-animated].is-zoomInUp {
-    @apply opacity-100 translate-y-0 scale-100;
-    transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    opacity: theme('opacity.100');
+    transform: translateY(theme('spacing.0'));
+    transition-timing-function: theme('transitionTimingFunction.out-back');
+
   }
 
   [data-waypoint-target].is-fadeInDown {
-    @apply opacity-0 transform-gpu -translate-y-8;
+    opacity: theme('opacity.0');
+    transform: translateY(calc(-1 * theme('spacing.8')));
   }
 
   [data-waypoint-target][data-waypoint-animated].is-fadeInDown {
-    @apply opacity-100 translate-y-0;
+    opacity: theme('opacity.100');
+    transform: translateY(theme('spacing.0'));
   }
 
   [data-waypoint-target].is-fadeInLeft {
-    @apply opacity-0 transform-gpu translate-x-8;
+    opacity: theme('opacity.0');
+    transform: translateX(theme('spacing.8'));
   }
 
   [data-waypoint-target][data-waypoint-animated].is-fadeInLeft {
-    @apply opacity-100 translate-x-0;
+    opacity: theme('opacity.100');
+    transform: translateX(theme('spacing.0'));
   }
 
   [data-waypoint-target].is-fadeInRight {
-    @apply opacity-0 transform-gpu -translate-x-8;
+    opacity: theme('opacity.0');
+    transform: translateX(calc(-1 * theme('spacing.8')));
   }
 
   [data-waypoint-target][data-waypoint-animated].is-fadeInRight {
-    @apply opacity-100 translate-x-0;
+    opacity: theme('opacity.100');
+    transform: translateX(theme('spacing.0'));
   }
 }

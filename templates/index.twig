@@ -3,10 +3,10 @@
 {% set theme = 'default' %}
 
 {% block blockAppContent %}
-  {% cache %}
-      <div class="container py-16">
+    {% cache %}
+    <div class="container py-16">
         <h1 class="text-xl">
-          Oh, hey!
+            Oh, hey!
         </h1>
         {# link #}
         {{ include(
@@ -22,6 +22,6 @@
           },
           withContext = false
         ) }}
-      </div>
-  {% endcache %}
+    </div>
+    {% endcache %}
 {% endblock %}

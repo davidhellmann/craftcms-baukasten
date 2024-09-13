@@ -13,7 +13,7 @@ import components from './tailwind/tailwind.plugins.addComponents';
 // Settings
 import settingsGrid from './tailwind/tailwind.settings.grid';
 import settingsfluidType from './tailwind/tailwind.settings.fluidType';
-import colors from 'tailwindcss/colors.js';
+import colors from 'tailwindcss/colors';
 
 export default {
   content: ['./templates/**/*.{twig,html,vue,js,ts,json}', './src/vue/**/*.{vue,js,ts}'],

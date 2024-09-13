@@ -1,13 +1,9 @@
-.lazyload,
-.lazyloading {
-  @apply transition-all duration-500;
-}
 
 figure .lazyload,
 figure .lazyloading,
 picture .lazyload,
 picture .lazyloading {
-  @apply scale-105;
+  transform: scale(theme('scale.105'));
 }
 
 /* .lazyloaded { */
@@ -16,7 +12,7 @@ picture .lazyloading {
 
 figure .lazyloaded,
 picture .lazyloaded {
-  @apply scale-100;
+  transform: scale(theme('scale.100'));
 }
 
 /* .lazypreload { */
