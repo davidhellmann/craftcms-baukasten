@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
 // import legacy from '@vitejs/plugin-legacy';
 import ViteRestart from 'vite-plugin-restart';
 import viteCompression from 'vite-plugin-compression';
@@ -63,7 +62,6 @@ export default defineConfig(({ command }) => ({
     ViteRestart({
       reload: ['./translations/**/*.php', './templates/**/*.{twig,html,php}'],
     }),
-    vue(),
     viteCompression({
       filter: /\.(js|mjs|json|css|map)$/i,
     }),
@@ -85,7 +83,6 @@ export default defineConfig(({ command }) => ({
   publicDir: './src/public',
   resolve: {
     alias: {
-      vue: 'vue/dist/vue.esm-bundler.js',
       '@': path.resolve('./src'),
       '@templates': path.resolve('./templates'),
       '@components': path.resolve('./templates/_components'),

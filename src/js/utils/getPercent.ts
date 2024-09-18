@@ -2,7 +2,9 @@
  * getPercent
  */
 
-const getPercent = (a: number, b: number): number => {
+type GetPercent = (a: number, b: number) => number;
+
+const getPercent: GetPercent = (a, b) => {
   if (b === 0) {
     throw new Error('Division by zero is not allowed.');
   }

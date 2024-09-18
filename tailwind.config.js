@@ -9,7 +9,6 @@
 import containerQuerries from '@tailwindcss/container-queries';
 import themeIt from 'tailwindcss-theme-it';
 import fluidType from 'tailwindcss-fluid-type';
-import debugScreens from 'tailwindcss-debug-screens';
 import forms from '@tailwindcss/forms';
 import components from './tailwind/tailwind.plugins.addComponents';
 
@@ -19,7 +18,7 @@ import settingsfluidType from './tailwind/tailwind.settings.fluidType';
 import settingsThemeIt from './tailwind/tailwind.settings.themeIt';
 
 export default {
-  content: ['./templates/**/*.{twig,html,vue,js,ts,json}', './src/vue/**/*.{vue,js,ts}'],
+  content: ['./templates/**/*.{twig,html,js,ts,json}'],
   safelist: [],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
@@ -49,11 +48,6 @@ export default {
         'out-back': 'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
       },
     },
-    // Plugin Stuff
-    debugScreens: {
-      ignore: ['nthover'],
-      position: ['bottom', 'right'],
-    },
   },
   variants: {},
   corePlugins: {
@@ -68,7 +62,6 @@ export default {
     fluidType({
       ...settingsfluidType,
     }),
-    debugScreens,
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     forms({
       strategy: 'class',
@@ -78,4 +71,4 @@ export default {
       addComponents(components);
     },
   ],
-}
+};

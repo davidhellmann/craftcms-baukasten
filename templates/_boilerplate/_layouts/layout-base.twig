@@ -2,7 +2,7 @@
 {% do _globals.set('baseUrl', alias("@web") ~ "/") %}
 
 <!DOCTYPE html>
-<html data-theme="{{ theme|default('') }}" class="no-js {{
+<html data-theme="{{ theme|default('') }}" class=" {{
   "template-" ~ (templatePath|default("")|replace({"/": "-"}))
 }}" lang="{{ craft.app.language|slice(0, 2) }}">
 <head>

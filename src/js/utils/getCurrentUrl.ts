@@ -2,7 +2,9 @@
  * getCurrentUrl
  */
 
-const getCurrentUrl = (): string => {
+type GetCurrentUrl = () => string;
+
+const getCurrentUrl: GetCurrentUrl = () => {
   return `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
 };
 
