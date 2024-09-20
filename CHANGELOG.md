@@ -1,8 +1,8 @@
 # davidhellmann/craftcms-baukasten Change Log.
-## 5.0.1 - 2024.09.12
+## 5.0.1 - WIP
 
 ### updated
-- (CMS): (5.4.2)
+- (CMS): (5.4.4)
 - (plugin): SEOmatic (5.1.3)
 - (plugin): Navigation (3.0.4)
 - (plugin): Hyper (2.0.5)
@@ -14,6 +14,7 @@
 
 ### removed
 - formie
+- unused stuff
 
 ### updated
 - (cms): CraftCMS (4.12.0)
