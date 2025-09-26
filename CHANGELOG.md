@@ -2,10 +2,8 @@
 ## 5.0.1 - WIP
 
 ### updated
-- (CMS): (5.4.4)
-- (plugin): SEOmatic (5.1.3)
-- (plugin): Navigation (3.0.4)
-- (plugin): Hyper (2.0.5)
+- (CMS): (5.8.7)
+- (plugins): latest and greatest
 
 ## 5.0.0 - 2024.09.06
 

@@ -1,4 +1,4 @@
-dateModified: 1725573188
+dateModified: 1758877789
 elementSources:
   craft\elements\Asset:
     -
@@ -114,10 +114,11 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_BLITZ
-    schemaVersion: 5.7.0.1
+    schemaVersion: 5.12.0
     settings:
       integrations:
         - putyourlightson\blitz\drivers\integrations\CommerceIntegration
+      maxUriLength: 2048
   blur-hash:
     edition: standard
     enabled: true
@@ -137,10 +138,6 @@ plugins:
     settings:
       additionalCss: ''
       cssFile: /dist/css/controlPanelCss.css
-  cp-field-inspect:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   elements-panel:
     edition: standard
     enabled: true
@@ -152,7 +149,7 @@ plugins:
   hyper:
     edition: standard
     enabled: true
-    licenseKey: $PLUGIN_HYPER
+    licenseKey: IOXQMRHT1WHVBQ5YQ135VCBW
     schemaVersion: 1.0.0
   imager-x:
     edition: pro
@@ -163,12 +160,12 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_NAVIGATION
-    schemaVersion: 2.1.0
+    schemaVersion: 2.1.1
   seomatic:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_SEOMATIC
-    schemaVersion: 3.0.12
+    schemaVersion: 3.0.13
     settings:
       addHrefLang: true
       addPaginatedHreflang: true
@@ -180,7 +177,7 @@ plugins:
           __assoc__:
             -
               - policy
-              - '''self'''
+              - "'self'"
       devModeCpTitlePrefix: '&#x1f6a7;⚙ '
       devModeTitlePrefix: '&#x1f6a7; '
       displayAnalysisSidebar: true
@@ -225,5 +222,5 @@ system:
   live: true
   name: Baukasten
   retryDuration: null
-  schemaVersion: 5.3.0.2
+  schemaVersion: 5.8.0.3
   timeZone: Europe/Berlin
