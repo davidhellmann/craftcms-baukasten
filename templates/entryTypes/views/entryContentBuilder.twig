@@ -6,10 +6,10 @@
       {# >>> Render page title #}
       <div class="container py-16">
         {{ include('_components/text/headline.twig', {
-          data: {
+          props: {
             text: entry.customTitle ??? entry.title ??? null,
             variantSize: 'mega',
-            tag: 'h1',
+            as: 'h1',
           }
         }, withContext = false) }}
       </div>

@@ -1,0 +1,29 @@
+{#
+Merge Props Macro
+------------------------------------------------------------
+Merges component props with defaults, handling nested objects like classes
+
+Usage:
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+#}
+
+{%- macro merge(defaults, userProps = {}) -%}
+  {%- set merged = defaults -%}
+
+  {%- if userProps is defined and userProps is iterable -%}
+    {%- set merged = defaults | merge(userProps) -%}
+
+    {# Deep merge for classes object #}
+    {%- if userProps.classes is defined and userProps.classes is iterable and defaults.classes is defined -%}
+      {%- set merged = merged | merge({ classes: defaults.classes | merge(userProps.classes) }) -%}
+    {%- endif -%}
+
+    {# Deep merge for variants object if provided #}
+    {%- if userProps.variants is defined and userProps.variants is iterable and defaults.variants is defined -%}
+      {%- set merged = merged | merge({ variants: defaults.variants | merge(userProps.variants) }) -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  {{- merged | json_encode | raw -}}
+{%- endmacro -%}

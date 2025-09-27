@@ -58,7 +58,7 @@
     <div class="{{ props.variants.direction[props.data.variantDirection].body }}">
       {# >>> Render headline #}
       {{ include('_components/text/headline.twig', {
-        data: {
+        props: {
           text: props.data.title ??? null,
         }
       }, withContext = false) }}
