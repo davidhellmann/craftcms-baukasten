@@ -1,4 +1,3 @@
-{# >>> Import merge props macro #}
 {% import '_macros/_macro-mergeProps.twig' as mergeProps %}
 
 {# >>> Comp Defaults #}
@@ -24,7 +23,6 @@
   }
 } %}
 
-{# >>> Merge props with defaults #}
 {% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
 

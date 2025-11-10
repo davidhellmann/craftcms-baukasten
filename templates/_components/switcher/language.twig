@@ -76,7 +76,7 @@
       class="{{ props.classes.button }}">
         <span x-text="label"></span>
         {{ include('_components/icon/icon.twig', {
-          data: {
+          props: {
             icon: 'icons/filled/' ~ props.variants.position[props.data.variantPosition].icon,
             variantSize: 'sm',
           },

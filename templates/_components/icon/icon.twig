@@ -1,11 +1,10 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: "c-icon",
-    icon: null,
-    fill: 'outline',
-    variantSize: "sm",
-  },
+  name: "c-icon",
+  icon: null,
+  fill: 'outline',
+  variantSize: "sm",
   classes: {
     root: "inline-flex",
     color: "text-current",
@@ -22,23 +21,16 @@
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data|merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes|merge(classes) : compDefaults.classes,
-  variants: compDefaults.variants
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-{# >>> No macroComponentSettings here cause simplify the icon (noWrapper) #}
-
-{% if props.data.icon %}
-  {% set iconFillMethod = props.data.fill == 'solid' ? '[&>path]:fill-current' : '[&>path]:stroke-current' %}
+{% if props.icon %}
+  {% set iconFillMethod = props.fill == 'solid' ? '[&>path]:fill-current' : '[&>path]:stroke-current' %}
 
   {{
-  svg("@webroot/dist/images/svg/" ~ props.data.icon ~ ".svg")|attr({
-    class: props.data.name ~ " " ~ props.data.name ~ " " ~ props.classes.root ~ " " ~ props.classes.color ~ " "
+  svg("@webroot/dist/images/svg/" ~ props.icon ~ ".svg")|attr({
+    class: props.name ~ " " ~ props.name ~ " " ~ props.classes.root ~ " " ~ props.classes.color ~ " "
     ~ iconFillMethod ~ " "
-    ~ props.variants.size[props.data.variantSize]
+    ~ props.variants.size[props.variantSize]
     ~ " "
     ~ props.classes.custom
   })

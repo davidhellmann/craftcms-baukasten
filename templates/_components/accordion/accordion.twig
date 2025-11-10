@@ -30,7 +30,7 @@
         {{ block('summary' ~ i) }}
 
         {{ include('_components/icon/icon.twig', {
-          data: {
+          props: {
             icon: 'icons/filled/caret-down',
             variantSize: 'sm',
           },

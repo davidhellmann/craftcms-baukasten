@@ -54,7 +54,7 @@
   {% if props.data.icon %}
     {# >>> Render icon  #}
     {{ include('_components/icon/icon.twig', {
-      data: {
+      props: {
         icon: props.data.icon ??? null,
         fill: 'solid',
         variantSize: props.data.iconSize
