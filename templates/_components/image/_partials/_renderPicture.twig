@@ -33,7 +33,7 @@
     {% if props.data.caption %}
       {# caption #}
       {{ include('_components/caption/caption.twig', {
-        data: {
+        props: {
           headline: imageData.caption.headline ??? null,
           text: imageData.caption.text ??? null,
           source: imageData.caption.source ??? null,

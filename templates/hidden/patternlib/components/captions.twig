@@ -8,7 +8,7 @@
       {% block label %}Caption / With source{% endblock %}
       {% block content %}
         {{ include('_components/caption/caption.twig', {
-          data: {
+          props: {
             title: 'Caption Title',
             text: 'The quick brown fox jumps over the lazy dogs',
             source: 'Max Mustermann',
@@ -23,7 +23,7 @@
       {% block label %}Caption / Without source{% endblock %}
       {% block content %}
         {{ include('_components/caption/caption.twig', {
-          data: {
+          props: {
             title: 'Caption Title',
             text: 'The quick brown fox jumps over the lazy dogs',
           }

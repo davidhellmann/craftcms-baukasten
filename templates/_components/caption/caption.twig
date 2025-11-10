@@ -1,13 +1,12 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-caption',
-    element: 'figcaption',
-    title: null,
-    text: null,
-    source: null,
-    sourceUrl: null
-  },
+  name: 'c-caption',
+  element: 'figcaption',
+  title: null,
+  text: null,
+  source: null,
+  sourceUrl: null
   classes: {
     root: 'text-xs',
     custom: '',
@@ -15,33 +14,29 @@
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-{% if props.data.title or props.data.text %}
-  <{{ props.data.element }} class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+{% if props.title or props.text %}
+  <{{ props.element }} class="{{ props.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
   {# Headline --#}
-  {% if props.data.title ?? null %}
-    <strong>{{- props.data.title ~ ' ' -}}</strong>
+  {% if props.title ?? null %}
+    <strong>{{- props.title ~ ' ' -}}</strong>
   {% endif %}
 
   {# Caption #}
   {{ include('_components/text/richText.twig', {
     data: {
-      html: props.data.block.text ??? null,
+      html: props.block.text ??? null,
     },
   }, withContext = false) }}
   <p>
-    {% if props.data.source and props.data.sourceUrl %}
-      &mdash;&nbsp;<a class="{{ props.classes.link }}" href="{{ props.data.sourceUrl }}">{{ props.data.source }}</a>
-    {% elseif props.data.source ?? null %}
-      &mdash;&nbsp;{{ props.data.source }}
+    {% if props.source and props.sourceUrl %}
+      &mdash;&nbsp;<a class="{{ props.classes.link }}" href="{{ props.sourceUrl }}">{{ props.source }}</a>
+    {% elseif props.source ?? null %}
+      &mdash;&nbsp;{{ props.source }}
     {% endif %}
   </p>
-  </{{ props.data.element }}>
+  </{{ props.element }}>
 {% endif %}
 
 
