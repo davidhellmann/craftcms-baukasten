@@ -20,7 +20,7 @@
   <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
     {% for link in props.data.block.hyperLinks %}
       {{ include("_components/button/button.twig", {
-        data: {
+        props: {
           url: link.url ??? null,
           text: link.text ??? null,
           target: link.target ??? null,

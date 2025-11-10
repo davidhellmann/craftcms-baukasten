@@ -57,7 +57,7 @@
       </div>
     {% endfor %}
     {{ include('_components/button/button.twig', {
-      data: {
+      props: {
         url: '#',
         text: 'translate.component.gallery.images.showAll' | t({ count: props.data.images|length }),
         variantStyle: 'primary',

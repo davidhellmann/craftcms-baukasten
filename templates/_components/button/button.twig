@@ -1,18 +1,17 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-button',
-    variantStyle: 'primary',
-    variantSize: 'md',
-    icon: null,
-    iconSize: 'sm',
-    text: null,
-    url: null,
-    buttonType: 'button',
-    reverse: false,
-    target: null,
-    enlargeClickArea: false,
-  },
+  name: 'c-button',
+  variantStyle: 'primary',
+  variantSize: 'md',
+  icon: null,
+  iconSize: 'sm',
+  text: null,
+  url: null,
+  buttonType: 'button',
+  reverse: false,
+  target: null,
+  enlargeClickArea: false,
   classes: {
     root: 'a11y-keyboard-focus items-center font-bold',
     custom: '',
@@ -36,34 +35,29 @@
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-  variants: compDefaults.variants,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-{% if props.data.text or props.data.icon %}
-  {% set tag = props.data.url ? 'a' : 'button' %}
-  {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=' ~ props.data.buttonType %}
+{% if props.text or props.icon %}
+  {% set as = props.url ? 'a' : 'button' %}
+  {% set attr = props.url ? 'href=' ~ props.url : 'type=' ~ props.buttonType %}
 
-  <{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }}
-      class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants.style[props.data.variantStyle] }}  {{ props.variants.size[props.data.variantSize] }} {{ props.classes.custom }} {{ props.data.enlargeClickArea ? props.classes.enlargeClickArea : '' }}">
+  <{{ as }} {{ attr }} {{ props.url and props.target ? 'target=' ~ props.target : '' }}
+      class="{{ props.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants.style[props.variantStyle] }}  {{ props.variants.size[props.variantSize] }} {{ props.classes.custom }} {{ props.enlargeClickArea ? props.classes.enlargeClickArea : '' }}">
 
   {# >>> If icon exists #}
-  {% if props.data.icon %}
+  {% if props.icon %}
     {# >>> Render icon  #}
     {{ include('_components/icon/icon.twig', {
       props: {
-        icon: props.data.icon ??? null,
+        icon: props.icon ??? null,
         fill: 'solid',
-        variantSize: props.data.iconSize
+        variantSize: props.iconSize
       },
       classes: {
-        custom: (props.data.reverse ? 'order-2' : '')
+        custom: (props.reverse ? 'order-2' : '')
       }
     }, withContext = false) }}
   {% endif %}
-    {{ props.data.text ??? null }}
-  </{{ tag }}>
+    {{ props.text ??? null }}
+  </{{ as }}>
 {% endif %}
