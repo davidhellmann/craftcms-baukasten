@@ -1,9 +1,8 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    url: siteUrl,
-    name: 'c-footer',
-  },
+  url: siteUrl,
+  name: 'c-footer',
   classes: {
     root: 'bg-gray-100  mt-auto',
     custom: '',
@@ -12,14 +11,10 @@
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-<footer class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+<footer class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
   <div class="{{ props.classes.container }}">
-    <a class="{{ props.classes.footerLink }}" href="{{ props.data.url }}">Baukasten</a> &copy;2014 &mdash; {{ "now"|date("Y") }}
+    <a class="{{ props.classes.footerLink }}" href="{{ props.url }}">Baukasten</a> &copy;2014 &mdash; {{ "now"|date("Y") }}
   </div>
 </footer>
