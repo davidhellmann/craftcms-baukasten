@@ -1,16 +1,15 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-cardNews',
-    variantDirection: 'col',
-    image: null,
-    aspectRatio: 'aspect-landscape',
-    title: null,
-    text: null,
-    url: null,
-    linkText: null,
-    lazy: true,
-  },
+  name: 'c-cardNews',
+  variantDirection: 'col',
+  image: null,
+  aspectRatio: 'aspect-landscape',
+  title: null,
+  text: null,
+  url: null,
+  linkText: null,
+  lazy: true,
   classes: {
     root: 'rounded-lg overflow-hidden border border-gray-300 group',
     custom: '',
@@ -33,42 +32,36 @@
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-  variants: compDefaults.variants,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-{# Modul #}
-{% if props.data.image and props.data.title and props.data.url %}
-  <a href="{{ props.data.url }}"
-     class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants.direction[props.data.variantDirection].root }} {{ props.classes.custom }}">
-    <div class="{{ props.variants.direction[props.data.variantDirection].image }}">
+{% if props.image and props.title and props.url %}
+  <a href="{{ props.url }}"
+     class="{{ props.name }} {{ props.classes.root }} {{ props.variants.direction[props.variantDirection].root }} {{ props.classes.custom }}">
+    <div class="{{ props.variants.direction[props.variantDirection].image }}">
       {{ include('_components/image/image.twig', {
         data: {
-          image: props.data.image ??? null,
-          aspectRatio: props.data.aspectRatio ??? null,
+          image: props.image ??? null,
+          aspectRatio: props.aspectRatio ??? null,
           objectFit: 'cover',
           renderPlainImage: true,
-          lazy: props.data.lazy,
+          lazy: props.lazy,
         }
       }, withContext = false) }}
     </div>
-    <div class="{{ props.variants.direction[props.data.variantDirection].body }}">
+    <div class="{{ props.variants.direction[props.variantDirection].body }}">
       {# >>> Render headline #}
       {{ include('_components/text/headline.twig', {
         props: {
-          text: props.data.title ??? null,
+          text: props.title ??? null,
         }
       }, withContext = false) }}
 
       {# >>> Render text #}
-      {% if props.data.text ??? null %}
+      {% if props.text ??? null %}
         <p>
           {{ include('_components/text/plainText.twig', {
             data: {
-              text: props.data.text ??? null,
+              text: props.text ??? null,
             }
           }, withContext = false) }}
         </p>
@@ -81,7 +74,7 @@
             text: 'Read more',
           },
           classes: {
-            custom: props.variants.direction[props.data.variantDirection].button
+            custom: props.variants.direction[props.variantDirection].button
           }
         }, withContext = false) }}
       {% endif %}

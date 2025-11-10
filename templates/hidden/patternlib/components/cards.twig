@@ -9,7 +9,7 @@
       {% block label %}Card / Column{% endblock %}
       {% block content %}
         {{ include('_components/card/cardNews.twig', {
-          data: {
+          props: {
             variantDirection: 'col',
             image: cat01Image ??? null,
             aspectRatio: 'aspect-landscape',
@@ -27,7 +27,7 @@
       {% block label %}Card / Row{% endblock %}
       {% block content %}
         {{ include('_components/card/cardNews.twig', {
-          data: {
+          props: {
             variantDirection: 'row',
             image: cat01Image ??? null,
             aspectRatio: 'aspect-landscape',
