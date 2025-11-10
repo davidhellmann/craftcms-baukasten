@@ -10,7 +10,7 @@
       {% block label %}Gallery: Images{% endblock %}
       {% block content %}
         {{ include('_components/gallery/images.twig', {
-          data: {
+          props: {
             images: images ??? null,
             aspectRatio: 'aspect-landscape',
           }

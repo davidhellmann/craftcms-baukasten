@@ -49,7 +49,7 @@
 
     {% if viewMode == 'gallery' %}
       {{ include('_components/gallery/images.twig', {
-        data: {
+        props: {
           images: props.data.block.images ??? null,
           lazy: true,
         }
