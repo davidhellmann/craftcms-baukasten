@@ -1,10 +1,9 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-accordion',
-    firstOpen: true,
-    numberOfAccordions: 1,
-  },
+  name: 'c-accordion',
+  firstOpen: true,
+  numberOfAccordions: 1,
   classes: {
     root: 'border-b border-gray-300 first:border-t py-4',
     custom: '',
@@ -13,18 +12,12 @@
   }
 } %}
 
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-  {# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-} %}
 
-{# Component #}
-
-{% for i in 1..props.data.numberOfAccordions %}
-  <details class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}"
-           {% if props.data.firstOpen and loop.first %}open{% endif %}>
+{% for i in 1..props.numberOfAccordions %}
+  <details class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}"
+           {% if props.firstOpen and loop.first %}open{% endif %}>
     {% if block('summary' ~ i) is defined %}
       <summary class="{{ props.classes.summary }}">
         {{ block('summary' ~ i) }}

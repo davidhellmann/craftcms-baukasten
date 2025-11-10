@@ -25,7 +25,6 @@
 
 {% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-
 {% if props.text %}
   <{{ props.as }} class="{{ props.name }} {{ props.classes.root }} {{ props.variants.size[props.variantSize] }} {{ props.classes.custom }}">
     {{ props.text | nl2br | raw }}

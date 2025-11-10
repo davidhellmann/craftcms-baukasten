@@ -8,7 +8,7 @@
       {% block label %}Accordion first open{% endblock %}
       {% block content %}
         {% embed '_components/accordion/accordion.twig' with {
-          data: {
+          props: {
             numberOfAccordions: 3,
           },
         } %}
