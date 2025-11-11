@@ -12,7 +12,6 @@ const code: ICompCode = {
   name: 'code',
   copyToClipboard() {
     const clipboard = new ClipboardJS('.js-codeCopy', {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       target(trigger) {
         return trigger.nextElementSibling;

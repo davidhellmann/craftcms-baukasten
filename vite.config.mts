@@ -3,7 +3,6 @@ import { defineConfig } from 'vite';
 import ViteRestart from 'vite-plugin-restart';
 import viteCompression from 'vite-plugin-compression';
 import manifestSRI from 'vite-plugin-manifest-sri';
-import { visualizer } from 'rollup-plugin-visualizer';
 import eslintPlugin from 'vite-plugin-eslint';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import critical from 'rollup-plugin-critical';
@@ -66,11 +65,6 @@ export default defineConfig(({ command }) => ({
       filter: /\.(js|mjs|json|css|map)$/i,
     }),
     manifestSRI(),
-    visualizer({
-      filename: './web/dist/assets/stats.html',
-      template: 'treemap',
-      sourcemap: true,
-    }),
     eslintPlugin({
       cache: false,
     }),

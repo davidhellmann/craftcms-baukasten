@@ -72,10 +72,10 @@ export const init = (els: NodeListOf<HTMLElement>, selector: string, threshold =
     });
 
     // Save for Sprig
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+
     // @ts-ignore
     window.LazyImageSelector = selector;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+
     // @ts-ignore
     window.LazyImageObserver = lazyItemObserver;
   }

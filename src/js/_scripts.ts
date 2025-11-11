@@ -44,10 +44,9 @@ export default (async () => {
       const lazy = await import('./scripts/lazy');
       lazy.init(lazyImageEls, selector);
     } else {
-      // eslint-disable-next-line no-console
       import('lazysizes')
         .then((LazySizes) => LazySizes.init())
-        // eslint-disable-next-line no-console
+
         .catch((e) => console.error(`${e.name} : ${e.message}`));
     }
   }

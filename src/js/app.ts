@@ -20,8 +20,7 @@ const main = async () => {
 };
 
 // Execute async function
-// eslint-disable-next-line
+
 main()
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   .then(() => {})
   .catch((e) => console.error(e));

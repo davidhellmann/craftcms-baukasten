@@ -31,7 +31,6 @@ const swiperHolder: IComponent = {
         const sliderConfig = JSON.parse(<string>slider.dataset.swiperConfig) || {};
         const destroyBreakpoint = slider.dataset.swiperDestroyBreakpoint || '';
 
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         let swiper = undefined;
 
@@ -82,10 +81,9 @@ const swiperHolder: IComponent = {
           if (breakpoint.matches) {
             slider.classList.add('swiper-is-destroyed');
             slider.classList.remove('swiper-is-ready');
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+
             // @ts-ignore
             if (swiper) {
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
               swiper.destroy(true, true);
             }
