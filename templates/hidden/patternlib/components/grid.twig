@@ -10,7 +10,7 @@
       {% block label %}Grid: Images 2 Cols{% endblock %}
       {% block content %}
         {{ include('_components/grid/images.twig', {
-          data: {
+          props: {
             images: images.limit(2).all() ??? null,
             variantColumns: 2
           }
@@ -22,7 +22,7 @@
       {% block label %}Grid: Images 3 Cols{% endblock %}
       {% block content %}
         {{ include('_components/grid/images.twig', {
-          data: {
+          props: {
             images: images.limit(3).all() ??? null,
             aspectRatio: 'aspect-portrait',
             variantColumns: 3
@@ -35,7 +35,7 @@
       {% block label %}Grid: Images Calculated 2 Cols{% endblock %}
       {% block content %}
         {{ include('_components/grid/imagesCalculated.twig', {
-          data: {
+          props: {
             images: images.limit(2).all() ??? null,
           }
         }, withContext = false) }}
@@ -46,7 +46,7 @@
       {% block label %}Grid: Images Calculated 3 Cols{% endblock %}
       {% block content %}
         {{ include('_components/grid/imagesCalculated.twig', {
-          data: {
+          props: {
             images: images.limit(3).all() ??? null,
           }
         }, withContext = false) }}
@@ -57,7 +57,7 @@
       {% block label %}Grid: Images Calculated 4 Cols{% endblock %}
       {% block content %}
         {{ include('_components/grid/imagesCalculated.twig', {
-          data: {
+          props: {
             images: images.limit(4).all() ??? null,
           }
         }, withContext = false) }}
@@ -68,7 +68,7 @@
       {% block label %}Grid: Images Calculated 5 Cols{% endblock %}
       {% block content %}
         {{ include('_components/grid/imagesCalculated.twig', {
-          data: {
+          props: {
             images: images.limit(5).all() ??? null,
           }
         }, withContext = false) }}

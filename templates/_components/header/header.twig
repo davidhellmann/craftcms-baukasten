@@ -1,11 +1,10 @@
-{# Set Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-header',
-    url: siteUrl,
-    logoSize: 'sm',
-    name: getenv('SITE_NAME'),
-  },
+  name: 'c-header',
+  url: siteUrl,
+  logoSize: 'sm',
+  name: getenv('SITE_NAME'),
   classes: {
     root: 'bg-gray-100',
     custom: '',
@@ -15,21 +14,17 @@
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-<header class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+<header class="{{ props.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
   <div class=" {{ props.classes.container }}">
-    <a href="{{ props.data.url }}" class="{{ props.classes.homeLink }}">
+    <a href="{{ props.url }}" class="{{ props.classes.homeLink }}">
       {{ include('_components/logo/logo.twig', {
-        data: {
-          variantSize: props.data.logoSize ??? 'md'
+        props: {
+          variantSize: props.logoSize ??? 'md'
         },
       }, withContext = false) }}
-      <h1 class="{{ props.classes.h1 }}">{{ props.data.name }}</h1>
+      <h1 class="{{ props.classes.h1 }}">{{ props.name }}</h1>
     </a>
   </div>
 </header>

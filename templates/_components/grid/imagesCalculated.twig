@@ -1,29 +1,22 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-imageGridCalculated',
-    images: null,
-    lazy: true,
-    caption: null,
-  },
+  name: 'c-imageGridCalculated',
+  images: null,
+  lazy: true,
+  caption: null,
   classes: {
     root: 'flex flex-col md:flex-row flex-nowrap gap-4 md:gap-8',
     custom: '',
   },
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-
-{# Modul #}
-{% if props.data.images ??? null %}
+{% if props.images ??? null %}
   <div
-    class="{{ props.data.name }}  {{ props.classes.root }} {{ props.classes.custom }}">
-    {% for image in props.data.images %}
+    class="{{ props.name }}  {{ props.classes.root }} {{ props.classes.custom }}">
+    {% for image in props.images %}
       <div style="--ratio: {{ image.width }} / {{ image.height }}">
         {{ include('_components/image/image.twig', {
           data: {
@@ -31,8 +24,8 @@
             objectFit: null,
             aspectRatio: 'auto',
             renderPlainImage: true,
-            caption: props.data.caption ??? null,
-            lazy: props.data.lazy
+            caption: props.caption ??? null,
+            lazy: props.lazy
           },
           classes: {
             custom: 'w-full h-auto'

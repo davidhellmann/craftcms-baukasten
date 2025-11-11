@@ -1,13 +1,12 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-imageGrid',
-    images: null,
-    lazy: true,
-    caption: null,
-    aspectRatio: 'aspect-landscape',
-    columns: 2,
-  },
+  name: 'c-imageGrid',
+  images: null,
+  lazy: true,
+  caption: null,
+  aspectRatio: 'aspect-landscape',
+  columns: 2,
   classes: {
     root: 'grid grid-cols-1 gap-4 md:gap-8',
     custom: '',
@@ -20,24 +19,17 @@
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-  variants: compDefaults.variants,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-
-{# Modul #}
-{% if props.data.images ??? null %}
-  <div class="{{ props.data.name }}  {{ props.classes.root }}  {{ props.variants.columns[props.data.columns] }} {{ props.classes.custom }}">
-    {% for image in props.data.images %}
+{% if props.images ??? null %}
+  <div class="{{ props.name }}  {{ props.classes.root }}  {{ props.variants.columns[props.columns] }} {{ props.classes.custom }}">
+    {% for image in props.images %}
       {{ include('_components/image/image.twig', {
         data: {
           image: image ??? null,
-          aspectRatio: props.data.aspectRatio ??? null,
-          caption: props.data.caption ??? null,
-          lazy: props.data.lazy
+          aspectRatio: props.aspectRatio ??? null,
+          caption: props.caption ??? null,
+          lazy: props.lazy
         },
         classes: {
           custom: 'col-span-1'

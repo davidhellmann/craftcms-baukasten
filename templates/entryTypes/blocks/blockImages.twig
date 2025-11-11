@@ -27,7 +27,7 @@
       {% endif %}
 
       {{ include('_components/grid/images.twig', {
-        data: {
+        props: {
           images: props.data.block.images ??? null,
           columns: cols ??? 2,
           caption: props.data.block.showImageCaption ??? null,
@@ -39,7 +39,7 @@
 
     {% if viewMode == 'gridCalculated' %}
       {{ include('_components/grid/imagesCalculated.twig', {
-        data: {
+        props: {
           images: props.data.block.images ??? null,
           caption: props.data.block.showImageCaption ??? null,
           lazy: true,
