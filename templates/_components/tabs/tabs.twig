@@ -1,11 +1,10 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-tabs',
-    variantPosition: 'top',
-    activeTab: 1,
-    numberOfTabs: null,
-  },
+  name: 'c-tabs',
+  variantPosition: 'top',
+  activeTab: 1,
+  numberOfTabs: null,
   classes: {
     root: 'grid grid-cols-6',
     custom: '',
@@ -34,29 +33,22 @@
   }
 } %}
 
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-  {# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-  variants: variants is defined and variants is iterable ? compDefaults.variants | merge(variants) : compDefaults.variants,
-} %}
-
-{# Component #}
 <div alpinejs x-cloak
      x-data="{
-        activeTab: {{ props.data.activeTab ??? 1 }},
+        activeTab: {{ props.activeTab ??? 1 }},
       }"
-     class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+     class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
 
-  <nav class="{{ props.variants.position[props.data.variantPosition].nav }}">
-    <ul class="{{ props.variants.position[props.data.variantPosition].ul }}">
-      {% for i in 1..props.data.numberOfTabs %}
+  <nav class="{{ props.variants.position[props.variantPosition].nav }}">
+    <ul class="{{ props.variants.position[props.variantPosition].ul }}">
+      {% for i in 1..props.numberOfTabs %}
         {% if block('tab' ~ i) is defined %}
-          <li class="{{ props.variants.position[props.data.variantPosition].li }}">
+          <li class="{{ props.variants.position[props.variantPosition].li }}">
             <button @click="activeTab = {{ i }};"
-                    :class="[activeTab === {{ i }} ? '{{ props.variants.position[props.data.variantPosition].buttonActive }}' : '']"
-            class="{{ props.variants.position[props.data.variantPosition].button }}">
+                    :class="[activeTab === {{ i }} ? '{{ props.variants.position[props.variantPosition].buttonActive }}' : '']"
+            class="{{ props.variants.position[props.variantPosition].button }}">
               {{ block('tab' ~ i) }}
             </button>
           </li>
@@ -65,10 +57,10 @@
     </ul>
   </nav>
 
-  <div class="{{ props.variants.position[props.data.variantPosition].contentHolder }}">
-    {% for i in 1..props.data.numberOfTabs %}
+  <div class="{{ props.variants.position[props.variantPosition].contentHolder }}">
+    {% for i in 1..props.numberOfTabs %}
       {% if block('content' ~ i) is defined %}
-        <div :class="[activeTab === {{ i }} ? 'block is-active' : 'hidden']" class="{{ props.variants.position[props.data.variantPosition].content }}">
+        <div :class="[activeTab === {{ i }} ? 'block is-active' : 'hidden']" class="{{ props.variants.position[props.variantPosition].content }}">
           {{ block('content' ~ i) }}
         </div>
       {% endif %}

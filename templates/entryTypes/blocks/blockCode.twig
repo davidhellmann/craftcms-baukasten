@@ -19,7 +19,7 @@
 {% if props.data.block.codeSnippet ??? null %}
   <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
     {{ include('_components/text/code.twig', {
-      data: {
+      props: {
         codeSnippetName: props.data.block.codeSnippetName ??? null,
         codeSnippet: props.data.block.codeSnippet.value | raw ??? null,
         language: props.data.block.codeSnippet.language ??? 'Javascript',

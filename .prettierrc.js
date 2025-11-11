@@ -15,9 +15,8 @@ export default {
   ],
   plugins: [
     // './node_modules/prettier-plugin-twig-melody',
-    'prettier-plugin-tailwindcss',
+    // 'prettier-plugin-tailwindcss',
   ],
-  tailwindConfig: './tailwind.config.js',
   twigPrintWidth: 120,
   twigSingleQuote: false,
   twigMultiTags: [

@@ -1,11 +1,10 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-sliderImages',
-    slides: null,
-    aspectRatio: 'aspect-landscape',
-    destroyBreakpoint: null
-  },
+  name: 'c-sliderImages',
+  slides: null,
+  aspectRatio: 'aspect-landscape',
+  destroyBreakpoint: null,
   classes: {
     root: 'overflow-hidden',
     custom: '',
@@ -22,33 +21,28 @@
   }
 } %}
 
-  {# >>> Merge data / classes / variants (optional) #}
-  {% set props = {
-    data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-    classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-    variants: compDefaults.variants,
-  } %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
   {# Component #}
-<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+<div class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
   {# >>> Embed Swiper Holder #}
   {% embed "_components/slider/swiperHolder.twig" with {
-    data: {
-      slides: props.data.slides ??? null,
-      aspectRatio: props.data.aspectRatio,
-      destroyBreakpoint: props.data.destroyBreakpoint ??? null,
+    props: {
+      slides: props.slides ??? null,
+      aspectRatio: props.aspectRatio,
+      destroyBreakpoint: props.destroyBreakpoint ??? null,
     },
     classes: props.classes,
     variants: props.variants
   } only %}
     {# >>> Render slides #}
     {% block swiperSlides %}
-      {% for image in props.data.slides %}
-        <div class="{{ props.classes.swiperSlide }} {{ props.variants.aspectRatio[props.data.aspectRatio] }}">
+      {% for image in props.slides %}
+        <div class="{{ props.classes.swiperSlide }} {{ props.variants.aspectRatio[props.aspectRatio] }}">
           {{ include('_components/image/image.twig', {
-            data: {
+            props: {
               image: image ??? null,
-              aspectRatio: props.data.aspectRatio,
+              aspectRatio: props.aspectRatio,
               lazy: false
             }
           }, withContext = false) }}

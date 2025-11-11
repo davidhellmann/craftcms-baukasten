@@ -5,17 +5,17 @@
   style="background-color: {{- imageData.dominantColor -}}; "
 {% endset %}
 
-<figure class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} {{ not props.data.caption ? 'overflow-hidden' : '' }}"
-  {% if props.data.showDominantColor and not props.data.caption %}{{ bgColor }}{% endif %}>
+<figure class="{{ props.name }} {{ props.classes.root }}  {{ props.classes.custom }} {{ not props.caption ? 'overflow-hidden' : '' }}"
+  {% if props.showDominantColor and not props.caption %}{{ bgColor }}{% endif %}>
 
   {# If there is no caption #}
-  {% if not props.data.caption %}
-    {{- imageHelper.renderImage(imageData, props.data.lazy, props.data.objectFit) -}}
+  {% if not props.caption %}
+    {{- imageHelper.renderImage(imageData, props.lazy, props.objectFit) -}}
 
   {# If there is a caption #}
   {% else %}
-    <div class="overflow-hidden" {% if props.data.showDominantColor %}{{ bgColor }}{% endif %}>
-      {{- imageHelper.renderImage(imageData, props.data.lazy, props.data.objectFit) -}}
+    <div class="overflow-hidden" {% if props.showDominantColor %}{{ bgColor }}{% endif %}>
+      {{- imageHelper.renderImage(imageData, props.lazy, props.objectFit) -}}
     </div>
 
     {# caption #}

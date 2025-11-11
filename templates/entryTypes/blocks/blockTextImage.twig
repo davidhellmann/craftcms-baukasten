@@ -29,7 +29,7 @@
 
     <div class="{{ props.classes.text }}">
       {{ include('_components/image/image.twig', {
-        data: {
+        props: {
           image: props.data.block.image[0] ??? null,
           aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape',
           caption: props.data.block.showCaption ??? 0,
@@ -42,7 +42,7 @@
 
 
       {{ include('_components/text/richText.twig', {
-        data: {
+        props: {
           html: props.data.block.richText ??? null,
         }
       }, withContext = false) }}

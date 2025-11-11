@@ -1,33 +1,29 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-stackNews',
-    headline: null,
-    items:  null,
-    noLazyImageLoadingCount: null
-  },
+  name: 'c-stackNews',
+  headline: null,
+  items:  null,
+  noLazyImageLoadingCount: null,
   classes: {
     root: 'container grid grid-cols-1 lg:grid-cols-3 lg:gap-12',
     custom: '',
   },
 } %}
 
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
 {# Modul #}
-{% if props.data.items ??? null %}
-  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
-    {% for item in props.data.items %}
+{% if props.items ??? null %}
+  <div class="{{ props.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {% for item in props.items %}
       {{ include('_components/card/cardNews.twig', {
         props: {
           image: item.image.one() ??? null,
           date: item.postDate|date("M Y") ??? null,
           title: item.customTitle ??? item.title ??? null,
           url: item.url ??? null,
-          lazy: loop.index > props.data.noLazyImageLoadingCount
+          lazy: loop.index > props.noLazyImageLoadingCount
         }
       }, withContext = false) }}
     {% endfor %}

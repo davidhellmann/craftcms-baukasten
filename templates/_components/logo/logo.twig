@@ -1,10 +1,9 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: "c-logo",
-    svgName: "logo",
-    variantSize: "md"
-  },
+  name: "c-logo",
+  svgName: "logo",
+  variantSize: "md",
   classes: {
     root: "",
     custom: ""
@@ -18,17 +17,12 @@
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data|merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes|merge(classes) : compDefaults.classes,
-  variants: compDefaults.variants
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-{% if props.data.svgName %}
+{% if props.svgName %}
   {{
-    svg("@webroot/dist/images/svg/" ~ props.data.svgName ~ ".svg")|attr({
-      class: props.data.name ~ " " ~ props.classes.root ~ " " ~ props.variants.size[props.data.variantSize] ~ " "
+    svg("@webroot/dist/images/svg/" ~ props.svgName ~ ".svg")|attr({
+      class: props.name ~ " " ~ props.classes.root ~ " " ~ props.variants.size[props.variantSize] ~ " "
         ~ props.classes.custom
     })
   }}

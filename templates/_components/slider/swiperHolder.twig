@@ -1,39 +1,38 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: "c-swiperHolder",
-    slides: null,
-    variantRatio: "landscape",
-    destroyBreakpoint: null,
-    swiperConfig: {
-      init: false,
-      freeMode: {
-        sticky: true
+  name: "c-swiperHolder",
+  slides: null,
+  variantRatio: "landscape",
+  destroyBreakpoint: null,
+  swiperConfig: {
+    init: false,
+    freeMode: {
+      sticky: true
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    scrollbar: {
+      el: ".swiper-scrollbar",
+      draggable: true,
+      hide: true
+    },
+    slidesPerView: 'auto',
+    spaceBetween: 16,
+    breakpoints: {
+      768: {
+        spaceBetween: 32,
       },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
-      },
-      scrollbar: {
-        el: ".swiper-scrollbar",
-        draggable: true,
-        hide: true
-      },
-      slidesPerView: 'auto',
-      spaceBetween: 16,
-      breakpoints: {
-        768: {
-          spaceBetween: 32,
-        },
-        1024: {
-          spaceBetween: 32,
-        }
-      },
-      grabCursor: true,
-      simulateTouch: true,
-      watchSlidesProgress: true,
-      watchSlidesVisibility: true
-    }
+      1024: {
+        spaceBetween: 32,
+      }
+    },
+    grabCursor: true,
+    simulateTouch: true,
+    watchSlidesProgress: true,
+    watchSlidesVisibility: true
   },
   classes: {
     root: "",
@@ -43,17 +42,12 @@
   variants: {}
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data|merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes|merge(classes) : compDefaults.classes,
-  variants: variants is defined and variants is iterable ? compDefaults.variants|merge(variants) : compDefaults.variants
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
 {# Component #}
-<div class="swiper {{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }} js-swiperHolder"
-  data-swiper-config="{{ props.data.swiperConfig|json_encode }}"
-  data-swiper-destroy-breakpoint="{{ props.data.destroyBreakpoint }}">
+<div class="swiper {{ props.name }} {{ props.classes.root }} {{ props.classes.custom }} js-swiperHolder"
+  data-swiper-config="{{ props.swiperConfig|json_encode }}"
+  data-swiper-destroy-breakpoint="{{ props.destroyBreakpoint }}">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper {{ props.classes.swiperWrapper }}">
     {% block swiperSlides %}
@@ -61,7 +55,7 @@
     {% endblock %}
   </div>
 
-  {% if props.data.swiperConfig.navigation ??? null %}
+  {% if props.swiperConfig.navigation ??? null %}
     {% block navigation %}
       <div class="swiper-button-prev">
         {# >>> Render icon #}
@@ -98,13 +92,13 @@
     {% endblock %}
   {% endif %}
 
-  {% if props.data.swiperConfig.scrollbar ??? null %}
+  {% if props.swiperConfig.scrollbar ??? null %}
     {% block scrollbar %}
       <div class="swiper-scrollbar"></div>
     {% endblock %}
   {% endif %}
 
-  {% if props.data.swiperConfig.pagination ??? null %}
+  {% if props.swiperConfig.pagination ??? null %}
     {% block pagination %}
       <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal"></div>
     {% endblock %}

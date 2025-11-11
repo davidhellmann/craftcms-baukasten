@@ -1,16 +1,15 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-switcherTheme',
-    variantPosition: 'bottom',
-    themes: [
-      {name: 'Default', handle: 'default'},
-      {name: 'Monochrome', handle: 'monochrome'},
-      {name: 'Blue', handle: 'blue'},
-      {name: 'Red', handle: 'red'},
-      {name: 'Purple', handle: 'purple'},
-    ]
-  },
+  name: 'c-switcherTheme',
+  variantPosition: 'bottom',
+  themes: [
+    {name: 'Default', handle: 'default'},
+    {name: 'Monochrome', handle: 'monochrome'},
+    {name: 'Blue', handle: 'blue'},
+    {name: 'Red', handle: 'red'},
+    {name: 'Purple', handle: 'purple'},
+  ],
   classes: {
     root: 'flex justify-center',
     custom: '',
@@ -20,13 +19,9 @@
   },
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-<div alpinejs class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+<div alpinejs class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
   <div
     x-data="{
             theme: $persist('default'),
@@ -50,7 +45,7 @@
         }"
     x-on:keydown.escape.prevent.stop="close($refs.button)"
     x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-    x-init="document.documentElement.dataset.theme = theme"
+    x-init="document.documentElementset.theme = theme"
     x-id="['dropdown-button']"
     class="relative"
   >
@@ -79,9 +74,9 @@
       class="{{ props.classes.panel }}"
     >
       <div>
-        {% for theme in props.data.themes %}
+        {% for theme in props.themes %}
           <button
-            x-on:click="theme = '{{ theme.handle }}'; document.documentElement.dataset.theme = '{{ theme.handle }}';"
+            x-on:click="theme = '{{ theme.handle }}'; document.documentElementset.theme = '{{ theme.handle }}';"
             class="{{ props.classes.listButton }}" >
             {{ theme.name }}
           </button>

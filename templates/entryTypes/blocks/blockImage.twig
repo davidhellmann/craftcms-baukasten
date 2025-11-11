@@ -19,7 +19,7 @@
 {% if props.data.block.image ??? null %}
   <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
     {{ include('_components/image/image.twig', {
-      data: {
+      props: {
         image: props.data.block.image[0] ??? null,
         aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape',
         caption: props.data.block.showImageCaption ??? 0,

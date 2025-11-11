@@ -1,11 +1,10 @@
-{# Set Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-quote',
-    quote: null,
-    source: null,
-    sourceUrl: null
-  },
+  name: 'c-quote',
+  quote: null,
+  source: null,
+  sourceUrl: null,
   classes: {
     root: 'space-y-4 md:space-y-8',
     custom: '',
@@ -14,24 +13,19 @@
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-{# Modul #}
-{% if props.data.quote %}
-  <blockquote class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+{% if props.quote %}
+  <blockquote class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
     <p class="{{ props.classes.p }} text-2xl">
-      {{ props.data.quote | nl2br | raw }}
+      {{ props.quote | nl2br | raw }}
     </p>
-    {% if props.data.source %}
+    {% if props.source %}
       <footer class="{{ props.classes.before }}">
-        {% if props.data.sourceUrl %}
-          <a href="{{ props.data.sourceUrl }}"><strong>{{ props.data.source }}</strong></a>
+        {% if props.sourceUrl %}
+          <a href="{{ props.sourceUrl }}"><strong>{{ props.source }}</strong></a>
         {% else %}
-          <strong>{{ props.data.source }}</strong>
+          <strong>{{ props.source }}</strong>
         {% endif %}
       </footer>
     {% endif %}

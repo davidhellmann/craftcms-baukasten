@@ -1,10 +1,9 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: "c-spacer",
-    height: "sm",
-    visible: false
-  },
+  name: "c-spacer",
+  height: "sm",
+  visible: false,
   classes: {
     root: "border-0",
     custom: "",
@@ -21,15 +20,10 @@
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data|merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes|merge(classes) : compDefaults.classes,
-  variants: compDefaults.variants
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-<hr class="{{ props.data.name }} {{ props.classes.root }}  {{ props.variants.size[props.data.height] }}  {{
-  props.data.visible
+<hr class="{{ props.name }} {{ props.classes.root }}  {{ props.variants.size[props.height] }}  {{
+  props.visible
     ? props.classes.visible
     : ""
   }} {{ props.classes.custom }}" />

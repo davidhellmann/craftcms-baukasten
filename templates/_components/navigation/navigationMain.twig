@@ -1,9 +1,9 @@
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-navigationMain',
-    nodes: null,
-    activeNode: null
-  },
+  name: 'c-navigationMain',
+  nodes: null,
+  activeNode: null,
   classes: {
     root: '',
     custom: '',
@@ -16,14 +16,10 @@
   },
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-{% if props.data.nodes ??? null %}
-  <nav class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} js-navigationMain">
+{% if props.nodes ??? null %}
+  <nav class="{{ props.name }} {{ props.classes.root }}  {{ props.classes.custom }} js-navigationMain">
     <ul alpinejs x-cloak
         x-data="{
         activeId: {{ activeNode.id ??? 0 }},
@@ -31,7 +27,7 @@
       }"
         class="{{ props.classes.ul }}" data-level="1">
 
-      {% nav node in props.data.nodes %}
+      {% nav node in props.nodes %}
         {# >>> Set vars #}
         {% set attributes = '' %}
         {% if node.customAttributes %}

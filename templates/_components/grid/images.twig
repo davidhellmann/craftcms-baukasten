@@ -25,7 +25,7 @@
   <div class="{{ props.name }}  {{ props.classes.root }}  {{ props.variants.columns[props.columns] }} {{ props.classes.custom }}">
     {% for image in props.images %}
       {{ include('_components/image/image.twig', {
-        data: {
+        props: {
           image: image ??? null,
           aspectRatio: props.aspectRatio ??? null,
           caption: props.caption ??? null,

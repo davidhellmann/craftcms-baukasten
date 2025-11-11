@@ -1,24 +1,20 @@
-{# Set Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: "c-pagination",
-    prevIcon: "swiper-left",
-    nextIcon: "swiper-right"
-  },
+  name: "c-pagination",
+  prevIcon: "swiper-left",
+  nextIcon: "swiper-right",
   classes: {
     root: "mt-4 lg:mt-14",
     custom: ""
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data|merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes|merge(classes) : compDefaults.classes
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+
 
 {% if pageInfo and entries and page and pageInfo.totalPages > 1 %}
-  <nav class="{{ props.data.name }} {{ props.classes.root }}" {{ props.classes.custom }}>
+  <nav class="{{ props.name }} {{ props.classes.root }}" {{ props.classes.custom }}>
     <div class="flex justify-center items-center">
       {% if entries %}
         {% if page > 1 %}
@@ -33,7 +29,7 @@
                 "_components/icon/icon.twig",
                 {
                   props: {
-                    icon: props.data.prevIcon,
+                    icon: props.prevIcon,
                     size: "w-8 h-8"
                   }
                 },
@@ -112,7 +108,7 @@
                 "_components/icon/icon.twig",
                 {
                   props: {
-                    icon: props.data.nextIcon,
+                    icon: props.nextIcon,
                     size: "w-8 h-8"
                   }
                 },

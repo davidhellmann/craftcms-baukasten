@@ -6,7 +6,7 @@
   title: null,
   text: null,
   source: null,
-  sourceUrl: null
+  sourceUrl: null,
   classes: {
     root: 'text-xs',
     custom: '',
@@ -25,7 +25,7 @@
 
   {# Caption #}
   {{ include('_components/text/richText.twig', {
-    data: {
+    props: {
       html: props.block.text ??? null,
     },
   }, withContext = false) }}

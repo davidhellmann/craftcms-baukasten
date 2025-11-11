@@ -1,17 +1,15 @@
-{# Set Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
 
 {% set compDefaults = {
-  data: {
-    name: 'c-code',
-    codeSnippet: null,
-    codeSnippetName: '…',
-    language: 'txt',
-    collapsed: true,
-    textShow: 'translate.component.code.textShow' | t,
-    textHide: 'translate.component.code.textHide' | t,
-    textCopy: 'translate.component.code.textCopy' | t,
-    textCopied: 'translate.component.code.textCopied' | t,
-  },
+  name: 'c-code',
+  codeSnippet: null,
+  codeSnippetName: '…',
+  language: 'txt',
+  collapsed: true,
+  textShow: 'translate.component.code.textShow' | t,
+  textHide: 'translate.component.code.textHide' | t,
+  textCopy: 'translate.component.code.textCopy' | t,
+  textCopied: 'translate.component.code.textCopied' | t,
   classes: {
     root: 'relative before:bg-gradient-to-b before:from-black/0 before:via-black/10 before:to-black/90 before:inset-0 before:absolute before:z-10 before:pointer-events-none',
     custom: '',
@@ -24,30 +22,25 @@
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-{# Modul #}
-{% if props.data.codeSnippet %}
-  <div class="alpinejs js-code {{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}"
+{% if props.codeSnippet %}
+  <div class="alpinejs js-code {{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}"
        x-data="{
-        collapsed: '{{ props.data.collapsed }}',
-        textShow: '{{ props.data.textShow }}',
-        textHide: '{{ props.data.textHide }}',
-        textCopy: '{{ props.data.textCopy }}',
-        textCopied: '{{ props.data.textCopied }}',
+        collapsed: '{{ props.collapsed }}',
+        textShow: '{{ props.textShow }}',
+        textHide: '{{ props.textHide }}',
+        textCopy: '{{ props.textCopy }}',
+        textCopied: '{{ props.textCopied }}',
       }" :class="[collapsed ? 'before:opacity-100' : 'before:opacity-0']">
 
-    <pre class="line-numbers  language-{{ props.data.language }}  {{ props.classes.pre }}"
+    <pre class="line-numbers  language-{{ props.language }}  {{ props.classes.pre }}"
          :class="[collapsed ? 'max-h-40' : '']">
-      <code class="language-{{ props.data.language }} {{ props.classes.code }}">{{- props.data.codeSnippet -}}</code>
+      <code class="language-{{ props.language }} {{ props.classes.code }}">{{- props.codeSnippet -}}</code>
     </pre>
 
     <div class="{{ props.classes.toolBar }}">
-      <span>{{ props.data.codeSnippetName }}</span>
+      <span>{{ props.codeSnippetName }}</span>
 
       <div class="{{ props.classes.buttonHolder }}">
         <button class="relative js-codeCopy {{ props.classes.button }} {{ props.classes.tooltip }}"
@@ -56,7 +49,7 @@
         </button>
 
         <textarea class="sr-only" tabindex="-1">
-          {{- props.data.codeSnippet | e -}}
+          {{- props.codeSnippet | e -}}
         </textarea>
 
         <button class="{{ props.classes.button }}"

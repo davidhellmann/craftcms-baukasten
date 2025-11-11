@@ -58,7 +58,7 @@
 
     {% if viewMode == 'slider' %}
       {{ include('_components/slider/sliderImages.twig', {
-        data: {
+        props: {
           slides: props.data.block.images ??? null,
           aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape'
         },

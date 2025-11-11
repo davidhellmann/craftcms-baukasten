@@ -30,7 +30,7 @@
         <div class="pl_path">
           <a href="{{ siteUrl }}" class="pl_logo">
             {{ include('_components/logo/logo.twig', {
-              data: {
+              props: {
                 variantSize: props.data.logoSize ??? 'sm'
               },
             }, withContext = false) }}

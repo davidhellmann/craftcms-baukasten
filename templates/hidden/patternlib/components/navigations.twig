@@ -10,7 +10,7 @@
         {% set navigationMain = craft.navigation.nodes('navigationMain').with(['descendants']).all() ??? null %}
         {% set activeNode = craft.navigation.getActiveNode({ handle: 'navigationMain' }) %}
         {{ include('_components/navigation/navigationMain.twig', {
-          data: {
+          props: {
             nodes: navigationMain ??? null,
             activeNode: activeNode
           }

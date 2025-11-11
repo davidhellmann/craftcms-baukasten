@@ -7,7 +7,7 @@
       {% set code %}{% verbatim %}
         {# Comment #}
         {{ include('_components/text/code.twig', {
-          data: {
+          props: {
             codeSnippet: code ??? null,
             codeSnippetName: 'sample.twig',
             collapsed: false,
@@ -23,7 +23,7 @@
       {% block label %}Code{% endblock %}
       {% block content %}
         {{ include('_components/text/code.twig', {
-          data: {
+          props: {
             codeSnippet: code ??? null,
             codeSnippetName: 'sample.twig',
             collapsed: false,
@@ -38,7 +38,7 @@
       {% block label %}Code collapsed{% endblock %}
       {% block content %}
         {{ include('_components/text/code.twig', {
-          data: {
+          props: {
             codeSnippet: code ??? null,
             codeSnippetName: 'sample.twig',
             collapsed: true,

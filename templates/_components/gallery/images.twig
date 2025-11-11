@@ -6,7 +6,7 @@
   lazy: true,
   aspectRatio: 'aspect-landscape',
   cutAfter: 3,
-  caption: null
+  caption: null,
   classes: {
     root: 'relative group grid grid-cols-2 md:grid-cols-3 grid-rows-3 md:grid-rows-2 w-full gap-1',
     custom: '',
@@ -40,7 +40,7 @@
     {% for image in props.images |slice(0, props.cutAfter) %}
       <div class="{{ props.classes['image' ~ loop.index] }}">
         {{ include('_components/image/image.twig', {
-          data: {
+          props: {
             image: image ??? null,
             aspectRatio: props.aspectRatio,
             objectFit: 'cover',

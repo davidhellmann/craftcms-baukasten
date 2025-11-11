@@ -18,7 +18,7 @@
 
 {% if props.data.block.height ??? null %}
   {{ include('_components/spacer/spacer.twig', {
-    data: {
+    props: {
       height: props.data.block.height.value ??? 'sm',
     },
   }, withContext = false) }}

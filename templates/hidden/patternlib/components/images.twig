@@ -12,7 +12,7 @@
       {% block label %}Size: Landscape{% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {
-          data: {
+          props: {
             image: cat01Image ??? null,
             aspectRatio: 'aspect-landscape',
             lazy: false,
@@ -26,7 +26,7 @@
       {% block label %}Size: Square{% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {
-          data: {
+          props: {
             image: cat02Image ??? null,
             aspectRatio: 'aspect-square',
             lazy: false,
@@ -40,7 +40,7 @@
       {% block label %}Size: Portrait{% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {
-          data: {
+          props: {
             image: cat01Image ??? null,
             aspectRatio: 'aspect-portrait',
           }
@@ -53,7 +53,7 @@
       {% block label %}Size: Auto{% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {
-          data: {
+          props: {
             image: cat01Image ??? null,
             aspectRatio: 'aspect-auto',
           }
@@ -66,7 +66,7 @@
       {% block label %}Decorative Image (no alt text){% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {
-          data: {
+          props: {
             image: cat01Image ??? null,
             aspectRatio: 'aspect-landscape',
             decorativeImage: true
@@ -80,7 +80,7 @@
       {% block label %}Render plain image (img tag only){% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {
-          data: {
+          props: {
             image: cat01Image ??? null,
             aspectRatio: 'aspect-landscape',
             renderPlainImage: true
@@ -94,7 +94,7 @@
       {% block label %}Render image with caption{% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {
-          data: {
+          props: {
             image: cat01Image ??? null,
             aspectRatio: 'aspect-landscape',
             caption: true
@@ -108,7 +108,7 @@
       {% block label %}Art Direction{% endblock %}
       {% block content %}
         {{ include('_components/image/image.twig', {
-          data: {
+          props: {
             image: cat01Image ??? null,
             aspectRatio: 'aspect-portrait sm:aspect-square lg:aspect-landscape',
             sources: [

@@ -19,7 +19,7 @@
 {% if props.data.block.richText ??? null %}
   <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
     {{ include('_components/text/richText.twig', {
-      data: {
+      props: {
         html: props.data.block.richText ??? null,
       },
       classes: {

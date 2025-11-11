@@ -19,7 +19,7 @@
 {% if props.data.block.quote ??? null %}
   <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
     {{ include('_components/text/quote.twig', {
-      data: {
+      props: {
         quote: props.data.block.quote ??? null,
         source: props.data.block.source ??? null,
         sourceUrl: props.data.block.hyperLink.url ??? null

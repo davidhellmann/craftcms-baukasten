@@ -1,24 +1,18 @@
-{# >>> Comp Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
 {% set compDefaults = {
-  data: {
-    name: 'c-builderContent',
-    builderContent: null,
-  },
+  name: 'c-builderContent',
+  builderContent: null,
   classes: {
     root: '',
     custom: '',
   },
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-} %}
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-{% if props.data.builderContent %}
-  <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
-    {% for block in props.data.builderContent %}
+{% if props.builderContent %}
+  <div class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+    {% for block in props.builderContent %}
       {{ include('entryTypes/_routerBlocks.twig', {
         block: block ??? null,
       }, withContext = false) }}

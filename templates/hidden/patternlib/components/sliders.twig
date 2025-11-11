@@ -9,7 +9,7 @@
       {% block content %}
         {% set images = craft.assets().limit(10).all() %}
         {{ include('_components/slider/sliderImages.twig', {
-          data: {
+          props: {
             slides: images ??? null,
             aspectRatio: 'aspect-landscape'
           },
@@ -23,7 +23,7 @@
       {% block content %}
         {% set images = craft.assets().limit(10).all() %}
         {{ include('_components/slider/sliderImages.twig', {
-          data: {
+          props: {
             slides: images ??? null,
             aspectRatio: 'aspect-square'
           },
@@ -37,7 +37,7 @@
       {% block content %}
         {% set images = craft.assets().limit(10).all() %}
         {{ include('_components/slider/sliderImages.twig', {
-          data: {
+          props: {
             slides: images ??? null,
             aspectRatio: 'aspect-portrait'
           },
@@ -51,7 +51,7 @@
       {% block content %}
         {% set images = craft.assets().limit(10).all() %}
         {{ include('_components/slider/sliderImages.twig', {
-          data: {
+          props: {
             slides: images ??? null,
             aspectRatio: 'aspect-auto'
           },
@@ -65,7 +65,7 @@
       {% block content %}
         {% set images = craft.assets().limit(4).all() %}
         {{ include('_components/slider/sliderHeroImages.twig', {
-          data: {
+          props: {
             slides: images ??? null,
             aspectRatio: 'aspect-landscape'
           },
@@ -78,7 +78,7 @@
       {% block label %}Slider Overflow{% endblock %}
       {% block content %}
         {{ include('_components/slider/sliderOverflow.twig', {
-          data: {
+          props: {
             slides: [
               {url: '#', title: 'Lorem'},
               {url: '#', title: 'Dolores'},

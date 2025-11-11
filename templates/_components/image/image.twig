@@ -6,7 +6,7 @@ Simple Image
 {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
 
 {{ include('_components/image/image.twig', {
-  data: {
+  props: {
     image: cat01Image ??? null,
     aspectRatio: 'aspect-landscape',
     renderPlainImage: true,
@@ -17,7 +17,7 @@ Figure Image
 {% set cat01Image = craft.assets.title('Cat 01').volume('templateImages').one() %}
 
 {{ include('_components/image/image.twig', {
-  data: {
+  props: {
     image: cat01Image ??? null,
     aspectRatio: 'aspect-landscape',
   }
@@ -29,7 +29,7 @@ Art Direction
 {% set cat03Image = craft.assets.title('Cat 03').volume('templateImages').one() %}
 
 {{ include('_components/image/image.twig', {
-  data: {
+  props: {
     image: cat01Image ??? null,
     aspectRatio: 'aspect-landscape',
     sources: [
@@ -40,38 +40,32 @@ Art Direction
 }, withContext = false }}
 #}
 
-{# Set Defaults #}
+{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
+
 {% set compDefaults = {
-  data: {
-    name: 'c-image',
-    image: null,
-    aspectRatio: 'aspect-landscape',
-    transform: 'auto',
-    objectFit: 'cover',
-    lazy: true,
-    showDominantColor: true,
-    calcDominantColor: false,
-    noscript: true,
-    sources: null,
-    caption: null,
-    renderPlainImage: false,
-    decorativeImage: false
-  },
+  name: 'c-image',
+  image: null,
+  aspectRatio: 'aspect-landscape',
+  transform: 'auto',
+  objectFit: 'cover',
+  lazy: true,
+  showDominantColor: true,
+  calcDominantColor: false,
+  noscript: true,
+  sources: null,
+  caption: null,
+  renderPlainImage: false,
+  decorativeImage: false,
   classes: {
     root: 'block',
     custom: ''
   }
 } %}
 
-{# >>> Merge data / classes / variants (optional) #}
-{% set props = {
-  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
-  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
-} %}
-
+{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
 {# Image #}
-{% if props.data.image ??? null %}
+{% if props.image ??? null %}
   {% set imageSettings = {
     allowedExtensions: ['png', 'jpg', 'jpeg', 'webp', 'avif'],
     format: 'avif'
@@ -83,9 +77,9 @@ Art Direction
     transformable: null,
     focalpoint: null,
     title: null,
-    width: props.data.image.width,
-    height: props.data.image.height,
-    url: props.data.image.getUrl(),
+    width: props.image.width,
+    height: props.image.height,
+    url: props.image.getUrl(),
     noscript: null,
     transforms: null,
     srcset: null,
@@ -97,7 +91,7 @@ Art Direction
   } %}
 
   {# Extension #}
-  {% set extension = props.data.image is iterable ? props.data.image.extension : props.data.image | split('.') | last %}
+  {% set extension = props.image is iterable ? props.image.extension : props.image | split('.') | last %}
 
 
   {# If Transformable #}
@@ -105,23 +99,23 @@ Art Direction
 
 
   {# Focal Point / Title / URL #}
-  {% set title = props.data.image.title %}
-  {% if props.data.image.customTitle %}
-    {% set title = props.data.image.customTitle %}
+  {% set title = props.image.title %}
+  {% if props.image.customTitle %}
+    {% set title = props.image.customTitle %}
   {% endif %}
 
 
   {# Transforms / Srcset #}
   {% if isTranformable %}
-    {% set srcsetLegacy = craft.imager.transformImage(props.data.image, props.data.transform) %}
-    {% set transforms = craft.imager.transformImage(props.data.image, props.data.transform, { format: imageSettings.format }) %}
+    {% set srcsetLegacy = craft.imager.transformImage(props.image, props.transform) %}
+    {% set transforms = craft.imager.transformImage(props.image, props.transform, { format: imageSettings.format }) %}
     {% set srcset = craft.imager.srcset(transforms) | trim %}
   {% endif %}
 
 
   {# Dominant Color / Placeholder #}
   {% set dominantColor = craft.app.config.custom.dominantColor ??? 'transparent' %}
-  {% if props.data.calcDominantColor
+  {% if props.calcDominantColor
     and not craft.app.config.custom.localDevPerformance
     and isTranformable
     and transforms is defined
@@ -132,12 +126,12 @@ Art Direction
 
   {# Caption #}
   {% set caption = null %}
-  {% if props.data.caption %}
+  {% if props.caption %}
     {% set caption = {
-      'title': props.data.image.customTitle ??? null,
-      'text': props.data.image.caption ??? null,
-      'source': props.data.image.source ??? null,
-      'sourceUrl': props.data.image.hyperLink.url ??? null,
+      'title': props.image.customTitle ??? null,
+      'text': props.image.caption ??? null,
+      'source': props.image.source ??? null,
+      'sourceUrl': props.image.hyperLink.url ??? null,
     } %}
   {% endif %}
 
@@ -145,11 +139,11 @@ Art Direction
 
   {# Sources #}
   {% set finaleSources = [] %}
-  {% if props.data.sources | length > 1 %}
-    {% for source in props.data.sources %}
+  {% if props.sources | length > 1 %}
+    {% for source in props.sources %}
       {% if isTranformable %}
-        {% set srcsetLegacySource = craft.imager.transformImage(source[0] ??? null, props.data.transform) %}
-        {% set transformsSource = craft.imager.transformImage(source[0] ??? null, props.data.transform, { format: imageSettings.format }) %}
+        {% set srcsetLegacySource = craft.imager.transformImage(source[0] ??? null, props.transform) %}
+        {% set transformsSource = craft.imager.transformImage(source[0] ??? null, props.transform, { format: imageSettings.format }) %}
         {% set srcsetSource = craft.imager.srcset(transformsSource) | trim %}
 
         {% set finaleSources = finaleSources|merge([[
@@ -166,33 +160,33 @@ Art Direction
   {% set imageData = imageData|merge({
     'extension': extension,
     'transformable': isTranformable,
-    'focalpoint': props.data.image.getFocalpoint('asCss') ??? '50% 50%',
+    'focalpoint': props.image.getFocalpoint('asCss') ??? '50% 50%',
     'title': title,
-    'alt': props.data.decorativeImage ? '' : (props.data.image.alt ??? title),
-    'aspectRatio': props.data.aspectRatio ??? 'aspect-auto',
+    'alt': props.decorativeImage ? '' : (props.image.alt ??? title),
+    'aspectRatio': props.aspectRatio ??? 'aspect-auto',
     'noscript': "<noscript><img src='#{imageData.url}' alt='#{title}'/></noscript>",
     'transforms': transforms ??? null,
     'srcset': srcset ??? imageData.url,
     'filetype': isTranformable and transforms is defined ? transforms[0].source.extension : extension,
     'dominantColor': dominantColor,
-    'placeholder': blurhash(props.data.image),
+    'placeholder': blurhash(props.image),
     'caption': caption,
     'sources': finaleSources
   }) %}
 
 
   {# >>> Render logic #}
-  {% if props.data.renderPlainImage and not props.data.sources %}
+  {% if props.renderPlainImage and not props.sources %}
 
     {# Render Plain Image #}
     {{ include('_components/image/_partials/_renderImage.twig', {}, withContext = true) }}
 
-  {% elseif not props.data.renderPlainImage and not props.data.sources %}
+  {% elseif not props.renderPlainImage and not props.sources %}
 
     {# Render Figure Element #}
     {{ include('_components/image/_partials/_renderFigure.twig', {}, withContext = true) }}
 
-  {% elseif not props.data.renderPlainImage and props.data.sources %}
+  {% elseif not props.renderPlainImage and props.sources %}
 
     {# Render Figure in Picutre #}
     {{ include('_components/image/_partials/_renderPicture.twig', {}, withContext = true) }}

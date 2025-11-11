@@ -6,31 +6,31 @@
 {% endset %}
 
 {# If there is no caption #}
-{% if not props.data.caption %}
-  <picture class="overflow-hidden {{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}"
-    {% if props.data.showDominantColor %}{{ bgColor }}{% endif %}>
+{% if not props.caption %}
+  <picture class="overflow-hidden {{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}"
+    {% if props.showDominantColor %}{{ bgColor }}{% endif %}>
     {% for source in imageData.sources %}
       {{- imageHelper.renderSource(source[0], source[1], source[2], source[3]) -}}
     {% endfor %}
 
-    {{- imageHelper.renderImage(imageData, props.data.lazy, props.data.objectFit) -}}
+    {{- imageHelper.renderImage(imageData, props.lazy, props.objectFit) -}}
     {{ include('_components/image/_partials/_nocript.twig', {}, withContext = true) }}
   </picture>
 
 {# If there is a caption #}
 {% else %}
-  <figure class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
-    <picture class="overflow-hidden" {% if props.data.showDominantColor  %}{{ bgColor }}{% endif %}>
+  <figure class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+    <picture class="overflow-hidden" {% if props.showDominantColor  %}{{ bgColor }}{% endif %}>
       {% for source in imageData.sources %}
         {{- imageHelper.renderSource(source[0], source[1], source[2], source[3]) -}}
       {% endfor %}
 
-      {{- imageHelper.renderImage(imageData, props.data.lazy, props.data.objectFit) -}}
+      {{- imageHelper.renderImage(imageData, props.lazy, props.objectFit) -}}
 
       {{ include('_components/image/_partials/_nocript.twig', {}, withContext = true) }}
     </picture>
 
-    {% if props.data.caption %}
+    {% if props.caption %}
       {# caption #}
       {{ include('_components/caption/caption.twig', {
         props: {

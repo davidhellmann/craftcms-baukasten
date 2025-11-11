@@ -19,7 +19,7 @@
     {% for image in props.images %}
       <div style="--ratio: {{ image.width }} / {{ image.height }}">
         {{ include('_components/image/image.twig', {
-          data: {
+          props: {
             image: image ??? null,
             objectFit: null,
             aspectRatio: 'auto',

@@ -39,7 +39,7 @@
      class="{{ props.name }} {{ props.classes.root }} {{ props.variants.direction[props.variantDirection].root }} {{ props.classes.custom }}">
     <div class="{{ props.variants.direction[props.variantDirection].image }}">
       {{ include('_components/image/image.twig', {
-        data: {
+        props: {
           image: props.image ??? null,
           aspectRatio: props.aspectRatio ??? null,
           objectFit: 'cover',
@@ -60,7 +60,7 @@
       {% if props.text ??? null %}
         <p>
           {{ include('_components/text/plainText.twig', {
-            data: {
+            props: {
               text: props.text ??? null,
             }
           }, withContext = false) }}

@@ -10,7 +10,7 @@
       {% block content %}
         {% embed "_components/tabs/tabs.twig"
           with {
-            data: {
+            props: {
               numberOfTabs: 3
             }
           }
@@ -45,7 +45,7 @@
       {% block content %}
         {% embed "_components/tabs/tabs.twig"
           with {
-            data: {
+            props: {
               numberOfTabs: 3,
               variantPosition: "left"
             }
