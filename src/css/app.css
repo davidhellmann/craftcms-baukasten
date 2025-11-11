@@ -1,58 +1,45 @@
-/**
- * This injects Tailwind's base styles, which is a combination of
- * Normalize.css and some additional base styles.
- */
-@import "tailwindcss/base";
+@import "tailwindcss";
 
-/**
- * Here we add custom base styles, applied after the tailwind-base
- * classes
- *
- */
+/*@import "./base/fonts.css";*/
+
+/* Theme */
+@import "./theme/aspect-ratio.css";
+@import "./theme/breakpoints.css";
+@import "./theme/colors.css";
+@import "./theme/shadows.css";
+@import "./theme/spacings.css";
+@import "./theme/transitions.css";
+@import "./theme/typography.css";
+
+/* Variants */
+@import "./variants/grover.css";
+@import "./variants/themes.css";
+
+/* Base */
 @import "./base/global.css";
-@import "./base/lazy.css";
-@import "./base/typography.css";
+@import "./base/focus.css";
 
-/**
- * This injects any component classes registered by plugins.
- *
- */
-@import "tailwindcss/components";
+/* Utilities */
+@import "./utilities/animations.css";
+@import "./utilities/container.css";
+/*@import "./utilities/gradients.css";*/
+@import "./utilities/grid-columns.css";
+@import "./utilities/stacks.css";
 
-/**
- * Here we add custom component classes; stuff we want loaded
- * *before* the utilities so that the utilities can still
- * override them.
- *
- */
+/* Components  */
+@import "./components/static-grid.css";
+@import "./components/rich-text.css";
 @import "./components/enlargeClickArea.css";
 @import "./components/transitions.css";
-@import "../../templates/_components/text/richText.css";
-@import "../../templates/_components/text/plainText.css";
-@import "../../templates/_components/grid/imagesCalculated.css";
-@import "../../templates/_components/accordion/accordion.css";
+/*@import "../../templates/_components/text/richText.css";*/
+/*@import "../../templates/_components/text/plainText.css";*/
+/*@import "../../templates/_components/grid/imagesCalculated.css";*/
+/*@import "../../templates/_components/accordion/accordion.css";*/
 
-/**
- * Include styles for individual pages
- *
- */
-@import "./pages/homepage.css";
 
-/**
- * This injects all of Tailwind's utility classes, generated based on your
- * config file.
- *
- */
-@import "tailwindcss/utilities";
+@source inline('span-{full,popout,content,xl,lg,md}');
+@source "../../templates/**/*.{twig,html,js,ts,json}";
 
-/**
- * Here we add custom utility classes, applied after the tailwind-utilitie
- * classes
- *
- */
 
-/**
- * Include vendor css.
- *
- */
+
 

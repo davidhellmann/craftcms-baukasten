@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59ed5f3c34e51aec79212409068f6c27",
+    "content-hash": "86e6aac6751fb795518158a0dc9d2e9b",
     "packages": [
         {
             "name": "amphp/amp",
@@ -5957,6 +5957,90 @@
             "time": "2025-09-15T08:50:14+00:00"
         },
         {
+            "name": "putyourlightson/craft-datastar",
+            "version": "1.0.0-RC.9",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/putyourlightson/craft-datastar/zipball/f58f07ba3dd371b7a77153b684f728d94ab5fe0b",
+                "reference": "f58f07ba3dd371b7a77153b684f728d94ab5fe0b",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.4",
+                "php": "^8.2",
+                "putyourlightson/craft-datastar-module": "^1.0.0-RC.12"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "datastar",
+                "name": "Datastar",
+                "developer": "PutYourLightsOn",
+                "developerUrl": "https://putyourlightson.com/",
+                "documentationUrl": "https://putyourlightson.com/plugins/datastar",
+                "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-datastar/develop/CHANGELOG.md",
+                "class": "putyourlightson\\datastar\\plugin\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "putyourlightson\\datastar\\plugin\\": "src/"
+                }
+            },
+            "license": [
+                "mit"
+            ],
+            "description": "A reactive hypermedia framework for Craft.",
+            "time": "2025-10-26T13:31:40+00:00"
+        },
+        {
+            "name": "putyourlightson/craft-datastar-module",
+            "version": "1.0.0-RC.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/putyourlightson/craft-datastar-module.git",
+                "reference": "01e450d84b58f2f262d9625b4b31b04ec2d84bd2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/putyourlightson/craft-datastar-module/zipball/01e450d84b58f2f262d9625b4b31b04ec2d84bd2",
+                "reference": "01e450d84b58f2f262d9625b4b31b04ec2d84bd2",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.4",
+                "php": "^8.2",
+                "starfederation/datastar-php": "^1.0.0-RC.3"
+            },
+            "require-dev": {
+                "craftcms/ecs": "dev-main",
+                "craftcms/phpstan": "dev-main",
+                "markhuot/craft-pest-core": "^2.0.4",
+                "nystudio107/craft-autocomplete": "^1.12"
+            },
+            "type": "yii-module",
+            "autoload": {
+                "psr-4": {
+                    "putyourlightson\\datastar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "mit"
+            ],
+            "description": "A template-driven, reactive hypermedia framework for Craft.",
+            "support": {
+                "docs": "https://github.com/putyourlightson/craft-datastar-module",
+                "issues": "https://github.com/putyourlightson/craft-datastar-module/issues",
+                "source": "https://github.com/putyourlightson/craft-datastar-module"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/bencroker",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-10-26T13:27:04+00:00"
+        },
+        {
             "name": "putyourlightson/craft-elements-panel",
             "version": "3.0.1",
             "dist": {
@@ -6737,6 +6821,53 @@
                 "transformation"
             ],
             "time": "2017-06-19T16:48:17+00:00"
+        },
+        {
+            "name": "starfederation/datastar-php",
+            "version": "1.0.0-RC.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/starfederation/datastar-php.git",
+                "reference": "919c57674bc19e4523eb56926844ad16829f4eee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/starfederation/datastar-php/zipball/919c57674bc19e4523eb56926844ad16829f4eee",
+                "reference": "919c57674bc19e4523eb56926844ad16829f4eee",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "craftcms/ecs": "dev-main",
+                "craftcms/phpstan": "dev-main",
+                "pestphp/pest": "^3.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "starfederation\\datastar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "mit"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Croker",
+                    "homepage": "https://putyourlightson.com/",
+                    "role": "Author"
+                }
+            ],
+            "description": "A PHP SDK for working with Datastar.",
+            "support": {
+                "docs": "https://github.com/starfederation/datastar-php",
+                "issues": "https://github.com/starfederation/datastar-php/issues",
+                "source": "https://github.com/starfederation/datastar-php"
+            },
+            "time": "2025-09-02T19:38:52+00:00"
         },
         {
             "name": "sunra/php-simple-html-dom-parser",

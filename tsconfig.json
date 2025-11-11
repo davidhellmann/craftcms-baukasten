@@ -8,7 +8,7 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "lib": [
       "es2015",
@@ -29,7 +29,7 @@
     "strictNullChecks": true,
     "target": "esnext",
     "types": [
-//      "vite/client"
+      "vite/client"
     ],
     "typeRoots": [
       "node_modules/@types"

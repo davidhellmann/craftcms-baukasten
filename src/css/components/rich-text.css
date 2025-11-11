@@ -1,0 +1,33 @@
+@layer components {
+  [data-comp="RichText"] {
+    & ol {
+      counter-reset: custom-ol-counter;
+      padding-left: 48px;
+      display: flex;
+      flex-flow: column wrap;
+      gap: 1rem;
+    }
+
+    & ol li {
+      counter-increment: custom-ol-counter;
+      position: relative;
+    }
+
+    & ol li::before {
+      content: counter(custom-ol-counter);
+      color: var(--color-secondary-500);
+      position: absolute;
+      --size: 32px;
+      left: calc(-1 * var(--size) - 16px);
+      line-height: var(--size);
+      width: var(--size);
+      height: var(--size);
+      top: 0;
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-bold);
+      background: var(--color-secondary-100);
+      border-radius: 50%;
+      text-align: center;
+    }
+  }
+}

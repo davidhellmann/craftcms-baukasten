@@ -1,24 +1,28 @@
 @layer base {
-  body {
-    @apply bg-white text-gray-900 font-sans text-base antialiased;
+  html {
+    font-family: var(--font-sans);
+    line-height: var(--leading-base, 1.625);
+    font-size: 100%;
+    min-height: 0vw;
+    scroll-behavior: auto;
+    scroll-behavior: smooth;
   }
 
-  img {
-    @apply w-full;
+  body {
+    color: var(--color-gray-900);
+    background-color: var(--color-white);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
   }
+
+  button {
+    cursor: pointer;
+  }
+
 
   #appWrapper {
-    @apply flex  flex-col  min-h-screen;
-  }
-
-  /* a11y-keyboard-focus */
-  :is(a[href], button, object, embed, iframe, input, textarea, select, details .a11y-keyboard-focus):not([disabled]):not([aria-hidden="true"]),
-  [tabindex]:not([tabindex="-1"]){
-    @apply transition;
-    @apply focus:outline-none;
-    @apply focus-visible:ring-4;
-    @apply focus-visible:ring-offset-2;
-    @apply focus-visible:ring-keyboard-focus;
-    @apply focus-visible:ring-offset-white dark:focus-visible:ring-offset-black;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 }

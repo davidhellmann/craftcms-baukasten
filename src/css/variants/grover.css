@@ -1,0 +1,14 @@
+@custom-variant grover {
+  &:hover,
+  :focus-visible & {
+    @media (hover: hover) {
+      @slot;
+    }
+  }
+  .group:hover &,
+  [class*="group/card"]:hover & {
+    @media (hover: hover) {
+      @slot;
+    }
+  }
+}

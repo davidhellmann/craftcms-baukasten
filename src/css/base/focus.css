@@ -1,0 +1,32 @@
+@layer base {
+  :root {
+    --focus-outline-width: 4px;
+    --focus-outline-offset: 0;
+    --focus-outline-style: solid;
+  }
+
+  :focus-visible {
+    outline-width: var(--focus-outline-width);
+    outline-offset: var(--focus-outline-offset);
+    outline-style: var(--focus-outline-style);
+  }
+
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  input:not([type="button"]):focus-visible,
+  textarea[data-rac]:focus-visible,
+  [data-slot="field-group"]:focus-within,
+  select:focus-visible,
+  .focusuable:focus-within {
+    transition-property: box-shadow;
+    transition-duration: var(--default-transition-duration);
+    transition-timing-function: var(--default-transition-timing-function);
+  }
+
+  mark {
+    background-color: var(--color-secondary-500);
+    color: var(--color-white);
+  }
+}

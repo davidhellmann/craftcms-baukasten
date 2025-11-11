@@ -1,0 +1,58 @@
+/* https://www.fluid-type-scale.com/calculate?minFontSize=18&minWidth=320&minRatio=1.125&maxFontSize=20&maxWidth=1536&maxRatio=1.2&steps=xxs,xs,sm,base,lg,xl,2x,3xl,4xl,5xl,6xl,7xl,8xl,9xl&baseStep=base&prefix=text&useContainerWidth=false&includeFallbacks=false&useRems=true&remValue=16&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it,+we+had+left+the+ground&previewWidth=1280 */
+
+
+@theme {
+  /* Font Family */
+  --font-*: initial;
+  --font-sans: Lato, Helvetica, Arial, sans-serif;
+  --font-serif: Merriweather, Georgia, "Times New Roman", Times, serif;
+  --font-mono:"JetBrains Mono", "Courier New", Courier, monospace;
+
+
+  /* Font Weight */
+  /*--font-weight-*: initial;*/
+  /* --font-weight-hairline: 100; */
+  /* --font-weight-thin: 200; */
+  /*--font-weight-light: 300;*/
+  /*--font-weight-normal: 400;*/
+  /*--font-weight-medium: 500;*/
+  /* --font-weight-semibold: 600; */
+  /*--font-weight-bold: 700;*/
+  /*--font-weight-extrabold: 800;*/
+  /* --font-weight-black: 900; */
+
+  /* Font Size */
+  --text-*: initial;
+
+  --text-2xs: clamp(0.79rem, -0.09vi + 0.81rem, 0.72rem);
+  --text-xs: clamp(0.89rem, -0.03vi + 0.89rem, 0.87rem);
+  --text-sm: clamp(1rem, 0.05vi + 0.99rem, 1.04rem);
+  --text-base: clamp(1.13rem, 0.16vi + 1.09rem, 1.25rem);
+  --text-lg: clamp(1.27rem, 0.31vi + 1.2rem, 1.5rem);
+  --text-xl: clamp(1.42rem, 0.49vi + 1.32rem, 1.8rem);
+  --text-2x: clamp(1.6rem, 0.73vi + 1.45rem, 2.16rem);
+  --text-3xl: clamp(1.8rem, 1.04vi + 1.59rem, 2.59rem);
+  --text-4xl: clamp(2.03rem, 1.43vi + 1.74rem, 3.11rem);
+  --text-5xl: clamp(2.28rem, 1.91vi + 1.9rem, 3.73rem);
+  --text-6xl: clamp(2.57rem, 2.52vi + 2.06rem, 4.48rem);
+  --text-7xl: clamp(2.89rem, 3.27vi + 2.23rem, 5.37rem);
+  --text-8xl: clamp(3.25rem, 4.21vi + 2.4rem, 6.45rem);
+  --text-9xl: clamp(3.65rem, 5.38vi + 2.58rem, 7.74rem);
+
+
+  /* Font Line Height */
+  --text-2xs--line-height: 1.625;
+  --text-xs--line-height: 1.625;
+  --text-sm--line-height: 1.625;
+  --text-base--line-height: 1.625;
+  --text-lg--line-height: 1.625;
+  --text-xl--line-height: 1.25;
+  --text-2xl--line-height: 1.25;
+  --text-3xl--line-height: 1.25;
+  --text-4xl--line-height: 1.25;
+  --text-5xl--line-height: 1.25;
+  --text-6xl--line-height: 1.25;
+  --text-7xl--line-height: 1.25;
+  --text-8xl--line-height: 1.25;
+  --text-9xl--line-height: 1.25;
+}

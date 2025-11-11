@@ -1,0 +1,3 @@
+@utility grid-cols-auto-min-* {
+  grid-template-columns: repeat(auto-fit, minmax(min(calc(--value(integer) * 1px), 100%), 1fr));
+}

@@ -1,0 +1,9 @@
+/* @custom-variant theme-light (&:where([data-theme=light], [data-theme=light] *));
+@custom-variant theme-dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant theme-light-gray (&:where([data-theme=light-gray], [data-theme=light-gray] *));
+@custom-variant theme-blue (&:where([data-theme=blue], [data-theme=blue] *)); */
+
+@custom-variant theme-light (&:where([data-theme=light], :not([data-theme]) [data-theme=light], [data-theme=light] *:not([data-theme], [data-theme] *)));
+@custom-variant theme-dark (&:where([data-theme=dark], :not([data-theme]) [data-theme=dark], [data-theme=dark] *:not([data-theme], [data-theme] *)));
+@custom-variant theme-light-gray (&:where([data-theme=light-gray], :not([data-theme]) [data-theme=light-gray], [data-theme=light-gray] *:not([data-theme], [data-theme] *)));
+@custom-variant theme-blue (&:where([data-theme=blue], :not([data-theme]) [data-theme=blue], [data-theme=blue] *:not([data-theme], [data-theme] *)));

@@ -1,0 +1,33 @@
+@utility container {
+  width: 100%;
+  padding-inline: --spacing(4);
+  margin-inline: auto;
+  max-width: none;
+
+  @media (min-width: theme(--breakpoint-md)) {
+    padding-inline: --spacing(8);
+  }
+
+  @media (min-width: theme(--breakpoint-xl)) {
+    max-width: calc(var(--breakpoint-2xl) + --spacing(16))
+  }
+
+  @media (min-width: theme(--breakpoint-2xl)) {
+    max-width: calc(var(--breakpoint-2xl) + --spacing(32));
+    padding-inline: --spacing(16);
+  }
+}
+
+@utility container-full {
+  width: 100%;
+  padding-inline: --spacing(4);
+  margin-inline: auto;
+
+  @media (min-width: theme(--breakpoint-md)) {
+    padding-inline: --spacing(8);
+  }
+
+  @media (min-width: theme(--breakpoint-2xl)) {
+    padding-inline: --spacing(16);
+  }
+}

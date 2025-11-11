@@ -9,6 +9,7 @@ import critical from 'rollup-plugin-critical';
 import { ViteFaviconsPlugin } from 'vite-plugin-favicon2';
 import * as path from 'path';
 import copy from 'rollup-plugin-copy';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 
@@ -29,6 +30,7 @@ export default defineConfig(({ command }) => ({
     sourcemap: true,
   },
   plugins: [
+    tailwindcss(),
     critical({
       criticalUrl: 'https://stage.baukasten.io/',
       criticalBase: './web/dist/criticalcss/',
@@ -88,5 +90,6 @@ export default defineConfig(({ command }) => ({
     origin: 'http://localhost:3100',
     port: 3100,
     strictPort: true,
+    cors: true,
   },
 }));
