@@ -1,6 +1,6 @@
 {
   "extends": [
-    "stylelint-config-recommended"
+    "stylelint-config-tailwindcss"
   ],
   "ignoreFiles": ["./src/public/css/**/*.css"],
   "rules": {
@@ -11,7 +11,11 @@
         "layer",
         "screen",
         "responsive",
-        "tailwind"
+        "tailwind",
+        "source",
+        "utility",
+        "custom-variant",
+        "theme"
       ]
     }],
     "function-no-unknown": null,
