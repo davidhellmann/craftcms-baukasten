@@ -10,15 +10,11 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "noEmit": true,
-    "lib": [
-      "es2015",
-      "dom",
-      "dom.Iterable"
-    ],
+    "lib": ["es2015", "dom", "dom.Iterable"],
     "noImplicitAny": true,
     "outDir": "./dist",
     "paths": {
-      "@/*": ["./src/*", "./templates/*"],
+      "@/*": ["./src/*", "./templates/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
@@ -28,18 +24,8 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "target": "esnext",
-    "types": [
-      "vite/client"
-    ],
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "typeRoots": ["node_modules/@types"]
   },
-  "include": [
-    "./src/**/*.ts",
-    "./templates/**/*.ts",
-  ],
-  "exclude": [
-    "./node_modules"
-  ]
+  "include": ["./src/**/*.ts", "./templates/**/*.ts"],
+  "exclude": ["./node_modules"]
 }

@@ -18,13 +18,12 @@
 
 {% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-{% if props.nodes ??? null %}
+{% if props.nodes ?? null %}
   <nav class="{{ props.name }} {{ props.classes.root }}  {{ props.classes.custom }} js-navigationMain">
-    <ul alpinejs x-cloak
-        x-data="{
-        activeId: {{ activeNode.id ??? 0 }},
-        activeParentId: {{ activeNode.parent.id ??? 0 }}
-      }"
+    <ul data-store='{
+        "activeId": {{ activeNode.id ?? 0 }},
+        "activeParentId": {{ (activeNode.parent ?? {}).id ?? 0 }}
+      }'
         class="{{ props.classes.ul }}" data-level="1">
 
       {% nav node in props.nodes %}
@@ -39,28 +38,28 @@
         {% endif %}
 
 
-        <li class="{{ props.classes.li }} {{ node.classes ??? '' }}" data-level="{{ node.level }}"
+        <li class="{{ props.classes.li }} {{ node.classes ?? '' }}" data-level="{{ node.level }}"
           {% if node.hasDescendants %}
-          x-data="{ flyoutMenuOpen: false }"
-          @click.away="flyoutMenuOpen = false"
-          @keydown.escape="flyoutMenuOpen = false"
+          data-store='{ "flyoutMenuOpen{{ node.id }}": false }'
           {% endif %}>
 
           {# >>> Render Link / Submenu Trigger #}
           {% if node.url %}
             {% if node.hasDescendants %}
-              <button :class="{'is-active': activeId === {{ node.id }} || activeParentId === {{ node.id }}}"
+              <button data-bind-class="($activeId === {{ node.id }} || $activeParentId === {{ node.id }}) ? 'is-active' : ''"
                       class="{{ props.classes.button }}"
                       aria-haspopup="true"
-                      @click="flyoutMenuOpen = !flyoutMenuOpen;
-                            activeId = {{ node.id }};
-                            activeParentId = {{ node.parent ? node.parent.id : 0 }};"
-                      :aria-expanded="flyoutMenuOpen"
+                      data-on-click="
+                        $flyoutMenuOpen{{ node.id }} = !$flyoutMenuOpen{{ node.id }};
+                        $activeId = {{ node.id }};
+                        $activeParentId = {{ node.parent ? node.parent.id : 0 }};
+                      "
+                      data-bind-aria-expanded="$flyoutMenuOpen{{ node.id }}"
                       data-level="{{ node.level }}" {{ attributes }}>{{- node.title -}}</button>
             {% else %}
               <a href="{{ node.url }}"
-                 :class="{'is-active': activeId === {{ node.id }}}"
-                 @click="activeId = {{ node.id }}, activeParentId = {{ node.parent ? node.parent.id : 0 }};"
+                 data-bind-class="$activeId === {{ node.id }} ? 'is-active' : ''"
+                 data-on-click="$activeId = {{ node.id }}; $activeParentId = {{ node.parent ? node.parent.id : 0 }};"
                  class="{{ props.classes.link }}" data-level="{{ node.level }}"
                 {% if node.newWindow %}
                   target="_blank"
@@ -75,13 +74,13 @@
           {% endif %}
 
           {% if node.hasDescendants %}
-          {% set subItemUls = node.descendants | filter(a => not a.url and a.level == node.level + 1) | length ??? 1 %}
-          <div class="{{ props.classes.subItemsHolder }}" x-cloak data-level="{{ node.level }}"
-               data-cols="{{ subItemUls }}">
+          {% set subItemUls = node.descendants | filter(a => not a.url and a.level == node.level + 1) | length ?? 1 %}
+          <div class="{{ props.classes.subItemsHolder }}" data-show="$flyoutMenuOpen{{ node.id }}" data-level="{{ node.level }}"
+               data-cols="{{ subItemUls }}" style="display: none;">
             {% endif %}
             {# >>> Render chidlren #}
             {% ifchildren %}
-              {% set subItemUls = node.descendants | filter(a => not a.url and a.level == node.level + 1) | length ??? 1 %}
+              {% set subItemUls = node.descendants | filter(a => not a.url and a.level == node.level + 1) | length ?? 1 %}
               <ul class="{{ props.classes.ul }}"
                   data-level="{{ node.level + 1 }}" data-cols="{{ subItemUls }}">
                 {% children %}
@@ -96,4 +95,3 @@
 
   </nav>
 {% endif %}
-

@@ -56,18 +56,17 @@
 
 
   {% if switcherLinks|length > 1 %}
-    <div alpinejs  x-data="{
-        label: '{{ switcherLinks | filter(x => x.current)[0].countryCode }}',
-        selectOpen: false
-      }"
+    <div data-store='{
+        "label": "{{ switcherLinks | filter(x => x.current)[0].countryCode }}",
+        "selectOpen": false
+      }'
          class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
       <button
         aria-haspopup="true"
-        @click="selectOpen = !selectOpen;"
-        @click.away="selectOpen = false"
-        @keydown.escape="selectOpen = false"
-      class="{{ props.classes.button }}">
-        <span x-text="label"></span>
+        data-on-click="$selectOpen=!$selectOpen"
+        data-bind-aria-expanded="$selectOpen"
+        class="{{ props.classes.button }}">
+        <span data-text="$label"></span>
         {{ include('_components/icon/icon.twig', {
           props: {
             icon: 'icons/filled/' ~ props.variants.position[props.variantPosition].icon,
@@ -79,15 +78,15 @@
         }, withContext = false) }}
       </button>
 
-      <div x-cloak x-show="selectOpen" :aria-expanded="selectOpen"
+      <div data-show="$selectOpen"
       class="{{ props.classes.menu }} {{ props.variants.position[props.variantPosition].menu }}">
         {% for switcherLink in switcherLinks | filter (x => not x.current) %}
           <a class="{{ props.classes.link }}" href="{{ switcherLink.url }}"
-             hreflang="{{ switcherLink.title }}" lang="{{ switcherLink.language }}" @click="label = '{{ switcherLink.countryCode }}'">
+             hreflang="{{ switcherLink.title }}" lang="{{ switcherLink.language }}"
+             data-on-click="$label='{{ switcherLink.countryCode }}'">
             <span>{{ switcherLink.countryCode }}</span>
           </a>
         {% endfor %}
       </div>
     </div>
   {% endif %}
-

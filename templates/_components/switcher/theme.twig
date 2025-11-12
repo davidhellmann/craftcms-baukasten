@@ -21,62 +21,48 @@
 
 {% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-<div alpinejs class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+{# Get initial theme from localStorage or default #}
+{% set initialTheme = 'default' %}
+
+<div class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
   <div
-    x-data="{
-            theme: $persist('default'),
-            open: false,
-            toggle() {
-                if (this.open) {
-                    return this.close()
-                }
-
-                this.$refs.button.focus()
-
-                this.open = true
-            },
-            close(focusAfter) {
-                if (! this.open) return
-
-                this.open = false
-
-                focusAfter && focusAfter.focus()
-            }
-        }"
-    x-on:keydown.escape.prevent.stop="close($refs.button)"
-    x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-    x-init="document.documentElementset.theme = theme"
-    x-id="['dropdown-button']"
+    data-store='{
+      "theme": "{{ initialTheme }}",
+      "open": false
+    }'
+    data-on-load="
+      $theme = localStorage.getItem(\"theme\") || \"default\";
+      document.documentElement.setAttribute(\"data-theme\", $theme);
+    "
     class="relative"
   >
     <!-- Button -->
     <button
-      x-ref="button"
-      x-on:click="toggle()"
-      :aria-expanded="open"
-      :aria-controls="$id('dropdown-button')"
+      data-on-click="$open = !$open"
+      data-bind-aria-expanded="$open"
       type="button"
       class="{{ props.classes.button }}"
     >
-      <span x-text="theme" class="capitalize" />
+      <span data-text="$theme" class="capitalize"></span>
       <span aria-hidden="true">&darr;</span>
     </button>
 
     <!-- Panel -->
     <div
-      x-ref="panel"
-      x-show="open"
-      x-transition.origin.top.right
-      x-on:click.outside="close($refs.button)"
-      x-on:click="close($refs.button)"
-      :id="$id('dropdown-button')"
+      data-show="$open"
+      data-on-click-outside="$open = false"
       style="display: none;"
       class="{{ props.classes.panel }}"
     >
       <div>
         {% for theme in props.themes %}
           <button
-            x-on:click="theme = '{{ theme.handle }}'; document.documentElementset.theme = '{{ theme.handle }}';"
+            data-on-click="
+              $theme = '{{ theme.handle }}';
+              localStorage.setItem('theme', '{{ theme.handle }}');
+              document.documentElement.setAttribute('data-theme', '{{ theme.handle }}');
+              $open = false;
+            "
             class="{{ props.classes.listButton }}" >
             {{ theme.name }}
           </button>

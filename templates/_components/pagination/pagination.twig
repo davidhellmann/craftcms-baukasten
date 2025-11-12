@@ -18,12 +18,16 @@
     <div class="flex justify-center items-center">
       {% if entries %}
         {% if page > 1 %}
-          {# Decrements `page` by 1 and pushes the new value into the URL on click #}
+          {# Previous button - decrements page by 1 #}
           <button class="flex bg-primary text-white px-2 py-2 rounded-full"
             aria-label="prev"
-            sprig
-            s-val:page="{{ page - 1 }}"
-            s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ page - 1 }}">
+            data-on-click="{{ datastar.get('_components/datastar/paginateNews', {
+              limit: limit,
+              section: section,
+              entryUri: entryUri,
+              headline: headline
+            }) }}"
+            data-indicator="page={{ page - 1 }}">
             {{
               include(
                 "_components/icon/icon.twig",
@@ -47,11 +51,15 @@
                   {{ i }}
                 </span>
               {% else %}
-                {# Refreshes the component and pushes the new value into the URL #}
+                {# Page number button #}
                 <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
-                  sprig
-                  s-val:page="{{ i }}"
-                  s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ i }}">
+                  data-on-click="{{ datastar.get('_components/datastar/paginateNews', {
+                    limit: limit,
+                    section: section,
+                    entryUri: entryUri,
+                    headline: headline
+                  }) }}"
+                  data-indicator="page={{ i }}">
                   {{ i }}
                 </a>
               {% endif %}
@@ -60,9 +68,13 @@
             {% set range = pageInfo.getRange(pageInfo.currentPage - 2, pageInfo.currentPage + 2) %}
             {% if (range|first) != 1 %}
               <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
-                sprig
-                s-val:page="1"
-                s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}1">
+                data-on-click="{{ datastar.get('_components/datastar/paginateNews', {
+                  limit: limit,
+                  section: section,
+                  entryUri: entryUri,
+                  headline: headline
+                }) }}"
+                data-indicator="page=1">
                 1
               </a>
               {% if (range|first) > 2 %}
@@ -75,11 +87,15 @@
                   {{ i }}
                 </span>
               {% else %}
-                {# Refreshes the component and pushes the new value into the URL #}
+                {# Page number button in range #}
                 <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
-                  sprig
-                  s-val:page="{{ i }}"
-                  s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ i }}">
+                  data-on-click="{{ datastar.get('_components/datastar/paginateNews', {
+                    limit: limit,
+                    section: section,
+                    entryUri: entryUri,
+                    headline: headline
+                  }) }}"
+                  data-indicator="page={{ i }}">
                   {{ i }}
                 </a>
               {% endif %}
@@ -87,9 +103,13 @@
             {% if (range|last) < pageInfo.totalPages - 2 %}
               ...
               <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
-                sprig
-                s-val:page="{{ pageInfo.totalPages }}"
-                s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ pageInfo.totalPages }}">
+                data-on-click="{{ datastar.get('_components/datastar/paginateNews', {
+                  limit: limit,
+                  section: section,
+                  entryUri: entryUri,
+                  headline: headline
+                }) }}"
+                data-indicator="page={{ pageInfo.totalPages }}">
                 {{ pageInfo.totalPages }}
               </a>
             {% endif %}
@@ -97,12 +117,16 @@
         </div>
 
         {% if page < pageInfo.totalPages %}
-          {# Increments `page` by 1 and pushes the new value into the URL on click #}
+          {# Next button - increments page by 1 #}
           <button class="flex bg-primary text-white px-2 py-2 rounded-full"
             aria-label="next"
-            sprig
-            s-val:page="{{ page + 1 }}"
-            s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ page + 1 }}">
+            data-on-click="{{ datastar.get('_components/datastar/paginateNews', {
+              limit: limit,
+              section: section,
+              entryUri: entryUri,
+              headline: headline
+            }) }}"
+            data-indicator="page={{ page + 1 }}">
             {{
               include(
                 "_components/icon/icon.twig",
@@ -120,10 +144,4 @@
       {% endif %}
     </div>
   </nav>
-
-  {% if sprig.isRequest %}
-    <script>
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth', });
-    </script>
-  {% endif %}
 {% endif %}

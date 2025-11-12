@@ -35,10 +35,7 @@
 
 {% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-<div alpinejs x-cloak
-     x-data="{
-        activeTab: {{ props.activeTab ??? 1 }},
-      }"
+<div data-store='{"activeTab": {{ props.activeTab ?? 1 }}}'
      class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
 
   <nav class="{{ props.variants.position[props.variantPosition].nav }}">
@@ -46,8 +43,8 @@
       {% for i in 1..props.numberOfTabs %}
         {% if block('tab' ~ i) is defined %}
           <li class="{{ props.variants.position[props.variantPosition].li }}">
-            <button @click="activeTab = {{ i }};"
-                    :class="[activeTab === {{ i }} ? '{{ props.variants.position[props.variantPosition].buttonActive }}' : '']"
+            <button data-on-click="$activeTab={{ i }}"
+                    data-bind-class="$activeTab==={{ i }} ? '{{ props.variants.position[props.variantPosition].buttonActive }}' : ''"
             class="{{ props.variants.position[props.variantPosition].button }}">
               {{ block('tab' ~ i) }}
             </button>
@@ -60,11 +57,10 @@
   <div class="{{ props.variants.position[props.variantPosition].contentHolder }}">
     {% for i in 1..props.numberOfTabs %}
       {% if block('content' ~ i) is defined %}
-        <div :class="[activeTab === {{ i }} ? 'block is-active' : 'hidden']" class="{{ props.variants.position[props.variantPosition].content }}">
+        <div data-bind-class="$$activeTab==={{ i }} ? 'block is-active' : 'hidden'" class="{{ props.variants.position[props.variantPosition].content }}">
           {{ block('content' ~ i) }}
         </div>
       {% endif %}
     {% endfor %}
   </div>
 </div>
-

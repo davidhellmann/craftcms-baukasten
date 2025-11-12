@@ -25,17 +25,17 @@
 {% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
 {% if props.codeSnippet %}
-  <div class="alpinejs js-code {{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}"
-       x-data="{
-        collapsed: '{{ props.collapsed }}',
-        textShow: '{{ props.textShow }}',
-        textHide: '{{ props.textHide }}',
-        textCopy: '{{ props.textCopy }}',
-        textCopied: '{{ props.textCopied }}',
-      }" :class="[collapsed ? 'before:opacity-100' : 'before:opacity-0']">
+  <div class="js-code {{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}"
+       data-store='{
+        "collapsed": {{ props.collapsed ? "true" : "false" }},
+        "textShow": "{{ props.textShow }}",
+        "textHide": "{{ props.textHide }}",
+        "textCopy": "{{ props.textCopy }}",
+        "textCopied": "{{ props.textCopied }}"
+      }' data-bind-class="$collapsed ? 'before:opacity-100' : 'before:opacity-0'">
 
     <pre class="line-numbers  language-{{ props.language }}  {{ props.classes.pre }}"
-         :class="[collapsed ? 'max-h-40' : '']">
+         data-bind-class="$collapsed ? 'max-h-40' : ''">
       <code class="language-{{ props.language }} {{ props.classes.code }}">{{- props.codeSnippet -}}</code>
     </pre>
 
@@ -44,8 +44,8 @@
 
       <div class="{{ props.classes.buttonHolder }}">
         <button class="relative js-codeCopy {{ props.classes.button }} {{ props.classes.tooltip }}"
-             :aria-label="textCopied"
-             x-text="textCopy">
+             data-bind-aria-label="$textCopied"
+             data-text="$textCopy">
         </button>
 
         <textarea class="sr-only" tabindex="-1">
@@ -53,8 +53,8 @@
         </textarea>
 
         <button class="{{ props.classes.button }}"
-             @click="collapsed = !collapsed;"
-             x-text="collapsed ? textShow : textHide">
+             data-on-click="$collapsed=!$collapsed"
+             data-text="$collapsed ? $textShow : $textHide">
         </button>
       </div>
     </div>

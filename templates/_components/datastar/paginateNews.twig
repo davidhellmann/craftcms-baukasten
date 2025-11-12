@@ -1,0 +1,54 @@
+{# Get page from signals or fallback to request pageNum #}
+{% set page = signals.page ?? craft.app.request.pageNum ?? 1 %}
+
+{% cache using key craft.app.request.pathInfo ~ 'listNews-' ~ section ~ '-' ~ page %}
+    {% set entryQuery = craft.entries
+      .section(section)
+      .with(['assetEntryImage'])
+      .limit(limit)
+      .orderBy('postDate DESC') %}
+
+    {% set totalEntriesCount = entryQuery.count() %}
+    {% set entries = entryQuery.all() %}
+
+    {% set totalPages = (totalEntriesCount / limit)|round(0, 'ceil') %}
+    {% set page = (offset / limit) + 1 %}
+
+    {# Paginate the entry query #}
+    {% set pageInfo = entryQuery.paginate(page) %}
+    {% set entries = pageInfo.pageResults %}
+    {% do craft.blitz.options.paginate(pageInfo.totalPages) %}
+
+    {% patchelements %}
+    <div id="news-container" class="container">
+      <div class="container py-16">
+        {{ include('_components/text/headline.twig', {
+          props: {
+            text: headline ?? null,
+            variantSize: 'mega',
+            as: 'h1',
+          }
+        }, withContext = false) }}
+      </div>
+
+      {{ include('_components/stacks/stackNews.twig', {
+        props: {
+          items: entries ?? null,
+          noLazyImageLoadingCount: 6,
+        }
+      }, withContext = false) }}
+
+      {{ include('_components/pagination/pagination.twig', {
+        limit: limit,
+        section: section,
+        entryUri: entryUri,
+        headline: headline
+      }, withContext = true) }}
+    </div>
+    {% endpatchelements %}
+
+    {# Smooth scroll to top after page change #}
+    {% executescript %}
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    {% endexecutescript %}
+{% endcache %}
