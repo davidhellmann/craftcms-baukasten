@@ -1,3 +1,5 @@
+@reference "../../../src/css/app.css";
+
 /* Smooth on load */
 .swiper {
   @apply pb-2 opacity-0 transition duration-500;
@@ -35,12 +37,12 @@
 
 /* Scrollbar 100% width */
 .swiper-scrollbar {
-  @apply inset-x-0 bottom-0 w-full !important;
-  @apply bg-gray-100 !important;
+  @apply inset-x-0! bottom-0! w-full!;
+  @apply bg-gray-100!;
 }
 
 .swiper-scrollbar-drag {
-  @apply bg-primary-500 !important;
+  @apply bg-primary-500!;
 }
 
 /* Custom prev / next */

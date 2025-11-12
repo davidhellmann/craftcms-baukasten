@@ -1,54 +1,56 @@
-.c-tooltip {
-  &::before {
-    content: '';
+/*@reference "../../../src/css/app.css";*/
 
-    @apply pointer-events-none absolute left-1/2 -top-2 bottom-auto z-50 hidden h-0 w-0 -translate-x-1/2 -translate-y-3 border-8 border-transparent border-t-gray-500 opacity-0;
-  }
+/*.c-tooltip {*/
+/*  &::before {*/
+/*    content: '';*/
 
-  &::after {
-    content: attr(aria-label);
+/*    @apply pointer-events-none absolute left-1/2 -top-2 bottom-auto z-50 hidden h-0 w-0 -translate-x-1/2 -translate-y-3 border-8 border-transparent border-t-gray-500 opacity-0;*/
+/*  }*/
 
-    @apply pointer-events-none absolute left-1/2 z-40 hidden -translate-x-1/2 -translate-y-3 whitespace-pre break-words rounded bg-gray-500 px-2 py-0.5 text-center text-white opacity-0 shadow-lg text-xs;
-  }
+/*  &::after {*/
+/*    content: attr(aria-label);*/
 
-  &--n {
-    &::after {
-      @apply bottom-full mb-2;
-    }
-  }
+/*    @apply pointer-events-none absolute left-1/2 z-40 hidden -translate-x-1/2 -translate-y-3 whitespace-pre break-words rounded bg-gray-500 px-2 py-0.5 text-center text-white opacity-0 shadow-lg text-xs;*/
+/*  }*/
 
-  &:not(&--no-hover):hover,
-  &:not(&--no-hover):active,
-  &:not(&--no-hover):focus,
-  &.is-active {
-    &::before,
-    &::after {
-      @apply inline-block no-underline;
+/*  &--n {*/
+/*    &::after {*/
+/*      @apply bottom-full mb-2;*/
+/*    }*/
+/*  }*/
 
-      animation-name: tooltip-appear;
-      animation-duration: 0.1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-in;
-      animation-delay: 0.125s;
-    }
-  }
+/*  &:not(&--no-hover):hover,*/
+/*  &:not(&--no-hover):active,*/
+/*  &:not(&--no-hover):focus,*/
+/*  &.is-active {*/
+/*    &::before,*/
+/*    &::after {*/
+/*      @apply inline-block no-underline;*/
 
-  &--no-delay:not(&--no-hover):hover,
-  &--no-delay:not(&--no-hover):active,
-  &--no-delay:not(&--no-hover):focus {
-    &::before,
-    &::after {
-      animation-delay: 0s;
-    }
-  }
+/*      animation-name: tooltip-appear;*/
+/*      animation-duration: 0.1s;*/
+/*      animation-fill-mode: forwards;*/
+/*      animation-timing-function: ease-in;*/
+/*      animation-delay: 0.125s;*/
+/*    }*/
+/*  }*/
 
-  @keyframes tooltip-appear {
-    from {
-      @apply -translate-x-1/2 -translate-y-3 opacity-0;
-    }
+/*  &--no-delay:not(&--no-hover):hover,*/
+/*  &--no-delay:not(&--no-hover):active,*/
+/*  &--no-delay:not(&--no-hover):focus {*/
+/*    &::before,*/
+/*    &::after {*/
+/*      animation-delay: 0s;*/
+/*    }*/
+/*  }*/
 
-    to {
-      @apply -translate-x-1/2 -translate-y-1 opacity-100;
-    }
-  }
-}
+/*  @keyframes tooltip-appear {*/
+/*    from {*/
+/*      @apply -translate-x-1/2 -translate-y-3 opacity-0;*/
+/*    }*/
+
+/*    to {*/
+/*      @apply -translate-x-1/2 -translate-y-1 opacity-100;*/
+/*    }*/
+/*  }*/
+/*}*/
