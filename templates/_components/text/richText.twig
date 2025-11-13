@@ -1,8 +1,8 @@
 {% set compDefaults = {
-  name: 'c-richText',
+  name: 'rich-text',
   html: null,
   classes: {
-    root: 'block space-y-4 md:space-y-8',
+    root: 'block stack-4 md:stack-8',
     custom: '',
   }
 } %}
@@ -13,7 +13,9 @@
 %}
 
 {% if props.html %}
-  <div class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  <div data-slot="{{ props.name }}"
+       data-css="{{ props.name }}"
+       class="{{ props.classes.root }} {{ props.classes.custom }}">
   {{ props.html | raw }}
   </div>
 {% endif %}

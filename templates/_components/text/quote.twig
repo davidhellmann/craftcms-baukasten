@@ -1,5 +1,5 @@
 {% set compDefaults = {
-  name: 'c-quote',
+  name: 'quote',
   quote: null,
   source: null,
   sourceUrl: null,
@@ -17,7 +17,8 @@
 %}
 
 {% if props.quote %}
-  <blockquote class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  <blockquote data-slot="{{ props.name }}"
+              class="{{ props.classes.root }} {{ props.classes.custom }}">
     <p class="{{ props.classes.p }} text-2xl">
       {{ props.quote | nl2br | raw }}
     </p>
