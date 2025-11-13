@@ -1,7 +1,5 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: 'c-imageGallery',
+  name: 'image-gallery',
   images: null,
   lazy: true,
   aspectRatio: 'aspect-landscape',
@@ -17,7 +15,10 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
 {% if props.images ??? null %}
   {% set dynamicData = [] %}
@@ -34,7 +35,9 @@
     }]) %}
   {% endfor %}
 
-  <button class="js-imageGallery {{ props.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
+  <button data-slot="{{ props.name }}"
+          data-js="{{ props.name }}"
+          class="{{ props.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
           type="button"
           data-dynamic-data='{{ dynamicData | json_encode }}'>
     {% for image in props.images |slice(0, props.cutAfter) %}

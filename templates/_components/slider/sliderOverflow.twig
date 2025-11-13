@@ -1,7 +1,5 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: 'c-sliderOverflow',
+  name: 'slider-overflow',
   slides: null,
   classes: {
     root: 'overflow-hidden relative before:absolute before:h-[2px] before:bg-gray-200 before:bottom-0 before:left-0 before:right-0',
@@ -11,11 +9,14 @@
   },
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
-
-  {# Component #}
-<div class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+<div data-slot="{{ props.name }}"
+     data-css="{{ props.name }}"
+     class="{{ props.classes.root }} {{ props.classes.custom }}">
   {# >>> Embed Swiper Holder #}
   {% embed "_components/slider/swiperHolder.twig" with {
     props: {

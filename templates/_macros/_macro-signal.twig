@@ -9,7 +9,11 @@
  # {{ generate.signal("activeTab") }}
  #}
 
-{% macro name(prefix) %}
-  {%- set prefix = prefix | replace({"-": "_", " ": ""}) -%}
-  {{- (prefix ~ '_' ~ craft.app.security.generateRandomString(8)) | lower -}}
+{% macro name(suffix) %}
+  {%- set chars = 'abcdefghijklmnopqrstuvwxyz'|split('') -%}
+  {%- set result = suffix | replace({" ": "", "-": "_"}) | lower ~ "_"-%}
+  {%- for i in 1..6 -%}
+    {%- set result = result ~ random(chars) -%}
+  {%- endfor -%}
+  {{- result | lower -}}
 {% endmacro %}

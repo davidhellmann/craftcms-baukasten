@@ -1,7 +1,5 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: 'c-imageGrid',
+  name: 'image-grid',
   images: null,
   lazy: true,
   caption: null,
@@ -19,10 +17,14 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
 {% if props.images ??? null %}
-  <div class="{{ props.name }}  {{ props.classes.root }}  {{ props.variants.columns[props.columns] }} {{ props.classes.custom }}">
+  <div data-slot="{{ props.name }}"
+       class="{{ props.classes.root }}  {{ props.variants.columns[props.columns] }} {{ props.classes.custom }}">
     {% for image in props.images %}
       {{ include('_components/image/image.twig', {
         props: {

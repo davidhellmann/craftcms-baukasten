@@ -1,7 +1,5 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: 'c-switcherTheme',
+  name: 'switcher-theme',
   variantPosition: 'bottom',
   themes: [
     {name: 'Default', handle: 'default'},
@@ -19,12 +17,16 @@
   },
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
 {# Get initial theme from localStorage or default #}
 {% set initialTheme = 'default' %}
 
-<div class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+<div data-slot="{{ props.name }}"
+     class="{{ props.classes.root }} {{ props.classes.custom }}">
   <div
     data-store='{
       "theme": "{{ initialTheme }}",

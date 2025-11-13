@@ -1,7 +1,5 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: "c-icon",
+  name: "icon",
   icon: null,
   fill: 'outline',
   variantSize: "sm",
@@ -21,14 +19,18 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
 {% if props.icon %}
   {% set iconFillMethod = props.fill == 'solid' ? '[&>path]:fill-current' : '[&>path]:stroke-current' %}
 
   {{
   svg("@webroot/dist/images/svg/" ~ props.icon ~ ".svg")|attr({
-    class: props.name ~ " " ~ props.name ~ " " ~ props.classes.root ~ " " ~ props.classes.color ~ " "
+    'data-slot': props.name,
+    class: props.classes.root ~ " " ~ props.classes.color ~ " "
     ~ iconFillMethod ~ " "
     ~ props.variants.size[props.variantSize]
     ~ " "

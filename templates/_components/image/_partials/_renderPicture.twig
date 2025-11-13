@@ -7,7 +7,7 @@
 
 {# If there is no caption #}
 {% if not props.caption %}
-  <picture class="overflow-hidden {{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}"
+  <picture data-slot="{{ props.name }}-picture" class="overflow-hidden {{ props.classes.root }} {{ props.classes.custom }}"
     {% if props.showDominantColor %}{{ bgColor }}{% endif %}>
     {% for source in imageData.sources %}
       {{- imageHelper.renderSource(source[0], source[1], source[2], source[3]) -}}
@@ -19,7 +19,7 @@
 
 {# If there is a caption #}
 {% else %}
-  <figure class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  <figure data-slot="{{ props.name }}-figure" class="{{ props.classes.root }} {{ props.classes.custom }}">
     <picture class="overflow-hidden" {% if props.showDominantColor  %}{{ bgColor }}{% endif %}>
       {% for source in imageData.sources %}
         {{- imageHelper.renderSource(source[0], source[1], source[2], source[3]) -}}

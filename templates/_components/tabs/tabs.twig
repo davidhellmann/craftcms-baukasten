@@ -1,8 +1,7 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
 {% import '_macros/_macro-signal.twig' as signal %}
 
 {% set compDefaults = {
-  name: 'c-tabs',
+  name: 'tabs',
   variantPosition: 'top',
   activeTab: 1,
   numberOfTabs: null,
@@ -34,19 +33,23 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
-{% set activeTab = signal.name('tabs-active-tab') %}
-<div data-signals:{{ activeTab }}="{{ props.activeTab ?? 1 }}"
-     class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+{% set signalScope = signal.name('tabs.current') %}
+<div data-signals:{{ signalScope }}="{{ props.activeTab ?? 1 }}"
+     data-slot="{{ props.name }}"
+     class="{{ props.classes.root }} {{ props.classes.custom }}">
 
   <nav class="{{ props.variants.position[props.variantPosition].nav }}">
     <ul class="{{ props.variants.position[props.variantPosition].ul }}">
       {% for i in 1..props.numberOfTabs %}
         {% if block('tab' ~ i) is defined %}
           <li class="{{ props.variants.position[props.variantPosition].li }}">
-            <button data-on:click="${{ activeTab }}={{ i }}"
-             data-class="{ '{{ props.variants.position[props.variantPosition].buttonActive }}': ${{ activeTab }} === {{i}}}"
+            <button data-on:click="${{ signalScope }}={{ i }}"
+             data-class="{ '{{ props.variants.position[props.variantPosition].buttonActive }}': ${{ signalScope }} === {{i}}}"
 
             class="{{ props.variants.position[props.variantPosition].button }}">
               {{ block('tab' ~ i) }}
@@ -61,7 +64,7 @@
     {% for i in 1..props.numberOfTabs %}
       {% if block('content' ~ i) is defined %}
         <div
-          data-class="{ 'block is-active': ${{ activeTab }} === {{i}}, 'hidden': ${{ activeTab }} !== {{i}}}"
+          data-class="{ 'block is-active': ${{ signalScope }} === {{i}}, 'hidden': ${{ signalScope }} !== {{i}}}"
           class="{{ props.variants.position[props.variantPosition].content }}">
           {{ block('content' ~ i) }}
         </div>

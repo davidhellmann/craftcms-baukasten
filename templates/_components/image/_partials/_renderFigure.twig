@@ -5,7 +5,8 @@
   style="background-color: {{- imageData.dominantColor -}}; "
 {% endset %}
 
-<figure class="{{ props.name }} {{ props.classes.root }}  {{ props.classes.custom }} {{ not props.caption ? 'overflow-hidden' : '' }}"
+<figure data-slot="{{ props.name }}"
+        class="{{ props.classes.root }}  {{ props.classes.custom }} {{ not props.caption ? 'overflow-hidden' : '' }}"
   {% if props.showDominantColor and not props.caption %}{{ bgColor }}{% endif %}>
 
   {# If there is no caption #}

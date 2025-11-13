@@ -1,8 +1,6 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
   url: siteUrl,
-  name: 'c-footer',
+  name: 'footer',
   classes: {
     root: 'bg-gray-100  mt-auto',
     custom: '',
@@ -11,10 +9,15 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
-<footer class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+<footer data-slot="{{ props.name }}"
+        class="{{ props.classes.root }} {{ props.classes.custom }}">
   <div class="{{ props.classes.container }}">
-    <a class="{{ props.classes.footerLink }}" href="{{ props.url }}">Baukasten</a> &copy;2014 &mdash; {{ "now"|date("Y") }}
+    <a class="{{ props.classes.footerLink }}"
+       href="{{ props.url }}">Baukasten</a> &copy;2014 &mdash; {{ "now"|date("Y") }}
   </div>
 </footer>

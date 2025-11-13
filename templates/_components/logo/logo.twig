@@ -1,7 +1,5 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: "c-logo",
+  name: "logo",
   svgName: "logo",
   variantSize: "md",
   classes: {
@@ -17,12 +15,16 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
 {% if props.svgName %}
   {{
     svg("@webroot/dist/images/svg/" ~ props.svgName ~ ".svg")|attr({
-      class: props.name ~ " " ~ props.classes.root ~ " " ~ props.variants.size[props.variantSize] ~ " "
+      'data-slot': props.name,
+      class: props.classes.root ~ " " ~ props.variants.size[props.variantSize] ~ " "
         ~ props.classes.custom
     })
   }}

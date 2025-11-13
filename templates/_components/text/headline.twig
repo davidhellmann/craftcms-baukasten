@@ -1,12 +1,10 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: 'c-headline',
+  name: 'headline',
   text: null,
   variantSize: 'h2',
   as: 'h2',
   classes: {
-    root: '[text-wrap:balance] font-bold',
+    root: 'text-balance font-bold',
     custom: '',
   },
   variants: {
@@ -22,10 +20,14 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
 {% if props.text %}
-  <{{ props.as }} class="{{ props.name }} {{ props.classes.root }} {{ props.variants.size[props.variantSize] }} {{ props.classes.custom }}">
+  <{{ props.as }}  data-slot="{{ props.name }}"
+  class="{{ props.classes.root }} {{ props.variants.size[props.variantSize] }} {{ props.classes.custom }}">
     {{ props.text | nl2br | raw }}
   </{{ props.as }}>
 {% endif %}

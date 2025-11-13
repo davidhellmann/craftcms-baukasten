@@ -1,7 +1,5 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: 'c-switcherLanguage',
+  name: 'switcher-language',
   variantPosition: 'bottom',
   classes: {
     root: 'relative text-sm',
@@ -24,7 +22,11 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
+
   {# http://craftsnippets.com/articles/universal-language-switcher-for-craft-cms #}
 
   {# logic #}
@@ -60,7 +62,8 @@
         "label": "{{ switcherLinks | filter(x => x.current)[0].countryCode }}",
         "selectOpen": false
       }'
-         class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+         data-slot="{{ props.name }}"
+         class="{{ props.classes.root }} {{ props.classes.custom }}">
       <button
         aria-haspopup="true"
         data-on-click="$selectOpen=!$selectOpen"

@@ -10,46 +10,48 @@
 
 .lg-next,
 .lg-prev {
-  @apply bg-white text-gray-500;
+  background-color: var(--color-white);
+  color: var(--color-gray-500);
 }
 
 .lg-next:hover:not(.disabled),
 .lg-prev:hover:not(.disabled) {
-  @apply text-primary-500;
+  color: var(--color-primary-500);
 }
 
 .lg-toolbar .lg-icon {
-  @apply text-gray-500;
+  color: var(--color-gray-500);
 }
 
 .lg-toolbar .lg-icon:hover {
-  @apply text-primary-500;
+  color: var(--color-primary-500);
 }
 
 .lg-sub-html {
-  @apply leading-tight text-gray-500 text-xs;
-
-  background-color: rgb(255 255 255 / 90%);
+  font-size: var(--text-xs);
+  line-height: var(--leading-tight);
+  color: var(--color-gray-500);
+  background-color: --alpha(var(--color-white) / 90%);
 }
 
 .lg-error-msg {
-  @apply text-gray-500;
+  color: var(--color-gray-500);
 }
 
 .lg-counter {
-  @apply text-gray-500;
+  color: var(--color-gray-500);
 }
 
 .lg-backdrop {
-  background-color: rgb(255 255 255 / 98%);
+  background-color: --alpha(var(--color-white) / 98%);
 }
 
 /* Thumb */
 .lg-outer .lg-thumb-outer {
-  @apply bg-white;
+  background-color: var(--color-white);
 }
 
 .lg-outer .lg-thumb-item.active,
 .lg-outer .lg-thumb-item:hover {
-  @apply border-primary-500;
+  border-color: var(--color-primary-500);
 }

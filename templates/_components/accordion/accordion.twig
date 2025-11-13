@@ -1,7 +1,5 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: 'c-accordion',
+  name: 'accordion',
   firstOpen: true,
   numberOfAccordions: 1,
   classes: {
@@ -12,11 +10,15 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
-
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
 {% for i in 1..props.numberOfAccordions %}
-  <details class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}"
+  <details data-slot="{{ props.name }}"
+           data-css="{{ props.name }}"
+           class="{{ props.classes.root }} {{ props.classes.custom }}"
            {% if props.firstOpen and loop.first %}open{% endif %}>
     {% if block('summary' ~ i) is defined %}
       <summary class="{{ props.classes.summary }}">

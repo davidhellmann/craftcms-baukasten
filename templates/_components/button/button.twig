@@ -1,7 +1,5 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: 'c-button',
+  name: 'button',
   variantStyle: 'primary',
   variantSize: 'md',
   icon: null,
@@ -35,14 +33,17 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
 {% if props.text or props.icon %}
   {% set as = props.url ? 'a' : 'button' %}
   {% set attr = props.url ? 'href=' ~ props.url : 'type=' ~ props.buttonType %}
 
   <{{ as }} {{ attr }} {{ props.url and props.target ? 'target=' ~ props.target : '' }}
-      class="{{ props.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants.style[props.variantStyle] }}  {{ props.variants.size[props.variantSize] }} {{ props.classes.custom }} {{ props.enlargeClickArea ? props.classes.enlargeClickArea : '' }}">
+      data-slot="{{ props.name }}" class="{{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants.style[props.variantStyle] }}  {{ props.variants.size[props.variantSize] }} {{ props.classes.custom }} {{ props.enlargeClickArea ? props.classes.enlargeClickArea : '' }}">
 
   {# >>> If icon exists #}
   {% if props.icon %}

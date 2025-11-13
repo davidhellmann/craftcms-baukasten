@@ -1,7 +1,5 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: "c-spacer",
+  name: "spacer",
   height: "sm",
   visible: false,
   classes: {
@@ -20,9 +18,13 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
-<hr class="{{ props.name }} {{ props.classes.root }}  {{ props.variants.size[props.height] }}  {{
+<hr data-slot="{{ props.name }}"
+    class="{{ props.classes.root }}  {{ props.variants.size[props.height] }}  {{
   props.visible
     ? props.classes.visible
     : ""

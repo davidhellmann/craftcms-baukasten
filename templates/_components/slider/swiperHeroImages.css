@@ -1,6 +1,6 @@
 @reference "../../../src/css/app.css";
 
-.c-sliderHeroImages .swiper-pagination-bullet {
+[data-css="slider-hero-images"] .swiper-pagination-bullet {
   @apply !m-0 w-full h-full bg-transparent inline-block relative opacity-100 overflow-hidden rounded-none
   before:w-full
   before:h-1
@@ -22,6 +22,6 @@
   after:ease-linear
 }
 
-.c-sliderHeroImages .swiper-has-started .swiper-pagination-bullet-active {
+[data-css="slider-hero-images"] .swiper-has-started .swiper-pagination-bullet-active {
   @apply after:translate-x-0 after:duration-[6000ms]
 }

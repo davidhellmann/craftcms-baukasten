@@ -1,8 +1,6 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: 'c-caption',
-  element: 'figcaption',
+  name: 'caption',
+  as: 'figcaption',
   title: null,
   text: null,
   source: null,
@@ -14,10 +12,13 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
 {% if props.title or props.text %}
-  <{{ props.element }} class="{{ props.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+  <{{ props.as }} data-slot="{{ props.name }}" class="{{ props.classes.root }}  {{ props.classes.custom }}">
   {# Headline --#}
   {% if props.title ?? null %}
     <strong>{{- props.title ~ ' ' -}}</strong>
@@ -36,7 +37,7 @@
       &mdash;&nbsp;{{ props.source }}
     {% endif %}
   </p>
-  </{{ props.element }}>
+  </{{ props.as }}>
 {% endif %}
 
 

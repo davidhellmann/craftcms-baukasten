@@ -1,7 +1,5 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: 'c-code',
+  name: 'code',
   codeSnippet: null,
   codeSnippetName: '…',
   language: 'txt',
@@ -22,10 +20,15 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
 {% if props.codeSnippet %}
-  <div class="js-code {{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}"
+  <div data-slot="{{ props.name }}"
+       data-js="{{ props.name }}"
+       class="{{ props.classes.root }} {{ props.classes.custom }}"
        data-store='{
         "collapsed": {{ props.collapsed ? "true" : "false" }},
         "textShow": "{{ props.textShow }}",

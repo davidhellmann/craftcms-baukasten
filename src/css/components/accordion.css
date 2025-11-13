@@ -1,0 +1,18 @@
+@layer components {
+  [data-css="accordion"]{
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary svg {
+      transition-property: rotate;
+      transition-timing-function: var(--default-transition-timing-function);
+      transition-duration: var(--default-transition-duration);
+    }
+
+    &[open] > summary svg {
+      rotate: 180deg;
+    }
+  }
+}
+

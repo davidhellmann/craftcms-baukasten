@@ -1,4 +1,3 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
 {% set compDefaults = {
   name: 'c-builderContent',
   builderContent: null,
@@ -8,7 +7,10 @@
   },
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
 {% if props.builderContent %}
   <div class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">

@@ -32,7 +32,7 @@
             {{ include('_components/logo/logo.twig', {
               props: {
                 variantSize: props.data.logoSize ??? 'sm'
-              },
+              }
             }, withContext = false) }}
           </a>
           <a href="{{ config.path ? config.path : '#' }}">

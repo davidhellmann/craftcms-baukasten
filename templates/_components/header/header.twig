@@ -1,7 +1,5 @@
-{% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-
 {% set compDefaults = {
-  name: 'c-header',
+  name: 'header',
   url: siteUrl,
   logoSize: 'sm',
   name: getenv('SITE_NAME'),
@@ -14,9 +12,12 @@
   }
 } %}
 
-{% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
+{% set props = compDefaults
+  | merge(props|default({}))
+  | merge({ classes: compDefaults.classes | merge(classes|default({})) })
+%}
 
-<header class="{{ props.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+<header data-slot="{{ props.name }}" class="{{ props.classes.root }}  {{ props.classes.custom }}">
   <div class=" {{ props.classes.container }}">
     <a href="{{ props.url }}" class="{{ props.classes.homeLink }}">
       {{ include('_components/logo/logo.twig', {
