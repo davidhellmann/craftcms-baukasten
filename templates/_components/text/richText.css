@@ -78,12 +78,34 @@
     }
 
     .link {
-      @apply mr-4 inline-flex grid-flow-col items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 py-1.5 text-center font-sans font-bold no-underline transition text-base;
-      @apply mt-4 md:mt-8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: --spacing(2);
+      white-space: nowrap;
+      border-radius: var(--radius-md);
+      padding: --spacing(1.5) --spacing(4);
+      text-align: center;
+      font-weight: var(--font-weight-bold);
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      transition: all;
+      transition-timing-function: var(--default-transition-timing-function);
+      transition-duration: var(--default-transition-duration);
+      margin-inline-end: --spacing(4);
+      margin-block-start: --spacing(4);
+
+      @media (min-width: theme(--breakpoint-md)) {
+        margin-block-start: --spacing(8);
+      }
     }
 
     .link + .link {
-      @apply mt-4 md:mt-8;
+      margin-block-start: --spacing(4);
+
+      @media (min-width: theme(--breakpoint-md)) {
+        margin-block-start: --spacing(8);
+      }
     }
 
     .link--primary {
