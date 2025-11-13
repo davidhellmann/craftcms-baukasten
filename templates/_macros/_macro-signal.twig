@@ -1,0 +1,15 @@
+{##
+ # Generate a random string
+ #
+ # @param int length - Length of the random string (default: 10)
+ # @return string - Random string with numbers and letters (a-z, A-Z, 0-9)
+ #
+ # Usage:
+ # {% import '_macros/_macro-signal.twig' as generate %}
+ # {{ generate.signal("activeTab") }}
+ #}
+
+{% macro name(prefix) %}
+  {%- set prefix = prefix | replace({"-": "_", " ": ""}) -%}
+  {{- (prefix ~ '_' ~ craft.app.security.generateRandomString(8)) | lower -}}
+{% endmacro %}

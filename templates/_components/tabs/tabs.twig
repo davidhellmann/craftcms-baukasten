@@ -1,5 +1,5 @@
 {% import '_macros/_macro-mergeProps.twig' as mergeProps %}
-{% import '_macros/_macro-datastarString.twig' as randomString %}
+{% import '_macros/_macro-signal.twig' as signal %}
 
 {% set compDefaults = {
   name: 'c-tabs',
@@ -36,7 +36,7 @@
 
 {% set props = mergeProps.merge(compDefaults, props|default({})) | spaceless | json_decode %}
 
-{% set activeTab = randomString.generate('tabs-active-tab') %}
+{% set activeTab = signal.name('tabs-active-tab') %}
 <div data-signals:{{ activeTab }}="{{ props.activeTab ?? 1 }}"
      class="{{ props.name }} {{ props.classes.root }} {{ props.classes.custom }}">
 
@@ -69,3 +69,4 @@
     {% endfor %}
   </div>
 </div>
+<pre data-json-signals class="fixed bottom-0 right-0 p-4 text-xs bg-black text-white"></pre>
