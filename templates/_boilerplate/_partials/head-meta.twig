@@ -3,6 +3,11 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,viewport-fit=cover">
 <meta name="format-detection" content="telephone=no">
 
+<script type="speculationrules">
+  { "prerender": [{ "where": { "href_matches": "/*" }, "eagerness":
+  "conservative" }] }
+</script>
+
 {# -- Prefetch & preconnect headers and links -- #}
 {% set headerLink = "Link: " %}
 {% for url in _globals.get('prefetchUrls') %}

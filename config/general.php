@@ -8,12 +8,13 @@ use craft\helpers\App;
 
 $isDev = App::env('CRAFT_ENVIRONMENT') === 'dev';
 $isProd = App::env('CRAFT_ENVIRONMENT') === 'production';
+$isBlitzCaching = App::env('ENABLE_BLITZ_CACHING') === 1;
 
 $config = GeneralConfig::create()
     ->devMode($isDev)
     ->allowUpdates($isDev)
     ->allowAdminChanges($isDev)
-    ->enableTemplateCaching(!$isDev)
+    ->enableTemplateCaching(!$isBlitzCaching)
     ->enableGraphqlCaching(!$isDev)
     ->defaultWeekStartDay(1)
     ->isSystemLive(1)
