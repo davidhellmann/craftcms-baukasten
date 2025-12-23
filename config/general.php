@@ -23,7 +23,7 @@ $config = GeneralConfig::create()
     ->allowedGraphqlOrigins([
         'http://localhost:3100',
     ])
-    ->runQueueAutomatically(1)
+    ->runQueueAutomatically(0)
     ->cacheDuration(0)
     ->maxRevisions(10)
     ->defaultTokenDuration(86400)
