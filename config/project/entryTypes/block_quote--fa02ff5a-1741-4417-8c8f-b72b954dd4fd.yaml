@@ -3,6 +3,8 @@ description: null
 fieldLayouts:
   e22d570c-156e-4591-a91a-2af67c7ed22b:
     cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:bbdc2ef0-cb88-420a-86a7-c25831e21b77'
     tabs:
       -
         elementCondition: null
@@ -13,10 +15,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: e884a8f9-92f0-48b3-a7e8-a6d95f47f6df # Text Multi
             handle: quote
-            includeInCards: true
             instructions: null
             label: Quote
-            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -30,10 +30,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: edfcb398-ef78-43ec-9434-d6405da2886e # Text Single
             handle: source
-            includeInCards: false
             instructions: null
             label: Source
-            providesThumbs: false
             required: false
             tip: "Use this if you don't need a linked source."
             type: craft\fieldlayoutelements\CustomField
@@ -47,10 +45,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: a3f76ec3-252e-4be6-8178-8f6b54acce19 # Link
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: 'Use this if you need a linked source.'
             type: craft\fieldlayoutelements\CustomField

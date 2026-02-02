@@ -3,6 +3,8 @@ description: null
 fieldLayouts:
   7b6ace88-ae82-4caf-afe4-1650ce6e7ce3:
     cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:243140b3-d692-4031-b56b-8a51521c3fae'
     tabs:
       -
         elementCondition: null
@@ -13,10 +15,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 9add7508-89cd-4b19-b8e5-f6173a4ec371 # Rich Text
             handle: null
-            includeInCards: true
             instructions: null
             label: null
-            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -36,10 +36,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: b81cb731-dd6f-4055-9c6d-2f076a727a27 # Image
             handle: null
-            includeInCards: false
             instructions: null
             label: Image
-            providesThumbs: true
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -53,10 +51,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 62883121-63a2-4e5c-a6f3-4855cf64df2c # Image Ratio
             handle: null
-            includeInCards: false
             instructions: null
             label: 'Image Ratio'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -70,10 +66,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 210de09a-f6c8-42dd-b4d6-c1c00e7d0b82 # Image Position
             handle: null
-            includeInCards: false
             instructions: null
             label: 'Image Position'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -87,10 +81,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 31947efb-fa8c-473c-9b01-bd36c8d70b68 # Lightswitch OFF
             handle: showCaption
-            includeInCards: false
             instructions: null
             label: 'Show Caption'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -101,6 +93,7 @@ fieldLayouts:
         name: Image
         uid: 7931c967-9547-46fa-99e4-270c687a7cb3
         userCondition: null
+    thumbFieldKey: 'layoutElement:ab6dd79a-0d9c-4799-860a-01a7c242ba68'
 handle: block_textImage
 hasTitleField: false
 icon: table-columns

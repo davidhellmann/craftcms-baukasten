@@ -3,6 +3,8 @@ description: null
 fieldLayouts:
   58ddc97d-9694-4104-a136-b6344987e1b6:
     cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:bf115a81-cfa7-41f1-9c22-72b7b5939e55'
     tabs:
       -
         elementCondition: null
@@ -13,10 +15,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: b81cb731-dd6f-4055-9c6d-2f076a727a27 # Image
             handle: null
-            includeInCards: false
             instructions: null
             label: Image
-            providesThumbs: true
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -36,10 +36,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 62883121-63a2-4e5c-a6f3-4855cf64df2c # Image Ratio
             handle: null
-            includeInCards: false
             instructions: null
             label: 'Image Ratio'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -53,10 +51,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 31947efb-fa8c-473c-9b01-bd36c8d70b68 # Lightswitch OFF
             handle: showCaption
-            includeInCards: true
             instructions: null
             label: 'Show caption'
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -67,6 +63,7 @@ fieldLayouts:
         name: Settings
         uid: 95b16a67-6431-4b73-9fe2-8cc156d078ee
         userCondition: null
+    thumbFieldKey: 'layoutElement:0cd02812-349c-46d5-a4b7-57700a221566'
 handle: block_image
 hasTitleField: false
 icon: image
