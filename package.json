@@ -39,7 +39,6 @@
     "eslint-plugin-prettier": "^5.5.4",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
-    "npm-check": "^6.0.1",
     "prettier": "^3.6.2",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-critical": "^1.0.15",
@@ -57,17 +56,15 @@
   },
   "scripts": {
     "dev": "vite",
-    "dev:update": "npm i && composer install && npm run build",
-    "build": "npm run lint && vite build",
-    "lint": "npm run lint:ts && npm run lint:js && npm run lint:css",
+    "dev:update": "pnpm i && composer install && pnpm build",
+    "build": "pnpm lint && vite build",
+    "lint": "pnpm lint:ts && pnpm lint:js && pnpm lint:css",
     "lint:ts": "tsc --noEmit",
     "lint:js": "eslint './src/**/*.{js,ts}' './templates/**/*.{js,ts}' --fix",
     "lint:css": "stylelint './src/**/*.css' './templates/**/*.css' --fix",
-    "upgrade-interactive": "npm-check --update",
-    "ui": "npm run upgrade-interactive",
-    "preinstall": "$npm_execpath --silent run checknpm",
-    "checknpm": "echo \"$npm_execpath\" | grep -q \"npm-cli\\.js$\" || (echo '⚠️ Use npm not yarn! No Hipster Party here!! ⚠️ ' && echo && exit 1)",
-    "prepare": "husky install"
+    "upgrade-interactive": "pnpm update --interactive",
+    "ui": "pnpm upgrade-interactive",
+    "prepare": "husky"
   },
   "exports": {
     "types": "./dist/index.d.ts",
