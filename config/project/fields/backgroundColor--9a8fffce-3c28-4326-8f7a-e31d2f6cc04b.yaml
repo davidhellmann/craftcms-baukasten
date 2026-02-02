@@ -4,15 +4,22 @@ instructions: null
 name: 'Background Color'
 searchable: false
 settings:
+  customOptions: false
   options:
     -
       __assoc__:
         -
           - label
-          - Transparent
+          - Inherit
         -
           - value
-          - transparent
+          - inherit
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
         -
           - default
           - '1'
@@ -20,10 +27,33 @@ settings:
       __assoc__:
         -
           - label
-          - 'Light Gray'
+          - Muted
         -
           - value
-          - light-gray
+          - muted
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Inverted
+        -
+          - value
+          - inverted
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
         -
           - default
           - ''

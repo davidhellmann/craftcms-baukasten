@@ -19,11 +19,14 @@
 {% if props.data.block ??? null %}
   {# >>> Set BG Color #}
   {% switch props.data.block.backgroundColor %}
-  {% case "light-gray" %}
-    {% set sectionBGColorClass = 'bg-gray-100' %}
+  {% case "muted" %}
+    {% set sectionBGColorClass = 'bg-surface-muted' %}
+
+  {% case "inverted" %}
+    {% set sectionBGColorClass = 'bg-surface-inverted' %}
 
   {% default %}
-    {% set sectionBGColorClass = 'transparent' %}
+    {% set sectionBGColorClass = 'bg-surface' %}
   {% endswitch %}
 
   {# >>> Set Padding #}
